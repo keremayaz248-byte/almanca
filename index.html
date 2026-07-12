@@ -514,6 +514,11 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
       <div class="mc-title">YS Hocanla Çalışmalar</div>
       <div class="mc-sub">Diyalog 1 · Haben + Akkusativ · 35 cümle</div>
     </div>
+    <div class="mode-card col-blue mode-card-full" onclick="startHavBes()">
+      <div class="mc-icon">⚖️</div>
+      <div class="mc-title">haben vs besitzen</div>
+      <div class="mc-sub">Boşluk doldur · 15 soru · Kural açıklamalı</div>
+    </div>
   </div>
 </div>
 
@@ -790,6 +795,43 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
     <div class="ds"><div class="dv dv-blue" id="hizliDP">0%</div><div class="dl">Başarı</div></div>
   </div>
   <button class="btn-replay" onclick="startHizliTest()">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+<!-- HABEN VS BESİTZEN -->
+<div id="havbesScreen">
+  <div class="cat-top">
+    <h2>⚖️ haben vs besitzen</h2>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <div class="q-meta">
+    <div class="q-num" id="hvbQNum">Soru 1</div>
+    <div class="q-cat-badge" id="hvbRule"></div>
+  </div>
+  <div class="sent-card">
+    <div class="sent-de" id="hvbSent"></div>
+    <div class="sent-tr" id="hvbTr"></div>
+  </div>
+  <div class="eopts" id="hvbOpts"></div>
+  <div class="exp-box" id="hvbExp">
+    <div class="exp-title" id="hvbExpTitle"></div>
+    <div class="exp-why" id="hvbExpWhy"></div>
+    <div class="exp-rule" id="hvbExpRule"></div>
+  </div>
+  <button class="btn-next" id="hvbNext" onclick="hvbNextQ()">Sonraki →</button>
+</div>
+
+<!-- HABEN VS BESİTZEN DONE -->
+<div id="havbesDoneScreen">
+  <div class="trophy">⚖️</div>
+  <div class="done-title">Bitti!</div>
+  <div class="done-sub" id="hvbDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="hvbDC">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="hvbDW">0</div><div class="dl">Yanlış</div></div>
+    <div class="ds"><div class="dv" id="hvbDP">0%</div><div class="dl">Başarı</div></div>
+  </div>
+  <button class="btn-replay" onclick="startHavBes()">Tekrar →</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1252,11 +1294,12 @@ const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
   'listScreen','learnScreen','learnDoneScreen','edatScreen','edatDoneScreen',
   'gramerScreen','gramerTopicScreen','gramerTestScreen','gramerTestDoneScreen',
   'artikelScreen','artikelDoneScreen','pluralScreen','pluralDoneScreen',
-  'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen'];
+  'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
+  'havbesScreen','havbesDoneScreen'];
 
 function showScreen(id){
   ALL_SCREENS.forEach(s=>{ document.getElementById(s).style.display = s===id?'block':'none'; });
-  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen'].includes(id);
+  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen'].includes(id);
   document.getElementById('progWrap').style.display = showProg?'block':'none';
   if(id==='homeScreen'){ setHeader('🇩🇪 Almanca', false); document.getElementById('headerStats').style.display='none'; renderHome(); }
 }
@@ -2715,6 +2758,106 @@ function showPlDone(){
   document.getElementById('plDoneSub').textContent=plQ.length+' sorudan '+plCorrect+' doğru. Altın kural: her kelimeyi artikeli + çoğuluyla birlikte ezberle.';
   showScreen('pluralDoneScreen'); setProgress(100,plQ.length+' / '+plQ.length);
   for(let i=0;i<60;i++) setTimeout(rainP,i*25);
+}
+
+// ── HABEN VS BESİTZEN ────────────────────────────────────────
+const HAVBES_QS = [
+  {de:'Ich ___ ein Auto.',tr:'Arabam var.',answer:'habe',opts:['habe','besitze'],
+   exp:'Arabanın günlük anlamda "var" olmasını söylüyorsun. Resmi mülk değil → haben.',rule:'Günlük sahiplik → haben'},
+  {de:'Er ___ ein Haus in Berlin.',tr:'Berlin\'de evi var (mülkü).',answer:'besitzt',opts:['hat','besitzt'],
+   exp:'Ev = gayrimenkul, resmi mülkiyet. Mülk ve taşınmaz için → besitzen.',rule:'Gayrimenkul mülkiyeti → besitzen'},
+  {de:'Wir ___ keine Zeit.',tr:'Zamanımız yok.',answer:'haben',opts:['haben','besitzen'],
+   exp:'"Zaman" soyut bir kavramdır; sahip olunamaz, sadece "var/yok" olur → haben.',rule:'Soyut kavramlar → haben'},
+  {de:'Die Firma ___ drei Gebäude in der Stadt.',tr:'Şirketin şehirde üç binası var.',answer:'besitzt',opts:['hat','besitzt'],
+   exp:'Şirketin resmi mülkiyetindeki binalar → besitzen.',rule:'Kurumsal mülkiyet → besitzen'},
+  {de:'___ du einen Stift?',tr:'Kalemen var mı?',answer:'Hast',opts:['Hast','Besitzt'],
+   exp:'Kalem küçük, günlük bir eşya. Besitzen burada çok resmi olur, saçma kaçar → haben.',rule:'Günlük eşyalar → haben'},
+  {de:'Sie ___ das Land seit drei Generationen.',tr:'Araziyi üç nesildir ellerinde tutuyorlar.',answer:'besitzen',opts:['haben','besitzen'],
+   exp:'Nesilden nesile geçen arazi mülkiyeti → besitzen.',rule:'Arazi/mülk mirası → besitzen'},
+  {de:'Ich ___ Hunger.',tr:'Açım.',answer:'habe',opts:['habe','besitze'],
+   exp:'"Açlık" bedensel bir durum; sadece haben ile kullanılır. Besitzen ile hiç olmaz.',rule:'Fiziksel/duygusal durumlar → haben'},
+  {de:'Der Millionär ___ ein großes Vermögen.',tr:'Milyonerin büyük bir serveti var.',answer:'besitzt',opts:['hat','besitzt'],
+   exp:'Servet, mal varlığı = resmi sahiplik → besitzen.',rule:'Servet/mal varlığı → besitzen'},
+  {de:'Das Museum ___ viele wertvolle Gemälde.',tr:'Müzenin pek çok değerli tablosu var.',answer:'besitzt',opts:['hat','besitzt'],
+   exp:'Müzenin koleksiyonu = kurumsal, resmi mülkiyet → besitzen.',rule:'Koleksiyon/kurumsal mülk → besitzen'},
+  {de:'Er ___ kein Geld bei sich.',tr:'Üzerinde para yok.',answer:'hat',opts:['hat','besitzt'],
+   exp:'"Üzerinde para yok" anlık bir durum; o an elinde tutup tutmadığından bahsediyorsun → haben.',rule:'Anlık/geçici durum → haben'},
+  {de:'Sie ___ ein großes Unternehmen.',tr:'Büyük bir şirketi var (sahibi).',answer:'besitzt',opts:['hat','besitzt'],
+   exp:'Şirket sahibi olmak = resmi mülkiyet, sahiplik → besitzen.',rule:'Şirket sahipliği → besitzen'},
+  {de:'___ du Zeit für mich?',tr:'Benim için vakit var mı?',answer:'Hast',opts:['Hast','Besitzt'],
+   exp:'"Vakit" soyut → haben. Besitzen ile hiç kullanılmaz.',rule:'Soyut "zaman" → haben'},
+  {de:'Die Bank ___ das Gebäude seit Jahren.',tr:'Banka o binayı yıllardır elinde tutuyor.',answer:'besitzt',opts:['hat','besitzt'],
+   exp:'Bankanın resmi mülkiyetindeki bina → besitzen.',rule:'Kurumsal gayrimenkul → besitzen'},
+  {de:'Ich ___ eine Frage.',tr:'Bir sorum var.',answer:'habe',opts:['habe','besitze'],
+   exp:'"Soru" soyut; ihtiyaç duyulan kalıp "ich habe eine Frage"dır. Besitzen burada imkânsız.',rule:'İdyomatik ifadeler → haben'},
+  {de:'Er ___ viel Erfahrung.',tr:'Çok deneyimi var.',answer:'hat',opts:['hat','besitzt'],
+   exp:'"Deneyim" soyut ve kazanılan bir şey; sahip olunamaz (besitzen) → haben.',rule:'Deneyim/bilgi/yetenek → haben'},
+];
+
+let hvbIdx=0,hvbCorrect=0,hvbWrong=0,hvbAnswered=false;
+
+function startHavBes(){
+  hvbIdx=0;hvbCorrect=0;hvbWrong=0;hvbAnswered=false;
+  showScreen('havbesScreen');
+  setHeader('⚖️ haben vs besitzen',false);
+  renderHvbQ();
+}
+
+function renderHvbQ(){
+  const q=HAVBES_QS[hvbIdx];
+  hvbAnswered=false;
+  document.getElementById('hvbQNum').textContent='Soru '+(hvbIdx+1)+' / '+HAVBES_QS.length;
+  document.getElementById('hvbRule').textContent=q.rule;
+  const blank='<span class="blank">___</span>';
+  document.getElementById('hvbSent').innerHTML=q.de.replace('___',blank);
+  document.getElementById('hvbTr').textContent=q.tr;
+  const og=document.getElementById('hvbOpts'); og.innerHTML='';
+  q.opts.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='eopt'; b.textContent=o;
+    b.onclick=()=>pickHvb(b,o,q);
+    og.appendChild(b);
+  });
+  document.getElementById('hvbExp').className='exp-box';
+  document.getElementById('hvbNext').className='btn-next';
+  setProgress(Math.round(hvbIdx/HAVBES_QS.length*100),(hvbIdx+1)+' / '+HAVBES_QS.length);
+}
+
+function pickHvb(btn,chosen,q){
+  if(hvbAnswered)return; hvbAnswered=true;
+  const ok=chosen===q.answer;
+  document.querySelectorAll('#hvbOpts .eopt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
+  tick(ok,6);
+  if(ok){hvbCorrect++;btn.classList.add('correct');}
+  else{hvbWrong++;btn.classList.add('wrong');document.querySelectorAll('#hvbOpts .eopt').forEach(b=>{if(b.textContent===q.answer)b.classList.add('correct');});}
+  setHeader('⚖️ haben/besitzen',true,'✅ '+hvbCorrect,'❌ '+hvbWrong);
+  const eb=document.getElementById('hvbExp');
+  eb.className='exp-box show '+(ok?'exp-ok':'exp-err');
+  document.getElementById('hvbExpTitle').className='exp-title '+(ok?'exp-c':'exp-w');
+  document.getElementById('hvbExpTitle').innerHTML=ok?'✅ Doğru!':'❌ Yanlış — doğrusu <strong>'+q.answer+'</strong>';
+  document.getElementById('hvbExpWhy').textContent=q.exp;
+  document.getElementById('hvbExpRule').textContent='💡 Kural: '+q.rule;
+  document.getElementById('hvbExpRule').style.display='inline-block';
+  document.getElementById('hvbNext').className='btn-next show';
+}
+
+function hvbNextQ(){
+  hvbIdx++;
+  if(hvbIdx>=HAVBES_QS.length){showHvbDone();return;}
+  document.getElementById('hvbExp').className='exp-box';
+  document.getElementById('hvbNext').className='btn-next';
+  renderHvbQ();
+}
+
+function showHvbDone(){
+  const pct=Math.round(hvbCorrect/HAVBES_QS.length*100);
+  document.getElementById('hvbDC').textContent=hvbCorrect;
+  document.getElementById('hvbDW').textContent=hvbWrong;
+  document.getElementById('hvbDP').textContent=pct+'%';
+  document.getElementById('hvbDoneSub').textContent=HAVBES_QS.length+' sorudan '+hvbCorrect+' doğru.';
+  showScreen('havbesDoneScreen');
+  setProgress(100,HAVBES_QS.length+' / '+HAVBES_QS.length);
+  if(pct>=80) for(let i=0;i<60;i++) setTimeout(rainP,i*25);
 }
 
 // ── YS HOCA EGZERSİZİ ────────────────────────────────────────
