@@ -1,0 +1,2851 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Almanca">
+<meta name="theme-color" content="#58CC02">
+<title>🇩🇪 Almanca</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green:#58CC02;--green-dark:#3e9a00;--green-bg:#edffd3;
+  --red:#FF4B4B;--red-bg:#fff0f0;
+  --blue:#1CB0F6;--blue-bg:#e8f7ff;
+  --purple:#8B5CF6;--purple-bg:#f5f3ff;
+  --yellow:#FFC800;--yellow-bg:#fffbe6;
+  --bg:#f0f4f8;--white:#fff;--text:#2d2d2d;--light:#6b7280;
+  --border:#e2e8f0;--shadow:0 2px 8px rgba(0,0,0,.08)
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center}
+
+/* HEADER */
+header{width:100%;background:var(--white);border-bottom:2px solid var(--border);padding:11px 22px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
+.logo{font-size:1.2rem;font-weight:800}
+.hstats{display:flex;gap:8px}
+.hstat{display:flex;align-items:center;gap:4px;font-weight:700;font-size:.88rem;background:var(--bg);padding:5px 11px;border-radius:999px;border:2px solid var(--border)}
+
+/* PROGRESS */
+.prog-wrap{width:100%;max-width:700px;padding:12px 22px 4px}
+.prog-track{width:100%;height:11px;background:var(--border);border-radius:999px;overflow:hidden}
+.prog-fill{height:100%;border-radius:999px;transition:width .5s;width:0%}
+.prog-lbl{font-size:.75rem;color:var(--light);font-weight:600;margin-top:4px}
+
+main{width:100%;max-width:700px;padding:18px 22px 80px}
+
+/* ── HOME ── */
+#homeScreen{text-align:center;padding:30px 0}
+#homeScreen h1{font-size:2.2rem;font-weight:800;margin-bottom:6px}
+#homeScreen p{color:var(--light);margin-bottom:28px}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mode-card{background:var(--white);border:2.5px solid var(--border);border-radius:20px;padding:26px 16px;cursor:pointer;transition:all .14s;box-shadow:var(--shadow);text-align:center}
+.mode-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.mode-card.col-purple:hover{border-color:var(--purple)}
+.mode-card.col-red:hover{border-color:var(--red)}
+.mode-card.col-blue:hover{border-color:var(--blue)}
+.mode-card.col-green:hover{border-color:var(--green)}
+.mode-card.col-yellow:hover{border-color:#f59e0b}
+.mc-icon{font-size:2.6rem;margin-bottom:10px}
+.mc-title{font-weight:800;font-size:1rem;margin-bottom:4px}
+.mc-sub{font-size:.8rem;color:var(--light)}
+.sec-head{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--light);margin:20px 0 8px;text-align:left;padding:0 2px;display:flex;align-items:center;gap:7px}
+.sec-head::after{content:'';flex:1;height:1.5px;background:var(--border);border-radius:2px}
+
+/* ── CATEGORY ── */
+#catScreen{display:none}
+.cat-top{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.cat-top h2{font-size:1.2rem;font-weight:800;flex:1}
+.cat-grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:22px}
+.cat-card{background:var(--white);border:2px solid var(--border);border-radius:16px;padding:18px 12px;cursor:pointer;transition:all .14s;box-shadow:var(--shadow);text-align:center}
+.cat-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.cat-card.selected{border-color:var(--green);background:var(--green-bg)}
+.cat-card.all{grid-column:1/-1}
+.cc-emoji{font-size:2rem;margin-bottom:5px}
+.cc-name{font-weight:700;font-size:.92rem}
+.cc-count{color:var(--light);font-size:.78rem;margin-top:3px}
+.btn-start{background:var(--green);color:#fff;border:none;border-radius:14px;padding:15px 48px;font-size:1.05rem;font-weight:700;cursor:pointer;box-shadow:0 4px 0 var(--green-dark);transition:all .15s}
+.btn-start:hover{background:#4eb800;transform:translateY(-1px)}
+
+/* ── GAME ── */
+#gameScreen{display:none}
+.game-header{text-align:center;margin-bottom:18px}
+.game-label{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--light);margin-bottom:3px}
+.game-inst{font-size:1.2rem;font-weight:800}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mcol{display:flex;flex-direction:column;gap:8px}
+.mcol-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--light);text-align:center;margin-bottom:2px}
+.word-card{background:var(--white);border:2.5px solid var(--border);border-radius:14px;padding:13px 12px;cursor:pointer;transition:all .13s;font-size:.87rem;font-weight:600;text-align:center;min-height:60px;display:flex;align-items:center;justify-content:center;user-select:none;box-shadow:0 2px 0 var(--border);line-height:1.35}
+.word-card:hover:not(.matched):not(.wrong){border-color:var(--blue);background:var(--blue-bg);transform:translateY(-2px)}
+.word-card.selected{border-color:var(--blue);background:var(--blue-bg);box-shadow:0 0 0 3px rgba(28,176,246,.22);transform:translateY(-2px)}
+.word-card.matched{border-color:var(--green);background:var(--green-bg);color:var(--green-dark);pointer-events:none;animation:popM .33s cubic-bezier(.175,.885,.32,1.4)}
+.word-card.wrong{border-color:var(--red);background:var(--red-bg);animation:shk .36s}
+@keyframes popM{0%{transform:scale(1)}50%{transform:scale(1.07)}100%{transform:scale(1)}}
+@keyframes shk{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+
+/* HINT BAR */
+#hintBar{position:fixed;bottom:-130px;left:50%;transform:translateX(-50%);background:var(--yellow-bg);border:2.5px solid var(--yellow);border-radius:16px;padding:12px 16px;max-width:660px;width:calc(100% - 28px);display:flex;align-items:flex-start;gap:10px;box-shadow:0 8px 28px rgba(0,0,0,.14);transition:bottom .33s cubic-bezier(.175,.885,.32,1.275);z-index:100}
+#hintBar.show{bottom:18px}
+.hb-bulb{font-size:1.5rem;flex-shrink:0;margin-top:1px}
+.hb-body{flex:1}
+.hb-word{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:#b45309;margin-bottom:2px}
+.hb-text{font-size:.9rem;font-weight:600;color:#44380a;line-height:1.4}
+.hb-close{background:none;border:none;font-size:1rem;cursor:pointer;color:#b45309;padding:0 3px;flex-shrink:0;line-height:1;margin-top:2px}
+
+/* MODAL */
+#modalOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+#modalOverlay.show{display:flex}
+.modal-card{background:var(--white);border-radius:22px;padding:36px 40px;text-align:center;max-width:340px;width:90%;animation:popIn .33s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 18px 56px rgba(0,0,0,.18)}
+@keyframes popIn{from{transform:scale(.65);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-emoji{font-size:3.5rem;margin-bottom:8px}
+.modal-title{font-size:1.8rem;font-weight:800;margin-bottom:5px;color:var(--green)}
+.modal-sub{font-size:.92rem;color:var(--light);margin-bottom:20px}
+.btn-cont{background:var(--green);color:#fff;border:none;border-radius:12px;padding:13px 0;font-size:.98rem;font-weight:700;cursor:pointer;width:100%;box-shadow:0 4px 0 var(--green-dark)}
+.btn-cont:hover{background:#4eb800}
+
+/* GAME DONE */
+#gameDoneScreen{display:none;text-align:center;padding:46px 0}
+.trophy{font-size:5rem;margin-bottom:10px;animation:bnc 1s infinite alternate}
+@keyframes bnc{from{transform:translateY(0)}to{transform:translateY(-12px)}}
+.done-title{font-size:2rem;font-weight:800;margin-bottom:6px}
+.done-sub{color:var(--light);margin-bottom:24px}
+.done-stats{display:flex;justify-content:center;gap:14px;margin-bottom:24px;flex-wrap:wrap}
+.ds{background:var(--white);border-radius:14px;padding:14px 18px;border:2px solid var(--border);min-width:80px}
+.dv{font-size:1.9rem;font-weight:800;color:var(--green)}
+.dl{font-size:.7rem;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:.4px}
+
+/* ── LIST ── */
+#listScreen{display:none}
+.list-top{display:flex;align-items:center;gap:9px;margin-bottom:14px;flex-wrap:wrap}
+.list-title{font-size:1.15rem;font-weight:800;flex:1}
+.list-cat-tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.ltab{background:var(--white);border:2px solid var(--border);border-radius:999px;padding:5px 13px;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .13s}
+.ltab:hover{border-color:var(--blue);color:var(--blue)}
+.ltab.active{border-color:var(--green);background:var(--green-bg);color:var(--green-dark)}
+.list-count{font-size:.78rem;color:var(--light);margin-bottom:10px}
+.list-header{display:flex;align-items:center;padding:6px 14px;margin-bottom:5px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--light)}
+.list-header .col-de{min-width:190px}
+.list-header .col-sep{width:2px;margin:0 16px}
+.word-row{display:flex;align-items:center;padding:10px 14px;background:var(--white);border:1.5px solid var(--border);border-radius:12px;margin-bottom:7px;transition:background .12s}
+.word-row:hover{background:#f7f9ff}
+.word-row.has-parts{cursor:pointer}
+.word-row.has-parts:hover{background:var(--blue-bg);border-color:var(--blue)}
+.row-arrow{font-size:.68rem;color:var(--blue);margin-left:5px}
+.word-de{font-weight:700;font-size:.93rem;min-width:190px;color:#1a1a2e}
+.word-divider{width:2px;min-width:2px;height:20px;background:var(--border);border-radius:2px;margin:0 16px;flex-shrink:0}
+.word-tr{font-size:.9rem;color:#374151;flex:1;transition:opacity .2s}
+.word-tr.hidden{opacity:0;pointer-events:none;user-select:none}
+.word-detail{display:none;background:#f5faff;border:1.5px solid #93d3f8;border-top:none;border-radius:0 0 12px 12px;padding:12px 14px 10px;margin-top:-8px;margin-bottom:7px}
+.word-detail.show{display:block;animation:fdIn .2s ease}
+@keyframes fdIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
+.parts-row{display:flex;align-items:stretch;gap:7px;margin-bottom:10px;flex-wrap:wrap}
+.part-box{background:var(--white);border:2px solid var(--border);border-radius:9px;padding:8px 12px;text-align:center;min-width:70px}
+.part-word{font-size:.95rem;font-weight:800;color:#1a1a2e}
+.part-meaning{font-size:.7rem;color:var(--light);margin-top:2px;line-height:1.3}
+.part-op{font-size:1.3rem;font-weight:800;color:var(--light);align-self:center}
+.part-result{background:var(--blue-bg);border-color:var(--blue)}
+.part-result .part-word{color:#0e8ac7}
+.sib-title{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--light);margin-bottom:6px}
+.sib-list{display:flex;flex-wrap:wrap;gap:5px}
+.sib-chip{background:var(--white);border:1.5px solid var(--border);border-radius:7px;padding:3px 9px;font-size:.76rem;font-weight:700}
+.sib-chip span{color:var(--light);font-weight:400}
+.btn-toggle{background:var(--yellow-bg);color:#7c4a03;border:2px solid var(--yellow);border-radius:11px;padding:8px 16px;font-size:.86rem;font-weight:700;cursor:pointer}
+.btn-back{background:var(--white);color:var(--text);border:2px solid var(--border);border-radius:11px;padding:8px 18px;font-size:.86rem;font-weight:700;cursor:pointer}
+.btn-back:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ── LEARN ── */
+#learnScreen{display:none}
+#learnDoneScreen{display:none;text-align:center;padding:46px 0}
+.phase-badge{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 13px;font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:13px}
+.phase-mc{background:var(--blue-bg);color:#0e8ac7;border:1.5px solid var(--blue)}
+.phase-type{background:var(--purple-bg);color:#6d28d9;border:1.5px solid var(--purple)}
+.wcard{background:var(--white);border:2.5px solid var(--border);border-radius:20px;padding:30px 24px;text-align:center;margin-bottom:14px;box-shadow:var(--shadow)}
+.wcard-de{font-size:2rem;font-weight:800;margin-bottom:7px}
+.retry-badge{display:inline-block;background:var(--red-bg);color:var(--red);border:1.5px solid var(--red);border-radius:7px;padding:3px 9px;font-size:.73rem;font-weight:700;margin-bottom:7px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.opt{background:var(--white);border:2.5px solid var(--border);border-radius:14px;padding:13px 9px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .12s;text-align:center;box-shadow:0 2px 0 var(--border);line-height:1.35}
+.opt:hover:not(:disabled){border-color:var(--blue);background:var(--blue-bg);transform:translateY(-1px)}
+.opt.correct{border-color:var(--green);background:var(--green-bg);color:var(--green-dark);pointer-events:none}
+.opt.wrong{border-color:var(--red);background:var(--red-bg);color:var(--red);pointer-events:none;animation:shk .35s}
+.opt.muted{opacity:.36;pointer-events:none}
+.type-form{display:flex;gap:8px;margin-bottom:12px}
+.type-input{flex:1;border:2.5px solid var(--border);border-radius:13px;padding:13px 15px;font-size:.98rem;font-weight:600;outline:none;transition:border-color .13s}
+.type-input:focus{border-color:var(--purple)}
+.type-input.t-ok{border-color:var(--green);background:var(--green-bg)}
+.type-input.t-err{border-color:var(--red);background:var(--red-bg)}
+.btn-check{background:var(--purple);color:#fff;border:none;border-radius:13px;padding:13px 20px;font-size:.98rem;font-weight:700;cursor:pointer;flex-shrink:0}
+.fb-box{border-radius:13px;padding:13px 15px;margin-bottom:12px;display:none}
+.fb-box.show{display:block;animation:fdIn .22s ease}
+.fb-ok{background:var(--green-bg);border:2px solid var(--green)}
+.fb-err{background:var(--red-bg);border:2px solid var(--red)}
+.fb-title{font-weight:800;font-size:.9rem;margin-bottom:5px}
+.fb-c{color:var(--green-dark)}
+.fb-w{color:var(--red)}
+.fb-body{font-size:.86rem;line-height:1.5;color:#374151}
+.fb-hint{margin-top:8px;background:var(--yellow-bg);border:1.5px solid var(--yellow);border-radius:8px;padding:7px 11px;font-size:.81rem;font-weight:600;color:#7c4a03;display:none}
+.fb-hint.show{display:block}
+.btn-next{width:100%;background:var(--green);color:#fff;border:none;border-radius:13px;padding:14px;font-size:.98rem;font-weight:700;cursor:pointer;box-shadow:0 4px 0 var(--green-dark);display:none}
+.btn-next.show{display:block}
+.btn-next:hover{background:#4eb800}
+.dv-purple{color:var(--purple)}
+
+/* ── EDAT ── */
+#edatScreen{display:none}
+#edatDoneScreen{display:none;text-align:center;padding:46px 0}
+.q-meta{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.q-num{background:var(--blue-bg);color:#0e8ac7;border-radius:999px;padding:4px 13px;font-size:.8rem;font-weight:800}
+.q-cat-badge{background:var(--bg);border-radius:999px;padding:4px 11px;font-size:.78rem;font-weight:700;color:var(--light);border:1.5px solid var(--border)}
+.sent-card{background:var(--white);border:2px solid var(--border);border-radius:18px;padding:24px 26px;margin-bottom:13px;box-shadow:var(--shadow)}
+.sent-de{font-size:1.5rem;font-weight:800;line-height:1.45;margin-bottom:9px}
+.blank{display:inline-block;min-width:68px;border-bottom:3px solid var(--blue);text-align:center;color:var(--blue);font-weight:800;padding:0 6px;vertical-align:bottom}
+.sent-tr{font-size:.9rem;color:var(--light);font-style:italic}
+.sent-tr .blank-tr{color:#0e8ac7;font-style:normal;font-weight:700}
+.eopts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.eopt{background:var(--white);border:2.5px solid var(--border);border-radius:13px;padding:14px 9px;font-size:1.02rem;font-weight:800;cursor:pointer;transition:all .13s;box-shadow:0 2px 0 var(--border)}
+.eopt:hover:not(:disabled){border-color:var(--blue);background:var(--blue-bg);transform:translateY(-1px)}
+.eopt.correct{border-color:var(--green);background:var(--green-bg);color:var(--green-dark);pointer-events:none}
+.eopt.wrong{border-color:var(--red);background:var(--red-bg);color:var(--red);pointer-events:none;animation:shk .36s}
+.eopt.muted{opacity:.4;pointer-events:none}
+.exp-box{border-radius:14px;padding:15px 17px;margin-bottom:13px;display:none}
+.exp-box.show{display:block;animation:fdIn .25s ease}
+.exp-ok{background:var(--green-bg);border:2px solid var(--green)}
+.exp-err{background:var(--red-bg);border:2px solid var(--red)}
+.exp-title{font-weight:800;font-size:.92rem;margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.exp-c{color:var(--green-dark)}
+.exp-w{color:var(--red)}
+.exp-why{font-size:.88rem;line-height:1.6;color:#374151}
+.exp-rule{display:inline-block;margin-top:9px;background:var(--yellow-bg);border:1.5px solid var(--yellow);border-radius:9px;padding:7px 13px;font-size:.83rem;font-weight:700;color:#7c4a03}
+.dv-blue{color:var(--blue)}
+.dv-red{color:var(--red)}
+
+/* PARTICLES */
+.particle{position:fixed;pointer-events:none;border-radius:4px;z-index:999}
+
+/* SHARED BUTTONS */
+.btn-home{background:var(--white);color:var(--text);border:2px solid var(--border);border-radius:11px;padding:9px 20px;font-size:.86rem;font-weight:700;cursor:pointer}
+.btn-home:hover{border-color:var(--blue);color:var(--blue)}
+.btn-replay{background:var(--green);color:#fff;border:none;border-radius:13px;padding:14px 44px;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 4px 0 var(--green-dark);margin-right:8px}
+.btn-replay:hover{background:#4eb800}
+
+/* ── GRAMER ── */
+#gramerScreen{display:none}
+#gramerTopicScreen{display:none}
+#gramerTestScreen{display:none}
+#gramerTestDoneScreen{display:none;text-align:center;padding:46px 0}
+.topic-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.topic-card{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:14px 16px;cursor:pointer;transition:all .13s;display:flex;align-items:center;gap:12px}
+.topic-card:hover{border-color:var(--blue);transform:translateY(-1px)}
+.topic-card.done{border-color:var(--green);background:var(--green-bg)}
+.tc-emoji{font-size:1.6rem;flex-shrink:0}
+.tc-info{flex:1}
+.tc-title{font-weight:800;font-size:.93rem}
+.tc-desc{font-size:.77rem;color:var(--light);margin-top:2px}
+.tc-check{font-size:1.2rem;margin-left:auto;flex-shrink:0}
+.rule-card{background:var(--white);border:2px solid var(--border);border-radius:16px;padding:18px 20px;margin-bottom:14px;line-height:1.75;font-size:.88rem;color:#374151}
+.rule-card b{color:var(--blue)}
+.gr-q-num{font-size:.78rem;font-weight:800;color:var(--light);margin-bottom:10px;text-align:center}
+.gr-sent{background:var(--white);border:2.5px solid var(--border);border-radius:18px;padding:22px 20px;text-align:center;margin-bottom:12px;font-size:1.25rem;font-weight:800;line-height:1.55}
+.gr-sent .blank{color:var(--blue);border-bottom:3px solid var(--blue);min-width:70px;display:inline-block;padding:0 6px}
+.gr-tr{font-size:.82rem;color:var(--light);font-style:italic;margin-top:8px;font-weight:400}
+.gr-opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.gr-opt{background:var(--white);border:2.5px solid var(--border);border-radius:13px;padding:13px 9px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .12s;text-align:center}
+.gr-opt:hover:not(:disabled){border-color:var(--blue);background:var(--blue-bg)}
+.gr-opt.correct{border-color:var(--green);background:var(--green-bg);color:var(--green-dark);pointer-events:none}
+.gr-opt.wrong{border-color:var(--red);background:var(--red-bg);color:var(--red);pointer-events:none;animation:shk .35s}
+.gr-opt.muted{opacity:.36;pointer-events:none}
+.gr-fb{border-radius:13px;padding:13px 15px;margin-bottom:12px;display:none}
+.gr-fb.show{display:block;animation:fdIn .22s ease}
+.gr-fb-ok{background:var(--green-bg);border:2px solid var(--green)}
+.gr-fb-err{background:var(--red-bg);border:2px solid var(--red)}
+.gr-fb-title{font-weight:800;font-size:.9rem;margin-bottom:4px}
+.gr-fb-body{font-size:.85rem;line-height:1.5;color:#374151}
+.btn-test{background:var(--purple);color:#fff;border:none;border-radius:14px;padding:15px 0;font-size:1rem;font-weight:700;cursor:pointer;width:100%;box-shadow:0 4px 0 #6d28d9;margin-top:8px}
+.btn-test:hover{background:#7c3aed}
+.mode-grid-5{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mode-card-full{grid-column:1/-1}
+
+@media(max-width:520px){
+  /* Genel */
+  main{padding:12px 12px 70px}
+  header{padding:10px 14px}
+  .hstat{font-size:.78rem;padding:4px 9px;gap:3px}
+
+  /* Ana menü */
+  .mode-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .mc-icon{font-size:2rem}
+  .mc-title{font-size:.88rem}
+  .mc-sub{font-size:.72rem}
+  .mode-card{padding:18px 10px}
+  .sec-head{font-size:.65rem;margin:14px 0 6px}
+
+  /* Kategori */
+  .cat-grid2{grid-template-columns:1fr 1fr}
+  .cat-card.all{grid-column:1/-1}
+  .cc-emoji{font-size:1.6rem}
+  .cc-name{font-size:.82rem}
+  .btn-start{padding:14px 32px;font-size:.95rem}
+
+  /* Eşleştirme oyunu */
+  .word-card{font-size:.78rem;padding:10px 7px;min-height:52px}
+  .match-grid{gap:7px}
+
+  /* Öğrenme modu */
+  .wcard{padding:22px 16px}
+  .wcard-de{font-size:1.4rem}
+  .opts{grid-template-columns:1fr;gap:8px}
+  .opt{padding:14px;font-size:.93rem}
+  .type-input{font-size:.93rem;padding:12px 13px}
+  .phase-badge{font-size:.72rem;padding:3px 11px}
+
+  /* Kelime listesi */
+  .word-de{min-width:115px;font-size:.83rem}
+  .word-tr{font-size:.8rem}
+  .word-row{padding:9px 11px}
+  .word-divider{margin:0 10px}
+  .parts-row{gap:5px}
+  .part-box{min-width:55px;padding:7px 8px}
+  .part-word{font-size:.86rem}
+  .part-meaning{font-size:.64rem}
+
+  /* Edat egzersizi */
+  .sent-de{font-size:1.15rem}
+  .eopts{grid-template-columns:1fr 1fr;gap:8px}
+  .eopt{padding:12px 7px;font-size:.95rem}
+
+  /* Ortak butonlar */
+  .btn-replay{padding:13px 28px;font-size:.92rem}
+  .btn-home{padding:8px 14px;font-size:.82rem}
+  .done-stats{gap:10px}
+  .ds{padding:12px 14px;min-width:70px}
+  .dv{font-size:1.6rem}
+
+  /* Gramer */
+  .gr-sent{font-size:1.05rem;padding:18px 14px}
+  .gr-opts{grid-template-columns:1fr;gap:8px}
+  .gr-opt{padding:14px;font-size:.92rem}
+  .rule-card{font-size:.82rem;padding:14px 13px}
+  .tc-title{font-size:.88rem}
+  .tc-desc{font-size:.73rem}
+  .dash-stats{gap:8px}
+  .ds-pill{padding:9px 6px}
+  .ds-pill .dsp-v{font-size:1.15rem}
+  .art-opts{grid-template-columns:1fr 1fr 1fr}
+}
+
+/* ── DASHBOARD (ana ekran paneli) ── */
+.dash{background:var(--white);border:2px solid var(--border);border-radius:20px;padding:16px 16px 14px;margin-bottom:22px;box-shadow:var(--shadow);text-align:left}
+.dash-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;margin-bottom:13px}
+.ds-pill{background:var(--bg);border:2px solid var(--border);border-radius:14px;padding:11px 8px;text-align:center}
+.ds-pill.fire{background:#fff6e6;border-color:#FFC800}
+.ds-pill.xp{background:var(--green-bg);border-color:var(--green)}
+.ds-pill.goal{background:var(--blue-bg);border-color:var(--blue)}
+.dsp-v{font-size:1.4rem;font-weight:800;line-height:1.1}
+.dsp-l{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--light);margin-top:2px}
+.goal-track{height:12px;background:var(--border);border-radius:999px;overflow:hidden;margin-bottom:5px}
+.goal-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:999px;transition:width .5s;width:0}
+.goal-lbl{font-size:.74rem;color:var(--light);font-weight:600;margin-bottom:12px;text-align:center}
+.dash-cta{display:block;width:100%;border:none;border-radius:14px;padding:13px;font-size:.94rem;font-weight:700;cursor:pointer;text-align:center}
+.dash-cta.review{background:var(--red);color:#fff;box-shadow:0 4px 0 #c93535}
+.dash-cta.review:hover{background:#ef4040}
+.dash-cta.calm{background:var(--green-bg);color:var(--green-dark);border:2px solid var(--green);cursor:default}
+
+/* ── ARTİKEL & ÇOĞUL ortak ── */
+.art-opts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
+.art-opt{background:var(--white);border:2.5px solid var(--border);border-radius:14px;padding:16px 6px;font-size:1.05rem;font-weight:800;cursor:pointer;transition:all .13s;box-shadow:0 2px 0 var(--border)}
+.art-opt:hover:not(:disabled){border-color:var(--blue);background:var(--blue-bg);transform:translateY(-1px)}
+.art-opt.correct{border-color:var(--green);background:var(--green-bg);color:var(--green-dark);pointer-events:none}
+.art-opt.wrong{border-color:var(--red);background:var(--red-bg);color:var(--red);pointer-events:none;animation:shk .36s}
+.art-opt.muted{opacity:.4;pointer-events:none}
+.art-de{font-size:2rem;font-weight:800;margin-bottom:6px;letter-spacing:.3px}
+.art-art{color:var(--blue)}
+.pl-rule-chip{display:inline-block;background:var(--purple-bg);color:#6d28d9;border:1.5px solid var(--purple);border-radius:999px;padding:4px 11px;font-size:.74rem;font-weight:800;margin-bottom:10px}
+.speak-btn{background:none;border:none;cursor:pointer;font-size:1.3rem;vertical-align:middle;opacity:.7;transition:opacity .12s}
+.speak-btn:hover{opacity:1}
+
+/* ── HIZLI TEST ── */
+.timer-bar-wrap{height:9px;background:var(--border);border-radius:999px;overflow:hidden;margin-bottom:14px}
+.timer-bar{height:100%;background:var(--green);border-radius:999px;width:100%}
+.timer-bar.warning{background:var(--yellow)}
+.timer-bar.danger{background:var(--red)}
+
+/* ── GRAMER KONU KARTİ — görsel elemanlar ── */
+.r-head{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--light);margin:11px 0 4px;display:block}
+.r-tip{background:var(--yellow-bg);border-left:4px solid var(--yellow);border-radius:0 8px 8px 0;padding:8px 11px;margin:7px 0;font-size:.83rem;display:block;line-height:1.55}
+.r-warn{background:var(--red-bg);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:8px 11px;margin:7px 0;font-size:.83rem;display:block;line-height:1.55}
+.r-table{width:100%;border-collapse:collapse;margin:7px 0;font-size:.8rem}
+.r-table th{background:var(--bg);padding:5px 7px;text-align:left;font-weight:800;font-size:.7rem;color:var(--light);text-transform:uppercase;border-bottom:2px solid var(--border)}
+.r-table td{padding:5px 7px;border-bottom:1px solid var(--border)}
+.r-table tr:last-child td{border-bottom:none}
+.r-der{color:#1CB0F6;font-weight:800}
+.r-die{color:#FF4B4B;font-weight:800}
+.r-das{color:#58CC02;font-weight:800}
+.r-change{background:#fff6e6;border-radius:5px;padding:1px 6px;color:#b45309;font-weight:800;display:inline-block}
+.r-eg{font-size:.82rem;background:var(--bg);border-radius:7px;padding:6px 10px;margin:5px 0;border-left:3px solid var(--blue);line-height:1.5;display:block}
+.r-scale{display:flex;align-items:center;gap:5px;padding:8px 0;flex-wrap:wrap}
+.r-scale .rs-item{text-align:center;flex:1;min-width:60px}
+.r-scale .rs-val{font-weight:800;font-size:.88rem}
+.r-scale .rs-lbl{font-size:.65rem;color:var(--light);margin-top:1px}
+.r-scale .rs-arrow{color:var(--light);font-size:1rem;flex-shrink:0}
+.r-grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.r-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:8px 0}
+.r-card{border-radius:10px;padding:10px;font-size:.8rem}
+.r-card-title{font-weight:800;font-size:.85rem;margin-bottom:4px}
+
+/* ── YS HOCA EGZERSİZİ ── */
+#ysScreen{display:none}
+#ysDoneScreen{display:none;text-align:center;padding:46px 0}
+.ys-speaker{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 14px;font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.ys-speaker-a{background:var(--blue-bg);color:#0e8ac7;border:1.5px solid var(--blue)}
+.ys-speaker-b{background:var(--purple-bg);color:#6d28d9;border:1.5px solid var(--purple)}
+.ys-card{background:var(--white);border:2.5px solid var(--border);border-radius:20px;padding:26px 22px;text-align:center;margin-bottom:14px;box-shadow:var(--shadow)}
+.ys-tr{font-size:1.3rem;font-weight:800;margin-bottom:6px;line-height:1.4}
+.ys-sub{font-size:.82rem;color:var(--light)}
+.ys-input-wrap{display:flex;gap:8px;margin-bottom:12px}
+.ys-input{flex:1;border:2.5px solid var(--border);border-radius:13px;padding:13px 15px;font-size:.98rem;font-weight:600;outline:none;transition:border-color .13s;font-family:inherit}
+.ys-input:focus{border-color:var(--purple)}
+.ys-input.t-ok{border-color:var(--green);background:var(--green-bg)}
+.ys-input.t-err{border-color:var(--red);background:var(--red-bg)}
+.ys-hint-box{background:var(--yellow-bg);border:1.5px solid var(--yellow);border-radius:10px;padding:9px 13px;font-size:.83rem;font-weight:600;color:#7c4a03;margin-bottom:10px;display:none}
+.ys-hint-box.show{display:block}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" id="headerLogo">🇩🇪 Almanca</div>
+  <div class="hstats" id="headerStats" style="display:none">
+    <div class="hstat" id="hs1"></div>
+    <div class="hstat" id="hs2"></div>
+    <div class="hstat" id="hs3" style="display:none"></div>
+  </div>
+</header>
+
+<div class="prog-wrap" id="progWrap" style="display:none">
+  <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+  <div class="prog-lbl" id="progLbl"></div>
+</div>
+
+<main>
+
+<!-- HOME -->
+<div id="homeScreen">
+  <h1>🇩🇪 Almanca</h1>
+  <p>Çalışmak istediğin modu seç</p>
+
+  <!-- Günlük panel (seri / XP / hedef) -->
+  <div class="dash" id="dash">
+    <div class="dash-stats">
+      <div class="ds-pill fire"><div class="dsp-v" id="dStreak">0</div><div class="dsp-l">🔥 Gün serisi</div></div>
+      <div class="ds-pill xp"><div class="dsp-v" id="dXp">0</div><div class="dsp-l">⭐ Toplam XP</div></div>
+      <div class="ds-pill goal"><div class="dsp-v" id="dMastered">0</div><div class="dsp-l">🏅 Çalışılan</div></div>
+    </div>
+    <div class="goal-track"><div class="goal-fill" id="dGoalFill"></div></div>
+    <div class="goal-lbl" id="dGoalLbl">Bugünkü hedef</div>
+    <button class="dash-cta" id="dCta" onclick="startReview()"></button>
+  </div>
+
+  <!-- BÖLÜM 1: ÖĞRENME -->
+  <div class="sec-head">📖 Öğrenme</div>
+  <div class="mode-grid">
+    <div class="mode-card col-purple" onclick="goCat('learn')">
+      <div class="mc-icon">🧠</div>
+      <div class="mc-title">Öğrenme Modu</div>
+      <div class="mc-sub">Aralıklı tekrar + yazma testi</div>
+    </div>
+    <div class="mode-card col-red" onclick="startReview()">
+      <div class="mc-icon">🩹</div>
+      <div class="mc-title">Zayıf Kelimelerim</div>
+      <div class="mc-sub">Hataların + tekrar zamanı gelenler</div>
+    </div>
+    <div class="mode-card col-purple mode-card-full" onclick="openGramer()">
+      <div class="mc-icon">📚</div>
+      <div class="mc-title">Gramer Konuları</div>
+      <div class="mc-sub">18 konu · Görsel anlatım · Egzersizler · Kapsamlı test</div>
+    </div>
+  </div>
+
+  <!-- BÖLÜM 2: PRATİK -->
+  <div class="sec-head">⚡ Pratik</div>
+  <div class="mode-grid">
+    <div class="mode-card col-yellow" onclick="startHizliTest()">
+      <div class="mc-icon">⚡</div>
+      <div class="mc-title">Hızlı Test</div>
+      <div class="mc-sub">8 sn/soru · zamanlı gramer</div>
+    </div>
+    <div class="mode-card col-blue" onclick="startEdat()">
+      <div class="mc-icon">🔗</div>
+      <div class="mc-title">Edat Egzersizi</div>
+      <div class="mc-sub">Boşluk doldur, açıklama al</div>
+    </div>
+    <div class="mode-card col-blue" onclick="startArtikel()">
+      <div class="mc-icon">🎯</div>
+      <div class="mc-title">der / die / das</div>
+      <div class="mc-sub">Cinsiyet (artikel) egzersizi</div>
+    </div>
+    <div class="mode-card col-blue" onclick="startPlural()">
+      <div class="mc-icon">🔢</div>
+      <div class="mc-title">Çoğul Yapma</div>
+      <div class="mc-sub">6 kural · kaynaktan örneklerle</div>
+    </div>
+  </div>
+
+  <!-- BÖLÜM 3: KEŞİF -->
+  <div class="sec-head">🗺️ Keşif</div>
+  <div class="mode-grid">
+    <div class="mode-card col-green" onclick="goCat('game')">
+      <div class="mc-icon">🎮</div>
+      <div class="mc-title">Eşleştirme Oyunu</div>
+      <div class="mc-sub">4'lü Almanca ↔ Türkçe</div>
+    </div>
+    <div class="mode-card col-green" onclick="goCat('list')">
+      <div class="mc-icon">📋</div>
+      <div class="mc-title">Kelime Listesi</div>
+      <div class="mc-sub">Tüm kelimeler, bileşen analizi</div>
+    </div>
+  </div>
+
+  <!-- BÖLÜM 4: ÖĞRETMEN EGZERSİZLERİ -->
+  <div class="sec-head">📝 Öğretmen Egzersizleri</div>
+  <div class="mode-grid">
+    <div class="mode-card col-purple mode-card-full" onclick="startYS()">
+      <div class="mc-icon">👩‍🏫</div>
+      <div class="mc-title">YS Hocanla Çalışmalar</div>
+      <div class="mc-sub">Diyalog 1 · Haben + Akkusativ · 35 cümle</div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY -->
+<div id="catScreen">
+  <div class="cat-top">
+    <h2 id="catTitle">Kategori Seç</h2>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <div class="cat-grid2" id="catGrid"></div>
+  <div style="text-align:center">
+    <button class="btn-start" id="btnCatGo" onclick="catGo()">Başla →</button>
+  </div>
+</div>
+
+<!-- GAME -->
+<div id="gameScreen">
+  <div class="game-header">
+    <div class="game-label" id="gameLabel"></div>
+    <div class="game-inst">Almanca → Türkçe eşleştir</div>
+  </div>
+  <div class="match-grid">
+    <div class="mcol"><div class="mcol-label">Almanca</div><div id="colDE"></div></div>
+    <div class="mcol"><div class="mcol-label">Türkçe</div><div id="colTR"></div></div>
+  </div>
+</div>
+
+<!-- GAME DONE -->
+<div id="gameDoneScreen">
+  <div class="trophy">🏆</div>
+  <div class="done-title">Tebrikler!</div>
+  <div class="done-sub">Tüm kelimeleri tamamladın!</div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="gdScore">0</div><div class="dl">Puan</div></div>
+    <div class="ds"><div class="dv" id="gdStreak">0</div><div class="dl">En Uzun Seri</div></div>
+    <div class="ds"><div class="dv" id="gdWords">0</div><div class="dl">Kelime</div></div>
+  </div>
+  <button class="btn-replay" onclick="goCat('game')">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+<!-- LIST -->
+<div id="listScreen">
+  <div class="list-top">
+    <div class="list-title">📋 Kelime Listesi</div>
+    <button class="btn-toggle" id="toggleBtn" onclick="toggleTR()">👁 Türkçeyi Gizle</button>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <div class="list-cat-tabs" id="listCatTabs"></div>
+  <div class="list-count" id="listCount"></div>
+  <div class="list-header">
+    <div class="col-de" style="min-width:190px">Almanca</div>
+    <div class="col-sep" style="width:2px;margin:0 16px"></div>
+    <div>Türkçe</div>
+  </div>
+  <div id="listWords"></div>
+</div>
+
+<!-- LEARN -->
+<div id="learnScreen">
+  <div class="phase-badge" id="phaseBadge"></div>
+  <div class="wcard">
+    <div id="retryBadge" class="retry-badge" style="display:none">🔄 Tekrar</div>
+    <div class="wcard-de" id="learnWordDe"></div>
+  </div>
+  <div id="learnOpts" class="opts"></div>
+  <div id="typeFormEl" class="type-form" style="display:none">
+    <input type="text" id="typeInput" class="type-input" placeholder="Türkçe karşılığını yaz..." autocomplete="off" autocorrect="off" spellcheck="false">
+    <button class="btn-check" onclick="checkType()">✓</button>
+  </div>
+  <div class="fb-box" id="fbBox">
+    <div class="fb-title" id="fbTitle"></div>
+    <div class="fb-body" id="fbBody"></div>
+    <div class="fb-hint" id="fbHint"></div>
+  </div>
+  <button class="btn-next" id="btnNext" onclick="nextCard()">Sonraki →</button>
+</div>
+
+<!-- LEARN DONE -->
+<div id="learnDoneScreen">
+  <div class="trophy">🏅</div>
+  <div class="done-title">Tüm kelimeler öğrenildi!</div>
+  <div class="done-sub" id="ldSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv dv-purple" id="ldLearned">0</div><div class="dl">Öğrenildi</div></div>
+    <div class="ds"><div class="dv" id="ldCorrect">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="ldWrong">0</div><div class="dl">Yanlış</div></div>
+  </div>
+  <button class="btn-replay" onclick="goCat('learn')">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+<!-- EDAT -->
+<div id="edatScreen">
+  <div class="q-meta">
+    <div class="q-num" id="edatQNum">Soru 1</div>
+    <div class="q-cat-badge" id="edatQCat"></div>
+  </div>
+  <div class="sent-card">
+    <div class="sent-de" id="edatSentDe"></div>
+    <div class="sent-tr" id="edatSentTr"></div>
+  </div>
+  <div class="eopts" id="edatOpts"></div>
+  <div class="exp-box" id="expBox">
+    <div class="exp-title" id="expTitle"></div>
+    <div class="exp-why" id="expWhy"></div>
+    <div class="exp-rule" id="expRule"></div>
+  </div>
+  <button class="btn-next" id="edatNext" onclick="edatNextQ()">Sonraki →</button>
+</div>
+
+<!-- EDAT DONE -->
+<div id="edatDoneScreen">
+  <div class="trophy">🎯</div>
+  <div class="done-title">Bitti!</div>
+  <div class="done-sub" id="edatDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="edDC">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="edDW">0</div><div class="dl">Yanlış</div></div>
+    <div class="ds"><div class="dv dv-blue" id="edDP">0%</div><div class="dl">Başarı</div></div>
+  </div>
+  <button class="btn-replay" onclick="startEdat()">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+<!-- GRAMER KONULAR LİSTESİ -->
+<div id="gramerScreen">
+  <div class="list-top">
+    <div class="list-title">📚 Gramer Konuları</div>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <p style="font-size:.82rem;color:var(--light);margin-bottom:14px">Her konuyu çalış, sonra Kapsamlı Test ile kendinizi sına.</p>
+  <div class="topic-grid" id="topicGrid"></div>
+  <button class="btn-test" onclick="startGramerTest()">🏆 Kapsamlı Test →</button>
+</div>
+
+<!-- GRAMER KONU EGZERSİZİ -->
+<div id="gramerTopicScreen">
+  <div class="list-top">
+    <div class="list-title" id="grTopicTitle">Konu</div>
+    <button class="btn-home" id="grBackBtn">← Geri</button>
+  </div>
+  <div class="rule-card" id="grRuleCard"></div>
+  <div class="gr-q-num" id="grQNum"></div>
+  <div class="gr-sent" id="grSent"></div>
+  <div class="gr-opts" id="grOpts"></div>
+  <div class="gr-fb" id="grFb">
+    <div class="gr-fb-title" id="grFbTitle"></div>
+    <div class="gr-fb-body" id="grFbBody"></div>
+  </div>
+  <button class="btn-next" id="grNext" onclick="grNextQ()">Sonraki →</button>
+</div>
+
+<!-- GRAMER KAPSAMLı TEST -->
+<div id="gramerTestScreen">
+  <div class="list-top">
+    <div class="list-title">🏆 Kapsamlı Test</div>
+    <button class="btn-home" onclick="showScreen('gramerScreen');buildTopicGrid()">← Geri</button>
+  </div>
+  <div class="gr-q-num" id="gtQNum"></div>
+  <div class="gr-sent" id="gtSent"></div>
+  <div class="gr-opts" id="gtOpts"></div>
+  <div class="gr-fb" id="gtFb">
+    <div class="gr-fb-title" id="gtFbTitle"></div>
+    <div class="gr-fb-body" id="gtFbBody"></div>
+  </div>
+  <button class="btn-next" id="gtNext" onclick="gtNextQ()">Sonraki →</button>
+</div>
+
+<!-- GRAMER TEST BİTTİ -->
+<div id="gramerTestDoneScreen">
+  <div class="trophy">🏆</div>
+  <div class="done-title">Test Tamamlandı!</div>
+  <div class="done-sub" id="gtDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="gtDC">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="gtDW">0</div><div class="dl">Yanlış</div></div>
+    <div class="ds"><div class="dv dv-blue" id="gtDP">0%</div><div class="dl">Başarı</div></div>
+  </div>
+  <button class="btn-replay" onclick="startGramerTest()">Tekrar →</button>
+  <button class="btn-home" onclick="showScreen('gramerScreen');buildTopicGrid()" style="margin-left:8px">Konular</button>
+  <div style="margin-top:10px"><button class="btn-home" onclick="goHome()">Ana Menü</button></div>
+</div>
+
+<!-- ARTİKEL (der/die/das) -->
+<div id="artikelScreen">
+  <div class="q-meta">
+    <div class="q-num" id="artQNum">Soru 1</div>
+    <div class="q-cat-badge" id="artQCat">der · die · das</div>
+  </div>
+  <div class="sent-card" style="text-align:center">
+    <div class="art-de"><span class="art-art">___</span> <span id="artWord"></span></div>
+    <div class="sent-tr" id="artTr"></div>
+  </div>
+  <div class="art-opts" id="artOpts"></div>
+  <div class="exp-box" id="artExp">
+    <div class="exp-title" id="artExpTitle"></div>
+    <div class="exp-why" id="artExpWhy"></div>
+    <div class="exp-rule" id="artExpRule"></div>
+  </div>
+  <button class="btn-next" id="artNext" onclick="artNextQ()">Sonraki →</button>
+</div>
+
+<!-- ARTİKEL DONE -->
+<div id="artikelDoneScreen">
+  <div class="trophy">🎯</div>
+  <div class="done-title">Bitti!</div>
+  <div class="done-sub" id="artDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="artDC">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="artDW">0</div><div class="dl">Yanlış</div></div>
+    <div class="ds"><div class="dv dv-blue" id="artDP">0%</div><div class="dl">Başarı</div></div>
+  </div>
+  <button class="btn-replay" onclick="startArtikel()">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+<!-- ÇOĞUL -->
+<div id="pluralScreen">
+  <div class="q-meta">
+    <div class="q-num" id="plQNum">Soru 1</div>
+    <div class="q-cat-badge" id="plQCat">Çoğul</div>
+  </div>
+  <div class="sent-card" style="text-align:center">
+    <div class="pl-rule-chip" id="plRuleChip"></div>
+    <div class="art-de"><span id="plSing"></span></div>
+    <div class="sent-tr" id="plTr"></div>
+    <div style="margin-top:8px;font-weight:700;color:var(--light)">Çoğulu nedir?</div>
+  </div>
+  <div class="eopts" id="plOpts"></div>
+  <div class="exp-box" id="plExp">
+    <div class="exp-title" id="plExpTitle"></div>
+    <div class="exp-why" id="plExpWhy"></div>
+    <div class="exp-rule" id="plExpRule"></div>
+  </div>
+  <button class="btn-next" id="plNext" onclick="plNextQ()">Sonraki →</button>
+</div>
+
+<!-- ÇOĞUL DONE -->
+<div id="pluralDoneScreen">
+  <div class="trophy">🔢</div>
+  <div class="done-title">Bitti!</div>
+  <div class="done-sub" id="plDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="plDC">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="plDW">0</div><div class="dl">Yanlış</div></div>
+    <div class="ds"><div class="dv dv-blue" id="plDP">0%</div><div class="dl">Başarı</div></div>
+  </div>
+  <button class="btn-replay" onclick="startPlural()">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+<!-- HIZLI TEST -->
+<div id="hizliScreen">
+  <div class="timer-bar-wrap"><div class="timer-bar" id="timerBar"></div></div>
+  <div class="gr-q-num" id="hizliQNum"></div>
+  <div class="gr-sent" id="hizliSent"></div>
+  <div class="gr-opts" id="hizliOpts"></div>
+  <div class="gr-fb" id="hizliFb">
+    <div class="gr-fb-title" id="hizliFbTitle"></div>
+    <div class="gr-fb-body" id="hizliFbBody"></div>
+  </div>
+  <button class="btn-next" id="hizliNext" onclick="hizliNextQ()">Sonraki →</button>
+</div>
+
+<!-- HIZLI TEST DONE -->
+<div id="hizliDoneScreen">
+  <div style="font-size:4rem;margin-bottom:10px">⚡</div>
+  <div class="done-title">Hızlı Test Bitti!</div>
+  <div class="done-sub" id="hizliDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="hizliDC">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="hizliDW">0</div><div class="dl">Yanlış</div></div>
+    <div class="ds"><div class="dv dv-blue" id="hizliDP">0%</div><div class="dl">Başarı</div></div>
+  </div>
+  <button class="btn-replay" onclick="startHizliTest()">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+<!-- YS HOCA EGZERSİZİ -->
+<div id="ysScreen">
+  <div class="cat-top">
+    <h2>📝 YS Hocanla Çalışmalar</h2>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <div class="q-meta">
+    <div class="q-num" id="ysQNum">1 / 35</div>
+    <div class="q-cat-badge" id="ysExName">Diyalog 1: Haben + Akkusativ</div>
+  </div>
+  <div class="ys-card">
+    <div id="ysSpeaker" class="ys-speaker ys-speaker-a">A konuşuyor</div>
+    <div class="ys-tr" id="ysTr"></div>
+    <div class="ys-sub">↓ Almancaya çevir</div>
+  </div>
+  <div class="ys-hint-box" id="ysHintBox"></div>
+  <div class="fb-box" id="ysFb"></div>
+  <div class="ys-input-wrap">
+    <input class="ys-input" type="text" id="ysInput" placeholder="Almanca çevirini yaz..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <button class="btn-check" id="ysCheckBtn" onclick="ysCheckAnswer()">✓</button>
+  </div>
+  <button class="btn-next" id="ysNext" onclick="ysNextQ()">İleri →</button>
+</div>
+
+<!-- YS DONE -->
+<div id="ysDoneScreen">
+  <div class="trophy">📝</div>
+  <div class="done-title">Egzersiz Tamam!</div>
+  <div class="done-sub" id="ysDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="ysDC">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="ysDW">0</div><div class="dl">Yanlış</div></div>
+    <div class="ds"><div class="dv" id="ysDP">0%</div><div class="dl">Başarı</div></div>
+  </div>
+  <button class="btn-replay" onclick="startYS()">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+</main>
+
+<!-- HINT BAR (game) -->
+<div id="hintBar">
+  <div class="hb-bulb">💡</div>
+  <div class="hb-body">
+    <div class="hb-word" id="hbWord"></div>
+    <div class="hb-text" id="hbText"></div>
+  </div>
+  <button class="hb-close" onclick="closeHint()">✕</button>
+</div>
+
+<!-- GAME MODAL -->
+<div id="modalOverlay">
+  <div class="modal-card">
+    <div class="modal-emoji" id="mEmoji">🎉</div>
+    <div class="modal-title" id="mTitle">Harika!</div>
+    <div class="modal-sub" id="mSub"></div>
+    <button class="btn-cont" onclick="nextRound()">Devam →</button>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+//  KALICI HAFIZA (localStorage) + SRS + SERİ
+//  Tüm ilerleme tarayıcıda saklanır; sekme kapansa da kalır.
+// ══════════════════════════════════════════
+const SKEY='almanca_v1';
+function defaultDB(){return{srs:{},xp:0,streak:{cur:0,max:0,last:null},daily:{date:null,xp:0,goal:40},grammar:{},mistakes:[]};}
+let DB=loadDB();
+function loadDB(){try{const r=JSON.parse(localStorage.getItem(SKEY));if(!r)return defaultDB();const d=defaultDB();return{...d,...r,streak:{...d.streak,...(r.streak||{})},daily:{...d.daily,...(r.daily||{})}};}catch(e){return defaultDB();}}
+function saveDB(){try{localStorage.setItem(SKEY,JSON.stringify(DB));}catch(e){}}
+
+// Yerel tarihe göre gün numarası ve tarih dizisi
+function dayNum(d){d=d||new Date();return Math.round(new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime()/86400000);}
+function dStr(d){d=d||new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+function todayStr(){return dStr();}
+
+// Leitner kutuları → doğru bilince kaç gün sonra tekrar çıksın
+const SRS_INTERVALS=[0,1,2,4,8,16,30];
+const SRS_MAX=SRS_INTERVALS.length-1;
+function srsGet(key){return DB.srs[key]||(DB.srs[key]={lvl:0,due:dayNum(),seen:0,ok:0,no:0,tricky:false});}
+function srsUpdate(key,correct,tricky){
+  const s=srsGet(key); s.seen++;
+  if(tricky)s.tricky=true;
+  if(correct){ s.ok++; s.lvl=Math.min(SRS_MAX,s.lvl+1); }
+  else { s.no++; s.lvl=Math.max(0,s.lvl-1);
+    if(!DB.mistakes.includes(key))DB.mistakes.unshift(key);
+    DB.mistakes=DB.mistakes.slice(0,80);
+  }
+  s.due=dayNum()+SRS_INTERVALS[s.lvl];
+  if(correct && s.lvl>=3) DB.mistakes=DB.mistakes.filter(k=>k!==key);
+  saveDB();
+}
+function isDue(key){const s=DB.srs[key];return s?s.due<=dayNum():false;}
+function srsLevel(key){const s=DB.srs[key];return s?s.lvl:-1;} // -1 = hiç görülmedi
+function isMastered(key){return srsLevel(key)>=SRS_MAX;}
+
+// Günlük seri + XP + "bugün çalıştın" kaydı
+function ensureDay(){const t=todayStr();if(DB.daily.date!==t){DB.daily.date=t;DB.daily.xp=0;}}
+function registerStudy(){
+  ensureDay();
+  const t=todayStr();
+  if(DB.streak.last===t){saveDB();return;}
+  const y=new Date();y.setDate(y.getDate()-1);
+  if(DB.streak.last===dStr(y))DB.streak.cur+=1; else DB.streak.cur=1;
+  if(DB.streak.cur>DB.streak.max)DB.streak.max=DB.streak.cur;
+  DB.streak.last=t; saveDB();
+}
+function awardXP(n){ensureDay();DB.xp+=n;DB.daily.xp+=n;registerStudy();}
+// Her cevapta çağrılır: günü işaretle, doğruysa XP ver
+function tick(correct,xp){ registerStudy(); if(correct)awardXP(xp); }
+
+// Zayıf kelime havuzu: önce hatalar, sonra hiç görülmemişler, sonra tekrarı gelenler
+function vocabAll(){return Object.values(CATS).flatMap(c=>c.words);}
+function weakWords(limit){
+  const all=vocabAll();
+  const byDe=k=>all.find(w=>w.de===k);
+  const seen=new Set();
+  const out=[];
+  const push=w=>{if(w&&!seen.has(w.de)){seen.add(w.de);out.push(w);}};
+  DB.mistakes.forEach(k=>push(byDe(k)));                          // 1) hatalar
+  all.forEach(w=>{if(isDue(w.de)&&srsLevel(w.de)>=0)push(w);});   // 2) tekrarı gelenler
+  all.filter(w=>srsLevel(w.de)<0).forEach(push);                 // 3) hiç görülmemiş
+  all.slice().sort((a,b)=>srsLevel(a.de)-srsLevel(b.de)).forEach(push); // 4) en zayıflar
+  return limit?out.slice(0,limit):out;
+}
+// Tekrar bekleyen DISTINCT kelime sayısı (yalnız sözlük kelimeleri: artikel/çoğul kendi modunda)
+function dueCount(){
+  return vocabAll().filter(w=>(isDue(w.de)&&srsLevel(w.de)>=0)||DB.mistakes.includes(w.de)).length;
+}
+
+// ══════════════════════════════════════════
+//  VERİ
+// ══════════════════════════════════════════
+const CATS = {
+"Fiiller":{emoji:"🏃",words:[
+  {de:"abfahren",     tr:"hareket etmek / yola çıkmak",  h:"AB = uzaklaş + FAHREN = sürmek → 'arabanı sürerek uzaklaş' = yola çık"},
+  {de:"abgeben",      tr:"teslim etmek",                 h:"GEBEN = give → 'ab-give' = birine ver = teslim et"},
+  {de:"abholen",      tr:"gidip almak / alıp götürmek",  h:"HOLEN = haul (taşımak) → gidip taşımak = alıp getirmek"},
+  {de:"anbieten",     tr:"sunmak / teklif etmek",        h:"BIETEN = bid (teklif) → AN-BID = teklif sun"},
+  {de:"anfangen",     tr:"başlamak",                     h:"FANGEN = yakalamak → 'başı yakala' = başla"},
+  {de:"ankommen",     tr:"varmak",                       h:"KOMMEN = come → hedefe 'gel' = var"},
+  {de:"anklicken",    tr:"tıklamak",                     h:"KLICKEN = 'klik' sesi → fare tıklaması"},
+  {de:"ankreuzen",    tr:"işaretlemek",                  h:"KREUZ = çarpı/haç → kutucuğa çarpı koy = işaretle"},
+  {de:"anmachen",     tr:"açmak (elektronik, ışık vb.)", h:"AN = on (açık) → ışığı 'AN' konuma getir = aç"},
+  {de:"anmelden",     tr:"kayıt olmak",                  h:"MELDEN = bildirmek → kendini sisteme bildir = kayıt ol"},
+  {de:"anrufen",      tr:"telefonla aramak",             h:"RUFEN = bağırmak/çağırmak → birine 'çağrı' yap = telefon et"},
+  {de:"antworten",    tr:"cevap vermek",                 h:"WORT = word (kelime) → karşı kelimeni söyle = cevap ver"},
+  {de:"beantworten",  tr:"(bir soruyu) cevaplamak",      h:"Be + ANTWORTEN → bir soruyu tam olarak 'kelimelerle' karşıla"},
+  {de:"anziehen",     tr:"giyinmek",                     h:"ZIEHEN = çekmek → kıyafeti üstüne çek = giy"},
+  {de:"arbeiten",     tr:"çalışmak",                     h:"ARBEIT = iş → 'arbi' gibi duyulur"},
+  {de:"aufhören",     tr:"sona ermek / bırakmak",        h:"AUF = dur + HÖREN = duy → 'duymayı kes!' = bırak"},
+  {de:"aufmachen",    tr:"açmak (pencere, kapı vb.)",    h:"AUF = yukarı + MACHEN = yap → kapıyı yukarı kaldır = aç"},
+  {de:"aufstehen",    tr:"ayağa kalkmak / uyanmak",      h:"AUF = up + STEHEN = stand → 'up + stand' = ayağa kalk!"},
+  {de:"ausfüllen",    tr:"doldurmak",                    h:"FÜLLEN = fill → 'aus-fill-en' = doldur"},
+  {de:"ausmachen",    tr:"kapatmak (elektronik, ışık vb.)",h:"AUS = out (kapalı) → ışığı 'AUS' konuma getir = kapat"},
+  {de:"aussehen",     tr:"görünmek",                     h:"SEHEN = see → 'dışarıdan nasıl görünüyorsun?'"},
+  {de:"aussteigen",   tr:"(araçtan) inmek",              h:"AUS = dışarı + STEIGEN = tırman → dışarı çık = in"},
+  {de:"einsteigen",   tr:"(araca) binmek",               h:"EIN = içeri + STEIGEN = tırman → içeri tırman = bin"},
+  {de:"ausziehen",    tr:"çıkarmak / soyunmak",          h:"ZIEHEN = çekmek + AUS = dışarı → kıyafeti dışarı çek = soy"},
+  {de:"besichtigen",  tr:"gezip görmek / incelemek",     h:"SICHT = sight (görüş) → tourist sightseeing gibi"},
+  {de:"besuchen",     tr:"ziyaret etmek",                h:"SUCHEN = aramak → birini bulup yanına gitmek = ziyaret"},
+  {de:"bestehen",     tr:"(sınavı) geçmek / başarmak",   h:"STEHEN = stand → sınavda 'ayakta kal' = geç, başar"},
+  {de:"besitzen",     tr:"mülkiyet olarak sahip olmak",  h:"SITZEN = oturmak → 'oturduğun yer sana ait'"},
+  {de:"blaumachen",   tr:"işe gitmemek / asmak",         h:"BLAU = mavi = slang 'sarhoş' → 'sarhoşmuş gibi' işe gitmemek"},
+  {de:"einräumen",    tr:"yerleştirmek (bulaşık mak. vb.)",h:"RÄUM sounds like 'room' → eşyaları 'odaya' koy"},
+  {de:"ausräumen",    tr:"boşaltmak",                    h:"AUS = dışarı + RÄUM = oda → 'odayı dışarı taşı' = boşalt"},
+  {de:"erklären",     tr:"açıklamak",                    h:"KLÄREN sounds like 'clear' → netleştir = açıkla"},
+  {de:"erzählen",     tr:"anlatmak",                     h:"ZÄHLEN = saymak → olayları 'bir bir say' = anlat"},
+  {de:"fertigmachen", tr:"bitirmek",                     h:"FERTIG = bitti/hazır → 'fertig!' artık bitti"},
+  {de:"fortsetzen",   tr:"devam ettirmek",               h:"FORT = ileri + SETZEN = koymak → 'ileriye koy' = devam et"},
+  {de:"gefallen",     tr:"beğenmek / hoşuna gitmek",     h:"FALLEN = düşmek → 'kalbim sana düştü' = beğendim"},
+  {de:"gehören",      tr:"ait olmak",                    h:"HÖREN = duymak → 'beni duy, ben seninim' = ait olmak"},
+  {de:"kaufen",       tr:"satın almak",                  h:"KAUF → para vererek almak"},
+  {de:"leihen",       tr:"ödünç vermek",                 h:"LEIHEN sounds like 'loan' → borç ver = ödünç ver"},
+  {de:"ausleihen",    tr:"ödünç almak",                  h:"AUS + LEIHEN = 'dışarıya loan' → ödünç al"},
+  {de:"loswerden",    tr:"kurtulmak",                    h:"LOS = serbest bırak + WERDEN = ol → 'serbest ol'"},
+  {de:"lügen",        tr:"yalan söylemek",               h:"LÜGEN ≈ lie → neredeyse birebir aynı ses!"},
+  {de:"mitmachen",    tr:"(bir etkinliğe) katılmak",     h:"MIT = with + MACHEN = yap → 'birlikte yap' = katıl"},
+  {de:"mitnehmen",    tr:"yanına almak",                 h:"MIT = with + NEHMEN = al → 'benimle birlikte al'"},
+  {de:"schaffen",     tr:"başarmak / üstesinden gelmek", h:"SCHAFFEN → 'şef' gibi duyulur → şef her şeyin üstesinden gelir"},
+  {de:"schiefgehen",  tr:"ters gitmek",                  h:"SCHIEF = eğri/yamuk + GEHEN = gitmek → 'yamuk gitmek'"},
+  {de:"schmecken",    tr:"tadı olmak (yemekler için)",   h:"SCHMECK sounds like 'smack' → yemeğin tadına bakınca"},
+  {de:"stattfinden",  tr:"gerçekleşmek",                 h:"STATT = yer + FINDEN = bulmak → etkinlik 'yerini bulur'"},
+  {de:"teilnehmen",   tr:"katılmak",                     h:"TEIL = parça/pay + NEHMEN = almak → 'payını al' = katıl"},
+  {de:"verabreden",   tr:"randevu / plan yapmak",        h:"REDEN = konuşmak → konuşarak plan yapmak"},
+  {de:"verkaufen",    tr:"satmak",                       h:"VER + KAUFEN → 'satın alma'nın tersi = sat"},
+  {de:"einkaufen",    tr:"alışveriş yapmak",             h:"EIN = içeri + KAUFEN = satın almak → mağazaya girip almak = alışveriş"},
+  {de:"verpassen",    tr:"(otobüs vb.) kaçırmak",       h:"PASSEN = pass → tren 'pass' etti gitti = kaçırdın"},
+  {de:"vermissen",    tr:"özlemek",                      h:"MISSEN ≈ miss → neredeyse birebir!"},
+  {de:"vorhaben",     tr:"niyetlenmek / planı olmak",    h:"VOR = önünde + HABEN = sahip → 'önünde bir planın var'"},
+  {de:"widersprechen",tr:"itiraz etmek / karşı çıkmak", h:"WIDER = karşı + SPRECHEN = konuşmak → 'karşı konuş'"},
+  {de:"zuhören",      tr:"dinlemek",                     h:"HÖREN = hear + ZU = birine doğru → 'birine kulak ver'"},
+  {de:"zumachen",     tr:"kapatmak / kilitlemek",        h:"ZU = kapat + MACHEN = yap → 'kapatma işlemi yap'"},
+]},
+"İsimler":{emoji:"📦",words:[
+  {de:"die Abfahrt",     tr:"kalkış",                  h:"FAHRT = yolculuk + AB = uzaklaş → 'uzaklaşma yolculuğu'"},
+  {de:"der Absender",    tr:"gönderen",                h:"SENDER = gönderen (sender gibi İng.) ✓"},
+  {de:"die Adresse",     tr:"adres",                   h:"ADRESSE = adres → Türkçe ile birebir aynı ✓"},
+  {de:"das Alter",       tr:"yaş",                     h:"'alter ego' = yaşlı benlik → ALTER = yaş"},
+  {de:"das Angebot",     tr:"teklif",                  h:"GEBOT = emir/teklif + AN = sana → 'sana gelen teklif'"},
+  {de:"der Anfang",      tr:"başlangıç",               h:"ANFANGEN = başlamak → ANFANG = başlangıç"},
+  {de:"die Ankunft",     tr:"varış",                   h:"KUNFT = geliş + AN = hedefe → 'hedefe geliş'"},
+  {de:"die Anmeldung",   tr:"kayıt",                   h:"ANMELDEN = kayıt olmak → ANMELDUNG = kayıt"},
+  {de:"die Anrede",      tr:"hitap şekli",             h:"REDE = konuşma → birine 'hitap konuşması'"},
+  {de:"der Anruf",       tr:"telefon araması",         h:"RUF = çağrı → telefon 'çağrısı'"},
+  {de:"die Ansage",      tr:"anons / duyuru",          h:"SAGEN = söylemek → 'herkese söyle' = anons"},
+  {de:"der Anschluss",   tr:"bağlantı / aktarma",      h:"SCHLUSS = son + AN = uç → uçları birbirine bağlama"},
+  {de:"das Apartment",   tr:"daire",                   h:"APARTMENT = Türkçe 'apartman dairesi' ✓"},
+  {de:"der Apfel",       tr:"elma",                    h:"APFEL ≈ Apple → Apple logosu bir elmadır! 🍎"},
+  {de:"die Arbeit",      tr:"iş / çalışma",            h:"ARBEITEN = çalışmak → ARBEIT = iş"},
+  {de:"der Arzt",        tr:"doktor",                  h:"Latince 'archiater' (baş hekim) → kısalmış hali"},
+  {de:"die Aufgabe",     tr:"görev / ödev",            h:"GABE = verilen şey + AUF = yukarıdan → 'sana verilen görev'"},
+  {de:"der Aufzug",      tr:"asansör",                 h:"AUF = yukarı + ZUG = çekiş → 'seni yukarı çeken şey'"},
+  {de:"das Auge",        tr:"göz",                     h:"'AUGE' → gözüne bir şey girince 'ow!' dersin → göz 👁️"},
+  {de:"der Ausgang",     tr:"çıkış",                   h:"GANG = koridor + AUS = dışarı → 'dışarı yolu'"},
+  {de:"das Ausland",     tr:"yurt dışı",               h:"LAND = ülke + AUS = dışarı → 'dışarıdaki ülke' ✓"},
+  {de:"die Aussage",     tr:"ifade / açıklama",        h:"SAGEN = söylemek + AUS = dışarı → 'dışarıya söylemek'"},
+  {de:"der Ausweis",     tr:"kimlik belgesi",          h:"WEISEN = göstermek → 'kendini göster'"},
+  {de:"das Auto",        tr:"araba",                   h:"AUTO = Türkçe'de de kullanılıyor ✓"},
+  {de:"der Bahnhof",     tr:"tren istasyonu",          h:"BAHN = ray/tren + HOF = avlu → 'tren alanı'"},
+  {de:"das Beispiel",    tr:"örnek",                   h:"SPIEL = oyun/gösteri → 'örnek bir gösteri'"},
+  {de:"der Beruf",       tr:"meslek",                  h:"RUF = çağrı → 'seni çağıran iş' = meslek"},
+  {de:"das Brot",        tr:"ekmek",                   h:"BROT ≈ bread → neredeyse aynı!"},
+  {de:"das Buch",        tr:"kitap",                   h:"BUCH ≈ book → çok benzer ✓"},
+  {de:"die Einladung",   tr:"davet",                   h:"LADEN = davet etmek + EIN = içeri → 'içeri yükle'"},
+  {de:"die Eltern",      tr:"ebeveyn / anne-baba",     h:"ELTERN ≈ elders → anne-baba ✓"},
+  {de:"das Gepäck",      tr:"bagaj",                   h:"PACK = paketlemek → 'paketlenmiş eşyalar'"},
+  {de:"das Geschenk",    tr:"hediye",                  h:"SCHENKEN = hediye etmek → GESCHENK = hediye"},
+  {de:"das Handy",       tr:"cep telefonu",            h:"HANDY = handy (pratik/eldeki) → 'eldeki telefon'"},
+  {de:"das Haus",        tr:"ev",                      h:"HAUS ≈ house → neredeyse aynı ✓"},
+  {de:"der Koffer",      tr:"valiz",                   h:"KOFFER ≈ coffer (sandık) → 'seyahat kasası'"},
+  {de:"der Laden",       tr:"dükkan",                  h:"LADEN = yüklemek → 'ürünler yüklü yer'"},
+  {de:"die Lebensmittel",tr:"gıda maddeleri",          h:"LEBEN = yaşam + MITTEL = araç → 'yaşam araçları'"},
+  {de:"die Meinung",     tr:"fikir / görüş",           h:"MEIN = benim → 'benim düşüncem'"},
+  {de:"das Nickerchen",  tr:"şekerleme (kısa uyku)",  h:"NICKEN = baş sallamak → uyku gelince başın öne 'nick' eder"},
+  {de:"das Referat",     tr:"sunum",                   h:"REFERAT ≈ referans → 'referans vererek sunum'"},
+  {de:"der Salat",       tr:"salata",                  h:"SALAT = Türkçe 'salata' ✓"},
+  {de:"der Schlüssel",   tr:"anahtar",                 h:"SCHLOSS = kilit → SCHLÜSSEL = onu açan şey 🔑"},
+  {de:"die Spülmaschine",tr:"bulaşık makinesi",        h:"SPÜLEN = yıkama + MASCHINE = makine"},
+  {de:"das Treffen",     tr:"buluşma / toplantı",      h:"TREFFEN = to meet → meeting = Treffen ✓"},
+  {de:"die Zeitung",     tr:"gazete",                  h:"ZEIT = zaman → 'zamanın haberleri' 📰"},
+]},
+"Zarflar":{emoji:"⏰",words:[
+  {de:"ab",            tr:"-den itibaren",          h:"AB = away from → 'uzaklaş oradan itibaren'"},
+  {de:"aber",          tr:"ama",                   h:"ABER ≈ 'however' → 'ama', 'fakat'"},
+  {de:"Achtung",       tr:"dikkat",                h:"ACHTUNG! = savaş filmlerinden → dikkat! ⚠️"},
+  {de:"allein",        tr:"yalnız",                h:"ALL + EIN = hepsi bir → 'all alone' gibi ✓"},
+  {de:"alle",          tr:"bütün / tüm",           h:"ALLE ≈ all → bütün/tüm ✓"},
+  {de:"also",          tr:"yani / öyleyse",        h:"İng. 'so' = Alm. 'also' → yani/öyleyse"},
+  {de:"auch",          tr:"de / da / ayrıca",      h:"AUCH ≈ 'too/also' → 'ben de', 'ayrıca'"},
+  {de:"außerdem",      tr:"ayrıca / bunun yanında",h:"AUSSER = dışında + DEM = that → 'bunun dışında da'"},
+  {de:"bald",          tr:"yakında",               h:"İng.'de bald = kel, ama Almancada = yakında! 😄"},
+  {de:"besonders",     tr:"özellikle",             h:"BESONDERS ≈ 'special' → 'özellikle'"},
+  {de:"damals",        tr:"o zamanlar",            h:"DA = o zaman + MALS = vakit → 'o zamanlarda'"},
+  {de:"eigentlich",    tr:"aslında",               h:"EIGEN = kendi/özgün → 'özünde/gerçekte'"},
+  {de:"endlich",       tr:"sonunda",               h:"END = son + LICH = gibi → 'sona benzer' = sonunda ✓"},
+  {de:"früher",        tr:"eskiden",               h:"FRÜH = erken → 'daha erken zamanlarda'"},
+  {de:"gerade",        tr:"şu an / tam şimdi",     h:"GERADE = düz/tam → 'tam şu an noktasında'"},
+  {de:"gestern",       tr:"dün",                   h:"GESTERN ≈ yesterday → ses çok benzer! ✓"},
+  {de:"heute",         tr:"bugün",                 h:"HEUTE → İsp. 'hoy' (bugün) gibi ✓"},
+  {de:"heutzutage",    tr:"günümüzde",             h:"HEUTE = bugün + TAGE = günler → 'bugünün günlerine'"},
+  {de:"jetzt",         tr:"şimdi",                 h:"JETZT ≈ 'just' → 'just now' = tam şimdi ✓"},
+  {de:"neulich",       tr:"geçenlerde",            h:"NEU = new (yeni) → 'yeni olmuş şeyler'"},
+  {de:"nie / niemals", tr:"asla / hiçbir zaman",  h:"NIE ≈ 'never' → N-I-E / N-E-V-E-R"},
+  {de:"noch nicht",    tr:"henüz değil",           h:"NOCH = still + NICHT = not → 'hâlâ değil'"},
+  {de:"sofort",        tr:"hemen",                 h:"SOFORT ≈ 'so fast' → çok hızlı = hemen ✓"},
+  {de:"übermorgen",    tr:"öbür gün",              h:"ÜBER = over + MORGEN = yarın → 'yarının üzerinden'"},
+  {de:"unbedingt",     tr:"mutlaka",               h:"UN = not + BEDINGT = koşullu → 'koşulsuz' = mutlaka"},
+  {de:"vielleicht",    tr:"belki",                 h:"VIEL = çok + LEICHT = hafif → 'hafifçe olabilir'"},
+  {de:"vorher",        tr:"daha önce",             h:"VOR = önce + HER = buraya → 'buraya gelmeden önce'"},
+  {de:"zuerst",        tr:"önce / ilk olarak",     h:"ERST = first → ZU-ERST = 'ilk olarak' ✓"},
+]},
+"Edatlar":{emoji:"🔗",words:[
+  {de:"aus", tr:"-den/-dan (içinden veya köken)", h:"AUS = out → 'İstanbul'DAN' = aus Istanbul"},
+  {de:"bei", tr:"yanında / -de, -da",             h:"BEI ≈ by → 'by your side' gibi = yanında ✓"},
+  {de:"bis", tr:"-e kadar",                       h:"BIS ≈ until/till → 'bis bald' = 'görüşürüz'"},
+  {de:"durch",tr:"içinden / yoluyla",             h:"DURCH ≈ through → ses çok benzer! ✓"},
+  {de:"für", tr:"için",                           h:"FÜR ≈ for → neredeyse aynı! ✓"},
+  {de:"mit", tr:"ile / birlikte",                 h:"MIT = with → 'mit mir' = benimle ✓"},
+  {de:"nach",tr:"-e/-a (yön) / -den sonra (zaman)",h:"NACH ≈ after → 'nach Hause' = eve doğru"},
+  {de:"ohne",tr:"-sız/-siz (olmadan)",            h:"OHNE → 'own-e' → 'sahip olmadan' = -sız"},
+  {de:"seit",tr:"-den beri",                      h:"SEIT ≈ since → S-E-I-T / S-I-N-C-E ✓"},
+  {de:"um",  tr:"saatte (-de/-da) / etrafında",   h:"UM = around → 'um 3 Uhr' = saat 3'te"},
+  {de:"vor", tr:"önünde (yer) / önce (zaman)",    h:"VOR ≈ fore/before → 'vor dem Haus' = evin önünde ✓"},
+  {de:"zu",  tr:"-e/-a (birine/bir yere doğru)",  h:"ZU ≈ to → 'zu Hause' = evde ✓"},
+]}
+,"Hobiler":{emoji:"🏄",words:[
+  {de:"reisen",          tr:"seyahat etmek",                    h:"REISE = yolculuk → REISEN = seyahat etmek ✈️"},
+  {de:"schwimmen",       tr:"yüzmek",                           h:"SCHWIMMEN ≈ swim → ses çok benzer ✓"},
+  {de:"reiten",          tr:"ata binmek",                       h:"REITEN ≈ ride → at üstünde 'ride' ✓"},
+  {de:"tauchen",         tr:"dalış yapmak",                     h:"TAUCHEN ≈ dip/dive → derine dalış 🤿"},
+  {de:"Fahrrad fahren",  tr:"bisiklete binmek",                 h:"FAHRRAD = bisiklet (Fahren+Rad = 'sürülen tekerlek')"},
+  {de:"malen",           tr:"resim yapmak / boyamak",           h:"MAL = boya → boyamak, resim yapmak 🎨"},
+  {de:"sammeln",         tr:"biriktirmek / koleksiyon yapmak",  h:"SAMMELN ≈ to collect → toplamak, biriktirmek"},
+  {de:"klettern",        tr:"tırmanmak",                        h:"KLETTERN ≈ clamber → kaya/ağaca tırmanmak 🧗"},
+  {de:"schlafen",        tr:"uyumak",                           h:"SCHLAFEN ≈ sleep → S-CH-L-A-F-E-N ✓"},
+  {de:"der Freund",      tr:"erkek arkadaş / dost",             h:"FREUND ≈ friend → neredeyse aynı! ✓"},
+  {de:"die Freunde",     tr:"arkadaşlar (çoğul)",              h:"FREUND → çoğul: die FREUNDE (Kural 1: +e)"},
+  {de:"die Freundin",    tr:"kız arkadaş",                      h:"FREUND + -in (dişi eki) = FREUNDIN"},
+  {de:"die Leute",       tr:"insanlar",                         h:"DIE LEUTE = people. Sadece çoğul, tekili yok!"},
+  {de:"nett",            tr:"kibar / nazik",                    h:"NETT ≈ nice → ses ve anlam çok yakın ✓"},
+  {de:"das Schwimmbad",  tr:"yüzme havuzu",                    h:"SCHWIMMEN = yüzmek + BAD = banyo → 'yüzme banyosu'"},
+  {de:"gern",            tr:"severek (eylem için)",             h:"'Ich schwimme gern' = yüzmeyi severim. Fiilden SONRA gelir."},
+  {de:"lieber",          tr:"daha çok tercih ederek",           h:"'Ich trinke lieber Kaffee' = kahveyi tercih ederim. als ile birlikte."},
+  {de:"am liebsten",     tr:"en çok severek",                   h:"'Ich reise am liebsten' = en çok seyahat etmeyi severim. Süperlativ."},
+  {de:"gerne",           tr:"seve seve / elbette",              h:"GERNE = GERN ile aynı. 'Ja, gerne!' = Evet, seve seve!"},
+]}
+,"Hava":{emoji:"🌤️",words:[
+  {de:"das Wetter",      tr:"hava durumu",          h:"WETTER ≈ weather → neredeyse aynı! ✓"},
+  {de:"die Sonne",       tr:"güneş",                h:"SONNE ≈ sun → S-O-N-N-E / S-U-N ✓"},
+  {de:"sonnig",          tr:"güneşli",              h:"SONNE + -ig = güneşli. Kullanım: Es ist sonnig."},
+  {de:"der Wind",        tr:"rüzgar",               h:"WIND = wind → birebir aynı! ✓"},
+  {de:"windig",          tr:"rüzgarlı",             h:"WIND + -ig = rüzgarlı. Kullanım: Es ist windig."},
+  {de:"die Wolke",       tr:"bulut",                h:"WOLKE → Almanca özgün. Çoğul: die Wolken."},
+  {de:"bewölkt",         tr:"bulutlu",              h:"be + WOLKE + t → 'bulutlarla kaplı'. Es ist bewölkt."},
+  {de:"der Regen",       tr:"yağmur",               h:"REGEN ≈ rain → R-E-G-E-N / R-A-I-N ✓"},
+  {de:"regnerisch",      tr:"yağmurlu (hava)",      h:"REGEN + -erisch = yağmurlu hava. Es ist regnerisch."},
+  {de:"es regnet",       tr:"yağmur yağıyor",       h:"REGNEN fiilinden. 'ist' YOK, doğrudan fiil! Es regnet."},
+  {de:"nebelig",         tr:"sisli",                h:"NEBEL = sis + -ig = sisli. Es ist nebelig."},
+  {de:"der Donner",      tr:"gök gürültüsü",        h:"DONNER ≈ thunder → D-O-N-N-E-R / T-H-U-N-D-E-R ✓"},
+  {de:"der Regenbogen",  tr:"gökkuşağı",            h:"REGEN = yağmur + BOGEN = yay → 'yağmur yayı' 🌈"},
+  {de:"der Schnee",      tr:"kar",                  h:"SCHNEE ≈ snow → S-CH-N-E-E / S-N-O-W ✓"},
+  {de:"es schneit",      tr:"kar yağıyor",          h:"SCHNEIEN fiilinden. 'ist' YOK, doğrudan fiil! Es schneit."},
+  {de:"die Temperatur",  tr:"sıcaklık / derece",   h:"TEMPERATUR = Türkçe de 'sıcaklık' için kullanılır. Wie ist die Temperatur?"},
+]}
+,"Meslekler":{emoji:"👔",words:[
+  {de:"der Arzt",        tr:"doktor (erkek)",       h:"Latince köken. Ich bin Arzt = Ich arbeite als Arzt (aynı anlam!)."},
+  {de:"die Ärztin",      tr:"doktor (kadın)",       h:"ARZT + umlaut + -in = ÄRZTIN. Kadın form böyle yapılır."},
+  {de:"der Bäcker",      tr:"fırıncı (erkek)",      h:"BACKEN = pişirmek → BÄCKER = pişiren kişi"},
+  {de:"die Bäckerei",    tr:"fırın (dükkan)",       h:"BÄCKER + -ei = fırıncının yeri. -ei eki 'yer/dükkan' demek."},
+  {de:"der Ingenieur",   tr:"mühendis",             h:"INGENIEUR (Fransızca köken) → Türkçe 'mühendis' de aynı Latin kökten ✓"},
+  {de:"der Lehrer",      tr:"öğretmen (erkek)",     h:"LEHREN = öğretmek → LEHRER = öğreten kişi"},
+  {de:"die Lehrerin",    tr:"öğretmen (kadın)",     h:"LEHRER + -in = LEHRERIN"},
+  {de:"der Polizist",    tr:"polis (erkek)",        h:"POLIZIST ≈ police → Türkçe 'polis' ile aynı kök ✓"},
+  {de:"die Polizistin",  tr:"polis (kadın)",        h:"POLIZIST + -in = POLIZISTIN"},
+  {de:"der Friseur",     tr:"kuaför / berber",      h:"FRISEUR (Fransızca) → Türkçe 'frisör' diyenler de var."},
+  {de:"der Bauer",       tr:"çiftçi",               h:"BAU = inşa/toprak → toprağı işleyen kişi = çiftçi"},
+  {de:"der Bauernhof",   tr:"çiftlik",              h:"BAUER + HOF = 'çiftçinin avlusu' = çiftlik. auf einem Bauernhof çalışmak."},
+  {de:"der Kellner",     tr:"garson (erkek)",       h:"KELLER = bodrum/depo → depodan yemek getiren = garson"},
+  {de:"die Kellnerin",   tr:"garson (kadın)",       h:"KELLNER + -in = KELLNERIN"},
+  {de:"der Metzger",     tr:"kasap",                h:"METZGER → Almanca özgün kelime, kasap"},
+  {de:"der Journalist",  tr:"gazeteci",             h:"JOURNALIST ≈ journalist → Türkçe 'gazeteci' ile aynı kök ✓"},
+]}
+};
+
+const EDAT_Q = [
+  {de:["Ich komme "," Istanbul."],tr:["Ben İstanbul'","dan geliyorum."],correct:"aus",cat:"Köken — aus",options:["aus","von","zu","mit"],wrongExp:{"von":"<strong>VON</strong> kişilerden ayrılışı anlatır. Şehir/ülke kökenini belirtmek için <strong>AUS</strong> kullanılır.","zu":"<strong>ZU</strong> '-e doğru' demek, gidişi anlatır. Nereden geldiğimizi söylemek için <strong>AUS</strong> lazım.","mit":"<strong>MIT</strong> 'ile/birlikte' demek. Köken anlatmaz."},rule:"AUS = içinden çıkış veya köken. Ich komme AUS der Türkei."},
+  {de:["Das Geschenk ist "," dich."],tr:["Bu hediye ","için."],correct:"für",cat:"Amaç — für",options:["für","zu","mit","nach"],wrongExp:{"zu":"<strong>ZU</strong> yön bildirir, 'için' değil.","mit":"<strong>MIT</strong> 'ile/birlikte' demek.","nach":"<strong>NACH</strong> yön veya zaman (sonra) bildirir."},rule:"FÜR = için. Das ist FÜR dich."},
+  {de:["Ich warte "," Montag."],tr:["Pazartesi","ye kadar bekliyorum."],correct:"bis",cat:"Süre sınırı — bis",options:["bis","seit","nach","um"],wrongExp:{"seit":"<strong>SEIT</strong> başlangıç noktası. Bitiş için <strong>BIS</strong> lazım.","nach":"<strong>NACH</strong> 'sonra' demek — yanlış anlam.","um":"<strong>UM</strong> saat belirtmek için, gün için olmaz."},rule:"BIS = -e kadar (bitiş). BIS Montag, BIS 20 Uhr."},
+  {de:["Ich lerne Deutsch "," drei Jahren."],tr:["Üç yıl","dır Almanca öğreniyorum."],correct:"seit",cat:"Başlangıç — seit",options:["seit","bis","für","vor"],wrongExp:{"bis":"<strong>BIS</strong> bitiş noktası. Devam eden eylem için <strong>SEIT</strong>.","für":"<strong>FÜR drei Jahre</strong> 'üç yıllığına' = planlanan süre. SEIT ise geçmişten bugüne.","vor":"<strong>VOR drei Jahren</strong> = 'üç yıl önce'. Burada o günden bugüne süren öğrenme var."},rule:"SEIT = -den beri (hâlâ devam ediyor). SEIT + süre/tarih."},
+  {de:["Wir fahren "," dem Bus."],tr:["Otobüs","le gidiyoruz."],correct:"mit",cat:"Araç — mit",options:["mit","für","in","zu"],wrongExp:{"für":"<strong>FÜR</strong> 'için' demek.","in":"<strong>IM Bus</strong> 'otobüsün içinde'. Araçla gitmek için <strong>MIT</strong>.","zu":"<strong>ZUM Bus</strong> 'otobüse doğru'. Araçla gitmek için MİT lazım."},rule:"MIT = araçla gitmek. MIT dem Bus, MIT dem Auto."},
+  {de:["Der Film beginnt "," 19 Uhr."],tr:["Film saat 19'","da başlıyor."],correct:"um",cat:"Saat — um",options:["um","bei","zu","nach"],wrongExp:{"bei":"<strong>BEI</strong> saat belirtmez.","zu":"<strong>ZU</strong> saat ifadelerinde kullanılmaz.","nach":"<strong>NACH 19 Uhr</strong> = 'saat 19'dan sonra' — tam saati değil sonrasını belirtir."},rule:"UM = tam saatte. UM + saat. UM 19 Uhr = saat 19'da."},
+  {de:["Ich gehe "," Hause."],tr:["Eve ","doğru gidiyorum."],correct:"nach",cat:"Yön (eve) — nach",options:["nach","zu","aus","in"],wrongExp:{"zu":"<strong>ZU</strong> kişilere ve belirli yerlere. Eve gitmek için <strong>NACH Hause</strong> kalıp.","aus":"<strong>AUS</strong> 'içinden/köken' — gidişi değil çıkışı anlatır.","in":"Eve gitmek için <strong>NACH Hause</strong> kalıbı kullanılır."},rule:"NACH Hause = eve gitmek (kalıp). NACH + şehir/ülke adları."},
+  {de:["Das Auto steht "," dem Haus."],tr:["Araba evin ","önünde duruyor."],correct:"vor",cat:"Yer — vor",options:["vor","bei","nach","hinter"],wrongExp:{"bei":"<strong>BEI</strong> 'yanında' — 'önünde' anlamı vermez.","nach":"<strong>NACH</strong> yön veya 'sonra' bildirir, yer anlatmaz.","hinter":"<strong>HINTER</strong> 'arkasında' — tam tersi yön."},rule:"VOR = önünde (yer) veya -den önce (zaman)."},
+  {de:["Er trinkt Kaffee "," Zucker."],tr:["Şeker ","olmadan kahve içiyor."],correct:"ohne",cat:"Yokluk — ohne",options:["ohne","mit","aus","für"],wrongExp:{"mit":"<strong>MIT Zucker</strong> = 'şekerli' — tam zıttı. Şeker YOK, <strong>OHNE</strong> lazım.","aus":"<strong>AUS</strong> 'içinden/köken' — yokluğu anlatmaz.","für":"<strong>FÜR</strong> 'için' demek."},rule:"OHNE = -sız/-siz (olmadan). OHNE Zucker, OHNE dich."},
+  {de:["Ich wohne "," meinen Eltern."],tr:["Ailemle (onların yanında) ","oturuyorum."],correct:"bei",cat:"Yanında yaşamak — bei",options:["bei","mit","zu","aus"],wrongExp:{"mit":"<strong>MIT</strong> 'birlikte' demek. Birinin evinde kalmak için <strong>BEI</strong> daha doğru.","zu":"<strong>ZU</strong> yön bildirir, kalıcı ikamet anlatmaz.","aus":"<strong>AUS</strong> 'içinden/köken' — ikamet yeri değil."},rule:"BEI = birinin yanında yaşamak. BEI meinen Eltern = ailemde."},
+  {de:["Wir fahren "," den Tunnel."],tr:["Tünelin ","içinden geçiyoruz."],correct:"durch",cat:"İçinden geçmek — durch",options:["durch","aus","bei","um"],wrongExp:{"aus":"<strong>AUS</strong> 'içinden çıkmak'. Tam geçiş için <strong>DURCH</strong> (through).","bei":"<strong>BEI</strong> 'yanında' — içinden geçmek değil.","um":"<strong>UM</strong> 'etrafında' — tam tersi!"},rule:"DURCH = içinden geçmek (through). DURCH den Tunnel."},
+  {de:["Die Katze läuft "," das Haus."],tr:["Kedi evin ","etrafında koşuyor."],correct:"um",cat:"Etrafında — um",options:["um","durch","vor","nach"],wrongExp:{"durch":"<strong>DURCH</strong> içinden geçmek — kedi etrafında dolaşıyor, içinden değil.","vor":"<strong>VOR</strong> 'önünde' — tek yön, etrafında dönmek değil.","nach":"<strong>NACH</strong> yön veya 'sonra' — etrafında dönmeyi anlatmaz."},rule:"UM = etrafında (çepeçevre). UM das Haus = evin etrafında."},
+  {de:["Sie kommt "," ihrer Freundin."],tr:["Arkadaşıyla birlikte ","geliyor."],correct:"mit",cat:"Refakat — mit",options:["mit","zu","bei","für"],wrongExp:{"zu":"<strong>ZU ihrer Freundin</strong> = 'arkadaşının yanına geliyor' — birlikte gelmek değil.","bei":"<strong>BEI</strong> 'yanında olmak' — beraberlik değil konum.","für":"<strong>FÜR</strong> 'için' — birlikte gelmek değil."},rule:"MIT = birlikte, eşliğinde. MIT meiner Freundin = arkadaşımla."},
+  {de:[""," dem Essen gehe ich spazieren."],tr:["Yemek","ten sonra yürüyüşe çıkıyorum."],correct:"Nach",cat:"Zaman sırası — nach",options:["Nach","Vor","Mit","Aus"],wrongExp:{"Vor":"<strong>VOR dem Essen</strong> = 'yemekten önce' — tam tersi zaman sırası.","Mit":"<strong>MIT</strong> 'ile/birlikte' — zaman sırası anlatmaz.","Aus":"<strong>AUS</strong> 'içinden/köken' — zaman ifadesi değil."},rule:"NACH + isim = -den sonra. NACH dem Essen, NACH der Arbeit."},
+  {de:["Ich gehe "," meiner Freundin."],tr:["Arkadaşımın ","yanına gidiyorum."],correct:"zu",cat:"Kişiye yönelik — zu",options:["zu","bei","nach","mit"],wrongExp:{"bei":"<strong>BEI</strong> 'zaten orada olmak'. Oraya gitme eylemi için <strong>ZU</strong>.","nach":"<strong>NACH</strong> şehirlere ve ülkelere — kişilere gidişte <strong>ZU</strong>.","mit":"<strong>MIT</strong> 'birlikte' — nereye gittiğin belirsiz."},rule:"ZU = bir kişiye doğru gitmek. ZU meiner Freundin, ZU dem Arzt."},
+  {de:["Wir fahren "," Berlin."],tr:["Berlin'e ","gidiyoruz."],correct:"nach",cat:"Şehre gidiş — nach",options:["nach","zu","in","aus"],wrongExp:{"zu":"<strong>ZU</strong> kişilere veya belirli yerlere. Şehir adlarında <strong>NACH</strong>.","in":"<strong>IN die Stadt</strong> 'şehrin içine'. Hedef şehir için <strong>NACH Berlin</strong>.","aus":"<strong>AUS</strong> 'çıkış/köken' — gidişi değil gelişi anlatır."},rule:"NACH + şehir/ülke = oraya gitmek. NACH Berlin, NACH Deutschland."},
+  {de:["Der Laden ist "," 20 Uhr geöffnet."],tr:["Dükkan saat 20'","ye kadar açık."],correct:"bis",cat:"Süre sınırı — bis",options:["bis","nach","seit","um"],wrongExp:{"nach":"<strong>NACH 20 Uhr</strong> = 'saat 20'den sonra' — yanlış anlam.","seit":"<strong>SEIT</strong> '-den beri' — bitiş saatini vermez.","um":"<strong>UM 20 Uhr</strong> = 'saat 20'de (tam o an)'. Bitiş için <strong>BIS</strong>."},rule:"BIS = -e kadar (bitiş). BIS 20 Uhr = saat 20'ye kadar."},
+  {de:["Er hat das "," Fleiß geschafft."],tr:["Bunu çalışkanlığı ","sayesinde başardı."],correct:"durch",cat:"Sebep/araç — durch",options:["durch","mit","für","von"],wrongExp:{"mit":"<strong>MIT</strong> somut araçlarla. Soyut sebep için <strong>DURCH</strong>.","für":"<strong>FÜR</strong> 'için' — sebebi değil amacı anlatır.","von":"<strong>VON</strong> 'tarafından/kökenden' — neden/araç anlatmaz."},rule:"DURCH = yoluyla, sayesinde. DURCH Fleiß, DURCH Glück."},
+  {de:[""," dem Schlafengehen putze ich die Zähne."],tr:["Uyumadan ","önce dişlerimi fırçalarım."],correct:"Vor",cat:"Zaman sırası — vor",options:["Vor","Nach","Bei","Seit"],wrongExp:{"Nach":"<strong>NACH dem Schlafengehen</strong> = 'uyuduktan sonra' — tam tersi.","Bei":"<strong>BEI</strong> 'yanında/-de' — zaman sırası anlatmaz.","Seit":"<strong>SEIT</strong> '-den beri' — önce/sonra değil, süre belirtir."},rule:"VOR + isim = -den önce. VOR dem Essen, VOR dem Schlafengehen."},
+  {de:["Ich lerne "," die Prüfung."],tr:["Sınav ","için çalışıyorum."],correct:"für",cat:"Amaç — für",options:["für","zu","auf","nach"],wrongExp:{"zu":"<strong>ZU</strong> yön bildirir.","auf":"Bazı kalıplarda kullanılır ama <strong>FÜR</strong> genel ve yaygın.","nach":"<strong>NACH</strong> yön veya 'sonra'."},rule:"FÜR = için (amaç). Ich lerne FÜR die Prüfung."},
+  {de:["Er wohnt "," 2020 in Berlin."],tr:["2020'den beri Berlin'de ","oturuyor."],correct:"seit",cat:"Başlangıç — seit",options:["seit","bis","vor","nach"],wrongExp:{"bis":"<strong>BIS 2020</strong> = '2020'ye kadar oturdu (sonra çıktı)'. Burada hâlâ oturuyor.","vor":"<strong>VOR 2020</strong> = '2020'den önce'.","nach":"<strong>NACH 2020</strong> = '2020'den sonra'."},rule:"SEIT = -den beri (devam ediyor). SEIT 2020, SEIT drei Jahren."},
+  {de:["Sie geht "," ihren Schlüssel aus dem Haus."],tr:["Anahtarı ","olmadan evden çıkıyor."],correct:"ohne",cat:"Yokluk — ohne",options:["ohne","mit","bei","für"],wrongExp:{"mit":"<strong>MIT ihrem Schlüssel</strong> = 'anahtarıyla birlikte' — tam tersi. Anahtar KALMIS.","bei":"<strong>BEI</strong> 'yanında olmak' — yokluğu anlatmaz.","für":"<strong>FÜR</strong> 'için' — yokluğu anlatmaz."},rule:"OHNE = -sız/-siz, olmadan. OHNE Schlüssel, OHNE Geld."},
+  {de:["Ich trinke Wasser "," der Flasche."],tr:["Şişe","den su içiyorum."],correct:"aus",cat:"İçinden çıkış — aus",options:["aus","von","mit","durch"],wrongExp:{"von":"<strong>VON</strong> ayrılma/köken. Bir kabın içinden almak için <strong>AUS</strong>.","mit":"<strong>MIT</strong> 'ile birlikte' — içmek değil.","durch":"<strong>DURCH</strong> 'içinden geçmek' — şişeden yudumlamak değil."},rule:"AUS = bir kabın içinden almak. AUS der Flasche, AUS dem Glas."},
+  {de:["Sie arbeitet "," einer kleinen Firma."],tr:["Küçük bir firmada ","çalışıyor."],correct:"bei",cat:"İşyeri — bei",options:["bei","in","für","mit"],wrongExp:{"in":"<strong>IN</strong> fiziksel konum. İş yeri belirtmek için standart kullanım <strong>BEI</strong>.","für":"<strong>FÜR eine Firma</strong> = 'bir firma için' — çalıştığı yeri doğrudan belirtmez.","mit":"<strong>MIT</strong> 'ile/birlikte' — iş yeri anlatmaz."},rule:"BEI = bir firmada çalışmak. BEI Google, BEI einer Firma."},
+  {de:["Ich fahre "," meiner Schwester."],tr:["Kız kardeşimle birlikte ","gidiyorum."],correct:"mit",cat:"Refakat — mit",options:["mit","bei","zu","für"],wrongExp:{"bei":"<strong>BEI</strong> 'yanında olmak' — birlikte gitmek değil.","zu":"<strong>ZU meiner Schwester</strong> = 'kız kardeşimin yanına gidiyorum' — ona doğru, birlikte değil.","für":"<strong>FÜR meine Schwester</strong> = 'kız kardeşim için' — birlikte gitmek değil."},rule:"MIT = birlikte, eşliğinde. MIT meiner Schwester = kız kardeşimle."},
+];
+
+const PREFIX_DESC = {
+  "aus":"dışarı / out","ab":"uzaklaş / away","an":"yaklaş / on·to",
+  "auf":"yukarı·aç / up·open","be":"(güçlendirici önek)","ein":"içeri / in",
+  "er":"(tamamlayıcı önek)","fertig":"hazır·bitti","fort":"ileri / forward",
+  "los":"serbest / loose","mit":"birlikte / together","schief":"eğri / crooked",
+  "statt":"yer / instead","teil":"parça·pay / part","ver":"(dönüşüm öneki)",
+  "vor":"önce·önünde / before","wider":"karşı / against","zu":"doğru·kapat / towards·close",
+  "Bahn":"tren yolu / rail","Leben":"yaşam / life","Spülen":"yıkamak / rinse","Zeit":"zaman / time"
+};
+const WORD_PARTS = {
+  "abfahren":{p:"ab",pm:"uzaklaş",b:"fahren",bm:"araç sürmek"},
+  "abgeben":{p:"ab",pm:"uzaklaş",b:"geben",bm:"vermek"},
+  "abholen":{p:"ab",pm:"uzaklaş",b:"holen",bm:"almak / getirmek"},
+  "anbieten":{p:"an",pm:"yaklaş",b:"bieten",bm:"teklif etmek"},
+  "anfangen":{p:"an",pm:"yaklaş",b:"fangen",bm:"yakalamak"},
+  "ankommen":{p:"an",pm:"hedefe",b:"kommen",bm:"gelmek"},
+  "anklicken":{p:"an",pm:"üstüne",b:"klicken",bm:"klik sesi"},
+  "ankreuzen":{p:"an",pm:"üstüne",b:"kreuzen",bm:"haç / çarpı koymak"},
+  "anmachen":{p:"an",pm:"aç / on",b:"machen",bm:"yapmak"},
+  "anmelden":{p:"an",pm:"kaydet",b:"melden",bm:"bildirmek"},
+  "anrufen":{p:"an",pm:"birine",b:"rufen",bm:"bağırmak / çağırmak"},
+  "anziehen":{p:"an",pm:"üstüne",b:"ziehen",bm:"çekmek"},
+  "aufhören":{p:"auf",pm:"dur / stop",b:"hören",bm:"duymak"},
+  "aufmachen":{p:"auf",pm:"aç / open",b:"machen",bm:"yapmak"},
+  "aufstehen":{p:"auf",pm:"yukarı",b:"stehen",bm:"ayakta durmak"},
+  "ausfüllen":{p:"aus",pm:"dışarı",b:"füllen",bm:"doldurmak (fill)"},
+  "ausmachen":{p:"aus",pm:"kapat / off",b:"machen",bm:"yapmak"},
+  "aussehen":{p:"aus",pm:"dışarı",b:"sehen",bm:"görmek (see)"},
+  "aussteigen":{p:"aus",pm:"dışarı",b:"steigen",bm:"tırmanmak / çıkmak"},
+  "einsteigen":{p:"ein",pm:"içeri",b:"steigen",bm:"tırmanmak / çıkmak"},
+  "ausziehen":{p:"aus",pm:"dışarı",b:"ziehen",bm:"çekmek"},
+  "ausräumen":{p:"aus",pm:"dışarı",b:"räumen",bm:"düzenlemek"},
+  "einräumen":{p:"ein",pm:"içeri",b:"räumen",bm:"düzenlemek"},
+  "ausleihen":{p:"aus",pm:"dışarı",b:"leihen",bm:"ödünç vermek"},
+  "beantworten":{p:"be",pm:"(güçl.)",b:"antworten",bm:"cevap vermek"},
+  "besichtigen":{p:"be",pm:"(güçl.)",b:"Sicht",bm:"görüş (sight)"},
+  "besuchen":{p:"be",pm:"(güçl.)",b:"suchen",bm:"aramak"},
+  "bestehen":{p:"be",pm:"(güçl.)",b:"stehen",bm:"ayakta durmak"},
+  "besitzen":{p:"be",pm:"(güçl.)",b:"sitzen",bm:"oturmak"},
+  "erklären":{p:"er",pm:"(tamam.)",b:"klären",bm:"netleştirmek (clear)"},
+  "erzählen":{p:"er",pm:"(tamam.)",b:"zählen",bm:"saymak"},
+  "fertigmachen":{p:"fertig",pm:"hazır·bitti",b:"machen",bm:"yapmak"},
+  "fortsetzen":{p:"fort",pm:"ileri",b:"setzen",bm:"koymak"},
+  "loswerden":{p:"los",pm:"serbest",b:"werden",bm:"olmak"},
+  "mitmachen":{p:"mit",pm:"birlikte",b:"machen",bm:"yapmak"},
+  "mitnehmen":{p:"mit",pm:"birlikte",b:"nehmen",bm:"almak"},
+  "schiefgehen":{p:"schief",pm:"eğri",b:"gehen",bm:"gitmek"},
+  "stattfinden":{p:"statt",pm:"yer",b:"finden",bm:"bulmak"},
+  "teilnehmen":{p:"teil",pm:"parça·pay",b:"nehmen",bm:"almak"},
+  "verabreden":{p:"ver",pm:"(dönüş.)",b:"reden",bm:"konuşmak"},
+  "verkaufen":{p:"ver",pm:"(dönüş.)",b:"kaufen",bm:"satın almak"},
+  "verpassen":{p:"ver",pm:"(olumsuz)",b:"passen",bm:"geçmek (pass)"},
+  "vermissen":{p:"ver",pm:"(olumsuz)",b:"missen",bm:"özlemek (miss)"},
+  "vorhaben":{p:"vor",pm:"önünde",b:"haben",bm:"sahip olmak"},
+  "widersprechen":{p:"wider",pm:"karşı",b:"sprechen",bm:"konuşmak"},
+  "zuhören":{p:"zu",pm:"birine",b:"hören",bm:"duymak"},
+  "zumachen":{p:"zu",pm:"kapat",b:"machen",bm:"yapmak"},
+  "Abfahrt":{p:"ab",pm:"uzaklaş",b:"Fahrt",bm:"yolculuk"},
+  "Absender":{p:"ab",pm:"uzaklaş",b:"Sender",bm:"gönderen"},
+  "Anfang":{p:"an",pm:"yaklaş",b:"Fang",bm:"yakalama / tutuş"},
+  "Ankunft":{p:"an",pm:"hedefe",b:"Kunft",bm:"geliş (kommen'den)"},
+  "Anmeldung":{p:"an",pm:"kaydet",b:"Meldung",bm:"bildirim"},
+  "Anrede":{p:"an",pm:"birine",b:"Rede",bm:"konuşma / söylev"},
+  "Anruf":{p:"an",pm:"birine",b:"Ruf",bm:"çağrı"},
+  "Ansage":{p:"an",pm:"herkese",b:"Sage",bm:"söylem / duyuru"},
+  "Anschluss":{p:"an",pm:"bağla",b:"Schluss",bm:"son / bağlantı ucu"},
+  "Aufgabe":{p:"auf",pm:"yukarıdan",b:"Gabe",bm:"verilen şey"},
+  "Aufzug":{p:"auf",pm:"yukarı",b:"Zug",bm:"çekiş"},
+  "Ausgang":{p:"aus",pm:"dışarı",b:"Gang",bm:"koridor / geçit"},
+  "Ausland":{p:"aus",pm:"dışarı",b:"Land",bm:"ülke (land)"},
+  "Aussage":{p:"aus",pm:"dışarı",b:"Sage",bm:"söylem"},
+  "Ausweis":{p:"aus",pm:"dışarı·göster",b:"Weis",bm:"gösterme"},
+  "Bahnhof":{p:"Bahn",pm:"tren yolu",b:"Hof",bm:"avlu / alan"},
+  "Einladung":{p:"ein",pm:"içeri",b:"Ladung",bm:"yük / yükleme"},
+  "Lebensmittel":{p:"Leben",pm:"yaşam",b:"Mittel",bm:"araç / yol"},
+  "Spülmaschine":{p:"Spülen",pm:"yıkamak",b:"Maschine",bm:"makine"},
+  "Zeitung":{p:"Zeit",pm:"zaman",b:"-ung",bm:"(isim eki)"},
+};
+
+// ══════════════════════════════════════════
+//  NAVİGASYON
+// ══════════════════════════════════════════
+const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
+  'listScreen','learnScreen','learnDoneScreen','edatScreen','edatDoneScreen',
+  'gramerScreen','gramerTopicScreen','gramerTestScreen','gramerTestDoneScreen',
+  'artikelScreen','artikelDoneScreen','pluralScreen','pluralDoneScreen',
+  'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen'];
+
+function showScreen(id){
+  ALL_SCREENS.forEach(s=>{ document.getElementById(s).style.display = s===id?'block':'none'; });
+  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen'].includes(id);
+  document.getElementById('progWrap').style.display = showProg?'block':'none';
+  if(id==='homeScreen'){ setHeader('🇩🇪 Almanca', false); document.getElementById('headerStats').style.display='none'; renderHome(); }
+}
+
+// Ana ekran panelini güncelle (seri, XP, hedef, zayıf kelime butonu)
+function renderHome(){
+  ensureDay();
+  document.getElementById('dStreak').textContent=DB.streak.cur;
+  document.getElementById('dXp').textContent=DB.xp;
+  const studied=vocabAll().filter(w=>srsLevel(w.de)>=0).length;
+  document.getElementById('dMastered').textContent=studied;
+  const goal=DB.daily.goal, today=DB.daily.xp;
+  document.getElementById('dGoalFill').style.width=Math.min(100,Math.round(today/goal*100))+'%';
+  document.getElementById('dGoalLbl').textContent= today>=goal
+    ? '✅ Bugünkü hedef tamam! ('+today+'/'+goal+' XP)'
+    : 'Bugünkü hedef: '+today+' / '+goal+' XP';
+  const due=dueCount(), cta=document.getElementById('dCta');
+  if(due>0){ cta.className='dash-cta review'; cta.style.display='block'; cta.disabled=false;
+    cta.textContent='🩹 '+due+' kelime tekrar zamanı — Başla'; }
+  else { const anySeen=vocabAll().some(w=>srsLevel(w.de)>=0);
+    cta.className='dash-cta calm'; cta.style.display='block'; cta.disabled=true;
+    cta.textContent=anySeen?'🎉 Tekrar bekleyen kelime yok — harikasın!':'👋 Başlamak için Öğrenme Modu’na gir'; }
+}
+
+function setHeader(logo, showStats, s1='', s2='', s3=''){
+  document.getElementById('headerLogo').textContent = logo;
+  const hs = document.getElementById('headerStats');
+  hs.style.display = showStats?'flex':'none';
+  if(showStats){
+    document.getElementById('hs1').innerHTML = s1;
+    document.getElementById('hs2').innerHTML = s2;
+    const h3 = document.getElementById('hs3');
+    if(s3){ h3.innerHTML=s3; h3.style.display='flex'; } else { h3.style.display='none'; }
+  }
+}
+
+function setProgress(pct, lbl){
+  document.getElementById('progFill').style.width = pct+'%';
+  document.getElementById('progLbl').textContent = lbl||'';
+}
+
+function goHome(){ showScreen('homeScreen'); closeHint(); renderHome(); }
+
+// ── Kategori ──────────────────────────────
+let pendingMode = null;
+let activeCat = null;
+
+function goCat(mode){
+  pendingMode = mode;
+  const titles = {game:'Kategori Seç → Oyun', list:'Kategori Seç → Liste', learn:'Kategori Seç → Öğrenme'};
+  document.getElementById('catTitle').textContent = titles[mode]||'Kategori Seç';
+  showScreen('catScreen');
+}
+
+function catGo(){
+  if(pendingMode==='game') startGame();
+  else if(pendingMode==='list') openList();
+  else if(pendingMode==='learn') startLearn();
+}
+
+(function buildCats(){
+  const g = document.getElementById('catGrid');
+  const total = Object.values(CATS).reduce((s,c)=>s+c.words.length,0);
+  const all = mkCatCard('🌍','Hepsi',total+' kelime','all');
+  all.onclick = ()=>selCat(null,all);
+  g.appendChild(all);
+  for(const [n,d] of Object.entries(CATS)){
+    const c = mkCatCard(d.emoji,n,d.words.length+' kelime');
+    c.onclick = ()=>selCat(n,c);
+    g.appendChild(c);
+  }
+  all.click();
+})();
+
+function mkCatCard(emoji,name,count,extra=''){
+  const d = document.createElement('div');
+  d.className = 'cat-card'+(extra?' '+extra:'');
+  d.innerHTML = `<div class="cc-emoji">${emoji}</div><div class="cc-name">${name}</div><div class="cc-count">${count}</div>`;
+  return d;
+}
+function selCat(name,card){
+  document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('selected'));
+  card.classList.add('selected');
+  activeCat = name;
+}
+
+function getWords(){
+  return activeCat===null
+    ? Object.values(CATS).flatMap(c=>[...c.words])
+    : [...CATS[activeCat].words];
+}
+
+// ══════════════════════════════════════════
+//  OYUN (4'lü eşleştirme)
+// ══════════════════════════════════════════
+let pool=[], roundWords=[], gTotal=0, gDone=0, gScore=0, gStreak=0, gMaxStreak=0, gLives=5;
+let selDE=null, selTR=null, hintTimer=null;
+
+function startGame(){
+  pool = getWords(); shuffle(pool);
+  gTotal=pool.length; gDone=0; gScore=0; gStreak=0; gMaxStreak=0; gLives=5;
+  setHeader('🎮 Eşleştirme',true,'🔥 '+gStreak,'❤️ '+gLives,'⭐ '+gScore);
+  setProgress(0,'');
+  showScreen('gameScreen');
+  loadRound();
+}
+
+function loadRound(){
+  selDE=selTR=null;
+  roundWords = pool.splice(0,5);
+  document.getElementById('gameLabel').textContent=(activeCat||'Hepsi')+' • '+(gDone+roundWords.length)+' / '+gTotal;
+  setProgress(gDone/gTotal*100,'');
+  renderGame();
+}
+
+function renderGame(){
+  const cDE=document.getElementById('colDE'), cTR=document.getElementById('colTR');
+  cDE.innerHTML=''; cTR.innerHTML='';
+  const trOrd = roundWords.map((w,i)=>({tr:w.tr,idx:i}));
+  shuffle(trOrd);
+  roundWords.forEach((w,i)=>cDE.appendChild(mkWCard(w.de,'de',i)));
+  trOrd.forEach(it=>cTR.appendChild(mkWCard(it.tr,'tr',it.idx)));
+}
+
+function mkWCard(text,side,idx){
+  const d=document.createElement('div');
+  d.className='word-card'; d.textContent=text;
+  d.dataset.side=side; d.dataset.idx=idx;
+  d.onclick=()=>onWCard(d);
+  return d;
+}
+
+function onWCard(card){
+  if(card.classList.contains('matched')||card.classList.contains('wrong')) return;
+  const side=card.dataset.side, idx=parseInt(card.dataset.idx);
+  if(side==='de'){
+    clearSel('de');
+    if(selDE&&selDE.el===card){selDE=null;return;}
+    card.classList.add('selected'); selDE={el:card,idx};
+  } else {
+    clearSel('tr');
+    if(selTR&&selTR.el===card){selTR=null;return;}
+    card.classList.add('selected'); selTR={el:card,idx};
+  }
+  if(selDE&&selTR) evalGame();
+}
+
+function clearSel(side){ const p=side==='de'?selDE:selTR; if(p) p.el.classList.remove('selected'); }
+
+function evalGame(){
+  const de=selDE, tr=selTR; selDE=selTR=null;
+  if(de.idx===tr.idx){
+    de.el.classList.remove('selected'); tr.el.classList.remove('selected');
+    de.el.classList.add('matched'); tr.el.classList.add('matched');
+    gStreak++; if(gStreak>gMaxStreak) gMaxStreak=gStreak;
+    gScore+=10+(gStreak>1?gStreak*2:0); gDone++;
+    tick(true,3); const mw=roundWords[de.idx]; if(mw)srsUpdate(mw.de,true,mw.tricky);
+    setHeader('🎮 Eşleştirme',true,'🔥 '+gStreak,'❤️ '+gLives,'⭐ '+gScore);
+    burst(de.el); burst(tr.el);
+    if(document.querySelectorAll('#colDE .matched').length===roundWords.length) setTimeout(onRoundDone,550);
+  } else {
+    de.el.classList.add('wrong'); tr.el.classList.add('wrong');
+    gStreak=0; gLives=Math.max(0,gLives-1);
+    setHeader('🎮 Eşleştirme',true,'🔥 '+gStreak,'❤️ '+gLives,'⭐ '+gScore);
+    const ww=roundWords[de.idx]; if(ww){srsUpdate(ww.de,false,ww.tricky);showHint(ww.de,ww.h);} registerStudy();
+    setTimeout(()=>{ de.el.classList.remove('wrong','selected'); tr.el.classList.remove('wrong','selected'); },500);
+  }
+}
+
+function onRoundDone(){
+  closeHint();
+  setProgress(gDone/gTotal*100,'');
+  if(pool.length===0){ showGameDone(); return; }
+  const emojis=['🎉','🔥','⚡','🌟','💪','🎯','✨'];
+  document.getElementById('mEmoji').textContent=emojis[Math.floor(Math.random()*emojis.length)];
+  document.getElementById('mTitle').textContent=gStreak>=4?'Muhteşem Seri! 🔥':'Harika!';
+  document.getElementById('mSub').textContent=pool.length+' kelime daha kaldı • '+gScore+' puan';
+  document.getElementById('modalOverlay').classList.add('show');
+}
+function nextRound(){ document.getElementById('modalOverlay').classList.remove('show'); loadRound(); }
+function showGameDone(){
+  document.getElementById('modalOverlay').classList.remove('show');
+  document.getElementById('gdScore').textContent=gScore;
+  document.getElementById('gdStreak').textContent=gMaxStreak;
+  document.getElementById('gdWords').textContent=gTotal;
+  showScreen('gameDoneScreen');
+  setProgress(100,'');
+  for(let i=0;i<80;i++) setTimeout(rainP,i*25);
+}
+
+function showHint(word,hint){
+  clearTimeout(hintTimer);
+  document.getElementById('hbWord').textContent='💡 '+word;
+  document.getElementById('hbText').textContent=hint||'Bu kelimeyi aklında tut!';
+  document.getElementById('hintBar').classList.add('show');
+  hintTimer=setTimeout(closeHint,7000);
+}
+function closeHint(){ clearTimeout(hintTimer); document.getElementById('hintBar').classList.remove('show'); }
+
+// ══════════════════════════════════════════
+//  LİSTE
+// ══════════════════════════════════════════
+let listCat=null, trHidden=false;
+
+function openList(){
+  listCat = activeCat; trHidden=false;
+  document.getElementById('toggleBtn').textContent='👁 Türkçeyi Gizle';
+  buildListTabs(); renderList();
+  showScreen('listScreen');
+  document.getElementById('progWrap').style.display='none';
+}
+
+function buildListTabs(){
+  const tabs=document.getElementById('listCatTabs'); tabs.innerHTML='';
+  const names=[null,...Object.keys(CATS)];
+  const labels=['🌍 Hepsi',...Object.values(CATS).map(c=>c.emoji+' '+Object.keys(CATS).find(k=>CATS[k]===c))];
+  names.forEach((n,i)=>{
+    const t=document.createElement('div');
+    t.className='ltab'+(listCat===n?' active':'');
+    t.textContent=labels[i];
+    t.onclick=()=>{ listCat=n; document.querySelectorAll('.ltab').forEach((x,j)=>x.classList.toggle('active',j===i)); renderList(); };
+    tabs.appendChild(t);
+  });
+}
+
+function renderList(){
+  const words = listCat===null
+    ? Object.values(CATS).flatMap(c=>c.words)
+    : CATS[listCat].words;
+  document.getElementById('listCount').textContent=words.length+' kelime · bileşik kelimelere tıkla 🔍';
+  const box=document.getElementById('listWords'); box.innerHTML='';
+  words.forEach(w=>{
+    const bare=w.de.replace(/^(die|der|das)\s+/i,'');
+    const parts=WORD_PARTS[bare]||WORD_PARTS[w.de];
+    const wrap=document.createElement('div');
+    const row=document.createElement('div');
+    row.className='word-row'+(parts?' has-parts':'');
+    row.innerHTML=`<div class="word-de">${w.de}${parts?'<span class="row-arrow"> ▼</span>':''}</div><div class="word-divider"></div><div class="word-tr${trHidden?' hidden':''}">${w.tr}</div>`;
+    wrap.appendChild(row);
+    if(parts){
+      const det=document.createElement('div');
+      det.className='word-detail';
+      const sibs=Object.entries(WORD_PARTS).filter(([k,v])=>v.p===parts.p&&k!==bare).slice(0,8);
+      const sibHtml=sibs.length?`<div class="sib-title">"${parts.p}" önekini paylaşan diğer kelimeler:</div><div class="sib-list">${sibs.map(([k,v])=>`<div class="sib-chip">${k} <span>= ${v.b}</span></div>`).join('')}</div>`:'';
+      det.innerHTML=`<div class="parts-row"><div class="part-box"><div class="part-word">${parts.p}</div><div class="part-meaning">${PREFIX_DESC[parts.p]||parts.pm}</div></div><div class="part-op">+</div><div class="part-box"><div class="part-word">${parts.b}</div><div class="part-meaning">${parts.bm}</div></div><div class="part-op">=</div><div class="part-box part-result"><div class="part-word">${bare}</div><div class="part-meaning">${w.tr}</div></div></div>${sibHtml}`;
+      row.onclick=()=>{ const open=det.classList.toggle('show'); const a=row.querySelector('.row-arrow'); if(a) a.textContent=open?' ▲':' ▼'; };
+      wrap.appendChild(det);
+    }
+    box.appendChild(wrap);
+  });
+}
+
+function toggleTR(){
+  trHidden=!trHidden;
+  document.getElementById('toggleBtn').textContent=trHidden?'👁 Türkçeyi Göster':'👁 Türkçeyi Gizle';
+  document.querySelectorAll('.word-tr').forEach(el=>el.classList.toggle('hidden',trHidden));
+}
+
+// ══════════════════════════════════════════
+//  ÖĞRENME MODU
+// ══════════════════════════════════════════
+let lWords=[], lState={}, lQueue=[], lTotal=0, lCorrect=0, lWrong=0, learnTitle='🧠 Öğrenme';
+
+// Zayıf-önce sıralama: hatalar → yeni → tekrarı gelenler → bilinenler
+function learnPriority(w){
+  if(DB.mistakes.includes(w.de))return 0;
+  const lv=srsLevel(w.de);
+  if(lv<0)return 1;
+  if(isDue(w.de))return 2;
+  return 3+lv;
+}
+
+function startLearn(customWords,title){
+  learnTitle=title||'🧠 Öğrenme';
+  lWords = customWords ? customWords.slice() : getWords();
+  shuffle(lWords);
+  lWords.sort((a,b)=>learnPriority(a)-learnPriority(b));
+  lState={}; lWords.forEach(w=>{lState[w.de]={mcStreak:0,typeStreak:0,wrongCount:0,phase:'mc'};});
+  lQueue=[...lWords]; lTotal=lWords.length; lCorrect=0; lWrong=0;
+  updateLearnHeader();
+  showScreen('learnScreen');
+  showCard();
+}
+
+// Zayıf Kelimelerim: hatalar + tekrarı gelenler + en zayıflar (en çok 15)
+function startReview(){
+  const ws=weakWords(15);
+  if(ws.length===0){ alert('Şu an tekrar bekleyen kelime yok. 🎉\nÖnce Öğrenme Modu’nda biraz çalış, sonra burası dolacak.'); goHome(); return; }
+  startLearn(ws,'🩹 Tekrar');
+}
+
+function updateLearnHeader(){
+  const learned=lWords.filter(w=>lState[w.de]&&lState[w.de].phase==='done').length;
+  setHeader(learnTitle,true,'✅ '+lCorrect,'❌ '+lWrong,'🏅 '+learned+'/'+lTotal);
+  setProgress(Math.round(learned/lTotal*100), learned+' / '+lTotal+' kelime öğrenildi');
+}
+
+function showCard(){
+  if(lQueue.length===0){
+    const rem=lWords.filter(w=>lState[w.de].phase!=='done');
+    if(rem.length===0){showLearnDone();return;}
+    lQueue=shuffle([...rem]);
+  }
+  const w=lQueue[0], s=lState[w.de];
+  const badge=document.getElementById('phaseBadge');
+  badge.className='phase-badge '+(s.phase==='mc'?'phase-mc':'phase-type');
+  badge.textContent=s.phase==='mc'?'🔤 Çoktan Seçmeli':'⌨️ Yazma Testi';
+  const rb=document.getElementById('retryBadge');
+  rb.style.display=s.wrongCount>0?'inline-block':'none';
+  rb.textContent='🔄 '+(s.wrongCount===1?'1. tekrar':s.wrongCount===2?'2. tekrar':s.wrongCount+'. tekrar');
+  document.getElementById('learnWordDe').textContent=w.de;
+  document.getElementById('fbBox').className='fb-box';
+  document.getElementById('btnNext').className='btn-next';
+  if(s.phase==='mc'){
+    document.getElementById('learnOpts').style.display='grid';
+    document.getElementById('typeFormEl').style.display='none';
+    buildLearnOpts(w);
+  } else {
+    document.getElementById('learnOpts').style.display='none';
+    document.getElementById('typeFormEl').style.display='flex';
+    const inp=document.getElementById('typeInput');
+    inp.value=''; inp.className='type-input'; inp.disabled=false;
+    setTimeout(()=>inp.focus(),50);
+  }
+}
+
+function buildLearnOpts(w){
+  const distractors=lWords.filter(x=>x.de!==w.de).sort(()=>Math.random()-.5).slice(0,3).map(x=>x.tr);
+  const opts=shuffle([w.tr,...distractors]);
+  const g=document.getElementById('learnOpts'); g.innerHTML='';
+  opts.forEach(opt=>{ const b=document.createElement('button'); b.className='opt'; b.textContent=opt; b.onclick=()=>pickMC(opt,b,w); g.appendChild(b); });
+}
+
+function pickMC(chosen,btn,w){
+  document.querySelectorAll('.opt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
+  const ok=chosen===w.tr, s=lState[w.de];
+  registerStudy();
+  if(ok){
+    btn.classList.add('correct'); s.mcStreak++; s.wrongCount=0; lCorrect++; awardXP(5);
+    lQueue.shift();
+    if(s.mcStreak>=2){ s.phase='type'; s.typeStreak=0; lQueue.splice(Math.min(8,lQueue.length),0,w); showLFb(true,w,`Harika! <strong>${w.de}</strong> artık yazma testine geçiyor ✍️`); }
+    else { lQueue.splice(Math.min(10,lQueue.length),0,w); showLFb(true,w,`Doğru! ${2-s.mcStreak} kez daha doğru yaparsan yazma testine geçer.`); }
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.opt').forEach(b=>{if(b.textContent===w.tr)b.classList.add('correct');});
+    s.mcStreak=0; s.wrongCount++; lWrong++; srsUpdate(w.de,false,w.tricky);
+    lQueue.shift();
+    const pos=s.wrongCount===1?2:s.wrongCount===2?5:8;
+    lQueue.splice(Math.min(pos,lQueue.length),0,w);
+    showLFb(false,w,`Doğru cevap: <strong>${w.tr}</strong>`,w.h);
+  }
+  updateLearnHeader();
+  document.getElementById('btnNext').className='btn-next show';
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&document.getElementById('typeFormEl').style.display!=='none'){
+    const inp=document.getElementById('typeInput');
+    if(!inp.disabled) checkType();
+  }
+});
+
+function checkType(){
+  const w=lQueue[0], s=lState[w.de];
+  const inp=document.getElementById('typeInput');
+  const raw=inp.value.trim().toLowerCase(); if(!raw){inp.focus();return;}
+  const alts=w.tr.split('/').map(a=>a.trim().toLowerCase());
+  const ok=alts.some(a=>raw===a||a.startsWith(raw)||raw.startsWith(a.split(' ')[0]));
+  inp.disabled=true; lQueue.shift(); registerStudy();
+  if(ok){
+    inp.className='type-input t-ok'; s.typeStreak++; s.wrongCount=0; lCorrect++;
+    if(s.typeStreak>=2){ s.phase='done'; srsUpdate(w.de,true,w.tricky); awardXP(15); showLFb(true,w,`Mükemmel! <strong>${w.de}</strong> tamamen öğrenildi! 🏅`); }
+    else { awardXP(5); lQueue.splice(Math.min(12,lQueue.length),0,w); showLFb(true,w,'Doğru! Bir kez daha doğru yazarsan öğrenilmiş sayılır.'); }
+  } else {
+    inp.className='type-input t-err'; s.typeStreak=0; s.wrongCount++; lWrong++; srsUpdate(w.de,false,w.tricky);
+    const pos=s.wrongCount===1?2:s.wrongCount===2?5:8;
+    lQueue.splice(Math.min(pos,lQueue.length),0,w);
+    showLFb(false,w,`Doğru yanıt: <strong>${w.tr}</strong>`,w.h);
+  }
+  updateLearnHeader();
+  document.getElementById('btnNext').className='btn-next show';
+}
+
+function showLFb(ok,w,msg,hint){
+  const b=document.getElementById('fbBox');
+  b.className='fb-box show '+(ok?'fb-ok':'fb-err');
+  document.getElementById('fbTitle').className='fb-title '+(ok?'fb-c':'fb-w');
+  document.getElementById('fbTitle').textContent=ok?'✅ Doğru!':'❌ Yanlış';
+  document.getElementById('fbBody').innerHTML=msg;
+  const h=document.getElementById('fbHint');
+  if(hint){h.className='fb-hint show';h.textContent='💡 '+hint;}else{h.className='fb-hint';}
+}
+
+function nextCard(){ document.getElementById('fbBox').className='fb-box'; document.getElementById('btnNext').className='btn-next'; showCard(); }
+
+function showLearnDone(){
+  document.getElementById('ldLearned').textContent=lTotal;
+  document.getElementById('ldCorrect').textContent=lCorrect;
+  document.getElementById('ldWrong').textContent=lWrong;
+  document.getElementById('ldSub').textContent=lTotal+' kelimeyi öğrenmek için '+(lCorrect+lWrong)+' yanıt verdin.';
+  showScreen('learnDoneScreen');
+  setProgress(100,lTotal+' / '+lTotal+' kelime öğrenildi');
+  for(let i=0;i<80;i++) setTimeout(rainP,i*25);
+}
+
+// ══════════════════════════════════════════
+//  EDAT EGZERSİZİ
+// ══════════════════════════════════════════
+let eQueue=[], eIdx=0, eCorrect=0, eWrong=0;
+
+function startEdat(){
+  eQueue=shuffle([...EDAT_Q]); eIdx=0; eCorrect=0; eWrong=0;
+  setHeader('🔗 Edat',true,'✅ 0','❌ 0');
+  setProgress(0,'0 / '+EDAT_Q.length);
+  showScreen('edatScreen');
+  renderEdatQ();
+}
+
+function renderEdatQ(){
+  const q=eQueue[eIdx];
+  document.getElementById('edatQNum').textContent='Soru '+(eIdx+1)+' / '+EDAT_Q.length;
+  document.getElementById('edatQCat').textContent=q.cat;
+  document.getElementById('edatSentDe').innerHTML=q.de[0]+'<span class="blank">______</span>'+(q.de[1]||'');
+  const trEl=document.getElementById('edatSentTr');
+  trEl.innerHTML=q.tr[0]+(q.tr[1]?`<span class="blank-tr">(${q.tr[1].replace(/^(ten|tan|den|dan|e|a|de|da|ye|ya|i|ı|u|ü)\s/,m=>'<em>-'+m.trim()+'</em> ')})</span>`+(q.tr[2]||''):'');
+  const g=document.getElementById('edatOpts'); g.innerHTML='';
+  shuffle([...q.options]).forEach(opt=>{ const b=document.createElement('button'); b.className='eopt'; b.textContent=opt; b.onclick=()=>pickEdat(opt,b,q); g.appendChild(b); });
+  document.getElementById('expBox').className='exp-box';
+  document.getElementById('edatNext').className='btn-next';
+}
+
+function pickEdat(chosen,btn,q){
+  document.querySelectorAll('.eopt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
+  const ok=chosen.toLowerCase()===q.correct.toLowerCase();
+  tick(ok,8); srsUpdate('edat:'+q.correct.toLowerCase(),ok);
+  if(ok){ btn.classList.add('correct'); eCorrect++; }
+  else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.eopt').forEach(b=>{if(b.textContent.toLowerCase()===q.correct.toLowerCase())b.classList.add('correct');});
+    eWrong++;
+  }
+  setHeader('🔗 Edat',true,'✅ '+eCorrect,'❌ '+eWrong);
+  setProgress(Math.round((eIdx+1)/EDAT_Q.length*100),(eIdx+1)+' / '+EDAT_Q.length);
+  const eb=document.getElementById('expBox');
+  eb.className='exp-box show '+(ok?'exp-ok':'exp-err');
+  document.getElementById('expTitle').className='exp-title '+(ok?'exp-c':'exp-w');
+  document.getElementById('expTitle').innerHTML=ok?'✅ Doğru!':'❌ Yanlış — <strong>'+chosen+'</strong> değil, <strong>'+q.correct+'</strong> gelmeliydi';
+  document.getElementById('expWhy').innerHTML=ok?`<strong>${q.correct}</strong> burada doğru edat.`:(q.wrongExp[chosen]||`<strong>${chosen}</strong> bu cümlede kullanılmaz.`);
+  const er=document.getElementById('expRule');
+  if(!ok){er.style.display='inline-block';er.textContent='💡 '+q.rule;}else{er.style.display='none';}
+  const blank=document.querySelector('.blank'); if(blank){blank.textContent=q.correct;blank.style.color=ok?'var(--green-dark)':'var(--red)';}
+  document.getElementById('edatNext').className='btn-next show';
+}
+
+function edatNextQ(){
+  eIdx++;
+  if(eIdx>=eQueue.length){ showEdatDone(); return; }
+  document.getElementById('expBox').className='exp-box';
+  document.getElementById('edatNext').className='btn-next';
+  renderEdatQ();
+}
+
+function showEdatDone(){
+  const pct=Math.round(eCorrect/EDAT_Q.length*100);
+  document.getElementById('edDC').textContent=eCorrect;
+  document.getElementById('edDW').textContent=eWrong;
+  document.getElementById('edDP').textContent=pct+'%';
+  document.getElementById('edatDoneSub').textContent=EDAT_Q.length+' sorudan '+eCorrect+' tanesini doğru yaptın.';
+  showScreen('edatDoneScreen');
+  setProgress(100,EDAT_Q.length+' / '+EDAT_Q.length);
+}
+
+// ══════════════════════════════════════════
+//  PARTİKÜL
+// ══════════════════════════════════════════
+const PCOLS=['#58CC02','#1CB0F6','#FFC800','#FF4B4B','#CE82FF','#FF9600'];
+function burst(card){
+  const r=card.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
+  for(let i=0;i<12;i++){
+    const p=document.createElement('div'); p.className='particle';
+    const sz=Math.random()*8+4, col=PCOLS[Math.floor(Math.random()*PCOLS.length)];
+    const ang=Math.random()*Math.PI*2, spd=Math.random()*80+35, dur=Math.random()*350+300;
+    const dx=Math.cos(ang)*spd, dy=Math.sin(ang)*spd;
+    p.style.cssText=`width:${sz}px;height:${sz}px;background:${col};left:${cx}px;top:${cy}px;transform:translate(-50%,-50%)`;
+    document.body.appendChild(p);
+    p.animate([{transform:'translate(-50%,-50%) translate(0,0)',opacity:1},{transform:`translate(-50%,-50%) translate(${dx}px,${dy}px) rotate(360deg)`,opacity:0}],{duration:dur,easing:'cubic-bezier(0,.9,.57,1)',fill:'forwards'}).onfinish=()=>p.remove();
+  }
+}
+function rainP(){
+  const p=document.createElement('div'); p.className='particle';
+  const sz=Math.random()*10+5, col=PCOLS[Math.floor(Math.random()*PCOLS.length)];
+  const x=Math.random()*window.innerWidth, dur=Math.random()*1100+700;
+  p.style.cssText=`width:${sz}px;height:${sz}px;background:${col};left:${x}px;top:-10px`;
+  document.body.appendChild(p);
+  p.animate([{transform:'translateY(0) rotate(0deg)',opacity:1},{transform:`translateY(${window.innerHeight+20}px) rotate(540deg)`,opacity:0}],{duration:dur,easing:'linear',fill:'forwards'}).onfinish=()=>p.remove();
+}
+
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+
+// ══════════════════════════════════════════
+//  GRAMER VERİSİ
+// ══════════════════════════════════════════
+const GRAMER_TOPICS = [
+  {
+    id:'sein',
+    title:'Sein & Haben',
+    emoji:'🔑',
+    desc:'Temel yardımcı fiiller',
+    rule:`<span class="r-head">⚡ sein — olmak (düzensiz, ezbere!)</span>
+<table class="r-table"><tr><th>Kişi</th><th>Çekim</th><th>Kişi</th><th>Çekim</th></tr>
+<tr><td>ich</td><td><b>bin</b></td><td>wir</td><td><b>sind</b></td></tr>
+<tr><td>du</td><td><b>bist</b></td><td>ihr</td><td><b>seid</b></td></tr>
+<tr><td>er/sie/es</td><td><b>ist</b></td><td>sie/Sie</td><td><b>sind</b></td></tr></table>
+<span class="r-tip">💡 sein = meslek, kimlik, durum, konum<br>🎯 Ich <b>bin</b> Arzt. · Du <b>bist</b> müde. · Er <b>ist</b> in Berlin.</span>
+<span class="r-head">⚡ haben — sahip olmak</span>
+<table class="r-table"><tr><th>Kişi</th><th>Çekim</th><th>Kişi</th><th>Çekim</th></tr>
+<tr><td>ich</td><td><b>habe</b></td><td>wir</td><td><b>haben</b></td></tr>
+<tr><td>du</td><td><b>hast</b></td><td>ihr</td><td><b>habt</b></td></tr>
+<tr><td>er/sie/es</td><td><b>hat</b></td><td>sie/Sie</td><td><b>haben</b></td></tr></table>
+<span class="r-tip">💡 haben = sahiplik, sınavda not, ailede biri<br>🎯 Ich <b>habe</b> einen Hund. · Er <b>hat</b> Zeit. · Wir <b>haben</b> Hunger.</span>`,
+    qs:[
+      {sent:'Ich ___ Student.',blank:'bin',opts:['bin','bist','ist','sind'],tr:'Ben öğrenciyim.',exp:'ich + sein → bin'},
+      {sent:'Er ___ einen Hund.',blank:'hat',opts:['hat','habe','haben','bist'],tr:'Onun bir köpeği var.',exp:'er + haben → hat'},
+      {sent:'Wir ___ in Berlin.',blank:'sind',opts:['sind','bin','ist','seid'],tr:'Biz Berlin\'deyiz.',exp:'wir + sein → sind'},
+      {sent:'Du ___ eine Schwester.',blank:'hast',opts:['hast','hat','habe','habt'],tr:'Senin bir kız kardeşin var.',exp:'du + haben → hast'},
+      {sent:'Sie (çoğul) ___ Studenten.',blank:'sind',opts:['sind','ist','sein','seid'],tr:'Onlar öğrenci.',exp:'sie (çoğul) + sein → sind'},
+    ]
+  },
+  {
+    id:'nominativ',
+    title:'Nominativ (Özne)',
+    emoji:'📌',
+    desc:'der/die/das, ein/eine/ein — cümlenin öznesi',
+    rule:`<span class="r-tip">🎯 Nominativ = cümlenin öznesi. <b>"Wer?"</b> (Kim?) sorusuna cevap verir.</span>
+<table class="r-table">
+<tr><th></th><th class="r-der">🔵 Maskulin</th><th class="r-die">🔴 Feminin</th><th class="r-das">🟢 Nötr</th><th>Çoğul</th></tr>
+<tr><td>Belirli</td><td class="r-der">der</td><td class="r-die">die</td><td class="r-das">das</td><td>die</td></tr>
+<tr><td>Belirsiz</td><td class="r-der">ein</td><td class="r-die">eine</td><td class="r-das">ein</td><td>—</td></tr>
+<tr><td>Olumsuz</td><td class="r-der">kein</td><td class="r-die">keine</td><td class="r-das">kein</td><td>keine</td></tr>
+</table>
+<span class="r-eg">🔵 <b class="r-der">Der</b> Mann ist Arzt. &nbsp;|&nbsp; 🔴 <b class="r-die">Die</b> Frau ist nett. &nbsp;|&nbsp; 🟢 <b class="r-das">Das</b> Kind schläft.</span>
+<span class="r-tip">💡 Belirsiz artikel = Türkçe "bir": ein Mann = bir adam. Feminin tek farklı: ein<b>e</b>!</span>`,
+    qs:[
+      {sent:'Das ist ___ Mann.',blank:'ein',opts:['ein','eine','einen','einem'],tr:'Bu bir adam.',exp:'Mann = maskulin → belirsiz Nominativ: ein'},
+      {sent:'Das ist ___ Frau.',blank:'eine',opts:['eine','ein','einer','einen'],tr:'Bu bir kadın.',exp:'Frau = feminin → belirsiz Nominativ: eine'},
+      {sent:'___ Hund ist groß.',blank:'Der',opts:['Der','Die','Das','Den'],tr:'Köpek büyük.',exp:'Hund = maskulin → belirli Nominativ: Der'},
+      {sent:'___ Kind schläft.',blank:'Das',opts:['Das','Der','Die','Den'],tr:'Çocuk uyuyor.',exp:'Kind = nötr → belirli Nominativ: Das'},
+      {sent:'___ Lampe ist neu.',blank:'Die',opts:['Die','Der','Das','Den'],tr:'Lamba yeni.',exp:'Lampe = feminin → belirli Nominativ: Die'},
+    ]
+  },
+  {
+    id:'akkusativ',
+    title:'Akkusativ (Nesne)',
+    emoji:'🎯',
+    desc:'der → den, ein → einen — sadece maskulin değişir!',
+    rule:`<span class="r-tip">🎯 Akkusativ = nesne. <b>"Wen / Was?"</b> (Kimi? / Neyi?) sorusuna cevap verir.</span>
+<span class="r-warn">🚨 BÜYÜK KURAL: <b>SADECE MASKULİN</b> değişir! Feminin ve nötr aynen kalır.</span>
+<table class="r-table">
+<tr><th></th><th class="r-der">🔵 Maskulin 🔄</th><th class="r-die">🔴 Feminin ✓</th><th class="r-das">🟢 Nötr ✓</th></tr>
+<tr><td>Belirli</td><td><span class="r-change">der → den</span></td><td class="r-die">die (değişmez)</td><td class="r-das">das (değişmez)</td></tr>
+<tr><td>Belirsiz</td><td><span class="r-change">ein → einen</span></td><td class="r-die">eine (değişmez)</td><td class="r-das">ein (değişmez)</td></tr>
+</table>
+<span class="r-eg">Ich kaufe <b class="r-der">einen</b> Apfel. (Apfel 🔵 mask → <span class="r-change">ein→einen</span>)</span>
+<span class="r-eg">Ich liebe <b class="r-die">die</b> Musik. (Musik 🔴 fem → die, değişmez!)</span>
+<span class="r-eg">Ich sehe <b class="r-das">das</b> Kind. (Kind 🟢 nötr → das, değişmez!)</span>`,
+    qs:[
+      {sent:'Ich kaufe ___ Apfel.',blank:'einen',opts:['einen','ein','eine','einem'],tr:'Ben bir elma alıyorum.',exp:'Apfel = maskulin → belirsiz Akkusativ: einen'},
+      {sent:'Er liebt ___ Frau.',blank:'die',opts:['die','der','das','den'],tr:'O kadını seviyor.',exp:'Frau = feminin → belirli Akkusativ: die (değişmez)'},
+      {sent:'Wir haben ___ Tisch.',blank:'einen',opts:['einen','ein','einer','einem'],tr:'Bizim bir masamız var.',exp:'Tisch = maskulin → belirsiz Akkusativ: einen'},
+      {sent:'Sie kauft ___ Kleid.',blank:'ein',opts:['ein','einen','eine','einem'],tr:'O bir elbise alıyor.',exp:'Kleid = nötr → belirsiz Akkusativ: ein (değişmez)'},
+      {sent:'Ich sehe ___ Kind.',blank:'das',opts:['das','dem','den','die'],tr:'Ben çocuğu görüyorum.',exp:'Kind = nötr → belirli Akkusativ: das (değişmez)'},
+    ]
+  },
+  {
+    id:'dativ',
+    title:'Dativ (Dolaylı Nesne)',
+    emoji:'🔄',
+    desc:'dem/der/dem · einem/einer/einem',
+    rule:`<span class="r-tip">🎯 Dativ = dolaylı nesne + belirli edatlar. <b>"Wem?"</b> (Kime?) sorusuna cevap verir.</span>
+<table class="r-table">
+<tr><th></th><th class="r-der">🔵 Maskulin</th><th class="r-die">🔴 Feminin</th><th class="r-das">🟢 Nötr</th><th>Çoğul</th></tr>
+<tr><td>Belirli</td><td class="r-der">dem</td><td class="r-die">der</td><td class="r-das">dem</td><td>den+n</td></tr>
+<tr><td>Belirsiz</td><td class="r-der">einem</td><td class="r-die">einer</td><td class="r-das">einem</td><td>—</td></tr>
+</table>
+<span class="r-warn">⚠️ Feminin Dativ = <b class="r-die">der</b> → Nominativ ile karıştırma! (der Mann ≠ der Frau)</span>
+<span class="r-eg">Ich helfe <b class="r-der">dem</b> Mann. &nbsp;|&nbsp; Er gibt <b class="r-die">der</b> Frau ein Buch.</span>
+<span class="r-tip">💡 Kısaltmalar: <b>zum</b>=zu+dem · <b>beim</b>=bei+dem · <b>vom</b>=von+dem · <b>zur</b>=zu+der</span>`,
+    qs:[
+      {sent:'Ich helfe ___ Mann.',blank:'dem',opts:['dem','den','der','die'],tr:'Ben adama yardım ediyorum.',exp:'Mann = maskulin → belirli Dativ: dem'},
+      {sent:'Er gibt ___ Frau ein Buch.',blank:'der',opts:['der','die','dem','den'],tr:'O kadına bir kitap veriyor.',exp:'Frau = feminin → belirli Dativ: der'},
+      {sent:'Mit ___ Bus fahre ich.',blank:'dem',opts:['dem','den','der','die'],tr:'Ben otobüsle gidiyorum.',exp:'Bus = maskulin → mit + Dativ: dem'},
+      {sent:'Ich komme aus ___ Türkei.',blank:'der',opts:['der','die','dem','den'],tr:'Ben Türkiye\'den geliyorum.',exp:'Türkei = feminin → aus + Dativ: der'},
+      {sent:'Sie geht zu ___ Arzt.',blank:'dem',opts:['dem','den','der','die'],tr:'O doktora gidiyor.',exp:'Arzt = maskulin → zu + Dativ: dem (zum = zu dem)'},
+    ]
+  },
+  {
+    id:'akk_praep',
+    title:'Edatlar + Akkusativ',
+    emoji:'⚡',
+    desc:'durch · für · gegen · ohne · um · bis',
+    rule:`<span class="r-tip">🎯 Bu edatlar <b>her zaman Akkusativ</b> alır — tek istisna YOK!</span>
+<div class="r-grid2">
+<div class="r-card" style="background:var(--blue-bg);border:1.5px solid var(--blue)">🚇 <b>durch</b> — içinden<br><small style="color:var(--light)">durch den Park</small></div>
+<div class="r-card" style="background:var(--green-bg);border:1.5px solid var(--green)">🎁 <b>für</b> — için<br><small style="color:var(--light)">für meinen Vater</small></div>
+<div class="r-card" style="background:var(--red-bg);border:1.5px solid var(--red)">🚫 <b>ohne</b> — olmadan<br><small style="color:var(--light)">ohne meinen Bruder</small></div>
+<div class="r-card" style="background:var(--yellow-bg);border:1.5px solid var(--yellow)">🕐 <b>um</b> — etrafında/saat<br><small style="color:var(--light)">um den See / um 10 Uhr</small></div>
+<div class="r-card" style="background:var(--purple-bg);border:1.5px solid var(--purple)">⚔️ <b>gegen</b> — karşı<br><small style="color:var(--light)">gegen den Wind</small></div>
+<div class="r-card" style="background:var(--blue-bg);border:1.5px solid var(--blue)">⏱️ <b>bis</b> — kadar<br><small style="color:var(--light)">bis Montag / bis 20 Uhr</small></div>
+</div>
+<span class="r-warn">⚠️ für + maskulin → <span class="r-change">mein → meinen</span> &nbsp;&nbsp;für <b>meinen</b> Vater (Vater = maskulin!)</span>`,
+    qs:[
+      {sent:'Ich kaufe ein Geschenk für ___ Mutter.',blank:'meine',opts:['meine','meiner','meinem','meinen'],tr:'Ben annem için bir hediye alıyorum.',exp:'Mutter = feminin → für + Akkusativ: meine'},
+      {sent:'Wir gehen durch ___ Park.',blank:'den',opts:['den','dem','der','die'],tr:'Biz parkın içinden geçiyoruz.',exp:'Park = maskulin → durch + Akkusativ: den'},
+      {sent:'Ich gehe ohne ___ Bruder.',blank:'meinen',opts:['meinen','meinem','mein','meine'],tr:'Ben erkek kardeşim olmadan gidiyorum.',exp:'Bruder = maskulin → ohne + Akkusativ: meinen'},
+      {sent:'Sie läuft um ___ See.',blank:'den',opts:['den','dem','der','die'],tr:'O gölün etrafında koşuyor.',exp:'See = maskulin → um + Akkusativ: den'},
+      {sent:'Das ist ein Geschenk für ___ Kind.',blank:'das',opts:['das','dem','den','die'],tr:'Bu çocuk için bir hediye.',exp:'Kind = nötr → für + Akkusativ: das (değişmez)'},
+    ]
+  },
+  {
+    id:'dat_praep',
+    title:'Edatlar + Dativ',
+    emoji:'🏠',
+    desc:'aus · bei · mit · nach · seit · von · zu · ab',
+    rule:`<span class="r-tip">🎯 Bu edatlar <b>her zaman Dativ</b> alır — tek istisna YOK!</span>
+<div class="r-grid2">
+<div class="r-card" style="background:var(--blue-bg);border:1.5px solid var(--blue)">🏠 <b>aus</b> — içinden/köken<br><small style="color:var(--light)">aus der Türkei</small></div>
+<div class="r-card" style="background:var(--green-bg);border:1.5px solid var(--green)">👥 <b>bei</b> — yanında/bünyesinde<br><small style="color:var(--light)">bei meinen Eltern · bei Google</small></div>
+<div class="r-card" style="background:var(--purple-bg);border:1.5px solid var(--purple)">🤝 <b>mit</b> — ile/birlikte<br><small style="color:var(--light)">mit dem Bus · mit mir</small></div>
+<div class="r-card" style="background:var(--yellow-bg);border:1.5px solid var(--yellow)">➡️ <b>nach</b> — doğru/sonra<br><small style="color:var(--light)">nach Berlin · nach Hause</small></div>
+<div class="r-card" style="background:var(--red-bg);border:1.5px solid var(--red)">⏳ <b>seit</b> — den beri<br><small style="color:var(--light)">seit 3 Jahren (hâlâ sürüyor!)</small></div>
+<div class="r-card" style="background:var(--blue-bg);border:1.5px solid var(--blue)">📍 <b>zu</b> — birine/bir yere doğru<br><small style="color:var(--light)">zum Arzt · zur Schule</small></div>
+<div class="r-card" style="background:var(--green-bg);border:1.5px solid var(--green)">🔃 <b>von</b> — den/dan/tarafından<br><small style="color:var(--light)">ein Brief von meiner Mutter</small></div>
+<div class="r-card" style="background:var(--purple-bg);border:1.5px solid var(--purple)">📅 <b>ab</b> — dan itibaren<br><small style="color:var(--light)">ab Montag · ab sofort</small></div>
+</div>
+<span class="r-tip">💡 <b>zum</b>=zu+dem · <b>beim</b>=bei+dem · <b>vom</b>=von+dem · <b>zur</b>=zu+der</span>`,
+    qs:[
+      {sent:'Ich fahre mit ___ Auto.',blank:'dem',opts:['dem','den','der','die'],tr:'Ben arabayla gidiyorum.',exp:'Auto = nötr → mit + Dativ: dem'},
+      {sent:'Nach ___ Kurs gehe ich nach Hause.',blank:'dem',opts:['dem','den','der','die'],tr:'Kurstan sonra eve gidiyorum.',exp:'Kurs = maskulin → nach + Dativ: dem'},
+      {sent:'Ich wohne seit ___ Jahr in Berlin.',blank:'einem',opts:['einem','einen','ein','einer'],tr:'Ben bir yıldır Berlin\'de oturuyorum.',exp:'Jahr = nötr → seit + Dativ: einem'},
+      {sent:'Ich bin bei ___ Arzt.',blank:'dem',opts:['dem','den','der','die'],tr:'Ben doktordayım.',exp:'Arzt = maskulin → bei + Dativ: dem (beim = bei dem)'},
+      {sent:'Das Geschenk ist von ___ Mutter.',blank:'meiner',opts:['meiner','meine','meinem','meinen'],tr:'Hediye annemden.',exp:'Mutter = feminin → von + Dativ: meiner'},
+    ]
+  },
+  {
+    id:'wechsel_praep',
+    title:'Wechselpräpositionen',
+    emoji:'↔️',
+    desc:'Wo? (nerede?) → Dativ · Wohin? (nereye?) → Akkusativ',
+    rule:`<span class="r-tip">🎯 9 çift yönlü edat: <b>in · an · auf · über · hinter · neben · unter · vor · zwischen</b></span>
+<div class="r-grid2">
+<div class="r-card" style="background:var(--blue-bg);border:2px solid var(--blue);text-align:center">
+<div style="font-size:1.5rem">📍</div>
+<div class="r-card-title" style="color:#0e8ac7">Wo? (nerede?)</div>
+<div style="font-size:.76rem;color:var(--light)">Hareket yok = konum</div>
+<div style="margin:5px 0;font-size:.85rem">→ <b>DATiV</b></div>
+<div style="font-size:.78rem;font-weight:700;margin:4px 0">im · am · auf dem · an der</div>
+<span class="r-eg">Das Buch liegt <b>auf dem</b> Tisch.</span>
+</div>
+<div class="r-card" style="background:var(--red-bg);border:2px solid var(--red);text-align:center">
+<div style="font-size:1.5rem">🏃→</div>
+<div class="r-card-title" style="color:#c93535">Wohin? (nereye?)</div>
+<div style="font-size:.76rem;color:var(--light)">Hareket var!</div>
+<div style="margin:5px 0;font-size:.85rem">→ <b>AKKUSATiV</b></div>
+<div style="font-size:.78rem;font-weight:700;margin:4px 0">ins · ans · auf den · an die</div>
+<span class="r-eg">Ich lege das Buch <b>auf den</b> Tisch.</span>
+</div>
+</div>
+<span class="r-warn">⚠️ AYNI edat — ama anlam farklı! liegt (duruyor→Wo?) vs. lege (koyuyorum→Wohin?)</span>
+<span class="r-tip">💡 Kısaltma: <b>ins</b>=in+das · <b>ans</b>=an+das · <b>im</b>=in+dem · <b>am</b>=an+dem</span>`,
+    qs:[
+      {sent:'Das Buch liegt auf ___ Tisch. (Wo?)',blank:'dem',opts:['dem','den','der','die'],tr:'Kitap masanın üstünde duruyor.',exp:'Wo? → Dativ → maskulin: dem'},
+      {sent:'Ich lege das Buch auf ___ Tisch. (Wohin?)',blank:'den',opts:['den','dem','der','die'],tr:'Kitabı masanın üstüne koyuyorum.',exp:'Wohin? → Akkusativ → maskulin: den'},
+      {sent:'Die Kinder sind in ___ Garten. (Wo?)',blank:'dem',opts:['dem','den','der','die'],tr:'Çocuklar bahçede.',exp:'Wo? → Dativ → maskulin: dem'},
+      {sent:'Ich hänge das Bild an ___ Wand. (Wohin?)',blank:'die',opts:['die','der','dem','den'],tr:'Resmi duvara asıyorum.',exp:'Wohin? → Akkusativ → feminin: die (değişmez)'},
+      {sent:'Das Bild hängt an ___ Wand. (Wo?)',blank:'der',opts:['der','die','dem','den'],tr:'Resim duvarda asılı.',exp:'Wo? → Dativ → feminin: der'},
+    ]
+  },
+  {
+    id:'modal',
+    title:'Modalverben',
+    emoji:'💪',
+    desc:'müssen · können · wollen · dürfen · möchten · sollen',
+    rule:`<span class="r-tip">🎯 Modal fiil <b>2. sıraya</b> gelir → ana fiil cümle <b>SONUNA</b> gider!</span>
+<span class="r-eg" style="text-align:center;font-size:.9rem">Ich <b style="color:#1CB0F6">muss</b> Deutsch <b style="color:#FF4B4B">lernen</b>. &nbsp;←&nbsp; ana fiil en sona gitti!</span>
+<table class="r-table" style="margin-top:8px">
+<tr><th>Modal</th><th>Anlam</th><th>ich</th><th>du</th><th>er/sie</th><th>wir</th></tr>
+<tr><td>🔴 <b>müssen</b></td><td>zorunda olmak</td><td>muss</td><td>musst</td><td>muss</td><td>müssen</td></tr>
+<tr><td>🟢 <b>können</b></td><td>edebilmek</td><td>kann</td><td>kannst</td><td>kann</td><td>können</td></tr>
+<tr><td>🔵 <b>wollen</b></td><td>istemek</td><td>will</td><td>willst</td><td>will</td><td>wollen</td></tr>
+<tr><td>🟡 <b>dürfen</b></td><td>izni olmak</td><td>darf</td><td>darfst</td><td>darf</td><td>dürfen</td></tr>
+<tr><td>🟣 <b>möchten</b></td><td>kibarca istemek</td><td>möchte</td><td>möchtest</td><td>möchte</td><td>möchten</td></tr>
+</table>
+<span class="r-warn">⚠️ ich ve er/sie aynı! → Er <b>muss</b> / Ich <b>muss</b> (musst/müsst DEĞİL)</span>`,
+    qs:[
+      {sent:'Ich ___ Deutsch lernen.',blank:'muss',opts:['muss','musst','müssen','müsst'],tr:'Ben Almanca öğrenmek zorundayım.',exp:'ich + müssen → muss'},
+      {sent:'Du ___ gut Deutsch sprechen.',blank:'kannst',opts:['kannst','kann','können','könnt'],tr:'Sen iyi Almanca konuşabiliyorsun.',exp:'du + können → kannst'},
+      {sent:'Er ___ nicht rauchen.',blank:'darf',opts:['darf','darfst','dürfen','dürft'],tr:'O sigara içemez.',exp:'er + dürfen → darf'},
+      {sent:'Wir ___ ins Kino gehen.',blank:'wollen',opts:['wollen','will','willst','wollt'],tr:'Biz sinemaya gitmek istiyoruz.',exp:'wir + wollen → wollen'},
+      {sent:'Sie ___ einen Kaffee trinken.',blank:'möchte',opts:['möchte','möchtest','möchten','möchtet'],tr:'O bir kahve içmek istiyor.',exp:'sie (tek) + möchten → möchte'},
+    ]
+  },
+  {
+    id:'trennbar',
+    title:'Trennbare Verben',
+    emoji:'✂️',
+    desc:'Ayrılabilen fiiller — prefix sona gider',
+    rule:`<span class="r-tip">✂️ Fiil ikiye bölünür! Önek <b>cümlenin TAM SONUNA</b> gider.</span>
+<div class="r-grid3" style="margin:8px 0">
+<div class="r-card" style="background:var(--blue-bg);border:2px solid var(--blue)">
+<div style="font-size:1.1rem;text-align:center">auf|stehen</div>
+<span class="r-eg">Ich <b>stehe</b> um 7 Uhr <span style="color:#1CB0F6;font-weight:800">auf</span>.</span>
+</div>
+<div class="r-card" style="background:var(--yellow-bg);border:2px solid var(--yellow)">
+<div style="font-size:1.1rem;text-align:center">an|rufen</div>
+<span class="r-eg">Er <b>ruft</b> sie <span style="color:#b45309;font-weight:800">an</span>.</span>
+</div>
+<div class="r-card" style="background:var(--red-bg);border:2px solid var(--red)">
+<div style="font-size:1.1rem;text-align:center">ein|steigen</div>
+<span class="r-eg">Wir <b>steigen</b> ein. <span style="color:#c93535;font-weight:800">ein</span> sona!</span>
+</div>
+</div>
+<span class="r-warn">⚠️ Perfekt'te önek ortaya girer: auf → <b>auf</b>ge<b>standen</b> · an → <b>an</b>ge<b>rufen</b></span>
+<span class="r-tip">💡 Baskılı sözlükte | işareti gördüğünde: ayrılabilen fiil demek! <b>auf|machen</b>, <b>ein|kaufen</b></span>`,
+    qs:[
+      {sent:'Ich ___ um 7 Uhr auf. (aufstehen)',blank:'stehe',opts:['stehe','stehst','steht','stehen'],tr:'Ben saat 7\'de kalkıyorum.',exp:'ich + aufstehen → stehe (auf sona gitti)'},
+      {sent:'Er ___ seine Mutter an. (anrufen)',blank:'ruft',opts:['ruft','rufst','rufen','ruf'],tr:'O annesini arıyor.',exp:'er + anrufen → ruft (an sona gitti)'},
+      {sent:'Wir ___ das Licht an. (anmachen)',blank:'machen',opts:['machen','macht','machst','mache'],tr:'Biz ışığı açıyoruz.',exp:'wir + anmachen → machen (an sona gitti)'},
+      {sent:'Sie ___ um 8 Uhr mit der Arbeit an. (anfangen)',blank:'fängt',opts:['fängt','fangt','fange','fangen'],tr:'O saat 8\'de işe başlıyor.',exp:'sie + anfangen → fängt (an sona gitti)'},
+      {sent:'Ich ___ in die S-Bahn ein. (einsteigen)',blank:'steige',opts:['steige','steigst','steigt','steigen'],tr:'Ben S-Bahn\'a biniyorum.',exp:'ich + einsteigen → steige (ein sona gitti)'},
+    ]
+  },
+  {
+    id:'perfekt',
+    title:'Perfekt (Geçmiş Zaman)',
+    emoji:'⏰',
+    desc:'haben / sein + Partizip II',
+    rule:`<span class="r-tip">⏰ Perfekt = <b>haben/sein</b> (2. sıra) + <b>Partizip II</b> (cümle SONU)</span>
+<span class="r-eg" style="text-align:center;font-size:.9rem">Ich <b style="color:#1CB0F6">habe</b> Deutsch ge<b>lernt</b>. &nbsp;·&nbsp; Er <b style="color:#FF4B4B">ist</b> nach Berlin ge<b>fahr</b>en.</span>
+<div class="r-grid2" style="margin:7px 0">
+<div class="r-card" style="background:var(--blue-bg);border:2px solid var(--blue)">
+<div class="r-card-title" style="color:#0e8ac7">🔵 haben ile</div>
+<div style="font-size:.74rem;color:var(--light);margin-bottom:5px">çoğu fiil · işlem/eylem</div>
+<div style="font-size:.78rem">lernen → ge<b>lernt</b></div>
+<div style="font-size:.78rem">kaufen → ge<b>kauft</b></div>
+<div style="font-size:.78rem">sehen → ge<b>sehen</b></div>
+</div>
+<div class="r-card" style="background:var(--red-bg);border:2px solid var(--red)">
+<div class="r-card-title" style="color:#c93535">🔴 sein ile</div>
+<div style="font-size:.74rem;color:var(--light);margin-bottom:5px">hareket 🏃 · değişim 🔄</div>
+<div style="font-size:.78rem">gehen → ge<b>gangen</b></div>
+<div style="font-size:.78rem">fahren → ge<b>fahren</b></div>
+<div style="font-size:.78rem">kommen → ge<b>kommen</b></div>
+</div>
+</div>
+<span class="r-warn">⚠️ Düzenli: ge+stamm+<b>t</b> &nbsp;|&nbsp; Düzensiz: ge+stamm+<b>en</b> (ezberlenmeli!)</span>`,
+    qs:[
+      {sent:'Ich ___ Deutsch gelernt.',blank:'habe',opts:['habe','bin','hat','haben'],tr:'Ben Almanca öğrendim.',exp:'lernen → haben ile → ich habe gelernt'},
+      {sent:'Er ___ nach Berlin gefahren.',blank:'ist',opts:['ist','hat','sein','sind'],tr:'O Berlin\'e gitti.',exp:'fahren (hareket) → sein ile → er ist gefahren'},
+      {sent:'Wir ___ einen Film gesehen.',blank:'haben',opts:['haben','sind','habt','seid'],tr:'Biz bir film izledik.',exp:'sehen → haben ile → wir haben gesehen'},
+      {sent:'Sie ___ nach Hause gegangen.',blank:'ist',opts:['ist','hat','sein','sind'],tr:'O eve gitti.',exp:'gehen (hareket) → sein ile → sie ist gegangen'},
+      {sent:'Du ___ gut geschlafen.',blank:'hast',opts:['hast','bist','hat','haben'],tr:'Sen iyi uyudun.',exp:'schlafen → haben ile → du hast geschlafen'},
+    ]
+  },
+  {
+    id:'praeteritum',
+    title:'Präteritum: sein & haben',
+    emoji:'📅',
+    desc:'war · hatte — geçmişte olmak / sahip olmak',
+    rule:`<span class="r-tip">📅 Konuşmada sadece <b>sein</b> ve <b>haben</b> Präteritum kullanır — diğerleri Perfekt!</span>
+<table class="r-table">
+<tr><th>Kişi</th><th>sein → <span style="color:#FF4B4B">war</span></th><th>haben → <span style="color:#1CB0F6">hatte</span></th></tr>
+<tr><td>ich</td><td><span class="r-die">war</span></td><td><span class="r-der">hatte</span></td></tr>
+<tr><td>du</td><td>warst</td><td>hattest</td></tr>
+<tr><td>er/sie/es</td><td><span class="r-die">war</span></td><td><span class="r-der">hatte</span></td></tr>
+<tr><td>wir</td><td>waren</td><td>hatten</td></tr>
+<tr><td>ihr</td><td>wart</td><td>hattet</td></tr>
+<tr><td>sie/Sie</td><td>waren</td><td>hatten</td></tr>
+</table>
+<span class="r-warn">⚠️ ich = er: <b>war</b> / <b>hatte</b> (ikisi aynı — musst/müsst gibi karışma yok burada!)</span>
+<span class="r-eg">Diğer fiiller → Perfekt: Ich <b>habe</b> Deutsch ge<b>lernt</b>. ❌ "Ich lernte" çok yazılı/edebi kalır</span>`,
+    qs:[
+      {sent:'Ich ___ gestern krank.',blank:'war',opts:['war','bin','ist','waren'],tr:'Ben dün hastaydım.',exp:'ich + sein (Präteritum) → war'},
+      {sent:'Er ___ einen Hund.',blank:'hatte',opts:['hatte','hat','hatten','hattest'],tr:'Onun bir köpeği vardı.',exp:'er + haben (Präteritum) → hatte'},
+      {sent:'Wir ___ in Berlin.',blank:'waren',opts:['waren','sind','war','sein'],tr:'Biz Berlin\'deydik.',exp:'wir + sein (Präteritum) → waren'},
+      {sent:'Du ___ sehr müde.',blank:'warst',opts:['warst','bist','war','waren'],tr:'Sen çok yorgunduydun.',exp:'du + sein (Präteritum) → warst'},
+      {sent:'Sie (çoğul) ___ keine Zeit.',blank:'hatten',opts:['hatten','haben','hatte','hattet'],tr:'Onların vakti yoktu.',exp:'sie (çoğul) + haben (Präteritum) → hatten'},
+    ]
+  },
+  {
+    id:'negation',
+    title:'Nicht & Kein',
+    emoji:'❌',
+    desc:'Olumsuzluk — ne zaman hangisini kullan?',
+    rule:`<div class="r-grid2" style="margin:6px 0">
+<div class="r-card" style="background:var(--red-bg);border:2px solid var(--red)">
+<div class="r-card-title" style="color:#c93535">❌ kein/keine</div>
+<div style="font-size:.74rem;color:var(--light);margin-bottom:5px">İsmi olumsuzlar — artikel yok yerine</div>
+<div style="font-size:.77rem">der→ <b>kein</b>en · die→ <b>keine</b></div>
+<div style="font-size:.77rem">das→ <b>kein</b> · çoğul→ <b>keine</b></div>
+<span class="r-eg">Ich habe <b>keinen</b> Hunger.<br>Er hat <b>keine</b> Schwester.</span>
+</div>
+<div class="r-card" style="background:var(--yellow-bg);border:2px solid var(--yellow)">
+<div class="r-card-title" style="color:#b45309">🚫 nicht</div>
+<div style="font-size:.74rem;color:var(--light);margin-bottom:5px">Fiil · sıfat · zarf olumsuzlar</div>
+<div style="font-size:.77rem">→ genelde fiilden <b>sonra</b> gelir</div>
+<span class="r-eg">Das Haus ist <b>nicht</b> alt.<br>Sie kommt <b>nicht</b>.</span>
+</div>
+</div>
+<span class="r-warn">⚠️ Belirli artikel varsa (der/die/das) → <b>nicht</b>! &nbsp;|&nbsp; Artikel yoksa → <b>kein</b>!</span>
+<span class="r-eg">✅ Das ist <b>nicht</b> das Buch. (belirli=nicht) &nbsp;|&nbsp; ✅ Ich habe <b>kein</b> Buch. (belirsiz=kein)</span>`,
+    qs:[
+      {sent:'Ich habe ___ Hunger.',blank:'keinen',opts:['keinen','keine','kein','nicht'],tr:'Benim açlığım yok.',exp:'Hunger = maskulin Akkusativ → keinen'},
+      {sent:'Das Haus ist ___ alt.',blank:'nicht',opts:['nicht','kein','keine','keinen'],tr:'Ev eski değil.',exp:'alt = sıfat → nicht ile olumsuzlanır'},
+      {sent:'Ich habe ___ Auto.',blank:'kein',opts:['kein','keinen','keine','nicht'],tr:'Benim arabam yok.',exp:'Auto = nötr Akkusativ → kein (değişmez)'},
+      {sent:'Sie kommt ___ morgen.',blank:'nicht',opts:['nicht','kein','keine','keinen'],tr:'O yarın gelmiyor.',exp:'morgen = zarf → nicht ile olumsuzlanır'},
+      {sent:'Er hat ___ Schwester.',blank:'keine',opts:['keine','kein','keinen','nicht'],tr:'Onun kız kardeşi yok.',exp:'Schwester = feminin Akkusativ → keine'},
+    ]
+  },
+  {
+    id:'possessiv',
+    title:'İyelik Artikelleri',
+    emoji:'👤',
+    desc:'mein/dein/sein/ihr — benim/senin/onun',
+    rule:`<span class="r-tip">👤 İyelik artikelleri <b>kein</b> gibi çekimlenir — sadece sahip değişir!</span>
+<table class="r-table">
+<tr><th>Sahip</th><th>Türkçe</th><th>kök</th></tr>
+<tr><td>ich</td><td>benim</td><td><b class="r-der">mein-</b></td></tr>
+<tr><td>du</td><td>senin</td><td><b class="r-der">dein-</b></td></tr>
+<tr><td>er/es</td><td>onun (erkek)</td><td><b class="r-der">sein-</b></td></tr>
+<tr><td>sie (tek)</td><td>onun (kız)</td><td><b class="r-die">ihr-</b></td></tr>
+<tr><td>wir</td><td>bizim</td><td><b class="r-das">unser-</b></td></tr>
+<tr><td>ihr (siz)</td><td>sizin</td><td><b class="r-das">euer-</b></td></tr>
+</table>
+<span class="r-head">Ekleri</span>
+<div style="font-size:.8rem;line-height:1.8">
+<span class="r-der">der</span> Nom: <b>mein</b> · Akk: <b>meinen</b> · Dat: <b>meinem</b><br>
+<span class="r-die">die</span> Nom/Akk: <b>meine</b> · Dat: <b>meiner</b><br>
+<span class="r-das">das</span> Nom/Akk: <b>mein</b> · Dat: <b>meinem</b>
+</div>
+<span class="r-warn">⚠️ SADECE maskulin Akkusativ'de -<b>en</b> eki: mein<b>en</b> Vater</span>`,
+    qs:[
+      {sent:'Das ist ___ Buch. (ich)',blank:'mein',opts:['mein','meine','meinen','meinem'],tr:'Bu benim kitabım.',exp:'Buch = nötr, Nominativ → mein (ek yok)'},
+      {sent:'Ich liebe ___ Mutter. (ich)',blank:'meine',opts:['meine','mein','meinen','meiner'],tr:'Ben annemi seviyorum.',exp:'Mutter = feminin, Akkusativ → meine (feminin Akkusativ değişmez!)'},
+      {sent:'Er ruft ___ Freund an. (er)',blank:'seinen',opts:['seinen','sein','seine','seinem'],tr:'O erkek arkadaşını arıyor.',exp:'Freund = maskulin, Akkusativ → seinen (-en eki. Sadece maskulin değişir!)'},
+      {sent:'Ich helfe ___ Bruder. (ich)',blank:'meinem',opts:['meinem','mein','meinen','meine'],tr:'Ben erkek kardeşime yardım ediyorum.',exp:'Bruder = maskulin, Dativ → meinem (-em eki)'},
+      {sent:'Das Handy gehört ___ Schwester. (sie)',blank:'ihrer',opts:['ihrer','ihr','ihrem','ihren'],tr:'Telefon onun kız kardeşine ait.',exp:'Schwester = feminin, Dativ → ihrer (-er eki)'},
+    ]
+  },
+  {
+    id:'gern',
+    title:'Gern / Lieber / Am liebsten',
+    emoji:'❤️',
+    desc:'Sevmek ifadeleri — gern eylem, mag nesne',
+    rule:`<div class="r-scale">
+<div class="rs-item"><div class="rs-val">😐</div><div class="rs-val" style="color:#58CC02">gern</div><div class="rs-lbl">sever</div></div>
+<div class="rs-arrow">→</div>
+<div class="rs-item"><div class="rs-val">😊</div><div class="rs-val" style="color:#1CB0F6">lieber</div><div class="rs-lbl">daha çok sever</div></div>
+<div class="rs-arrow">→</div>
+<div class="rs-item"><div class="rs-val">🥰</div><div class="rs-val" style="color:#FF4B4B">am liebsten</div><div class="rs-lbl">en çok sever</div></div>
+</div>
+<span class="r-warn">⚠️ FARK: <b>gern</b> eylemi sever · <b>mag</b> nesneyi sever</span>
+<div class="r-grid2" style="margin:6px 0">
+<div class="r-card" style="background:var(--blue-bg);border:2px solid var(--blue)">
+<div class="r-card-title">gern = eylemi sevmek</div>
+<span class="r-eg">Ich schwimme <b>gern</b>.<br>Ich höre <b>gern</b> Musik.</span>
+<div style="font-size:.72rem;color:var(--light)">fiilden sonra gelir, zarf</div>
+</div>
+<div class="r-card" style="background:var(--red-bg);border:2px solid var(--red)">
+<div class="r-card-title">mögen = nesneyi sevmek</div>
+<span class="r-eg">Ich <b>mag</b> Musik.<br>Ich <b>mag</b> Katzen.</span>
+<div style="font-size:.72rem;color:var(--light)">müziğin/kedinin kendisi</div>
+</div>
+</div>
+<span class="r-tip">💡 "Ja, gerne!" = "Evet, seve seve!" (kibarlıkta çok kullanılır)</span>`,
+    qs:[
+      {sent:'Ich höre ___ Musik. (eylemi seviyorum)',blank:'gern',opts:['gern','mag','liebe','möchte'],tr:'Müzik dinlemeyi severim.',exp:'Eylemi (dinlemeyi) sevmek → gern (zarf). "Ich mag Musik" ise müziğin kendisini sevmek — farklı!'},
+      {sent:'Ich ___ Katzen. (kedileri seviyorum)',blank:'mag',opts:['mag','gern','liebe','möchte'],tr:'Kedileri severim.',exp:'Nesneyi doğrudan sevmek → mögen → ich mag. Burada eylem değil nesne seviliyor.'},
+      {sent:'Ich trinke ___ Kaffee als Tee.',blank:'lieber',opts:['lieber','gern','am liebsten','sehr gern'],tr:'Kahveyi çaya tercih ederim.',exp:'Karşılaştırmalı tercih → lieber (als ile birlikte kullanılır)'},
+      {sent:'Meine Katze schläft ___ auf dem Sofa.',blank:'am liebsten',opts:['am liebsten','gern','lieber','sehr gern'],tr:'Kedim en çok kanepede uyumayı sever.',exp:'En yüksek derece → am liebsten. gern < lieber < am liebsten'},
+      {sent:'— Kommst du mit? — Ja, ___!',blank:'gerne',opts:['gerne','lieber','am liebsten','gern schon'],tr:'— Birlikte gelir misin? — Evet, seve seve!',exp:'Gerne = Gern (aynı anlam). "Ja, gerne!" = Evet, seve seve / elbette!'},
+    ]
+  },
+  {
+    id:'wetter',
+    title:'Hava Durumu',
+    emoji:'🌤️',
+    desc:'es regnet mi? es ist sonnig mi? Fark önemli!',
+    rule:`<span class="r-warn">⚠️ Türkçede hepsi "hava ... yapıyor" ama Almancada iki farklı yapı var!</span>
+<div class="r-grid2" style="margin:7px 0">
+<div class="r-card" style="background:var(--blue-bg);border:2px solid var(--blue)">
+<div class="r-card-title" style="color:#0e8ac7">🌧️ FİİL → "ist" YOK!</div>
+<div style="font-size:.77rem;margin:4px 0">es + fiil (direkt)</div>
+<div style="font-size:.8rem">Es <b>regnet</b>. ☔ yağmur</div>
+<div style="font-size:.8rem">Es <b>schneit</b>. ❄️ kar</div>
+<div style="font-size:.8rem">Es <b>hagelt</b>. 🧊 dolu</div>
+<div style="font-size:.8rem">Es <b>blitzt</b>. ⚡ şimşek</div>
+</div>
+<div class="r-card" style="background:var(--yellow-bg);border:2px solid var(--yellow)">
+<div class="r-card-title" style="color:#b45309">☀️ SIFAT → es ist + ...</div>
+<div style="font-size:.77rem;margin:4px 0">es ist + sıfat</div>
+<div style="font-size:.8rem">Es ist <b>sonnig</b>. ☀️ güneşli</div>
+<div style="font-size:.8rem">Es ist <b>windig</b>. 🌬️ rüzgarlı</div>
+<div style="font-size:.8rem">Es ist <b>bewölkt</b>. ☁️ bulutlu</div>
+<div style="font-size:.8rem">Es ist <b>nebelig</b>. 🌫️ sisli</div>
+</div>
+</div>
+<span class="r-tip">💡 Kural: <b>-ig</b> ile bitenler sıfat → "es ist ..." ister! sonnig · windig · nebelig · wolkig</span>`,
+    qs:[
+      {sent:'Es ___ heute stark. (yağmur yağıyor)',blank:'regnet',opts:['regnet','ist regen','ist regnerisch','rainit'],tr:'Bugün şiddetli yağmur yağıyor.',exp:'Regnen fiilinden: Es regnet. "ist" YOK — doğrudan fiil.'},
+      {sent:'Es ist ___ heute. (güneşli)',blank:'sonnig',opts:['sonnig','Sonne','die Sonne','sonnig sein'],tr:'Bugün hava güneşli.',exp:'Sonnig = sıfat → es ist sonnig. (ist var çünkü sıfat)'},
+      {sent:'Es ___ seit heute Morgen. (kar yağıyor)',blank:'schneit',opts:['schneit','ist schnee','ist schneeig','schneit ist'],tr:'Bu sabahtan beri kar yağıyor.',exp:'Schneien fiilinden: Es schneit. "ist" YOK — doğrudan fiil.'},
+      {sent:'Es ist ___ und kalt. (bulutlu)',blank:'bewölkt',opts:['bewölkt','wolkig','die Wolke','bewölken'],tr:'Hava bulutlu ve soğuk.',exp:'Bewölkt = sıfat → es ist bewölkt. (wolkig de doğru ama bewölkt standart)'},
+      {sent:'In Istanbul ist es immer ___. (rüzgarlı)',blank:'windig',opts:['windig','der Wind','windisch','es windet'],tr:'İstanbul\'da hava hep rüzgarlı.',exp:'Windig = sıfat → es ist windig. (-ig eki = sıfat → ist kullanılır)'},
+    ]
+  },
+  {
+    id:'zaman_edat',
+    title:'Zaman Edatları: im / am / um',
+    emoji:'📅',
+    desc:'Mevsim → im · Gün → am · Saat → um',
+    rule:`<div class="r-grid3" style="margin:6px 0">
+<div class="r-card" style="background:var(--blue-bg);border:2px solid var(--blue);text-align:center">
+<div style="font-size:1.3rem">🗓️</div>
+<div class="r-card-title" style="color:#0e8ac7">im</div>
+<div style="font-size:.74rem;color:var(--light)">Mevsim · Ay · Yön</div>
+<div style="font-size:.77rem;margin-top:5px">im Sommer ☀️<br>im Januar<br>im Norden</div>
+</div>
+<div class="r-card" style="background:var(--yellow-bg);border:2px solid var(--yellow);text-align:center">
+<div style="font-size:1.3rem">📆</div>
+<div class="r-card-title" style="color:#b45309">am</div>
+<div style="font-size:.74rem;color:var(--light)">Gün · Günün bölümü</div>
+<div style="font-size:.77rem;margin-top:5px">am Montag<br>am Abend<br>am Wochenende</div>
+</div>
+<div class="r-card" style="background:var(--red-bg);border:2px solid var(--red);text-align:center">
+<div style="font-size:1.3rem">🕐</div>
+<div class="r-card-title" style="color:#c93535">um</div>
+<div style="font-size:.74rem;color:var(--light)">Saat</div>
+<div style="font-size:.77rem;margin-top:5px">um 10 Uhr<br>um 15:30<br>um Mitternacht</div>
+</div>
+</div>
+<span class="r-warn">⚠️ İSTİSNA: <b>in der Nacht</b> (geceleyin) → am Nacht DEĞİL! Tek istisna bu.</span>`,
+    qs:[
+      {sent:'___ Sommer fahre ich ans Meer.',blank:'Im',opts:['Im','Am','Um','In'],tr:'Yazın denize gidiyorum.',exp:'Mevsim → im: Im Sommer, Im Winter, Im Frühling, Im Herbst'},
+      {sent:'___ Montag haben wir Deutschkurs.',blank:'Am',opts:['Am','Im','Um','An'],tr:'Pazartesi Almanca dersimiz var.',exp:'Gün → am: Am Montag, Am Dienstag, Am Wochenende...'},
+      {sent:'Der Film beginnt ___ 20 Uhr.',blank:'um',opts:['um','am','im','bei'],tr:'Film saat 20\'de başlıyor.',exp:'Saat → um: um 20 Uhr, um 10:30 Uhr, um Mitternacht'},
+      {sent:'München liegt ___ Süden Deutschlands.',blank:'im',opts:['im','am','um','nach'],tr:'Münih Almanya\'nın güneyinde.',exp:'Yönler → im: im Süden, im Norden, im Osten, im Westen'},
+      {sent:'___ Abend lese ich gern.',blank:'Am',opts:['Am','Im','Um','In'],tr:'Akşamları okumayı severim.',exp:'Günün bölümü → am: Am Abend, Am Morgen. İSTİSNA: in der Nacht (am değil!)'},
+    ]
+  },
+  {
+    id:'ins_im',
+    title:'ins / im / ans / am kısaltmaları',
+    emoji:'📍',
+    desc:'Wohin? (nereye?) → -s kısaltma · Wo? (nerede?) → -m kısaltma',
+    rule:`<div class="r-grid2" style="margin:6px 0">
+<div class="r-card" style="background:var(--red-bg);border:2px solid var(--red);text-align:center">
+<div style="font-size:1.3rem">🏃→</div>
+<div class="r-card-title" style="color:#c93535">Wohin? (nereye?)</div>
+<div style="font-size:.74rem;color:var(--light)">Hareket → Akkusativ → <b>-s</b></div>
+<div style="font-size:.82rem;margin:6px 0;font-weight:800">in + das = <span class="r-change">ins</span></div>
+<div style="font-size:.82rem;margin:3px 0;font-weight:800">an + das = <span class="r-change">ans</span></div>
+<span class="r-eg">Ich gehe <b>ins</b> Kino.<br>Wir fahren <b>ans</b> Meer.</span>
+</div>
+<div class="r-card" style="background:var(--blue-bg);border:2px solid var(--blue);text-align:center">
+<div style="font-size:1.3rem">📍</div>
+<div class="r-card-title" style="color:#0e8ac7">Wo? (nerede?)</div>
+<div style="font-size:.74rem;color:var(--light)">Konum → Dativ → <b>-m</b></div>
+<div style="font-size:.82rem;margin:6px 0;font-weight:800">in + dem = <span class="r-change">im</span></div>
+<div style="font-size:.82rem;margin:3px 0;font-weight:800">an + dem = <span class="r-change">am</span></div>
+<span class="r-eg">Ich bin <b>im</b> Kino.<br>Wir sind <b>am</b> Meer.</span>
+</div>
+</div>
+<span class="r-tip">💡 Bellek hilesi: Hareket = -<b>s</b> (speed/sürat!), Konum = -<b>m</b> (mola/dur!)</span>`,
+    qs:[
+      {sent:'Ich gehe ___ Schwimmbad. (nereye?)',blank:'ins',opts:['ins','im','ans','am'],tr:'Yüzme havuzuna gidiyorum.',exp:'Gitmek = hareket = Akkusativ → ins (in + das). Schwimmbad = nötr'},
+      {sent:'Ich bin ___ Schwimmbad. (nerede?)',blank:'im',opts:['im','ins','am','ans'],tr:'Yüzme havuzundayım.',exp:'Olmak = konum = Dativ → im (in + dem). Aynı yer ama farklı edat!'},
+      {sent:'Wir fahren ___ Meer. (nereye?)',blank:'ans',opts:['ans','am','ins','im'],tr:'Denize gidiyoruz.',exp:'Gitmek = hareket = Akkusativ → ans (an + das). Meer = nötr'},
+      {sent:'Wir sind ___ Meer. (nerede?)',blank:'am',opts:['am','ans','im','ins'],tr:'Denizdeyiz.',exp:'Olmak = konum = Dativ → am (an + dem). Denizin yanındayız, hareket yok.'},
+      {sent:'Gehst du ___ Kino heute Abend?',blank:'ins',opts:['ins','im','in das','in dem'],tr:'Bu akşam sinemaya mı gidiyorsun?',exp:'Gitmek = hareket = Akkusativ → ins (kısaltma). in das da doğru ama ins daha doğal.'},
+    ]
+  },
+  {
+    id:'meslekler',
+    title:'Meslekler: als / auf / bei',
+    emoji:'👔',
+    desc:'Meslek sormak, cevaplamak, çalışma yeri',
+    rule:`<span class="r-tip">👔 Meslek sormak iki şekilde — ikisi de aynı anlam!</span>
+<div style="font-size:.82rem;margin:5px 0">
+❓ <b>Was bist du von Beruf?</b><br>
+❓ <b>Was machst du beruflich?</b>
+</div>
+<span class="r-warn">⚠️ Meslekte ARTİKEL KULLANILMAZ! "Ich bin <b>Arzt</b>" ✅ · "Ich bin <b>ein</b> Arzt" ❌</span>
+<div class="r-grid3" style="margin:7px 0">
+<div class="r-card" style="background:var(--bg);border:1px solid var(--border);text-align:center">
+<div style="font-size:1.1rem">👤</div>
+<div style="font-weight:800;font-size:.8rem;color:#1CB0F6">als</div>
+<div style="font-size:.72rem;color:var(--light)">...olarak çalışmak</div>
+<span class="r-eg" style="margin-top:4px">arbeite <b>als</b> Arzt</span>
+</div>
+<div class="r-card" style="background:var(--bg);border:1px solid var(--border);text-align:center">
+<div style="font-size:1.1rem">🌾</div>
+<div style="font-weight:800;font-size:.8rem;color:#58CC02">auf</div>
+<div style="font-size:.72rem;color:var(--light)">açık/tarım alanı</div>
+<span class="r-eg" style="margin-top:4px">auf dem <b>Bauernhof</b></span>
+</div>
+<div class="r-card" style="background:var(--bg);border:1px solid var(--border);text-align:center">
+<div style="font-size:1.1rem">🏢</div>
+<div style="font-weight:800;font-size:.8rem;color:#FF4B4B">bei</div>
+<div style="font-size:.72rem;color:var(--light)">firma/kurum</div>
+<span class="r-eg" style="margin-top:4px">bei einer <b>Firma</b></span>
+</div>
+</div>`,
+    qs:[
+      {sent:'Ich arbeite ___ Ärztin.',blank:'als',opts:['als','wie','für','bei'],tr:'Ben doktor olarak çalışıyorum.',exp:'Meslek belirtmek → als: arbeite als + meslek (ARTIKELSIZ! "als eine Ärztin" yanlış)'},
+      {sent:'Mein Bruder arbeitet ___ einem Bauernhof.',blank:'auf',opts:['auf','bei','in','an'],tr:'Erkek kardeşim bir çiftlikte çalışıyor.',exp:'Çiftlik/açık alan → auf + Dativ: auf einem Bauernhof'},
+      {sent:'___ bist du von Beruf?',blank:'Was',opts:['Was','Wer','Wie','Wo'],tr:'Mesleğin ne?',exp:'Meslek sorusu → Was (ne). Wer = kim, Wie = nasıl — bunlar meslek sorusu değil!'},
+      {sent:'Sie arbeitet ___ einer kleinen Firma.',blank:'bei',opts:['bei','auf','in','als'],tr:'O küçük bir firmada çalışıyor.',exp:'Firma/kurum → bei + Dativ: bei einer Firma. auf = tarım/açık alan için.'},
+      {sent:'Er ist ___, kein Ingenieur.',blank:'Lehrer',opts:['Lehrer','ein Lehrer','der Lehrer','Lehrerin'],tr:'O öğretmen, mühendis değil.',exp:'Meslek söylerken ARTIKEL KULLANILMAZ: Er ist Lehrer (ein Lehrer değil!)'},
+    ]
+  },
+];
+
+// ══════════════════════════════════════════
+//  GRAMER FONKSİYONLARI
+// ══════════════════════════════════════════
+const grDone = DB.grammar; // kalıcı: tamamlanan gramer konuları
+let grTopic = null, grQIdx = 0, grCorrect = 0, grWrong = 0, grAnswered = false;
+let gtQs = [], gtIdx = 0, gtCorrect = 0, gtWrong = 0, gtAnswered = false;
+
+function openGramer(){
+  showScreen('gramerScreen');
+  buildTopicGrid();
+  setHeader('📚 Gramer',false);
+}
+
+function buildTopicGrid(){
+  const g=document.getElementById('topicGrid');
+  g.innerHTML='';
+  GRAMER_TOPICS.forEach(t=>{
+    const done=grDone[t.id];
+    const div=document.createElement('div');
+    div.className='topic-card'+(done?' done':'');
+    div.innerHTML=`<div class="tc-emoji">${t.emoji}</div>
+      <div class="tc-info"><div class="tc-title">${t.title}</div><div class="tc-desc">${t.desc}</div></div>
+      <div class="tc-check">${done?'✅':''}</div>`;
+    div.onclick=()=>openGramerTopic(t);
+    g.appendChild(div);
+  });
+}
+
+function openGramerTopic(topic){
+  grTopic=topic; grQIdx=0; grCorrect=0; grWrong=0; grAnswered=false;
+  document.getElementById('grTopicTitle').textContent=topic.emoji+' '+topic.title;
+  document.getElementById('grRuleCard').innerHTML=topic.rule;
+  document.getElementById('grNext').textContent='Sonraki →';
+  document.getElementById('grNext').onclick=grNextQ;
+  document.getElementById('grBackBtn').onclick=()=>{showScreen('gramerScreen');buildTopicGrid();};
+  showScreen('gramerTopicScreen');
+  setHeader(topic.emoji+' '+topic.title,true,'✅ 0','❌ 0');
+  setProgress(0,'0 / '+topic.qs.length);
+  renderGrQ();
+}
+
+function renderGrQ(){
+  const q=grTopic.qs[grQIdx];
+  grAnswered=false;
+  document.getElementById('grQNum').textContent='Soru '+(grQIdx+1)+' / '+grTopic.qs.length;
+  const sent=document.getElementById('grSent');
+  sent.innerHTML=q.sent.replace('___','<span class="blank">___</span>')+'<div class="gr-tr">'+q.tr+'</div>';
+  const opts=document.getElementById('grOpts');
+  opts.innerHTML='';
+  shuffle([...q.opts]).forEach(o=>{
+    const b=document.createElement('button');
+    b.className='gr-opt'; b.textContent=o;
+    b.onclick=()=>pickGrOpt(b,o,q);
+    opts.appendChild(b);
+  });
+  document.getElementById('grFb').className='gr-fb';
+  document.getElementById('grNext').className='btn-next';
+}
+
+function pickGrOpt(btn,chosen,q){
+  if(grAnswered) return;
+  grAnswered=true;
+  const ok=chosen===q.blank; tick(ok,5);
+  document.querySelectorAll('#grOpts .gr-opt').forEach(b=>{ if(b!==btn) b.classList.add('muted'); b.disabled=true; });
+  if(ok){ btn.classList.add('correct'); grCorrect++; }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#grOpts .gr-opt').forEach(b=>{if(b.textContent===q.blank)b.classList.add('correct');}); grWrong++; }
+  setHeader(grTopic.emoji+' '+grTopic.title,true,'✅ '+grCorrect,'❌ '+grWrong);
+  setProgress(Math.round((grQIdx+1)/grTopic.qs.length*100),(grQIdx+1)+' / '+grTopic.qs.length);
+  const blankEl=document.querySelector('#grSent .blank');
+  if(blankEl){blankEl.textContent=q.blank;blankEl.style.color=ok?'var(--green-dark)':'var(--red)';}
+  const fb=document.getElementById('grFb');
+  fb.className='gr-fb show '+(ok?'gr-fb-ok':'gr-fb-err');
+  document.getElementById('grFbTitle').innerHTML=ok?'✅ Doğru!':'❌ Yanlış — doğrusu: <b>'+q.blank+'</b>';
+  document.getElementById('grFbBody').textContent=q.exp;
+  document.getElementById('grNext').className='btn-next show';
+}
+
+function grNextQ(){
+  grQIdx++;
+  if(grQIdx>=grTopic.qs.length){
+    grDone[grTopic.id]=true; saveDB();
+    document.getElementById('grSent').innerHTML='<div style="font-size:2.5rem;margin-bottom:8px">🎉</div><div>Konu tamamlandı!</div><div class="gr-tr">'+grCorrect+' doğru · '+grWrong+' yanlış</div>';
+    document.getElementById('grOpts').innerHTML='';
+    document.getElementById('grFb').className='gr-fb';
+    document.getElementById('grNext').textContent='← Konulara Dön';
+    document.getElementById('grNext').className='btn-next show';
+    document.getElementById('grNext').onclick=()=>{
+      document.getElementById('grNext').textContent='Sonraki →';
+      document.getElementById('grNext').onclick=grNextQ;
+      showScreen('gramerScreen');
+      buildTopicGrid();
+    };
+    setProgress(100,grTopic.qs.length+' / '+grTopic.qs.length);
+    return;
+  }
+  document.getElementById('grFb').className='gr-fb';
+  document.getElementById('grNext').className='btn-next';
+  renderGrQ();
+}
+
+function startGramerTest(){
+  gtQs=[];
+  GRAMER_TOPICS.forEach(t=>{
+    const picks=shuffle([...t.qs]).slice(0,2);
+    picks.forEach(q=>gtQs.push(Object.assign({},q,{topicTitle:t.title,topicEmoji:t.emoji})));
+  });
+  shuffle(gtQs);
+  gtIdx=0; gtCorrect=0; gtWrong=0; gtAnswered=false;
+  showScreen('gramerTestScreen');
+  setHeader('🏆 Kapsamlı Test',true,'✅ 0','❌ 0');
+  setProgress(0,'0 / '+gtQs.length);
+  renderGtQ();
+}
+
+function renderGtQ(){
+  const q=gtQs[gtIdx];
+  gtAnswered=false;
+  document.getElementById('gtQNum').textContent='Soru '+(gtIdx+1)+' / '+gtQs.length+' — '+q.topicEmoji+' '+q.topicTitle;
+  const sent=document.getElementById('gtSent');
+  sent.innerHTML=q.sent.replace('___','<span class="blank">___</span>')+'<div class="gr-tr">'+q.tr+'</div>';
+  const opts=document.getElementById('gtOpts');
+  opts.innerHTML='';
+  shuffle([...q.opts]).forEach(o=>{
+    const b=document.createElement('button');
+    b.className='gr-opt'; b.textContent=o;
+    b.onclick=()=>pickGtOpt(b,o,q);
+    opts.appendChild(b);
+  });
+  document.getElementById('gtFb').className='gr-fb';
+  document.getElementById('gtNext').className='btn-next';
+}
+
+function pickGtOpt(btn,chosen,q){
+  if(gtAnswered) return;
+  gtAnswered=true;
+  const ok=chosen===q.blank; tick(ok,5);
+  document.querySelectorAll('#gtOpts .gr-opt').forEach(b=>{ if(b!==btn) b.classList.add('muted'); b.disabled=true; });
+  if(ok){ btn.classList.add('correct'); gtCorrect++; }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#gtOpts .gr-opt').forEach(b=>{if(b.textContent===q.blank)b.classList.add('correct');}); gtWrong++; }
+  setHeader('🏆 Kapsamlı Test',true,'✅ '+gtCorrect,'❌ '+gtWrong);
+  setProgress(Math.round((gtIdx+1)/gtQs.length*100),(gtIdx+1)+' / '+gtQs.length);
+  const blankEl=document.querySelector('#gtSent .blank');
+  if(blankEl){blankEl.textContent=q.blank;blankEl.style.color=ok?'var(--green-dark)':'var(--red)';}
+  const fb=document.getElementById('gtFb');
+  fb.className='gr-fb show '+(ok?'gr-fb-ok':'gr-fb-err');
+  document.getElementById('gtFbTitle').innerHTML=ok?'✅ Doğru!':'❌ Yanlış — doğrusu: <b>'+q.blank+'</b>';
+  document.getElementById('gtFbBody').textContent=q.exp;
+  document.getElementById('gtNext').className='btn-next show';
+}
+
+function gtNextQ(){
+  gtIdx++;
+  if(gtIdx>=gtQs.length){ showGtDone(); return; }
+  document.getElementById('gtFb').className='gr-fb';
+  document.getElementById('gtNext').className='btn-next';
+  renderGtQ();
+}
+
+function showGtDone(){
+  const pct=Math.round(gtCorrect/gtQs.length*100);
+  document.getElementById('gtDC').textContent=gtCorrect;
+  document.getElementById('gtDW').textContent=gtWrong;
+  document.getElementById('gtDP').textContent=pct+'%';
+  document.getElementById('gtDoneSub').textContent=gtQs.length+' sorudan '+gtCorrect+' tanesini doğru yaptın.';
+  showScreen('gramerTestDoneScreen');
+  setProgress(100,gtQs.length+' / '+gtQs.length);
+}
+
+// ══════════════════════════════════════════
+//  ARTİKEL (der/die/das) — mevcut isimlerden üretilir
+// ══════════════════════════════════════════
+const GENDER_HINTS=[
+  {suf:'chen',  art:'das',tip:'-chen ile biten her kelime DAS olur (küçültme eki).'},
+  {suf:'lein',  art:'das',tip:'-lein ile biten her kelime DAS olur.'},
+  {suf:'ung',   art:'die',tip:'-ung ile biten kelimeler DIE olur.'},
+  {suf:'heit',  art:'die',tip:'-heit ile biten kelimeler DIE olur.'},
+  {suf:'keit',  art:'die',tip:'-keit ile biten kelimeler DIE olur.'},
+  {suf:'schaft',art:'die',tip:'-schaft ile biten kelimeler DIE olur.'},
+  {suf:'tion',  art:'die',tip:'-tion ile biten kelimeler DIE olur.'},
+  {suf:'tät',   art:'die',tip:'-tät ile biten kelimeler DIE olur.'},
+  {suf:'ik',    art:'die',tip:'-ik ile biten kelimeler genelde DIE olur.'}
+];
+function genderHint(bare){const low=bare.toLowerCase();for(const g of GENDER_HINTS){if(low.endsWith(g.suf))return g;}return null;}
+const ART_NAME={der:'eril (maskulin)',die:'dişil (feminin)',das:'nötr (neutrum)'};
+
+function getNouns(){
+  const out=[]; const src=CATS['İsimler']?CATS['İsimler'].words:[];
+  src.forEach(w=>{ const m=w.de.match(/^(der|die|das)\s+(.+)$/i); if(m)out.push({art:m[1].toLowerCase(),bare:m[2],full:w.de,tr:w.tr,h:w.h}); });
+  return out;
+}
+
+let aQ=[], aIdx=0, aCorrect=0, aWrong=0, aAnswered=false;
+function artKey(n){return 'art:'+n.full;}
+function artPriority(n){const k=artKey(n);if(DB.mistakes.includes(k))return 0;const lv=srsLevel(k);if(lv<0)return 1;if(isDue(k))return 2;return 3+lv;}
+function startArtikel(){
+  let nouns=getNouns(); shuffle(nouns); nouns.sort((a,b)=>artPriority(a)-artPriority(b));
+  aQ=nouns.slice(0,20); shuffle(aQ);
+  aIdx=0; aCorrect=0; aWrong=0; aAnswered=false;
+  setHeader('🎯 der/die/das',true,'✅ 0','❌ 0');
+  setProgress(0,'0 / '+aQ.length);
+  showScreen('artikelScreen'); renderArtQ();
+}
+function renderArtQ(){
+  const n=aQ[aIdx]; aAnswered=false;
+  document.getElementById('artQNum').textContent='Soru '+(aIdx+1)+' / '+aQ.length;
+  document.getElementById('artWord').textContent=n.bare;
+  document.getElementById('artTr').textContent=n.tr;
+  const aa=document.querySelector('#artikelScreen .art-art'); aa.textContent='___'; aa.style.color='var(--blue)';
+  const g=document.getElementById('artOpts'); g.innerHTML='';
+  ['der','die','das'].forEach(a=>{ const b=document.createElement('button'); b.className='art-opt'; b.textContent=a; b.onclick=()=>pickArt(b,a,n); g.appendChild(b); });
+  document.getElementById('artExp').className='exp-box';
+  document.getElementById('artNext').className='btn-next';
+}
+function pickArt(btn,chosen,n){
+  if(aAnswered)return; aAnswered=true;
+  const ok=chosen===n.art;
+  document.querySelectorAll('#artOpts .art-opt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
+  tick(ok,7); srsUpdate(artKey(n),ok,true);
+  if(ok){ btn.classList.add('correct'); aCorrect++; }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#artOpts .art-opt').forEach(b=>{if(b.textContent===n.art)b.classList.add('correct');}); aWrong++; }
+  setHeader('🎯 der/die/das',true,'✅ '+aCorrect,'❌ '+aWrong);
+  setProgress(Math.round((aIdx+1)/aQ.length*100),(aIdx+1)+' / '+aQ.length);
+  const aa=document.querySelector('#artikelScreen .art-art'); aa.textContent=n.art; aa.style.color=ok?'var(--green-dark)':'var(--red)';
+  const eb=document.getElementById('artExp'); eb.className='exp-box show '+(ok?'exp-ok':'exp-err');
+  document.getElementById('artExpTitle').className='exp-title '+(ok?'exp-c':'exp-w');
+  document.getElementById('artExpTitle').innerHTML=ok?'✅ Doğru!':'❌ Yanlış — doğrusu <strong>'+n.art+'</strong>';
+  document.getElementById('artExpWhy').innerHTML='<strong>'+n.full+'</strong> — '+ART_NAME[n.art]+'.'+(n.h?'<br>'+n.h:'');
+  const gh=genderHint(n.bare), er=document.getElementById('artExpRule');
+  if(gh){er.style.display='inline-block';er.textContent='💡 Kural: '+gh.tip;}else{er.style.display='none';}
+  document.getElementById('artNext').className='btn-next show';
+}
+function artNextQ(){
+  aIdx++;
+  if(aIdx>=aQ.length){ showArtDone(); return; }
+  document.getElementById('artExp').className='exp-box';
+  document.getElementById('artNext').className='btn-next';
+  renderArtQ();
+}
+function showArtDone(){
+  const pct=aQ.length?Math.round(aCorrect/aQ.length*100):0;
+  document.getElementById('artDC').textContent=aCorrect;
+  document.getElementById('artDW').textContent=aWrong;
+  document.getElementById('artDP').textContent=pct+'%';
+  document.getElementById('artDoneSub').textContent=aQ.length+' isimden '+aCorrect+' tanesinde doğru artikeli buldun.';
+  showScreen('artikelDoneScreen'); setProgress(100,aQ.length+' / '+aQ.length);
+  for(let i=0;i<60;i++) setTimeout(rainP,i*25);
+}
+
+// ══════════════════════════════════════════
+//  HIZLI TEST (zamanlı gramer modu — 8 sn/soru)
+// ══════════════════════════════════════════
+let hizliQs=[], hizliIdx=0, hizliCorrect=0, hizliWrong=0, hizliTimer=null, hizliAnswered=false;
+const HIZLI_SECS=8;
+
+function startHizliTest(){
+  hizliQs=[];
+  GRAMER_TOPICS.forEach(t=>{
+    t.qs.forEach(q=>hizliQs.push(Object.assign({},q,{topicTitle:t.title,topicEmoji:t.emoji})));
+  });
+  shuffle(hizliQs); hizliQs=hizliQs.slice(0,15);
+  hizliIdx=0; hizliCorrect=0; hizliWrong=0; hizliAnswered=false;
+  clearTimeout(hizliTimer);
+  setHeader('⚡ Hızlı Test',true,'✅ 0','❌ 0');
+  setProgress(0,'0 / '+hizliQs.length);
+  showScreen('hizliScreen'); renderHizliQ();
+}
+
+function renderHizliQ(){
+  const q=hizliQs[hizliIdx]; hizliAnswered=false;
+  document.getElementById('hizliQNum').textContent='Soru '+(hizliIdx+1)+' / '+hizliQs.length+' — '+q.topicEmoji+' '+q.topicTitle;
+  const sent=document.getElementById('hizliSent');
+  sent.innerHTML=q.sent.replace('___','<span class="blank">___</span>')+'<div class="gr-tr">'+q.tr+'</div>';
+  const opts=document.getElementById('hizliOpts'); opts.innerHTML='';
+  shuffle([...q.opts]).forEach(o=>{
+    const b=document.createElement('button'); b.className='gr-opt'; b.textContent=o;
+    b.onclick=()=>pickHizliOpt(b,o,q); opts.appendChild(b);
+  });
+  document.getElementById('hizliFb').className='gr-fb';
+  document.getElementById('hizliNext').className='btn-next';
+  startHizliTimer();
+}
+
+function startHizliTimer(){
+  clearTimeout(hizliTimer);
+  const bar=document.getElementById('timerBar');
+  bar.style.transition='none'; bar.style.width='100%'; bar.className='timer-bar';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    bar.style.transition='width '+HIZLI_SECS+'s linear'; bar.style.width='0%';
+  }));
+  setTimeout(()=>{ if(!hizliAnswered) bar.className='timer-bar warning'; }, HIZLI_SECS*500);
+  setTimeout(()=>{ if(!hizliAnswered) bar.className='timer-bar danger'; }, HIZLI_SECS*750);
+  hizliTimer=setTimeout(()=>{ if(!hizliAnswered) timeUpHizli(); }, HIZLI_SECS*1000);
+}
+
+function timeUpHizli(){
+  hizliAnswered=true;
+  const q=hizliQs[hizliIdx];
+  document.querySelectorAll('#hizliOpts .gr-opt').forEach(b=>{
+    b.disabled=true; b.classList.add('muted');
+    if(b.textContent===q.blank) b.classList.add('correct');
+  });
+  hizliWrong++; tick(false,0);
+  setHeader('⚡ Hızlı Test',true,'✅ '+hizliCorrect,'❌ '+hizliWrong);
+  setProgress(Math.round((hizliIdx+1)/hizliQs.length*100),(hizliIdx+1)+' / '+hizliQs.length);
+  const blankEl=document.querySelector('#hizliSent .blank');
+  if(blankEl){blankEl.textContent=q.blank; blankEl.style.color='var(--red)';}
+  const fb=document.getElementById('hizliFb'); fb.className='gr-fb show gr-fb-err';
+  document.getElementById('hizliFbTitle').innerHTML='⏱️ Süre doldu — doğrusu: <b>'+q.blank+'</b>';
+  document.getElementById('hizliFbBody').textContent=q.exp;
+  document.getElementById('hizliNext').className='btn-next show';
+}
+
+function pickHizliOpt(btn,chosen,q){
+  if(hizliAnswered)return; hizliAnswered=true;
+  clearTimeout(hizliTimer);
+  document.getElementById('timerBar').style.transition='none';
+  document.querySelectorAll('#hizliOpts .gr-opt').forEach(b=>{ if(b!==btn) b.classList.add('muted'); b.disabled=true; });
+  const ok=chosen===q.blank; tick(ok,5);
+  if(ok){ btn.classList.add('correct'); hizliCorrect++; }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#hizliOpts .gr-opt').forEach(b=>{if(b.textContent===q.blank)b.classList.add('correct');}); hizliWrong++; }
+  setHeader('⚡ Hızlı Test',true,'✅ '+hizliCorrect,'❌ '+hizliWrong);
+  setProgress(Math.round((hizliIdx+1)/hizliQs.length*100),(hizliIdx+1)+' / '+hizliQs.length);
+  const blankEl=document.querySelector('#hizliSent .blank');
+  if(blankEl){blankEl.textContent=q.blank; blankEl.style.color=ok?'var(--green-dark)':'var(--red)';}
+  const fb=document.getElementById('hizliFb'); fb.className='gr-fb show '+(ok?'gr-fb-ok':'gr-fb-err');
+  document.getElementById('hizliFbTitle').innerHTML=ok?'✅ Doğru!':'❌ Yanlış — doğrusu: <b>'+q.blank+'</b>';
+  document.getElementById('hizliFbBody').textContent=q.exp;
+  document.getElementById('hizliNext').className='btn-next show';
+}
+
+function hizliNextQ(){
+  clearTimeout(hizliTimer); hizliIdx++;
+  if(hizliIdx>=hizliQs.length){ showHizliDone(); return; }
+  document.getElementById('hizliFb').className='gr-fb';
+  document.getElementById('hizliNext').className='btn-next';
+  renderHizliQ();
+}
+
+function showHizliDone(){
+  clearTimeout(hizliTimer);
+  const pct=Math.round(hizliCorrect/hizliQs.length*100);
+  document.getElementById('hizliDC').textContent=hizliCorrect;
+  document.getElementById('hizliDW').textContent=hizliWrong;
+  document.getElementById('hizliDP').textContent=pct+'%';
+  const msg=pct>=90?'Mükemmel! 🔥':pct>=70?'İyi iş çıkardın! 👍':'Tekrar et, öğreneceksin! 💪';
+  document.getElementById('hizliDoneSub').textContent=hizliQs.length+' sorudan '+hizliCorrect+' doğru. '+msg;
+  showScreen('hizliDoneScreen'); setProgress(100,hizliQs.length+' / '+hizliQs.length);
+  if(pct>=70) for(let i=0;i<80;i++) setTimeout(rainP,i*25);
+}
+
+// ══════════════════════════════════════════
+//  ÇOĞUL — kaynak: konular/isimlerin-cogulu (BeGi Almanca, Video 20)
+// ══════════════════════════════════════════
+const PLURAL_RULES={
+  1:{name:'+e ekle',       tip:'Sona -e eklenir.'},
+  2:{name:'+(e)n ekle',    tip:'Sona -n veya -en eklenir. (Kelime -e ile bitiyorsa sadece -n.)'},
+  3:{name:'Umlaut + er',   tip:'Kök sesli umlaut olur (a→ä, o→ö, u→ü) ve sona -er eklenir.'},
+  4:{name:'+s ekle',       tip:'Sona -s eklenir (genelde yabancı kökenli / sesliyle biten kelimeler).'},
+  5:{name:'Sadece Umlaut', tip:'Ek yok; sadece kök sesli umlaut olur.'},
+  6:{name:'Değişmez',      tip:'Hiçbir değişiklik olmaz (genelde -er / -el ile bitenler).'}
+};
+const PLURAL_Q=[
+  {sing:'das Brot',   tr:'ekmek',    plural:'die Brote',    rule:1},
+  {sing:'der Tisch',  tr:'masa',     plural:'die Tische',   rule:1},
+  {sing:'die Zwiebel',tr:'soğan',    plural:'die Zwiebeln', rule:2},
+  {sing:'die Tomate', tr:'domates',  plural:'die Tomaten',  rule:2},
+  {sing:'das Ei',     tr:'yumurta',  plural:'die Eier',     rule:3},
+  {sing:'das Glas',   tr:'bardak',   plural:'die Gläser',   rule:3},
+  {sing:'die Kiwi',   tr:'kivi',     plural:'die Kiwis',    rule:4},
+  {sing:'das Auto',   tr:'araba',    plural:'die Autos',    rule:4},
+  {sing:'der Apfel',  tr:'elma',     plural:'die Äpfel',    rule:5},
+  {sing:'der Vater',  tr:'baba',     plural:'die Väter',    rule:5},
+  {sing:'der Lehrer', tr:'öğretmen', plural:'die Lehrer',   rule:6},
+  {sing:'das Fenster',tr:'pencere',  plural:'die Fenster',  rule:6}
+];
+function plBase(sing){return sing.replace(/^(der|die|das)\s+/i,'');}
+function plUmlaut(s){const m={a:'ä',o:'ö',u:'ü',A:'Ä',O:'Ö',U:'Ü'};const i=Math.max(s.lastIndexOf('a'),s.lastIndexOf('o'),s.lastIndexOf('u'));return i<0?s:s.slice(0,i)+m[s[i]]+s.slice(i+1);}
+function plOptions(q){
+  const base=plBase(q.sing);
+  const cand=new Set(['die '+base,'die '+base+'e','die '+base+'en','die '+base+'n','die '+base+'er','die '+base+'s','die '+plUmlaut(base),'die '+plUmlaut(base)+'er']);
+  cand.delete(q.plural);
+  return shuffle([q.plural,...shuffle([...cand]).slice(0,3)]);
+}
+let plQ=[], plIdx=0, plCorrect=0, plWrong=0, plAnswered=false;
+function plKey(q){return 'pl:'+q.sing;}
+function plPriority(q){const k=plKey(q);if(DB.mistakes.includes(k))return 0;const lv=srsLevel(k);if(lv<0)return 1;if(isDue(k))return 2;return 3+lv;}
+function startPlural(){
+  plQ=PLURAL_Q.slice(); shuffle(plQ); plQ.sort((a,b)=>plPriority(a)-plPriority(b)); plQ=plQ.slice(0,12); shuffle(plQ);
+  plIdx=0; plCorrect=0; plWrong=0; plAnswered=false;
+  setHeader('🔢 Çoğul',true,'✅ 0','❌ 0');
+  setProgress(0,'0 / '+plQ.length);
+  showScreen('pluralScreen'); renderPlQ();
+}
+function renderPlQ(){
+  const q=plQ[plIdx]; plAnswered=false;
+  document.getElementById('plQNum').textContent='Soru '+(plIdx+1)+' / '+plQ.length;
+  const chip=document.getElementById('plRuleChip'); chip.textContent='Kural '+q.rule+': '+PLURAL_RULES[q.rule].name; chip.style.display='none';
+  document.getElementById('plSing').textContent=q.sing;
+  document.getElementById('plTr').textContent=q.tr;
+  const g=document.getElementById('plOpts'); g.innerHTML='';
+  plOptions(q).forEach(o=>{ const b=document.createElement('button'); b.className='eopt'; b.textContent=o; b.onclick=()=>pickPl(b,o,q); g.appendChild(b); });
+  document.getElementById('plExp').className='exp-box';
+  document.getElementById('plNext').className='btn-next';
+}
+function pickPl(btn,chosen,q){
+  if(plAnswered)return; plAnswered=true;
+  const ok=chosen===q.plural;
+  document.querySelectorAll('#plOpts .eopt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
+  tick(ok,7); srsUpdate(plKey(q),ok,true);
+  if(ok){ btn.classList.add('correct'); plCorrect++; }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#plOpts .eopt').forEach(b=>{if(b.textContent===q.plural)b.classList.add('correct');}); plWrong++; }
+  setHeader('🔢 Çoğul',true,'✅ '+plCorrect,'❌ '+plWrong);
+  setProgress(Math.round((plIdx+1)/plQ.length*100),(plIdx+1)+' / '+plQ.length);
+  document.getElementById('plRuleChip').style.display='inline-block';
+  const eb=document.getElementById('plExp'); eb.className='exp-box show '+(ok?'exp-ok':'exp-err');
+  document.getElementById('plExpTitle').className='exp-title '+(ok?'exp-c':'exp-w');
+  document.getElementById('plExpTitle').innerHTML=ok?'✅ Doğru!':'❌ Yanlış — doğrusu <strong>'+q.plural+'</strong>';
+  document.getElementById('plExpWhy').innerHTML='<strong>'+q.sing+' → '+q.plural+'</strong><br>Tekil artikel ne olursa olsun, çoğulda artikel her zaman <strong>die</strong> olur.';
+  const er=document.getElementById('plExpRule'); er.style.display='inline-block'; er.textContent='💡 Kural '+q.rule+' — '+PLURAL_RULES[q.rule].tip;
+  document.getElementById('plNext').className='btn-next show';
+}
+function plNextQ(){
+  plIdx++;
+  if(plIdx>=plQ.length){ showPlDone(); return; }
+  document.getElementById('plExp').className='exp-box';
+  document.getElementById('plNext').className='btn-next';
+  renderPlQ();
+}
+function showPlDone(){
+  const pct=plQ.length?Math.round(plCorrect/plQ.length*100):0;
+  document.getElementById('plDC').textContent=plCorrect;
+  document.getElementById('plDW').textContent=plWrong;
+  document.getElementById('plDP').textContent=pct+'%';
+  document.getElementById('plDoneSub').textContent=plQ.length+' sorudan '+plCorrect+' doğru. Altın kural: her kelimeyi artikeli + çoğuluyla birlikte ezberle.';
+  showScreen('pluralDoneScreen'); setProgress(100,plQ.length+' / '+plQ.length);
+  for(let i=0;i<60;i++) setTimeout(rainP,i*25);
+}
+
+// ── YS HOCA EGZERSİZİ ────────────────────────────────────────
+const YS_DIALOGUES = [{
+  name: 'Diyalog 1: Haben + Akkusativ',
+  sentences: [
+    {speaker:'A', tr:'Merhaba Mia. Erkek kardeşin var mı?', de:'Hallo Mia. Hast du einen Bruder?', hint:'der Bruder → einen Bruder (Akkusativ)'},
+    {speaker:'B', tr:'Hayır, erkek kardeşim yok.', de:'Nein, ich habe keinen Bruder.', hint:'kein + der Bruder → keinen Bruder'},
+    {speaker:'A', tr:'Kız kardeşin var mı?', de:'Hast du eine Schwester?'},
+    {speaker:'B', tr:'Evet, bir kız kardeşim var.', de:'Ja, ich habe eine Schwester.'},
+    {speaker:'A', tr:'Kız kardeş sevimli mi?', de:'Ist die Schwester süß?'},
+    {speaker:'B', tr:'Evet, kız kardeş çok sevimli.', de:'Ja, die Schwester ist sehr süß.'},
+    {speaker:'A', tr:'Bir köpeğin var mı?', de:'Hast du einen Hund?', hint:'der Hund → einen Hund (Akkusativ)'},
+    {speaker:'B', tr:'Hayır, köpeğim yok.', de:'Nein, ich habe keinen Hund.'},
+    {speaker:'A', tr:'Benim bir köpeğim var.', de:'Ich habe einen Hund.'},
+    {speaker:'B', tr:'Köpek büyük mü?', de:'Ist der Hund groß?'},
+    {speaker:'A', tr:'Hayır, köpek büyük değil. Köpek küçük.', de:'Nein, der Hund ist nicht groß. Der Hund ist klein.'},
+    {speaker:'B', tr:'Senin ayrıca bir kedin var mı?', de:'Hast du auch eine Katze?'},
+    {speaker:'A', tr:'Hayır, kedim yok.', de:'Nein, ich habe keine Katze.', hint:'kein + die Katze → keine Katze'},
+    {speaker:'B', tr:'Benim bir kedim var.', de:'Ich habe eine Katze.'},
+    {speaker:'A', tr:'Kedi sakin mi?', de:'Ist die Katze ruhig?'},
+    {speaker:'B', tr:'Hayır, kedi sakin değil. Kedi çok hareketli.', de:'Nein, die Katze ist nicht ruhig. Die Katze ist sehr aktiv.'},
+    {speaker:'A', tr:'Bugün meyve suyu alıyor musun?', de:'Kaufst du heute einen Saft?', hint:'der Saft → einen Saft (Akkusativ)'},
+    {speaker:'B', tr:'Hayır, meyve suyu almıyorum.', de:'Nein, ich kaufe keinen Saft.'},
+    {speaker:'A', tr:'Muz alıyor musun?', de:'Kaufst du eine Banane?'},
+    {speaker:'B', tr:'Evet, bir muz alıyorum.', de:'Ja, ich kaufe eine Banane.'},
+    {speaker:'A', tr:'Muzu şimdi yiyor musun?', de:'Isst du die Banane jetzt?'},
+    {speaker:'B', tr:'Hayır, muzu şimdi yemiyorum.', de:'Nein, ich esse die Banane nicht.'},
+    {speaker:'A', tr:'Bir öğretmen görüyorum.', de:'Ich sehe einen Lehrer.', hint:'der Lehrer → einen Lehrer (Akkusativ)'},
+    {speaker:'B', tr:'Öğretmen arkadaş canlısı mı?', de:'Ist der Lehrer freundlich?'},
+    {speaker:'A', tr:'Evet, öğretmen arkadaş canlısı.', de:'Ja, der Lehrer ist freundlich.'},
+    {speaker:'B', tr:'Benim bir kitabım var.', de:'Ich habe ein Buch.', hint:'das Buch → ein Buch'},
+    {speaker:'A', tr:'Kitap ilginç mi?', de:'Ist das Buch interessant?'},
+    {speaker:'B', tr:'Hayır, kitap ilginç değil.', de:'Nein, das Buch ist nicht interessant.'},
+    {speaker:'A', tr:'Kitabı satın alıyor musun?', de:'Kaufst du das Buch?'},
+    {speaker:'B', tr:'Hayır, kitabı satın almıyorum.', de:'Nein, ich kaufe das Buch nicht.'},
+    {speaker:'A', tr:'Bir defterin var mı?', de:'Hast du ein Heft?', hint:'das Heft → ein Heft'},
+    {speaker:'B', tr:'Hayır, defterim yok.', de:'Nein, ich habe kein Heft.'},
+    {speaker:'A', tr:'Benim bir defterim var.', de:'Ich habe ein Heft.'},
+    {speaker:'B', tr:'Defter yeni mi?', de:'Ist das Heft neu?'},
+    {speaker:'A', tr:'Evet, defter yeni.', de:'Ja, das Heft ist neu.'},
+  ]
+}];
+
+let ysIdx=0, ysCorrect=0, ysWrong=0, ysAnswered=false, ysSentences=[];
+
+function startYS(){
+  ysIdx=0; ysCorrect=0; ysWrong=0; ysAnswered=false;
+  ysSentences=YS_DIALOGUES[0].sentences;
+  showScreen('ysScreen');
+  setHeader('📝 YS Hocanla', false);
+  renderYSQ();
+}
+
+function ysNorm(s){ return s.trim().replace(/[?.!,\s]+$/,'').trim(); }
+
+function renderYSQ(){
+  const q=ysSentences[ysIdx];
+  ysAnswered=false;
+  document.getElementById('ysQNum').textContent=(ysIdx+1)+' / '+ysSentences.length;
+  document.getElementById('ysExName').textContent=YS_DIALOGUES[0].name;
+  const sp=document.getElementById('ysSpeaker');
+  sp.textContent=q.speaker+' konuşuyor';
+  sp.className='ys-speaker '+(q.speaker==='A'?'ys-speaker-a':'ys-speaker-b');
+  document.getElementById('ysTr').textContent=q.tr;
+  const inp=document.getElementById('ysInput');
+  inp.value=''; inp.className='ys-input'; inp.disabled=false;
+  document.getElementById('ysFb').className='fb-box';
+  document.getElementById('ysFb').innerHTML='';
+  document.getElementById('ysNext').className='btn-next';
+  document.getElementById('ysHintBox').className='ys-hint-box';
+  setProgress(Math.round(ysIdx/ysSentences.length*100),ysIdx+' / '+ysSentences.length);
+  setTimeout(()=>inp.focus(),50);
+}
+
+function ysCheckAnswer(){
+  if(ysAnswered)return;
+  const q=ysSentences[ysIdx];
+  const inp=document.getElementById('ysInput');
+  if(!inp.value.trim())return;
+  ysAnswered=true;
+  const ok=ysNorm(inp.value)===ysNorm(q.de);
+  inp.className='ys-input '+(ok?'t-ok':'t-err');
+  inp.disabled=true;
+  const fb=document.getElementById('ysFb');
+  if(ok){
+    ysCorrect++;
+    fb.className='fb-box show fb-ok';
+    fb.innerHTML='<div class="fb-title fb-c">✅ Doğru!</div>';
+  } else {
+    ysWrong++;
+    fb.className='fb-box show fb-err';
+    fb.innerHTML='<div class="fb-title fb-w">❌ Yanlış</div><div class="fb-body">Doğrusu: <strong>'+q.de+'</strong></div>';
+    if(q.hint){
+      const hb=document.getElementById('ysHintBox');
+      hb.className='ys-hint-box show';
+      hb.textContent='💡 '+q.hint;
+    }
+  }
+  tick(ok,5);
+  setHeader('📝 YS Hocanla',true,'✅ '+ysCorrect,'❌ '+ysWrong);
+  document.getElementById('ysNext').className='btn-next show';
+}
+
+function ysNextQ(){
+  ysIdx++;
+  if(ysIdx>=ysSentences.length){ showYSDone(); return; }
+  document.getElementById('ysFb').className='fb-box';
+  document.getElementById('ysNext').className='btn-next';
+  renderYSQ();
+}
+
+function showYSDone(){
+  const total=ysSentences.length;
+  const pct=Math.round(ysCorrect/total*100);
+  document.getElementById('ysDC').textContent=ysCorrect;
+  document.getElementById('ysDW').textContent=ysWrong;
+  document.getElementById('ysDP').textContent=pct+'%';
+  document.getElementById('ysDoneSub').textContent=total+' cümleden '+ysCorrect+' doğru.';
+  showScreen('ysDoneScreen');
+  setProgress(100,total+' / '+total);
+  if(pct>=80) for(let i=0;i<60;i++) setTimeout(rainP,i*25);
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const yi=document.getElementById('ysInput');
+  if(yi) yi.addEventListener('keydown',e=>{ if(e.key==='Enter') ysCheckAnswer(); });
+});
+
+// Başlangıç
+showScreen('homeScreen');
+</script>
+</body>
+</html>
