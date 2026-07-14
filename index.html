@@ -409,6 +409,45 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 .ys-input.t-err{border-color:var(--red);background:var(--red-bg)}
 .ys-hint-box{background:var(--yellow-bg);border:1.5px solid var(--yellow);border-radius:10px;padding:9px 13px;font-size:.83rem;font-weight:600;color:#7c4a03;margin-bottom:10px;display:none}
 .ys-hint-box.show{display:block}
+
+/* ── YS HUB (merkez) ── */
+#ysHubScreen{display:none}
+#ysRefScreen{display:none}
+.hub-intro{background:var(--purple-bg);border:2px solid var(--purple);border-radius:16px;padding:14px 16px;margin-bottom:18px;font-size:.87rem;line-height:1.6;color:#4c1d95}
+.hub-intro b{color:#6d28d9}
+.hub-sec-head{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--light);margin:18px 0 9px;display:flex;align-items:center;gap:7px}
+.hub-sec-head::after{content:'';flex:1;height:1.5px;background:var(--border);border-radius:2px}
+.hub-card{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:14px 16px;cursor:pointer;transition:all .13s;display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.hub-card:hover{border-color:var(--purple);transform:translateY(-1px)}
+.hub-card.blue:hover{border-color:var(--blue)}
+.hub-card.green:hover{border-color:var(--green)}
+.hub-card.done{border-color:var(--green);background:var(--green-bg)}
+.hub-emoji{font-size:1.7rem;flex-shrink:0}
+.hub-info{flex:1;text-align:left}
+.hub-title{font-weight:800;font-size:.94rem}
+.hub-desc{font-size:.77rem;color:var(--light);margin-top:2px;line-height:1.35}
+.hub-arrow{font-size:1.1rem;color:var(--light);margin-left:auto;flex-shrink:0}
+.hub-badge{font-size:.66rem;font-weight:800;background:var(--green-bg);color:var(--green-dark);border:1.5px solid var(--green);border-radius:999px;padding:2px 8px;margin-left:auto;flex-shrink:0}
+
+/* Kral/Soytarı görsel dizilim */
+.pos-row{display:flex;gap:6px;flex-wrap:wrap;align-items:stretch;margin:9px 0}
+.pos-box{border-radius:10px;padding:8px 6px;text-align:center;flex:1;min-width:58px;border:2px solid var(--border)}
+.pos-box .pos-num{font-size:.62rem;font-weight:800;color:var(--light);text-transform:uppercase;letter-spacing:.4px}
+.pos-box .pos-word{font-weight:800;font-size:.9rem;margin-top:2px}
+.pos-box.king{background:#fef3c7;border-color:#f59e0b}
+.pos-box.jester{background:var(--red-bg);border-color:var(--red)}
+.pos-box.folk{background:var(--blue-bg);border-color:var(--blue)}
+.pos-box.rest{background:var(--bg)}
+.pos-legend{font-size:.72rem;color:var(--light);margin-top:2px}
+
+/* ── GÜNÜN PARAGRAFI (okuma) ── */
+#paraScreen{display:none}
+.read-card{background:var(--white);border:2.5px solid var(--border);border-radius:18px;padding:20px 20px;margin-bottom:14px;box-shadow:var(--shadow)}
+.read-de{font-size:1.02rem;line-height:1.85;color:#1a1a2e;font-weight:600}
+.read-tr{font-size:.9rem;line-height:1.7;color:#374151;margin-top:14px;padding-top:14px;border-top:1.5px dashed var(--border);font-style:italic;display:none}
+.read-tr.show{display:block}
+.read-note{background:#fff6e6;border-left:4px solid var(--yellow);border-radius:0 10px 10px 0;padding:11px 14px;font-size:.85rem;line-height:1.55;margin-bottom:14px;color:#7c4a03}
+.read-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
 </style>
 </head>
 <body>
@@ -509,15 +548,10 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
   <!-- BÖLÜM 4: ÖĞRETMEN EGZERSİZLERİ -->
   <div class="sec-head">📝 Öğretmen Egzersizleri</div>
   <div class="mode-grid">
-    <div class="mode-card col-purple mode-card-full" onclick="startYS()">
+    <div class="mode-card col-purple mode-card-full" onclick="openYSHub()">
       <div class="mc-icon">👩‍🏫</div>
       <div class="mc-title">YS Hocanla Çalışmalar</div>
-      <div class="mc-sub">Diyalog 1 · Haben + Akkusativ · 35 cümle</div>
-    </div>
-    <div class="mode-card col-blue mode-card-full" onclick="startHavBes()">
-      <div class="mc-icon">⚖️</div>
-      <div class="mc-title">haben vs besitzen</div>
-      <div class="mc-sub">Boşluk doldur · 15 soru · Kural açıklamalı</div>
+      <div class="mc-sub">Yöntemler · Egzersizler · Günün paragrafı</div>
     </div>
   </div>
 </div>
@@ -796,6 +830,91 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
   </div>
   <button class="btn-replay" onclick="startHizliTest()">Tekrar →</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+<!-- YS HOCA HUB (merkez) -->
+<div id="ysHubScreen">
+  <div class="cat-top">
+    <h2>👩‍🏫 YS Hocanla Çalışmalar</h2>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <div class="hub-intro">
+    Bu bölüm tamamen <b>Yasin Hoca'nın Teil-1 kaynağındaki</b> kurallara ve örnek cümlelere göre hazırlandı.
+    Önce <b>Yöntemler</b>'den kuralı oku, sonra <b>Egzersizler</b>'de pekiştir, her gün <b>Günün Çalışması</b>'nı yap.
+  </div>
+
+  <div class="hub-sec-head">📅 Günün Çalışması</div>
+  <div id="hubDaily"></div>
+
+  <div class="hub-sec-head">📖 Yasin Hoca'nın Yöntemleri</div>
+  <div id="hubMethods"></div>
+
+  <div class="hub-sec-head">✏️ Egzersizler</div>
+  <div id="hubExercises"></div>
+</div>
+
+<!-- YÖNTEM REFERANS -->
+<div id="ysRefScreen">
+  <div class="cat-top">
+    <h2 id="refTitle"></h2>
+    <button class="btn-home" onclick="openYSHub()">← Geri</button>
+  </div>
+  <div id="refBody"></div>
+  <button class="btn-test" id="refToExBtn" onclick="refStartExercise()">Bu konuyu egzersizle pekiştir →</button>
+</div>
+
+<!-- GENEL MC TEST MOTORU -->
+<div id="mcScreen">
+  <div class="cat-top">
+    <h2 id="mcTitle" style="font-size:1.1rem"></h2>
+    <button class="btn-home" onclick="openYSHub()">← Geri</button>
+  </div>
+  <div class="q-meta">
+    <div class="q-num" id="mcQNum">Soru 1</div>
+    <div class="q-cat-badge" id="mcRule"></div>
+  </div>
+  <div class="sent-card">
+    <div class="sent-de" id="mcSent"></div>
+    <div class="sent-tr" id="mcTr"></div>
+  </div>
+  <div class="eopts" id="mcOpts"></div>
+  <div class="exp-box" id="mcExp">
+    <div class="exp-title" id="mcExpTitle"></div>
+    <div class="exp-why" id="mcExpWhy"></div>
+    <div class="exp-rule" id="mcExpRule"></div>
+  </div>
+  <button class="btn-next" id="mcNext" onclick="mcNextQ()">Sonraki →</button>
+</div>
+
+<!-- GENEL MC TEST DONE -->
+<div id="mcDoneScreen">
+  <div class="trophy" id="mcDoneEmoji">🎯</div>
+  <div class="done-title">Bitti!</div>
+  <div class="done-sub" id="mcDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="mcDC">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="mcDW">0</div><div class="dl">Yanlış</div></div>
+    <div class="ds"><div class="dv" id="mcDP">0%</div><div class="dl">Başarı</div></div>
+  </div>
+  <button class="btn-replay" id="mcReplay">Tekrar →</button>
+  <button class="btn-home" onclick="openYSHub()">← Merkez</button>
+</div>
+
+<!-- GÜNÜN PARAGRAFI -->
+<div id="paraScreen">
+  <div class="cat-top">
+    <h2 style="font-size:1.1rem">📅 Günün Çalışması</h2>
+    <button class="btn-home" onclick="openYSHub()">← Geri</button>
+  </div>
+  <div class="read-note" id="paraNote"></div>
+  <div class="read-card">
+    <div class="read-de" id="paraDe"></div>
+    <div class="read-tr" id="paraTr"></div>
+  </div>
+  <div class="read-actions">
+    <button class="btn-toggle" onclick="paraToggleTR()">👁 Türkçeyi Göster</button>
+  </div>
+  <div id="paraQuiz"></div>
 </div>
 
 <!-- HABEN VS BESİTZEN -->
@@ -1295,11 +1414,12 @@ const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
   'gramerScreen','gramerTopicScreen','gramerTestScreen','gramerTestDoneScreen',
   'artikelScreen','artikelDoneScreen','pluralScreen','pluralDoneScreen',
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
-  'havbesScreen','havbesDoneScreen'];
+  'havbesScreen','havbesDoneScreen',
+  'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen'];
 
 function showScreen(id){
   ALL_SCREENS.forEach(s=>{ document.getElementById(s).style.display = s===id?'block':'none'; });
-  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen'].includes(id);
+  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen'].includes(id);
   document.getElementById('progWrap').style.display = showProg?'block':'none';
   if(id==='homeScreen'){ setHeader('🇩🇪 Almanca', false); document.getElementById('headerStats').style.display='none'; renderHome(); }
 }
@@ -2758,6 +2878,324 @@ function showPlDone(){
   document.getElementById('plDoneSub').textContent=plQ.length+' sorudan '+plCorrect+' doğru. Altın kural: her kelimeyi artikeli + çoğuluyla birlikte ezberle.';
   showScreen('pluralDoneScreen'); setProgress(100,plQ.length+' / '+plQ.length);
   for(let i=0;i<60;i++) setTimeout(rainP,i*25);
+}
+
+// ════════════════════════════════════════════════════════════
+// YS HOCA MERKEZİ (HUB) — Yasin Hoca kaynağına göre
+// ════════════════════════════════════════════════════════════
+
+function openYSHub(){ renderHub(); showScreen('ysHubScreen'); setHeader('👩‍🏫 YS Hocanla',false); }
+
+function renderHub(){
+  // Günün çalışması
+  document.getElementById('hubDaily').innerHTML =
+    '<div class="hub-card green" onclick="openPara()">'+
+      '<div class="hub-emoji">📅</div>'+
+      '<div class="hub-info"><div class="hub-title">Bugünün paragrafı & konuşma</div>'+
+      '<div class="hub-desc">Kaynaktan okuma metni + anlama soruları + konuşma görevi</div></div>'+
+      '<div class="hub-arrow">→</div></div>';
+
+  // Yöntemler
+  const methods=[
+    {id:'kral',emoji:'👑',title:'Kral & Soytarı — Altın Kural',desc:'Cümle dizilimi: fiil her zaman 2. sırada'},
+    {id:'tmp',emoji:'📊',title:'TMP — Zaman · Tarz · Yer',desc:'Bilgileri hangi sırayla dizeceğin'},
+    {id:'zamir',emoji:'🔄',title:'Zamir kuralı (der→er)',desc:'Artikele göre "o" zamiri seçimi'},
+    {id:'zaman',emoji:'📅',title:'Zaman ifadeleri',desc:'jeden / nächsten / letzten — Akkusativmiş gibi'},
+  ];
+  document.getElementById('hubMethods').innerHTML = methods.map(m=>
+    '<div class="hub-card" onclick="openRef(\''+m.id+'\')">'+
+      '<div class="hub-emoji">'+m.emoji+'</div>'+
+      '<div class="hub-info"><div class="hub-title">'+m.title+'</div><div class="hub-desc">'+m.desc+'</div></div>'+
+      '<div class="hub-arrow">→</div></div>').join('');
+
+  // Egzersizler
+  const exs=[
+    {emoji:'💬',title:'Diyalog 1 — Haben + Akkusativ',desc:'35 cümle çeviri (kein/eine · Akkusativ)',fn:'startYS()'},
+    {emoji:'🧩',title:'Cümle Dizilimi — Altın Kural',desc:'Doğru sıralı cümleyi seç (fiil 2. sırada)',fn:'startMC(\'dizilim\')'},
+    {emoji:'❓',title:'Ja/Nein Soruları',desc:'Düz cümleyi Evet/Hayır sorusuna çevir',fn:'startMC(\'janein\')'},
+    {emoji:'📊',title:'TMP Sıralama',desc:'Zaman-Tarz-Yer sırasını doğru diz',fn:'startMC(\'tmp\')'},
+    {emoji:'🔄',title:'Zamir — der→er / die→sie / das→es',desc:'Artikele göre zamir seç',fn:'startMC(\'zamir\')'},
+    {emoji:'📅',title:'Zaman İfadeleri',desc:'jeden / nächsten / letzten doğru ek',fn:'startMC(\'zaman\')'},
+    {emoji:'⚖️',title:'haben vs besitzen',desc:'Günlük sahiplik mi, resmi mülkiyet mi?',fn:'startHavBes()'},
+  ];
+  document.getElementById('hubExercises').innerHTML = exs.map(e=>
+    '<div class="hub-card blue" onclick="'+e.fn+'">'+
+      '<div class="hub-emoji">'+e.emoji+'</div>'+
+      '<div class="hub-info"><div class="hub-title">'+e.title+'</div><div class="hub-desc">'+e.desc+'</div></div>'+
+      '<div class="hub-arrow">→</div></div>').join('');
+}
+
+// ── Yöntem referans kartları ──────────────────────────────────
+const METHODS = {
+  kral:{ title:'👑 Kral & Soytarı', exSet:'dizilim', html:`
+    <div class="rule-card">
+    <span class="r-head">Sarayın üç üyesi</span>
+    Yasin Hoca cümle dizilimini bir saraya benzetir:
+    <div class="pos-row">
+      <div class="pos-box king"><div class="pos-num">1 · Kral</div><div class="pos-word">Soru kelimesi</div></div>
+      <div class="pos-box jester"><div class="pos-num">2 · Soytarı</div><div class="pos-word">Fiil</div></div>
+      <div class="pos-box folk"><div class="pos-num">3 · Halk</div><div class="pos-word">Özne</div></div>
+      <div class="pos-box rest"><div class="pos-num">4 · …</div><div class="pos-word">Nesne / TMP</div></div>
+    </div>
+    <span class="r-tip">🏆 <b>Altın Kural:</b> İstisnalar hariç, Soytarı (fiil) <b>her zaman 2. sıradadır.</b></span>
+    <span class="r-head">Kral (soru kelimesi) varsa</span>
+    <span class="r-eg"><b>Wie</b> (1) <b>heißt</b> (2) du (3)? — Adın ne?</span>
+    <span class="r-eg"><b>Wo</b> (1) <b>wohnen</b> (2) Sie (3)? — Nerede oturuyorsunuz?</span>
+    <span class="r-head">Kral yoksa (düz cümle) — Halk başa, Soytarı yine 2.</span>
+    <span class="r-eg">Ich (1) <b>komme</b> (2) aus Japan. — Japonya'dan geliyorum.</span>
+    <span class="r-eg">Heute (1) <b>gehen</b> (2) meine Mutter und ich (3) ins Kino.</span>
+    <span class="r-head">İstisna — Ja/Nein sorusu: Soytarı başa zıplar</span>
+    <span class="r-warn">Kral yok ve soru soruyorsan fiil <b>1. sıraya</b> geçer:<br><b>Kommst</b> (1) du (2) aus Japan? · <b>Hast</b> (1) du (2) einen Hund?</span>
+    </div>`},
+  tmp:{ title:'📊 TMP — Zaman·Tarz·Yer', exSet:'tmp', html:`
+    <div class="rule-card">
+    <span class="r-head">TMP = Time → Manner → Place</span>
+    Cümledeki bilgileri her zaman bu sırayla diz:
+    <table class="r-table">
+      <tr><th>T · Zaman</th><th>M · Tarz/Araç</th><th>P · Yer</th></tr>
+      <tr><td>heute, am Dienstag, im Herbst</td><td>mit dem Bus, allein, mit Sandra</td><td>ins Kino, nach Berlin, zu Hause</td></tr>
+    </table>
+    <span class="r-tip">Önce <b>ne zaman?</b> → sonra <b>nasıl/kiminle?</b> → en son <b>nerede?</b></span>
+    <span class="r-head">Özne ile başlar: Özne + Fiil + T + M + P</span>
+    <span class="r-eg"><b>Wir fahren</b> im Herbst (T) mit dem Bus (M) nach Dresden (P). — Sonbaharda otobüsle Dresden'e gideriz.</span>
+    <span class="r-head">Zaman başa gelirse: T + Fiil + Özne + …</span>
+    <span class="r-eg"><b>Heute gehen</b> meine Mutter und ich ins Kino. — Bugün annem ve ben sinemaya gidiyoruz.</span>
+    <span class="r-eg"><b>Im Juli reise</b> ich mit Oleg. — Temmuzda Oleg ile seyahat ediyorum.</span>
+    </div>`},
+  zamir:{ title:'🔄 Zamir (der→er)', exSet:'zamir', html:`
+    <div class="rule-card">
+    <span class="r-head">Artikele göre "o" zamiri</span>
+    <table class="r-table">
+      <tr><th>Artikel</th><th>Zamir</th><th>Örnek</th></tr>
+      <tr><td><span class="r-der">der</span></td><td><b>er</b></td><td>der Tisch → er</td></tr>
+      <tr><td><span class="r-die">die</span></td><td><b>sie</b></td><td>die Tür → sie</td></tr>
+      <tr><td><span class="r-das">das</span></td><td><b>es</b></td><td>das Fenster → es</td></tr>
+      <tr><td>die (çoğul)</td><td><b>sie</b> (onlar)</td><td>die Bücher → sie</td></tr>
+    </table>
+    <span class="r-tip">Cümlenin öznesi = Nominativ. Özne hangi artikele sahipse zamir ona göre seçilir.</span>
+    <span class="r-eg">Der Mann ist mein Vater. → <b>Er</b> ist mein Vater.</span>
+    <span class="r-eg">Die Studentin geht nach Hause. → <b>Sie</b> geht nach Hause.</span>
+    </div>`},
+  zaman:{ title:'📅 Zaman ifadeleri', exSet:'zaman', html:`
+    <div class="rule-card">
+    <span class="r-head">"Akkusativmiş gibi düşün"</span>
+    Her / Gelecek / Geçen derken artikel Akkusatif gibi değişir:
+    <table class="r-table">
+      <tr><th></th><th><span class="r-der">der</span>→den</th><th><span class="r-die">die</span>→die</th><th><span class="r-das">das</span>→das</th></tr>
+      <tr><td>HER</td><td>jed<b>en</b> Tag</td><td>jed<b>e</b> Woche</td><td>jed<b>es</b> Jahr</td></tr>
+      <tr><td>GELECEK</td><td>nächst<b>en</b> Monat</td><td>nächst<b>e</b> Woche</td><td>nächst<b>es</b> Jahr</td></tr>
+      <tr><td>GEÇEN</td><td>letzt<b>en</b> Monat</td><td>letzt<b>e</b> Woche</td><td>letzt<b>es</b> Jahr</td></tr>
+    </table>
+    <span class="r-warn">Sadece <span class="r-der">der</span> değişir (→ -en). <span class="r-die">die</span> ve <span class="r-das">das</span> aynı kalır.</span>
+    <span class="r-eg">Jeden Tag = Täglich · Jede Woche = Wöchentlich · Jedes Jahr = Jährlich</span>
+    </div>`},
+};
+let curRefEx=null;
+function openRef(id){
+  const m=METHODS[id];
+  document.getElementById('refTitle').textContent=m.title;
+  document.getElementById('refBody').innerHTML=m.html;
+  curRefEx=m.exSet;
+  showScreen('ysRefScreen'); setHeader('👩‍🏫 YS Hocanla',false);
+}
+function refStartExercise(){ if(curRefEx) startMC(curRefEx); }
+
+// ── Genel çoktan seçmeli test motoru ──────────────────────────
+const MCSETS = {
+  dizilim:{ title:'🧩 Cümle Dizilimi', emoji:'🧩', rule:'Altın Kural · fiil 2. sırada', longOpts:true, questions:[
+    {prompt:'Bugün annem ve ben sinemaya gidiyoruz.',answer:'Heute gehen meine Mutter und ich ins Kino.',opts:['Heute gehen meine Mutter und ich ins Kino.','Heute meine Mutter und ich gehen ins Kino.'],
+     exp:'Zaman (Heute) başa gelince fiil yine 2. sırada; özne fiilin arkasına (3.) geçer.',rule:'Fiil = 2. sıra'},
+    {prompt:'Sonbaharda otobüsle Dresden\'e gideriz.',answer:'Im Herbst fahren wir mit dem Bus nach Dresden.',opts:['Im Herbst fahren wir mit dem Bus nach Dresden.','Im Herbst wir fahren mit dem Bus nach Dresden.'],
+     exp:'"Im Herbst" 1. sırada → fiil (fahren) 2. sırada → özne (wir) 3. sırada.',rule:'Fiil = 2. sıra'},
+    {prompt:'Cihangir\'de oturuyorum.',answer:'In Cihangir wohne ich.',opts:['In Cihangir wohne ich.','In Cihangir ich wohne.'],
+     exp:'Yer başa geldi ama Altın Kural bozulmaz: fiil (wohne) 2. sırada kalır.',rule:'Fiil = 2. sıra'},
+    {prompt:'Temmuzda Oleg ile seyahat ediyorum.',answer:'Im Juli reise ich mit Oleg.',opts:['Im Juli reise ich mit Oleg.','Im Juli ich reise mit Oleg.'],
+     exp:'Im Juli (T) → reise (fiil, 2.) → ich (özne, 3.) → mit Oleg (M).',rule:'Fiil = 2. sıra'},
+    {prompt:'Cumartesi günü sinemaya gidiyorlar.',answer:'Am Samstag gehen sie ins Kino.',opts:['Am Samstag gehen sie ins Kino.','Am Samstag sie gehen ins Kino.'],
+     exp:'Am Samstag (T) → gehen (fiil, 2.) → sie (özne, 3.).',rule:'Fiil = 2. sıra'},
+    {prompt:'Adın ne? (Doğru soru dizilimi)',answer:'Wie heißt du?',opts:['Wie heißt du?','Wie du heißt?'],
+     exp:'Kral (Wie) 1. sırada → Soytarı (heißt) 2. sırada → Halk (du) 3.',rule:'Kral 1, Fiil 2'},
+  ]},
+  janein:{ title:'❓ Ja/Nein Soruları', emoji:'❓', rule:'Soytarı başa zıplar', longOpts:true, questions:[
+    {prompt:'Japonya\'dan mı geliyorsun?',answer:'Kommst du aus Japan?',opts:['Kommst du aus Japan?','Du kommst aus Japan?'],
+     exp:'Evet/Hayır sorusunda Kral (soru kelimesi) yok → fiil (Kommst) 1. sıraya zıplar.',rule:'Fiil = 1. sıra'},
+    {prompt:'Bir köpeğin var mı?',answer:'Hast du einen Hund?',opts:['Hast du einen Hund?','Du hast einen Hund?'],
+     exp:'Fiil (Hast) başa geçer, özne (du) arkasına. "der Hund" nesne → einen Hund (Akkusativ).',rule:'Fiil = 1. sıra'},
+    {prompt:'Paris\'te mi çalışıyorsun?',answer:'Arbeitest du in Paris?',opts:['Arbeitest du in Paris?','Du arbeitest in Paris?'],
+     exp:'Ja/Nein sorusu: Arbeitest (fiil) 1. sırada.',rule:'Fiil = 1. sıra'},
+    {prompt:'Evli misin?',answer:'Bist du verheiratet?',opts:['Bist du verheiratet?','Du bist verheiratet?'],
+     exp:'"sein" fiili de kural dışı değil: Bist (fiil) başa geçer.',rule:'Fiil = 1. sıra'},
+    {prompt:'Yarın okula gidiyor musun?',answer:'Gehst du morgen in die Schule?',opts:['Gehst du morgen in die Schule?','Morgen du gehst in die Schule?'],
+     exp:'Soru olduğu için fiil (Gehst) en başta; "morgen" sonra gelir.',rule:'Fiil = 1. sıra'},
+  ]},
+  tmp:{ title:'📊 TMP Sıralama', emoji:'📊', rule:'Zaman → Tarz → Yer', longOpts:true, questions:[
+    {prompt:'Sonbaharda otobüsle Dresden\'e gideriz. (T-M-P doğru sıra)',answer:'Wir fahren im Herbst mit dem Bus nach Dresden.',opts:['Wir fahren im Herbst mit dem Bus nach Dresden.','Wir fahren mit dem Bus im Herbst nach Dresden.'],
+     exp:'Sıra: im Herbst (T) → mit dem Bus (M) → nach Dresden (P). Önce zaman, sonra araç.',rule:'T → M → P'},
+    {prompt:'Evde Tim ile müzik dinleyeceğim.',answer:'Ich höre zu Hause mit Tim Musik.',opts:['Ich höre zu Hause mit Tim Musik.','Ich höre mit Tim zu Hause Musik.'],
+     exp:'Burada yer (zu Hause) ve tarz (mit Tim) var; nesne (Musik) genelde sona yakın. TMP mantığıyla düzenli sıralama.',rule:'T → M → P'},
+    {prompt:'Bugün otobüsle işe gidiyorum.',answer:'Ich fahre heute mit dem Bus zur Arbeit.',opts:['Ich fahre heute mit dem Bus zur Arbeit.','Ich fahre mit dem Bus heute zur Arbeit.'],
+     exp:'heute (T) → mit dem Bus (M) → zur Arbeit (P).',rule:'T → M → P'},
+    {prompt:'Kız kardeşim için markette bir hediye alıyorum.',answer:'Ich kaufe für meine Schwester im Supermarkt ein Geschenk.',opts:['Ich kaufe für meine Schwester im Supermarkt ein Geschenk.','Ich kaufe im Supermarkt für meine Schwester ein Geschenk.'],
+     exp:'M (für meine Schwester) yerden (im Supermarkt) önce gelir. Vurgu değişmedikçe TMP önceliği.',rule:'M → P'},
+  ]},
+  zamir:{ title:'🔄 Zamir Seçimi', emoji:'🔄', rule:'der→er · die→sie · das→es', longOpts:false, questions:[
+    {prompt:'der Tisch',tr:'masa',answer:'er',opts:['er','sie','es'],exp:'der artikeli → er.',rule:'der → er'},
+    {prompt:'die Tür',tr:'kapı',answer:'sie',opts:['er','sie','es'],exp:'die artikeli → sie.',rule:'die → sie'},
+    {prompt:'das Fenster',tr:'pencere',answer:'es',opts:['er','sie','es'],exp:'das artikeli → es.',rule:'das → es'},
+    {prompt:'der Vater',tr:'baba',answer:'er',opts:['er','sie','es'],exp:'der → er (erkek varlık).',rule:'der → er'},
+    {prompt:'die Mutter',tr:'anne',answer:'sie',opts:['er','sie','es'],exp:'die → sie (kadın varlık).',rule:'die → sie'},
+    {prompt:'das Brot',tr:'ekmek',answer:'es',opts:['er','sie','es'],exp:'das → es (cinsiyetsiz).',rule:'das → es'},
+    {prompt:'die Bücher',tr:'kitaplar (çoğul)',answer:'sie',opts:['er','sie','es'],exp:'Çoğul (die Pl.) → sie (onlar).',rule:'çoğul → sie'},
+    {prompt:'der Sohn',tr:'erkek evlat',answer:'er',opts:['er','sie','es'],exp:'der → er.',rule:'der → er'},
+    {prompt:'die Tochter',tr:'kız evlat',answer:'sie',opts:['er','sie','es'],exp:'die → sie.',rule:'die → sie'},
+    {prompt:'das Kola',tr:'kola',answer:'es',opts:['er','sie','es'],exp:'das → es.',rule:'das → es'},
+  ]},
+  zaman:{ title:'📅 Zaman İfadeleri', emoji:'📅', rule:'jeden / nächsten / letzten', longOpts:false, questions:[
+    {prompt:'___ Tag',tr:'her gün (der Tag)',answer:'Jeden',opts:['Jeden','Jede','Jedes'],exp:'der Tag → Akkusatif gibi den → jed-en.',rule:'der → -en'},
+    {prompt:'___ Woche',tr:'her hafta (die Woche)',answer:'Jede',opts:['Jeden','Jede','Jedes'],exp:'die Woche değişmez → jed-e.',rule:'die → -e'},
+    {prompt:'___ Wochenende',tr:'her hafta sonu (das Wochenende)',answer:'Jedes',opts:['Jeden','Jede','Jedes'],exp:'das Wochenende değişmez → jed-es.',rule:'das → -es'},
+    {prompt:'___ Monat',tr:'her ay (der Monat)',answer:'Jeden',opts:['Jeden','Jede','Jedes'],exp:'der Monat → jed-en.',rule:'der → -en'},
+    {prompt:'___ Jahr',tr:'her yıl (das Jahr)',answer:'Jedes',opts:['Jeden','Jede','Jedes'],exp:'das Jahr → jed-es.',rule:'das → -es'},
+    {prompt:'___ Monat',tr:'gelecek ay (der Monat)',answer:'Nächsten',opts:['Nächsten','Nächste','Nächstes'],exp:'der Monat → nächst-en.',rule:'der → -en'},
+    {prompt:'___ Woche',tr:'gelecek hafta (die Woche)',answer:'Nächste',opts:['Nächsten','Nächste','Nächstes'],exp:'die Woche → nächst-e.',rule:'die → -e'},
+    {prompt:'___ Jahr',tr:'gelecek yıl (das Jahr)',answer:'Nächstes',opts:['Nächsten','Nächste','Nächstes'],exp:'das Jahr → nächst-es.',rule:'das → -es'},
+    {prompt:'___ Woche',tr:'geçen hafta (die Woche)',answer:'Letzte',opts:['Letzten','Letzte','Letztes'],exp:'die Woche → letzt-e.',rule:'die → -e'},
+    {prompt:'___ Monat',tr:'geçen ay (der Monat)',answer:'Letzten',opts:['Letzten','Letzte','Letztes'],exp:'der Monat → letzt-en.',rule:'der → -en'},
+  ]},
+};
+
+let mcCur=null, mcQ=[], mcIdx=0, mcCorrect=0, mcWrong=0, mcAnswered=false;
+function startMC(id){
+  mcCur=id; mcQ=MCSETS[id].questions; mcIdx=0; mcCorrect=0; mcWrong=0; mcAnswered=false;
+  document.getElementById('mcTitle').textContent=MCSETS[id].title;
+  document.getElementById('mcReplay').onclick=()=>startMC(id);
+  showScreen('mcScreen'); setHeader(MCSETS[id].emoji+' Egzersiz',false);
+  renderMCQ();
+}
+function renderMCQ(){
+  const s=MCSETS[mcCur], q=mcQ[mcIdx];
+  mcAnswered=false;
+  document.getElementById('mcQNum').textContent='Soru '+(mcIdx+1)+' / '+mcQ.length;
+  document.getElementById('mcRule').textContent=q.rule||s.rule;
+  const blank='<span class="blank">___</span>';
+  document.getElementById('mcSent').innerHTML=(q.prompt||'').replace('___',blank);
+  document.getElementById('mcTr').textContent=q.tr||'';
+  document.getElementById('mcTr').style.display=q.tr?'block':'none';
+  const og=document.getElementById('mcOpts');
+  og.innerHTML='';
+  og.style.gridTemplateColumns = s.longOpts?'1fr':'1fr 1fr 1fr';
+  q.opts.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='eopt'; b.textContent=o;
+    if(s.longOpts){ b.style.fontSize='.92rem'; b.style.fontWeight='700'; b.style.textAlign='left'; b.style.lineHeight='1.4'; }
+    b.onclick=()=>pickMC(b,o,q);
+    og.appendChild(b);
+  });
+  document.getElementById('mcExp').className='exp-box';
+  document.getElementById('mcNext').className='btn-next';
+  setProgress(Math.round(mcIdx/mcQ.length*100),(mcIdx+1)+' / '+mcQ.length);
+}
+function pickMC(btn,chosen,q){
+  if(mcAnswered)return; mcAnswered=true;
+  const ok=chosen===q.answer;
+  document.querySelectorAll('#mcOpts .eopt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
+  tick(ok,6);
+  if(ok){mcCorrect++;btn.classList.add('correct');}
+  else{mcWrong++;btn.classList.add('wrong');document.querySelectorAll('#mcOpts .eopt').forEach(b=>{if(b.textContent===q.answer)b.classList.add('correct');});}
+  setHeader(MCSETS[mcCur].emoji+' Egzersiz',true,'✅ '+mcCorrect,'❌ '+mcWrong);
+  const eb=document.getElementById('mcExp');
+  eb.className='exp-box show '+(ok?'exp-ok':'exp-err');
+  document.getElementById('mcExpTitle').className='exp-title '+(ok?'exp-c':'exp-w');
+  document.getElementById('mcExpTitle').innerHTML=ok?'✅ Doğru!':'❌ Yanlış — doğrusu: <strong>'+q.answer+'</strong>';
+  document.getElementById('mcExpWhy').textContent=q.exp||'';
+  const er=document.getElementById('mcExpRule');
+  if(q.rule){ er.textContent='💡 '+q.rule; er.style.display='inline-block'; } else er.style.display='none';
+  document.getElementById('mcNext').className='btn-next show';
+}
+function mcNextQ(){
+  mcIdx++;
+  if(mcIdx>=mcQ.length){ showMCDone(); return; }
+  document.getElementById('mcExp').className='exp-box';
+  document.getElementById('mcNext').className='btn-next';
+  renderMCQ();
+}
+function showMCDone(){
+  const pct=Math.round(mcCorrect/mcQ.length*100);
+  document.getElementById('mcDoneEmoji').textContent=MCSETS[mcCur].emoji;
+  document.getElementById('mcDC').textContent=mcCorrect;
+  document.getElementById('mcDW').textContent=mcWrong;
+  document.getElementById('mcDP').textContent=pct+'%';
+  document.getElementById('mcDoneSub').textContent=mcQ.length+' sorudan '+mcCorrect+' doğru.';
+  showScreen('mcDoneScreen'); setProgress(100,mcQ.length+' / '+mcQ.length);
+  if(pct>=80) for(let i=0;i<60;i++) setTimeout(rainP,i*25);
+}
+
+// ── Günün paragrafı (okuma + konuşma) ─────────────────────────
+const PARA_READINGS = [
+  {
+    note:'Bugün ayın 14\'ü. Doğum günü kalıbını hatırla: <b>„Ich habe am 14.02 Geburtstag."</b> (am vierzehnten zweiten) — "Ayın 14\'ünde doğum günüm var."',
+    de:'Das ist meine Freundin. Sie heißt Sally. Sie ist 18 Jahre alt. Sie wohnt in Berlin. Sie kommt aus England. Ihre Muttersprache ist Englisch, aber sie kann Deutsch und Türkisch sprechen.',
+    tr:'Bu, benim kız arkadaşım. Onun adı Sally. O, 18 yaşında. O, Berlin\'de oturuyor. O, İngiltereli. Onun ana dili İngilizce ama o, Almanca ve Türkçe konuşabiliyor.',
+    quiz:[
+      {q:'Wie alt ist Sally?',opts:['18','28','8'],a:'18'},
+      {q:'Woher kommt Sally?',opts:['aus England','aus Berlin','aus der Türkei'],a:'aus England'},
+      {q:'"Sie wohnt in Berlin" — Sally = die Freundin. Hangi zamir kuralı?',opts:['die → sie','der → er','das → es'],a:'die → sie'},
+    ],
+    speak:'Şimdi kendini tanıt (SPRECHEN): Adın, yaşın, nereli olduğun, nerede oturduğun, hangi dilleri konuştuğun. Kalıp: „Ich heiße… Ich bin … Jahre alt. Ich komme aus … Ich wohne in … Ich kann … sprechen." — Fiili 2. sıraya koymayı unutma!'
+  },
+  {
+    note:'Meslek kalıbı: „Was machst du beruflich?" = Ne iş yapıyorsun? Cevap: „Ich arbeite als …"',
+    de:'Er heißt Boris. Er ist zweiundzwanzig Jahre alt. Er ist Polizist. Er arbeitet sechs Tage pro Woche. Nur einen Tag (am Freitag) hat er frei.',
+    tr:'Onun adı Boris. O, 22 yaşında. O, polis. Haftada altı gün çalışıyor. Sadece bir gün (Cuma günü) izinli.',
+    quiz:[
+      {q:'Was ist Boris von Beruf?',opts:['Polizist','Arzt','Lehrer'],a:'Polizist'},
+      {q:'Wie viele Tage pro Woche arbeitet er?',opts:['sechs','fünf','sieben'],a:'sechs'},
+      {q:'Wann hat er frei?',opts:['am Freitag','am Montag','am Sonntag'],a:'am Freitag'},
+    ],
+    speak:'Şimdi bir tanıdığını anlat: Adı, yaşı, mesleği, haftada kaç gün çalıştığı, ne zaman izinli olduğu. „Er/Sie heißt… ist … Jahre alt. Er/Sie ist … (meslek). Er/Sie arbeitet … Tage pro Woche."'
+  },
+];
+let paraTRshown=false;
+function openPara(){
+  const idx=(new Date().getDate())%PARA_READINGS.length;
+  const p=PARA_READINGS[idx];
+  document.getElementById('paraNote').innerHTML=p.note;
+  document.getElementById('paraDe').textContent=p.de;
+  document.getElementById('paraTr').textContent=p.tr;
+  document.getElementById('paraTr').className='read-tr';
+  paraTRshown=false;
+  const btn=document.querySelector('#paraScreen .btn-toggle'); if(btn) btn.textContent='👁 Türkçeyi Göster';
+  const qc=document.getElementById('paraQuiz');
+  qc.innerHTML='<div class="hub-sec-head">🧩 Anladın mı?</div>';
+  p.quiz.forEach(qq=>{
+    const card=document.createElement('div');
+    card.className='sent-card'; card.style.padding='15px 17px';
+    card.innerHTML='<div style="font-weight:800;margin-bottom:10px;font-size:.95rem">'+qq.q+'</div>';
+    const og=document.createElement('div'); og.className='eopts'; og.style.gridTemplateColumns='1fr';
+    qq.opts.forEach(o=>{
+      const b=document.createElement('button'); b.className='eopt'; b.textContent=o;
+      b.style.textAlign='left'; b.style.fontWeight='700';
+      b.onclick=()=>{
+        if(card.dataset.done)return; card.dataset.done='1';
+        const ok=o===qq.a;
+        og.querySelectorAll('.eopt').forEach(x=>{x.disabled=true; if(x.textContent===qq.a)x.classList.add('correct');});
+        if(!ok) b.classList.add('wrong');
+        tick(ok,4);
+      };
+      og.appendChild(b);
+    });
+    card.appendChild(og); qc.appendChild(card);
+  });
+  const sp=document.createElement('div'); sp.className='read-note'; sp.style.marginTop='14px';
+  sp.innerHTML='<b>🗣️ Konuşma görevi:</b> '+p.speak;
+  qc.appendChild(sp);
+  showScreen('paraScreen'); setHeader('📅 Günün Çalışması',false);
+}
+function paraToggleTR(){
+  paraTRshown=!paraTRshown;
+  document.getElementById('paraTr').className='read-tr'+(paraTRshown?' show':'');
+  const btn=document.querySelector('#paraScreen .btn-toggle');
+  if(btn) btn.textContent=paraTRshown?'🙈 Türkçeyi Gizle':'👁 Türkçeyi Göster';
 }
 
 // ── HABEN VS BESİTZEN ────────────────────────────────────────
