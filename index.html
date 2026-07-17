@@ -38,9 +38,38 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 @keyframes statPop{0%{transform:scale(1)}45%{transform:scale(1.14)}100%{transform:scale(1)}}
 .stat-pop{animation:statPop .32s cubic-bezier(.34,1.56,.64,1)}
 
+/* ── UÇAN +XP ROZETİ ── */
+@keyframes xpFloat{0%{opacity:0;transform:translateY(8px) scale(.7)}18%{opacity:1;transform:translateY(0) scale(1.05)}100%{opacity:0;transform:translateY(-52px) scale(1)}}
+.xp-float{position:fixed;top:64px;right:20px;background:var(--yellow);color:#5c3a00;font-weight:800;font-size:.92rem;border-radius:999px;padding:6px 15px;z-index:300;pointer-events:none;box-shadow:0 4px 14px rgba(160,110,20,.3);animation:xpFloat 1.1s ease forwards}
+
+/* ── BUGÜNÜN DERSİ (hero) ── */
+.hero-card{background:linear-gradient(135deg,var(--purple) 0%,#C2593A 100%);border-radius:22px;padding:24px 22px;margin-bottom:22px;text-align:left;color:#fff;cursor:pointer;box-shadow:0 6px 22px rgba(180,90,50,.32);transition:transform .14s ease,box-shadow .14s ease;position:relative;overflow:hidden}
+.hero-card:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(180,90,50,.4)}
+.hero-card:active{transform:scale(.98)}
+.hero-card::after{content:'🎯';position:absolute;right:-8px;bottom:-16px;font-size:5.2rem;opacity:.18;transform:rotate(-12deg)}
+.hero-kicker{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.4px;opacity:.85;margin-bottom:5px}
+.hero-title{font-size:1.45rem;font-weight:800;margin-bottom:4px}
+.hero-sub{font-size:.85rem;opacity:.92;line-height:1.45;margin-bottom:14px}
+.hero-btn{display:inline-block;background:#fff;color:var(--purple-dark);border-radius:999px;padding:10px 26px;font-size:.95rem;font-weight:800}
+
+/* ── DERS MOLASI / KUTLAMA ── */
+#lessonBreakScreen{display:none;text-align:center;padding:40px 0}
+.break-emoji{font-size:4.6rem;margin-bottom:12px;animation:bnc 1.2s infinite alternate}
+.break-title{font-size:1.7rem;font-weight:800;margin-bottom:8px}
+.break-sub{color:var(--light);font-size:.95rem;line-height:1.6;margin-bottom:10px;max-width:420px;margin-left:auto;margin-right:auto}
+.break-steps{display:flex;justify-content:center;gap:10px;margin:18px 0 26px}
+.bstep{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.15rem;background:var(--white);border:2.5px solid var(--border)}
+.bstep.done{background:var(--green-bg);border-color:var(--green)}
+.bstep.now{background:var(--purple-bg);border-color:var(--purple);animation:statPop 1.4s infinite}
+.break-xp{display:inline-block;background:var(--yellow-bg);border:2px solid var(--yellow);border-radius:999px;padding:8px 20px;font-weight:800;color:#7c4a03;margin-bottom:24px}
+
 /* HEADER */
-header{width:100%;background:var(--white);border-bottom:2px solid var(--border);padding:11px 22px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;box-shadow:var(--shadow)}
-.logo{font-size:1.2rem;font-weight:800}
+header{width:100%;background:var(--white);border-bottom:2px solid var(--border);padding:11px 22px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;box-shadow:var(--shadow);gap:10px}
+.hdr-back{display:none;background:var(--bg);border:2px solid var(--border);border-radius:11px;padding:6px 14px;font-size:1.05rem;font-weight:800;cursor:pointer;color:var(--text);line-height:1;flex-shrink:0;transition:all .12s}
+.hdr-back.show{display:block}
+.hdr-back:hover{border-color:var(--purple);color:var(--purple)}
+.hdr-back:active{transform:scale(.94)}
+.logo{font-size:1.2rem;font-weight:800;flex:1}
 .hstats{display:flex;gap:8px}
 .hstat{display:flex;align-items:center;gap:4px;font-weight:700;font-size:.88rem;background:var(--bg);padding:5px 11px;border-radius:999px;border:2px solid var(--border)}
 
@@ -474,6 +503,7 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 <body>
 
 <header>
+  <button class="hdr-back" id="hdrBack" onclick="hdrBackGo()" title="Geri">←</button>
   <div class="logo" id="headerLogo">🇩🇪 Almanca</div>
   <div class="hstats" id="headerStats" style="display:none">
     <div class="hstat" id="hs1"></div>
@@ -492,7 +522,6 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 <!-- HOME -->
 <div id="homeScreen">
   <h1>🇩🇪 Almanca</h1>
-  <p>Çalışmak istediğin modu seç</p>
 
   <!-- Günlük panel (seri / XP / hedef) -->
   <div class="dash" id="dash">
@@ -503,11 +532,18 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
     </div>
     <div class="goal-track"><div class="goal-fill" id="dGoalFill"></div></div>
     <div class="goal-lbl" id="dGoalLbl">Bugünkü hedef</div>
-    <button class="dash-cta" id="dCta" onclick="startReview()"></button>
+  </div>
+
+  <!-- BUGÜNÜN DERSİ: tek tıkla yönlendirilmiş akış -->
+  <div class="hero-card" onclick="startDailyLesson()">
+    <div class="hero-kicker">Ne yapacağını bilmiyorsan buna bas</div>
+    <div class="hero-title">Bugünün Dersi</div>
+    <div class="hero-sub" id="heroSub">Kelime → kısa mola → mini gramer. Yaklaşık 5-10 dakika.</div>
+    <span class="hero-btn">Başla →</span>
   </div>
 
   <!-- BÖLÜM 1: ÖĞRENME -->
-  <div class="sec-head">📖 Öğrenme</div>
+  <div class="sec-head">📖 Kendi Seçimin — Öğrenme</div>
   <div class="mode-grid">
     <div class="mode-card col-purple" onclick="goCat('learn')">
       <div class="mc-icon">🧠</div>
@@ -667,6 +703,21 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
   </div>
   <button class="btn-replay" onclick="goCat('learn')">Tekrar →</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+<!-- DERS MOLASI / KUTLAMA (Bugünün Dersi adımları arası) -->
+<div id="lessonBreakScreen">
+  <div class="break-emoji" id="brkEmoji">☕</div>
+  <div class="break-title" id="brkTitle">İlk adım tamam!</div>
+  <div class="break-steps" id="brkSteps"></div>
+  <div class="break-sub" id="brkSub"></div>
+  <div><span class="break-xp" id="brkXp">⭐ +0 XP</span></div>
+  <div>
+    <button class="btn-start" id="brkNext" onclick="lessonNextStep()">Devam →</button>
+  </div>
+  <div style="margin-top:12px">
+    <button class="btn-home" id="brkQuit" onclick="goHome()">Bugünlük yeter 👋</button>
+  </div>
 </div>
 
 <!-- EDAT -->
@@ -1087,7 +1138,16 @@ function registerStudy(){
   if(DB.streak.cur>DB.streak.max)DB.streak.max=DB.streak.cur;
   DB.streak.last=t; saveDB();
 }
-function awardXP(n){ensureDay();DB.xp+=n;DB.daily.xp+=n;registerStudy();}
+function awardXP(n){ensureDay();DB.xp+=n;DB.daily.xp+=n;registerStudy();xpFloat(n);}
+// Her XP kazanımında sağ üstte kısa süreliğine "+n XP" rozeti uçur
+function xpFloat(n){
+  try{
+    const d=document.createElement('div');
+    d.className='xp-float'; d.textContent='+'+n+' XP';
+    document.body.appendChild(d);
+    setTimeout(()=>{ try{d.remove();}catch(e){} },1150);
+  }catch(e){}
+}
 // Her cevapta çağrılır: günü işaretle, doğruysa XP ver
 function tick(correct,xp){ registerStudy(); if(correct)awardXP(xp); }
 
@@ -1436,22 +1496,37 @@ const WORD_PARTS = {
 //  NAVİGASYON
 // ══════════════════════════════════════════
 const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
-  'listScreen','learnScreen','learnDoneScreen','edatScreen','edatDoneScreen',
+  'listScreen','learnScreen','learnDoneScreen','lessonBreakScreen','edatScreen','edatDoneScreen',
   'gramerScreen','gramerTopicScreen','gramerTestScreen','gramerTestDoneScreen',
   'artikelScreen','artikelDoneScreen','pluralScreen','pluralDoneScreen',
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
   'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen'];
 
+let curScreen='homeScreen';
+
 function showScreen(id){
+  curScreen=id;
   ALL_SCREENS.forEach(s=>{ document.getElementById(s).style.display = s===id?'block':'none'; });
   const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen'].includes(id);
   document.getElementById('progWrap').style.display = showProg?'block':'none';
   if(id==='homeScreen'){ setHeader('🇩🇪 Almanca', false); document.getElementById('headerStats').style.display='none'; renderHome(); }
+  // Global geri butonu: ana ekran hariç her yerde görünür
+  document.getElementById('hdrBack').className = 'hdr-back'+(id==='homeScreen'?'':' show');
   const active=document.getElementById(id);
   active.classList.remove('screen-anim');
   void active.offsetWidth; // animasyonu yeniden tetiklemek için reflow zorla
   active.classList.add('screen-anim');
+}
+
+// Global geri: ekrana göre bir üst seviyeye döner (YS alt ekranları → hub, gramer alt → konu listesi, gerisi → ana menü)
+const BACK_TO_HUB=['ysScreen','ysDoneScreen','havbesScreen','havbesDoneScreen','mcScreen','mcDoneScreen','ysRefScreen','paraScreen'];
+const BACK_TO_GRAMER=['gramerTopicScreen','gramerTestScreen','gramerTestDoneScreen'];
+function hdrBackGo(){
+  if(LESSON){ LESSON=null; goHome(); return; }  // ders akışındayken geri = dersi bırak
+  if(BACK_TO_HUB.includes(curScreen)){ openYSHub(); return; }
+  if(BACK_TO_GRAMER.includes(curScreen)){ showScreen('gramerScreen'); buildTopicGrid(); return; }
+  goHome();
 }
 
 // Ana ekran panelini güncelle (seri, XP, hedef, zayıf kelime butonu)
@@ -1466,12 +1541,11 @@ function renderHome(){
   document.getElementById('dGoalLbl').textContent= today>=goal
     ? '✅ Bugünkü hedef tamam! ('+today+'/'+goal+' XP)'
     : 'Bugünkü hedef: '+today+' / '+goal+' XP';
-  const due=dueCount(), cta=document.getElementById('dCta');
-  if(due>0){ cta.className='dash-cta review'; cta.style.display='block'; cta.disabled=false;
-    cta.textContent='🩹 '+due+' kelime tekrar zamanı — Başla'; }
-  else { const anySeen=vocabAll().some(w=>srsLevel(w.de)>=0);
-    cta.className='dash-cta calm'; cta.style.display='block'; cta.disabled=true;
-    cta.textContent=anySeen?'🎉 Tekrar bekleyen kelime yok — harikasın!':'👋 Başlamak için Öğrenme Modu’na gir'; }
+  // Hero alt yazısı: tekrar bekleyen varsa dersin içeriğini ona göre anlat
+  const due=dueCount();
+  document.getElementById('heroSub').textContent = due>0
+    ? '🩹 '+due+' kelimenin tekrar zamanı geldi — ders önce onlarla başlar, sonra kısa mola + mini gramer.'
+    : 'Yeni kelimeler → kısa mola → mini gramer. Yaklaşık 5-10 dakika.';
 }
 
 function setHeader(logo, showStats, s1='', s2='', s3=''){
@@ -1492,7 +1566,75 @@ function setProgress(pct, lbl){
   document.getElementById('progLbl').textContent = lbl||'';
 }
 
-function goHome(){ showScreen('homeScreen'); closeHint(); renderHome(); }
+function goHome(){ LESSON=null; showScreen('homeScreen'); closeHint(); renderHome(); }
+
+// ══════════════════════════════════════════
+//  BUGÜNÜN DERSİ — yönlendirilmiş akış
+//  1) Kelime (öncelik: hatalar → tekrarı gelenler → yeni, 6'lık grup)
+//  2) Kısa mola ekranı
+//  3) Mini gramer (5 soru)  →  kutlama
+// ══════════════════════════════════════════
+let LESSON=null;
+
+function startDailyLesson(){
+  LESSON={step:1, xpStart:DB.xp};
+  activeCat=null; // ders her zaman tüm havuzdan, öncelik sırasıyla çalışır
+  startLearn(null,'🎯 Ders · Kelime');
+}
+
+function lessonStepsHtml(step){
+  // 3 nokta: 🔤 kelime · ☕ mola · 📚 gramer — geçilen yeşil, aktif turuncu
+  const icons=['🔤','☕','📚'];
+  return icons.map((ic,i)=>{
+    const n=i+1;
+    const cls = n<step?'bstep done' : n===step?'bstep now' : 'bstep';
+    return '<div class="'+cls+'">'+ic+'</div>';
+  }).join('');
+}
+
+function showLessonBreak(){
+  LESSON.step=2;
+  document.getElementById('brkEmoji').textContent='☕';
+  document.getElementById('brkTitle').textContent='Kelime adımı tamam!';
+  document.getElementById('brkSteps').innerHTML=lessonStepsHtml(2);
+  document.getElementById('brkSub').textContent='Derin bir nefes al, istersen biraz su iç. Hazır olduğunda 5 soruluk mini gramerle dersi bitiriyoruz — acele yok.';
+  document.getElementById('brkXp').textContent='⭐ Bu derste +'+(DB.xp-LESSON.xpStart)+' XP';
+  document.getElementById('brkNext').style.display='inline-block';
+  document.getElementById('brkNext').textContent='Hazırım, devam →';
+  document.getElementById('brkQuit').textContent='Bugünlük yeter 👋';
+  setHeader('🎯 Bugünün Dersi',false);
+  showScreen('lessonBreakScreen');
+}
+
+function lessonNextStep(){
+  if(!LESSON) { goHome(); return; }
+  // 3. adım: mini gramer — tüm konulardan rastgele 5 soru
+  LESSON.step=3;
+  const all=[];
+  GRAMER_TOPICS.forEach(t=>t.qs.forEach(q=>all.push(Object.assign({},q,{topicTitle:t.title,topicEmoji:t.emoji}))));
+  shuffle(all);
+  gtQs=all.slice(0,5);
+  gtIdx=0; gtCorrect=0; gtWrong=0; gtAnswered=false;
+  showScreen('gramerTestScreen');
+  setHeader('🎯 Ders · Gramer',true,'✅ 0','❌ 0');
+  setProgress(0,'0 / '+gtQs.length);
+  renderGtQ();
+}
+
+function showLessonFinal(){
+  const earned=DB.xp-LESSON.xpStart;
+  LESSON=null; // ders bitti
+  document.getElementById('brkEmoji').textContent='🎉';
+  document.getElementById('brkTitle').textContent='Bugünün dersi tamam!';
+  document.getElementById('brkSteps').innerHTML=lessonStepsHtml(4);
+  document.getElementById('brkSub').textContent='Bugün üzerine düşeni yaptın — gerisini aralıklı tekrar halleder. Yarın tekrar gel, seri devam etsin. 🔥';
+  document.getElementById('brkXp').textContent='⭐ Bu derste toplam +'+earned+' XP kazandın';
+  document.getElementById('brkNext').style.display='none';
+  document.getElementById('brkQuit').textContent='Ana Menü 🏠';
+  setHeader('🎉 Ders Bitti',false);
+  showScreen('lessonBreakScreen');
+  for(let i=0;i<80;i++) setTimeout(rainP,i*25);
+}
 
 // ── Kategori ──────────────────────────────
 let pendingMode = null;
@@ -1918,6 +2060,7 @@ function showLFb(ok,w,msg,hint){
 function nextCard(){ document.getElementById('fbBox').className='fb-box'; document.getElementById('btnNext').className='btn-next'; showCard(); }
 
 function showLearnDone(){
+  if(LESSON&&LESSON.step===1){ showLessonBreak(); return; } // ders akışı: kelime bitti → mola
   document.getElementById('ldLearned').textContent=lTotal;
   document.getElementById('ldCorrect').textContent=lCorrect;
   document.getElementById('ldWrong').textContent=lWrong;
@@ -2691,7 +2834,7 @@ function pickGtOpt(btn,chosen,q){
   document.querySelectorAll('#gtOpts .gr-opt').forEach(b=>{ if(b!==btn) b.classList.add('muted'); b.disabled=true; });
   if(ok){ btn.classList.add('correct'); gtCorrect++; }
   else { btn.classList.add('wrong'); document.querySelectorAll('#gtOpts .gr-opt').forEach(b=>{if(b.textContent===q.blank)b.classList.add('correct');}); gtWrong++; }
-  setHeader('🏆 Kapsamlı Test',true,'✅ '+gtCorrect,'❌ '+gtWrong);
+  setHeader(LESSON?'🎯 Ders · Gramer':'🏆 Kapsamlı Test',true,'✅ '+gtCorrect,'❌ '+gtWrong);
   setProgress(Math.round((gtIdx+1)/gtQs.length*100),(gtIdx+1)+' / '+gtQs.length);
   const blankEl=document.querySelector('#gtSent .blank');
   if(blankEl){blankEl.textContent=q.blank;blankEl.style.color=ok?'var(--green-dark)':'var(--red)';}
@@ -2711,6 +2854,7 @@ function gtNextQ(){
 }
 
 function showGtDone(){
+  if(LESSON&&LESSON.step===3){ showLessonFinal(); return; } // ders akışı: gramer bitti → kutlama
   const pct=Math.round(gtCorrect/gtQs.length*100);
   document.getElementById('gtDC').textContent=gtCorrect;
   document.getElementById('gtDW').textContent=gtWrong;
