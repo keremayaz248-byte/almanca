@@ -587,9 +587,9 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 
 <!-- GAME DONE -->
 <div id="gameDoneScreen">
-  <div class="trophy">🏆</div>
-  <div class="done-title">Tebrikler!</div>
-  <div class="done-sub">Tüm kelimeleri tamamladın!</div>
+  <div class="trophy" id="gdTrophy">🏆</div>
+  <div class="done-title" id="gdTitle">Tebrikler!</div>
+  <div class="done-sub" id="gdSub">Tüm kelimeleri tamamladın!</div>
   <div class="done-stats">
     <div class="ds"><div class="dv" id="gdScore">0</div><div class="dl">Puan</div></div>
     <div class="ds"><div class="dv" id="gdStreak">0</div><div class="dl">En Uzun Seri</div></div>
@@ -1525,12 +1525,18 @@ function getWords(){
 // ══════════════════════════════════════════
 //  OYUN (4'lü eşleştirme)
 // ══════════════════════════════════════════
-let pool=[], roundWords=[], gTotal=0, gDone=0, gScore=0, gStreak=0, gMaxStreak=0, gLives=5;
+// Bir oyun oturumunda gösterilecek en fazla kelime sayısı (bilişsel yükü sınırlamak için)
+const GAME_BATCH_SIZE=15;
+let pool=[], roundWords=[], gTotal=0, gDone=0, gScore=0, gStreak=0, gMaxStreak=0, gLives=5, gBatched=false, gGameOver=false;
 let selDE=null, selTR=null, hintTimer=null;
 
 function startGame(){
   pool = getWords(); shuffle(pool);
-  gTotal=pool.length; gDone=0; gScore=0; gStreak=0; gMaxStreak=0; gLives=5;
+  pool.sort((a,b)=>learnPriority(a)-learnPriority(b));
+  gBatched = pool.length>GAME_BATCH_SIZE;
+  if(gBatched) pool = pool.slice(0,GAME_BATCH_SIZE);
+  shuffle(pool);
+  gTotal=pool.length; gDone=0; gScore=0; gStreak=0; gMaxStreak=0; gLives=5; gGameOver=false;
   setHeader('🎮 Eşleştirme',true,'🔥 '+gStreak,'❤️ '+gLives,'⭐ '+gScore);
   setProgress(0,'');
   showScreen('gameScreen');
@@ -1595,7 +1601,10 @@ function evalGame(){
     gStreak=0; gLives=Math.max(0,gLives-1);
     setHeader('🎮 Eşleştirme',true,'🔥 '+gStreak,'❤️ '+gLives,'⭐ '+gScore);
     const ww=roundWords[de.idx]; if(ww){srsUpdate(ww.de,false,ww.tricky);showHint(ww.de,ww.h);} registerStudy();
-    setTimeout(()=>{ de.el.classList.remove('wrong','selected'); tr.el.classList.remove('wrong','selected'); },500);
+    setTimeout(()=>{
+      de.el.classList.remove('wrong','selected'); tr.el.classList.remove('wrong','selected');
+      if(gLives<=0){ gGameOver=true; closeHint(); showGameDone(); }
+    },500);
   }
 }
 
@@ -1614,10 +1623,23 @@ function showGameDone(){
   document.getElementById('modalOverlay').classList.remove('show');
   document.getElementById('gdScore').textContent=gScore;
   document.getElementById('gdStreak').textContent=gMaxStreak;
-  document.getElementById('gdWords').textContent=gTotal;
+  document.getElementById('gdWords').textContent=gDone;
+  if(gGameOver){
+    document.getElementById('gdTrophy').textContent='💔';
+    document.getElementById('gdTitle').textContent='Canların bitti!';
+    document.getElementById('gdSub').textContent=gDone+' kelime eşleştirdin. Biraz dinlenip tekrar dene.';
+  } else if(gBatched){
+    document.getElementById('gdTrophy').textContent='🎉';
+    document.getElementById('gdTitle').textContent='Bu turu tamamladın!';
+    document.getElementById('gdSub').textContent=gDone+' kelime eşleştirdin. Devam etmek istersen "Tekrar" ile yeni bir grup gelir.';
+  } else {
+    document.getElementById('gdTrophy').textContent='🏆';
+    document.getElementById('gdTitle').textContent='Tebrikler!';
+    document.getElementById('gdSub').textContent='Tüm kelimeleri tamamladın!';
+  }
   showScreen('gameDoneScreen');
   setProgress(100,'');
-  for(let i=0;i<80;i++) setTimeout(rainP,i*25);
+  if(!gGameOver) for(let i=0;i<80;i++) setTimeout(rainP,i*25);
 }
 
 function showHint(word,hint){
@@ -1819,12 +1841,34 @@ document.addEventListener('keydown',e=>{
   }
 });
 
+// İki dizgi arasındaki düzenleme (Levenshtein) mesafesi — küçük yazım hatalarını tolere etmek için
+function editDistance(a,b){
+  const m=a.length,n=b.length;
+  const dp=Array.from({length:m+1},()=>new Array(n+1).fill(0));
+  for(let i=0;i<=m;i++)dp[i][0]=i;
+  for(let j=0;j<=n;j++)dp[0][j]=j;
+  for(let i=1;i<=m;i++){
+    for(let j=1;j<=n;j++){
+      dp[i][j]=a[i-1]===b[j-1]?dp[i-1][j-1]:1+Math.min(dp[i-1][j-1],dp[i-1][j],dp[i][j-1]);
+    }
+  }
+  return dp[m][n];
+}
+// Çeviriden parantez içi ek açıklamayı çıkarır: "açmak (elektronik vb.)" → "açmak"
+function stripParen(s){ return s.replace(/\([^)]*\)/g,' ').replace(/\s+/g,' ').trim(); }
+function closeEnough(raw,target){
+  if(!target)return false;
+  if(raw===target)return true;
+  const maxDist = target.length<=4?1:(target.length<=9?2:3);
+  return editDistance(raw,target)<=maxDist;
+}
+
 function checkType(){
   const w=lQueue[0], s=lState[w.de];
   const inp=document.getElementById('typeInput');
   const raw=inp.value.trim().toLowerCase(); if(!raw){inp.focus();return;}
-  const alts=w.tr.split('/').map(a=>a.trim().toLowerCase());
-  const ok=alts.some(a=>raw===a||a.startsWith(raw)||raw.startsWith(a.split(' ')[0]));
+  const alts=w.tr.split('/').map(a=>stripParen(a.trim().toLowerCase()));
+  const ok=alts.some(a=>closeEnough(raw,a));
   inp.disabled=true; lQueue.shift(); registerStudy();
   if(ok){
     inp.className='type-input t-ok'; s.typeStreak++; s.wrongCount=0; lCorrect++;
@@ -1868,17 +1912,24 @@ function showLearnDone(){
 // ══════════════════════════════════════════
 let eQueue=[], eIdx=0, eCorrect=0, eWrong=0;
 
+const EDAT_BATCH_SIZE=15;
+function edatKey(q){ return 'edat:'+q.correct.toLowerCase(); }
+function edatPriority(q){ const k=edatKey(q); if(DB.mistakes.includes(k))return 0; const lv=srsLevel(k); if(lv<0)return 1; if(isDue(k))return 2; return 3+lv; }
+
 function startEdat(){
-  eQueue=shuffle([...EDAT_Q]); eIdx=0; eCorrect=0; eWrong=0;
+  eQueue=[...EDAT_Q]; shuffle(eQueue); eQueue.sort((a,b)=>edatPriority(a)-edatPriority(b));
+  if(eQueue.length>EDAT_BATCH_SIZE) eQueue=eQueue.slice(0,EDAT_BATCH_SIZE);
+  shuffle(eQueue);
+  eIdx=0; eCorrect=0; eWrong=0;
   setHeader('🔗 Edat',true,'✅ 0','❌ 0');
-  setProgress(0,'0 / '+EDAT_Q.length);
+  setProgress(0,'0 / '+eQueue.length);
   showScreen('edatScreen');
   renderEdatQ();
 }
 
 function renderEdatQ(){
   const q=eQueue[eIdx];
-  document.getElementById('edatQNum').textContent='Soru '+(eIdx+1)+' / '+EDAT_Q.length;
+  document.getElementById('edatQNum').textContent='Soru '+(eIdx+1)+' / '+eQueue.length;
   document.getElementById('edatQCat').textContent=q.cat;
   document.getElementById('edatSentDe').innerHTML=q.de[0]+'<span class="blank">______</span>'+(q.de[1]||'');
   const trEl=document.getElementById('edatSentTr');
@@ -1900,7 +1951,7 @@ function pickEdat(chosen,btn,q){
     eWrong++;
   }
   setHeader('🔗 Edat',true,'✅ '+eCorrect,'❌ '+eWrong);
-  setProgress(Math.round((eIdx+1)/EDAT_Q.length*100),(eIdx+1)+' / '+EDAT_Q.length);
+  setProgress(Math.round((eIdx+1)/eQueue.length*100),(eIdx+1)+' / '+eQueue.length);
   const eb=document.getElementById('expBox');
   eb.className='exp-box show '+(ok?'exp-ok':'exp-err');
   document.getElementById('expTitle').className='exp-title '+(ok?'exp-c':'exp-w');
@@ -1921,13 +1972,13 @@ function edatNextQ(){
 }
 
 function showEdatDone(){
-  const pct=Math.round(eCorrect/EDAT_Q.length*100);
+  const pct=Math.round(eCorrect/eQueue.length*100);
   document.getElementById('edDC').textContent=eCorrect;
   document.getElementById('edDW').textContent=eWrong;
   document.getElementById('edDP').textContent=pct+'%';
-  document.getElementById('edatDoneSub').textContent=EDAT_Q.length+' sorudan '+eCorrect+' tanesini doğru yaptın.';
+  document.getElementById('edatDoneSub').textContent=eQueue.length+' sorudan '+eCorrect+' tanesini doğru yaptın.';
   showScreen('edatDoneScreen');
-  setProgress(100,EDAT_Q.length+' / '+EDAT_Q.length);
+  setProgress(100,eQueue.length+' / '+eQueue.length);
 }
 
 // ══════════════════════════════════════════
