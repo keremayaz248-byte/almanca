@@ -161,8 +161,13 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 .phase-badge{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 13px;font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:13px}
 .phase-mc{background:var(--blue-bg);color:#0e8ac7;border:1.5px solid var(--blue)}
 .phase-type{background:var(--purple-bg);color:#6d28d9;border:1.5px solid var(--purple)}
+.phase-intro{background:var(--yellow-bg);color:#7c4a03;border:1.5px solid var(--yellow)}
 .wcard{background:var(--white);border:2.5px solid var(--border);border-radius:20px;padding:30px 24px;text-align:center;margin-bottom:14px;box-shadow:var(--shadow)}
 .wcard-de{font-size:2rem;font-weight:800;margin-bottom:7px}
+.intro-tr{font-size:1.25rem;font-weight:700;color:var(--purple);margin-top:6px}
+.intro-hint{margin-top:12px;background:var(--yellow-bg);border:1.5px solid var(--yellow);border-radius:8px;padding:9px 13px;font-size:.85rem;font-weight:600;color:#7c4a03;text-align:left;line-height:1.4}
+.btn-intro{width:100%;background:var(--purple);color:#fff;border:none;border-radius:13px;padding:14px;font-size:.98rem;font-weight:700;cursor:pointer;box-shadow:0 4px 0 #6d28d9;display:none;margin-bottom:12px}
+.btn-intro.show{display:block}
 .retry-badge{display:inline-block;background:var(--red-bg);color:var(--red);border:1.5px solid var(--red);border-radius:7px;padding:3px 9px;font-size:.73rem;font-weight:700;margin-bottom:7px}
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
 .opt{background:var(--white);border:2.5px solid var(--border);border-radius:14px;padding:13px 9px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .12s;text-align:center;box-shadow:0 2px 0 var(--border);line-height:1.35}
@@ -617,7 +622,10 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
   <div class="wcard">
     <div id="retryBadge" class="retry-badge" style="display:none">🔄 Tekrar</div>
     <div class="wcard-de" id="learnWordDe"></div>
+    <div id="introTr" class="intro-tr" style="display:none"></div>
+    <div id="introHint" class="intro-hint" style="display:none"></div>
   </div>
+  <button class="btn-intro" id="btnIntroNext" onclick="introNext()">Anladım, devam →</button>
   <div id="learnOpts" class="opts"></div>
   <div id="typeFormEl" class="type-form" style="display:none">
     <input type="text" id="typeInput" class="type-input" placeholder="Türkçe karşılığını yaz..." autocomplete="off" autocorrect="off" spellcheck="false">
@@ -634,7 +642,7 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 <!-- LEARN DONE -->
 <div id="learnDoneScreen">
   <div class="trophy">🏅</div>
-  <div class="done-title">Tüm kelimeler öğrenildi!</div>
+  <div class="done-title" id="ldTitle">Tüm kelimeler öğrenildi!</div>
   <div class="done-sub" id="ldSub"></div>
   <div class="done-stats">
     <div class="ds"><div class="dv dv-purple" id="ldLearned">0</div><div class="dl">Öğrenildi</div></div>
@@ -1033,6 +1041,8 @@ function todayStr(){return dStr();}
 // Leitner kutuları → doğru bilince kaç gün sonra tekrar çıksın
 const SRS_INTERVALS=[0,1,2,4,8,16,30];
 const SRS_MAX=SRS_INTERVALS.length-1;
+// Bir Öğrenme Modu oturumunda gösterilecek en fazla kelime sayısı (bilişsel yükü sınırlamak için)
+const LEARN_BATCH_SIZE=6;
 function srsGet(key){return DB.srs[key]||(DB.srs[key]={lvl:0,due:dayNum(),seen:0,ok:0,no:0,tricky:false});}
 function srsUpdate(key,correct,tricky){
   const s=srsGet(key); s.seen++;
@@ -1681,7 +1691,7 @@ function toggleTR(){
 // ══════════════════════════════════════════
 //  ÖĞRENME MODU
 // ══════════════════════════════════════════
-let lWords=[], lState={}, lQueue=[], lTotal=0, lCorrect=0, lWrong=0, learnTitle='🧠 Öğrenme';
+let lWords=[], lState={}, lQueue=[], lTotal=0, lCorrect=0, lWrong=0, learnTitle='🧠 Öğrenme', lBatched=false;
 
 // Zayıf-önce sıralama: hatalar → yeni → tekrarı gelenler → bilinenler
 function learnPriority(w){
@@ -1697,7 +1707,11 @@ function startLearn(customWords,title){
   lWords = customWords ? customWords.slice() : getWords();
   shuffle(lWords);
   lWords.sort((a,b)=>learnPriority(a)-learnPriority(b));
-  lState={}; lWords.forEach(w=>{lState[w.de]={mcStreak:0,typeStreak:0,wrongCount:0,phase:'mc'};});
+  // Yeni kelime öğrenme oturumları küçük gruplar halinde: bilişsel yükü aşmamak için
+  // tek seferde en fazla LEARN_BATCH_SIZE kelime gösterilir (önceliklisi seçilerek).
+  lBatched = !customWords && lWords.length>LEARN_BATCH_SIZE;
+  if(!customWords) lWords = lWords.slice(0,LEARN_BATCH_SIZE);
+  lState={}; lWords.forEach(w=>{lState[w.de]={mcStreak:0,typeStreak:0,wrongCount:0,phase: srsLevel(w.de)<0 ? 'intro' : 'mc'};});
   lQueue=[...lWords]; lTotal=lWords.length; lCorrect=0; lWrong=0;
   updateLearnHeader();
   showScreen('learnScreen');
@@ -1725,14 +1739,30 @@ function showCard(){
   }
   const w=lQueue[0], s=lState[w.de];
   const badge=document.getElementById('phaseBadge');
-  badge.className='phase-badge '+(s.phase==='mc'?'phase-mc':'phase-type');
-  badge.textContent=s.phase==='mc'?'🔤 Çoktan Seçmeli':'⌨️ Yazma Testi';
-  const rb=document.getElementById('retryBadge');
-  rb.style.display=s.wrongCount>0?'inline-block':'none';
-  rb.textContent='🔄 '+(s.wrongCount===1?'1. tekrar':s.wrongCount===2?'2. tekrar':s.wrongCount+'. tekrar');
   document.getElementById('learnWordDe').textContent=w.de;
   document.getElementById('fbBox').className='fb-box';
   document.getElementById('btnNext').className='btn-next';
+  document.getElementById('btnIntroNext').className='btn-intro';
+  document.getElementById('introTr').style.display='none';
+  document.getElementById('introHint').style.display='none';
+  const rb=document.getElementById('retryBadge');
+  if(s.phase==='intro'){
+    // Hiç görülmemiş kelime: önce çeviri+ipucuyla tanıt, kör tahmin yaptırma
+    badge.className='phase-badge phase-intro';
+    badge.textContent='👀 Yeni Kelime';
+    rb.style.display='none';
+    document.getElementById('learnOpts').style.display='none';
+    document.getElementById('typeFormEl').style.display='none';
+    document.getElementById('introTr').textContent=w.tr;
+    document.getElementById('introTr').style.display='block';
+    if(w.h){ document.getElementById('introHint').textContent='💡 '+w.h; document.getElementById('introHint').style.display='block'; }
+    document.getElementById('btnIntroNext').className='btn-intro show';
+    return;
+  }
+  badge.className='phase-badge '+(s.phase==='mc'?'phase-mc':'phase-type');
+  badge.textContent=s.phase==='mc'?'🔤 Çoktan Seçmeli':'⌨️ Yazma Testi';
+  rb.style.display=s.wrongCount>0?'inline-block':'none';
+  rb.textContent='🔄 '+(s.wrongCount===1?'1. tekrar':s.wrongCount===2?'2. tekrar':s.wrongCount+'. tekrar');
   if(s.phase==='mc'){
     document.getElementById('learnOpts').style.display='grid';
     document.getElementById('typeFormEl').style.display='none';
@@ -1744,6 +1774,13 @@ function showCard(){
     inp.value=''; inp.className='type-input'; inp.disabled=false;
     setTimeout(()=>inp.focus(),50);
   }
+}
+
+function introNext(){
+  const w=lQueue[0], s=lState[w.de];
+  if(!s || s.phase!=='intro') return;
+  s.phase='mc';
+  showCard();
 }
 
 function buildLearnOpts(w){
@@ -1819,7 +1856,8 @@ function showLearnDone(){
   document.getElementById('ldLearned').textContent=lTotal;
   document.getElementById('ldCorrect').textContent=lCorrect;
   document.getElementById('ldWrong').textContent=lWrong;
-  document.getElementById('ldSub').textContent=lTotal+' kelimeyi öğrenmek için '+(lCorrect+lWrong)+' yanıt verdin.';
+  document.getElementById('ldTitle').textContent = lBatched ? 'Bu turu tamamladın! 🎉' : 'Tüm kelimeler öğrenildi!';
+  document.getElementById('ldSub').textContent=lTotal+' kelimeyi öğrenmek için '+(lCorrect+lWrong)+' yanıt verdin.'+(lBatched?' Devam etmek istersen “Tekrar” ile bir sonraki grup gelir.':'');
   showScreen('learnDoneScreen');
   setProgress(100,lTotal+' / '+lTotal+' kelime öğrenildi');
   for(let i=0;i<80;i++) setTimeout(rainP,i*25);
@@ -3088,14 +3126,14 @@ function renderMCQ(){
     const b=document.createElement('button');
     b.className='eopt'; b.textContent=o;
     if(s.longOpts){ b.style.fontSize='.92rem'; b.style.fontWeight='700'; b.style.textAlign='left'; b.style.lineHeight='1.4'; }
-    b.onclick=()=>pickMC(b,o,q);
+    b.onclick=()=>pickMCQ(b,o,q);
     og.appendChild(b);
   });
   document.getElementById('mcExp').className='exp-box';
   document.getElementById('mcNext').className='btn-next';
   setProgress(Math.round(mcIdx/mcQ.length*100),(mcIdx+1)+' / '+mcQ.length);
 }
-function pickMC(btn,chosen,q){
+function pickMCQ(btn,chosen,q){
   if(mcAnswered)return; mcAnswered=true;
   const ok=chosen===q.answer;
   document.querySelectorAll('#mcOpts .eopt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
