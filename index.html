@@ -37,6 +37,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 /* ── İSTATİSTİK VURGUSU (XP/seri güncellenince) ── */
 @keyframes statPop{0%{transform:scale(1)}45%{transform:scale(1.14)}100%{transform:scale(1)}}
 .stat-pop{animation:statPop .32s cubic-bezier(.34,1.56,.64,1)}
+.main-shake{animation:shk .4s}
+.emoji-burst{position:fixed;pointer-events:none;font-size:1.8rem;z-index:999;bottom:30%}
 
 /* ── UÇAN +XP ROZETİ ── */
 @keyframes xpFloat{0%{opacity:0;transform:translateY(8px) scale(.7)}18%{opacity:1;transform:translateY(0) scale(1.05)}100%{opacity:0;transform:translateY(-52px) scale(1)}}
@@ -533,7 +535,7 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
   <div class="prog-lbl" id="progLbl"></div>
 </div>
 
-<main>
+<main id="mainEl">
 
 <!-- HOME -->
 <div id="homeScreen">
@@ -1199,6 +1201,73 @@ function xpFloat(n){
 // Her cevapta çağrılır: günü işaretle, doğruysa XP ver
 function tick(correct,xp){ registerStudy(); if(correct)awardXP(xp); }
 
+// ══════════════════════════════════════════
+//  SES + ANİMASYON EFEKTLERİ (dosya gerektirmez — Web Audio API ile sentezlenir)
+//  Uygulama genelinde her doğru/yanlış cevap kontrolünden feedbackFx(ok,btn) ile çağrılır.
+// ══════════════════════════════════════════
+let audioCtx=null;
+function getAudioCtx(){
+  if(!audioCtx){ try{ audioCtx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} }
+  if(audioCtx && audioCtx.state==='suspended'){ try{ audioCtx.resume(); }catch(e){} }
+  return audioCtx;
+}
+function playTone(freq,dur,delay,type,vol){
+  const ctx=getAudioCtx(); if(!ctx) return;
+  try{
+    const t0=ctx.currentTime+(delay||0);
+    const osc=ctx.createOscillator(), gain=ctx.createGain();
+    osc.type=type||'sine'; osc.frequency.setValueAtTime(freq,t0);
+    gain.gain.setValueAtTime(vol||0.14,t0);
+    gain.gain.exponentialRampToValueAtTime(0.001,t0+dur);
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.start(t0); osc.stop(t0+dur+0.02);
+  }catch(e){}
+}
+function playCorrectSound(){ playTone(660,.11,0,'sine',.13); playTone(880,.16,.09,'sine',.13); }
+function playWrongSound(){ playTone(180,.22,0,'sawtooth',.10); }
+function playStreakSound(){ playTone(520,.09,0,'sine',.14); playTone(660,.09,.08,'sine',.14); playTone(880,.22,.16,'sine',.14); }
+
+// Tıklanan elemanda hafif "pop" (büyüyüp-küçülme) — mevcut statPop animasyonunu yeniden kullanır
+function popFx(el){
+  if(!el || !el.classList) return;
+  el.classList.remove('stat-pop'); void el.offsetWidth; el.classList.add('stat-pop');
+}
+// Yanlış cevapta tüm ekranı hafifçe salla
+function shakeMain(){
+  const m=document.getElementById('mainEl'); if(!m) return;
+  m.classList.remove('main-shake'); void m.offsetWidth; m.classList.add('main-shake');
+}
+// Ardışık doğru sayacı — uygulama genelinde ortak (hangi moddan geldiği önemli değil),
+// belirli aralıklarla (her 5 doğruda bir) emoji patlaması + kutlama sesi tetikler
+let globalStreak=0;
+function bumpGlobalStreak(){ globalStreak++; if(globalStreak%5===0){ emojiBurst(); playStreakSound(); } }
+function resetGlobalStreak(){ globalStreak=0; }
+
+const BURST_EMOJIS=['🔥','💥','⭐','🎉','✨'];
+function emojiBurst(){
+  for(let i=0;i<6;i++){
+    setTimeout(()=>{
+      try{
+        const e=document.createElement('div');
+        e.className='emoji-burst';
+        e.textContent=BURST_EMOJIS[Math.floor(Math.random()*BURST_EMOJIS.length)];
+        e.style.left=(20+Math.random()*60)+'vw';
+        document.body.appendChild(e);
+        const dx=(Math.random()-0.5)*120, dur=700+Math.random()*400;
+        if(e.animate){
+          e.animate([{transform:'translate(0,0) scale(.6)',opacity:1},{transform:`translate(${dx}px,-160px) scale(1.3)`,opacity:0}],{duration:dur,easing:'ease-out'}).onfinish=()=>e.remove();
+        } else { setTimeout(()=>e.remove(),dur); }
+      }catch(e){}
+    }, i*60);
+  }
+}
+// Tek çağrı noktası: her pick*/check* fonksiyonu doğru/yanlış belli olunca bunu çağırır.
+// btn opsiyonel (yazma testi gibi buton olmayan yerlerde undefined geçilebilir).
+function feedbackFx(ok,btn){
+  if(ok){ playCorrectSound(); popFx(btn); bumpGlobalStreak(); }
+  else { playWrongSound(); shakeMain(); resetGlobalStreak(); }
+}
+
 // Zayıf kelime havuzu: önce hatalar, sonra hiç görülmemişler, sonra tekrarı gelenler
 function vocabAll(){return Object.values(CATS).flatMap(c=>c.words);}
 function weakWords(limit){
@@ -1838,12 +1907,14 @@ function evalGame(){
     gScore+=10+(gStreak>1?gStreak*2:0); gDone++;
     tick(true,3); const mw=roundWords[de.idx]; if(mw)srsUpdate(mw.de,true,mw.tricky);
     setHeader('🎮 Eşleştirme',true,'🔥 '+gStreak,'❤️ '+gLives,'⭐ '+gScore);
+    playCorrectSound();
     burst(de.el); burst(tr.el);
     if(document.querySelectorAll('#colDE .matched').length===roundWords.length) setTimeout(onRoundDone,550);
   } else {
     de.el.classList.add('wrong'); tr.el.classList.add('wrong');
     gStreak=0; gLives=Math.max(0,gLives-1);
     setHeader('🎮 Eşleştirme',true,'🔥 '+gStreak,'❤️ '+gLives,'⭐ '+gScore);
+    playWrongSound(); shakeMain();
     const ww=roundWords[de.idx]; if(ww){srsUpdate(ww.de,false,ww.tricky);showHint(ww.de,ww.h);} registerStudy();
     setTimeout(()=>{
       de.el.classList.remove('wrong','selected'); tr.el.classList.remove('wrong','selected');
@@ -2131,6 +2202,7 @@ function alreadyKnowWord(){
   updateLearnHeader();
   showLFb(true,w,`<strong>${w.de}</strong> zaten biliyordun, öğrenilmiş olarak işaretlendi ✅`);
   document.getElementById('btnNext').className='btn-next show';
+  feedbackFx(true,document.getElementById('btnKnowIt'));
   scheduleAutoNext();
 }
 
@@ -2189,6 +2261,7 @@ function pickMC(chosen,btn,w){
     lQueue.shift();
     if(s.mcStreak>=2){ s.phase='type'; s.typeStreak=0; lQueue.splice(Math.min(8,lQueue.length),0,w); showLFb(true,w,`Harika! <strong>${w.de}</strong> artık yazma testine geçiyor ✍️`); }
     else { lQueue.splice(Math.min(10,lQueue.length),0,w); showLFb(true,w,`Doğru! ${2-s.mcStreak} kez daha doğru yaparsan yazma testine geçer.`); }
+    feedbackFx(true,btn);
     scheduleAutoNext();
   } else {
     btn.classList.add('wrong');
@@ -2198,6 +2271,7 @@ function pickMC(chosen,btn,w){
     const pos=s.wrongCount===1?2:s.wrongCount===2?5:8;
     lQueue.splice(Math.min(pos,lQueue.length),0,w);
     showLFb(false,w,`Doğru cevap: <strong>${w.tr}</strong>`,w.h);
+    feedbackFx(false);
   }
   updateLearnHeader();
   document.getElementById('btnNext').className='btn-next show';
@@ -2247,12 +2321,14 @@ function checkType(){
       else { s.phase='done'; showLFb(true,w,`Mükemmel! <strong>${w.de}</strong> tamamen öğrenildi! 🏅`); }
     }
     else { awardXP(5); lQueue.splice(Math.min(12,lQueue.length),0,w); showLFb(true,w,'Doğru! Bir kez daha doğru yazarsan öğrenilmiş sayılır.'); }
+    feedbackFx(true,inp);
     scheduleAutoNext();
   } else {
     inp.className='type-input t-err'; s.typeStreak=0; s.wrongCount++; lWrong++; srsUpdate(w.de,false,w.tricky);
     const pos=s.wrongCount===1?2:s.wrongCount===2?5:8;
     lQueue.splice(Math.min(pos,lQueue.length),0,w);
     showLFb(false,w,`Doğru yanıt: <strong>${w.tr}</strong>`,w.h);
+    feedbackFx(false);
   }
   updateLearnHeader();
   document.getElementById('btnNext').className='btn-next show';
@@ -2313,11 +2389,13 @@ function checkSentenceOrder(w){
     s.wrongCount=0; s.phase='blank'; lCorrect++;
     lQueue.splice(Math.min(2,lQueue.length),0,w);
     showLFb(true,w,'Doğru sırada! Şimdi bir boşluk dolduralım ✏️');
+    feedbackFx(true,document.getElementById('sentBuildTarget'));
     scheduleAutoNext();
   } else {
     s.wrongCount++; lWrong++;
     lQueue.splice(Math.min(2,lQueue.length),0,w);
     showLFb(false,w,'Sıra yanlış oldu, tekrar dene.',w.s.tr);
+    feedbackFx(false);
   }
   updateLearnHeader();
   document.getElementById('btnNext').className='btn-next show';
@@ -2343,6 +2421,7 @@ function pickBlank(chosen,btn,w,correct){
     btn.classList.add('correct'); s.wrongCount=0; s.phase='done'; lCorrect++;
     awardXP(8);
     showLFb(true,w,`Harika! <strong>${w.de}</strong> tamamen öğrenildi! 🏅`);
+    feedbackFx(true,btn);
     scheduleAutoNext();
   } else {
     btn.classList.add('wrong');
@@ -2350,6 +2429,7 @@ function pickBlank(chosen,btn,w,correct){
     s.wrongCount++; lWrong++;
     lQueue.splice(Math.min(3,lQueue.length),0,w);
     showLFb(false,w,`Doğru yanıt: <strong>${correct}</strong>`);
+    feedbackFx(false);
   }
   updateLearnHeader();
   document.getElementById('btnNext').className='btn-next show';
@@ -2398,8 +2478,8 @@ function pickParaOpt(chosen,btn,q){
   document.querySelectorAll('#paraExOpts .opt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
   const ok=chosen===q.correct;
   tick(ok,6);
-  if(ok){ btn.classList.add('correct'); scheduleAutoNext(paraExNextQ); }
-  else { btn.classList.add('wrong'); document.querySelectorAll('#paraExOpts .opt').forEach(b=>{if(b.textContent===q.correct)b.classList.add('correct');}); }
+  if(ok){ btn.classList.add('correct'); feedbackFx(true,btn); scheduleAutoNext(paraExNextQ); }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#paraExOpts .opt').forEach(b=>{if(b.textContent===q.correct)b.classList.add('correct');}); feedbackFx(false); }
   const fb=document.getElementById('paraExFb');
   fb.className='fb-box show '+(ok?'fb-ok':'fb-err');
   document.getElementById('paraExFbTitle').className='fb-title '+(ok?'fb-c':'fb-w');
@@ -2454,11 +2534,12 @@ function pickEdat(chosen,btn,q){
   document.querySelectorAll('.eopt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
   const ok=chosen.toLowerCase()===q.correct.toLowerCase();
   tick(ok,8); srsUpdate('edat:'+q.correct.toLowerCase(),ok);
-  if(ok){ btn.classList.add('correct'); eCorrect++; }
+  if(ok){ btn.classList.add('correct'); eCorrect++; feedbackFx(true,btn); }
   else {
     btn.classList.add('wrong');
     document.querySelectorAll('.eopt').forEach(b=>{if(b.textContent.toLowerCase()===q.correct.toLowerCase())b.classList.add('correct');});
     eWrong++;
+    feedbackFx(false);
   }
   setHeader('🔗 Edat',true,'✅ '+eCorrect,'❌ '+eWrong);
   setProgress(Math.round((eIdx+1)/eQueue.length*100),(eIdx+1)+' / '+eQueue.length);
@@ -3105,8 +3186,8 @@ function pickGrOpt(btn,chosen,q){
   grAnswered=true;
   const ok=chosen===q.blank; tick(ok,5);
   document.querySelectorAll('#grOpts .gr-opt').forEach(b=>{ if(b!==btn) b.classList.add('muted'); b.disabled=true; });
-  if(ok){ btn.classList.add('correct'); grCorrect++; }
-  else { btn.classList.add('wrong'); document.querySelectorAll('#grOpts .gr-opt').forEach(b=>{if(b.textContent===q.blank)b.classList.add('correct');}); grWrong++; }
+  if(ok){ btn.classList.add('correct'); grCorrect++; feedbackFx(true,btn); }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#grOpts .gr-opt').forEach(b=>{if(b.textContent===q.blank)b.classList.add('correct');}); grWrong++; feedbackFx(false); }
   setHeader(grTopic.emoji+' '+grTopic.title,true,'✅ '+grCorrect,'❌ '+grWrong);
   setProgress(Math.round((grQIdx+1)/grTopic.qs.length*100),(grQIdx+1)+' / '+grTopic.qs.length);
   const blankEl=document.querySelector('#grSent .blank');
@@ -3178,8 +3259,8 @@ function pickGtOpt(btn,chosen,q){
   gtAnswered=true;
   const ok=chosen===q.blank; tick(ok,5);
   document.querySelectorAll('#gtOpts .gr-opt').forEach(b=>{ if(b!==btn) b.classList.add('muted'); b.disabled=true; });
-  if(ok){ btn.classList.add('correct'); gtCorrect++; }
-  else { btn.classList.add('wrong'); document.querySelectorAll('#gtOpts .gr-opt').forEach(b=>{if(b.textContent===q.blank)b.classList.add('correct');}); gtWrong++; }
+  if(ok){ btn.classList.add('correct'); gtCorrect++; feedbackFx(true,btn); }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#gtOpts .gr-opt').forEach(b=>{if(b.textContent===q.blank)b.classList.add('correct');}); gtWrong++; feedbackFx(false); }
   setHeader(LESSON?'🎯 Ders · Gramer':'🏆 Kapsamlı Test',true,'✅ '+gtCorrect,'❌ '+gtWrong);
   setProgress(Math.round((gtIdx+1)/gtQs.length*100),(gtIdx+1)+' / '+gtQs.length);
   const blankEl=document.querySelector('#gtSent .blank');
@@ -3260,8 +3341,8 @@ function pickArt(btn,chosen,n){
   const ok=chosen===n.art;
   document.querySelectorAll('#artOpts .art-opt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
   tick(ok,7); srsUpdate(artKey(n),ok,true);
-  if(ok){ btn.classList.add('correct'); aCorrect++; }
-  else { btn.classList.add('wrong'); document.querySelectorAll('#artOpts .art-opt').forEach(b=>{if(b.textContent===n.art)b.classList.add('correct');}); aWrong++; }
+  if(ok){ btn.classList.add('correct'); aCorrect++; feedbackFx(true,btn); }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#artOpts .art-opt').forEach(b=>{if(b.textContent===n.art)b.classList.add('correct');}); aWrong++; feedbackFx(false); }
   setHeader('🎯 der/die/das',true,'✅ '+aCorrect,'❌ '+aWrong);
   setProgress(Math.round((aIdx+1)/aQ.length*100),(aIdx+1)+' / '+aQ.length);
   const aa=document.querySelector('#artikelScreen .art-art'); aa.textContent=n.art; aa.style.color=ok?'var(--green-dark)':'var(--red)';
@@ -3350,6 +3431,7 @@ function timeUpHizli(){
     if(b.textContent===q.blank) b.classList.add('correct');
   });
   hizliWrong++; tick(false,0);
+  feedbackFx(false);
   setHeader('⚡ Hızlı Test',true,'✅ '+hizliCorrect,'❌ '+hizliWrong);
   setProgress(Math.round((hizliIdx+1)/hizliQs.length*100),(hizliIdx+1)+' / '+hizliQs.length);
   const blankEl=document.querySelector('#hizliSent .blank');
@@ -3366,8 +3448,8 @@ function pickHizliOpt(btn,chosen,q){
   document.getElementById('timerBar').style.transition='none';
   document.querySelectorAll('#hizliOpts .gr-opt').forEach(b=>{ if(b!==btn) b.classList.add('muted'); b.disabled=true; });
   const ok=chosen===q.blank; tick(ok,5);
-  if(ok){ btn.classList.add('correct'); hizliCorrect++; }
-  else { btn.classList.add('wrong'); document.querySelectorAll('#hizliOpts .gr-opt').forEach(b=>{if(b.textContent===q.blank)b.classList.add('correct');}); hizliWrong++; }
+  if(ok){ btn.classList.add('correct'); hizliCorrect++; feedbackFx(true,btn); }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#hizliOpts .gr-opt').forEach(b=>{if(b.textContent===q.blank)b.classList.add('correct');}); hizliWrong++; feedbackFx(false); }
   setHeader('⚡ Hızlı Test',true,'✅ '+hizliCorrect,'❌ '+hizliWrong);
   setProgress(Math.round((hizliIdx+1)/hizliQs.length*100),(hizliIdx+1)+' / '+hizliQs.length);
   const blankEl=document.querySelector('#hizliSent .blank');
@@ -3457,8 +3539,8 @@ function pickPl(btn,chosen,q){
   const ok=chosen===q.plural;
   document.querySelectorAll('#plOpts .eopt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
   tick(ok,7); srsUpdate(plKey(q),ok,true);
-  if(ok){ btn.classList.add('correct'); plCorrect++; }
-  else { btn.classList.add('wrong'); document.querySelectorAll('#plOpts .eopt').forEach(b=>{if(b.textContent===q.plural)b.classList.add('correct');}); plWrong++; }
+  if(ok){ btn.classList.add('correct'); plCorrect++; feedbackFx(true,btn); }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#plOpts .eopt').forEach(b=>{if(b.textContent===q.plural)b.classList.add('correct');}); plWrong++; feedbackFx(false); }
   setHeader('🔢 Çoğul',true,'✅ '+plCorrect,'❌ '+plWrong);
   setProgress(Math.round((plIdx+1)/plQ.length*100),(plIdx+1)+' / '+plQ.length);
   document.getElementById('plRuleChip').style.display='inline-block';
@@ -3706,8 +3788,8 @@ function pickMCQ(btn,chosen,q){
   const ok=chosen===q.answer;
   document.querySelectorAll('#mcOpts .eopt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
   tick(ok,6);
-  if(ok){mcCorrect++;btn.classList.add('correct');}
-  else{mcWrong++;btn.classList.add('wrong');document.querySelectorAll('#mcOpts .eopt').forEach(b=>{if(b.textContent===q.answer)b.classList.add('correct');});}
+  if(ok){mcCorrect++;btn.classList.add('correct');feedbackFx(true,btn);}
+  else{mcWrong++;btn.classList.add('wrong');document.querySelectorAll('#mcOpts .eopt').forEach(b=>{if(b.textContent===q.answer)b.classList.add('correct');});feedbackFx(false);}
   setHeader(MCSETS[mcCur].emoji+' Egzersiz',true,'✅ '+mcCorrect,'❌ '+mcWrong);
   const eb=document.getElementById('mcExp');
   eb.className='exp-box show '+(ok?'exp-ok':'exp-err');
@@ -3787,6 +3869,7 @@ function openPara(){
         og.querySelectorAll('.eopt').forEach(x=>{x.disabled=true; if(x.textContent===qq.a)x.classList.add('correct');});
         if(!ok) b.classList.add('wrong');
         tick(ok,4);
+        feedbackFx(ok,b);
       };
       og.appendChild(b);
     });
@@ -3872,8 +3955,8 @@ function pickHvb(btn,chosen,q){
   const ok=chosen===q.answer;
   document.querySelectorAll('#hvbOpts .eopt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
   tick(ok,6);
-  if(ok){hvbCorrect++;btn.classList.add('correct');}
-  else{hvbWrong++;btn.classList.add('wrong');document.querySelectorAll('#hvbOpts .eopt').forEach(b=>{if(b.textContent===q.answer)b.classList.add('correct');});}
+  if(ok){hvbCorrect++;btn.classList.add('correct');feedbackFx(true,btn);}
+  else{hvbWrong++;btn.classList.add('wrong');document.querySelectorAll('#hvbOpts .eopt').forEach(b=>{if(b.textContent===q.answer)b.classList.add('correct');});feedbackFx(false);}
   setHeader('⚖️ haben/besitzen',true,'✅ '+hvbCorrect,'❌ '+hvbWrong);
   const eb=document.getElementById('hvbExp');
   eb.className='exp-box show '+(ok?'exp-ok':'exp-err');
@@ -4002,6 +4085,7 @@ function ysCheckAnswer(){
     }
   }
   tick(ok,5);
+  feedbackFx(ok,inp);
   setHeader('📝 YS Hocanla',true,'✅ '+ysCorrect,'❌ '+ysWrong);
   document.getElementById('ysNext').className='btn-next show';
 }
