@@ -2166,6 +2166,17 @@ function showCard(){
     buildBlankEx(w);
     return;
   }
+  if(s.phase==='mcrev'){
+    // Ters yön: Türkçe gösterilir, Almancası çoktan seçmeli soruluyor (üretim/hatırlama pratiği)
+    badge.className='phase-badge phase-mc';
+    badge.textContent='🔄 Türkçe → Almanca';
+    rb.style.display=s.wrongCount>0?'inline-block':'none';
+    rb.textContent='🔄 '+(s.wrongCount===1?'1. tekrar':s.wrongCount===2?'2. tekrar':s.wrongCount+'. tekrar');
+    document.getElementById('learnWordDe').textContent=w.tr;
+    document.getElementById('learnOpts').style.display='grid';
+    buildLearnOptsReverse(w);
+    return;
+  }
   badge.className='phase-badge '+(s.phase==='mc'?'phase-mc':'phase-type');
   badge.textContent=s.phase==='mc'?'🔤 Çoktan Seçmeli':'⌨️ Yazma Testi';
   rb.style.display=s.wrongCount>0?'inline-block':'none';
@@ -2277,6 +2288,35 @@ function pickMC(chosen,btn,w){
   document.getElementById('btnNext').className='btn-next show';
 }
 
+// ── Ters yön (Türkçe → Almanca): Türkçe gösterilir, doğru Almanca kelime çoktan seçmeli seçilir ──
+function buildLearnOptsReverse(w){
+  const distractors=lWords.filter(x=>x.de!==w.de).sort(()=>Math.random()-.5).slice(0,3).map(x=>x.de);
+  const opts=shuffle([w.de,...distractors]);
+  const g=document.getElementById('learnOpts'); g.innerHTML='';
+  opts.forEach(opt=>{ const b=document.createElement('button'); b.className='opt'; b.textContent=opt; b.onclick=()=>pickMCRev(opt,b,w); g.appendChild(b); });
+}
+function pickMCRev(chosen,btn,w){
+  document.querySelectorAll('.opt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
+  const ok=chosen===w.de, s=lState[w.de];
+  registerStudy(); lQueue.shift();
+  if(ok){
+    btn.classList.add('correct'); s.wrongCount=0;
+    if(w.s){ s.phase='sentence'; lQueue.splice(Math.min(2,lQueue.length),0,w); showLFb(true,w,'Harika! Türkçeden Almancaya da biliyorsun — şimdi bu kelimeyle bir cümle kuralım 🧩'); }
+    else { s.phase='done'; showLFb(true,w,`Mükemmel! <strong>${w.de}</strong> her iki yönde de öğrenildi! 🏅`); }
+    feedbackFx(true,btn);
+    scheduleAutoNext();
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.opt').forEach(b=>{if(b.textContent===w.de)b.classList.add('correct');});
+    s.wrongCount++; lWrong++;
+    lQueue.splice(Math.min(3,lQueue.length),0,w);
+    showLFb(false,w,`Doğru cevap: <strong>${w.de}</strong>`,w.h);
+    feedbackFx(false);
+  }
+  updateLearnHeader();
+  document.getElementById('btnNext').className='btn-next show';
+}
+
 document.addEventListener('keydown',e=>{
   if(e.key==='Enter'&&document.getElementById('typeFormEl').style.display!=='none'){
     const inp=document.getElementById('typeInput');
@@ -2317,8 +2357,9 @@ function checkType(){
     inp.className='type-input t-ok'; s.typeStreak++; s.wrongCount=0; lCorrect++;
     if(s.typeStreak>=2){
       srsUpdate(w.de,true,w.tricky); awardXP(15);
-      if(w.s){ s.phase='sentence'; lQueue.splice(Math.min(2,lQueue.length),0,w); showLFb(true,w,`Harika! <strong>${w.de}</strong> artık biliniyor — şimdi bu kelimeyle bir cümle kuralım 🧩`); }
-      else { s.phase='done'; showLFb(true,w,`Mükemmel! <strong>${w.de}</strong> tamamen öğrenildi! 🏅`); }
+      s.phase='mcrev';
+      lQueue.splice(Math.min(2,lQueue.length),0,w);
+      showLFb(true,w,`Harika! <strong>${w.de}</strong> artık biliniyor — şimdi Türkçeden Almancaya deneyelim 🔄`);
     }
     else { awardXP(5); lQueue.splice(Math.min(12,lQueue.length),0,w); showLFb(true,w,'Doğru! Bir kez daha doğru yazarsan öğrenilmiş sayılır.'); }
     feedbackFx(true,inp);
