@@ -816,6 +816,7 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
     <button class="btn-home" id="grBackBtn">← Geri</button>
   </div>
   <div class="rule-card" id="grRuleCard"></div>
+  <button class="btn-test" onclick="startHizliTest(grTopic)">⚡ Kuralı okudum, bu konudan hızlı test yap</button>
   <div class="gr-q-num" id="grQNum"></div>
   <div class="gr-sent" id="grSent"></div>
   <div class="gr-opts" id="grOpts"></div>
@@ -3295,12 +3296,18 @@ function showArtDone(){
 let hizliQs=[], hizliIdx=0, hizliCorrect=0, hizliWrong=0, hizliTimer=null, hizliAnswered=false;
 const HIZLI_SECS=8;
 
-function startHizliTest(){
-  hizliQs=[];
-  GRAMER_TOPICS.forEach(t=>{
-    t.qs.forEach(q=>hizliQs.push(Object.assign({},q,{topicTitle:t.title,topicEmoji:t.emoji})));
-  });
-  shuffle(hizliQs); hizliQs=hizliQs.slice(0,15);
+// topic verilirse (bir konu detayından "Kuralı okudum, hızlı test yap" ile çağrılırsa) sadece o konunun
+// sorularıyla, hız/zamanlayıcı aynı kalarak çalışır; verilmezse eskisi gibi 18 konudan karışık 15 soru.
+function startHizliTest(topic){
+  if(topic){
+    hizliQs=shuffle(topic.qs.map(q=>Object.assign({},q,{topicTitle:topic.title,topicEmoji:topic.emoji})));
+  } else {
+    hizliQs=[];
+    GRAMER_TOPICS.forEach(t=>{
+      t.qs.forEach(q=>hizliQs.push(Object.assign({},q,{topicTitle:t.title,topicEmoji:t.emoji})));
+    });
+    shuffle(hizliQs); hizliQs=hizliQs.slice(0,15);
+  }
   hizliIdx=0; hizliCorrect=0; hizliWrong=0; hizliAnswered=false;
   clearTimeout(hizliTimer);
   setHeader('⚡ Hızlı Test',true,'✅ 0','❌ 0');
