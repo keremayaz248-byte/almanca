@@ -1585,6 +1585,7 @@ let curScreen='homeScreen';
 
 function showScreen(id){
   clearIntroTimer();
+  clearAutoNext();
   curScreen=id;
   ALL_SCREENS.forEach(s=>{ document.getElementById(s).style.display = s===id?'block':'none'; });
   const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen'].includes(id);
@@ -1958,6 +1959,9 @@ function toggleTR(){
 let lWords=[], lState={}, lQueue=[], lTotal=0, lCorrect=0, lWrong=0, learnTitle='🧠 Öğrenme', lBatched=false, lParaShown=false;
 // Kelime tanıtım kartındaki 10sn geri sayım
 let introTimerId=null, introSecondsLeft=INTRO_SECONDS, introPaused=false;
+// Doğru cevaptan sonra kısa bir süre bekleyip otomatik sıradaki karta geçmek için
+let autoNextTimerId=null;
+const AUTO_NEXT_DELAY=1000;
 // Cümle kurma egzersizinin geçici durumu (hangi parçalar seçildi/havuzda kaldı)
 let sentPicked=[], sentBank=[];
 // Grup sonu paragraf egzersizinin durumu
@@ -1980,7 +1984,12 @@ function startLearn(customWords,title){
   // Yeni kelime öğrenme oturumları küçük gruplar halinde: bilişsel yükü aşmamak için
   // tek seferde en fazla LEARN_BATCH_SIZE kelime gösterilir (önceliklisi seçilerek).
   lBatched = !customWords && lWords.length>LEARN_BATCH_SIZE;
-  if(!customWords) lWords = lWords.slice(0,LEARN_BATCH_SIZE);
+  if(!customWords){
+    lWords = lWords.slice(0,LEARN_BATCH_SIZE);
+    // Hangi 6 kelimenin seçildiği SRS önceliğiyle belirlendi (yukarıda) — ama seçildikten sonra
+    // kategorideki doğal sırasına göre diziyoruz ki ilişkili kelimeler art arda gelsin.
+    lWords.sort((a,b)=>wordOrigOrder(a)-wordOrigOrder(b));
+  }
   lState={}; lWords.forEach(w=>{lState[w.de]={mcStreak:0,typeStreak:0,wrongCount:0,phase: srsLevel(w.de)<0 ? 'intro' : 'mc'};});
   lQueue=[...lWords]; lTotal=lWords.length; lCorrect=0; lWrong=0; lParaShown=false;
   updateLearnHeader();
@@ -1996,6 +2005,17 @@ function wordCatName(w){
     Object.entries(CATS).forEach(([name,c])=>c.words.forEach(x=>{WORD_CAT_MAP[x.de]=name;}));
   }
   return WORD_CAT_MAP[w.de];
+}
+// Kelimenin kategori verisindeki (yazılış) doğal sırası — birbiriyle ilişkili kelimeler
+// (örn. der Freund/die Freunde/die Freundin, gern/lieber/am liebsten) kategori içinde bilerek
+// art arda yazılıyor; bir grup seçildikten sonra bu sırayla dizmek anlamayı kolaylaştırıyor.
+let WORD_IDX_MAP=null;
+function wordOrigOrder(w){
+  if(!WORD_IDX_MAP){
+    WORD_IDX_MAP={};
+    Object.values(CATS).forEach((c,catI)=>c.words.forEach((x,i)=>{WORD_IDX_MAP[x.de]=catI*10000+i;}));
+  }
+  return WORD_IDX_MAP[w.de]!==undefined ? WORD_IDX_MAP[w.de] : 999999;
 }
 // Bir kelime grubunda en çok temsil edilen kategoriyi döndürür
 function majorityCat(words){
@@ -2021,6 +2041,7 @@ function updateLearnHeader(){
 
 function showCard(){
   clearIntroTimer();
+  clearAutoNext();
   if(lQueue.length===0){
     const rem=lWords.filter(w=>lState[w.de].phase!=='done');
     if(rem.length===0){showLearnDone();return;}
@@ -2109,6 +2130,15 @@ function alreadyKnowWord(){
   updateLearnHeader();
   showLFb(true,w,`<strong>${w.de}</strong> zaten biliyordun, öğrenilmiş olarak işaretlendi ✅`);
   document.getElementById('btnNext').className='btn-next show';
+  scheduleAutoNext();
+}
+
+// ── Doğru cevap sonrası otomatik "Sonraki" ──
+// Kullanıcı isterse butona basıp beklemeden de geçebilir (o zaman nextCard bu zamanlayıcıyı zaten temizler).
+function clearAutoNext(){ if(autoNextTimerId){ clearTimeout(autoNextTimerId); autoNextTimerId=null; } }
+function scheduleAutoNext(fn,delay){
+  clearAutoNext();
+  autoNextTimerId=setTimeout(()=>{ autoNextTimerId=null; (fn||nextCard)(); }, delay||AUTO_NEXT_DELAY);
 }
 
 // ── Kelime tanıtım kartı 10sn geri sayımı ──
@@ -2158,6 +2188,7 @@ function pickMC(chosen,btn,w){
     lQueue.shift();
     if(s.mcStreak>=2){ s.phase='type'; s.typeStreak=0; lQueue.splice(Math.min(8,lQueue.length),0,w); showLFb(true,w,`Harika! <strong>${w.de}</strong> artık yazma testine geçiyor ✍️`); }
     else { lQueue.splice(Math.min(10,lQueue.length),0,w); showLFb(true,w,`Doğru! ${2-s.mcStreak} kez daha doğru yaparsan yazma testine geçer.`); }
+    scheduleAutoNext();
   } else {
     btn.classList.add('wrong');
     document.querySelectorAll('.opt').forEach(b=>{if(b.textContent===w.tr)b.classList.add('correct');});
@@ -2215,6 +2246,7 @@ function checkType(){
       else { s.phase='done'; showLFb(true,w,`Mükemmel! <strong>${w.de}</strong> tamamen öğrenildi! 🏅`); }
     }
     else { awardXP(5); lQueue.splice(Math.min(12,lQueue.length),0,w); showLFb(true,w,'Doğru! Bir kez daha doğru yazarsan öğrenilmiş sayılır.'); }
+    scheduleAutoNext();
   } else {
     inp.className='type-input t-err'; s.typeStreak=0; s.wrongCount++; lWrong++; srsUpdate(w.de,false,w.tricky);
     const pos=s.wrongCount===1?2:s.wrongCount===2?5:8;
@@ -2235,7 +2267,7 @@ function showLFb(ok,w,msg,hint){
   if(hint){h.className='fb-hint show';h.textContent='💡 '+hint;}else{h.className='fb-hint';}
 }
 
-function nextCard(){ document.getElementById('fbBox').className='fb-box'; document.getElementById('btnNext').className='btn-next'; showCard(); }
+function nextCard(){ clearAutoNext(); document.getElementById('fbBox').className='fb-box'; document.getElementById('btnNext').className='btn-next'; showCard(); }
 
 // ── Cümle Kurma / Birleştirme (w.s.chunks'ı doğru sırayla dizme) ──
 function buildSentenceEx(w){
@@ -2280,6 +2312,7 @@ function checkSentenceOrder(w){
     s.wrongCount=0; s.phase='blank'; lCorrect++;
     lQueue.splice(Math.min(2,lQueue.length),0,w);
     showLFb(true,w,'Doğru sırada! Şimdi bir boşluk dolduralım ✏️');
+    scheduleAutoNext();
   } else {
     s.wrongCount++; lWrong++;
     lQueue.splice(Math.min(2,lQueue.length),0,w);
@@ -2309,6 +2342,7 @@ function pickBlank(chosen,btn,w,correct){
     btn.classList.add('correct'); s.wrongCount=0; s.phase='done'; lCorrect++;
     awardXP(8);
     showLFb(true,w,`Harika! <strong>${w.de}</strong> tamamen öğrenildi! 🏅`);
+    scheduleAutoNext();
   } else {
     btn.classList.add('wrong');
     document.querySelectorAll('#blankOpts .eopt').forEach(b=>{if(b.textContent.toLowerCase()===correct.toLowerCase())b.classList.add('correct');});
@@ -2363,7 +2397,7 @@ function pickParaOpt(chosen,btn,q){
   document.querySelectorAll('#paraExOpts .opt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
   const ok=chosen===q.correct;
   tick(ok,6);
-  if(ok){ btn.classList.add('correct'); }
+  if(ok){ btn.classList.add('correct'); scheduleAutoNext(paraExNextQ); }
   else { btn.classList.add('wrong'); document.querySelectorAll('#paraExOpts .opt').forEach(b=>{if(b.textContent===q.correct)b.classList.add('correct');}); }
   const fb=document.getElementById('paraExFb');
   fb.className='fb-box show '+(ok?'fb-ok':'fb-err');
@@ -2372,6 +2406,7 @@ function pickParaOpt(chosen,btn,q){
   document.getElementById('paraExNext').className='btn-next show';
 }
 function paraExNextQ(){
+  clearAutoNext();
   paraExQIdx++;
   if(paraExQIdx>=paraExData.questions.length){
     const cb=paraDoneCallback; paraDoneCallback=null;
