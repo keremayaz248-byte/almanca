@@ -240,6 +240,22 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 .btn-next.show{display:block}
 .btn-next:hover{background:#4eb800}
 .dv-purple{color:var(--purple)}
+.intro-timer-wrap{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px}
+.intro-timer{width:38px;height:38px;border-radius:50%;background:var(--purple-bg);border:2px solid var(--purple);color:var(--purple-dark);font-weight:800;font-size:.95rem;display:flex;align-items:center;justify-content:center}
+.intro-pause-btn{background:var(--white);border:2px solid var(--border);border-radius:11px;padding:8px 14px;font-size:.82rem;font-weight:700;cursor:pointer;color:var(--text)}
+.intro-pause-btn:hover{border-color:var(--purple);color:var(--purple-dark)}
+.btn-know{width:100%;background:var(--white);color:var(--green-dark);border:2px solid var(--green);border-radius:13px;padding:12px;font-size:.92rem;font-weight:700;cursor:pointer;display:none;margin-bottom:12px}
+.btn-know.show{display:block}
+.btn-know:hover{background:var(--green-bg)}
+.sent-build-tr{font-size:.9rem;color:var(--light);font-style:italic;margin-bottom:10px;text-align:center}
+.sent-build-target{min-height:54px;background:var(--white);border:2.5px dashed var(--border);border-radius:14px;padding:11px 12px;margin-bottom:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chunk-placeholder{color:var(--light);font-size:.85rem;font-style:italic}
+.chunk-picked{background:var(--purple-bg);border:2px solid var(--purple);color:var(--purple-dark);border-radius:10px;padding:7px 11px;font-weight:700;font-size:.92rem;cursor:pointer}
+.sent-build-bank{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.chunk-btn{background:var(--white);border:2.5px solid var(--border);border-radius:10px;padding:9px 13px;font-weight:700;font-size:.92rem;cursor:pointer;box-shadow:0 2px 0 var(--border)}
+.chunk-btn:hover{border-color:var(--blue);background:var(--blue-bg)}
+#paragrafExScreen{display:none}
+.para-ex-q{font-weight:700;font-size:.95rem;margin-bottom:11px}
 
 /* ── EDAT ── */
 #edatScreen{display:none}
@@ -676,12 +692,26 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
     <div class="wcard-de" id="learnWordDe"></div>
     <div id="introTr" class="intro-tr" style="display:none"></div>
     <div id="introHint" class="intro-hint" style="display:none"></div>
+    <div id="introTimerWrap" class="intro-timer-wrap" style="display:none">
+      <div class="intro-timer" id="introTimer">10</div>
+      <button class="intro-pause-btn" id="introPauseBtn" onclick="toggleIntroTimer()">⏸ Duraklat</button>
+    </div>
   </div>
   <button class="btn-intro" id="btnIntroNext" onclick="introNext()">Anladım, devam →</button>
+  <button class="btn-know" id="btnKnowIt" onclick="alreadyKnowWord()">✅ Biliyorum, atla</button>
   <div id="learnOpts" class="opts"></div>
   <div id="typeFormEl" class="type-form" style="display:none">
     <input type="text" id="typeInput" class="type-input" placeholder="Türkçe karşılığını yaz..." autocomplete="off" autocorrect="off" spellcheck="false">
     <button class="btn-check" onclick="checkType()">✓</button>
+  </div>
+  <div id="sentenceEx" style="display:none">
+    <div class="sent-build-tr" id="sentBuildTr"></div>
+    <div class="sent-build-target" id="sentBuildTarget"></div>
+    <div class="sent-build-bank" id="sentBuildBank"></div>
+  </div>
+  <div id="blankEx" style="display:none">
+    <div class="sent-card"><div class="sent-de" id="blankSentDe"></div></div>
+    <div class="eopts" id="blankOpts"></div>
   </div>
   <div class="fb-box" id="fbBox">
     <div class="fb-title" id="fbTitle"></div>
@@ -689,6 +719,21 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
     <div class="fb-hint" id="fbHint"></div>
   </div>
   <button class="btn-next" id="btnNext" onclick="nextCard()">Sonraki →</button>
+</div>
+
+<!-- GRUP SONU PARAGRAF EGZERSİZİ -->
+<div id="paragrafExScreen">
+  <div class="phase-badge phase-mc">📖 Grup Paragrafı</div>
+  <div class="sent-card">
+    <div class="sent-de" id="paraExText" style="text-align:left;line-height:1.6"></div>
+  </div>
+  <div class="q-num" id="paraExQNum"></div>
+  <div class="para-ex-q" id="paraExQText"></div>
+  <div class="opts" id="paraExOpts"></div>
+  <div class="fb-box" id="paraExFb">
+    <div class="fb-title" id="paraExFbTitle"></div>
+  </div>
+  <button class="btn-next" id="paraExNext" onclick="paraExNextQ()">Sonraki →</button>
 </div>
 
 <!-- LEARN DONE -->
@@ -1110,6 +1155,8 @@ const SRS_INTERVALS=[0,1,2,4,8,16,30];
 const SRS_MAX=SRS_INTERVALS.length-1;
 // Bir Öğrenme Modu oturumunda gösterilecek en fazla kelime sayısı (bilişsel yükü sınırlamak için)
 const LEARN_BATCH_SIZE=6;
+// Yeni kelime tanıtım kartında büyük gösterim süresi (saniye) — hiç görülmemiş kelimelerde
+const INTRO_SECONDS=10;
 function srsGet(key){return DB.srs[key]||(DB.srs[key]={lvl:0,due:dayNum(),seen:0,ok:0,no:0,tricky:false});}
 function srsUpdate(key,correct,tricky){
   const s=srsGet(key); s.seen++;
@@ -1327,25 +1374,44 @@ const CATS = {
   {de:"zu",  tr:"-e/-a (birine/bir yere doğru)",  h:"ZU ≈ to → 'zu Hause' = evde ✓"},
 ]}
 ,"Hobiler":{emoji:"🏄",words:[
-  {de:"reisen",          tr:"seyahat etmek",                    h:"REISE = yolculuk → REISEN = seyahat etmek ✈️"},
-  {de:"schwimmen",       tr:"yüzmek",                           h:"SCHWIMMEN ≈ swim → ses çok benzer ✓"},
-  {de:"reiten",          tr:"ata binmek",                       h:"REITEN ≈ ride → at üstünde 'ride' ✓"},
-  {de:"tauchen",         tr:"dalış yapmak",                     h:"TAUCHEN ≈ dip/dive → derine dalış 🤿"},
-  {de:"Fahrrad fahren",  tr:"bisiklete binmek",                 h:"FAHRRAD = bisiklet (Fahren+Rad = 'sürülen tekerlek')"},
-  {de:"malen",           tr:"resim yapmak / boyamak",           h:"MAL = boya → boyamak, resim yapmak 🎨"},
-  {de:"sammeln",         tr:"biriktirmek / koleksiyon yapmak",  h:"SAMMELN ≈ to collect → toplamak, biriktirmek"},
-  {de:"klettern",        tr:"tırmanmak",                        h:"KLETTERN ≈ clamber → kaya/ağaca tırmanmak 🧗"},
-  {de:"schlafen",        tr:"uyumak",                           h:"SCHLAFEN ≈ sleep → S-CH-L-A-F-E-N ✓"},
-  {de:"der Freund",      tr:"erkek arkadaş / dost",             h:"FREUND ≈ friend → neredeyse aynı! ✓"},
-  {de:"die Freunde",     tr:"arkadaşlar (çoğul)",              h:"FREUND → çoğul: die FREUNDE (Kural 1: +e)"},
-  {de:"die Freundin",    tr:"kız arkadaş",                      h:"FREUND + -in (dişi eki) = FREUNDIN"},
-  {de:"die Leute",       tr:"insanlar",                         h:"DIE LEUTE = people. Sadece çoğul, tekili yok!"},
-  {de:"nett",            tr:"kibar / nazik",                    h:"NETT ≈ nice → ses ve anlam çok yakın ✓"},
-  {de:"das Schwimmbad",  tr:"yüzme havuzu",                    h:"SCHWIMMEN = yüzmek + BAD = banyo → 'yüzme banyosu'"},
-  {de:"gern",            tr:"severek (eylem için)",             h:"'Ich schwimme gern' = yüzmeyi severim. Fiilden SONRA gelir."},
-  {de:"lieber",          tr:"daha çok tercih ederek",           h:"'Ich trinke lieber Kaffee' = kahveyi tercih ederim. als ile birlikte."},
-  {de:"am liebsten",     tr:"en çok severek",                   h:"'Ich reise am liebsten' = en çok seyahat etmeyi severim. Süperlativ."},
-  {de:"gerne",           tr:"seve seve / elbette",              h:"GERNE = GERN ile aynı. 'Ja, gerne!' = Evet, seve seve!"},
+  {de:"reisen",          tr:"seyahat etmek",                    h:"REISE = yolculuk → REISEN = seyahat etmek ✈️",
+    s:{tr:"Yazın seyahat etmeyi severim.", chunks:["Ich","reise","gern","im Sommer."], blankIdx:[1], blankOptions:["schlafe","male","tauche"]}},
+  {de:"schwimmen",       tr:"yüzmek",                           h:"SCHWIMMEN ≈ swim → ses çok benzer ✓",
+    s:{tr:"Her cumartesi yüzme havuzunda yüzeriz.", chunks:["Wir","schwimmen","jeden Samstag","im Schwimmbad."], blankIdx:[1], blankOptions:["reiten","klettern","malen"]}},
+  {de:"reiten",          tr:"ata binmek",                       h:"REITEN ≈ ride → at üstünde 'ride' ✓",
+    s:{tr:"Kız arkadaşım çok iyi ata biniyor.", chunks:["Meine Freundin","reitet","sehr gut."], blankIdx:[1], blankOptions:["schwimmt","taucht","klettert"]}},
+  {de:"tauchen",         tr:"dalış yapmak",                     h:"TAUCHEN ≈ dip/dive → derine dalış 🤿",
+    s:{tr:"Denizde dalış yapmayı sever.", chunks:["Er","taucht","gern","im Meer."], blankIdx:[1], blankOptions:["schwimmt","klettert","reist"]}},
+  {de:"Fahrrad fahren",  tr:"bisiklete binmek",                 h:"FAHRRAD = bisiklet (Fahren+Rad = 'sürülen tekerlek')",
+    s:{tr:"Hafta sonu bisiklete binmeyi severim.", chunks:["Ich fahre gern","Fahrrad","am Wochenende."], blankIdx:[1], blankOptions:["Auto","Motorrad","Boot"]}},
+  {de:"malen",           tr:"resim yapmak / boyamak",           h:"MAL = boya → boyamak, resim yapmak 🎨",
+    s:{tr:"Çocuk güzel bir resim yapıyor.", chunks:["Das Kind","malt","ein schönes Bild."], blankIdx:[1], blankOptions:["sammelt","klettert","schwimmt"]}},
+  {de:"sammeln",         tr:"biriktirmek / koleksiyon yapmak",  h:"SAMMELN ≈ to collect → toplamak, biriktirmek",
+    s:{tr:"Pul biriktirmeyi severim.", chunks:["Ich","sammle","gern","Briefmarken."], blankIdx:[1], blankOptions:["male","tauche","reite"]}},
+  {de:"klettern",        tr:"tırmanmak",                        h:"KLETTERN ≈ clamber → kaya/ağaca tırmanmak 🧗",
+    s:{tr:"Çocuklar ağaca tırmanıyor.", chunks:["Die Jungen","klettern","auf den Baum."], blankIdx:[1], blankOptions:["schwimmen","reiten","malen"]}},
+  {de:"schlafen",        tr:"uyumak",                           h:"SCHLAFEN ≈ sleep → S-CH-L-A-F-E-N ✓",
+    s:{tr:"Hafta sonu uzun uyurum.", chunks:["Am Wochenende","schlafe","ich","lange."], blankIdx:[1], blankOptions:["reise","tauche","sammle"]}},
+  {de:"der Freund",      tr:"erkek arkadaş / dost",             h:"FREUND ≈ friend → neredeyse aynı! ✓",
+    s:{tr:"Erkek arkadaşım Berlin'den geliyor.", chunks:["Mein","Freund","kommt aus Berlin."], blankIdx:[1], blankOptions:["Lehrer","Bäcker","Bauer"]}},
+  {de:"die Freunde",     tr:"arkadaşlar (çoğul)",              h:"FREUND → çoğul: die FREUNDE (Kural 1: +e)",
+    s:{tr:"Arkadaşlarım futbol oynamayı sever.", chunks:["Meine","Freunde","spielen gern Fußball."], blankIdx:[1], blankOptions:["Leute","Kinder","Freundinnen"]}},
+  {de:"die Freundin",    tr:"kız arkadaş",                      h:"FREUND + -in (dişi eki) = FREUNDIN",
+    s:{tr:"Onun kız arkadaşı çok kibar.", chunks:["Seine","Freundin","ist sehr nett."], blankIdx:[1], blankOptions:["Lehrerin","Ärztin","Kellnerin"]}},
+  {de:"die Leute",       tr:"insanlar",                         h:"DIE LEUTE = people. Sadece çoğul, tekili yok!",
+    s:{tr:"Parktaki insanlar gürültülü.", chunks:["Die","Leute","im Park sind laut."], blankIdx:[1], blankOptions:["Kinder","Freunde","Familien"]}},
+  {de:"nett",            tr:"kibar / nazik",                    h:"NETT ≈ nice → ses ve anlam çok yakın ✓",
+    s:{tr:"İş arkadaşım kibar ve yardımsever.", chunks:["Meine Kollegin","ist","nett","und hilfsbereit."], blankIdx:[2], blankOptions:["windig","bewölkt","müde"]}},
+  {de:"das Schwimmbad",  tr:"yüzme havuzu",                    h:"SCHWIMMEN = yüzmek + BAD = banyo → 'yüzme banyosu'",
+    s:{tr:"Yüzme havuzu bugün açık.", chunks:["Das","Schwimmbad","ist heute geöffnet."], blankIdx:[1], blankOptions:["Kino","Museum","Restaurant"]}},
+  {de:"gern",            tr:"severek (eylem için)",             h:"'Ich schwimme gern' = yüzmeyi severim. Fiilden SONRA gelir.",
+    s:{tr:"Yazın yüzmeyi severim.", chunks:["Ich","schwimme","gern","im Sommer."], blankIdx:[2], blankOptions:["lieber","nett","sehr"]}},
+  {de:"lieber",          tr:"daha çok tercih ederek",           h:"'Ich trinke lieber Kaffee' = kahveyi tercih ederim. als ile birlikte.",
+    s:{tr:"Kahve yerine çayı tercih ederim.", chunks:["Ich trinke","lieber","Tee als Kaffee."], blankIdx:[1], blankOptions:["gern","gerne","am liebsten"]}},
+  {de:"am liebsten",     tr:"en çok severek",                   h:"'Ich reise am liebsten' = en çok seyahat etmeyi severim. Süperlativ.",
+    s:{tr:"En çok yazın seyahat etmeyi severim.", chunks:["Am liebsten","reise ich","im Sommer."], blankIdx:[0], blankOptions:["Lieber","Gern","Gerne"]}},
+  {de:"gerne",           tr:"seve seve / elbette",              h:"GERNE = GERN ile aynı. 'Ja, gerne!' = Evet, seve seve!",
+    s:{tr:"Seve seve gelirim.", chunks:["Ich","komme","gerne","mit."], blankIdx:[2], blankOptions:["lieber","nett","windig"]}},
 ]}
 ,"Hava":{emoji:"🌤️",words:[
   {de:"das Wetter",      tr:"hava durumu",          h:"WETTER ≈ weather → neredeyse aynı! ✓"},
@@ -1383,6 +1449,18 @@ const CATS = {
   {de:"der Metzger",     tr:"kasap",                h:"METZGER → Almanca özgün kelime, kasap"},
   {de:"der Journalist",  tr:"gazeteci",             h:"JOURNALIST ≈ journalist → Türkçe 'gazeteci' ile aynı kök ✓"},
 ]}
+};
+
+// Grup bitince gösterilen kategori paragrafları (kelime örnek cümleleriyle aynı mantık: elle yazılmış, A1 seviyesi)
+const CAT_PARAGRAPH = {
+"Hobiler":{
+  text:"Am Wochenende treffe ich meine Freunde im Park. Wir fahren gern Fahrrad und gehen dann ins Schwimmbad. Meine Freundin Anna schwimmt sehr gut, aber ich tauche lieber. Die Leute im Schwimmbad sind immer nett. Am liebsten bleiben wir bis zum Abend dort.",
+  questions:[
+    {q:'Arkadaşlar hafta sonu ilk önce nereye gidiyor?', options:['Parka','Okula','Fırına'], correct:'Parka'},
+    {q:'Anna ne konuda çok iyi?', options:['Yüzme','Dalış','Resim'], correct:'Yüzme'},
+    {q:'Yazar ("ich") dalışı mı yüzmeyi mi tercih ediyor?', options:['Dalışı','Yüzmeyi','İkisini de sevmiyor'], correct:'Dalışı'}
+  ]
+}
 };
 
 const EDAT_Q = [
@@ -1501,11 +1579,12 @@ const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
   'artikelScreen','artikelDoneScreen','pluralScreen','pluralDoneScreen',
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
-  'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen'];
+  'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen'];
 
 let curScreen='homeScreen';
 
 function showScreen(id){
+  clearIntroTimer();
   curScreen=id;
   ALL_SCREENS.forEach(s=>{ document.getElementById(s).style.display = s===id?'block':'none'; });
   const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen'].includes(id);
@@ -1876,7 +1955,13 @@ function toggleTR(){
 // ══════════════════════════════════════════
 //  ÖĞRENME MODU
 // ══════════════════════════════════════════
-let lWords=[], lState={}, lQueue=[], lTotal=0, lCorrect=0, lWrong=0, learnTitle='🧠 Öğrenme', lBatched=false;
+let lWords=[], lState={}, lQueue=[], lTotal=0, lCorrect=0, lWrong=0, learnTitle='🧠 Öğrenme', lBatched=false, lParaShown=false;
+// Kelime tanıtım kartındaki 10sn geri sayım
+let introTimerId=null, introSecondsLeft=INTRO_SECONDS, introPaused=false;
+// Cümle kurma egzersizinin geçici durumu (hangi parçalar seçildi/havuzda kaldı)
+let sentPicked=[], sentBank=[];
+// Grup sonu paragraf egzersizinin durumu
+let paraExData=null, paraExQIdx=0, paraDoneCallback=null;
 
 // Zayıf-önce sıralama: hatalar → yeni → tekrarı gelenler → bilinenler
 function learnPriority(w){
@@ -1897,10 +1982,28 @@ function startLearn(customWords,title){
   lBatched = !customWords && lWords.length>LEARN_BATCH_SIZE;
   if(!customWords) lWords = lWords.slice(0,LEARN_BATCH_SIZE);
   lState={}; lWords.forEach(w=>{lState[w.de]={mcStreak:0,typeStreak:0,wrongCount:0,phase: srsLevel(w.de)<0 ? 'intro' : 'mc'};});
-  lQueue=[...lWords]; lTotal=lWords.length; lCorrect=0; lWrong=0;
+  lQueue=[...lWords]; lTotal=lWords.length; lCorrect=0; lWrong=0; lParaShown=false;
   updateLearnHeader();
   showScreen('learnScreen');
   showCard();
+}
+
+// Kelimenin hangi kategoriden geldiğini bulur (grup sonu paragraf egzersizi hangi kategoriyi göstereceğine karar vermek için)
+let WORD_CAT_MAP=null;
+function wordCatName(w){
+  if(!WORD_CAT_MAP){
+    WORD_CAT_MAP={};
+    Object.entries(CATS).forEach(([name,c])=>c.words.forEach(x=>{WORD_CAT_MAP[x.de]=name;}));
+  }
+  return WORD_CAT_MAP[w.de];
+}
+// Bir kelime grubunda en çok temsil edilen kategoriyi döndürür
+function majorityCat(words){
+  const counts={};
+  words.forEach(w=>{ const c=wordCatName(w); if(c) counts[c]=(counts[c]||0)+1; });
+  let best=null,bestN=0;
+  Object.entries(counts).forEach(([c,n])=>{ if(n>bestN){best=c;bestN=n;} });
+  return best;
 }
 
 // Zayıf Kelimelerim: hatalar + tekrarı gelenler + en zayıflar (en çok 15)
@@ -1917,6 +2020,7 @@ function updateLearnHeader(){
 }
 
 function showCard(){
+  clearIntroTimer();
   if(lQueue.length===0){
     const rem=lWords.filter(w=>lState[w.de].phase!=='done');
     if(rem.length===0){showLearnDone();return;}
@@ -1928,20 +2032,45 @@ function showCard(){
   document.getElementById('fbBox').className='fb-box';
   document.getElementById('btnNext').className='btn-next';
   document.getElementById('btnIntroNext').className='btn-intro';
+  document.getElementById('btnKnowIt').className='btn-know';
   document.getElementById('introTr').style.display='none';
   document.getElementById('introHint').style.display='none';
+  document.getElementById('introTimerWrap').style.display='none';
+  document.getElementById('learnOpts').style.display='none';
+  document.getElementById('typeFormEl').style.display='none';
+  document.getElementById('sentenceEx').style.display='none';
+  document.getElementById('blankEx').style.display='none';
   const rb=document.getElementById('retryBadge');
   if(s.phase==='intro'){
     // Hiç görülmemiş kelime: önce çeviri+ipucuyla tanıt, kör tahmin yaptırma
     badge.className='phase-badge phase-intro';
     badge.textContent='👀 Yeni Kelime';
     rb.style.display='none';
-    document.getElementById('learnOpts').style.display='none';
-    document.getElementById('typeFormEl').style.display='none';
     document.getElementById('introTr').textContent=w.tr;
     document.getElementById('introTr').style.display='block';
     if(w.h){ document.getElementById('introHint').textContent='💡 '+w.h; document.getElementById('introHint').style.display='block'; }
     document.getElementById('btnIntroNext').className='btn-intro show';
+    document.getElementById('btnKnowIt').className='btn-know show';
+    document.getElementById('introTimerWrap').style.display='flex';
+    startIntroTimer();
+    return;
+  }
+  if(s.phase==='sentence'){
+    badge.className='phase-badge phase-type';
+    badge.textContent='🧩 Cümle Kur';
+    rb.style.display=s.wrongCount>0?'inline-block':'none';
+    rb.textContent='🔄 '+(s.wrongCount===1?'1. tekrar':s.wrongCount===2?'2. tekrar':s.wrongCount+'. tekrar');
+    document.getElementById('sentenceEx').style.display='block';
+    buildSentenceEx(w);
+    return;
+  }
+  if(s.phase==='blank'){
+    badge.className='phase-badge phase-type';
+    badge.textContent='✏️ Boşluk Doldur';
+    rb.style.display=s.wrongCount>0?'inline-block':'none';
+    rb.textContent='🔄 '+(s.wrongCount===1?'1. tekrar':s.wrongCount===2?'2. tekrar':s.wrongCount+'. tekrar');
+    document.getElementById('blankEx').style.display='block';
+    buildBlankEx(w);
     return;
   }
   badge.className='phase-badge '+(s.phase==='mc'?'phase-mc':'phase-type');
@@ -1950,10 +2079,8 @@ function showCard(){
   rb.textContent='🔄 '+(s.wrongCount===1?'1. tekrar':s.wrongCount===2?'2. tekrar':s.wrongCount+'. tekrar');
   if(s.phase==='mc'){
     document.getElementById('learnOpts').style.display='grid';
-    document.getElementById('typeFormEl').style.display='none';
     buildLearnOpts(w);
   } else {
-    document.getElementById('learnOpts').style.display='none';
     document.getElementById('typeFormEl').style.display='flex';
     const inp=document.getElementById('typeInput');
     inp.value=''; inp.className='type-input'; inp.disabled=false;
@@ -1964,8 +2091,55 @@ function showCard(){
 function introNext(){
   const w=lQueue[0], s=lState[w.de];
   if(!s || s.phase!=='intro') return;
+  clearIntroTimer();
   s.phase='mc';
   showCard();
+}
+
+// Kullanıcı "Biliyorum" derse: kelime tam öğrenilmiş kabul edilir, test edilmeden geçilir.
+// Normal tam-öğrenmeyle aynı tek srsUpdate çağrısını alır, ama test çözülmediği için XP verilmez.
+function alreadyKnowWord(){
+  const w=lQueue[0], s=lState[w.de];
+  if(!s || s.phase!=='intro') return;
+  clearIntroTimer();
+  registerStudy();
+  s.phase='done'; s.wrongCount=0;
+  srsUpdate(w.de,true,w.tricky);
+  lQueue.shift();
+  updateLearnHeader();
+  showLFb(true,w,`<strong>${w.de}</strong> zaten biliyordun, öğrenilmiş olarak işaretlendi ✅`);
+  document.getElementById('btnNext').className='btn-next show';
+}
+
+// ── Kelime tanıtım kartı 10sn geri sayımı ──
+function clearIntroTimer(){
+  if(introTimerId){ clearInterval(introTimerId); introTimerId=null; }
+  introPaused=false;
+}
+function introTimerTick(){
+  introSecondsLeft--;
+  const el=document.getElementById('introTimer');
+  if(el) el.textContent=introSecondsLeft;
+  if(introSecondsLeft<=0){ clearIntroTimer(); introNext(); }
+}
+function startIntroTimer(){
+  clearIntroTimer();
+  introSecondsLeft=INTRO_SECONDS;
+  document.getElementById('introTimer').textContent=introSecondsLeft;
+  document.getElementById('introPauseBtn').textContent='⏸ Duraklat';
+  introTimerId=setInterval(introTimerTick,1000);
+}
+function toggleIntroTimer(){
+  const btn=document.getElementById('introPauseBtn');
+  if(introPaused){
+    introPaused=false;
+    introTimerId=setInterval(introTimerTick,1000);
+    btn.textContent='⏸ Duraklat';
+  } else {
+    if(introTimerId){ clearInterval(introTimerId); introTimerId=null; }
+    introPaused=true;
+    btn.textContent='▶ Devam';
+  }
 }
 
 function buildLearnOpts(w){
@@ -2035,7 +2209,11 @@ function checkType(){
   inp.disabled=true; lQueue.shift(); registerStudy();
   if(ok){
     inp.className='type-input t-ok'; s.typeStreak++; s.wrongCount=0; lCorrect++;
-    if(s.typeStreak>=2){ s.phase='done'; srsUpdate(w.de,true,w.tricky); awardXP(15); showLFb(true,w,`Mükemmel! <strong>${w.de}</strong> tamamen öğrenildi! 🏅`); }
+    if(s.typeStreak>=2){
+      srsUpdate(w.de,true,w.tricky); awardXP(15);
+      if(w.s){ s.phase='sentence'; lQueue.splice(Math.min(2,lQueue.length),0,w); showLFb(true,w,`Harika! <strong>${w.de}</strong> artık biliniyor — şimdi bu kelimeyle bir cümle kuralım 🧩`); }
+      else { s.phase='done'; showLFb(true,w,`Mükemmel! <strong>${w.de}</strong> tamamen öğrenildi! 🏅`); }
+    }
     else { awardXP(5); lQueue.splice(Math.min(12,lQueue.length),0,w); showLFb(true,w,'Doğru! Bir kez daha doğru yazarsan öğrenilmiş sayılır.'); }
   } else {
     inp.className='type-input t-err'; s.typeStreak=0; s.wrongCount++; lWrong++; srsUpdate(w.de,false,w.tricky);
@@ -2059,8 +2237,100 @@ function showLFb(ok,w,msg,hint){
 
 function nextCard(){ document.getElementById('fbBox').className='fb-box'; document.getElementById('btnNext').className='btn-next'; showCard(); }
 
+// ── Cümle Kurma / Birleştirme (w.s.chunks'ı doğru sırayla dizme) ──
+function buildSentenceEx(w){
+  sentPicked=[];
+  sentBank=shuffle(w.s.chunks.map((c,i)=>({c,i})));
+  renderSentenceEx(w);
+}
+function renderSentenceEx(w){
+  const target=document.getElementById('sentBuildTarget');
+  target.innerHTML = sentPicked.length
+    ? sentPicked.map(p=>`<span class="chunk-picked" onclick="unpickChunk(${p.i})">${p.c}</span>`).join(' ')
+    : '<span class="chunk-placeholder">Parçalara dokunarak cümleyi kur...</span>';
+  document.getElementById('sentBuildTr').textContent=w.s.tr;
+  const bank=document.getElementById('sentBuildBank'); bank.innerHTML='';
+  sentBank.forEach(p=>{
+    const b=document.createElement('button'); b.className='chunk-btn'; b.textContent=p.c; b.onclick=()=>pickChunk(p.i,w);
+    bank.appendChild(b);
+  });
+}
+function pickChunk(i,w){
+  const idx=sentBank.findIndex(p=>p.i===i);
+  if(idx<0)return;
+  sentPicked.push(sentBank[idx]);
+  sentBank.splice(idx,1);
+  if(sentBank.length===0){ checkSentenceOrder(w); return; }
+  renderSentenceEx(w);
+}
+function unpickChunk(i){
+  const w=lQueue[0];
+  const idx=sentPicked.findIndex(p=>p.i===i);
+  if(idx<0)return;
+  sentBank.push(sentPicked[idx]);
+  sentPicked.splice(idx,1);
+  renderSentenceEx(w);
+}
+function checkSentenceOrder(w){
+  const order=sentPicked.map(p=>p.i);
+  const ok=order.every((v,i)=>v===i);
+  const s=lState[w.de];
+  registerStudy(); lQueue.shift();
+  if(ok){
+    s.wrongCount=0; s.phase='blank'; lCorrect++;
+    lQueue.splice(Math.min(2,lQueue.length),0,w);
+    showLFb(true,w,'Doğru sırada! Şimdi bir boşluk dolduralım ✏️');
+  } else {
+    s.wrongCount++; lWrong++;
+    lQueue.splice(Math.min(2,lQueue.length),0,w);
+    showLFb(false,w,'Sıra yanlış oldu, tekrar dene.',w.s.tr);
+  }
+  updateLearnHeader();
+  document.getElementById('btnNext').className='btn-next show';
+}
+
+// ── Boşluk Doldurma (w.s.chunks içindeki blankIdx parçaları çoktan seçmeli) ──
+function buildBlankEx(w){
+  const chunks=w.s.chunks, blankIdx=w.s.blankIdx;
+  const correct=blankIdx.map(i=>chunks[i]).join(' ');
+  let html='';
+  chunks.forEach((c,i)=>{ html += (blankIdx.includes(i) ? '<span class="blank">______</span>' : c) + ' '; });
+  document.getElementById('blankSentDe').innerHTML=html.trim();
+  const opts=shuffle([correct,...w.s.blankOptions]);
+  const g=document.getElementById('blankOpts'); g.innerHTML='';
+  opts.forEach(opt=>{ const b=document.createElement('button'); b.className='eopt'; b.textContent=opt; b.onclick=()=>pickBlank(opt,b,w,correct); g.appendChild(b); });
+}
+function pickBlank(chosen,btn,w,correct){
+  document.querySelectorAll('#blankOpts .eopt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
+  const ok=chosen.toLowerCase()===correct.toLowerCase();
+  const s=lState[w.de];
+  registerStudy(); lQueue.shift();
+  if(ok){
+    btn.classList.add('correct'); s.wrongCount=0; s.phase='done'; lCorrect++;
+    awardXP(8);
+    showLFb(true,w,`Harika! <strong>${w.de}</strong> tamamen öğrenildi! 🏅`);
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('#blankOpts .eopt').forEach(b=>{if(b.textContent.toLowerCase()===correct.toLowerCase())b.classList.add('correct');});
+    s.wrongCount++; lWrong++;
+    lQueue.splice(Math.min(3,lQueue.length),0,w);
+    showLFb(false,w,`Doğru yanıt: <strong>${correct}</strong>`);
+  }
+  updateLearnHeader();
+  document.getElementById('btnNext').className='btn-next show';
+}
+
 function showLearnDone(){
   if(LESSON&&LESSON.step===1){ showLessonBreak(); return; } // ders akışı: kelime bitti → mola
+  const cat=majorityCat(lWords);
+  if(cat && CAT_PARAGRAPH[cat] && !lParaShown){
+    lParaShown=true;
+    showParagrafEx(cat, showLearnDoneReal);
+    return;
+  }
+  showLearnDoneReal();
+}
+function showLearnDoneReal(){
   document.getElementById('ldLearned').textContent=lTotal;
   document.getElementById('ldCorrect').textContent=lCorrect;
   document.getElementById('ldWrong').textContent=lWrong;
@@ -2069,6 +2339,46 @@ function showLearnDone(){
   showScreen('learnDoneScreen');
   setProgress(100,lTotal+' / '+lTotal+' kelime öğrenildi');
   for(let i=0;i<80;i++) setTimeout(rainP,i*25);
+}
+
+// ── Grup sonu paragraf + anlama soruları ──
+function showParagrafEx(catName,cb){
+  paraDoneCallback=cb;
+  paraExData=CAT_PARAGRAPH[catName];
+  paraExQIdx=0;
+  document.getElementById('paraExText').textContent=paraExData.text;
+  showScreen('paragrafExScreen');
+  renderParaExQ();
+}
+function renderParaExQ(){
+  const q=paraExData.questions[paraExQIdx];
+  document.getElementById('paraExQNum').textContent='Soru '+(paraExQIdx+1)+' / '+paraExData.questions.length;
+  document.getElementById('paraExQText').textContent=q.q;
+  const g=document.getElementById('paraExOpts'); g.innerHTML='';
+  shuffle([...q.options]).forEach(opt=>{ const b=document.createElement('button'); b.className='opt'; b.textContent=opt; b.onclick=()=>pickParaOpt(opt,b,q); g.appendChild(b); });
+  document.getElementById('paraExFb').className='fb-box';
+  document.getElementById('paraExNext').className='btn-next';
+}
+function pickParaOpt(chosen,btn,q){
+  document.querySelectorAll('#paraExOpts .opt').forEach(b=>{if(b!==btn)b.classList.add('muted');b.disabled=true;});
+  const ok=chosen===q.correct;
+  tick(ok,6);
+  if(ok){ btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); document.querySelectorAll('#paraExOpts .opt').forEach(b=>{if(b.textContent===q.correct)b.classList.add('correct');}); }
+  const fb=document.getElementById('paraExFb');
+  fb.className='fb-box show '+(ok?'fb-ok':'fb-err');
+  document.getElementById('paraExFbTitle').className='fb-title '+(ok?'fb-c':'fb-w');
+  document.getElementById('paraExFbTitle').textContent=ok?'✅ Doğru!':'❌ Yanlış — doğrusu: '+q.correct;
+  document.getElementById('paraExNext').className='btn-next show';
+}
+function paraExNextQ(){
+  paraExQIdx++;
+  if(paraExQIdx>=paraExData.questions.length){
+    const cb=paraDoneCallback; paraDoneCallback=null;
+    if(cb)cb();
+    return;
+  }
+  renderParaExQ();
 }
 
 // ══════════════════════════════════════════
