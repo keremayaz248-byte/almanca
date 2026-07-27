@@ -88,7 +88,10 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 #homeScreen h1{font-size:2.2rem;font-weight:800;margin-bottom:6px}
 #homeScreen p{color:var(--light);margin-bottom:28px}
 .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.mode-card{background:var(--white);border:2.5px solid var(--border);border-radius:20px;padding:26px 16px;cursor:pointer;transition:all .14s;box-shadow:var(--shadow);text-align:center}
+.mode-card{position:relative;background:var(--white);border:2.5px solid var(--border);border-radius:20px;padding:26px 16px;cursor:pointer;transition:all .14s;box-shadow:var(--shadow);text-align:center}
+.mc-badge-new{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-size:.62rem;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:.3px}
+.cl-item{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:12px 15px;margin-bottom:8px;font-size:.83rem;line-height:1.55;text-align:left}
+.cl-date{font-weight:800;color:var(--purple);font-size:.75rem;margin-bottom:4px;display:block}
 .mode-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
 .mode-card.col-purple:hover{border-color:var(--purple)}
 .mode-card.col-red:hover{border-color:var(--red)}
@@ -628,7 +631,17 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
       <div class="mc-title">YS Hocanla Çalışmalar</div>
       <div class="mc-sub">Yöntemler · Egzersizler · Günün paragrafı</div>
     </div>
+    <div class="mode-card col-green mode-card-full" onclick="openYazmaList()">
+      <span class="mc-badge-new">YENİ</span>
+      <div class="mc-icon">✍️</div>
+      <div class="mc-title">Yazma Egzersizi</div>
+      <div class="mc-sub">Kendi metnini Türkçeden Almancaya SEN yaz, kontrol et</div>
+    </div>
   </div>
+
+  <!-- BÖLÜM 5: YENİLİKLER — her güncellemede buraya not düşülür -->
+  <div class="sec-head">🆕 Yenilikler</div>
+  <div id="changelogWrap"></div>
 </div>
 
 <!-- CATEGORY -->
@@ -664,7 +677,9 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
     <div class="ds"><div class="dv" id="gdScore">0</div><div class="dl">Puan</div></div>
     <div class="ds"><div class="dv" id="gdStreak">0</div><div class="dl">En Uzun Seri</div></div>
     <div class="ds"><div class="dv" id="gdWords">0</div><div class="dl">Kelime</div></div>
+    <div class="ds"><div class="dv" id="gdBest">0</div><div class="dl">🏆 Rekor</div></div>
   </div>
+  <div id="gdRecordBadge" style="display:none;background:var(--yellow-bg);border:1.5px solid var(--yellow);border-radius:10px;padding:8px 14px;font-weight:800;color:#7c4a03;margin-bottom:12px">🎉 Yeni rekor!</div>
   <button class="btn-replay" onclick="goCat('game')">Tekrar →</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
@@ -1115,6 +1130,52 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
+<!-- YAZMA EGZERSİZİ — METİN SEÇİMİ -->
+<div id="yazmaListScreen">
+  <div class="cat-top">
+    <h2>✍️ Yazma Egzersizi</h2>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <div class="hub-intro">Önce Türkçesini oku, sonra Almancasını <b>SEN</b> yaz. Kontrol ettiğinde doğru mantığı ve olası hata nedenini ayrı ayrı göreceksin.</div>
+  <div id="yazmaListWrap"></div>
+</div>
+
+<!-- YAZMA EGZERSİZİ — SORU -->
+<div id="yazmaScreen">
+  <div class="cat-top">
+    <h2 id="yazmaTitle" style="font-size:1.1rem"></h2>
+    <button class="btn-home" onclick="openYazmaList()">← Geri</button>
+  </div>
+  <div class="q-num" id="yazmaQNum"></div>
+  <div class="sent-card">
+    <div class="sent-de" id="yazmaTr" style="text-align:left;line-height:1.6"></div>
+  </div>
+  <textarea id="yazmaInput" class="ys-input" style="width:100%;min-height:90px;resize:vertical;font-family:inherit;display:block" placeholder="Almancasını buraya yaz..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+  <button class="btn-check" id="yazmaCheckBtn" onclick="checkYazma()" style="margin-top:10px;width:100%">✓ Kontrol Et</button>
+  <div class="exp-box" id="yazmaExp">
+    <div class="exp-title" id="yazmaExpTitle"></div>
+    <div class="exp-why" id="yazmaExpAnswer"></div>
+    <div class="exp-rule" id="yazmaExpLogic"></div>
+    <div class="exp-rule" id="yazmaExpMistake" style="background:var(--red-bg);border-color:var(--red);color:#8a1f1f;margin-top:8px;display:none"></div>
+  </div>
+  <button class="btn-next" id="yazmaNext" onclick="yazmaNextQ()">Sonraki →</button>
+</div>
+
+<!-- YAZMA EGZERSİZİ — BİTTİ -->
+<div id="yazmaDoneScreen">
+  <div class="trophy">✍️</div>
+  <div class="done-title">Metin Tamam!</div>
+  <div class="done-sub" id="yazmaDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="yazmaDC">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="yazmaDW">0</div><div class="dl">Yanlış</div></div>
+    <div class="ds"><div class="dv" id="yazmaDP">0%</div><div class="dl">Başarı</div></div>
+  </div>
+  <button class="btn-replay" onclick="startYazma(yzTextIdx)">Tekrar →</button>
+  <button class="btn-home" onclick="openYazmaList()">Metin Listesi</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
 </main>
 
 <!-- HINT BAR (game) -->
@@ -1143,7 +1204,7 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 //  Tüm ilerleme tarayıcıda saklanır; sekme kapansa da kalır.
 // ══════════════════════════════════════════
 const SKEY='almanca_v1';
-function defaultDB(){return{srs:{},xp:0,streak:{cur:0,max:0,last:null},daily:{date:null,xp:0,goal:40},grammar:{},mistakes:[]};}
+function defaultDB(){return{srs:{},xp:0,streak:{cur:0,max:0,last:null},daily:{date:null,xp:0,goal:40},grammar:{},mistakes:[],bestGameScore:0};}
 let DB=loadDB();
 function loadDB(){try{const r=JSON.parse(localStorage.getItem(SKEY));if(!r)return defaultDB();const d=defaultDB();return{...d,...r,streak:{...d.streak,...(r.streak||{})},daily:{...d.daily,...(r.daily||{})}};}catch(e){return defaultDB();}}
 function saveDB(){try{localStorage.setItem(SKEY,JSON.stringify(DB));}catch(e){}}
@@ -1519,6 +1580,30 @@ const CATS = {
   {de:"der Metzger",     tr:"kasap",                h:"METZGER → Almanca özgün kelime, kasap"},
   {de:"der Journalist",  tr:"gazeteci",             h:"JOURNALIST ≈ journalist → Türkçe 'gazeteci' ile aynı kök ✓"},
 ]}
+,"Çiftlik":{emoji:"🐄",words:[
+  {de:"das Pferd",         tr:"at",                   h:"PFERD → Almanca özgün kelime. Ich reite das Pferd = Atı sürerim."},
+  {de:"das Fohlen",        tr:"tay (at yavrusu)",     h:"FOHLEN → yavru at. Das Fohlen läuft neben der Mutter (tay annesinin yanında koşar)."},
+  {de:"die Kuh",           tr:"inek",                 h:"KUH ≈ cow → K-U-H / C-O-W sesçe yakın ✓"},
+  {de:"das Kalb",          tr:"dana / buzağı",        h:"KALB → Almanca özgün, ineğin yavrusu."},
+  {de:"der Stier",         tr:"boğa",                 h:"STIER ≈ burçlardaki 'Boğa' (Stier) ile aynı kelime!"},
+  {de:"das Schaf",         tr:"koyun",                h:"SCHAF ≈ sheep → S-CH-A-F / S-H-E-E-P benzer ses"},
+  {de:"das Lamm",          tr:"kuzu",                 h:"LAMM ≈ lamb → neredeyse birebir aynı! ✓"},
+  {de:"das Schwein",       tr:"domuz",                h:"SCHWEIN ≈ swine → S-CH-W-E-I-N / S-W-I-N-E ✓"},
+  {de:"das Ferkel",        tr:"domuz yavrusu",        h:"FERKEL → yavru domuz."},
+  {de:"das Bauernhaus",    tr:"çiftlik evi",          h:"BAUER = çiftçi + HAUS = ev → çiftçinin evi"},
+  {de:"die Obstbäume",     tr:"meyve ağaçları",       h:"OBST = meyve + BÄUME (Baum'un çoğulu) = ağaçlar → meyve ağaçları"},
+  {de:"die Weide",         tr:"mera / otlak",         h:"WEIDE → hayvanların otladığı çayır (weiden = otlamak fiiliyle aynı kök)"},
+  {de:"der Bienenstock",   tr:"arı kovanı",           h:"BIENE = arı + STOCK = kütük → arıların yaşadığı kütük = kovan"},
+  {de:"die Bäuerin",       tr:"çiftçi kadın",         h:"BAUER + -in = BÄUERIN, kadın form umlaut alır."},
+  {de:"der Holzhaufen",    tr:"odun yığını",          h:"HOLZ = odun + HAUFEN = yığın → odun yığını"},
+  {de:"die Axt",           tr:"balta",                h:"AXT ≈ axe → A-X-T / A-X-E çok yakın ✓"},
+  {de:"der Hackklotz",     tr:"kütük (odun kesme)",   h:"HACKEN = kesmek/doğramak + KLOTZ = kütük → odun kesilen kütük"},
+  {de:"der Schubkarren",   tr:"el arabası",           h:"SCHIEBEN = itmek + KARREN = araba → itilen araba"},
+  {de:"das Hoftor",        tr:"çiftlik kapısı",       h:"HOF = avlu + TOR = kapı → avlu kapısı"},
+  {de:"der Traktor",       tr:"traktör",              h:"TRAKTOR ≈ tractor → Türkçe 'traktör' ile neredeyse aynı ✓"},
+  {de:"die Sense",         tr:"tırpan",               h:"SENSE → Almanca özgün, ot biçme aleti."},
+  {de:"der Pflug",         tr:"saban / pulluk",       h:"PFLUG ≈ plough/plow → ses benzerliği"},
+]}
 };
 
 // Grup bitince gösterilen kategori paragrafları (kelime örnek cümleleriyle aynı mantık: elle yazılmış, A1 seviyesi)
@@ -1649,7 +1734,8 @@ const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
   'artikelScreen','artikelDoneScreen','pluralScreen','pluralDoneScreen',
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
-  'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen'];
+  'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen',
+  'yazmaListScreen','yazmaScreen','yazmaDoneScreen'];
 
 let curScreen='homeScreen';
 
@@ -1658,7 +1744,7 @@ function showScreen(id){
   clearAutoNext();
   curScreen=id;
   ALL_SCREENS.forEach(s=>{ document.getElementById(s).style.display = s===id?'block':'none'; });
-  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen'].includes(id);
+  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen','yazmaScreen'].includes(id);
   document.getElementById('progWrap').style.display = showProg?'block':'none';
   if(id==='homeScreen'){ setHeader('🇩🇪 Almanca', false); document.getElementById('headerStats').style.display='none'; renderHome(); }
   // Global geri butonu: ana ekran hariç her yerde görünür
@@ -1672,16 +1758,40 @@ function showScreen(id){
 // Global geri: ekrana göre bir üst seviyeye döner (YS alt ekranları → hub, gramer alt → konu listesi, gerisi → ana menü)
 const BACK_TO_HUB=['ysScreen','ysDoneScreen','havbesScreen','havbesDoneScreen','mcScreen','mcDoneScreen','ysRefScreen','paraScreen'];
 const BACK_TO_GRAMER=['gramerTopicScreen','gramerTestScreen','gramerTestDoneScreen'];
+const BACK_TO_YAZMA=['yazmaScreen','yazmaDoneScreen'];
 function hdrBackGo(){
   if(LESSON){ LESSON=null; goHome(); return; }  // ders akışındayken geri = dersi bırak
   if(BACK_TO_HUB.includes(curScreen)){ openYSHub(); return; }
   if(BACK_TO_GRAMER.includes(curScreen)){ showScreen('gramerScreen'); buildTopicGrid(); return; }
+  if(BACK_TO_YAZMA.includes(curScreen)){ openYazmaList(); return; }
   goHome();
+}
+
+// Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
+const CHANGELOG = [
+  {date:'27 Temmuz 2026', items:[
+    'Bu "Yenilikler" bölümü eklendi (ana ekranın en altı) — bundan sonra yapılan her değişiklik burada, tarih + hangi bölümde olduğu belirtilerek listelenecek.',
+    '🐄 "Çiftlik" kelime kategorisi eklendi (21 kelime: at, inek, koyun, traktör, tırpan...) → Kelime Listesi, Öğrenme Modu, Eşleştirme Oyunu ve Zayıf Kelimelerim\'de otomatik olarak görünüyor, kategori seçiminde çıkıyor.',
+    '🏆 "Eşleştirme Oyunu" bitiş ekranına kalıcı REKOR takibi eklendi → oyun bitince en yüksek skorun (Rekor) yanında görünüyor, kırdığında "Yeni rekor!" çıkıyor.',
+  ]},
+  {date:'26 Temmuz 2026', items:[
+    '✍️ "Yazma Egzersizi" eklendi → Ana ekran / "📝 Öğretmen Egzersizleri" bölümü. Kendi metnini Türkçeden Almancaya sen yazıyorsun; kontrol ediyor, yanlışsa doğru dilbilgisi mantığını ve olası hata nedenini ayrı ayrı gösteriyor.',
+    '🔔 Günlük saat 20:00 hatırlatma bildirimi kuruldu. Bu, uygulamanın DIŞINDA çalışıyor — Claude Code üzerinden telefona bildirim olarak gelir, uygulama içinde bir yeri yok.',
+  ]},
+];
+function renderChangelog(){
+  const w=document.getElementById('changelogWrap');
+  if(!w)return;
+  w.innerHTML = CHANGELOG.map(d=>
+    '<div class="cl-item"><span class="cl-date">'+d.date+'</span>'+
+    d.items.map(t=>'<div>• '+t+'</div>').join('')+
+    '</div>').join('');
 }
 
 // Ana ekran panelini güncelle (seri, XP, hedef, zayıf kelime butonu)
 function renderHome(){
   ensureDay();
+  renderChangelog();
   document.getElementById('dStreak').textContent=DB.streak.cur;
   document.getElementById('dXp').textContent=DB.xp;
   const studied=vocabAll().filter(w=>srsLevel(w.de)>=0).length;
@@ -1939,6 +2049,10 @@ function showGameDone(){
   document.getElementById('gdScore').textContent=gScore;
   document.getElementById('gdStreak').textContent=gMaxStreak;
   document.getElementById('gdWords').textContent=gDone;
+  const isNewRecord = gScore>DB.bestGameScore;
+  if(isNewRecord){ DB.bestGameScore=gScore; saveDB(); }
+  document.getElementById('gdBest').textContent=DB.bestGameScore;
+  document.getElementById('gdRecordBadge').style.display=isNewRecord&&gScore>0?'block':'none';
   if(gGameOver){
     document.getElementById('gdTrophy').textContent='💔';
     document.getElementById('gdTitle').textContent='Canların bitti!';
@@ -4151,9 +4265,156 @@ function showYSDone(){
   if(pct>=80) for(let i=0;i<60;i++) setTimeout(rainP,i*25);
 }
 
+// ══════════════════════════════════════════
+//  YAZMA EGZERSİZİ — kendi metnini Türkçeden Almancaya yaz
+//  İçerik statik/elle yazılı. Kontrol: gevşek normalize edilmiş tam eşleşme.
+//  Yanlış cevapta iki AYRI kutu gösterilir: doğru dilbilgisi mantığı + olası hata nedeni.
+// ══════════════════════════════════════════
+const YAZMA_TEXTS = [
+  {
+    emoji:'👤', title:'Kendimi Tanıtıyorum (Elias)',
+    desc:'11 parça · isim/yaş/doğum günü, aile, hobiler, haftalık program',
+    chunks:[
+      {tr:'Merhaba! Benim adım Elias. 39 yaşındayım. Doğum günüm 24 Mart’ta.',
+       de:'Hallo! Mein Name ist Elias. Ich bin 39 Jahre alt. Mein Geburtstag ist am 24. März.',
+       logic:'Yaş bildirimi Türkçede tek ekle biter (39 yaşındayım) ama Almancada üç ayrı parça gerekir: sein (bin) + sayı + Jahre alt. Gün+ay tarihlerinde edat her zaman "am" olur (am 24. März) — "im" sadece ay/mevsim/yıl başına gelir (im März, im Winter).',
+       mistake:'"Ich bin 39" deyip "Jahre alt"ı unutmak Türkçe alışkanlığından gelir, çünkü bizde yaş fiile yapışık tek kelime gibi hissettirir. Ayrıca "März" gibi ay isimlerini küçük harfle yazmak da sık yapılan bir hata — Almancada bütün isimler (ay isimleri dahil) büyük harfle başlar.'},
+      {tr:'Frankfurt’ta doğdum ama Berlinliyim. Altstadt’ta oturuyorum.',
+       de:'Ich bin in Frankfurt geboren, aber ich bin Berliner. Ich wohne in der Altstadt.',
+       logic:'"Doğmak" (geboren sein) durum değişimi bildiren fiillerden biri olduğu için Perfekt\'te haben değil sein alır: ich BIN geboren. "wohnen" (oturmak) bir Wechselpräposition\'dan sonra geliyor ama hareket değil sabit durum bildirdiği için Dativ ister: in der Altstadt (die Altstadt dişil → Dativ\'de der).',
+       mistake:'"Ich habe geboren" yazmak sık yapılan bir hatadır — oysa geboren, gefahren, gegangen gibi fiiller sein alan fiiller listesindedir. "in die Altstadt" (Akkusativ) yazmak da olası bir hata: "nereye gidiyorum" değil "nerede oturuyorum" sorusu cevaplandığı için Dativ gerekir.'},
+      {tr:'Altstadt’ta birçok arkadaşım var. Hafta içleri Altstadt’tayım. Hafta sonları Berlin’deyim.',
+       de:'Ich habe viele Freunde in der Altstadt. Unter der Woche bin ich in der Altstadt. Am Wochenende bin ich in Berlin.',
+       logic:'"var" Almancada haben ile kurulur: Ich habe viele Freunde. Zaman ifadesi (Unter der Woche / Am Wochenende) cümle başına geldiğinde Kral&Soytarı kuralı gereği fiil yine 2. sırada kalmalı, özne fiilin arkasına (3. sıraya) geçer: Unter der Woche BIN ich...',
+       mistake:'Zaman ifadesini başa alıp özneyi eski yerinde bırakmak ("Unter der Woche ich bin...") en sık yapılan dizilim hatasıdır — Türkçe cümle yapısında özne genelde sabit başta kalır, ama Almancada fiil her zaman 2. sırayı korumak zorunda.'},
+      {tr:'Hobilerim yüzmek, basketbol oynamak ve kitap okumaktır.',
+       de:'Meine Hobbys sind Schwimmen, Basketball spielen und Bücher lesen.',
+       logic:'Fiilin isimleşmiş hâli (Substantivierung) Almancada her zaman büyük harfle başlar: schwimmen (yüzmek, fiil) → Schwimmen (yüzme, isim). Özne çoğul (Hobbys) olduğu için fiil de çoğula uyar: sind (ist değil).',
+       mistake:'"Hobbys ist" yazmak — özne-fiil uyumu unutulup tekil fiil kullanmak. Ayrıca "schwimmen", "lesen" gibi isimleşmiş fiilleri küçük harfle yazmak da sık görülür, çünkü bunlar cümlede fiil gibi hissettirir ama burada aslında isim görevindedirler.'},
+      {tr:'Pazartesi ve Çarşamba günü yüzme havuzuna giderim. Orada yüzerim.',
+       de:'Am Montag und Mittwoch gehe ich ins Schwimmbad. Dort schwimme ich.',
+       logic:'"Havuza gitmek" bir yöne hareket bildirir → das Schwimmbad nötr olduğu için Akkusativ\'de in+das = ins olarak kısalır. "Dort" zarfı cümle başına gelince yine fiil-özne devrik sırası devreye girer: Dort SCHWIMME ich.',
+       mistake:'"in das Schwimmbad" yazıp kısaltma "ins"i unutmak — anlam yanlış değil ama bu seviyede beklenen kısaltılmış biçimdir. "Dort ich schwimme" gibi düz sıra kurmak da olası bir hata: zarf başa geçtiğinde özne fiilin önüne değil arkasına geçmeli.'},
+      {tr:'Salı ve Perşembe günü basketbol oynarım. Cuma günü kitap okurum.',
+       de:'Am Dienstag und Donnerstag spiele ich Basketball. Am Freitag lese ich ein Buch.',
+       logic:'İki gün "und" ile bağlanınca edat (am) sadece bir kere yazılır: am Dienstag und Donnerstag. Fiil çekimi kişiye göre değişir: ich spiele, ich lese (mastar hâli spielen/lesen değil).',
+       mistake:'Fiili çekimlemeden mastar hâliyle bırakmak ("ich spielen" / "ich lesen") — Türkçeden çeviri yaparken önce mastar akla gelir, çekim eki sonradan unutulabilir. "am Dienstag und am Donnerstag" diye edatı tekrar etmek yanlış sayılmaz, sadece daha uzun bir biçimdir.'},
+      {tr:'Hafta sonu annemle babamı ziyaret ederim. Ailem, Berlin’de oturuyor.',
+       de:'Am Wochenende besuche ich meine Eltern. Meine Familie wohnt in Berlin.',
+       logic:'"Ziyaret etmek" (besuchen) Akkusativ nesne ister: meine Eltern. Türkçedeki "annemle babamı" ifadesi Almancada kelime kelime değil, doğal olarak tek kelimeyle karşılanır: Eltern (ebeveynler).',
+       mistake:'"meine Mutter und meinen Vater" diye kelime kelime çevirmeye çalışmak — yanlış sayılmaz ama doğal Almanca değildir, "Eltern" kelimesi akla gelmeyebilir çünkü Türkçede tam karşılığı yok. "besuche" yerine fiili çekimlemeden "besuchen" bırakmak da sık yapılan bir hata.'},
+      {tr:'Annemin adı Christina. O, 64 yaşında. Onun doğum günü Cumartesi günü.',
+       de:'Meine Mutter heißt Christina. Sie ist 64 Jahre alt. Ihr Geburtstag ist am Samstag.',
+       logic:'İsim söylerken "ist" değil "heißt" (heißen = adı olmak) kullanılır. "O" zamiri kadın için sie (die Mutter → sie). İyelik zamiri "onun" burada SAHİBİN cinsiyetine göre seçilir (kadın sahip → ihr), sahip olunan şeyin cinsiyetine göre değil.',
+       mistake:'"Sie heißt ist Christina" gibi iki fiili art arda kullanmaya çalışmak. Bir diğer sık hata: "Ihre Geburtstag" yazmak — Geburtstag eril bir kelime olduğu için iyelik eki almadan düz "ihr Geburtstag" olmalı; -e ekini otomatik eklemek yanlışa yol açar.'},
+      {tr:'Ona bir kitap satın alacağım. O, kitap okumayı çok sever.',
+       de:'Ich werde ihr ein Buch kaufen. Sie liest sehr gern.',
+       logic:'Gelecek zaman werde + mastar (cümle sonunda) ile kurulur: Ich WERDE ihr ein Buch KAUFEN. "kaufen" fiili hem Dativ (kime? ihr) hem Akkusativ (neyi? ein Buch) nesne ister. "Sevmek/hoşlanmak" için Almancada ayrı bir fiil yerine fiilin yanına "gern" zarfı eklenir: liest gern (okumayı sever), lieben değil.',
+       mistake:'"Ich werde kaufen ihr ein Buch" gibi mastarı cümle ortasında bırakmak — werde...kaufen bir çerçeve (Satzklammer) oluşturur, mastar mutlaka cümle sonuna gider. "Sie liebt lesen" gibi kelime kelime çeviri yapıp "gern" kalıbını hiç kullanmamak da çok sık görülen bir hata.'},
+      {tr:'Babamın adı Viktor. O, 67 yaşında. Ukraynalı. Onlar ayrılar.',
+       de:'Mein Vater heißt Viktor. Er ist 67 Jahre alt. Er ist Ukrainer. Sie sind getrennt.',
+       logic:'Erkek için zamir er (der Vater → er). Milliyet bildiren yüklemlerde (meslek gibi) artikel kullanılmaz: Er ist Ukrainer (ein Ukrainer değil). "Ayrılar" (boşanmamış, ayrı yaşıyorlar) bir durum olduğu için sein + getrennt (getrennt sein) ile kurulur.',
+       mistake:'"Er ist ein Ukrainer" diye artikel eklemek — meslek ve milliyet yüklemlerinde bu artikel düşer. "Sie haben getrennt" yazmak da olası bir hata: getrennt burada sıfat/participle gibi davranır ve sein ile kurulur, haben ile değil.'},
+      {tr:'Bir kız kardeşim var. Kız kardeşim de Berlin’de oturuyor. Onun hobileri ata binmek ve dalış yapmak.',
+       de:'Ich habe eine Schwester. Meine Schwester wohnt auch in Berlin. Ihre Hobbys sind Reiten und Tauchen.',
+       logic:'"var" yine haben ile: Ich habe eine Schwester (die Schwester dişil → Akkusativ\'de eine). Çoğul isimlerde (Hobbys) TÜM iyelik zamirleri -e eki alır, sahibin cinsiyetinden bağımsız: ihrE Hobbys. Reiten/Tauchen yine isimleşmiş fiil oldukları için büyük harfle başlar.',
+       mistake:'"Ihre Hobby sind" gibi Hobbys\'in çoğulunu unutup tekil yazmak, ya da fiili "ist" yapmak (özne-fiil uyumsuzluğu). "reiten", "tauchen" kelimelerini küçük harfle yazmak da 4. parçadaki hatanın tekrarı — isimleşmiş fiil kuralı sık unutulur.'},
+    ]
+  }
+];
+
+let yzTextIdx=0, yzIdx=0, yzCorrect=0, yzWrong=0, yzAnswered=false, yzChunks=[];
+
+function openYazmaList(){
+  const wrap=document.getElementById('yazmaListWrap');
+  wrap.innerHTML = YAZMA_TEXTS.map((t,i)=>
+    '<div class="hub-card" onclick="startYazma('+i+')">'+
+      '<div class="hub-emoji">'+t.emoji+'</div>'+
+      '<div class="hub-info"><div class="hub-title">'+t.title+'</div><div class="hub-desc">'+t.desc+'</div></div>'+
+      '<div class="hub-arrow">→</div></div>').join('');
+  showScreen('yazmaListScreen'); setHeader('✍️ Yazma Egzersizi',false);
+}
+
+function startYazma(idx){
+  yzTextIdx=idx;
+  yzChunks=YAZMA_TEXTS[idx].chunks;
+  yzIdx=0; yzCorrect=0; yzWrong=0; yzAnswered=false;
+  showScreen('yazmaScreen');
+  setHeader('✍️ Yazma Egzersizi',false);
+  renderYazmaQ();
+}
+
+function yzNorm(s){
+  return s.toLowerCase().replace(/ß/g,'ss').replace(/[.,!?;:„"“”'’`…]/g,'').replace(/\s+/g,' ').trim();
+}
+
+function renderYazmaQ(){
+  const c=yzChunks[yzIdx];
+  yzAnswered=false;
+  document.getElementById('yazmaTitle').textContent=YAZMA_TEXTS[yzTextIdx].title;
+  document.getElementById('yazmaQNum').textContent=(yzIdx+1)+' / '+yzChunks.length;
+  document.getElementById('yazmaTr').textContent=c.tr;
+  const inp=document.getElementById('yazmaInput');
+  inp.value=''; inp.className='ys-input'; inp.disabled=false;
+  document.getElementById('yazmaCheckBtn').style.display='block';
+  document.getElementById('yazmaExp').className='exp-box';
+  document.getElementById('yazmaExpMistake').style.display='none';
+  document.getElementById('yazmaNext').className='btn-next';
+  setProgress(Math.round(yzIdx/yzChunks.length*100), yzIdx+' / '+yzChunks.length);
+  setTimeout(()=>inp.focus(),50);
+}
+
+function checkYazma(){
+  if(yzAnswered)return;
+  const c=yzChunks[yzIdx];
+  const inp=document.getElementById('yazmaInput');
+  if(!inp.value.trim())return;
+  yzAnswered=true;
+  const ok = yzNorm(inp.value)===yzNorm(c.de);
+  inp.className='ys-input '+(ok?'t-ok':'t-err');
+  inp.disabled=true;
+  document.getElementById('yazmaCheckBtn').style.display='none';
+  const eb=document.getElementById('yazmaExp');
+  eb.className='exp-box show '+(ok?'exp-ok':'exp-err');
+  document.getElementById('yazmaExpTitle').className='exp-title '+(ok?'exp-c':'exp-w');
+  document.getElementById('yazmaExpTitle').innerHTML = ok? '✅ Doğru!' : '❌ Yanlış — doğrusu:';
+  document.getElementById('yazmaExpAnswer').innerHTML = ok? '' : '<strong>'+c.de+'</strong>';
+  document.getElementById('yazmaExpLogic').innerHTML = '📐 Doğru mantık: '+c.logic;
+  const mb=document.getElementById('yazmaExpMistake');
+  if(ok){ mb.style.display='none'; }
+  else { mb.style.display='inline-block'; mb.innerHTML='⚠️ Muhtemel hata nedeni: '+c.mistake; }
+  if(ok){ yzCorrect++; } else { yzWrong++; }
+  tick(ok,6);
+  feedbackFx(ok,inp);
+  setHeader('✍️ Yazma Egzersizi',true,'✅ '+yzCorrect,'❌ '+yzWrong);
+  document.getElementById('yazmaNext').className='btn-next show';
+}
+
+function yazmaNextQ(){
+  yzIdx++;
+  if(yzIdx>=yzChunks.length){ showYazmaDone(); return; }
+  document.getElementById('yazmaExp').className='exp-box';
+  document.getElementById('yazmaNext').className='btn-next';
+  renderYazmaQ();
+}
+
+function showYazmaDone(){
+  const total=yzChunks.length;
+  const pct=Math.round(yzCorrect/total*100);
+  document.getElementById('yazmaDC').textContent=yzCorrect;
+  document.getElementById('yazmaDW').textContent=yzWrong;
+  document.getElementById('yazmaDP').textContent=pct+'%';
+  document.getElementById('yazmaDoneSub').textContent=total+' parçadan '+yzCorrect+' doğru.';
+  showScreen('yazmaDoneScreen');
+  setProgress(100,total+' / '+total);
+  if(pct>=80) for(let i=0;i<60;i++) setTimeout(rainP,i*25);
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
   const yi=document.getElementById('ysInput');
   if(yi) yi.addEventListener('keydown',e=>{ if(e.key==='Enter') ysCheckAnswer(); });
+  const yzi=document.getElementById('yazmaInput');
+  if(yzi) yzi.addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key==='Enter') checkYazma(); });
 });
 
 // Başlangıç
