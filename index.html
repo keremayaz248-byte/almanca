@@ -117,6 +117,27 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 .ws-cell.ws-sel{background:var(--blue-bg);border-color:var(--blue)}
 .ws-cell.ws-found{background:var(--green-bg);border-color:var(--green);color:var(--green-dark)}
 .ws-cell.ws-wrong{background:var(--red-bg);border-color:var(--red)}
+/* Animasyonlu edat slaytları */
+#slideScreen{display:none}
+.slide-stage{min-height:430px;display:flex;margin-bottom:16px}
+.slide-card{width:100%;border-radius:26px;padding:30px 22px;color:#fff;box-shadow:0 12px 34px rgba(0,0,0,.16);display:flex;flex-direction:column;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.slide-anim{animation:slideIn .42s cubic-bezier(.2,.7,.3,1)}
+@keyframes slideIn{from{opacity:0;transform:translateX(44px) scale(.95)}to{opacity:1;transform:none}}
+.slide-kicker{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;opacity:.85;margin-bottom:8px}
+.slide-big{font-size:4.4rem;font-weight:900;letter-spacing:1px;margin-bottom:8px;line-height:1;text-shadow:0 4px 16px rgba(0,0,0,.22)}
+.slide-mean{font-size:1.12rem;font-weight:800;margin-bottom:16px;opacity:.96;line-height:1.4}
+.slide-eg{background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.38);border-radius:14px;padding:11px 15px;margin:7px 0;font-size:.94rem;font-weight:600;text-align:left;opacity:0;animation:egIn .5s forwards}
+.slide-eg b{font-weight:900;background:rgba(0,0,0,.16);padding:0 4px;border-radius:4px}
+@keyframes egIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.slide-tip{margin-top:16px;background:rgba(0,0,0,.2);border-radius:13px;padding:11px 15px;font-size:.92rem;font-weight:700;line-height:1.5}
+.slide-story{font-size:1.05rem;font-weight:700;line-height:1.85;text-align:left;background:rgba(255,255,255,.14);border-radius:16px;padding:18px 18px;margin-top:6px}
+.slide-story .hl{display:inline-block;background:#fff;color:#1a1a1a;font-weight:900;padding:1px 8px;border-radius:7px;margin:2px 0}
+.slide-nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.slide-navbtn{background:var(--white);border:2px solid var(--border);border-radius:13px;padding:12px 20px;font-size:.95rem;font-weight:800;cursor:pointer;color:var(--text);flex-shrink:0}
+.slide-navbtn:disabled{opacity:.35;cursor:default}
+.slide-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.slide-dot{width:9px;height:9px;border-radius:50%;background:var(--border);transition:all .2s;cursor:pointer}
+.slide-dot.on{background:var(--purple);transform:scale(1.35)}
 .mode-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
 .mode-card.col-purple:hover{border-color:var(--purple)}
 .mode-card.col-red:hover{border-color:var(--red)}
@@ -630,6 +651,23 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
       <div class="mc-icon">🔢</div>
       <div class="mc-title">Çoğul Yapma</div>
       <div class="mc-sub">6 kural · kaynaktan örneklerle</div>
+    </div>
+  </div>
+
+  <!-- BÖLÜM 2.5: ANİMASYONLU SLAYTLAR -->
+  <div class="sec-head">🎬 Animasyonlu Slaytlar</div>
+  <div class="mode-grid">
+    <div class="mode-card col-blue" onclick="openSlideDeck('dativ')">
+      <span class="mc-badge-new">YENİ</span>
+      <div class="mc-icon">🎯</div>
+      <div class="mc-title">Dativ Edatları</div>
+      <div class="mc-sub">Her zaman Dativ · kocaman + akılda kalıcı</div>
+    </div>
+    <div class="mode-card col-red" onclick="openSlideDeck('akkusativ')">
+      <span class="mc-badge-new">YENİ</span>
+      <div class="mc-icon">🎯</div>
+      <div class="mc-title">Akkusativ Edatları</div>
+      <div class="mc-sub">Her zaman Akkusativ · slayt anlatım</div>
     </div>
   </div>
 
@@ -1211,6 +1249,20 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
   <button class="btn-replay" onclick="startYazma(yzTextIdx)">Tekrar →</button>
   <button class="btn-home" onclick="openYazmaList()">Metin Listesi</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+<!-- ANİMASYONLU EDAT SLAYTLARI -->
+<div id="slideScreen">
+  <div class="cat-top">
+    <h2 id="slideTitle" style="font-size:1.1rem"></h2>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <div class="slide-stage" id="slideStage"></div>
+  <div class="slide-nav">
+    <button class="slide-navbtn" id="slidePrevBtn" onclick="slidePrev()">←</button>
+    <div class="slide-dots" id="slideDots"></div>
+    <button class="slide-navbtn" id="slideNextBtn" onclick="slideNext()">İleri →</button>
+  </div>
 </div>
 
 <!-- KELİME AVI — KONU SEÇİMİ -->
@@ -1857,7 +1909,7 @@ const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
   'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen',
-  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen'];
+  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen'];
 
 let curScreen='homeScreen';
 
@@ -1907,7 +1959,9 @@ const WEEKLY_PLAN = [
     {tag:'read', tagLabel:'📖 Okuma', text:'Günün Çalışması\'nı aç, paragrafı oku', fn:'openYSHub()'},
     {tag:'listen', tagLabel:'🎧 Dinleme', text:'Aynı paragrafta "🔊 Dinle" ile Almancasını dinle', fn:'openYSHub()'},
   ]},
-  {iso:'2026-07-30', label:'30 Temmuz — Perşembe', tasks:[
+  {iso:'2026-07-30', label:'30 Temmuz — Perşembe · Konu: Dativ Edatları', tasks:[
+    {tag:'grammar', tagLabel:'🎬 Slayt', text:'"Dativ Edatları" animasyonlu slaytını baştan sona izle (aus-bei-mit-nach-seit-von-zu-ab)', fn:"openSlideDeck('dativ')"},
+    {tag:'grammar', tagLabel:'📚 Test', text:'Edat Egzersizi ile Dativ edatlarını pekiştir', fn:'startEdat()'},
     {tag:'review', tagLabel:'🩹 Tekrar', text:'Zayıf Kelimelerim ile hatalarını tazele', fn:'startReview()'},
   ]},
   {iso:'2026-07-31', label:'31 Temmuz — Cuma', tasks:[
@@ -1936,6 +1990,11 @@ function renderWeeklyPlan(){
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'27 Temmuz 2026 (4. güncelleme) — Animasyonlu edat slaytları', items:[
+    '🎬 "Dativ Edatları" ve "Akkusativ Edatları" animasyonlu slayt anlatımı eklendi → Ana ekran / "🎬 Animasyonlu Slaytlar" bölümü. Kocaman harflerle, kayan animasyonla, istediğin kadar tekrar izlenebilir.',
+    '🇹🇷 Dativ için akılda kalıcı ezber cümlesi: "Ich komme AUS der Türkei, ich wohne BEI meiner Familie, MIT dem Bus NACH Berlin, SEIT einem Jahr, VON Montag bis Freitag, ZU meiner Arbeit" — tek hikayede tüm Dativ edatları sırayla.',
+    '📅 30 Temmuz Haftalık Plan\'da "Dativ Edatları" günü olarak ayarlandı (slayt + edat testi).',
+  ]},
   {date:'27 Temmuz 2026 (3. güncelleme) — Yarının konusu hazır', items:[
     '💍 "Medeni Durum" kelime kategorisi eklendi (22 kelime: bekar, evli, boşanmış, dul, nişanlı, düğün, emeklilik/Ruhestand...) → tüm modlarda görünüyor. Yarının (28 Temmuz) konusu bu.',
     '⚠️ Kritik/kandırmalı kural kartları eklendi: "verheiratet SEIN" (haben değil!) ve "heiraten + edatsız Akkusativ" (mit YOK) → bu kelimelerin ipuçlarında ve cümle alıştırmalarında.',
@@ -4629,6 +4688,115 @@ document.addEventListener('DOMContentLoaded',()=>{
   const yzi=document.getElementById('yazmaInput');
   if(yzi) yzi.addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key==='Enter') checkYazma(); });
 });
+
+// ══════════════════════════════════════════
+//  ANİMASYONLU EDAT SLAYTLARI — kocaman, akılda kalıcı, tekrar izlenebilir
+//  Kullanıcının "ben Türküm" ipucu: DATİV listesi "Ich komme AUS der Türkei..."
+//  tek hikâyeyle çıpalanıyor (aus-bei-mit-nach-seit-von-zu doğal sırada geçiyor).
+// ══════════════════════════════════════════
+const SLIDE_DECKS = {
+  dativ: {
+    title:'🎯 DATİV Edatları', accent:'linear-gradient(135deg,#2AACD1,#1c7fa0)',
+    slides:[
+      {type:'intro', kicker:'Altın Kural', big:'DATİV', mean:'Bu edatlardan sonra artikel HER ZAMAN Dativ olur. İstisna yok!',
+       story:'Kendi hayatını anlat, hepsi sırayla gelsin 👇<br><br>'+
+             'Ich komme <span class="hl">AUS</span> der Türkei. '+
+             'Ich wohne <span class="hl">BEI</span> meiner Familie. '+
+             'Ich fahre <span class="hl">MIT</span> dem Bus <span class="hl">NACH</span> Berlin. '+
+             '<span class="hl">SEIT</span> einem Jahr, <span class="hl">VON</span> Montag bis Freitag, gehe ich <span class="hl">ZU</span> meiner Arbeit.'},
+      {big:'AUS', accentWord:'#2AACD1', mean:'-den (içinden · köken · malzeme)',
+       egs:['Ich komme <b>AUS</b> der Türkei — Türkiye’den geliyorum','Der Tisch ist <b>AUS</b> Holz — Masa ahşaptan'],
+       tip:'🇹🇷 Sen Türksün: "Ich komme AUS der Türkei" — bunu unutma, gerisi gelir.'},
+      {big:'BEI', mean:'yanında · -de (bir kişinin yanında / bir kurumda)',
+       egs:['Ich bin <b>BEI</b> meiner Freundin — Arkadaşımın yanındayım','Sie ist <b>BEIM</b> Arzt — Doktorda'],
+       tip:'⚡ beim = bei + dem. (der/das kelimelerle birleşir)'},
+      {big:'MIT', mean:'ile · birlikte (araç ve kişi)',
+       egs:['Ich fahre <b>MIT</b> dem Bus — Otobüsle gidiyorum','Sie spricht <b>MIT</b> dem Lehrer — Öğretmenle konuşuyor'],
+       tip:'🚌 Hem araç ("otobüsle") hem kişi ("kardeşimle") → hep MIT.'},
+      {big:'NACH', mean:'-e doğru · -den sonra · -e göre',
+       egs:['Ich fahre <b>NACH</b> Berlin — Berlin’e gidiyorum','<b>NACH</b> dem Kurs gehe ich nach Hause — Kurstan sonra eve'],
+       tip:'🏙️ Şehirler + artikelsiz ülkeler + "nach Hause" → NACH. (Berlin, Deutschland, oben, links)'},
+      {big:'ZU', mean:'-e / birinin yanına (artikelli yer · meslek)',
+       egs:['Ich gehe <b>ZU</b> meiner Freundin — Arkadaşımın yanına','Sie geht <b>ZUM</b> Arzt — Doktora gidiyor'],
+       tip:'⚡ zum = zu+dem, zur = zu+der. İSTİSNA: auf einer Hochzeit / auf der Party.'},
+      {big:'SEIT', mean:'-den beri · -dır/-dir (hâlâ devam eden)',
+       egs:['Ich wohne <b>SEIT</b> einem Jahr in Istanbul — Bir yıldır','Sie lernt <b>SEIT</b> drei Monaten Deutsch — Üç aydır'],
+       tip:'🔢 Çoğul isimde -n eki: seit vier Jahre<b>N</b>, seit drei Monate<b>N</b>.'},
+      {big:'VON', mean:'-den · -in (aitlik · kişiden ayrılış · başlangıç)',
+       egs:['Das ist ein Geschenk <b>VON</b> meiner Mutter — Annemden bir hediye','Ich komme <b>VON</b> der Arbeit — İşten geliyorum'],
+       tip:'⚡ vom = von + dem. "von Montag BIS Freitag" kalıbında da VON.'},
+      {big:'AB', mean:'-den itibaren (gelecekteki başlangıç noktası)',
+       egs:['<b>AB</b> Montag arbeite ich wieder — Pazartesiden itibaren','<b>AB</b> nächster Woche habe ich mehr Zeit — Gelecek haftadan itibaren'],
+       tip:'📅 "Şu andan ileriye" başlangıç → AB. (seit = geçmişten şimdiye, ab = şimdiden ileriye)'},
+      {type:'outro', kicker:'Ezber Cümlesi', big:'Hepsi DATİV',
+       mean:'AUS · BEI · MIT · NACH · SEIT · VON · ZU · AB',
+       story:'Tek nefeste söyle:<br><br><span class="hl">Aus-bei-mit-nach-seit-von-zu</span> — artı <span class="hl">ab</span>.<br><br>Bu 8 edatı gördüğün an: <b>artikel Dativ olacak.</b> 🎯'},
+    ]
+  },
+  akkusativ: {
+    title:'🎯 AKKUSATİV Edatları', accent:'linear-gradient(135deg,#F0503C,#c23421)',
+    slides:[
+      {type:'intro', kicker:'Altın Kural', big:'AKKUSATİV', mean:'Bu edatlardan sonra artikel HER ZAMAN Akkusativ olur (der→den).',
+       story:'Kısa liste, ezberle 👇<br><br><span class="hl">DURCH</span> · <span class="hl">FÜR</span> · <span class="hl">GEGEN</span> · <span class="hl">OHNE</span> · <span class="hl">UM</span> · <span class="hl">BIS</span> · <span class="hl">ENTLANG</span>'},
+      {big:'DURCH', mean:'içinden geçerek (through)',
+       egs:['Wir gehen <b>DURCH</b> den Park — Parkın içinden','Ich fahre <b>DURCH</b> die Stadt — Şehrin içinden'],
+       tip:'🚶 der Park → durch DEN Park. (Akkusativ: der→den)'},
+      {big:'FÜR', mean:'için',
+       egs:['Das Geschenk ist <b>FÜR</b> dich — Senin için','Ich lerne <b>FÜR</b> die Prüfung — Sınav için'],
+       tip:'🎁 Amaç/kim için → FÜR + Akkusativ.'},
+      {big:'GEGEN', mean:'-e karşı · (saat) civarı',
+       egs:['Das Auto fährt <b>GEGEN</b> die Wand — Duvara karşı/çarpıyor','<b>GEGEN</b> 8 Uhr — Saat 8 civarı'],
+       tip:'🥊 Hem "karşı" hem "yaklaşık saat" → GEGEN.'},
+      {big:'OHNE', mean:'-siz / -sız (olmadan)',
+       egs:['Ich trinke Kaffee <b>OHNE</b> Zucker — Şekersiz','Sie geht <b>OHNE</b> ihren Schlüssel — Anahtarsız'],
+       tip:'🚫 ohne’den sonra çoğu zaman artikel bile düşer: ohne Zucker.'},
+      {big:'UM', mean:'etrafında · (tam) saat -de',
+       egs:['Die Katze läuft <b>UM</b> das Haus — Evin etrafında','Der Film beginnt <b>UM</b> 19 Uhr — Saat 19’da'],
+       tip:'🕖 Tam saat → UM 8 Uhr. Etrafında → UM das Haus.'},
+      {big:'BIS', mean:'-e kadar (bitiş noktası)',
+       egs:['Ich warte <b>BIS</b> Montag — Pazartesiye kadar','Der Laden ist <b>BIS</b> 20 Uhr offen — Saat 20’ye kadar'],
+       tip:'⏳ Başlangıç seit/von, bitiş → BIS.'},
+      {big:'ENTLANG', mean:'boyunca (genelde isimden SONRA gelir)',
+       egs:['Wir gehen die Straße <b>ENTLANG</b> — Cadde boyunca','Den Fluss <b>ENTLANG</b> — Nehir boyunca'],
+       tip:'➡️ Dikkat: entlang çoğunlukla isimden sonra: "die Straße entlang".'},
+      {type:'outro', kicker:'Ezber Cümlesi', big:'Hepsi AKKUSATİV',
+       mean:'DURCH · FÜR · GEGEN · OHNE · UM · BIS · ENTLANG',
+       story:'Ritimle söyle:<br><br><span class="hl">durch-für-gegen-ohne-um-bis</span> (+entlang).<br><br>Bunları gördüğün an: <b>der → den olur.</b> 🎯'},
+    ]
+  },
+};
+let slideDeck=null, slideIdx=0;
+function openSlideDeck(key){
+  slideDeck=SLIDE_DECKS[key]; slideIdx=0;
+  document.getElementById('slideTitle').textContent=slideDeck.title;
+  showScreen('slideScreen'); setHeader(slideDeck.title.split(' ')[0]+' Slayt',false);
+  renderSlide();
+}
+function renderSlide(){
+  const s=slideDeck.slides[slideIdx];
+  const stage=document.getElementById('slideStage');
+  let inner='<div class="slide-card slide-anim" style="background:'+slideDeck.accent+'">';
+  if(s.kicker) inner+='<div class="slide-kicker">'+s.kicker+'</div>';
+  inner+='<div class="slide-big">'+s.big+'</div>';
+  if(s.mean) inner+='<div class="slide-mean">'+s.mean+'</div>';
+  if(s.egs) s.egs.forEach((e,i)=>{ inner+='<div class="slide-eg" style="animation-delay:'+(0.15+i*0.18)+'s">'+e+'</div>'; });
+  if(s.story) inner+='<div class="slide-story">'+s.story+'</div>';
+  if(s.tip) inner+='<div class="slide-tip">'+s.tip+'</div>';
+  inner+='</div>';
+  stage.innerHTML=inner;
+  // noktalar
+  document.getElementById('slideDots').innerHTML=slideDeck.slides.map((_,i)=>
+    '<div class="slide-dot'+(i===slideIdx?' on':'')+'" onclick="slideGo('+i+')"></div>').join('');
+  document.getElementById('slidePrevBtn').disabled=(slideIdx===0);
+  const nb=document.getElementById('slideNextBtn');
+  nb.textContent=(slideIdx===slideDeck.slides.length-1)?'Bitir ✓':'İleri →';
+}
+function slideNext(){
+  if(slideIdx>=slideDeck.slides.length-1){ awardXP(5); goHome(); return; }
+  slideIdx++; renderSlide();
+}
+function slidePrev(){ if(slideIdx>0){ slideIdx--; renderSlide(); } }
+function slideGo(i){ slideIdx=i; renderSlide(); }
 
 // ══════════════════════════════════════════
 //  KELİME AVI (bulmaca) — genel motor, herhangi bir kelime listesiyle çalışır
