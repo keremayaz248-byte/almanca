@@ -141,6 +141,38 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 .slide-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
 .slide-dot{width:9px;height:9px;border-radius:50%;background:var(--border);transition:all .2s;cursor:pointer}
 .slide-dot.on{background:var(--purple);transform:scale(1.35)}
+/* 🎭 SAHNE HİKAYESİ OYUNU — "Noldu?" (animasyonlu fiil öğrenme) */
+#sceneScreen{display:none}
+.scene-stage{position:relative;height:230px;border-radius:24px;margin-bottom:16px;overflow:hidden;
+  background:linear-gradient(180deg,#FCE0B4 0%,#F6B57E 55%,#E88A54 100%);
+  box-shadow:inset 0 -30px 40px rgba(138,74,52,.18),0 4px 0 var(--dusk);
+  display:flex;align-items:center;justify-content:center}
+.scene-stage::after{content:'';position:absolute;left:0;right:0;bottom:0;height:38px;background:linear-gradient(180deg,#C97A46,#A65E31)}
+.scene-sun{position:absolute;top:26px;right:34px;width:52px;height:52px;border-radius:50%;background:radial-gradient(circle,#FFF1C4,#F7B23C);box-shadow:0 0 34px 10px rgba(247,178,60,.6)}
+.scene-emoji{font-size:4.6rem;z-index:2;filter:drop-shadow(0 6px 6px rgba(138,74,52,.28))}
+.scene-de{font-size:1.5rem;font-weight:800;text-align:center;margin-bottom:4px}
+.scene-de b{color:var(--purple-dark);text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:3px}
+.scene-tr{font-size:1rem;color:var(--light);text-align:center;font-weight:600;margin-bottom:10px}
+.scene-verb{text-align:center;background:var(--yellow-bg);border:2px solid var(--yellow);border-radius:14px;padding:10px 14px;font-weight:800;color:#7c4a03;margin-bottom:14px}
+.scene-actions{display:flex;gap:8px;justify-content:center;margin-bottom:12px;flex-wrap:wrap}
+@keyframes scFall{0%{transform:translateY(-70px) rotate(0)}55%{transform:translateY(30px) rotate(82deg)}70%{transform:translateY(24px) rotate(88deg)}100%{transform:translateY(30px) rotate(90deg)}}
+@keyframes scRun{0%{transform:translateX(-70px) scaleX(1)}49%{transform:translateX(65px) scaleX(1)}50%{transform:translateX(65px) scaleX(-1)}100%{transform:translateX(-70px) scaleX(-1)}}
+@keyframes scJump{0%,100%{transform:translateY(24px)}45%{transform:translateY(-46px)}}
+@keyframes scFly{0%{transform:translate(-70px,20px)}100%{transform:translate(70px,-34px)}}
+@keyframes scSleep{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+@keyframes scWobble{0%,100%{transform:rotate(-13deg)}50%{transform:rotate(13deg)}}
+@keyframes scBounce{0%,100%{transform:translateY(0)}30%{transform:translateY(-22px)}60%{transform:translateY(0)}}
+@keyframes scSwim{0%,100%{transform:translateX(-38px) rotate(-6deg)}50%{transform:translateX(38px) rotate(6deg)}}
+@keyframes scDrink{0%,100%{transform:rotate(0)}45%{transform:rotate(-38deg)}}
+.sc-fall{animation:scFall 1.5s ease-in forwards}
+.sc-run{animation:scRun 1.6s ease-in-out infinite}
+.sc-jump{animation:scJump .9s ease-in-out infinite}
+.sc-fly{animation:scFly 2s ease-in-out infinite alternate}
+.sc-sleep{animation:scSleep 1.8s ease-in-out infinite}
+.sc-wobble{animation:scWobble 1s ease-in-out infinite}
+.sc-bounce{animation:scBounce 1s ease-in-out infinite}
+.sc-swim{animation:scSwim 1.6s ease-in-out infinite}
+.sc-drink{animation:scDrink 1.4s ease-in-out infinite}
 .mode-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
 .mode-card.col-purple:hover{border-color:var(--purple)}
 .mode-card.col-red:hover{border-color:var(--red)}
@@ -752,6 +784,12 @@ header{
       <div class="mc-title">Eşleştirme Oyunu</div>
       <div class="mc-sub">4'lü Almanca ↔ Türkçe</div>
     </div>
+    <div class="mode-card col-yellow" onclick="startSceneGame()">
+      <span class="mc-badge-new">YENİ</span>
+      <div class="mc-icon">🎭</div>
+      <div class="mc-title">Noldu? Sahne Oyunu</div>
+      <div class="mc-sub">Sahnede olay olur, fiili öğren (adam düşüyor = fällt)</div>
+    </div>
     <div class="mode-card col-green" onclick="goCat('list')">
       <div class="mc-icon">📋</div>
       <div class="mc-title">Kelime Listesi</div>
@@ -1324,6 +1362,39 @@ header{
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
+<!-- 🎭 SAHNE HİKAYESİ OYUNU -->
+<div id="sceneScreen">
+  <div class="cat-top">
+    <h2 style="font-size:1.1rem">🎭 Noldu? — Sahne Hikayesi</h2>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <div class="q-num" id="sceneQNum"></div>
+  <div class="scene-stage">
+    <div class="scene-sun"></div>
+    <div class="scene-emoji" id="sceneEmoji">🧍</div>
+  </div>
+  <div class="scene-de" id="sceneDe"></div>
+  <div class="scene-tr" id="sceneTr"></div>
+  <div class="scene-actions">
+    <button class="btn-toggle" onclick="sceneReplay()">🔁 Tekrar oynat</button>
+    <button class="btn-toggle" id="sceneSpeakBtn" onclick="sceneSpeak()">🔊 Dinle</button>
+  </div>
+  <div class="scene-verb" id="sceneVerb"></div>
+  <div class="para-ex-q" id="sceneQText" style="text-align:center;font-weight:800;margin-bottom:10px"></div>
+  <div class="opts" id="sceneOpts"></div>
+  <div class="fb-box" id="sceneFb"><div class="fb-title" id="sceneFbTitle"></div></div>
+  <button class="btn-next" id="sceneNext" onclick="sceneNextQ()">Sonraki →</button>
+</div>
+
+<!-- SAHNE OYUNU BİTTİ -->
+<div id="sceneDoneScreen">
+  <div class="trophy">🎭</div>
+  <div class="done-title">Sahne Bitti!</div>
+  <div class="done-sub" id="sceneDoneSub"></div>
+  <button class="btn-replay" onclick="startSceneGame()">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
 <!-- ANİMASYONLU EDAT SLAYTLARI -->
 <div id="slideScreen">
   <div class="cat-top">
@@ -1835,10 +1906,38 @@ const CATS = {
   {de:"der Rentner",       tr:"emekli (erkek)",        h:"RENTE (emekli maaşı) → RENTNER = emekli kişi. Kalıp: 'in Rente gehen' = emekli olmak."},
   {de:"die Rentnerin",     tr:"emekli (kadın)",        h:"RENTNER + -in = RENTNERIN."},
 ]}
+,"Soru Kelimeleri":{emoji:"❓",words:[
+  {de:"Wo?",        tr:"Nerede?",              h:"WO = nerede (yer sorar). Wo wohnst du? = Nerede oturuyorsun?"},
+  {de:"Wohin?",     tr:"Nereye?",              h:"WO+HIN = nereye (gidiş yönü). Wohin gehst du? = Nereye gidiyorsun? (HIN = uzağa doğru)"},
+  {de:"Woher?",     tr:"Nereden?",             h:"WO+HER = nereden (köken). Woher kommst du? = Nereden geliyorsun? (HER = bana doğru)"},
+  {de:"Was?",       tr:"Ne?",                  h:"WAS = ne. Was ist das? = Bu ne?"},
+  {de:"Wer?",       tr:"Kim?",                 h:"WER = kim (özne). Wer ist das? = Bu kim?"},
+  {de:"Wen?",       tr:"Kimi?",                h:"WEN = kimi (Akkusativ). Wen siehst du? = Kimi görüyorsun?"},
+  {de:"Wem?",       tr:"Kime?",                h:"WEM = kime (Dativ). Wem hilfst du? = Kime yardım ediyorsun?"},
+  {de:"Wessen?",    tr:"Kimin?",               h:"WESSEN = kimin (aitlik). Wessen Buch ist das? = Bu kimin kitabı?"},
+  {de:"Wann?",      tr:"Ne zaman?",            h:"WANN = ne zaman. Wann kommst du? = Ne zaman geliyorsun?"},
+  {de:"Wie?",       tr:"Nasıl?",               h:"WIE = nasıl. Wie geht es dir? = Nasılsın?"},
+  {de:"Warum?",     tr:"Neden? (en genel)",    h:"WARUM = neden. En yaygın 'neden' sorusu. Eş anlamlıları: wieso (günlük), weshalb (resmî)."},
+  {de:"Wieso?",     tr:"Neden? (günlük dil)",  h:"WIESO = neden (daha günlük/samimi). Warum ile aynı anlam."},
+  {de:"Weshalb?",   tr:"Neden? (daha resmî)",  h:"WESHALB = neden (daha resmî/yazılı). Warum ile aynı anlam."},
+  {de:"Wie viel?",  tr:"Ne kadar? (miktar)",   h:"WIE VIEL = ne kadar (sayılamayan/miktar). Wie viel kostet das? = Bu ne kadar?"},
+  {de:"Wie lange?", tr:"Ne kadar süre?",       h:"WIE LANGE = ne kadar süre. Wie lange lernst du Deutsch? = Ne kadar süredir Almanca öğreniyorsun?"},
+  {de:"Seit wann?", tr:"Ne zamandan beri?",    h:"SEIT WANN = ne zamandan beri (başlangıç). Seit wann bist du hier?"},
+  {de:"Bis wann?",  tr:"Ne zamana kadar?",     h:"BIS WANN = ne zamana kadar (bitiş). Bis wann arbeitest du?"},
+  {de:"Welcher?",   tr:"Hangi(si)?",           h:"WELCHER/WELCHE/WELCHES = hangi (seçim). Welcher Tag ist heute? = Bugün hangi gün?"},
+]}
 };
 
 // Grup bitince gösterilen kategori paragrafları (kelime örnek cümleleriyle aynı mantık: elle yazılmış, A1 seviyesi)
 const CAT_PARAGRAPH = {
+"Soru Kelimeleri":{
+  text:"— Wie heißt du? — Ich heiße Martin. — Woher kommst du? — Ich komme aus Berlin. — Wo wohnst du? — Ich wohne jetzt in Pafos. — Wie alt bist du? — Ich bin dreißig Jahre alt. — Was bist du von Beruf? — Ich bin Lehrer. — Wie lange wohnst du schon hier? — Seit zwei Jahren.",
+  questions:[
+    {q:'"Woher kommst du?" ne sorar?', options:['Nereden geliyorsun?','Nereye gidiyorsun?','Nasılsın?'], correct:'Nereden geliyorsun?'},
+    {q:'Martin şu anda nerede oturuyor?', options:['Pafos','Berlin','Wien'], correct:'Pafos'},
+    {q:'"Wie lange wohnst du schon hier?" sorusunun cevabı ne?', options:['İki yıldır','Öğretmen','Berlinli'], correct:'İki yıldır'}
+  ]
+},
 "Medeni Durum":{
   text:"Das ist Manuela. Sie kommt aus Portugal, aber sie wohnt jetzt in Hamburg. Manuela ist geschieden und hat ein Kind. Ihr Kind ist acht Jahre alt. Ihre Mutter ist verwitwet und schon im Ruhestand. Manuela hat jetzt einen neuen Partner. Sie sind seit zwei Jahren zusammen und bald heiraten sie. Die Hochzeit ist im Sommer.",
   questions:[
@@ -1982,7 +2081,8 @@ const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
   'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen',
-  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen'];
+  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
+  'sceneScreen','sceneDoneScreen'];
 
 let curScreen='homeScreen';
 
@@ -2028,9 +2128,11 @@ const WEEKLY_PLAN = [
     {tag:'game', tagLabel:'🎮 Oyun', text:'Eşleştirme Oyunu\'nda "Medeni Durum" ile rekor dene', fn:"goCatSelect('game','Medeni Durum')"},
     {tag:'review', tagLabel:'🩹 Tekrar', text:'Dünkü Çiftlik kelimelerini Zayıf Kelimelerim ile tazele', fn:'startReview()'},
   ]},
-  {iso:'2026-07-29', label:'29 Temmuz — Çarşamba', tasks:[
-    {tag:'read', tagLabel:'📖 Okuma', text:'Günün Çalışması\'nı aç, paragrafı oku', fn:'openYSHub()'},
-    {tag:'listen', tagLabel:'🎧 Dinleme', text:'Aynı paragrafta "🔊 Dinle" ile Almancasını dinle', fn:'openYSHub()'},
+  {iso:'2026-07-29', label:'29 Temmuz — Çarşamba · Konu: Soru Kelimeleri (W-Fragen)', tasks:[
+    {tag:'vocab', tagLabel:'🧠 Kelime', text:'"Soru Kelimeleri" (Wo/Was/Wann/Wer/Wie/Warum...) kategorisini öğren', fn:"goCatSelect('learn','Soru Kelimeleri')"},
+    {tag:'puzzle', tagLabel:'🧩 Bulmaca', text:'Kelime Avı → "Soru Kelimeleri" bulmacasını çöz', fn:"startWordSearch('Soru Kelimeleri')"},
+    {tag:'game', tagLabel:'🎭 Oyun', text:'"Noldu?" sahne oyununu oyna — fiilleri sahnede öğren', fn:'startSceneGame()'},
+    {tag:'listen', tagLabel:'🎧 Dinleme', text:'Günün Çalışması\'nda paragrafı "🔊 Dinle"', fn:'openYSHub()'},
   ]},
   {iso:'2026-07-30', label:'30 Temmuz — Perşembe · Konu: Dativ Edatları', tasks:[
     {tag:'grammar', tagLabel:'🎬 Slayt', text:'"Dativ Edatları" animasyonlu slaytını baştan sona izle (aus-bei-mit-nach-seit-von-zu-ab)', fn:"openSlideDeck('dativ')"},
@@ -2063,6 +2165,12 @@ function renderWeeklyPlan(){
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'27 Temmuz 2026 (5. güncelleme) — Yeni tasarım + oyunlar', items:[
+    '☀️ Uygulama baştan sona yeni "gün batımı" tasarımına geçti — sıcak renkler, yuvarlak Fredoka yazı tipi, tıklaması tatmin edici blok butonlar. Daha eğlenceli ve mutlu bir görünüm.',
+    '🎭 "Noldu? Sahne Oyunu" eklendi → Ana ekran / Keşif bölümü. Sahnede bir olay canlanıyor (adam düşüyor 🤸), Almanca fiili görüp dinliyorsun (fällt), Türkçesi altında, sonra hatırlama sorusu.',
+    '❓ "Soru Kelimeleri" (W-Fragen) kategorisi eklendi (Wo/Wohin/Woher/Was/Wer/Wen/Wem/Wann/Wie/Warum...) → tüm modlarda + kendi kelime avı bulmacası + okuma parçası. 29 Temmuz\'un konusu.',
+    '🔔 Günlük hatırlatma bildirimleri 5\'ten 20 farklı mesaja çıkarıldı — her gün farklı bir mesaj gelecek.',
+  ]},
   {date:'27 Temmuz 2026 (4. güncelleme) — Animasyonlu edat slaytları', items:[
     '🎬 "Dativ Edatları" ve "Akkusativ Edatları" animasyonlu slayt anlatımı eklendi → Ana ekran / "🎬 Animasyonlu Slaytlar" bölümü. Kocaman harflerle, kayan animasyonla, istediğin kadar tekrar izlenebilir.',
     '🇹🇷 Dativ için akılda kalıcı ezber cümlesi: "Ich komme AUS der Türkei, ich wohne BEI meiner Familie, MIT dem Bus NACH Berlin, SEIT einem Jahr, VON Montag bis Freitag, ZU meiner Arbeit" — tek hikayede tüm Dativ edatları sırayla.',
@@ -4763,6 +4871,84 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 // ══════════════════════════════════════════
+//  🎭 SAHNE HİKAYESİ OYUNU — "Noldu?" (animasyonlu fiil öğrenme)
+//  Bir sahnede olay olur (adam düşer...), Almanca cümle + fiil + Türkçesi
+//  gösterilir, sesli okunur, sonra kısa hatırlama sorusu sorulur.
+// ══════════════════════════════════════════
+const SCENE_STORIES = [
+  {emoji:'🧍', anim:'sc-fall', de:'Der Mann <b>fällt</b>!', tr:'Adam düşüyor!', verb:'fallen = düşmek', speak:'Der Mann fällt', q:'"fallen" ne demek?', opts:['düşmek','uçmak','koşmak'], a:'düşmek'},
+  {emoji:'🏃', anim:'sc-run',  de:'Das Kind <b>läuft</b>!', tr:'Çocuk koşuyor!', verb:'laufen = koşmak / yürümek', speak:'Das Kind läuft', q:'"laufen" ne demek?', opts:['koşmak','uyumak','gülmek'], a:'koşmak'},
+  {emoji:'🕊️', anim:'sc-fly',  de:'Der Vogel <b>fliegt</b>!', tr:'Kuş uçuyor!', verb:'fliegen = uçmak', speak:'Der Vogel fliegt', q:'"fliegen" ne demek?', opts:['uçmak','yüzmek','düşmek'], a:'uçmak'},
+  {emoji:'😴', anim:'sc-sleep',de:'Die Katze <b>schläft</b>.', tr:'Kedi uyuyor.', verb:'schlafen = uyumak', speak:'Die Katze schläft', q:'"schlafen" ne demek?', opts:['uyumak','zıplamak','ağlamak'], a:'uyumak'},
+  {emoji:'💃', anim:'sc-wobble',de:'Die Frau <b>tanzt</b>!', tr:'Kadın dans ediyor!', verb:'tanzen = dans etmek', speak:'Die Frau tanzt', q:'"tanzen" ne demek?', opts:['dans etmek','yemek','içmek'], a:'dans etmek'},
+  {emoji:'😭', anim:'sc-bounce',de:'Das Baby <b>weint</b>.', tr:'Bebek ağlıyor.', verb:'weinen = ağlamak', speak:'Das Baby weint', q:'"weinen" ne demek?', opts:['ağlamak','gülmek','uçmak'], a:'ağlamak'},
+  {emoji:'😂', anim:'sc-bounce',de:'Der Junge <b>lacht</b>!', tr:'Çocuk gülüyor!', verb:'lachen = gülmek', speak:'Der Junge lacht', q:'"lachen" ne demek?', opts:['gülmek','ağlamak','koşmak'], a:'gülmek'},
+  {emoji:'🏊', anim:'sc-swim', de:'Der Mann <b>schwimmt</b>.', tr:'Adam yüzüyor.', verb:'schwimmen = yüzmek', speak:'Der Mann schwimmt', q:'"schwimmen" ne demek?', opts:['yüzmek','uçmak','dans etmek'], a:'yüzmek'},
+  {emoji:'⛹️', anim:'sc-jump', de:'Das Mädchen <b>springt</b>!', tr:'Kız zıplıyor!', verb:'springen = zıplamak', speak:'Das Mädchen springt', q:'"springen" ne demek?', opts:['zıplamak','uyumak','ağlamak'], a:'zıplamak'},
+  {emoji:'🥤', anim:'sc-drink',de:'Das Kind <b>trinkt</b> Wasser.', tr:'Çocuk su içiyor.', verb:'trinken = içmek', speak:'Das Kind trinkt Wasser', q:'"trinken" ne demek?', opts:['içmek','yemek','koşmak'], a:'içmek'},
+];
+let sceneIdx=0, sceneCorrect=0, sceneOrder=[], sceneAnswered=false;
+function startSceneGame(){
+  sceneOrder=[...Array(SCENE_STORIES.length).keys()]; shuffle(sceneOrder);
+  sceneIdx=0; sceneCorrect=0;
+  showScreen('sceneScreen'); setHeader('🎭 Noldu?',false);
+  renderScene();
+}
+function curScene(){ return SCENE_STORIES[sceneOrder[sceneIdx]]; }
+function renderScene(){
+  const s=curScene(); sceneAnswered=false;
+  document.getElementById('sceneQNum').textContent=(sceneIdx+1)+' / '+sceneOrder.length;
+  const em=document.getElementById('sceneEmoji');
+  em.textContent=s.emoji; em.className='scene-emoji'; void em.offsetWidth; em.classList.add(s.anim);
+  document.getElementById('sceneDe').innerHTML=s.de;
+  document.getElementById('sceneTr').textContent=s.tr;
+  document.getElementById('sceneVerb').textContent='📌 '+s.verb;
+  document.getElementById('sceneSpeakBtn').style.display=('speechSynthesis' in window)?'inline-block':'none';
+  document.getElementById('sceneQText').textContent=s.q;
+  const og=document.getElementById('sceneOpts'); og.innerHTML='';
+  shuffle([...s.opts]).forEach(o=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=o;
+    b.onclick=()=>pickScene(b,o,s); og.appendChild(b);
+  });
+  document.getElementById('sceneFb').className='fb-box';
+  document.getElementById('sceneNext').className='btn-next';
+  setTimeout(sceneSpeak,600);
+}
+function sceneReplay(){ const s=curScene(); const em=document.getElementById('sceneEmoji'); em.className='scene-emoji'; void em.offsetWidth; em.classList.add(s.anim); }
+function sceneSpeak(){
+  if(!('speechSynthesis' in window)) return;
+  const s=curScene(); window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(s.speak); u.lang='de-DE'; u.rate=0.85;
+  window.speechSynthesis.speak(u);
+}
+function pickScene(btn,chosen,s){
+  if(sceneAnswered)return; sceneAnswered=true;
+  const ok=chosen===s.a;
+  document.querySelectorAll('#sceneOpts .opt').forEach(b=>{b.disabled=true; if(b.textContent===s.a)b.classList.add('correct');});
+  if(!ok) btn.classList.add('wrong');
+  const fb=document.getElementById('sceneFb');
+  fb.className='fb-box show '+(ok?'fb-ok':'fb-err');
+  document.getElementById('sceneFbTitle').className='fb-title '+(ok?'fb-c':'fb-w');
+  document.getElementById('sceneFbTitle').innerHTML=ok?'✅ Doğru! '+s.verb:'❌ Doğrusu: '+s.a;
+  if(ok) sceneCorrect++;
+  tick(ok,5); feedbackFx(ok,btn);
+  setHeader('🎭 Noldu?',true,'✅ '+sceneCorrect,'','');
+  document.getElementById('sceneNext').className='btn-next show';
+  if(ok) scheduleAutoNext(sceneNextQ,1100);
+}
+function sceneNextQ(){
+  clearAutoNext();
+  sceneIdx++;
+  if(sceneIdx>=sceneOrder.length){ showSceneDone(); return; }
+  renderScene();
+}
+function showSceneDone(){
+  document.getElementById('sceneDoneSub').textContent=sceneOrder.length+' sahneden '+sceneCorrect+' doğru bildin!';
+  showScreen('sceneDoneScreen');
+  if(sceneCorrect>=sceneOrder.length*0.7) for(let i=0;i<50;i++) setTimeout(rainP,i*25);
+}
+
+// ══════════════════════════════════════════
 //  ANİMASYONLU EDAT SLAYTLARI — kocaman, akılda kalıcı, tekrar izlenebilir
 //  Kullanıcının "ben Türküm" ipucu: DATİV listesi "Ich komme AUS der Türkei..."
 //  tek hikâyeyle çıpalanıyor (aus-bei-mit-nach-seit-von-zu doğal sırada geçiyor).
@@ -4886,6 +5072,11 @@ const WORD_SEARCH_PUZZLES = {
     {de:'LEDIG',tr:'bekar'}, {de:'HEIRATEN',tr:'evlenmek'}, {de:'GETRENNT',tr:'ayrı yaşayan'}, {de:'VERLOBT',tr:'nişanlı'},
     {de:'WITWE',tr:'dul kadın'}, {de:'WITWER',tr:'dul erkek'}, {de:'EHE',tr:'evlilik'}, {de:'HOCHZEIT',tr:'düğün'},
     {de:'PARTNER',tr:'partner'}, {de:'RENTNER',tr:'emekli'}, {de:'BEZIEHUNG',tr:'ilişki'}, {de:'RUHESTAND',tr:'emeklilik'},
+  ]},
+  'Soru Kelimeleri': { title:'❓ Soru Kelimeleri Kelime Avı', size:11, words:[
+    {de:'WO',tr:'nerede'}, {de:'WOHIN',tr:'nereye'}, {de:'WOHER',tr:'nereden'}, {de:'WAS',tr:'ne'},
+    {de:'WER',tr:'kim'}, {de:'WEN',tr:'kimi'}, {de:'WEM',tr:'kime'}, {de:'WANN',tr:'ne zaman'},
+    {de:'WIE',tr:'nasıl'}, {de:'WARUM',tr:'neden'}, {de:'WESSEN',tr:'kimin'}, {de:'WELCHER',tr:'hangi'},
   ]},
 };
 
