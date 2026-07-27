@@ -92,6 +92,19 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 .mc-badge-new{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-size:.62rem;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:.3px}
 .cl-item{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:12px 15px;margin-bottom:8px;font-size:.83rem;line-height:1.55;text-align:left}
 .cl-date{font-weight:800;color:var(--purple);font-size:.75rem;margin-bottom:4px;display:block}
+.wp-day{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:12px 15px;margin-bottom:8px;text-align:left}
+.wp-day.wp-today{border-color:var(--green);background:var(--green-bg)}
+.wp-date{font-weight:800;font-size:.8rem;color:var(--purple-dark);margin-bottom:7px}
+.wp-task{display:flex;align-items:center;gap:8px;font-size:.85rem;padding:5px 0;cursor:pointer}
+.wp-task:hover{opacity:.75}
+.wp-tag{flex-shrink:0;font-size:.62rem;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.wp-tag-write{background:var(--green-bg);color:var(--green-dark);border:1px solid var(--green)}
+.wp-tag-listen{background:var(--blue-bg);color:#0e8ac7;border:1px solid var(--blue)}
+.wp-tag-read{background:var(--purple-bg);color:var(--purple-dark);border:1px solid var(--purple)}
+.wp-tag-vocab{background:var(--yellow-bg);color:#7c4a03;border:1px solid var(--yellow)}
+.wp-tag-review{background:var(--red-bg);color:#8a1f1f;border:1px solid var(--red)}
+.wp-tag-game{background:var(--yellow-bg);color:#7c4a03;border:1px solid var(--yellow)}
+.wp-tag-grammar{background:var(--purple-bg);color:var(--purple-dark);border:1px solid var(--purple)}
 .mode-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
 .mode-card.col-purple:hover{border-color:var(--purple)}
 .mode-card.col-red:hover{border-color:var(--red)}
@@ -639,7 +652,11 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
     </div>
   </div>
 
-  <!-- BÖLÜM 5: YENİLİKLER — her güncellemede buraya not düşülür -->
+  <!-- BÖLÜM 5: HAFTALIK PLAN — tarihli, beceri etiketli (Yazma/Dinleme/Okuma/Kelime/Tekrar), tıklayınca ilgili bölüme götürür -->
+  <div class="sec-head">📅 Haftalık Plan</div>
+  <div id="weeklyPlanWrap"></div>
+
+  <!-- BÖLÜM 6: YENİLİKLER — her güncellemede buraya not düşülür -->
   <div class="sec-head">🆕 Yenilikler</div>
   <div id="changelogWrap"></div>
 </div>
@@ -1051,6 +1068,7 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
   </div>
   <div class="read-actions">
     <button class="btn-toggle" onclick="paraToggleTR()">👁 Türkçeyi Göster</button>
+    <button class="btn-toggle" id="paraListenBtn" onclick="paraListen()" style="display:none">🔊 Dinle</button>
   </div>
   <div id="paraQuiz"></div>
 </div>
@@ -1767,12 +1785,54 @@ function hdrBackGo(){
   goHome();
 }
 
+// Haftalık Plan — her hafta elle güncellenir (statik veri), o haftaki her gün için beceri etiketli görev(ler).
+// Tıklanan görev doğrudan ilgili bölüme götürür. "today" ISO tarihiyle eşleşen gün yeşil vurgulanır.
+const WEEKLY_PLAN = [
+  {iso:'2026-07-27', label:'27 Temmuz — Pazartesi', tasks:[
+    {tag:'write', tagLabel:'✍️ Yazma', text:'"Kendimi Tanıtıyorum" metnini Yazma Egzersizi\'nde tamamla', fn:'openYazmaList()'},
+  ]},
+  {iso:'2026-07-28', label:'28 Temmuz — Salı', tasks:[
+    {tag:'vocab', tagLabel:'🧠 Kelime', text:'Yeni "Çiftlik" kategorisini Öğrenme Modu\'nda çalış', fn:"goCatSelect('learn','Çiftlik')"},
+  ]},
+  {iso:'2026-07-29', label:'29 Temmuz — Çarşamba', tasks:[
+    {tag:'read', tagLabel:'📖 Okuma', text:'Günün Çalışması\'nı aç, paragrafı oku', fn:'openYSHub()'},
+    {tag:'listen', tagLabel:'🎧 Dinleme', text:'Aynı paragrafta "🔊 Dinle" ile Almancasını dinle', fn:'openYSHub()'},
+  ]},
+  {iso:'2026-07-30', label:'30 Temmuz — Perşembe', tasks:[
+    {tag:'review', tagLabel:'🩹 Tekrar', text:'Zayıf Kelimelerim ile hatalarını tazele', fn:'startReview()'},
+  ]},
+  {iso:'2026-07-31', label:'31 Temmuz — Cuma', tasks:[
+    {tag:'write', tagLabel:'✍️ Yazma', text:'Yazma Egzersizi\'nde kalan parçaları bitir, tekrar dene', fn:'openYazmaList()'},
+  ]},
+  {iso:'2026-08-01', label:'1 Ağustos — Cumartesi', tasks:[
+    {tag:'game', tagLabel:'🎮 Oyun', text:'Eşleştirme Oyunu\'nda "Çiftlik" kategorisiyle rekor dene', fn:"goCatSelect('game','Çiftlik')"},
+  ]},
+  {iso:'2026-08-02', label:'2 Ağustos — Pazar', tasks:[
+    {tag:'grammar', tagLabel:'📚 Gramer', text:'Hızlı Test ile haftayı özetle', fn:'startHizliTest()'},
+  ]},
+];
+function isoTodayLocal(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function renderWeeklyPlan(){
+  const w=document.getElementById('weeklyPlanWrap');
+  if(!w)return;
+  const t=isoTodayLocal();
+  w.innerHTML = WEEKLY_PLAN.map(day=>{
+    const isToday = day.iso===t;
+    return '<div class="wp-day'+(isToday?' wp-today':'')+'">'+
+      '<div class="wp-date">'+(isToday?'📍 ':'')+day.label+'</div>'+
+      day.tasks.map(tk=>'<div class="wp-task" onclick="'+tk.fn+'"><span class="wp-tag wp-tag-'+tk.tag+'">'+tk.tagLabel+'</span><span>'+tk.text+'</span></div>').join('')+
+      '</div>';
+  }).join('');
+}
+
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
   {date:'27 Temmuz 2026', items:[
     'Bu "Yenilikler" bölümü eklendi (ana ekranın en altı) — bundan sonra yapılan her değişiklik burada, tarih + hangi bölümde olduğu belirtilerek listelenecek.',
     '🐄 "Çiftlik" kelime kategorisi eklendi (21 kelime: at, inek, koyun, traktör, tırpan...) → Kelime Listesi, Öğrenme Modu, Eşleştirme Oyunu ve Zayıf Kelimelerim\'de otomatik olarak görünüyor, kategori seçiminde çıkıyor.',
     '🏆 "Eşleştirme Oyunu" bitiş ekranına kalıcı REKOR takibi eklendi → oyun bitince en yüksek skorun (Rekor) yanında görünüyor, kırdığında "Yeni rekor!" çıkıyor.',
+    '📅 Ana ekrana "Haftalık Plan" bölümü eklendi (Yenilikler\'in hemen üstü) — her gün için Yazma/Dinleme/Okuma/Kelime/Tekrar etiketli görev listesi, göreve tıklayınca doğrudan o bölüme götürüyor. Bugünün günü yeşille vurgulanıyor.',
+    '🎧 "Günün Çalışması" (YS Hocanla → Günün Çalışması) ekranına "🔊 Dinle" butonu eklendi — tarayıcının kendi Almanca seslendirmesiyle paragrafı dinleyebiliyorsun, dosya/internet gerekmiyor.',
   ]},
   {date:'26 Temmuz 2026', items:[
     '✍️ "Yazma Egzersizi" eklendi → Ana ekran / "📝 Öğretmen Egzersizleri" bölümü. Kendi metnini Türkçeden Almancaya sen yazıyorsun; kontrol ediyor, yanlışsa doğru dilbilgisi mantığını ve olası hata nedenini ayrı ayrı gösteriyor.',
@@ -1791,6 +1851,7 @@ function renderChangelog(){
 // Ana ekran panelini güncelle (seri, XP, hedef, zayıf kelime butonu)
 function renderHome(){
   ensureDay();
+  renderWeeklyPlan();
   renderChangelog();
   document.getElementById('dStreak').textContent=DB.streak.cur;
   document.getElementById('dXp').textContent=DB.xp;
@@ -1937,6 +1998,15 @@ function selCat(name,card){
   document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('selected'));
   card.classList.add('selected');
   activeCat = name;
+}
+// Haftalık Plan gibi yerlerden tek tıkla "kategori seç + başla" için kısayol
+function goCatSelect(mode,catName){
+  goCat(mode);
+  const cards=document.querySelectorAll('#catGrid .cat-card');
+  let target=null;
+  cards.forEach(c=>{ const n=c.querySelector('.cc-name'); if(n && n.textContent===catName) target=c; });
+  if(target) target.click();
+  catGo();
 }
 
 function getWords(){
@@ -3998,10 +4068,21 @@ const PARA_READINGS = [
     speak:'Şimdi bir tanıdığını anlat: Adı, yaşı, mesleği, haftada kaç gün çalıştığı, ne zaman izinli olduğu. „Er/Sie heißt… ist … Jahre alt. Er/Sie ist … (meslek). Er/Sie arbeitet … Tage pro Woche."'
   },
 ];
-let paraTRshown=false;
+let paraTRshown=false, paraCurrentDe='';
+// Tarayıcının yerleşik seslendirmesi (SpeechSynthesis) — dosya/servis gerekmez, sadece Almanca metni okur.
+function paraListen(){
+  if(!('speechSynthesis' in window) || !paraCurrentDe) return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(paraCurrentDe);
+  u.lang='de-DE'; u.rate=0.85;
+  window.speechSynthesis.speak(u);
+}
 function openPara(){
   const idx=(new Date().getDate())%PARA_READINGS.length;
   const p=PARA_READINGS[idx];
+  paraCurrentDe=p.de;
+  const listenBtn=document.getElementById('paraListenBtn');
+  if(listenBtn) listenBtn.style.display=('speechSynthesis' in window)?'inline-block':'none';
   document.getElementById('paraNote').innerHTML=p.note;
   document.getElementById('paraDe').textContent=p.de;
   document.getElementById('paraTr').textContent=p.tr;
