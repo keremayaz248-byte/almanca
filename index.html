@@ -7,8 +7,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Almanca">
-<meta name="theme-color" content="#D9714E">
+<meta name="theme-color" content="#E27A45">
 <title>🇩🇪 Almanca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -565,6 +568,76 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 .read-tr.show{display:block}
 .read-note{background:#fff6e6;border-left:4px solid var(--yellow);border-radius:0 10px 10px 0;padding:11px 14px;font-size:.85rem;line-height:1.55;margin-bottom:14px;color:#7c4a03}
 .read-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+
+/* ═══════════════════════════════════════════════════════════
+   ☀️ COZY SUNSET TEMASI (2026-07-27) — sıcak, oyunsu, tasarımcı gözüyle
+   Firewatch esintili gün batımı paleti + dokunsal "blok" butonlar.
+   Bu blok tüm eski kurallardan SONRA geldiği için tema baskın gelir;
+   istenirse tek parça olarak kaldırılıp eski görünüme dönülebilir.
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --green:#5FA82E;--green-dark:#437d1c;--green-bg:#edf6df;
+  --red:#E8553D;--red-bg:#fcebe6;
+  --blue:#2E9CC4;--blue-bg:#e6f4f9;
+  --purple:#E27A45;--purple-bg:#fbe9dd;--purple-dark:#B0501E;
+  --yellow:#F2A83A;--yellow-bg:#fdf1dd;
+  --bg:#FBF3E8;--white:#FFFDF8;--text:#3B2A1E;--light:#977E67;
+  --border:#EAD9C4;
+  --shadow:0 4px 0 #E7D6C0;
+  --sun:#F7B23C;--dusk:#8A4A34;
+}
+body{
+  font-family:'Fredoka','Segoe UI',system-ui,sans-serif;
+  background:radial-gradient(135% 95% at 50% -18%, #FCE0BB 0%, #FBEEDA 40%, var(--bg) 72%) no-repeat fixed;
+}
+h1,h2,.logo,.hero-title,.hero-kicker,.done-title,.mc-title,.cc-name,
+.slide-big,.break-title,.modal-title,.wcard-de,.phase-badge,.sec-head{
+  font-family:'Fredoka','Segoe UI',sans-serif;font-weight:700;
+}
+/* Dokunsal blok kartlar — sıcak alt gölge, basınca çöker */
+.mode-card,.cat-card,.hub-card,.wcard,.sent-card,.read-card{
+  box-shadow:0 4px 0 var(--border);
+}
+.mode-card{border-width:2px;border-radius:22px}
+.mode-card:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--border)}
+.mode-card:active,.cat-card:active,.hub-card:active{transform:translateY(2px);box-shadow:0 2px 0 var(--border)}
+.mc-icon{filter:drop-shadow(0 2px 2px rgba(138,74,52,.18))}
+/* Primer/aksiyon butonları — tıklaması tatmin edici "blok" */
+.btn-next,.btn-check,.btn-replay,.btn-cont,.btn-test,.btn-intro,.btn-know,.slide-navbtn{
+  box-shadow:0 4px 0 rgba(138,74,52,.22);
+}
+.btn-next:active,.btn-check:active,.btn-cont:active,.btn-test:active,.btn-intro:active{
+  transform:translateY(2px);box-shadow:0 1px 0 rgba(138,74,52,.22);
+}
+/* Header: sıcak oyun HUD'u */
+header{
+  background:linear-gradient(180deg,#FFF6E8,#FDEEDB);
+  border-bottom:3px solid var(--purple);
+  box-shadow:0 4px 0 rgba(176,80,30,.10);
+}
+.logo{color:var(--purple-dark);font-size:1.3rem;letter-spacing:.3px}
+.hdr-back{border-width:2px;box-shadow:0 3px 0 var(--border)}
+.hdr-back:active{transform:translateY(2px);box-shadow:0 1px 0 var(--border)}
+/* Hero: gün batımı sahnesi (güneş parıltısı + sıcak degrade) */
+.hero-card{
+  background:
+    radial-gradient(70px 70px at 80% 30%, var(--sun) 0%, rgba(247,178,60,0) 72%),
+    linear-gradient(180deg,#F0964B 0%, #E27A45 52%, #C65E37 100%);
+  border:none;
+  box-shadow:0 6px 0 var(--dusk);
+}
+.hero-card:hover{transform:translateY(-2px);box-shadow:0 9px 0 var(--dusk)}
+.hero-card:active{transform:translateY(2px);box-shadow:0 3px 0 var(--dusk)}
+.hero-card::after{content:'🏔️';opacity:.22;font-size:5rem;right:-4px;bottom:-12px;transform:rotate(0)}
+.hero-btn{box-shadow:0 3px 0 rgba(138,74,52,.25)}
+/* Bölüm başlıkları — sıcak, hafif büyük */
+.sec-head{color:var(--dusk);font-size:.74rem;letter-spacing:1px;opacity:.95}
+/* Kelime kartı (öğrenme) ve rozetler biraz daha yumuşak-sıcak */
+.wcard{border-radius:24px}
+.mc-badge-new{box-shadow:0 2px 0 #a5321f}
+/* Dokunsal his: yeni bloklarda geçiş */
+.hub-card,.cat-card,.mode-card{transition:transform .12s ease,box-shadow .12s ease}
+/* Google fontu yüklenemezse (çevrimdışı) sistem fontu zaten devrede — sorun olmaz */
 </style>
 </head>
 <body>
