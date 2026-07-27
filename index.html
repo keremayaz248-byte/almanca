@@ -646,11 +646,11 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
       <div class="mc-title">Kelime Listesi</div>
       <div class="mc-sub">Tüm kelimeler, bileşen analizi</div>
     </div>
-    <div class="mode-card col-green mode-card-full" onclick="startWordSearch('Çiftlik')">
+    <div class="mode-card col-green mode-card-full" onclick="openWordSearchList()">
       <span class="mc-badge-new">YENİ</span>
       <div class="mc-icon">🧩</div>
       <div class="mc-title">Kelime Avı</div>
-      <div class="mc-sub">Çiftlik kelimelerini harf tablosunda bul</div>
+      <div class="mc-sub">Konu seç, kelimeleri harf tablosunda bul</div>
     </div>
   </div>
 
@@ -778,6 +778,7 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
   <div class="phase-badge phase-mc">📖 Grup Paragrafı</div>
   <div class="sent-card">
     <div class="sent-de" id="paraExText" style="text-align:left;line-height:1.6"></div>
+    <button class="btn-toggle" id="paraExListenBtn" onclick="paraExListen()" style="display:none;margin-top:10px">🔊 Dinle</button>
   </div>
   <div class="q-num" id="paraExQNum"></div>
   <div class="para-ex-q" id="paraExQText"></div>
@@ -1210,6 +1211,16 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
   <button class="btn-replay" onclick="startYazma(yzTextIdx)">Tekrar →</button>
   <button class="btn-home" onclick="openYazmaList()">Metin Listesi</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
+<!-- KELİME AVI — KONU SEÇİMİ -->
+<div id="wordSearchListScreen">
+  <div class="cat-top">
+    <h2>🧩 Kelime Avı</h2>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <div class="hub-intro">Bir konu seç. Türkçe anlamına bakıp Almanca kelimeyi harf tablosunda bulacaksın.</div>
+  <div id="wordSearchListWrap"></div>
 </div>
 
 <!-- KELİME AVI (BULMACA) -->
@@ -1668,10 +1679,49 @@ const CATS = {
   {de:"die Sense",         tr:"tırpan",               h:"SENSE → Almanca özgün, ot biçme aleti."},
   {de:"der Pflug",         tr:"saban / pulluk",       h:"PFLUG ≈ plough/plow → ses benzerliği"},
 ]}
+,"Medeni Durum":{emoji:"💍",words:[
+  {de:"der Familienstand", tr:"medeni durum",          h:"FAMILIE + STAND (durum) = medeni durum. Formda seçenekler: ledig / verheiratet / geschieden / verwitwet."},
+  {de:"ledig",             tr:"bekar (hiç evlenmemiş)", h:"LEDIG = resmî olarak evli değil. DİKKAT: 'Single' (partneri yok) ile karıştırma — ledig sadece 'evli değil' demek.",
+    s:{tr:"Ben bekarım ve bir partnerim yok.", chunks:["Ich","bin","ledig","und habe keinen Partner."], blankIdx:[1], blankOptions:["habe","werde","war"]}},
+  {de:"verheiratet",       tr:"evli",                  h:"DİKKAT (kandırmalı): 'verheiratet SEIN' → durum bildirir. Sie SIND verheiratet = Onlar evli. 'haben' DEĞİL!",
+    s:{tr:"Onlar on yıldır evli.", chunks:["Sie","sind","seit zehn Jahren","verheiratet."], blankIdx:[1], blankOptions:["haben","ist","werden"]}},
+  {de:"heiraten",          tr:"evlenmek",              h:"KANDIRMALI: heiraten + Akkusativ (EDATSIZ!). 'Ich heirate meine Freundin' — 'mit' YOK. Perfekt HABEN ile: 'Ich habe geheiratet.'",
+    s:{tr:"Kız arkadaşımla evleniyorum.", chunks:["Ich","heirate","meine Freundin."], blankIdx:[2], blankOptions:["mit meiner Freundin","für meine Freundin","zu meiner Freundin"]}},
+  {de:"geschieden",        tr:"boşanmış",              h:"GESCHIEDEN = boşanmış. Durum → SEIN ile: 'Sie sind geschieden.' Fiil hâli: sich scheiden lassen.",
+    s:{tr:"Annem ve babam boşanmış.", chunks:["Meine Eltern","sind","geschieden."], blankIdx:[1], blankOptions:["haben","werden","waren nie"]}},
+  {de:"die Scheidung",     tr:"boşanma (işlemi)",      h:"SCHEIDEN = ayırmak → SCHEIDUNG = boşanma. 'die Scheidung' resmî ayrılık sürecidir."},
+  {de:"getrennt",          tr:"ayrı (yaşayan)",        h:"TRENNEN = ayırmak → GETRENNT = ayrı. 'Sie leben getrennt' = ayrı yaşıyorlar (henüz boşanmamış olabilir)."},
+  {de:"verwitwet",         tr:"dul (sıfat)",           h:"WITWE = dul kadın → VERWITWET = dul. Eşi vefat etmiş kişinin medeni durumu.",
+    s:{tr:"Komşum dul.", chunks:["Meine Nachbarin","ist","verwitwet."], blankIdx:[1], blankOptions:["hat","wird","war"]}},
+  {de:"die Witwe",         tr:"dul kadın",             h:"WITWE ≈ widow → W-I-T-W-E / W-I-D-O-W ✓"},
+  {de:"der Witwer",        tr:"dul erkek",             h:"WITWE + -r = WITWER (dul erkek). -r eki erkek formunu yapar."},
+  {de:"verlobt",           tr:"nişanlı (sıfat)",       h:"VERLOBT = nişanlı. 'Sie sind verlobt' = nişanlılar. Evlilikten önceki aşama."},
+  {de:"der Verlobte",      tr:"nişanlı (kişi)",        h:"der VERLOBTE = nişanlı erkek, die VERLOBTE = nişanlı kadın."},
+  {de:"die Beziehung",     tr:"ilişki",                h:"BEZIEHUNG = ilişki. Kalıp: 'in einer Beziehung sein' = ilişkisi olmak. 'Sie hat eine Beziehung.'"},
+  {de:"die Ehe",           tr:"evlilik (kurum)",       h:"EHE = evlilik. DİKKAT: Ehe = evlilik kurumu, Hochzeit = düğün töreni. der EHEmann, die EHEfrau."},
+  {de:"der Ehemann",       tr:"koca / eş (erkek)",     h:"EHE (evlilik) + MANN (adam) = koca."},
+  {de:"die Ehefrau",       tr:"eş (kadın) / zevce",    h:"EHE (evlilik) + FRAU (kadın) = eş."},
+  {de:"die Hochzeit",      tr:"düğün",                 h:"HOCH (yüksek) + ZEIT (zaman) = 'yüce gün' = düğün.",
+    s:{tr:"Düğün cumartesi günü.", chunks:["Die Hochzeit","ist","am Samstag."], blankIdx:[1], blankOptions:["hat","macht","geht"]}},
+  {de:"der Partner",       tr:"partner (erkek)",       h:"PARTNER ≈ partner → birebir aynı ✓"},
+  {de:"die Partnerin",     tr:"partner (kadın)",       h:"PARTNER + -in = PARTNERIN."},
+  {de:"der Ruhestand",     tr:"emeklilik",             h:"RUHE (huzur) + STAND (durum) = 'huzur durumu' = emeklilik. Kalıp: 'im Ruhestand sein' = emekli olmak.",
+    s:{tr:"Büyükbabam emekli.", chunks:["Mein Großvater","ist","im Ruhestand."], blankIdx:[1], blankOptions:["hat","geht","macht"]}},
+  {de:"der Rentner",       tr:"emekli (erkek)",        h:"RENTE (emekli maaşı) → RENTNER = emekli kişi. Kalıp: 'in Rente gehen' = emekli olmak."},
+  {de:"die Rentnerin",     tr:"emekli (kadın)",        h:"RENTNER + -in = RENTNERIN."},
+]}
 };
 
 // Grup bitince gösterilen kategori paragrafları (kelime örnek cümleleriyle aynı mantık: elle yazılmış, A1 seviyesi)
 const CAT_PARAGRAPH = {
+"Medeni Durum":{
+  text:"Das ist Manuela. Sie kommt aus Portugal, aber sie wohnt jetzt in Hamburg. Manuela ist geschieden und hat ein Kind. Ihr Kind ist acht Jahre alt. Ihre Mutter ist verwitwet und schon im Ruhestand. Manuela hat jetzt einen neuen Partner. Sie sind seit zwei Jahren zusammen und bald heiraten sie. Die Hochzeit ist im Sommer.",
+  questions:[
+    {q:'Manuela\'nın şu anki medeni durumu nedir?', options:['Boşanmış','Evli','Dul'], correct:'Boşanmış'},
+    {q:'Manuela\'nın annesi hangi durumda?', options:['Dul ve emekli','Evli ve çalışıyor','Bekar'], correct:'Dul ve emekli'},
+    {q:'Manuela ile partneri ne yapacak?', options:['Evlenecekler','Ayrılacaklar','Taşınacaklar'], correct:'Evlenecekler'}
+  ]
+},
 "Çiftlik":{
   text:"Meine Familie hat einen Bauernhof. Wir haben viele Tiere: eine Kuh, drei Schafe und zwei Pferde. Am Morgen füttere ich die Tiere auf der Weide. Das kleine Lamm ist sehr süß, aber das Schwein ist sehr laut! Mein Vater fährt jeden Tag mit dem Traktor auf das Feld. Am Abend sind alle Tiere müde, und ich auch.",
   questions:[
@@ -1807,7 +1857,7 @@ const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
   'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen',
-  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','wordSearchScreen','wordSearchDoneScreen'];
+  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen'];
 
 let curScreen='homeScreen';
 
@@ -1847,9 +1897,11 @@ const WEEKLY_PLAN = [
     {tag:'puzzle', tagLabel:'🧩 Bulmaca', text:'Kelime Avı\'nda çiftlik kelimelerini harf tablosunda bul', fn:"startWordSearch('Çiftlik')"},
     {tag:'write', tagLabel:'✍️ Yazma', text:'"Kendimi Tanıtıyorum" metnini Yazma Egzersizi\'nde tamamla', fn:'openYazmaList()'},
   ]},
-  {iso:'2026-07-28', label:'28 Temmuz — Salı', tasks:[
-    {tag:'review', tagLabel:'🩹 Tekrar', text:'Çiftlik kelimelerini Zayıf Kelimelerim ile tazele', fn:'startReview()'},
-    {tag:'game', tagLabel:'🎮 Oyun', text:'Eşleştirme Oyunu\'nda "Çiftlik" kategorisiyle rekor dene', fn:"goCatSelect('game','Çiftlik')"},
+  {iso:'2026-07-28', label:'28 Temmuz — Salı · Konu: Medeni Durum & Evlilik', tasks:[
+    {tag:'vocab', tagLabel:'🧠 Kelime', text:'"Medeni Durum" kategorisini Öğrenme Modu\'nda çalış (grup sonunda okuma parçası + 🔊 Dinle + test)', fn:"goCatSelect('learn','Medeni Durum')"},
+    {tag:'puzzle', tagLabel:'🧩 Bulmaca', text:'Kelime Avı → "Medeni Durum" bulmacasını çöz', fn:"startWordSearch('Medeni Durum')"},
+    {tag:'game', tagLabel:'🎮 Oyun', text:'Eşleştirme Oyunu\'nda "Medeni Durum" ile rekor dene', fn:"goCatSelect('game','Medeni Durum')"},
+    {tag:'review', tagLabel:'🩹 Tekrar', text:'Dünkü Çiftlik kelimelerini Zayıf Kelimelerim ile tazele', fn:'startReview()'},
   ]},
   {iso:'2026-07-29', label:'29 Temmuz — Çarşamba', tasks:[
     {tag:'read', tagLabel:'📖 Okuma', text:'Günün Çalışması\'nı aç, paragrafı oku', fn:'openYSHub()'},
@@ -1884,6 +1936,13 @@ function renderWeeklyPlan(){
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'27 Temmuz 2026 (3. güncelleme) — Yarının konusu hazır', items:[
+    '💍 "Medeni Durum" kelime kategorisi eklendi (22 kelime: bekar, evli, boşanmış, dul, nişanlı, düğün, emeklilik/Ruhestand...) → tüm modlarda görünüyor. Yarının (28 Temmuz) konusu bu.',
+    '⚠️ Kritik/kandırmalı kural kartları eklendi: "verheiratet SEIN" (haben değil!) ve "heiraten + edatsız Akkusativ" (mit YOK) → bu kelimelerin ipuçlarında ve cümle alıştırmalarında.',
+    '📖 "Medeni Durum" için okuma parçası (Manuela\'nın hikayesi) + 3 anlama sorusu + 🔊 Dinle → Öğrenme Modu\'nda otomatik çıkıyor.',
+    '🧩 "Kelime Avı" artık konu seçtiriyor (Çiftlik + Medeni Durum) → Ana ekran / Keşif bölümü.',
+    '🔊 Grup sonu okuma parçalarına "Dinle" butonu eklendi (Öğrenme Modu) — Çiftlik ve Medeni Durum paragraflarını sesli dinleyebilirsin.',
+  ]},
   {date:'27 Temmuz 2026 (2. güncelleme)', items:[
     '🧩 "Kelime Avı" bulmacası eklendi → Ana ekran / "🗺️ Keşif" bölümü (Eşleştirme Oyunu\'nun yanı). Şimdilik sadece "Çiftlik" kelimeleriyle (12 kelime); Türkçe anlamı görüp Almancasını harf tablosunda buluyorsun.',
     '📖 "Çiftlik" kategorisine okuma parçası + 3 anlama sorusu eklendi → Öğrenme Modu\'nda Çiftlik kelimelerini bitirince otomatik çıkıyor (ekstra bir yere gitmen gerekmiyor).',
@@ -2750,8 +2809,18 @@ function showParagrafEx(catName,cb){
   paraExData=CAT_PARAGRAPH[catName];
   paraExQIdx=0;
   document.getElementById('paraExText').textContent=paraExData.text;
+  const lb=document.getElementById('paraExListenBtn');
+  if(lb) lb.style.display=('speechSynthesis' in window)?'inline-block':'none';
   showScreen('paragrafExScreen');
   renderParaExQ();
+}
+// Grup paragrafını sesli oku (tarayıcının kendi Almanca seslendirmesi)
+function paraExListen(){
+  if(!('speechSynthesis' in window) || !paraExData) return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(paraExData.text);
+  u.lang='de-DE'; u.rate=0.85;
+  window.speechSynthesis.speak(u);
 }
 function renderParaExQ(){
   const q=paraExData.questions[paraExQIdx];
@@ -4572,6 +4641,11 @@ const WORD_SEARCH_PUZZLES = {
     {de:'LAMM',tr:'kuzu'}, {de:'KALB',tr:'dana / buzağı'}, {de:'STIER',tr:'boğa'}, {de:'TRAKTOR',tr:'traktör'},
     {de:'AXT',tr:'balta'}, {de:'PFLUG',tr:'saban / pulluk'}, {de:'SENSE',tr:'tırpan'}, {de:'WEIDE',tr:'mera / otlak'},
   ]},
+  'Medeni Durum': { title:'💍 Medeni Durum Kelime Avı', size:12, words:[
+    {de:'LEDIG',tr:'bekar'}, {de:'HEIRATEN',tr:'evlenmek'}, {de:'GETRENNT',tr:'ayrı yaşayan'}, {de:'VERLOBT',tr:'nişanlı'},
+    {de:'WITWE',tr:'dul kadın'}, {de:'WITWER',tr:'dul erkek'}, {de:'EHE',tr:'evlilik'}, {de:'HOCHZEIT',tr:'düğün'},
+    {de:'PARTNER',tr:'partner'}, {de:'RENTNER',tr:'emekli'}, {de:'BEZIEHUNG',tr:'ilişki'}, {de:'RUHESTAND',tr:'emeklilik'},
+  ]},
 };
 
 function wsPlaceWords(words,size){
@@ -4607,6 +4681,18 @@ function wsPlaceWords(words,size){
 }
 
 let wsCatName=null, wsGridData=[], wsPlaced=[], wsFoundCount=0, wsStart=null;
+
+function openWordSearchList(){
+  const wrap=document.getElementById('wordSearchListWrap');
+  wrap.innerHTML = Object.keys(WORD_SEARCH_PUZZLES).map(name=>{
+    const p=WORD_SEARCH_PUZZLES[name];
+    return '<div class="hub-card" onclick="startWordSearch(\''+name+'\')">'+
+      '<div class="hub-emoji">'+p.title.split(' ')[0]+'</div>'+
+      '<div class="hub-info"><div class="hub-title">'+name+'</div><div class="hub-desc">'+p.words.length+' kelime</div></div>'+
+      '<div class="hub-arrow">→</div></div>';
+  }).join('');
+  showScreen('wordSearchListScreen'); setHeader('🧩 Kelime Avı',false);
+}
 
 function startWordSearch(catName){
   const puzzle=WORD_SEARCH_PUZZLES[catName];
