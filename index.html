@@ -105,6 +105,18 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 .wp-tag-review{background:var(--red-bg);color:#8a1f1f;border:1px solid var(--red)}
 .wp-tag-game{background:var(--yellow-bg);color:#7c4a03;border:1px solid var(--yellow)}
 .wp-tag-grammar{background:var(--purple-bg);color:var(--purple-dark);border:1px solid var(--purple)}
+.wp-tag-puzzle{background:var(--green-bg);color:var(--green-dark);border:1px solid var(--green)}
+.ws-clue-list{margin-bottom:16px}
+.ws-clue{display:flex;justify-content:space-between;align-items:center;padding:8px 13px;border-bottom:1px solid var(--border);font-size:.85rem}
+.ws-clue.done{color:var(--light)}
+.ws-clue.done .ws-clue-tr{text-decoration:line-through}
+.ws-clue-de{font-weight:800;color:var(--green-dark);display:none}
+.ws-clue.done .ws-clue-de{display:inline}
+.ws-grid{display:grid;gap:3px;max-width:440px;margin:0 auto 18px}
+.ws-cell{display:flex;align-items:center;justify-content:center;background:var(--white);border:1.5px solid var(--border);border-radius:5px;font-weight:800;font-size:.78rem;cursor:pointer;aspect-ratio:1;user-select:none;transition:background-color .1s,border-color .1s}
+.ws-cell.ws-sel{background:var(--blue-bg);border-color:var(--blue)}
+.ws-cell.ws-found{background:var(--green-bg);border-color:var(--green);color:var(--green-dark)}
+.ws-cell.ws-wrong{background:var(--red-bg);border-color:var(--red)}
 .mode-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
 .mode-card.col-purple:hover{border-color:var(--purple)}
 .mode-card.col-red:hover{border-color:var(--red)}
@@ -633,6 +645,12 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
       <div class="mc-icon">📋</div>
       <div class="mc-title">Kelime Listesi</div>
       <div class="mc-sub">Tüm kelimeler, bileşen analizi</div>
+    </div>
+    <div class="mode-card col-green mode-card-full" onclick="startWordSearch('Çiftlik')">
+      <span class="mc-badge-new">YENİ</span>
+      <div class="mc-icon">🧩</div>
+      <div class="mc-title">Kelime Avı</div>
+      <div class="mc-sub">Çiftlik kelimelerini harf tablosunda bul</div>
     </div>
   </div>
 
@@ -1194,6 +1212,26 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
+<!-- KELİME AVI (BULMACA) -->
+<div id="wordSearchScreen">
+  <div class="cat-top">
+    <h2 id="wsTitle" style="font-size:1.1rem"></h2>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <div class="hub-intro">Türkçe anlamına bak, Almancasını harf tablosunda bul. Başlangıç harfine bir kere, bitiş harfine bir kere dokun (düz çizgi: yatay/dikey/çapraz).</div>
+  <div class="ws-clue-list" id="wsClues"></div>
+  <div class="ws-grid" id="wsGrid"></div>
+</div>
+
+<!-- KELİME AVI BİTTİ -->
+<div id="wordSearchDoneScreen">
+  <div class="trophy">🧩</div>
+  <div class="done-title">Bulmaca Tamam!</div>
+  <div class="done-sub" id="wsDoneSub"></div>
+  <button class="btn-replay" onclick="startWordSearch(wsCatName)">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
 </main>
 
 <!-- HINT BAR (game) -->
@@ -1599,26 +1637,34 @@ const CATS = {
   {de:"der Journalist",  tr:"gazeteci",             h:"JOURNALIST ≈ journalist → Türkçe 'gazeteci' ile aynı kök ✓"},
 ]}
 ,"Çiftlik":{emoji:"🐄",words:[
-  {de:"das Pferd",         tr:"at",                   h:"PFERD → Almanca özgün kelime. Ich reite das Pferd = Atı sürerim."},
+  {de:"das Pferd",         tr:"at",                   h:"PFERD → Almanca özgün kelime. Ich reite das Pferd = Atı sürerim.",
+    s:{tr:"Çiftçi her sabah atı besler.", chunks:["Der Bauer","füttert","jeden Morgen","das Pferd."], blankIdx:[1], blankOptions:["verkauft","sucht","wäscht"]}},
   {de:"das Fohlen",        tr:"tay (at yavrusu)",     h:"FOHLEN → yavru at. Das Fohlen läuft neben der Mutter (tay annesinin yanında koşar)."},
-  {de:"die Kuh",           tr:"inek",                 h:"KUH ≈ cow → K-U-H / C-O-W sesçe yakın ✓"},
+  {de:"die Kuh",           tr:"inek",                 h:"KUH ≈ cow → K-U-H / C-O-W sesçe yakın ✓",
+    s:{tr:"İnek her gün merada otlar.", chunks:["Die Kuh","frisst","jeden Tag","auf der Weide."], blankIdx:[1], blankOptions:["schläft","trinkt","arbeitet"]}},
   {de:"das Kalb",          tr:"dana / buzağı",        h:"KALB → Almanca özgün, ineğin yavrusu."},
   {de:"der Stier",         tr:"boğa",                 h:"STIER ≈ burçlardaki 'Boğa' (Stier) ile aynı kelime!"},
-  {de:"das Schaf",         tr:"koyun",                h:"SCHAF ≈ sheep → S-CH-A-F / S-H-E-E-P benzer ses"},
-  {de:"das Lamm",          tr:"kuzu",                 h:"LAMM ≈ lamb → neredeyse birebir aynı! ✓"},
-  {de:"das Schwein",       tr:"domuz",                h:"SCHWEIN ≈ swine → S-CH-W-E-I-N / S-W-I-N-E ✓"},
+  {de:"das Schaf",         tr:"koyun",                h:"SCHAF ≈ sheep → S-CH-A-F / S-H-E-E-P benzer ses",
+    s:{tr:"Koyun beyaz ve çok yumuşaktır.", chunks:["Das Schaf","ist","weiß","und sehr weich."], blankIdx:[1], blankOptions:["läuft","isst","schläft"]}},
+  {de:"das Lamm",          tr:"kuzu",                 h:"LAMM ≈ lamb → neredeyse birebir aynı! ✓",
+    s:{tr:"Küçük kuzu annesinin yanında koşar.", chunks:["Das kleine Lamm","läuft","neben","seiner Mutter."], blankIdx:[1], blankOptions:["schläft","isst","springt"]}},
+  {de:"das Schwein",       tr:"domuz",                h:"SCHWEIN ≈ swine → S-CH-W-E-I-N / S-W-I-N-E ✓",
+    s:{tr:"Domuz akşamları çok gürültülüdür.", chunks:["Das Schwein","ist","am Abend","sehr laut."], blankIdx:[1], blankOptions:["läuft","frisst","schläft"]}},
   {de:"das Ferkel",        tr:"domuz yavrusu",        h:"FERKEL → yavru domuz."},
   {de:"das Bauernhaus",    tr:"çiftlik evi",          h:"BAUER = çiftçi + HAUS = ev → çiftçinin evi"},
   {de:"die Obstbäume",     tr:"meyve ağaçları",       h:"OBST = meyve + BÄUME (Baum'un çoğulu) = ağaçlar → meyve ağaçları"},
-  {de:"die Weide",         tr:"mera / otlak",         h:"WEIDE → hayvanların otladığı çayır (weiden = otlamak fiiliyle aynı kök)"},
+  {de:"die Weide",         tr:"mera / otlak",         h:"WEIDE → hayvanların otladığı çayır (weiden = otlamak fiiliyle aynı kök)",
+    s:{tr:"Atlar merada koşuyor.", chunks:["Die Pferde","laufen","auf der Weide."], blankIdx:[1], blankOptions:["schlafen","essen","stehen"]}},
   {de:"der Bienenstock",   tr:"arı kovanı",           h:"BIENE = arı + STOCK = kütük → arıların yaşadığı kütük = kovan"},
   {de:"die Bäuerin",       tr:"çiftçi kadın",         h:"BAUER + -in = BÄUERIN, kadın form umlaut alır."},
   {de:"der Holzhaufen",    tr:"odun yığını",          h:"HOLZ = odun + HAUFEN = yığın → odun yığını"},
-  {de:"die Axt",           tr:"balta",                h:"AXT ≈ axe → A-X-T / A-X-E çok yakın ✓"},
+  {de:"die Axt",           tr:"balta",                h:"AXT ≈ axe → A-X-T / A-X-E çok yakın ✓",
+    s:{tr:"Çiftçi baltayla odun keser.", chunks:["Der Bauer","schneidet","mit der Axt","Holz."], blankIdx:[1], blankOptions:["sammelt","trägt","sucht"]}},
   {de:"der Hackklotz",     tr:"kütük (odun kesme)",   h:"HACKEN = kesmek/doğramak + KLOTZ = kütük → odun kesilen kütük"},
   {de:"der Schubkarren",   tr:"el arabası",           h:"SCHIEBEN = itmek + KARREN = araba → itilen araba"},
   {de:"das Hoftor",        tr:"çiftlik kapısı",       h:"HOF = avlu + TOR = kapı → avlu kapısı"},
-  {de:"der Traktor",       tr:"traktör",              h:"TRAKTOR ≈ tractor → Türkçe 'traktör' ile neredeyse aynı ✓"},
+  {de:"der Traktor",       tr:"traktör",              h:"TRAKTOR ≈ tractor → Türkçe 'traktör' ile neredeyse aynı ✓",
+    s:{tr:"Babam traktörle tarlaya gider.", chunks:["Mein Vater","fährt","mit dem Traktor","auf das Feld."], blankIdx:[1], blankOptions:["geht","läuft","reitet"]}},
   {de:"die Sense",         tr:"tırpan",               h:"SENSE → Almanca özgün, ot biçme aleti."},
   {de:"der Pflug",         tr:"saban / pulluk",       h:"PFLUG ≈ plough/plow → ses benzerliği"},
 ]}
@@ -1626,6 +1672,14 @@ const CATS = {
 
 // Grup bitince gösterilen kategori paragrafları (kelime örnek cümleleriyle aynı mantık: elle yazılmış, A1 seviyesi)
 const CAT_PARAGRAPH = {
+"Çiftlik":{
+  text:"Meine Familie hat einen Bauernhof. Wir haben viele Tiere: eine Kuh, drei Schafe und zwei Pferde. Am Morgen füttere ich die Tiere auf der Weide. Das kleine Lamm ist sehr süß, aber das Schwein ist sehr laut! Mein Vater fährt jeden Tag mit dem Traktor auf das Feld. Am Abend sind alle Tiere müde, und ich auch.",
+  questions:[
+    {q:'Çiftlikte kaç at var?', options:['İki','Üç','Bir'], correct:'İki'},
+    {q:'Yazara göre hangi hayvan çok gürültülü?', options:['Domuz','Kuzu','İnek'], correct:'Domuz'},
+    {q:'Baba her gün traktörle nereye gidiyor?', options:['Tarlaya','Şehre','Okula'], correct:'Tarlaya'}
+  ]
+},
 "Hobiler":{
   text:"Am Wochenende treffe ich meine Freunde im Park. Wir fahren gern Fahrrad und gehen dann ins Schwimmbad. Meine Freundin Anna schwimmt sehr gut, aber ich tauche lieber. Die Leute im Schwimmbad sind immer nett. Am liebsten bleiben wir bis zum Abend dort.",
   questions:[
@@ -1753,7 +1807,7 @@ const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
   'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen',
-  'yazmaListScreen','yazmaScreen','yazmaDoneScreen'];
+  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','wordSearchScreen','wordSearchDoneScreen'];
 
 let curScreen='homeScreen';
 
@@ -1788,11 +1842,14 @@ function hdrBackGo(){
 // Haftalık Plan — her hafta elle güncellenir (statik veri), o haftaki her gün için beceri etiketli görev(ler).
 // Tıklanan görev doğrudan ilgili bölüme götürür. "today" ISO tarihiyle eşleşen gün yeşil vurgulanır.
 const WEEKLY_PLAN = [
-  {iso:'2026-07-27', label:'27 Temmuz — Pazartesi', tasks:[
+  {iso:'2026-07-27', label:'27 Temmuz — Pazartesi · Konu: Çiftlik', tasks:[
+    {tag:'vocab', tagLabel:'🧠 Kelime', text:'"Çiftlik" kategorisini Öğrenme Modu\'nda çalış (grup bitince otomatik okuma parçası + test çıkar)', fn:"goCatSelect('learn','Çiftlik')"},
+    {tag:'puzzle', tagLabel:'🧩 Bulmaca', text:'Kelime Avı\'nda çiftlik kelimelerini harf tablosunda bul', fn:"startWordSearch('Çiftlik')"},
     {tag:'write', tagLabel:'✍️ Yazma', text:'"Kendimi Tanıtıyorum" metnini Yazma Egzersizi\'nde tamamla', fn:'openYazmaList()'},
   ]},
   {iso:'2026-07-28', label:'28 Temmuz — Salı', tasks:[
-    {tag:'vocab', tagLabel:'🧠 Kelime', text:'Yeni "Çiftlik" kategorisini Öğrenme Modu\'nda çalış', fn:"goCatSelect('learn','Çiftlik')"},
+    {tag:'review', tagLabel:'🩹 Tekrar', text:'Çiftlik kelimelerini Zayıf Kelimelerim ile tazele', fn:'startReview()'},
+    {tag:'game', tagLabel:'🎮 Oyun', text:'Eşleştirme Oyunu\'nda "Çiftlik" kategorisiyle rekor dene', fn:"goCatSelect('game','Çiftlik')"},
   ]},
   {iso:'2026-07-29', label:'29 Temmuz — Çarşamba', tasks:[
     {tag:'read', tagLabel:'📖 Okuma', text:'Günün Çalışması\'nı aç, paragrafı oku', fn:'openYSHub()'},
@@ -1805,7 +1862,7 @@ const WEEKLY_PLAN = [
     {tag:'write', tagLabel:'✍️ Yazma', text:'Yazma Egzersizi\'nde kalan parçaları bitir, tekrar dene', fn:'openYazmaList()'},
   ]},
   {iso:'2026-08-01', label:'1 Ağustos — Cumartesi', tasks:[
-    {tag:'game', tagLabel:'🎮 Oyun', text:'Eşleştirme Oyunu\'nda "Çiftlik" kategorisiyle rekor dene', fn:"goCatSelect('game','Çiftlik')"},
+    {tag:'game', tagLabel:'🎮 Oyun', text:'Eşleştirme Oyunu\'nda "Hepsi" ile genel tekrar rekoru dene', fn:"goCat('game')"},
   ]},
   {iso:'2026-08-02', label:'2 Ağustos — Pazar', tasks:[
     {tag:'grammar', tagLabel:'📚 Gramer', text:'Hızlı Test ile haftayı özetle', fn:'startHizliTest()'},
@@ -1827,6 +1884,12 @@ function renderWeeklyPlan(){
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'27 Temmuz 2026 (2. güncelleme)', items:[
+    '🧩 "Kelime Avı" bulmacası eklendi → Ana ekran / "🗺️ Keşif" bölümü (Eşleştirme Oyunu\'nun yanı). Şimdilik sadece "Çiftlik" kelimeleriyle (12 kelime); Türkçe anlamı görüp Almancasını harf tablosunda buluyorsun.',
+    '📖 "Çiftlik" kategorisine okuma parçası + 3 anlama sorusu eklendi → Öğrenme Modu\'nda Çiftlik kelimelerini bitirince otomatik çıkıyor (ekstra bir yere gitmen gerekmiyor).',
+    '✍️ 8 Çiftlik kelimesine (Pferd, Kuh, Schaf, Schwein, Lamm, Traktor, Weide, Axt) cümle kurma/boşluk doldurma alıştırması eklendi → yine Öğrenme Modu içinde otomatik devreye giriyor.',
+    '📅 Haftalık Plan\'ın bugünkü (27 Temmuz) satırı güncellendi: Kelime + Bulmaca + Yazma görevleri hepsi bugüne kondu.',
+  ]},
   {date:'27 Temmuz 2026', items:[
     'Bu "Yenilikler" bölümü eklendi (ana ekranın en altı) — bundan sonra yapılan her değişiklik burada, tarih + hangi bölümde olduğu belirtilerek listelenecek.',
     '🐄 "Çiftlik" kelime kategorisi eklendi (21 kelime: at, inek, koyun, traktör, tırpan...) → Kelime Listesi, Öğrenme Modu, Eşleştirme Oyunu ve Zayıf Kelimelerim\'de otomatik olarak görünüyor, kategori seçiminde çıkıyor.',
@@ -4497,6 +4560,133 @@ document.addEventListener('DOMContentLoaded',()=>{
   const yzi=document.getElementById('yazmaInput');
   if(yzi) yzi.addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key==='Enter') checkYazma(); });
 });
+
+// ══════════════════════════════════════════
+//  KELİME AVI (bulmaca) — genel motor, herhangi bir kelime listesiyle çalışır
+//  Türkçe ipucu gösterilir (Almancası değil) — hatırlama + bulma pratiği.
+//  İçerik statik (WORD_SEARCH_PUZZLES), yerleştirme algoritması otomatik/rastgele.
+// ══════════════════════════════════════════
+const WORD_SEARCH_PUZZLES = {
+  'Çiftlik': { title:'🐄 Çiftlik Kelime Avı', size:12, words:[
+    {de:'PFERD',tr:'at'}, {de:'KUH',tr:'inek'}, {de:'SCHAF',tr:'koyun'}, {de:'SCHWEIN',tr:'domuz'},
+    {de:'LAMM',tr:'kuzu'}, {de:'KALB',tr:'dana / buzağı'}, {de:'STIER',tr:'boğa'}, {de:'TRAKTOR',tr:'traktör'},
+    {de:'AXT',tr:'balta'}, {de:'PFLUG',tr:'saban / pulluk'}, {de:'SENSE',tr:'tırpan'}, {de:'WEIDE',tr:'mera / otlak'},
+  ]},
+};
+
+function wsPlaceWords(words,size){
+  const grid=Array.from({length:size},()=>Array(size).fill(null));
+  const dirs=[[0,1],[1,0],[1,1],[1,-1],[0,-1],[-1,0],[-1,-1],[-1,1]];
+  const order=[...words].sort((a,b)=>b.de.length-a.de.length);
+  const placed=[];
+  order.forEach(w=>{
+    const letters=w.de.split('');
+    const len=letters.length;
+    let ok=false;
+    for(let attempt=0; attempt<400 && !ok; attempt++){
+      const [dr,dc]=dirs[Math.floor(Math.random()*dirs.length)];
+      const r=Math.floor(Math.random()*size), c=Math.floor(Math.random()*size);
+      const er=r+dr*(len-1), ec=c+dc*(len-1);
+      if(er<0||er>=size||ec<0||ec>=size) continue;
+      let conflict=false;
+      for(let i=0;i<len;i++){
+        const rr=r+dr*i, cc=c+dc*i;
+        if(grid[rr][cc] && grid[rr][cc]!==letters[i]){ conflict=true; break; }
+      }
+      if(conflict) continue;
+      for(let i=0;i<len;i++){ grid[r+dr*i][c+dc*i]=letters[i]; }
+      placed.push({de:w.de, tr:w.tr, found:false});
+      ok=true;
+    }
+  });
+  const fillLetters='ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ'.split('');
+  for(let r=0;r<size;r++) for(let c=0;c<size;c++){
+    if(!grid[r][c]) grid[r][c]=fillLetters[Math.floor(Math.random()*fillLetters.length)];
+  }
+  return {grid,placed};
+}
+
+let wsCatName=null, wsGridData=[], wsPlaced=[], wsFoundCount=0, wsStart=null;
+
+function startWordSearch(catName){
+  const puzzle=WORD_SEARCH_PUZZLES[catName];
+  if(!puzzle) return;
+  wsCatName=catName;
+  const {grid,placed}=wsPlaceWords(puzzle.words,puzzle.size);
+  wsGridData=grid; wsPlaced=placed; wsFoundCount=0; wsStart=null;
+  document.getElementById('wsTitle').textContent=puzzle.title;
+  renderWsClues();
+  renderWsGrid();
+  showScreen('wordSearchScreen');
+  setHeader('🧩 Kelime Avı',false);
+}
+
+function renderWsClues(){
+  document.getElementById('wsClues').innerHTML = wsPlaced.map((w,i)=>
+    '<div class="ws-clue" id="wsClue'+i+'"><span class="ws-clue-tr">'+w.tr+'</span><span class="ws-clue-de">'+w.de+'</span></div>').join('');
+}
+
+function renderWsGrid(){
+  const el=document.getElementById('wsGrid');
+  const size=wsGridData.length;
+  el.style.gridTemplateColumns='repeat('+size+',1fr)';
+  el.innerHTML='';
+  for(let r=0;r<size;r++){
+    for(let c=0;c<size;c++){
+      const d=document.createElement('div');
+      d.className='ws-cell';
+      d.textContent=wsGridData[r][c];
+      d.dataset.r=r; d.dataset.c=c;
+      d.onclick=()=>wsCellClick(r,c,d);
+      el.appendChild(d);
+    }
+  }
+}
+
+function wsCellEl(r,c){ return document.querySelector('#wsGrid .ws-cell[data-r="'+r+'"][data-c="'+c+'"]'); }
+
+function wsCellClick(r,c,el){
+  if(!wsStart){
+    wsStart={r,c,el};
+    el.classList.add('ws-sel');
+    return;
+  }
+  const sr=wsStart.r, sc=wsStart.c;
+  wsStart.el.classList.remove('ws-sel');
+  if(sr===r && sc===c){ wsStart=null; return; }
+  const dr=r-sr, dc=c-sc;
+  const steps=Math.max(Math.abs(dr),Math.abs(dc));
+  const validLine = (dr===0||dc===0||Math.abs(dr)===Math.abs(dc));
+  wsStart=null;
+  if(!validLine) return;
+  const udr=dr===0?0:dr/steps, udc=dc===0?0:dc/steps;
+  const path=[];
+  for(let i=0;i<=steps;i++) path.push({r:sr+udr*i,c:sc+udc*i});
+  const letters=path.map(p=>wsGridData[p.r][p.c]).join('');
+  const rev=letters.split('').reverse().join('');
+  let matchIdx=-1;
+  wsPlaced.forEach((w,i)=>{ if(!w.found && (w.de===letters||w.de===rev)) matchIdx=i; });
+  if(matchIdx>=0){
+    wsPlaced[matchIdx].found=true;
+    path.forEach(p=>{ const ce=wsCellEl(p.r,p.c); if(ce) ce.classList.add('ws-found'); });
+    document.getElementById('wsClue'+matchIdx).classList.add('done');
+    wsFoundCount++;
+    tick(true,4);
+    feedbackFx(true, document.getElementById('wsClue'+matchIdx));
+    if(wsFoundCount>=wsPlaced.length) setTimeout(showWsDone,500);
+  } else {
+    path.forEach(p=>{
+      const ce=wsCellEl(p.r,p.c);
+      if(ce){ ce.classList.add('ws-wrong'); setTimeout(()=>ce.classList.remove('ws-wrong'),350); }
+    });
+  }
+}
+
+function showWsDone(){
+  document.getElementById('wsDoneSub').textContent = wsPlaced.length+' kelimenin hepsini buldun!';
+  showScreen('wordSearchDoneScreen');
+  for(let i=0;i<60;i++) setTimeout(rainP,i*25);
+}
 
 // Başlangıç
 showScreen('homeScreen');
