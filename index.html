@@ -769,10 +769,27 @@ header{
       <div class="mc-sub">Her zaman Dativ · kocaman + akılda kalıcı</div>
     </div>
     <div class="mode-card col-red" onclick="openSlideDeck('akkusativ')">
-      <span class="mc-badge-new">YENİ</span>
       <div class="mc-icon">🎯</div>
       <div class="mc-title">Akkusativ Edatları</div>
       <div class="mc-sub">Her zaman Akkusativ · slayt anlatım</div>
+    </div>
+    <div class="mode-card col-green" onclick="openSlideDeck('konnektoren')">
+      <span class="mc-badge-new">A2 · YENİ</span>
+      <div class="mc-icon">🔗</div>
+      <div class="mc-title">weil, denn, dann, deshalb</div>
+      <div class="mc-sub">En çok karıştırılan bağlaçlar</div>
+    </div>
+    <div class="mode-card col-purple" onclick="openSlideDeck('trennbar2')">
+      <span class="mc-badge-new">A2 · YENİ</span>
+      <div class="mc-icon">✂️</div>
+      <div class="mc-title">Ayrılabilen Fiiller (Derin)</div>
+      <div class="mc-sub">Şimdiki zaman · Perfekt · modal ile</div>
+    </div>
+    <div class="mode-card col-blue" onclick="openSlideDeck('futur')">
+      <span class="mc-badge-new">A2 · YENİ</span>
+      <div class="mc-icon">🚀</div>
+      <div class="mc-title">Futur I (Gelecek Zaman)</div>
+      <div class="mc-sub">werde + mastar · gerçekte ne zaman kullanılır</div>
     </div>
   </div>
 
@@ -2165,6 +2182,11 @@ function renderWeeklyPlan(){
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'12 Ağustos 2026 — A2 seviyesi açıldı', items:[
+    '🅰️2 İlk A2 içeriği eklendi: "weil vs. denn vs. dann/deshalb" ve "Futur I (Gelecek Zaman)" → Ana ekran / "📚 Gramer Konuları" listesinde görünüyor (kural kartı + 5 soruluk test, mevcut A1 konularıyla aynı formatta).',
+    '🎬 3 yeni animasyonlu slayt destesi → Ana ekran / "🎬 Animasyonlu Slaytlar": weil/denn/dann/deshalb, Ayrılabilen Fiiller (derin — şimdiki zaman/Perfekt/modal ile 3 farklı davranış), Futur I (ve günlük konuşmada aslında ne zaman kullanıldığı).',
+    '📌 Bu yeni konular kartlarda "A2" etiketiyle işaretli, A1 konularından ayırt edilebiliyor.',
+  ]},
   {date:'27 Temmuz 2026 (5. güncelleme) — Yeni tasarım + oyunlar', items:[
     '☀️ Uygulama baştan sona yeni "gün batımı" tasarımına geçti — sıcak renkler, yuvarlak Fredoka yazı tipi, tıklaması tatmin edici blok butonlar. Daha eğlenceli ve mutlu bir görünüm.',
     '🎭 "Noldu? Sahne Oyunu" eklendi → Ana ekran / Keşif bölümü. Sahnede bir olay canlanıyor (adam düşüyor 🤸), Almanca fiili görüp dinliyorsun (fällt), Türkçesi altında, sonra hatırlama sorusu.',
@@ -3483,6 +3505,52 @@ const GRAMER_TOPICS = [
       {sent:'Wir ___ in Berlin.',blank:'waren',opts:['waren','sind','war','sein'],tr:'Biz Berlin\'deydik.',exp:'wir + sein (Präteritum) → waren'},
       {sent:'Du ___ sehr müde.',blank:'warst',opts:['warst','bist','war','waren'],tr:'Sen çok yorgunduydun.',exp:'du + sein (Präteritum) → warst'},
       {sent:'Sie (çoğul) ___ keine Zeit.',blank:'hatten',opts:['hatten','haben','hatte','hattet'],tr:'Onların vakti yoktu.',exp:'sie (çoğul) + haben (Präteritum) → hatten'},
+    ]
+  },
+  {
+    id:'weil',
+    title:'A2 · weil vs. denn vs. dann',
+    emoji:'🔗',
+    desc:'Çünkü/sonra bağlaçları — fiil nereye gider?',
+    rule:`<span class="r-tip">🔗 Üçü de "çünkü / sonra" ailesinden ama FİİLİ FARKLI YERE koyarlar!</span>
+<span class="r-head">weil — çünkü (fiil SONA kaçar)</span>
+<span class="r-eg">Ich bleibe zu Hause, weil ich <b>krank bin</b>.</span>
+<span class="r-eg">Er lernt Deutsch, weil er in Berlin <b>arbeitet</b>.</span>
+<span class="r-warn">🏃 weil = Nebensatz (yan cümle) bağlacı. Fiil cümlenin TAM SONUNA gider — normal sırayı unut!</span>
+<span class="r-head">denn — çünkü (fiil YERİNDE kalır)</span>
+<span class="r-eg">Ich bleibe zu Hause, denn ich <b>bin</b> krank.</span>
+<span class="r-tip">⚖️ denn = weil ile AYNI anlam ama sıralama hiç değişmez. Emin değilsen <b>denn</b> kullan, hata yapma riski daha az!</span>
+<span class="r-head">dann / deshalb — sonra / bu yüzden</span>
+<span class="r-eg">Ich esse, dann <b>gehe</b> ich ins Bett.</span>
+<span class="r-eg">Es regnet, deshalb <b>nehme</b> ich den Bus.</span>
+<span class="r-tip">👉 dann/deshalb cümle başına geçerse Kral&Soytarı kuralı işler: fiil yine 2. sırada kalır, özne 3.'e kayar.</span>`,
+    qs:[
+      {sent:'Ich bleibe zu Hause, weil ich krank ___.',blank:'bin',opts:['bin','ist','bist','sind'],tr:'Evde kalıyorum çünkü hastayım.',exp:'weil → fiil cümle sonuna gider: krank bin'},
+      {sent:'Ich bleibe zu Hause, denn ich ___ krank.',blank:'bin',opts:['bin','krank','ist','habe'],tr:'Evde kalıyorum, çünkü hastayım.',exp:'denn → fiil YERİNDE kalır: ich bin krank (sıra değişmez)'},
+      {sent:'Er lernt Deutsch, weil er in Berlin ___.',blank:'arbeitet',opts:['arbeitet','arbeite','arbeiten','arbeitest'],tr:'Almanca öğreniyor çünkü Berlin\'de çalışıyor.',exp:'weil → fiil sona gider: er arbeitet → ...arbeitet'},
+      {sent:'Es regnet, ___ nehme ich den Bus.',blank:'deshalb',opts:['deshalb','weil','denn','dass'],tr:'Yağmur yağıyor, bu yüzden otobüse biniyorum.',exp:'"bu yüzden" = deshalb (dann gibi davranır, fiil 2. sırada)'},
+      {sent:'Ich esse, ___ gehe ich ins Bett.',blank:'dann',opts:['dann','weil','denn','deshalb'],tr:'Yemek yiyorum, sonra yatağa gidiyorum.',exp:'"sonra" = dann; başa geçince fiil yine 2. sırada (gehe), özne 3.\'e kayar (ich)'},
+    ]
+  },
+  {
+    id:'futur',
+    title:'A2 · Futur I (Gelecek Zaman)',
+    emoji:'🚀',
+    desc:'werde + Infinitiv — ve ne zaman GERÇEKTEN kullanılır',
+    rule:`<span class="r-tip">🚀 Futur I = <b>werden</b> (2. sıra) + <b>Infinitiv/mastar</b> (cümle SONU)</span>
+<table class="r-table"><tr><th>Kişi</th><th>werden</th><th>Kişi</th><th>werden</th></tr>
+<tr><td>ich</td><td><b>werde</b></td><td>wir</td><td><b>werden</b></td></tr>
+<tr><td>du</td><td><b>wirst</b></td><td>ihr</td><td><b>werdet</b></td></tr>
+<tr><td>er/sie/es</td><td><b>wird</b></td><td>sie/Sie</td><td><b>werden</b></td></tr></table>
+<span class="r-eg">Ich <b>werde</b> ihr ein Buch <b>kaufen</b>. · Es <b>wird</b> morgen <b>regnen</b>.</span>
+<span class="r-warn">⚠️ ÖNEMLİ: Almanlar günlük konuşmada gelecek için genelde Futur I DEĞİL, PRÄSENS + zaman zarfı kullanır!<br>"Ich fahre <b>morgen</b> nach Berlin." = "Yarın Berlin'e gidiyorum/gideceğim" — Futur I şart değil.</span>
+<span class="r-tip">🎯 Futur I gerçekten şu ikisinde kullanılır: <b>TAHMİN</b> ("Es wird regnen" = Sanırım yağmur yağacak) ve <b>SÖZ VERME</b> ("Ich werde dir helfen!" = Sana yardım edeceğim, söz!)</span>`,
+    qs:[
+      {sent:'Ich ___ ihr ein Buch kaufen.',blank:'werde',opts:['werde','wirst','wird','werden'],tr:'Ona bir kitap alacağım.',exp:'ich + werden → werde'},
+      {sent:'Es ___ morgen regnen.',blank:'wird',opts:['wird','werde','wirst','werden'],tr:'Yarın yağmur yağacak (tahmin).',exp:'es + werden → wird'},
+      {sent:'Du ___ das schaffen!',blank:'wirst',opts:['wirst','wird','werde','werdet'],tr:'Sen bunu başaracaksın!',exp:'du + werden → wirst'},
+      {sent:'Wir ___ nächstes Jahr nach Spanien fahren.',blank:'werden',opts:['werden','werdet','wird','wirst'],tr:'Gelecek yıl İspanya\'ya gideceğiz.',exp:'wir + werden → werden'},
+      {sent:'Ich fahre ___ nach Berlin. (Präsens ile gelecek anlatımı)',blank:'morgen',opts:['morgen','gestern','jetzt','oft'],tr:'Yarın Berlin\'e gidiyorum.',exp:'Konuşma dilinde gelecek çoğu zaman Präsens + zaman zarfı ile anlatılır: morgen = yarın'},
     ]
   },
   {
@@ -5021,6 +5089,75 @@ const SLIDE_DECKS = {
       {type:'outro', kicker:'Ezber Cümlesi', big:'Hepsi AKKUSATİV',
        mean:'DURCH · FÜR · GEGEN · OHNE · UM · BIS · ENTLANG',
        story:'Ritimle söyle:<br><br><span class="hl">durch-für-gegen-ohne-um-bis</span> (+entlang).<br><br>Bunları gördüğün an: <b>der → den olur.</b> 🎯'},
+    ]
+  },
+  konnektoren: {
+    title:'🔗 A2 · weil, denn, dann, deshalb', accent:'linear-gradient(135deg,#5FA82E,#3d7018)',
+    slides:[
+      {type:'intro', kicker:'Altın Kural', big:'weil ≠ denn', mean:'İkisi de "çünkü" demek ama fiili FARKLI yere koyarlar. En çok karıştırılan A2 konusu!',
+       story:'Kısa yol: <span class="hl">weil kaçar, denn kalır, dann döner.</span><br><br>Bu 4 kelimeyi bir arada öğren: weil, denn, dann, deshalb.'},
+      {big:'WEIL', mean:'çünkü — fiil CÜMLENİN SONUNA kaçar',
+       egs:['Ich bleibe zu Hause, weil ich <b>krank bin</b>.','Er lernt Deutsch, weil er in Berlin <b>arbeitet</b>.'],
+       tip:'🏃 weil bir Nebensatz (yan cümle) bağlacıdır. Onu gördüğün an fiili ara cümlenin en sonunda!'},
+      {big:'DENN', mean:'çünkü — fiil YERİNDEN KIPIRDAMAZ (2. sırada kalır)',
+       egs:['Ich bleibe zu Hause, denn ich <b>bin</b> krank.','Er lernt Deutsch, denn er <b>arbeitet</b> in Berlin.'],
+       tip:'⚖️ denn = weil ile birebir aynı anlam. Emin değilsen DENN kullan — sıralamayı hiç bozmaz, hata riski daha düşük!'},
+      {big:'DANN', mean:'sonra / o zaman — özel bağlaç değil, sıradan bir zarf',
+       egs:['Ich esse, dann <b>gehe</b> ich ins Bett.','Zuerst arbeite ich, dann <b>rufe</b> ich dich an.'],
+       tip:'👉 dann cümle başına geçerse: Kral&Soytarı kuralı işler, fiil 2. sırada kalır ama özne 3.\'e kayar.'},
+      {big:'DESHALB', mean:'bu yüzden / o nedenle — sonuç bildirir',
+       egs:['Ich bin krank, deshalb <b>bleibe</b> ich zu Hause.','Es regnet, deshalb <b>nehme</b> ich den Bus.'],
+       tip:'🎯 deshalb tıpkı dann gibi davranır: başta durursa fiil yine 2. sırada, özne 3.\'e kayar.'},
+      {type:'outro', kicker:'Ezber Cümlesi', big:'weil kaçar, dann döner',
+       mean:'weil → fiil SONA · denn/dann/deshalb → fiil 2. SIRADA',
+       story:'Tek cümlede hatırla:<br><br><span class="hl">weil</span> fiili SÜRGÜNE gönderir (cümle sonu).<br><span class="hl">denn</span> fiili YERİNDE bırakır.<br><span class="hl">dann/deshalb</span> başa geçse bile fiil hep 2. sırada kalır, sadece özne yer değiştirir. 🎯'},
+    ]
+  },
+  trennbar2: {
+    title:'✂️ A2 · Ayrılabilen Fiiller (Derin)', accent:'linear-gradient(135deg,#8B5CF6,#5b3aa8)',
+    slides:[
+      {type:'intro', kicker:'Fiil ikiye bölünür', big:'AUF|STEHEN', mean:'Önek (Präfix) fırlar, cümlenin TAM SONUNA oturur.',
+       story:'Şimdi 3 durumu göreceksin: <span class="hl">şimdiki zaman</span>, <span class="hl">Perfekt (geçmiş)</span>, <span class="hl">modal fiille</span>. Hepsinde önek farklı davranır!'},
+      {big:'Ich stehe AUF', mean:'Şimdiki zamanda: önek cümlenin sonuna gider',
+       egs:['Ich <b>stehe</b> um 7 Uhr <b>auf</b>.','Er <b>ruft</b> seine Mutter <b>an</b>.'],
+       tip:'✂️ Fiil ikiye bölündü: STEHE (çekimli kısım, 2. sırada) + AUF (önek, en sonda).'},
+      {big:'AUFgeSTANDEN', mean:'Perfekt\'te: ge- ORTAYA girer, önek+ge+kök birleşik yazılır',
+       egs:['Ich bin um 7 Uhr <b>aufgestanden</b>.','Er hat seine Mutter <b>angerufen</b>.'],
+       tip:'⚠️ ge harfi öneğin HEMEN ARDINDAN gelir: AUF-GE-STANDEN. Asla "GE-aufstanden" değil!'},
+      {big:'...AUFSTEHEN', mean:'Modal fiille (muss/will/kann): fiil birleşik mastar olarak SONA gider',
+       egs:['Ich <b>muss</b> um 7 Uhr <b>aufstehen</b>.','Er <b>will</b> seine Mutter <b>anrufen</b>.'],
+       tip:'🔗 Modal fiil varken önek ARTIK AYRILMAZ — bütün fiil (aufstehen) tek parça halinde cümle sonuna gider.'},
+      {big:'be-/ver-/ent- AYRILMAZ', mean:'Bazı önekler HİÇ ayrılmaz — bunlar farklı bir aile',
+       egs:['Ich <b>verstehe</b> das nicht. (ver- ayrılmaz)','Er <b>bekommt</b> ein Geschenk. (be- ayrılmaz)'],
+       tip:'🚫 be-, ge-, er-, ver-, zer-, ent-, miss- önekleri hiç ayrılmaz, Perfekt\'te de ge- ALMAZLAR: verstanden (verGEstanden değil!).'},
+      {type:'outro', kicker:'Ezber Cümlesi', big:'Önek uçar, ge- araya girer',
+       mean:'Şimdiki zaman: önek SONDA · Perfekt: ge- ARADA · Modal ile: hepsi SONDA birleşik',
+       story:'3 kural, 1 mantık: <span class="hl">ayrılabilen önek her zaman en sona doğru çekilir</span> — ister yalnız gitsin (auf), ister ge- ile birleşsin (aufgestanden), ister bütün fiille gitsin (aufstehen). 🎯'},
+    ]
+  },
+  futur: {
+    title:'🚀 A2 · Futur I (Gelecek Zaman)', accent:'linear-gradient(135deg,#2EC4B6,#1a8f84)',
+    slides:[
+      {type:'intro', kicker:'Çerçeve Yapı', big:'werde...+Infinitiv', mean:'werden (2. sırada) + mastar fiil (cümle SONUNDA) — bir çerçeve (Satzklammer) oluşur.',
+       story:'Ama en önemli sır bu değil — asıl önemlisi: Almanlar bunu <span class="hl">çoğu zaman kullanmıyor!</span> Devam et, göreceksin.'},
+      {big:'werde·wirst·wird', mean:'werden fiilinin çekimi (ich/du/er için)',
+       egs:['<b>Ich werde</b> ihr ein Buch kaufen.','<b>Du wirst</b> das schaffen!','<b>Es wird</b> morgen regnen.'],
+       tip:'📐 werde (ich) · wirst (du) · wird (er/sie/es) — düzensiz ama kısa, 3 kere tekrarla ezberlenir.'},
+      {big:'werden·werdet·werden', mean:'werden fiilinin çekimi (wir/ihr/sie için)',
+       egs:['<b>Wir werden</b> nach Spanien fahren.','<b>Ihr werdet</b> das Buch lesen.','<b>Sie werden</b> pünktlich kommen.'],
+       tip:'📐 wir/sie/Sie → werden (aynı) · ihr → werdet.'},
+      {big:'Mastar SONA gider', mean:'İkinci fiil (Infinitiv) her zaman cümlenin en sonunda',
+       egs:['Ich werde dir <b>helfen</b>.','Wir werden das Problem <b>lösen</b>.'],
+       tip:'🎯 werde...machen gibi düşün: tıpkı modal fiiller (muss...machen) gibi bir çerçeve kurar.'},
+      {big:'ASIL SIR', mean:'Günlük konuşmada gelecek genelde Futur I DEĞİL, Präsens + zaman zarfıyla anlatılır!',
+       egs:['"Ich <b>fahre morgen</b> nach Berlin." = Yarın Berlin\'e gidiyorum/gideceğim.','"Wir <b>sehen uns nächste Woche</b>." = Gelecek hafta görüşürüz.'],
+       tip:'💡 morgen, nächste Woche gibi bir zaman kelimesi zaten "gelecek" olduğunu söylüyor — werden şart değil!'},
+      {big:'Futur I NE ZAMAN?', mean:'Sadece TAHMİN ederken veya SÖZ verirken kullanılır',
+       egs:['<b>Tahmin:</b> "Es wird regnen." = Sanırım yağmur yağacak.','<b>Söz:</b> "Ich werde dir helfen!" = Sana yardım edeceğim, söz!'],
+       tip:'🔮 Kendine sor: Tahmin mi ediyorum, söz mü veriyorum? Evetse → werden. Sadece plan/program ise → Präsens yeter.'},
+      {type:'outro', kicker:'Ezber Cümlesi', big:'Plan=Präsens, Tahmin=Futur',
+       mean:'Ich fahre morgen. (plan) · Es wird regnen. (tahmin)',
+       story:'Almanca gelecek zamanın sırrı: <span class="hl">çoğu zaman gelecek zamana bile ihtiyacın yok</span> — bir zaman kelimesi (morgen, nächste Woche) yeter. werden\'i sadece tahmin ve söz için sakla. 🎯'},
     ]
   },
 };
