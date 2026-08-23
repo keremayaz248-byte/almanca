@@ -1379,6 +1379,42 @@ header{
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
+<!-- KONU TEKRARI — YAZMA (slayttan sonra otomatik açılır) -->
+<div id="topicWriteScreen">
+  <div class="cat-top">
+    <h2 id="topicWriteTitle" style="font-size:1.1rem"></h2>
+    <button class="btn-home" onclick="openSlideDeck(twKey)">← Geri</button>
+  </div>
+  <div class="q-num" id="topicWriteQNum"></div>
+  <div class="sent-card">
+    <div class="sent-de" id="topicWriteTr" style="text-align:left;line-height:1.6"></div>
+  </div>
+  <textarea id="topicWriteInput" class="ys-input" style="width:100%;min-height:70px;resize:vertical;font-family:inherit;display:block" placeholder="Almancasını buraya yaz..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+  <button class="btn-check" id="topicWriteCheckBtn" onclick="checkTopicWrite()" style="margin-top:10px;width:100%">✓ Kontrol Et</button>
+  <div class="exp-box" id="topicWriteExp">
+    <div class="exp-title" id="topicWriteExpTitle"></div>
+    <div class="exp-why" id="topicWriteExpAnswer"></div>
+    <div class="exp-rule" id="topicWriteExpLogic"></div>
+    <div class="exp-rule" id="topicWriteExpMistake" style="background:var(--red-bg);border-color:var(--red);color:#8a1f1f;margin-top:8px;display:none"></div>
+  </div>
+  <button class="btn-next" id="topicWriteNext" onclick="topicWriteNextQ()">Sonraki →</button>
+</div>
+
+<!-- KONU TEKRARI — YAZMA BİTTİ -->
+<div id="topicWriteDoneScreen">
+  <div class="trophy">✍️</div>
+  <div class="done-title">Konu Tekrarı Tamam!</div>
+  <div class="done-sub" id="topicWriteDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="topicWriteDC">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="topicWriteDW">0</div><div class="dl">Yanlış</div></div>
+    <div class="ds"><div class="dv" id="topicWriteDP">0%</div><div class="dl">Başarı</div></div>
+  </div>
+  <button class="btn-replay" onclick="startTopicWrite(twKey)">Tekrar →</button>
+  <button class="btn-home" onclick="openSlideDeck(twKey)">🎬 Slaytı Tekrar İzle</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
+</div>
+
 <!-- 🎭 SAHNE HİKAYESİ OYUNU -->
 <div id="sceneScreen">
   <div class="cat-top">
@@ -2099,7 +2135,7 @@ const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
   'havbesScreen','havbesDoneScreen',
   'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen',
   'yazmaListScreen','yazmaScreen','yazmaDoneScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
-  'sceneScreen','sceneDoneScreen'];
+  'sceneScreen','sceneDoneScreen','topicWriteScreen','topicWriteDoneScreen'];
 
 let curScreen='homeScreen';
 
@@ -2108,7 +2144,7 @@ function showScreen(id){
   clearAutoNext();
   curScreen=id;
   ALL_SCREENS.forEach(s=>{ document.getElementById(s).style.display = s===id?'block':'none'; });
-  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen','yazmaScreen'].includes(id);
+  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen','yazmaScreen','topicWriteScreen'].includes(id);
   document.getElementById('progWrap').style.display = showProg?'block':'none';
   if(id==='homeScreen'){ setHeader('🇩🇪 Almanca', false); document.getElementById('headerStats').style.display='none'; renderHome(); }
   // Global geri butonu: ana ekran hariç her yerde görünür
@@ -2123,11 +2159,13 @@ function showScreen(id){
 const BACK_TO_HUB=['ysScreen','ysDoneScreen','havbesScreen','havbesDoneScreen','mcScreen','mcDoneScreen','ysRefScreen','paraScreen'];
 const BACK_TO_GRAMER=['gramerTopicScreen','gramerTestScreen','gramerTestDoneScreen'];
 const BACK_TO_YAZMA=['yazmaScreen','yazmaDoneScreen'];
+const BACK_TO_TOPICWRITE=['topicWriteScreen','topicWriteDoneScreen'];
 function hdrBackGo(){
   if(LESSON){ LESSON=null; goHome(); return; }  // ders akışındayken geri = dersi bırak
   if(BACK_TO_HUB.includes(curScreen)){ openYSHub(); return; }
   if(BACK_TO_GRAMER.includes(curScreen)){ showScreen('gramerScreen'); buildTopicGrid(); return; }
   if(BACK_TO_YAZMA.includes(curScreen)){ openYazmaList(); return; }
+  if(BACK_TO_TOPICWRITE.includes(curScreen)){ openSlideDeck(twKey); return; }
   goHome();
 }
 
@@ -2182,6 +2220,12 @@ function renderWeeklyPlan(){
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'23 Ağustos 2026 — A2 konularını yazarak pekiştirme', items:[
+    '✍️ 3 A2 konusunun (weil/denn/dann/deshalb, Futur I, Ayrılabilen Fiiller Derin) animasyonlu slaytını bitirince artık otomatik olarak "Yazarak Pekiştir" alıştırması açılıyor — önce kısa öğretim (slayt), hemen ardından o konuya özel 6\'şar cümlelik yazma testi.',
+    '📐 Her yanlış cevapta "Yazma Egzersizi" ile aynı format: doğru cümle + 📐 doğru mantık + ⚠️ muhtemel hata nedeni ayrı ayrı gösteriliyor.',
+    '⚠️ Cümleler bilinçli olarak en çok karıştırılan noktalara odaklandı: weil↔denn fiil sırası, dann/deshalb devrik sıra, Futur I\'de ayrılabilir fiilin mastarda birleşik kalması, trennbar/untrennbar önek farkı (verstehen/bekommen ge- almaz), ve iki kuralı birden test eden birleşik sorular.',
+    '🔁 Alıştırma bitince slaytı tekrar izleme veya yazma setini tekrar çözme seçeneği var.',
+  ]},
   {date:'12 Ağustos 2026 — A2 seviyesi açıldı', items:[
     '🅰️2 İlk A2 içeriği eklendi: "weil vs. denn vs. dann/deshalb" ve "Futur I (Gelecek Zaman)" → Ana ekran / "📚 Gramer Konuları" listesinde görünüyor (kural kartı + 5 soruluk test, mevcut A1 konularıyla aynı formatta).',
     '🎬 3 yeni animasyonlu slayt destesi → Ana ekran / "🎬 Animasyonlu Slaytlar": weil/denn/dann/deshalb, Ayrılabilen Fiiller (derin — şimdiki zaman/Perfekt/modal ile 3 farklı davranış), Futur I (ve günlük konuşmada aslında ne zaman kullanıldığı).',
@@ -5161,9 +5205,9 @@ const SLIDE_DECKS = {
     ]
   },
 };
-let slideDeck=null, slideIdx=0;
+let slideDeck=null, slideIdx=0, slideDeckKey=null;
 function openSlideDeck(key){
-  slideDeck=SLIDE_DECKS[key]; slideIdx=0;
+  slideDeck=SLIDE_DECKS[key]; slideIdx=0; slideDeckKey=key;
   document.getElementById('slideTitle').textContent=slideDeck.title;
   showScreen('slideScreen'); setHeader(slideDeck.title.split(' ')[0]+' Slayt',false);
   renderSlide();
@@ -5188,11 +5232,176 @@ function renderSlide(){
   nb.textContent=(slideIdx===slideDeck.slides.length-1)?'Bitir ✓':'İleri →';
 }
 function slideNext(){
-  if(slideIdx>=slideDeck.slides.length-1){ awardXP(5); goHome(); return; }
+  if(slideIdx>=slideDeck.slides.length-1){
+    awardXP(5);
+    if(TOPIC_WRITE[slideDeckKey]){ startTopicWrite(slideDeckKey); return; }
+    goHome(); return;
+  }
   slideIdx++; renderSlide();
 }
 function slidePrev(){ if(slideIdx>0){ slideIdx--; renderSlide(); } }
 function slideGo(i){ slideIdx=i; renderSlide(); }
+
+// ══════════════════════════════════════════
+//  KONU TEKRARI — YAZMA (slayt bitince otomatik açılır)
+//  Her A2 slayt destesinin arkasına o konuya özel yazma alıştırması eklenir.
+//  Kontrol mantığı Yazma Egzersizi ile birebir aynı (yzNorm, statik karşılaştırma) —
+//  tek fark: c.de tek string OYA dizi olabilir (birden fazla doğru sıralama kabul edilir).
+// ══════════════════════════════════════════
+const TOPIC_WRITE = {
+  konnektoren: { title:'🔗 weil/denn/dann/deshalb — Yazarak Pekiştir', questions:[
+    {tr:'"Evde kalıyorum, çünkü hastayım." Önce ana cümleyi yaz, sonra weil ile bağla (fiili cümlenin sonuna at).',
+     de:'Ich bleibe zu Hause, weil ich krank bin.',
+     logic:'weil bir Nebensatz (yan cümle) bağlacıdır — ondan sonraki çekimli fiil (bin), aradaki kelimelere bakmaksızın her zaman o parçanın en sonuna gider.',
+     mistake:'"weil ich bin krank" yazmak — fiili normal düz cümledeki yerinde (özneden hemen sonra) bırakmak, weil\'in fiili sona attığını unutmak.'},
+    {tr:'Aynı cümle: "Evde kalıyorum, çünkü hastayım." Bu sefer denn ile bağla — fiilin YERİNİ DEĞİŞTİRME.',
+     de:'Ich bleibe zu Hause, denn ich bin krank.',
+     logic:'denn bir Hauptsatz bağlacıdır (weil gibi değil): ondan sonra gelen cümle tamamen normal kalır, fiil (bin) yine 2. sırada durur.',
+     mistake:'weil alışkanlığıyla "denn ich krank bin" yazmak — denn\'den sonra fiili sona atmak, oysa denn hiçbir şeyi değiştirmez.'},
+    {tr:'"Yağmur yağıyor. Bu yüzden otobüse biniyorum." İki cümleyi deshalb ile birleştir — deshalb cümlenin EN BAŞINDA olsun.',
+     de:'Es regnet, deshalb nehme ich den Bus.',
+     logic:'deshalb cümle başına geçtiğinde Kral&Soytarı kuralı işler: fiil (nehme) yine 2. sırada kalmalı, özne (ich) fiilin arkasına, 3. sıraya kayar.',
+     mistake:'"deshalb ich nehme den Bus" yazmak — özneyi eski alışkanlıkla fiilden önce bırakmak, deshalb başa geçince öznenin fiilden SONRA gelmesi gerektiğini unutmak.'},
+    {tr:'"Önce yemek yiyorum, sonra yatağa gidiyorum." İki cümleyi dann ile birleştir — dann EN BAŞTA olsun.',
+     de:'Ich esse, dann gehe ich ins Bett.',
+     logic:'dann bağlaç değil sıradan bir zaman zarfıdır; başa geçtiğinde deshalb ile birebir aynı davranır: fiil (gehe) 2. sırada kalır, özne (ich) 3.\'e kayar.',
+     mistake:'"dann ich gehe ins Bett" yazmak — dann\'ı masum bir zarf değil de özneyi etkilemeyen bir kelime sanıp sırayı değiştirmemek.'},
+    {tr:'"Almanca öğreniyor, çünkü Berlin\'de çalışıyor." Ana cümleyi önce yaz, sonra weil ile bağla.',
+     de:'Er lernt Deutsch, weil er in Berlin arbeitet.',
+     logic:'weil\'den sonraki çekimli fiil (arbeitet), aradaki "in Berlin" gibi başka öğelere rağmen yine de mutlaka cümlenin en sonuna gider.',
+     mistake:'"weil er arbeitet in Berlin" yazmak — bağlacı doğru kullanıp cümlenin geri kalanını normal sırada bırakmak, fiili sona atmayı unutmak.'},
+    {tr:'"O gelmiyor, çünkü çalışmak zorunda." Ana cümleyi önce yaz, sonra weil ile bağla (İKİ fiil var: mastar + modal — çekimli olan EN SONA gider, mastarın bile arkasına).',
+     de:'Er kommt nicht, weil er arbeiten muss.',
+     logic:'weil cümlesinde mastar+modal ikilisi varsa, çekimli modal (muss) en sona gider, mastar (arbeiten) ondan önce durur — normal cümledeki "er muss arbeiten" sırası burada tersine döner.',
+     mistake:'"weil er muss arbeiten" yazmak — düz cümledeki modal+mastar sırasını olduğu gibi weil\'in içine taşımak, oysa weil içinde çekimli fiil mastarın bile arkasına, en sona geçmeli.'},
+  ]},
+  futur: { title:'🚀 Futur I — Yazarak Pekiştir', questions:[
+    {tr:'"Ona yardım edeceğim." (Bu bir SÖZ — werden ile yaz.)',
+     de:'Ich werde ihr helfen.',
+     logic:'werde (ich) + mastar (helfen) cümle sonunda bir çerçeve (Satzklammer) oluşturur; bu bir söz olduğu için Futur I tam yerinde kullanılır.',
+     mistake:'"Ich werde helfen ihr" yazmak — mastarı sona atmayı unutup ortada bırakmak, dativ nesneyi (ihr) yanlış sıraya koymak.'},
+    {tr:'"Yarın yağmur yağacak." (Bu bir TAHMİN — werden ile, özne es.)',
+     de:'Es wird morgen regnen.',
+     logic:'Hava durumu tahmini olduğu için Futur I doğal kullanım — "wird" (er/sie/es çekimi) + "regnen" mastarı cümle sonunda.',
+     mistake:'"Es werde regnen" (yanlış çekim, doğrusu wird) ya da mastarı sona atmayıp "Es wird regnen morgen" yazmak.'},
+    {tr:'"Erken kalkacağım." (werden ile yaz — aufstehen mastarken ASLA bölünmez, birleşik kalır.)',
+     de:'Ich werde früh aufstehen.',
+     logic:'Futur I\'de ikinci fiil her zaman mastar hâlinde kalır; ayrılabilir fiiller mastarken önek+kök birleşik yazılır (aufstehen), Präsens\'teki gibi ayrılmaz.',
+     mistake:'Präsens alışkanlığıyla "Ich werde früh auf stehen" ya da "Ich stehe werde früh auf" gibi öneği ayırmaya çalışmak — çünkü öğrenci bu fiili hep Präsens\'te ayrılmış görmüştür.'},
+    {tr:'"Yarın gelecek misin?" (werden ile SORU cümlesi kur — fiil en başa gitsin.)',
+     de:'Wirst du morgen kommen?',
+     logic:'Evet/Hayır sorularında çekimli fiil (wirst) cümlenin en başına geçer, özne hemen ardından gelir — normal cümledeki 2. sıra kuralının soru hâli.',
+     mistake:'"Du wirst morgen kommen?" yazıp sadece soru işaretiyle yetinmek — yazıda fiili başa taşıyan devrik sıra şart, tonlamayla soru yapmak yetmez.'},
+    {tr:'"Yarın gelmeyeceğim." (werden ile, olumsuz yap.)',
+     de:'Ich werde morgen nicht kommen.',
+     logic:'"nicht" mastarın (kommen) hemen önüne, çerçevenin son köşesine yerleşir: werde...nicht kommen.',
+     mistake:'"Ich werde nicht morgen kommen" yazmak — nicht\'i zaman zarfından önce, yanlış yere koymak; nicht genelde fiile en yakın öğenin hemen önünde durmalı.'},
+    {tr:'"Yarın Berlin\'e gidiyorum, bu kesinleşmiş bir plan." En doğal Almanca söylenişini yaz — ipucu: bu ne tahmin ne söz, werden KULLANMA!',
+     de:'Ich fahre morgen nach Berlin.',
+     logic:'Kesin planlanmış bir gelecek olayda Almanlar Futur I değil Präsens + zaman zarfı (morgen) kullanır — werden sadece tahmin/söz için saklanır.',
+     mistake:'Her "gelecek" cümlesini refleksle "werden" ile kurmaya çalışmak — Türkçedeki "-ecek" ekini görünce otomatik werden\'e sarılmak, oysa zaman zarfı (morgen) zaten geleceği anlatmaya yetiyor.'},
+  ]},
+  trennbar2: { title:'✂️ Ayrılabilen Fiiller (Derin) — Yazarak Pekiştir', questions:[
+    {tr:'"Saat 7\'de kalkıyorum." (Şimdiki zaman — aufstehen, öneği cümlenin sonuna at.)',
+     de:'Ich stehe um 7 Uhr auf.',
+     logic:'Präsens\'te ayrılabilir fiilin öneği (auf) fırlar ve cümlenin en sonuna oturur, çekimli kısım (stehe) 2. sırada kalır.',
+     mistake:'"Ich aufstehe um 7 Uhr" yazmak — fiili hiç bölmeden tek parça sanmak, İngilizce/Türkçe alışkanlığıyla önek+kökü ayırmamak.'},
+    {tr:'"Saat 7\'de kalktım." (Perfekt — aufstehen sein alır, ge- öneğin hemen arkasına girer.)',
+     de:'Ich bin um 7 Uhr aufgestanden.',
+     logic:'aufstehen bir durum değişimi fiili olduğu için Perfekt\'te sein alır; ge- eki öneğin (auf) hemen ardına, kökten önce girer: AUF-GE-STANDEN.',
+     mistake:'"Ich habe aufgestanden" (yanlış yardımcı fiil, sein gerekir) ya da "Ich bin geaufstanden" (ge\'yi en başa koymak) — ikisi de çok sık görülür.'},
+    {tr:'"Erken kalkmalıyım." (Modal müssen ile — aufstehen bu sefer BİRLEŞİK mastar olarak sona gidecek.)',
+     de:'Ich muss früh aufstehen.',
+     logic:'Modal fiil (muss) varken ayrılabilir fiil artık ayrılmaz, bütün mastar hâliyle (aufstehen) tek parça olarak cümlenin sonuna gider.',
+     mistake:'"Ich muss früh auf stehen" diye yine ayırmaya çalışmak, ya da "Ich stehe muss früh auf" gibi modali yanlış konuma koymak.'},
+    {tr:'"Bunu anlamıyorum." (verstehen — DİKKAT: bu fiil AYRILMAZ önekli bir fiildir!)',
+     de:'Ich verstehe das nicht.',
+     logic:'ver- ayrılmaz bir önektir (be-, ge-, er-, ver-, zer-, ent-, miss- ile birlikte) — verstehen hiçbir zaman "ver" ve "stehen" olarak ikiye bölünmez.',
+     mistake:'aufstehen kalıbıyla karıştırıp "Ich stehe das nicht ver" gibi öneği sona atmaya çalışmak — trennbar/untrennbar ayrımını bilmemenin en klasik hatası.'},
+    {tr:'"Dün bir hediye aldım." (bekommen — DİKKAT: bu da ayrılmaz önekli, Perfekt\'te ge- ALMAZ!)',
+     de:'Ich habe gestern ein Geschenk bekommen.',
+     logic:'be- ayrılmaz önek ailesindendir, bu yüzden Perfekt\'te normalde eklenen ge- öneki HİÇ eklenmez: bekommen → bekommen.',
+     mistake:'"Ich habe gestern ein Geschenk gebekommen" yazmak — her Perfekt fiiline otomatik ge- eklemeye çalışıp ayrılmaz öneklerin bu kuraldan muaf olduğunu unutmak.'},
+    {tr:'"Erken kalktığım için yorgunum." (weil ile bağla, ana cümleyi önce yaz — bu soru İKİ kuralı birden test ediyor: weil fiili sona atar VE aufstehen ayrılabilir.)',
+     de:'Ich bin müde, weil ich früh aufgestanden bin.',
+     logic:'weil cümlesinde çekimli fiil en sona gider — Perfekt olduğu için önce participle (aufgestanden, zaten önek+ge+kök birleşik), sonra yardımcı fiil (bin) en son sırada yer alır.',
+     mistake:'"weil ich bin früh aufgestanden" (çekimli fiili sona atmayı unutmak) ya da "weil ich früh auf bin gestanden" (ayrılabilir fiili yanlışlıkla bölmeye çalışmak).'},
+  ]},
+};
+
+let twKey=null, twIdx=0, twCorrect=0, twWrong=0, twAnswered=false, twChunks=[];
+
+function startTopicWrite(key){
+  twKey=key;
+  twChunks=TOPIC_WRITE[key].questions;
+  twIdx=0; twCorrect=0; twWrong=0; twAnswered=false;
+  showScreen('topicWriteScreen');
+  setHeader('✍️ Yazarak Pekiştir',false);
+  renderTopicWriteQ();
+}
+
+function renderTopicWriteQ(){
+  const c=twChunks[twIdx];
+  twAnswered=false;
+  document.getElementById('topicWriteTitle').textContent=TOPIC_WRITE[twKey].title;
+  document.getElementById('topicWriteQNum').textContent=(twIdx+1)+' / '+twChunks.length;
+  document.getElementById('topicWriteTr').textContent=c.tr;
+  const inp=document.getElementById('topicWriteInput');
+  inp.value=''; inp.className='ys-input'; inp.disabled=false;
+  document.getElementById('topicWriteCheckBtn').style.display='block';
+  document.getElementById('topicWriteExp').className='exp-box';
+  document.getElementById('topicWriteExpMistake').style.display='none';
+  document.getElementById('topicWriteNext').className='btn-next';
+  setProgress(Math.round(twIdx/twChunks.length*100), twIdx+' / '+twChunks.length);
+  setTimeout(()=>inp.focus(),50);
+}
+
+function checkTopicWrite(){
+  if(twAnswered)return;
+  const c=twChunks[twIdx];
+  const inp=document.getElementById('topicWriteInput');
+  if(!inp.value.trim())return;
+  twAnswered=true;
+  const accepted = Array.isArray(c.de) ? c.de : [c.de];
+  const ok = accepted.some(a=>yzNorm(inp.value)===yzNorm(a));
+  inp.className='ys-input '+(ok?'t-ok':'t-err');
+  inp.disabled=true;
+  document.getElementById('topicWriteCheckBtn').style.display='none';
+  const eb=document.getElementById('topicWriteExp');
+  eb.className='exp-box show '+(ok?'exp-ok':'exp-err');
+  document.getElementById('topicWriteExpTitle').className='exp-title '+(ok?'exp-c':'exp-w');
+  document.getElementById('topicWriteExpTitle').innerHTML = ok? '✅ Doğru!' : '❌ Yanlış — doğrusu:';
+  document.getElementById('topicWriteExpAnswer').innerHTML = ok? '' : '<strong>'+accepted[0]+'</strong>';
+  document.getElementById('topicWriteExpLogic').innerHTML = '📐 Doğru mantık: '+c.logic;
+  const mb=document.getElementById('topicWriteExpMistake');
+  if(ok){ mb.style.display='none'; }
+  else { mb.style.display='inline-block'; mb.innerHTML='⚠️ Muhtemel hata nedeni: '+c.mistake; }
+  if(ok){ twCorrect++; } else { twWrong++; }
+  tick(ok,6);
+  feedbackFx(ok,inp);
+  setHeader('✍️ Yazarak Pekiştir',true,'✅ '+twCorrect,'❌ '+twWrong);
+  document.getElementById('topicWriteNext').className='btn-next show';
+}
+
+function topicWriteNextQ(){
+  twIdx++;
+  if(twIdx>=twChunks.length){ showTopicWriteDone(); return; }
+  document.getElementById('topicWriteExp').className='exp-box';
+  document.getElementById('topicWriteNext').className='btn-next';
+  renderTopicWriteQ();
+}
+
+function showTopicWriteDone(){
+  const total=twChunks.length;
+  const pct=Math.round(twCorrect/total*100);
+  document.getElementById('topicWriteDC').textContent=twCorrect;
+  document.getElementById('topicWriteDW').textContent=twWrong;
+  document.getElementById('topicWriteDP').textContent=pct+'%';
+  document.getElementById('topicWriteDoneSub').textContent=total+' cümleden '+twCorrect+' doğru.';
+  showScreen('topicWriteDoneScreen');
+  setProgress(100,total+' / '+total);
+  if(pct>=80) for(let i=0;i<60;i++) setTimeout(rainP,i*25);
+}
 
 // ══════════════════════════════════════════
 //  KELİME AVI (bulmaca) — genel motor, herhangi bir kelime listesiyle çalışır
