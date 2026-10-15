@@ -1,4 +1,5 @@
-// Gece yapilan tum degisikliklerin tam testi.
+// Gece yapilan tum degisikliklerin tam testi. (Daha derin kontrol: derin-kontrol.js)
+// Not: const/let degiskenler window'a baglanmaz; bu yuzden degerler window.X ile degil dogrudan okunur.
 // Ana ekran, her yeni kelime kategorisi, Imperative konusu, yeni yazma egzersizleri,
 // takvim baglantilarinin hepsi, PWA, iki tema — hepsi tek seferde dogrulanir.
 const { chromium } = require('playwright');
@@ -25,9 +26,9 @@ const kok = path.resolve(__dirname, '..', '..');
     const r = await page.evaluate(() => ({
       planVar: !!document.querySelector('.plan-today'),
       takvimGun: document.querySelectorAll('.pc-day').length,
-      katSayisi: Object.keys(window.CATS || {}).length,
-      yazmaGrupSayisi: (window.YAZMA_TEXTS || []).length,
-      gramerKonuSayisi: (window.GRAMER_TOPICS || []).length,
+      katSayisi: Object.keys(CATS).length,
+      yazmaGrupSayisi: YAZMA_TEXTS.length,
+      gramerKonuSayisi: GRAMER_TOPICS.length,
     }));
     sonuclar.basarili.push('ANA EKRAN: ' + JSON.stringify(r));
     await page.screenshot({ path: path.join(kok, 'icerik', 'ss', 'gece-ana.png') });
@@ -43,7 +44,7 @@ const kok = path.resolve(__dirname, '..', '..');
       await page.evaluate((k) => { goCatSelect('learn', k); }, kat);
       await page.waitForTimeout(500);
       const r = await page.evaluate(() => ({
-        ekran: window.curScreen,
+        ekran: curScreen, kategori: activeCat,
         kelimeVar: !!document.querySelector('.wcard, #learnScreen'),
       }));
       sonuclar.basarili.push('KATEGORI "' + kat + '": ' + JSON.stringify(r));
@@ -61,7 +62,7 @@ const kok = path.resolve(__dirname, '..', '..');
       await page.waitForTimeout(500);
       const r = await page.evaluate(() => ({
         baslik: document.getElementById('grTopicTitle') ? document.getElementById('grTopicTitle').textContent : '(yok)',
-        soruSayisi: (window.grTopic || {}).qs ? window.grTopic.qs.length : 0,
+        ekran: curScreen,
       }));
       sonuclar.basarili.push('IMPERATIVE: ' + JSON.stringify(r));
       await page.screenshot({ path: path.join(kok, 'icerik', 'ss', 'gece-imperativ.png') });
@@ -81,7 +82,7 @@ const kok = path.resolve(__dirname, '..', '..');
         await page.waitForTimeout(300);
         const r = await page.evaluate(() => ({
           baslik: document.getElementById('yazmaTitle') ? document.getElementById('yazmaTitle').textContent : '(yok)',
-          chunkSayisi: (window.yzChunks || []).length,
+          chunkSayisi: yzChunks.length,
         }));
         sonuclar.basarili.push('YAZMA[' + i + ']: ' + JSON.stringify(r));
       } catch (e) { sonuclar.hatalar.push('YAZMA[' + i + '] HATA: ' + e.message); }

@@ -97,7 +97,7 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .mode-card{position:relative;background:var(--white);border:2.5px solid var(--border);border-radius:20px;padding:26px 16px;cursor:pointer;transition:all .14s;box-shadow:var(--shadow);text-align:center}
 .mc-badge-new{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-size:.62rem;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:.3px}
-.cl-item{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:12px 15px;margin-bottom:8px;font-size:.83rem;line-height:1.55;text-align:left}
+.cl-item{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:12px 15px;margin-bottom:8px;font-size:.83rem;line-height:1.55;text-align:left;overflow-wrap:anywhere}
 .cl-date{font-weight:800;color:var(--purple);font-size:.75rem;margin-bottom:4px;display:block}
 .wp-day{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:12px 15px;margin-bottom:8px;text-align:left}
 .wp-day.wp-today{border-color:var(--green);background:var(--green-bg)}
@@ -372,6 +372,8 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 .exp-c{color:var(--green-dark)}
 .exp-w{color:var(--red)}
 .exp-why{font-size:.88rem;line-height:1.6;color:#374151}
+/* Muhtemel hata kutusu (yazma egzersizi): .exp-rule'un kırmızı türevi — özgüllük .exp-rule'u geçmeli */
+.exp-rule.exp-mistake{background:var(--red-bg);border-color:var(--red);color:#8a1f1f;margin-top:8px}
 .exp-rule{display:inline-block;margin-top:9px;background:var(--yellow-bg);border:1.5px solid var(--yellow);border-radius:9px;padding:7px 13px;font-size:.83rem;font-weight:700;color:#7c4a03}
 .dv-blue{color:var(--blue)}
 .dv-red{color:var(--red)}
@@ -703,6 +705,23 @@ html[data-theme="dark"] .ws-cell{background:var(--white);color:var(--text)}
 html[data-theme="dark"] .ds-pill.fire{background:var(--yellow-bg);border-color:var(--yellow)}
 html[data-theme="dark"] .ds-pill.fire .dsp-v{color:var(--text)}
 html[data-theme="dark"] img{filter:brightness(.92)}
+/* Bazı sınıflarda yazı rengi sabit koyu hex (#1a1a2e, #374151, #7c4a03...) olarak yazılmıştı;
+   zemin koyulaşınca bu yazılar okunmuyordu (kontrast 1.0–2.0). Gece karşılıkları: */
+html[data-theme="dark"] header{background:linear-gradient(#2A1F18,#211813)}
+html[data-theme="dark"] :is(.word-de,.part-word,.read-de){color:var(--text)}
+html[data-theme="dark"] :is(.word-tr,.read-tr,.fb-body,.exp-why,.rule-card,.gr-fb-body){color:#E6D6C4}
+html[data-theme="dark"] :is(.break-xp,.wp-tag-vocab,.wp-tag-game,.scene-verb,.btn-toggle,.phase-intro,.intro-hint,.fb-hint,.exp-rule,.ys-hint-box){color:#F5C77E}
+html[data-theme="dark"] :is(.wp-tag-review,.exp-rule.exp-mistake){color:#F4A090}
+html[data-theme="dark"] :is(.hb-word,.hb-close){color:#F2A83A}
+html[data-theme="dark"] .hb-text{color:#EBDCC8}
+html[data-theme="dark"] .hub-intro{color:#F0D2BE}
+/* Açık turuncu/yeşil dolgulu butonlarda beyaz yazı koyu temada sınırdaydı (2.3–2.6) */
+html[data-theme="dark"] :is(.btn-intro,.btn-test,.btn-next){color:#24130A}
+html[data-theme="dark"] .pt-btn{color:#B0501E}
+html[data-theme="dark"] .pc-today{background:#B0501E}
+/* Renk tanımı olmayan butonlar (ör. gramer şıkları) tarayıcının varsayılan SİYAH yazısını alıyordu.
+   :where() özgüllüğü sıfırlar → rengi kendisi tanımlı butonlar (beyaz yazılı yeşil butonlar vb.) etkilenmez. */
+:where(html[data-theme="dark"]) button{color:var(--text)}
 /* ═══════════════════════════════════════════════════════════
    📅 30 GÜNLÜK TAKVİM (2026-10-15)
    Bugünün dersi kartı + ay takvimi + sıradaki günler.
@@ -1498,7 +1517,7 @@ html[data-theme="dark"] img{filter:brightness(.92)}
     <div class="exp-title" id="yazmaExpTitle"></div>
     <div class="exp-why" id="yazmaExpAnswer"></div>
     <div class="exp-rule" id="yazmaExpLogic"></div>
-    <div class="exp-rule" id="yazmaExpMistake" style="background:var(--red-bg);border-color:var(--red);color:#8a1f1f;margin-top:8px;display:none"></div>
+    <div class="exp-rule exp-mistake" id="yazmaExpMistake" style="display:none"></div>
   </div>
   <button class="btn-next" id="yazmaNext" onclick="yazmaNextQ()">Sonraki →</button>
 </div>
@@ -2140,7 +2159,7 @@ const CATS = {
 ,"Sayılar":{emoji:"🔢",words:[
   {de:"null",       tr:"sıfır",       h:"NULL ≈ İngilizce 'null' (boş/yok) ile aynı köken."},
   {de:"eins",       tr:"bir",         h:"Sayı tek başına 'eins', ama isimden önce 'ein/eine' olur: ein Buch."},
-  {de:"zwei",       tr:"iki",         h:"ZWEI ≈ 'two' ile uzaktan akraba (W/Z sesleri eski Germen dillerinde değişir)."},
+  {de:"zwei",       tr:"iki",         h:"ZWEI ≈ 'two' — İngilizcedeki T, Almancada Z olur: two→zwei, ten→zehn, tongue→Zunge."},
   {de:"drei",       tr:"üç",          h:"DREI ≈ 'three' (D/TH sesleri karşılıklı değişir: Drei-Three)."},
   {de:"vier",       tr:"dört",        h:"VIER ≈ 'four'. 14 (vierzehn) ve 40 (vierzig) hep bu kökten gelir."},
   {de:"fünf",       tr:"beş",         h:"FÜNF ≈ 'five' (F-Ü-N-F / F-I-V-E, benzer ses yapısı)."},
@@ -2151,8 +2170,8 @@ const CATS = {
   {de:"zehn",       tr:"on",          h:"ZEHN ≈ 'ten' (Z/T sesleri karşılıklı değişir: Zehn-Ten)."},
   {de:"elf",        tr:"on bir",      h:"11 ve 12 Almancada özel kelimelerdir (İngilizce eleven/twelve gibi), onun yerine 'zehn-eins' denmez."},
   {de:"zwölf",      tr:"on iki",      h:"ZWÖLF ≈ 'twelve'. 13'ten itibaren düzen değişir: 13 = dreizehn (üç-on)."},
-  {de:"zwanzig",    tr:"yirmi",       h:"ZWANZIG = zwei (iki) + -zig eki → onluklarda -zig eki kullanılır (otuz hariç: dreißig)."},
-  {de:"dreißig",    tr:"otuz",        h:"DREISSIG — tek istisna: diğer onluklar -ZIG alır (vierzig, fünfzig...), otuz -SSIG alır."},
+  {de:"zwanzig",    tr:"yirmi",       h:"ZWANZIG = zwei (iki) → zwan + -zig. Onluklar -zig alır; dikkat: 30 dreißig (-ßig), 60 sechzig (s düşer), 70 siebzig (-en düşer)."},
+  {de:"dreißig",    tr:"otuz",        h:"DREISSIG — onluklar içinde -ßIG ile biten TEK sayı; diğerleri -ZIG alır (vierzig, fünfzig...)."},
   {de:"vierzig",    tr:"kırk",        h:"VIER (dört) + -zig = kırk. Kalıp: [birler]+zig = o onluğun adı."},
   {de:"fünfzig",    tr:"elli",        h:"FÜNF (beş) + -zig = elli."},
   {de:"hundert",    tr:"yüz",         h:"HUNDERT ≈ 'hundred' (H-UNDERT / H-UNDRED, neredeyse aynı yazılış)."},
@@ -2163,7 +2182,7 @@ const CATS = {
   {de:"rot",        tr:"kırmızı",     h:"ROT ≈ 'red' (R ile başlar, kısa kelime, hatırlaması kolay)."},
   {de:"blau",       tr:"mavi",        h:"BLAU → 'blaumachen' (mavi yapmak) deyimi 'işe gitmemek/okulu asmak' demektir, ilginç bir kullanım!"},
   {de:"grün",       tr:"yeşil",       h:"GRÜN ≈ 'green' (G-RÜN / G-REEN, aynı aile)."},
-  {de:"gelb",       tr:"sarı",        h:"GELB → 'Gold' (altın) ile aynı kökten, sarı-altın rengi bağlantısı var."},
+  {de:"gelb",       tr:"sarı",        h:"GELB ≈ 'yellow' (G→Y: gelb-yellow, gestern-yesterday). 'Gold' (altın) da aynı eski kökten gelir."},
   {de:"schwarz",    tr:"siyah",       h:"SCHWARZ ≈ İngilizce 'swarthy' (esmer/koyu ten) ile aynı köken."},
   {de:"weiß",       tr:"beyaz",       h:"WEISS ≈ 'white' (W ile başlar, benzer ses)."},
   {de:"orange",     tr:"turuncu",     h:"ORANGE — Fransızcadan geçme, İngilizce ile birebir aynı yazılır."},
@@ -2176,8 +2195,8 @@ const CATS = {
   {de:"dunkel",     tr:"koyu (renk)", h:"DUNKEL = koyu. dunkelgrün = koyu yeşil — hell/dunkel her rengin önüne gelebilir."},
 ]}
 ,"Kıyafet":{emoji:"👕",words:[
-  {de:"die Hose",      tr:"pantolon",   h:"HOSE her zaman TEKİL kullanılır Almancada (Türkçede de öyle), ama İngilizce 'trousers/pants' çoğuldur — dikkat!"},
-  {de:"das Hemd",      tr:"gömlek",     h:"HEMD ≈ İngilizce eski kelime 'shirt' ile aynı Germen kökten gelir."},
+  {de:"die Hose",      tr:"pantolon",   h:"Bir pantolon Almancada TEKİLDİR: eine Hose (Türkçede de öyle). İngilizce 'trousers/pants' ise hep çoğul — dikkat! Çoğul 'die Hosen' = birden fazla pantolon."},
+  {de:"das Hemd",      tr:"gömlek",     h:"HEMD — İngilizce 'shirt' ile akraba DEĞİL (shirt'ün Almanca akrabası die Schürze = önlük). Çoğulu: die Hemden."},
   {de:"das T-Shirt",   tr:"tişört",     h:"T-SHIRT — İngilizceden doğrudan alınmış, yazılışı bile aynı."},
   {de:"der Pullover",  tr:"kazak",      h:"PULLOVER = 'pull over' (üzerinden çekip giyme) — İngilizceden ödünç alınmış bir kelime."},
   {de:"die Jacke",     tr:"ceket",      h:"JACKE ≈ 'jacket' (J-ACKE / J-ACKET, çok yakın)."},
@@ -2188,7 +2207,7 @@ const CATS = {
   {de:"die Mütze",     tr:"bere, kasket", h:"MÜTZE — başa giyilen, kenarsız şapka türü; 'der Hut' ise kenarlı/resmi şapka demek."},
   {de:"der Hut",       tr:"şapka",      h:"HUT ≈ 'hat' (H-UT / H-AT, neredeyse aynı)."},
   {de:"der Schal",     tr:"atkı",       h:"SCHAL ≈ İngilizce 'shawl' (atkı/şal) ile aynı köken, Farsçadan ikisine de geçmiş."},
-  {de:"die Brille",    tr:"gözlük",     h:"BRILLE her zaman TEKİL (Türkçede de tekil) ama anlamı çoğul gözlük camlarını kapsar — 'die Brillen' çoğulu birden fazla gözlük demek."},
+  {de:"die Brille",    tr:"gözlük",     h:"Bir gözlük Almancada TEKİLDİR: eine Brille (İngilizce 'glasses' çoğul). 'die Brillen' ancak birden fazla gözlük için kullanılır."},
   {de:"der Handschuh", tr:"eldiven",    h:"HAND (el) + SCHUH (ayakkabı) = 'el ayakkabısı' → eldiven! Çoğulu: die Handschuhe."},
   {de:"anziehen",      tr:"giymek, giyinmek", h:"AN (üzerine) + ZIEHEN (çekmek) = 'üzerine çekmek' → giymek. Ayrılabilen fiil: Ich ziehe die Jacke an."},
   {de:"tragen",        tr:"giymiş olmak, taşımak", h:"TRAGEN = hem 'giymek/üzerinde olmak' hem 'taşımak' demek. Sie trägt ein Kleid = Elbise giymiş."},
@@ -2205,18 +2224,18 @@ const CATS = {
   {de:"der Großvater", tr:"büyükbaba",  h:"GROSS (büyük) + VATER (baba) = 'büyük baba'. Kısa hâli: der Opa (günlük konuşmada daha yaygın)."},
   {de:"die Tante",     tr:"teyze, hala", h:"TANTE — Türkçeden farklı olarak anne/baba tarafı ayrımı yoktur, ikisi de aynı kelime."},
   {de:"der Onkel",     tr:"amca, dayı, enişte", h:"ONKEL — Türkçedeki amca/dayı/enişte ayrımının hepsi Almancada tek kelimede birleşir."},
-  {de:"der Cousin",    tr:"erkek kuzen", h:"COUSIN — Fransızcadan geçme, İngilizce ile aynı yazılır ama Almancada telaffuzu 'kuzen'."},
+  {de:"der Cousin",    tr:"erkek kuzen", h:"COUSIN — Fransızcadan geçme, Fransızca gibi okunur: 'ku-ZENG' (sondaki n genizden). Türkçe 'kuzen' de aynı kökten."},
   {de:"die Cousine",   tr:"kız kuzen",  h:"COUSINE — der Cousin'in dişil hâli, sonuna -e eklenir."},
   {de:"der Mann",      tr:"koca, erkek, adam", h:"MANN üç anlama gelir: 'adam', 'erkek' ve bağlamına göre 'koca' (mein Mann = kocam)."},
   {de:"die Frau",      tr:"karı, kadın, hanım", h:"FRAU da üç anlama gelir: 'kadın', 'hanım' (Bayan hitabı) ve 'karı' (meine Frau = karım)."},
-  {de:"verheiratet",   tr:"evli",       h:"VER- (durum öneki) + HEIRATEN (evlenmek) kökünden Partizip: evlenmiş durumda → evli."},
+  {de:"verheiratet",   tr:"evli",       h:"VERHEIRATEN (evlenmek) fiilinin Partizip II'si: evlenmiş → evli. Ich bin verheiratet = Evliyim."},
   {de:"geschieden",    tr:"boşanmış",   h:"SCHEIDEN (ayırmak) fiilinin Partizip II hâli: ayrılmış durumda → boşanmış."},
 ]}
 ,"Yiyecek":{emoji:"🍎",words:[
   {de:"das Brot",      tr:"ekmek",      h:"BROT ≈ 'bread' (BR-OT / BR-EAD, BR ile başlayan ortak Germen kökü)."},
   {de:"der Käse",      tr:"peynir",     h:"KÄSE — İngilizce 'cheese' ile aynı Latince kökten (caseus) gelir."},
   {de:"die Milch",     tr:"süt",        h:"MILCH ≈ 'milk' (MIL-CH / MIL-K, çok yakın ses yapısı)."},
-  {de:"das Ei",        tr:"yumurta",    h:"EI ≈ İngilizce eski kelime 'egg' ile aynı köken, kısa ve basit."},
+  {de:"das Ei",        tr:"yumurta",    h:"EI ≈ İngilizce 'egg' ile aynı Germen kökü. Çoğulu: die Eier."},
   {de:"der Apfel",     tr:"elma",       h:"APFEL ≈ İngilizce 'apple' (APF-EL / APP-LE, P sesi iki dilde de ortak)."},
   {de:"die Banane",    tr:"muz",        h:"BANANE — birçok dilde neredeyse aynı yazılır, uluslararası bir kelime."},
   {de:"die Orange",    tr:"portakal",   h:"ORANGE — hem meyve hem renk anlamına gelir, İngilizce ile aynı yazılış."},
@@ -2227,14 +2246,14 @@ const CATS = {
   {de:"die Zwiebel",   tr:"soğan",      h:"ZWIEBEL — Latince 'cepulla' kökünden gelir, iki kat (zwei=iki) kabuğu olduğu için halk arasında 'zwei'ye benzetilir (yanlış köken ama akılda kalıcı)."},
   {de:"der Reis",      tr:"pirinç",     h:"REIS ≈ 'rice' (R-EIS / R-ICE, çok yakın telaffuz)."},
   {de:"das Huhn",      tr:"tavuk (hayvan)", h:"HUHN = canlı tavuk; yemek olarak pişmiş tavuk eti için 'das Hähnchen' denir — ikisi farklı kelime!"},
-  {de:"der Saft",      tr:"meyve suyu", h:"SAFT ≈ İngilizce eski kelime 'sap' (bitki özsuyu) ile aynı köken."},
+  {de:"der Saft",      tr:"meyve suyu", h:"SAFT ≈ İngilizce 'sap' (bitki özsuyu) ile aynı köken. Apfelsaft = elma suyu."},
   {de:"das Wasser",    tr:"su",         h:"WASSER ≈ 'water' (W-ASSER / W-ATER, W ile başlayan ortak Germen kökü)."},
   {de:"das Obst",      tr:"meyve (genel/toplu)", h:"OBST — TEKİL ama bütün meyveleri kapsayan toplu isim, çoğulu yoktur: das Obst (meyveler değil, meyve)."},
   {de:"das Gemüse",    tr:"sebze (genel/toplu)", h:"GEMÜSE de OBST gibi tekil ama toplu isimdir, çoğulu kullanılmaz: das Gemüse."},
   {de:"schmecken",     tr:"tat vermek, lezzetli olmak", h:"SCHMECKEN — 'Das schmeckt gut' = 'Bu lezzetli/güzel tadı var' demek, A1'de en sık kullanılan yemek fiili."},
 ]}
 ,"Saat":{emoji:"🕐",words:[
-  {de:"die Uhr",       tr:"saat (cihaz/an)", h:"UHR hem 'saat' cihazı hem 'saat' zaman birimidir: Wie viel Uhr ist es? = Saat kaç?"},
+  {de:"die Uhr",       tr:"saat (cihaz/an)", h:"UHR iki şey: saat CİHAZI ve saati SÖYLERKEN: Es ist acht Uhr = Saat sekiz. Süre (2 saat) için die Stunde kullanılır: zwei Stunden."},
   {de:"die Minute",    tr:"dakika",     h:"MINUTE ≈ 'minute' (yazılışı birebir aynı, Latince kökten)."},
   {de:"die Stunde",    tr:"saat (süre)", h:"STUNDE = 60 dakikalık süre birimi — die Uhr (cihaz) ile karıştırılmamalı, ikisi ayrı kelimedir."},
   {de:"halb",          tr:"buçuk, yarım", h:"HALB + GELECEK SAAT: 'yedi buçuk' Almancada 'halb acht' (sekize yarım kalan) denir — Türkçenin TERSİ mantık!"},
@@ -2246,8 +2265,8 @@ const CATS = {
   {de:"fünf vor halb", tr:"buçuğa beş kala", h:"PDF örneği: 18:25 = fünf vor halb sieben (6 buçuğa/18:30'a 5 dakika var)."},
   {de:"Wie spät ist es?", tr:"Saat kaç?", h:"WIE SPÄT = kelimesi kelimesine 'ne kadar geç' ama günlük kullanımda 'saat kaç' demektir — 'Wie viel Uhr ist es?' ile aynı anlamda, ikisi de doğru."},
   {de:"der Wecker",    tr:"çalar saat",  h:"WECKER → WECKEN (uyandırmak) fiilinden türer: 'uyandıran şey' → çalar saat."},
-  {de:"früh",          tr:"erken",       h:"FRÜH ≈ İngilizce eski kelime ile aynı köken, 'frühstücken' (kahvaltı etmek) kelimesinin de kökü budur: 'erken yemek'."},
-  {de:"spät",          tr:"geç",         h:"SPÄT — 'zu spät' = çok geç, A1'de sık kullanılan bir kalıptır: Ich bin zu spät. = Geç kaldım."},
+  {de:"früh",          tr:"erken",       h:"FRÜH = erken. das Frühstück (kahvaltı) = früh (erken) + Stück (parça) → 'erken lokma'."},
+  {de:"spät",          tr:"geç",         h:"SPÄT — 'zu spät' = geç (kalmış), A1'de çok sık: Ich komme zu spät. = Geç kalıyorum."},
   {de:"pünktlich",     tr:"dakik, tam zamanında", h:"PÜNKTLICH → PUNKT (nokta) kökünden: 'tam o noktada/anda' → dakik, zamanında."},
 ]}
 };
@@ -2636,10 +2655,16 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'15 Ekim 2026 (gece, son kontrol) — Opus 5 incelemesi', items:[
+    '🌙 <b>Koyu tema okunabilirliği düzeltildi:</b> Kelime Listesi\'ndeki Almanca kelimeler, Yazma Egzersizi\'nde "doğrusu" cevabı ve açıklama kutuları, gramer kural kutuları ve şık butonları koyu zeminde neredeyse görünmüyordu. Artık hepsi okunuyor; üst çubuk da koyu temaya uyuyor.',
+    '📐 <b>Dilbilgisi açıklamalarındaki yanlışlar düzeltildi:</b> "der Geburtstag" nötr diye anlatılıyordu (erildir); "Russland, Deutschland istisna" deniyordu (ikisi de artikelsiz, istisnalar die Türkei, die Schweiz); "Ich bin geboren" Perfekt diye anlatılıyordu (sabit kalıptır). Imperative\'de "Kommen wir!" artık doğru çeviriyle "Hadi gelelim!"; 2 soruda aslında doğru olan yanlış şık (Fahre! / Stehe auf!) değiştirildi.',
+    '✍️ Yazma Egzersizi artık <b>doğru olan farklı yazımları da kabul ediyor</b> (ör. "Ich schlafe um zehn Uhr" = "Um zehn Uhr schlafe ich", "14.02." = "14. Februar"). Kabul edilince kitaptaki hâli de gösteriliyor.',
+    '📱 Telefonda ana ekran yana kayıyordu (Yenilikler\'de kırılmayan uzun bir satır yüzünden), düzeltildi. Yeni kategorilerdeki 14 kelime ipucu düzeltildi/netleşti (ör. Hemd ile shirt akraba değil; die Uhr / die Stunde farkı; sechzig, siebzig istisnaları).',
+  ]},
   {date:'15 Ekim 2026 (gece) — Eksik kategoriler, çeviri alıştırmaları, Supabase hazırlığı', items:[
-    '🔢 6 yeni kelime kategorisi eklendi: <b>Sayılar, Renkler, Kıyafet, Aile, Yiyecek, Saat</b> (toplam 102 kelime). Takvimdeki "Die Zahlen", "Die Farben" gibi günler artık gerçekten o kategoriyi açıyor — önceki gece bu bağlantılar kategori olmadığı için boştu.',
+    '🔢 6 yeni kelime kategorisi eklendi: <b>Sayılar, Renkler, Kıyafet, Aile, Yiyecek, Saat</b> (toplam 101 kelime). Takvimdeki "Die Zahlen", "Die Farben" gibi günler artık gerçekten o kategoriyi açıyor — önceki gece bu bağlantılar kategori olmadığı için boştu.',
     '🕐 Saat kategorisindeki "kurz vor/nach", "fünf nach halb" gibi ifadeler PDF\'in kendi örneklerinden alındı (Kalan Üniteler s.47).',
-    '✍️ Yazma Egzersizi\'ne <b>6 yeni metin grubu</b> eklendi (39 yeni cümle parçası), hocanın PDF\'te verdiği gerçek Türkçe metinlerden: Tim ve Olga\'nın kendini tanıtması, Stefan\'ın günlük rutini (saat ifadeleri), Delia\'nın ailesi, Klara\'nın Cumartesi günü (Perfekt/geçmiş zaman odaklı), Lisa\'dan Anna\'ya mektup.',
+    '✍️ Yazma Egzersizi\'ne <b>6 yeni metin grubu</b> eklendi (41 yeni cümle parçası), hocanın PDF\'te verdiği gerçek Türkçe metinlerden: Tim ve Olga\'nın kendini tanıtması, Stefan\'ın günlük rutini (saat ifadeleri), Delia\'nın ailesi, Klara\'nın Cumartesi günü (Perfekt/geçmiş zaman odaklı), Lisa\'dan Anna\'ya mektup.',
     '📖 Her cümle parçasında yine aynı format: doğru Almanca + 📐 dilbilgisi mantığı + ⚠️ en sık yapılan hata, ayrı kutularda.',
     '🗄️ <b>Supabase altyapısı hazırlandı</b> (henüz bağlı değil — hesap açılması bekleniyor): 7 tablolu veritabanı şeması, güvenlik kuralları, bağlantı kodu <code>icerik/supabase/</code> klasöründe duruyor. URL+anahtar geldiğinde Düello ekranı gerçek veriyle çalışır hale getirilecek.',
     '🔧 Küçük düzeltme: koyu temada "TOPLAM XP" yazısının harfleri arasında font kaynaklı görsel boşluk vardı, giderildi.',
@@ -3948,7 +3973,7 @@ const GRAMER_TOPICS = [
 <tr><td><b>du</b><br>sen</td><td>fiil kökü · ek yok · zamir yok</td><td><b>Komm!</b><br>Gel!</td></tr>
 <tr><td><b>ihr</b><br>siz (çoğul)</td><td>normal ihr çekimi · zamir yok</td><td><b>Kommt!</b><br>Gelin!</td></tr>
 <tr><td><b>Sie</b><br>siz (resmî)</td><td>fiil + <b>Sie</b> · yer değişir</td><td><b>Kommen Sie!</b><br>Geliniz!</td></tr>
-<tr><td><b>wir</b><br>hadi biz</td><td>fiil + <b>wir</b></td><td><b>Kommen wir!</b><br>Hadi gidelim!</td></tr></table>
+<tr><td><b>wir</b><br>hadi biz</td><td>fiil + <b>wir</b></td><td><b>Kommen wir!</b><br>Hadi gelelim!<br><small>(gehen → <b>Gehen wir!</b> = Hadi gidelim!)</small></td></tr></table>
 <span class="r-head">⚠️ du biçiminde 3 kritik istisna</span>
 <span class="r-tip"><b>1) e → i/ie değişimi KORUNUR</b><br>
 geben → <b>Gib!</b> · lesen → <b>Lies!</b> · sprechen → <b>Sprich!</b> · nehmen → <b>Nimm!</b> · helfen → <b>Hilf!</b><br><br>
@@ -3957,7 +3982,8 @@ fahren → <b>Fahr!</b> (Fähr! DEĞİL) · schlafen → <b>Schlaf!</b> · trage
 💡 En sık yapılan hata burası. Şimdiki zamanda <b>du fährst</b> ama emirde <b>Fahr!</b><br><br>
 <b>3) Kökü -d, -t, -ig ile bitenler -e alır</b><br>
 warten → <b>Warte!</b> · arbeiten → <b>Arbeite!</b> · entschuldigen → <b>Entschuldige!</b><br>
-💡 Sebebi basit: "Wart!" telaffuz edilemiyor, dil dönmüyor.</span>
+💡 Sebebi basit: "Wart!" telaffuz edilemiyor, dil dönmüyor.<br><br>
+ℹ️ Kitaplarda bazen <b>Fahre!</b>, <b>Komme!</b>, <b>Stehe auf!</b> gibi -e'li biçimler görürsün: bu eski/resmî üsluptur, yanlış değildir. Günlük dilde -e düşer. (Ama 1. kuraldaki e→i fiillerinde -e ASLA gelmez: "Nehme!" yanlıştır.)</span>
 <span class="r-head">🔑 Düzensizler: sein ve haben</span>
 <table class="r-table"><tr><th>Kime?</th><th>sein (olmak)</th><th>haben (sahip olmak)</th></tr>
 <tr><td>du</td><td><b>Sei</b> ruhig!</td><td><b>Hab</b> keine Angst!</td></tr>
@@ -3975,11 +4001,11 @@ aufräumen → <b>Räum</b> dein Zimmer <b>auf!</b> (Odanı topla!)<br>
 <b>Komm bitte!</b> · <b>Warten Sie bitte!</b> · <b>Mach bitte die Tür zu!</b><br>
 🎯 Kitaptaki kalıp: <b>Entschuldigung, buchstabieren Sie bitte!</b><br>(Pardon, kodlar mısınız lütfen!)</span>`,
     qs:[
-      {sent:'___ nicht so schnell! (fahren · du)',blank:'Fahr',opts:['Fahr','Fähr','Fahre','Fährst'],tr:'Bu kadar hızlı sürme!',exp:'a → ä olan fiiller emirde umlaut ALMAZ. du fährst ama Fahr!'},
+      {sent:'___ nicht so schnell! (fahren · du)',blank:'Fahr',opts:['Fahr','Fähr','Fährt','Fährst'],tr:'Bu kadar hızlı sürme!',exp:'a → ä olan fiiller emirde umlaut ALMAZ. du fährst ama Fahr!'},
       {sent:'___ den Text, bitte! (lesen · du)',blank:'Lies',opts:['Lies','Les','Lese','Liest'],tr:'Metni oku lütfen.',exp:'e → ie değişimi emirde KORUNUR: lesen → Lies! (Les! değil)'},
       {sent:'___ einen Moment! (warten · du)',blank:'Warte',opts:['Warte','Wart','Wartest','Wartet'],tr:'Bir dakika bekle!',exp:'Kök -t ile bitiyor → sonuna -e gelir: Warte! ("Wart!" söylenemiyor)'},
       {sent:'___ bitte ruhig! (sein · Sie)',blank:'Seien Sie',opts:['Seien Sie','Sind Sie','Seid','Sei'],tr:'Lütfen sakin olun. (resmî)',exp:'sein düzensiz. Sie biçimi: Seien Sie! — "Sind Sie" soru olur, emir değil.'},
-      {sent:'___ auf! Es ist schon 7 Uhr. (aufstehen · du)',blank:'Steh',opts:['Steh','Stehe','Stehst','Aufsteh'],tr:'Kalk! Saat çoktan 7 oldu.',exp:'Ayrılabilen fiil: ön ek "auf" sona gider, kök tek başına kalır → Steh auf!'},
+      {sent:'___ auf! Es ist schon 7 Uhr. (aufstehen · du)',blank:'Steh',opts:['Steh','Steht','Stehst','Aufsteh'],tr:'Kalk! Saat çoktan 7 oldu.',exp:'Ayrılabilen fiil: ön ek "auf" sona gider, kök tek başına kalır → Steh auf!'},
       {sent:'___ den Bus, nicht das Taxi! (nehmen · du)',blank:'Nimm',opts:['Nimm','Nehm','Nimmst','Nehme'],tr:'Otobüse bin, taksiye değil!',exp:'nehmen → e-i değişimi + çift m: Nimm! Bu fiil tamamen düzensiz, ezberle.'},
     ]
   },
@@ -5381,16 +5407,18 @@ const YAZMA_TEXTS = [
     chunks:[
       {tr:'Merhaba, Benim adım Tim. Ben 34 yaşındayım.',
        de:'Hallo, mein Name ist Tim. Ich bin 34 Jahre alt.',
+       alt:['Hallo, ich heiße Tim. Ich bin 34 Jahre alt.'],
        logic:'İsim bildirirken "mein Name ist" kalıbı kullanılır (ya da "Ich heiße"). Yaş bildirimi üç parçadan oluşur: sein (bin) + sayı + Jahre alt.',
-       mistake:'"Ich bin 34" deyip "Jahre alt"ı unutmak — Türkçede yaş fiile yapışık tek kelike gibi hissettirir, Almancada üç ayrı parça gerekir.'},
+       mistake:'"Ich bin 34" deyip "Jahre alt"ı unutmak — Türkçede yaş fiile yapışık tek kelime gibi hissettirir, Almancada üç ayrı parça gerekir.'},
       {tr:'Doğum günüm 14.02\'de.',
        de:'Mein Geburtstag ist am 14. Februar.',
+       alt:['Mein Geburtstag ist am 14.02.', 'Mein Geburtstag ist am 14.2.'],
        logic:'Gün+ay tarihlerinde edat her zaman "am" olur. "im" sadece ay/mevsim/yıl başına gelir (im Februar, im Winter) — gün belirtilince am devreye girer.',
        mistake:'"im 14. Februar" yazmak — tarihte gün varsa am, gün yoksa im kullanılır. Ayrıca ay isimleri (Februar) büyük harfle başlar.'},
       {tr:'Londra\'da doğdum. Londra\'yı seviyorum ama Berlin\'de oturuyorum.',
        de:'Ich bin in London geboren. Ich liebe London, aber ich wohne in Berlin.',
-       logic:'"doğmak" (geboren sein) durum değişimi bildirdiği için Perfekt\'te sein alır, haben değil: ich BIN geboren.',
-       mistake:'"Ich habe geboren" yazmak sık yapılan hatadır — geboren, gefahren, gegangen gibi fiiller sein alan fiiller listesindedir.'},
+       logic:'"doğdum" Almancada sabit bir kalıptır: Ich BIN ... geboren. "geboren", gebären (doğurmak) fiilinin Partizip\'idir ve burada bir durum sıfatı gibi davranır; bu yüzden yardımcı fiil sein olur.',
+       mistake:'"Ich habe geboren" yazmak — bu "ben doğurdum" gibi anlamsız bir cümle olur. Doğum yeri ve tarihi her zaman "Ich bin ... geboren" kalıbıyla söylenir.'},
       {tr:'Ana dilim İngilizce ama iki dil konuşabiliyorum. Almanca ve Fransızca konuşabiliyorum.',
        de:'Meine Muttersprache ist Englisch, aber ich kann zwei Sprachen sprechen. Ich kann Deutsch und Französisch sprechen.',
        logic:'können (yapabilmek) bir modal fiildir: çekimlenir (kann), ana fiil (sprechen) mastar hâlinde cümlenin SONUNA gider.',
@@ -5407,32 +5435,35 @@ const YAZMA_TEXTS = [
     chunks:[
       {tr:'Benim adım Olga. 28 yaşındayım. Doğum günüm 18.04\'te.',
        de:'Mein Name ist Olga. Ich bin 28 Jahre alt. Mein Geburtstag ist am 18. April.',
+       alt:['Ich heiße Olga. Ich bin 28 Jahre alt. Mein Geburtstag ist am 18. April.', 'Mein Name ist Olga. Ich bin 28 Jahre alt. Mein Geburtstag ist am 18.04.'],
        logic:'Üç ayrı bilgi (isim, yaş, doğum günü) üç ayrı cümleyle verilir, her cümlenin kendi fiili vardır: ist, bin, ist.',
        mistake:'Tek cümlede üçünü de "und" ile bağlamaya çalışmak genelde fiil tekrarını unutturur — her bilgi ayrı cümle olarak kalmalı.'},
       {tr:'Rusya\'da doğdum ama Berlin\'de oturuyorum. Berlin\'i seviyorum.',
        de:'Ich bin in Russland geboren, aber ich wohne in Berlin. Ich liebe Berlin.',
        logic:'wohnen (oturmak) sabit durum bildirir, Dativ ister: in Berlin (şehir isimlerinde edat sonrası Dativ eki görünmez ama hal yine Dativ\'dir).',
-       mistake:'"Ich bin geboren in Russland" diye Perfekt çerçevesini (bin...geboren) bozup araya başka kelime sokmak — geboren mutlaka cümle sonunda kalmalı.'},
+       mistake:'"Ich bin geboren in Russland" diye "bin...geboren" çerçevesini bozup araya başka kelime sokmak — geboren mutlaka cümle sonunda kalmalı.'},
       {tr:'Ana dilim Rusça. Fransızca ve Almanca konuşabiliyorum.',
        de:'Meine Muttersprache ist Russisch. Ich kann Französisch und Deutsch sprechen.',
        logic:'Dil isimleri (Russisch, Französisch, Deutsch) Almancada artikelsiz kullanılır ve büyük harfle başlar.',
        mistake:'"die Russisch" diye artikel eklemek — dil isimleri burada artikelsiz nötr isim gibi davranır.'},
       {tr:'Kreuzberg\'de çalışıyorum. Her gün çalışıyorum.',
        de:'Ich arbeite in Kreuzberg. Ich arbeite jeden Tag.',
-       logic:'"her gün" gibi zaman ifadeleri Akkusativ alır: jeden Tag (der Tag eril → jed-EN değil, dikkat: Tag eril olduğu için jeden doğru).',
+       logic:'"her gün" gibi zaman ifadeleri Akkusativ hâlinde kullanılır: der Tag eril → Akkusativ\'de jed-EN → jeden Tag.',
        mistake:'"jeder Tag" (Nominativ eki) yazmak — zaman ifadeleri çoğunlukla Akkusativ ister, Nominativ değil.'},
       {tr:'Bu, benim kocam. Onun adı David. O, 39 yaşında.',
        de:'Das ist mein Mann. Er heißt David. Er ist 39 Jahre alt.',
+       alt:['Das ist mein Mann. Sein Name ist David. Er ist 39 Jahre alt.', 'Er ist mein Mann. Er heißt David. Er ist 39 Jahre alt.'],
        logic:'Birini tanıtırken "Das ist" kullanılır (cinsiyetten bağımsız, "das" burada "bu" anlamında işaret sıfatı gibi davranır). Sonraki cümlelerde kişiye göre zamir (er/sie) seçilir.',
        mistake:'"Er ist mein Mann" ile başlamak yanlış değil ama tanıtırken "Das ist" daha doğal bir girizgahtır.'},
       {tr:'Onun doğum günü 04.12\'de. Köln\'de doğdu.',
        de:'Sein Geburtstag ist am 4. Dezember. Er ist in Köln geboren.',
-       logic:'İyelik zamiri SAHİBİN cinsiyetine göre seçilir, sahip olunan şeyin cinsiyetine göre değil: David (erkek) → sein Geburtstag, sahip olunan "Geburtstag" nötr olsa da zamiri sein kalır.',
+       alt:['Sein Geburtstag ist am 04.12. Er ist in Köln geboren.', 'Sein Geburtstag ist am 4.12. Er ist in Köln geboren.'],
+       logic:'İyelik zamiri SAHİBİN cinsiyetine göre seçilir, sahip olunan şeyin cinsiyetine göre değil: David (erkek) → sein Geburtstag, sahip olunan şey "der Geburtstag" (eril, Nominativ) olduğu için zamir eksiz kalır: sein. Sahibi kadın olsaydı: ihr Geburtstag.',
        mistake:'"Ihr Geburtstag" yazmak — bu hata sahibi kadın sanıp ihr kullanmaktan gelir, oysa David erkek olduğu için sein doğrudur.'},
       {tr:'Rusça, İngilizce ve Almanca konuşabiliyor. O, Pankow\'da çalışıyor. Her akşam çalışıyor.',
        de:'Er kann Russisch, Englisch und Deutsch sprechen. Er arbeitet in Pankow. Er arbeitet jeden Abend.',
        logic:'"her akşam" da jeden Tag gibi Akkusativ alır: jeden Abend (der Abend eril).',
-       mistake:'Fiili çekimlemeden "Er kann sprechen" bırakıp dilleri sona eklememek — kann...sprechen çerçevesi bozulmamalı.'},
+       mistake:'"Er kann sprechen Russisch..." diye mastarı ortaya koymak — modal fiil (kann) 2. sırada, mastar (sprechen) cümlenin EN SONUNDA olmalı.'},
       {tr:'Biz her gün tiyatroya gideriz.',
        de:'Wir gehen jeden Tag ins Theater.',
        logic:'"tiyatroya gitmek" yön bildirir → in+das Theater = ins Theater (Akkusativ, kısaltma). das Theater nötr olduğu için in+das → ins.',
@@ -5445,10 +5476,12 @@ const YAZMA_TEXTS = [
     chunks:[
       {tr:'Sabah saat yedide kalkarım, yüzümü yıkarım ve saat yedi buçukta kahvaltı yaparım.',
        de:'Morgens stehe ich um sieben Uhr auf, ich wasche mir das Gesicht und um halb acht frühstücke ich.',
+       alt:['Morgens stehe ich um sieben Uhr auf, wasche mir das Gesicht und frühstücke um halb acht.', 'Ich stehe morgens um sieben Uhr auf, ich wasche mir das Gesicht und um halb acht frühstücke ich.'],
        logic:'"aufstehen" ayrılabilen fiildir, "auf" cümle sonuna gider: stehe...auf. "yedi buçuk" Almancada BİR SONRAKİ saate göre söylenir: halb acht (sekize yarım kalan = 7:30), halb sieben değil!',
        mistake:'"halb sieben" demek — bu 6:30 anlamına gelir, Türkçe "yedi buçuk" mantığıyla ters çalışır. Bu en sık yapılan saat hatasıdır: Almancada "buçuk" hep gelecek saate göre sayılır.'},
       {tr:'Pazartesi günü saat sekizde okula giderim.',
        de:'Am Montag gehe ich um acht Uhr zur Schule.',
+       alt:['Ich gehe am Montag um acht Uhr zur Schule.', 'Am Montag gehe ich um acht Uhr in die Schule.'],
        logic:'"okula gitmek" günlük kalıpta "zur Schule" (zu der Schule\'nin kısaltması, Dativ) ile söylenir.',
        mistake:'"in die Schule" yazmak yanlış sayılmaz ama "zur Schule" çok daha doğal ve sık kullanılan gündelik kalıptır.'},
       {tr:'Öğlenleri saat biri çeyrek geçe yemek yerim ve saat dördü çeyrek geçe eve gelirim.',
@@ -5457,10 +5490,11 @@ const YAZMA_TEXTS = [
        mistake:'"nach Hause" ile "zu Hause"yi karıştırmak — zu Hause = EVDE (durum, sabit), nach Hause = EVE (yön, hareket). Fiil "gelmek" olduğu için burada nach doğrudur.'},
       {tr:'Öğleden sonra kitap okurum ve akşamları internette gezinmeyi severim.',
        de:'Nachmittags lese ich ein Buch und abends surfe ich gern im Internet.',
-       logic:'"sevmek/hoşlanmak" anlatılırken Almancada ayrı bir fiil yerine fiilin yanına "gern" zarfı eklenir: surfe gern (gezinmeyi severim), lieben kullanılmaz.',
+       logic:'"sevmek/hoşlanmak" anlatılırken Almancada ayrı bir fiil yerine fiilin yanına "gern" zarfı eklenir: surfe gern (gezinmeyi severim); lieben bu anlamda doğal değildir.',
        mistake:'"Ich liebe im Internet surfen" demek — doğal değildir, gern kalıbı A1\'den itibaren bu anlam için standart yoldur.'},
       {tr:'Saat 10\'da uyurum.',
        de:'Um zehn Uhr schlafe ich.',
+       alt:['Ich schlafe um zehn Uhr.', 'Um 10 Uhr schlafe ich.', 'Ich schlafe um 10 Uhr.', 'Um zehn Uhr gehe ich schlafen.', 'Ich gehe um zehn Uhr schlafen.'],
        logic:'Zaman ifadesi (Um zehn Uhr) cümle başına gelince Kral&Soytarı kuralı gereği fiil yine 2. sırada kalır, özne fiilin arkasına (3. sıraya) geçer: Um zehn Uhr SCHLAFE ich.',
        mistake:'"Um zehn Uhr ich schlafe" diye düz sıra kurmak — zaman ifadesi başa geçince özne fiilin önüne değil arkasına geçmeli.'},
     ]
@@ -5471,10 +5505,12 @@ const YAZMA_TEXTS = [
     chunks:[
       {tr:'Benim adım Delia. 42 yaşındayım. New York\'ta oturuyorum.',
        de:'Mein Name ist Delia. Ich bin 42 Jahre alt. Ich wohne in New York.',
+       alt:['Ich heiße Delia. Ich bin 42 Jahre alt. Ich wohne in New York.'],
        logic:'Şehir isimleri (New York, Berlin, Köln...) Almancada artikelsiz kullanılır: in New York, der/die/das eklenmez.',
-       mistake:'Şehir ismine gereksiz artikel eklemeye çalışmak — ülke isimlerinin çoğu da artikelsizdir (Russland, Deutschland gibi istisnalar hariç).'},
+       mistake:'Şehir ismine gereksiz artikel eklemek ("in der New York") — şehirler ve çoğu ülke (Deutschland, Russland, Amerika) artikelsizdir. İstisnalar artikelle kullanılır: die Türkei, die Schweiz, die USA.'},
       {tr:'Yemek yapmayı ve seyahat etmeyi severim. Evliyim.',
        de:'Ich koche und reise gern. Ich bin verheiratet.',
+       alt:['Ich koche gern und reise gern. Ich bin verheiratet.'],
        logic:'İki fiil birden "severim" ile bağlanınca TEK bir "gern" iki fiile de uygulanır: koche und reise gern.',
        mistake:'"Ich liebe kochen und reisen" demek yerine doğal kalıp gern\'dir — lieben burada insan/nesne sevgisi için kullanılır, eylem sevgisi için değil.'},
       {tr:'Kocamın adı Johan. Amerikalı. 48 yaşında.',
@@ -5488,9 +5524,10 @@ const YAZMA_TEXTS = [
       {tr:'Kızımın adı Nadja. O, 13 yaşında. Oğlumun adı Lio. O, 8 yaşında.',
        de:'Meine Tochter heißt Nadja. Sie ist 13 Jahre alt. Mein Sohn heißt Lio. Er ist 8 Jahre alt.',
        logic:'Kız için zamir sie (die Tochter → sie), erkek için zamir er (der Sohn → er) — zamir, bahsedilen kişinin kendi cinsiyetine göre seçilir.',
-       mistake:'"Es ist 8 Jahre alt" demek — çocuk için bile cinsiyete göre er/sie seçilmeli, es sadece cansız/nötr isimler için kullanılır.'},
+       mistake:'"Es ist 8 Jahre alt" demek — zamir, önceki ismin artikeline göre seçilir: der Sohn → er, die Tochter → sie. (es ancak das Kind, das Mädchen gibi das\'lı isimlerden sonra gelir.)'},
       {tr:'Annem ve babam, Londra\'da yaşıyorlar.',
        de:'Meine Eltern leben in London.',
+       alt:['Meine Mutter und mein Vater leben in London.', 'Meine Eltern wohnen in London.'],
        logic:'"annem ve babam" birlikte söylenince doğal Almancada "Eltern" (ebeveynler) tek kelime olarak kullanılır — Türkçede tam karşılığı olmayan bir kelime.',
        mistake:'"Meine Mutter und mein Vater" diye kelime kelime çevirmek — yanlış sayılmaz ama Eltern çok daha doğal ve kısa bir ifadedir.'},
       {tr:'Annemin adı Christine. O, 70 yaşında. Babamın adı Felix. O, 79 yaşında.',
@@ -5505,6 +5542,7 @@ const YAZMA_TEXTS = [
     chunks:[
       {tr:'Cumartesi günü Klara uzun süre uyudu.',
        de:'Am Samstag hat Klara lange geschlafen.',
+       alt:['Klara hat am Samstag lange geschlafen.'],
        logic:'schlafen (uyumak) yer/durum DEĞİŞİMİ bildirmediği için Perfekt\'te haben alır: hat...geschlafen.',
        mistake:'"ist geschlafen" yazmak — schlafen kafa karıştıran fiillerden biridir çünkü "uyumak" pasif bir eylem gibi hissettirir, ama kural değişmez: haben alır.'},
       {tr:'Daha sonra kahvaltı yaptı ve su içti.',
@@ -5518,7 +5556,7 @@ const YAZMA_TEXTS = [
       {tr:'Ardından şehre gittiler. Orada bir kafede çay içtiler ve pasta yediler.',
        de:'Danach sind sie in die Stadt gegangen. Dort haben sie in einem Café Tee getrunken und Kuchen gegessen.',
        logic:'"gitmek" (yer değişimi) sein alır: sind...gegangen. İçmek/yemek fiilleri ise haben alır — aynı cümlede iki farklı yardımcı fiil bir arada görülebilir.',
-       mistake:'"haben gegangen" demek — gehen/fahren gibi yer değiştiren fiiller SEIN alır, bu kural istisnasızdır (gehen, fahren, kommen, fliegen...).'},
+       mistake:'"haben gegangen" demek — bir yerden bir yere hareket bildiren fiiller (gehen, fahren, kommen, fliegen...) Perfekt\'te SEIN alır.'},
       {tr:'Daha sonra parka gittiler. Parkta birçok insan gördüler.',
        de:'Danach sind sie in den Park gegangen. Im Park haben sie viele Leute gesehen.',
        logic:'"-a gitmek" (yöne hareket) Akkusativ ister: in DEN Park (der Park eril, Akkusativ\'de den). "-da olmak/bir şey yapmak" (sabit yer) Dativ ister: im Park (in+dem Park\'ın kısaltması).',
@@ -5572,7 +5610,7 @@ const YAZMA_TEXTS = [
       {tr:'Hafta sonu arkadaşlarımla buluşuyorum. Birlikte meyve suyu içiyoruz ve konuşuyoruz.',
        de:'Am Wochenende treffe ich mich mit meinen Freunden. Zusammen trinken wir Saft und reden.',
        logic:'"buluşmak" dönüşlü bir fiildir (sich treffen) ve "mit" (Dativ) ile kullanılır: treffe MICH mit meinen Freunden.',
-       mistake:'"mich" dönüşlü zamirini unutup sadece "Ich treffe mit meinen Freunden" demek — sich treffen\'de dönüşlü zamir asla atlanmaz.'},
+       mistake:'"mich" dönüşlü zamirini unutup sadece "Ich treffe mit meinen Freunden" demek — "mit" ile kurulan sich treffen\'de dönüşlü zamir atlanmaz. (Zamirsiz kullanım ancak doğrudan nesneyle olur: Ich treffe meine Freunde.)'},
     ]
   },
 ];
@@ -5624,7 +5662,10 @@ function checkYazma(){
   const inp=document.getElementById('yazmaInput');
   if(!inp.value.trim())return;
   yzAnswered=true;
-  const ok = yzNorm(inp.value)===yzNorm(c.de);
+  // c.alt: aynı Türkçeyi karşılayan, dilbilgisi olarak doğru diğer yazımlar (ör. farklı kelime sırası)
+  const yazilan=yzNorm(inp.value);
+  const ok = [c.de,...(c.alt||[])].some(a=>yzNorm(a)===yazilan);
+  const altIle = ok && yazilan!==yzNorm(c.de);
   inp.className='ys-input '+(ok?'t-ok':'t-err');
   inp.disabled=true;
   document.getElementById('yazmaCheckBtn').style.display='none';
@@ -5632,7 +5673,7 @@ function checkYazma(){
   eb.className='exp-box show '+(ok?'exp-ok':'exp-err');
   document.getElementById('yazmaExpTitle').className='exp-title '+(ok?'exp-c':'exp-w');
   document.getElementById('yazmaExpTitle').innerHTML = ok? '✅ Doğru!' : '❌ Yanlış — doğrusu:';
-  document.getElementById('yazmaExpAnswer').innerHTML = ok? '' : '<strong>'+c.de+'</strong>';
+  document.getElementById('yazmaExpAnswer').innerHTML = !ok ? '<strong>'+c.de+'</strong>' : altIle ? 'Senin yazdığın da doğru. Kitaptaki hâli: <strong>'+c.de+'</strong>' : '';
   document.getElementById('yazmaExpLogic').innerHTML = '📐 Doğru mantık: '+c.logic;
   const mb=document.getElementById('yazmaExpMistake');
   if(ok){ mb.style.display='none'; }
