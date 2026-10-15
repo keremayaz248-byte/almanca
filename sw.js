@@ -4,7 +4,7 @@
    Böylece her güncelleme anında görünür, internetsizken de açılır.
    Cache sürümü değişince eski cache otomatik silinir.
    ══════════════════════════════════════════════════════════ */
-const CACHE = 'almanca-v1-2026-10-15';
+const CACHE = 'almanca-v3-2026-10-16';
 
 // Çevrimdışı açılış için en gerekli dosyalar (ilk kurulumda cache'lenir)
 const TEMEL = [

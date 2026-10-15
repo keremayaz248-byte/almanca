@@ -1,0 +1,47 @@
+schema: spec-driven
+
+context: |
+  Almanca (A1→A2) öğrenme uygulaması. Tek dosya: index.html (~6600 satır,
+  vanilla JS + inline CSS, derleme adımı YOK). Kalıcı veri localStorage.
+  Arayüz dili TÜRKÇE — kullanıcıya görünen her metin Türkçe olmalı.
+  GitHub Pages'te yayında, PWA olarak kurulabiliyor. Supabase sadece
+  giriş + Realtime Presence (çevrimiçi/Düello) için bağlı; ilerleme verisi
+  hâlâ localStorage'da.
+
+  Kullanıcı kod bilmiyor. İki kişi kullanıyor: kullanıcı (Android) ve
+  arkadaşı (iPhone). iOS'ta SpeechSynthesis ÇALIŞIR, SpeechRecognition ÇALIŞMAZ —
+  konuşma tanımaya dayalı özellik iPhone'da kullanılamaz.
+
+  Ana veri yapıları (hepsi index.html içinde):
+    CATS            16 kategori, 358 kelime {de,tr,h,s?}  h=etimolojik ipucu
+    GRAMER_TOPICS   21 konu {id,title,rule,qs[{sent,blank,opts,tr,exp}]}  106 soru
+    EDAT_QS         25 soru — TEK modül ki her yanlış şıkkı ayrı açıklıyor (wrongExp)
+    YAZMA_TEXTS     7 grup, 54 TR→DE cümle {tr,de,logic,mistake,alt?}
+    PLAN30          30 günlük takvim, gün maddesi = [no,"Başlık",kaynak,sayfa,"eylem()"]
+    SRS_INTERVALS   [0,1,2,4,8,16,30] Leitner kutuları
+    CHANGELOG       ana ekrandaki "Yenilikler" listesi
+
+  Hedef: A1/A2 sınavı — Hören (dinleme), Lesen (okuma), Schreiben (yazma).
+
+rules:
+  proposal:
+    - Türkçe yaz.
+    - Zaman/süre tahmini verme.
+    - Her iddiayı index.html'deki sayıyla veya satır numarasıyla gerekçelendir.
+  design:
+    - Türkçe yaz.
+    - Tek dosya kısıtını koru — yeni build aracı, framework veya npm bağımlılığı ÖNERME.
+    - Mevcut deseni yeniden kullanmayı, paralel yeni sistem kurmaya tercih et.
+  tasks:
+    - Türkçe yaz.
+    - İçerik yazma işini (cümle, açıklama) kod işinden ayrı görevlere böl.
+    - Her kod görevinden sonra Playwright testi (icerik/araclar/) çalıştırmayı dahil et.
+  specs:
+    - Türkçe yaz.
+
+operations:
+  apply:
+    guidance:
+      - index.html'i değiştiren her adımdan sonra icerik/araclar/gece-testi.js çalıştır, sıfır hata bekle.
+      - Her kullanıcıya görünür değişiklik için CHANGELOG dizisine girdi ekle (proje kuralı).
+      - Oturum sonunda commit + push yap — yoksa canlı sitede görünmez.

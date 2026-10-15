@@ -852,6 +852,52 @@ html[data-theme="dark"] .pc-today{background:#B0501E}
 html[data-theme="dark"] .login-card{box-shadow:0 8px 32px rgba(0,0,0,.4)}
 html[data-theme="dark"] .login-input{color:var(--text)}
 .btn-sm-orange{background:var(--purple);color:#fff;border:none;border-radius:11px;padding:9px 22px;font-family:Fredoka,sans-serif;font-size:.92rem;font-weight:700;cursor:pointer}
+
+/* ── Bugün kartı ── */
+.bugun-card{background:var(--white);border:2.5px solid var(--purple);border-radius:20px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}
+.bugun-ust{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.bugun-gun{font-size:.8rem;font-weight:700;color:var(--purple-dark);background:var(--purple-bg);border-radius:999px;padding:4px 12px}
+.bugun-sure{font-size:.78rem;color:var(--light);font-weight:600}
+.bugun-konular{margin:10px 0}
+.bugun-konu{display:flex;align-items:center;gap:9px;padding:9px 11px;background:var(--bg);border-radius:12px;margin-bottom:7px;font-weight:600;font-size:.92rem}
+.bugun-konu.bitti{opacity:.55}
+.bugun-konu .bk-ik{font-size:1.1rem;flex-shrink:0}
+.bugun-bas{width:100%;background:var(--green);color:#fff;border:none;border-radius:14px;padding:14px;font-family:Fredoka,sans-serif;font-size:1.02rem;font-weight:700;cursor:pointer;box-shadow:0 4px 0 var(--green-dark)}
+.bugun-bas:active{transform:translateY(2px);box-shadow:0 2px 0 var(--green-dark)}
+.bugun-tamam{text-align:center;padding:14px;background:var(--green-bg);border:2px solid var(--green);border-radius:14px;font-weight:700;color:var(--green-dark)}
+.bugun-komsu{display:flex;gap:8px;margin-top:10px}
+.bugun-komsu div{flex:1;font-size:.76rem;color:var(--light);background:var(--bg);border-radius:10px;padding:7px 9px;line-height:1.35}
+.bugun-komsu b{color:var(--text);display:block;font-size:.8rem}
+
+/* ── Konu listesi ── */
+.konu-legend{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;font-size:.74rem;color:var(--light);margin-bottom:12px}
+.konu-legend span{display:flex;align-items:center;gap:4px}
+.kd{width:9px;height:9px;border-radius:50%;display:inline-block}
+.kd-yok{background:var(--border)} .kd-dev{background:var(--yellow)} .kd-ok{background:var(--green)} .kd-tek{background:var(--red)}
+.konu-sat{display:flex;align-items:center;gap:10px;background:var(--white);border:2px solid var(--border);border-radius:13px;padding:11px 13px;margin-bottom:7px;cursor:pointer;transition:border-color .12s}
+.konu-sat:hover{border-color:var(--purple)}
+.konu-sat .ks-no{width:26px;height:26px;border-radius:8px;background:var(--purple-bg);color:var(--purple-dark);font-weight:800;font-size:.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.konu-sat .ks-ad{flex:1;font-weight:700;font-size:.9rem;line-height:1.25}
+.konu-sat .ks-de{font-size:.74rem;color:var(--light);font-weight:500}
+.konu-sat .ks-hazir{font-size:.68rem;color:var(--light);background:var(--bg);border-radius:6px;padding:2px 6px;font-weight:600}
+.konu-grup{font-size:.78rem;font-weight:800;color:var(--light);margin:16px 0 8px;letter-spacing:.3px}
+
+/* ── Konu ekranı ── */
+.konu-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.konu-no{width:40px;height:40px;border-radius:12px;background:var(--purple);color:#fff;font-weight:800;font-size:1.05rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.konu-ad{font-size:1.15rem;font-weight:800;line-height:1.2}
+.konu-de{font-size:.82rem;color:var(--light);font-weight:600}
+.konu-adimlar{display:flex;gap:6px;margin-bottom:16px}
+.konu-adim{flex:1;text-align:center;padding:8px 4px;border-radius:11px;background:var(--bg);border:2px solid var(--border);font-size:.72rem;font-weight:700;color:var(--light);cursor:pointer}
+.konu-adim.aktif{background:var(--purple-bg);border-color:var(--purple);color:var(--purple-dark)}
+.konu-adim.bitti{background:var(--green-bg);border-color:var(--green);color:var(--green-dark)}
+.konu-adim .ka-ik{display:block;font-size:1rem;margin-bottom:1px}
+.konu-bos{text-align:center;padding:26px 16px;color:var(--light);background:var(--white);border:2px dashed var(--border);border-radius:16px}
+.anlatim-kaynak{font-size:.74rem;color:var(--light);text-align:right;margin-bottom:8px;font-style:italic}
+.konu-ilerle{width:100%;background:var(--purple);color:#fff;border:none;border-radius:14px;padding:14px;font-family:Fredoka,sans-serif;font-size:1rem;font-weight:700;cursor:pointer;margin-top:14px}
+.ek-head{cursor:pointer;user-select:none;display:block !important;padding:10px 12px;background:var(--white);border:2px solid var(--border);border-radius:13px;text-transform:none;letter-spacing:.2px;font-size:.88rem;color:var(--text)}
+.ek-head::after{display:none}
+.ek-head small{text-transform:none;letter-spacing:0}
 </style>
 <script>
 /* Tema sayfa boyanmadan ÖNCE uygulanır — yoksa açılışta beyaz parlama olur.
@@ -939,14 +985,25 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <button class="pwa-x" onclick="this.parentElement.style.display='none';try{localStorage.setItem('almanca_ioshint','0')}catch(e){}" aria-label="Kapat">×</button>
   </div>
 
-  <!-- 30 GÜNLÜK PLAN: bugünün dersi + ay takvimi + sıradakiler. Veri: PLAN30 (icerik/plan30.json) -->
-  <div class="sec-head">📅 30 Günlük Program</div>
-  <div id="weeklyPlanWrap"></div>
+  <!-- ══ BÖLÜM A: BUGÜN ══ günün çalışması tek akış halinde -->
+  <div class="sec-head">📅 Bugün</div>
+  <div id="bugunWrap"></div>
+
+  <!-- ══ BÖLÜM B: KONULAR ══ 38 konuluk omurga -->
+  <div class="sec-head">📚 Konular</div>
+  <div id="konuOzetWrap"></div>
+
+  <!-- ══ BÖLÜM C: EK ÇALIŞMA ══ serbest araçlar, katlanmış gelir -->
+  <div class="sec-head ek-head" id="ekHead" onclick="toggleEk()">
+    <span id="ekOk">▸</span> 🧰 Ek Çalışma
+    <small style="font-weight:600;color:var(--light);font-size:.75rem;display:block;margin-top:2px">Plan dışı serbest çalışmak istersen</small>
+  </div>
+  <div id="ekWrap" style="display:none">
 
   <!-- SERBEST HIZLI DERS: plandan bağımsız, 5-10 dakikalık tur -->
   <div class="hero-card" onclick="startDailyLesson()">
     <div class="hero-kicker">Ne yapacağını bilmiyorsan buna bas</div>
-    <div class="hero-title">Bugünün Dersi</div>
+    <div class="hero-title">Serbest Ders</div>
     <div class="hero-sub" id="heroSub">Kelime → kısa mola → mini gramer. Yaklaşık 5-10 dakika.</div>
     <span class="hero-btn">Başla →</span>
   </div>
@@ -1074,6 +1131,8 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   </div>
 
 
+  </div><!-- /ekWrap -->
+
   <!-- BÖLÜM 5: DÜELLO — arkadaşınla çevrimiçi karşılaşma -->
   <div class="sec-head">⚔️ Arkadaşınla Yarış</div>
   <div class="duello-card-wrap" id="duelloSection">
@@ -1089,6 +1148,34 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   <!-- BÖLÜM 6: YENİLİKLER — her güncellemede buraya not düşülür -->
   <div class="sec-head">🆕 Yenilikler</div>
   <div id="changelogWrap"></div>
+</div>
+
+<!-- KONU LİSTESİ — 38 konuluk omurga -->
+<div id="konuListScreen">
+  <div class="cat-top">
+    <h2>📚 Konular</h2>
+    <button class="btn-home" onclick="goHome()">← Geri</button>
+  </div>
+  <div class="konu-legend">
+    <span><i class="kd kd-yok"></i> başlanmadı</span>
+    <span><i class="kd kd-dev"></i> devam</span>
+    <span><i class="kd kd-ok"></i> tamam</span>
+    <span><i class="kd kd-tek"></i> tekrar</span>
+  </div>
+  <div id="konuListe"></div>
+</div>
+
+<!-- KONU EKRANI — anlatım → kelimeler → alıştırma → test -->
+<div id="konuScreen">
+  <div class="konu-head">
+    <div class="konu-no" id="konuNo">1</div>
+    <div>
+      <div class="konu-ad" id="konuAd"></div>
+      <div class="konu-de" id="konuDe"></div>
+    </div>
+  </div>
+  <div class="konu-adimlar" id="konuAdimlar"></div>
+  <div id="konuGovde"></div>
 </div>
 
 <!-- CATEGORY -->
@@ -1766,7 +1853,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 //  Tüm ilerleme tarayıcıda saklanır; sekme kapansa da kalır.
 // ══════════════════════════════════════════
 const SKEY='almanca_v1';
-function defaultDB(){return{srs:{},xp:0,streak:{cur:0,max:0,last:null},daily:{date:null,xp:0,goal:40},grammar:{},mistakes:[],bestGameScore:0,plan:{bas:null,tamam:{}}};}
+function defaultDB(){return{srs:{},xp:0,streak:{cur:0,max:0,last:null},daily:{date:null,xp:0,goal:40},grammar:{},mistakes:[],bestGameScore:0,plan:{bas:null,tamam:{}}, konu:{}};}
 let DB=loadDB();
 function loadDB(){try{const r=JSON.parse(localStorage.getItem(SKEY));if(!r)return defaultDB();const d=defaultDB();return{...d,...r,streak:{...d.streak,...(r.streak||{})},daily:{...d.daily,...(r.daily||{})}};}catch(e){return defaultDB();}}
 function saveDB(){try{localStorage.setItem(SKEY,JSON.stringify(DB));}catch(e){}}
@@ -2357,6 +2444,82 @@ const CATS = {
   {de:"spät",          tr:"geç",         h:"SPÄT — 'zu spät' = geç (kalmış), A1'de çok sık: Ich komme zu spät. = Geç kalıyorum."},
   {de:"pünktlich",     tr:"dakik, tam zamanında", h:"PÜNKTLICH → PUNKT (nokta) kökünden: 'tam o noktada/anda' → dakik, zamanında."},
 ]}
+,"Selamlaşma":{emoji:"👋",words:[
+  {de:"Hallo",            tr:"merhaba",                 h:"En yaygın selam — her saatte, herkese söylenir.",
+    b:{de:"Hallo, wie geht es dir?", tr:"Merhaba, nasılsın?"}},
+  {de:"Guten Morgen",     tr:"günaydın",                h:"GUT (iyi) + MORGEN (sabah) → 'iyi sabahlar'. der Morgen = sabah.",
+    b:{de:"Guten Morgen, Frau Müller!", tr:"Günaydın, Müller Hanım!"}},
+  {de:"Guten Tag",        tr:"iyi günler",              h:"GUT + TAG (gün). Gündüz, resmi ortamda kullanılır.",
+    b:{de:"Guten Tag, ich heiße Tim.", tr:"İyi günler, adım Tim."}},
+  {de:"Guten Abend",      tr:"iyi akşamlar",            h:"GUT + ABEND (akşam). = Schönen Abend!",
+    b:{de:"Guten Abend, kommen Sie herein!", tr:"İyi akşamlar, içeri buyurun!"}},
+  {de:"Gute Nacht",       tr:"iyi geceler",             h:"die Nacht DİŞİL olduğu için GUTE (sonda -n yok) — Guten Tag ile farkı bu.",
+    b:{de:"Gute Nacht, schlaf gut!", tr:"İyi geceler, iyi uyu!"}},
+  {de:"Tschüs",           tr:"hoşça kal",               h:"En yaygın veda, samimi. Tschüss diye de yazılır.",
+    b:{de:"Tschüs, bis morgen!", tr:"Hoşça kal, yarın görüşürüz!"}},
+  {de:"Auf Wiedersehen",  tr:"tekrar görüşürüz",        h:"WIEDER (tekrar) + SEHEN (görmek) → yüz yüzeyken.",
+    b:{de:"Auf Wiedersehen, Herr Doktor!", tr:"Hoşça kalın, Doktor Bey!"}},
+  {de:"Auf Wiederhören",  tr:"tekrar konuşuruz",        h:"WIEDER + HÖREN (duymak) → SADECE TELEFONDA. Görmüyorsun, duyuyorsun!",
+    b:{de:"Auf Wiederhören!", tr:"Hoşça kalın! (telefonda)"}},
+  {de:"Bis morgen",       tr:"yarın görüşürüz",         h:"BIS (-e kadar) + MORGEN (yarın). morgen küçük = yarın, der Morgen = sabah.",
+    b:{de:"Bis morgen in der Schule!", tr:"Yarın okulda görüşürüz!"}},
+  {de:"Bis bald",         tr:"yakında görüşürüz",       h:"BALD = yakında.",
+    b:{de:"Bis bald, mein Freund!", tr:"Yakında görüşürüz, dostum!"}},
+  {de:"Bis später",       tr:"sonra görüşürüz",         h:"SPÄT (geç) → SPÄTER (daha sonra).",
+    b:{de:"Bis später, ich muss jetzt gehen.", tr:"Sonra görüşürüz, şimdi gitmeliyim."}},
+  {de:"Bis gleich",       tr:"birazdan görüşürüz",      h:"GLEICH = hemen, birazdan. Bis bald'dan daha kısa süre!",
+    b:{de:"Bis gleich, ich komme sofort.", tr:"Birazdan görüşürüz, hemen geliyorum."}},
+  {de:"Wie geht es dir?", tr:"nasılsın?",               h:"Kelimesi kelimesine 'sana nasıl gidiyor'. SANA = dir (Dativ).",
+    b:{de:"Hallo Anna, wie geht es dir?", tr:"Merhaba Anna, nasılsın?"}},
+  {de:"Wie geht es Ihnen?",tr:"nasılsınız? (resmi)",    h:"dir → Ihnen: resmi hâli. Ihnen her zaman BÜYÜK I ile.",
+    b:{de:"Guten Tag, wie geht es Ihnen?", tr:"İyi günler, nasılsınız?"}},
+  {de:"Mir geht es gut",  tr:"iyiyim",                  h:"DİKKAT: 'Ich bin gut' YANLIŞ! Almanca 'bana iyi gidiyor' der.",
+    b:{de:"Mir geht es gut, danke.", tr:"İyiyim, teşekkürler."}},
+  {de:"Danke",            tr:"teşekkürler",             h:"DANKE ≈ 'thanks' ile aynı kökten (D→TH).",
+    b:{de:"Danke für deine Hilfe!", tr:"Yardımın için teşekkürler!"}},
+  {de:"Bitte",            tr:"lütfen / rica ederim",    h:"İKİ anlamlı: isterken 'lütfen', teşekküre cevapta 'rica ederim'.",
+    b:{de:"Danke! — Bitte!", tr:"Teşekkürler! — Rica ederim!"}},
+  {de:"Entschuldigung",   tr:"pardon / özür dilerim",   h:"SCHULD = suç, kabahat → ENT-SCHULD-IGUNG = 'suçtan arındırma' = özür.",
+    b:{de:"Entschuldigung, wo ist der Bahnhof?", tr:"Pardon, gar nerede?"}},
+]}
+,"Ülkeler":{emoji:"🗺️",words:[
+  {de:"Deutschland",   tr:"Almanya",        h:"DEUTSCH (Almanca) + LAND (ülke). Artikelsiz kullanılır.",
+    b:{de:"Ich wohne in Deutschland.", tr:"Almanya'da oturuyorum."}},
+  {de:"die Türkei",    tr:"Türkiye",        h:"İSTİSNA: artikeli var, DİŞİL. Bu yüzden 'aus DER Türkei' denir.",
+    b:{de:"Ich komme aus der Türkei.", tr:"Türkiye'den geliyorum."}},
+  {de:"Österreich",    tr:"Avusturya",      h:"ÖSTER (doğu) + REICH (imparatorluk) → 'Doğu İmparatorluğu'.",
+    b:{de:"Wien liegt in Österreich.", tr:"Viyana Avusturya'da."}},
+  {de:"die Schweiz",   tr:"İsviçre",        h:"İSTİSNA: dişil artikelli → 'aus DER Schweiz'.",
+    b:{de:"Sie kommt aus der Schweiz.", tr:"O, İsviçre'den geliyor."}},
+  {de:"England",       tr:"İngiltere",      h:"Artikelsiz → 'aus England'.",
+    b:{de:"Sally kommt aus England.", tr:"Sally İngiltere'den geliyor."}},
+  {de:"Frankreich",    tr:"Fransa",         h:"FRANK (Frank kavmi) + REICH (ülke) → 'Frankların ülkesi'.",
+    b:{de:"Paris ist in Frankreich.", tr:"Paris Fransa'da."}},
+  {de:"Spanien",       tr:"İspanya",        h:"SPANIEN ≈ Spain/İspanya — tanıdık.",
+    b:{de:"Wir fahren nach Spanien.", tr:"İspanya'ya gidiyoruz."}},
+  {de:"Italien",       tr:"İtalya",         h:"ITALIEN ≈ Italy/İtalya — tanıdık.",
+    b:{de:"Das Essen in Italien ist gut.", tr:"İtalya'da yemek güzel."}},
+  {de:"die USA",       tr:"ABD",            h:"İSTİSNA: ÇOĞUL artikelli → 'aus DEN USA'.",
+    b:{de:"Er kommt aus den USA.", tr:"O, ABD'den geliyor."}},
+  {de:"Deutsch",       tr:"Almanca (dil)",  h:"Dil adları BÜYÜK harf ve ARTİKELSİZ: 'Ich spreche Deutsch'.",
+    b:{de:"Ich lerne Deutsch.", tr:"Almanca öğreniyorum."}},
+  {de:"Türkisch",      tr:"Türkçe (dil)",   h:"Ülke + -isch = dil. Türkei → Türkisch.",
+    b:{de:"Meine Muttersprache ist Türkisch.", tr:"Ana dilim Türkçe."}},
+  {de:"Englisch",      tr:"İngilizce",      h:"England → Englisch. Aynı -isch kuralı.",
+    b:{de:"Sie spricht gut Englisch.", tr:"O iyi İngilizce konuşuyor."}},
+  {de:"die Muttersprache",tr:"ana dil",     h:"MUTTER (anne) + SPRACHE (dil) → 'anne dili'. Türkçe ile aynı mantık!",
+    b:{de:"Was ist deine Muttersprache?", tr:"Ana dilin ne?"}},
+  {de:"die Sprache",   tr:"dil",            h:"SPRECHEN (konuşmak) → SPRACHE (dil). Çoğul: die Sprachen.",
+    b:{de:"Ich spreche zwei Sprachen.", tr:"İki dil konuşuyorum."}},
+  {de:"der Türke",     tr:"Türk (erkek)",   h:"Kişi adı. Dişili: die Türkin (-in eki dişil yapar).",
+    b:{de:"Er ist Türke.", tr:"O bir Türk."}},
+  {de:"die Türkin",    tr:"Türk (kadın)",   h:"TÜRKE + -IN = dişil. Bu -in eki tüm mesleklerde de aynı.",
+    b:{de:"Sie ist Türkin.", tr:"O bir Türk (kadın)."}},
+  {de:"der Deutsche",  tr:"Alman (erkek)",  h:"Sıfattan gelen isim. Dişili: die Deutsche.",
+    b:{de:"Mein Nachbar ist Deutscher.", tr:"Komşum Alman."}},
+  {de:"geboren",       tr:"doğmuş",         h:"GEBÄREN (doğurmak) fiilinin 3. hâli → 'Ich bin in London geboren'.",
+    b:{de:"Ich bin in Berlin geboren.", tr:"Berlin'de doğdum."}},
+]}
 };
 
 // Grup bitince gösterilen kategori paragrafları (kelime örnek cümleleriyle aynı mantık: elle yazılmış, A1 seviyesi)
@@ -2505,7 +2668,7 @@ const WORD_PARTS = {
 // ══════════════════════════════════════════
 //  NAVİGASYON
 // ══════════════════════════════════════════
-const ALL_SCREENS = ['homeScreen','catScreen','gameScreen','gameDoneScreen',
+const ALL_SCREENS = ['homeScreen','konuListScreen','konuScreen','catScreen','gameScreen','gameDoneScreen',
   'listScreen','learnScreen','learnDoneScreen','lessonBreakScreen','edatScreen','edatDoneScreen',
   'gramerScreen','gramerTopicScreen','gramerTestScreen','gramerTestDoneScreen',
   'artikelScreen','artikelDoneScreen','pluralScreen','pluralDoneScreen',
@@ -2549,6 +2712,759 @@ function hdrBackGo(){
 
 // Haftalık Plan — her hafta elle güncellenir (statik veri), o haftaki her gün için beceri etiketli görev(ler).
 // Tıklanan görev doğrudan ilgili bölüme götürür. "today" ISO tarihiyle eşleşen gün yeşil vurgulanır.
+// ══════════════════════════════════════════
+//  KONU OMURGASI — A1 kitabinin 38 konusu
+//  Her konu dort adimli bir unitedir: anlatim → kelimeler → alistirma → test.
+//  Bu dizi ICERIK KOPYALAMAZ, var olan icerige kimlikle isaret eder:
+//    anlatim : ANLATIMLAR sozlugundeki kimlik (hocanin slaytindan yazildi)
+//    kat     : CATS kategorisi        gr : GRAMER_TOPICS id
+//    slayt   : openSlideDeck kimligi  alis: alistirma eylemleri
+//  kaynak.s = hocanin PDF'indeki sayfa araligi (anlatim oradan okundu).
+// ══════════════════════════════════════════
+const KONULAR=[
+ {no:1, ad:'Alfabe ve Telaffuz',        de:'Das Alphabet',            kaynak:{p:'t1',s:'4-6'},   anlatim:'alfabe',      kat:null,              gr:null,          slayt:null,       alis:['dinleme:alfabe']},
+ {no:2, ad:'Selamlaşma',                de:'Hallo! Hi!',              kaynak:{p:'t1',s:'7-10'},  anlatim:'selam',       kat:'Selamlaşma',      gr:null,          slayt:null,       alis:['kelime:Selamlaşma']},
+ {no:3, ad:'Nasılsınız?',               de:'Wie geht es Ihnen?',      kaynak:{p:'t1',s:'11'},    anlatim:'nasilsin',    kat:null,              gr:null,          slayt:null,       alis:['kelime:Selamlaşma']},
+ {no:4, ad:'Adınız ne?',                de:'Wie heißen Sie?',         kaynak:{p:'t1',s:'12-16'}, anlatim:'tanisma',     kat:null,              gr:'sein',        slayt:null,       alis:['gramer:sein']},
+ {no:5, ad:'Vedalaşma',                 de:'Tschüs! Bye!',            kaynak:{p:'t1',s:'17-18'}, anlatim:'veda',        kat:'Selamlaşma',      gr:null,          slayt:null,       alis:['kelime:Selamlaşma']},
+ {no:6, ad:'Sayılar',                   de:'Die Zahlen',              kaynak:{p:'t1',s:'19-22'}, anlatim:'sayilar',     kat:'Sayılar',         gr:null,          slayt:null,       alis:['kelime:Sayılar','dinleme:sayilar']},
+ {no:7, ad:'E-posta Adresi',            de:'Die E-Mail-Adresse',      kaynak:{p:'t1',s:'23-25'}, anlatim:'eposta',      kat:null,              gr:null,          slayt:null,       alis:['dinleme:eposta']},
+ {no:8, ad:'Nerede oturuyorsunuz?',     de:'Wo wohnen Sie?',          kaynak:{p:'t1',s:'26'},    anlatim:'nerede',      kat:null,              gr:null,          slayt:null,       alis:['gramer:sein']},
+ {no:9, ad:'Nereden geliyorsunuz?',     de:'Woher kommen Sie?',       kaynak:{p:'t1',s:'27-28'}, anlatim:'nereden',     kat:null,              gr:null,          slayt:null,       alis:['edat']},
+ {no:10,ad:'Ülkeler ve Diller',         de:'Die Länder – Die Sprachen',kaynak:{p:'t1',s:'29-31'},anlatim:'ulkeler',     kat:'Ülkeler',         gr:null,          slayt:null,       alis:['kelime:Ülkeler']},
+ {no:11,ad:'Kişisel Bilgiler',          de:'Ihre Information',        kaynak:{p:'t1',s:'32-33'}, anlatim:'bilgiler',    kat:null,              gr:null,          slayt:null,       alis:['yazma']},
+ {no:12,ad:'Renkler',                   de:'Die Farben',              kaynak:{p:'t1',s:'34'},    anlatim:'renkler',     kat:'Renkler',         gr:null,          slayt:null,       alis:['kelime:Renkler']},
+ {no:13,ad:'Kıyafetler',                de:'Die Kleidung',            kaynak:{p:'t1',s:'35-49'}, anlatim:'kiyafet',     kat:'Kıyafet',         gr:null,          slayt:null,       alis:['kelime:Kıyafet']},
+ {no:14,ad:'Fiiller ve TMP sırası',     de:'Die Verben + TMP',        kaynak:{p:'t1',s:'50-60'}, anlatim:'tmp',         kat:'Fiiller',         gr:null,          slayt:null,       alis:['kelime:Fiiller']},
+ {no:15,ad:'Hobiler / gern',            de:'Die Hobbys / Gern',       kaynak:{p:'t1',s:'61-67'}, anlatim:null,          kat:'Hobiler',         gr:'gern',        slayt:null,       alis:['gramer:gern','kelime:Hobiler']},
+ {no:16,ad:'Hava Durumu',               de:'Das Wetter',              kaynak:{p:'t1',s:'68-70'}, anlatim:null,          kat:'Hava',            gr:'wetter',      slayt:null,       alis:['gramer:wetter','kelime:Hava']},
+ {no:17,ad:'Sinemaya gidelim mi?',      de:'Gehen wir ins Kino?',     kaynak:{p:'t1',s:'71-72'}, anlatim:null,          kat:null,              gr:'ins_im',      slayt:null,       alis:['gramer:ins_im']},
+ {no:18,ad:'Meslekler',                 de:'Die Berufe',              kaynak:{p:'t1',s:'73-82'}, anlatim:null,          kat:'Meslekler',       gr:'meslekler',   slayt:null,       alis:['gramer:meslekler','kelime:Meslekler']},
+ {no:19,ad:'Artikel: Nominativ',        de:'Die Artikel / Nominativ', kaynak:{p:'t1',s:'83-86'}, anlatim:null,          kat:null,              gr:'nominativ',   slayt:'artikel',  alis:['gramer:nominativ','artikel']},
+ {no:20,ad:'Artikel: Akkusativ',        de:'Die Artikel / Akkusativ', kaynak:{p:'t1',s:'87-89'}, anlatim:null,          kat:null,              gr:'akkusativ',   slayt:'artikel',  alis:['gramer:akkusativ','artikel']},
+ {no:21,ad:'Hep Akkusativ edatları',    de:'Präpositionen + Akkusativ',kaynak:{p:'t1',s:'90'},   anlatim:null,          kat:'Edatlar',         gr:'akk_praep',   slayt:'akkusativ',alis:['gramer:akk_praep','edat']},
+ {no:22,ad:'Çoğul Yapma',               de:'Die Plural-Formen',       kaynak:{p:'t1',s:'91-95'}, anlatim:null,          kat:null,              gr:null,          slayt:null,       alis:['cogul']},
+ {no:23,ad:'nicht mi kein mi?',         de:'Nicht oder Kein',         kaynak:{p:'t1',s:'96-98'}, anlatim:null,          kat:null,              gr:'negation',    slayt:null,       alis:['gramer:negation']},
+ {no:24,ad:'Soru Kelimeleri',           de:'W-Fragen',                kaynak:{p:'t1',s:'99-101'},anlatim:null,          kat:'Soru Kelimeleri', gr:null,          slayt:null,       alis:['kelime:Soru Kelimeleri']},
+ {no:25,ad:'Yiyecekler',                de:'Guten Appetit',           kaynak:{p:'kl',s:'9-18'},  anlatim:null,          kat:'Yiyecek',         gr:null,          slayt:null,       alis:['kelime:Yiyecek']},
+ {no:26,ad:'Modal Fiiller',             de:'Modalverben',             kaynak:{p:'kl',s:'3-8'},   anlatim:null,          kat:null,              gr:'modal',       slayt:null,       alis:['gramer:modal']},
+ {no:27,ad:'Ayrılabilen Fiiller',       de:'Die Trennbare-Verben',    kaynak:{p:'kl',s:'19-46'}, anlatim:null,          kat:null,              gr:'trennbar',    slayt:'trennbar2',alis:['gramer:trennbar']},
+ {no:28,ad:'Saat Kaç?',                 de:'Wie spät ist es?',        kaynak:{p:'kl',s:'47-55'}, anlatim:null,          kat:'Saat',            gr:null,          slayt:null,       alis:['kelime:Saat','dinleme:saat']},
+ {no:29,ad:'Präteritum: sein & haben',  de:'Präteritum – Sein/Haben', kaynak:{p:'kl',s:'56-63'}, anlatim:null,          kat:null,              gr:'praeteritum', slayt:null,       alis:['gramer:praeteritum']},
+ {no:30,ad:'Artikel: Dativ',            de:'Die Artikel / Dativ',     kaynak:{p:'kl',s:'64-78'}, anlatim:null,          kat:null,              gr:'dativ',       slayt:'dativ',    alis:['gramer:dativ','artikel']},
+ {no:31,ad:'Hep Dativ edatları',        de:'Präpositionen + Dativ',   kaynak:{p:'kl',s:'79-84'}, anlatim:null,          kat:'Edatlar',         gr:'dat_praep',   slayt:'dativ',    alis:['gramer:dat_praep','edat']},
+ {no:32,ad:'Artikel: Genitiv',          de:'Die Artikel / Genitiv',   kaynak:{p:'kl',s:'85-90'}, anlatim:'genitiv',     kat:null,              gr:null,          slayt:'artikel',  alis:['artikel']},
+ {no:33,ad:'Ailem',                     de:'Meine Familie',           kaynak:{p:'kl',s:'91-94'}, anlatim:null,          kat:'Aile',            gr:'possessiv',   slayt:null,       alis:['gramer:possessiv','kelime:Aile']},
+ {no:34,ad:'İşaret Zamirleri',          de:'Demonstrativpronomen',    kaynak:{p:'kl',s:'95'},    anlatim:'demonstrativ',kat:null,              gr:null,          slayt:null,       alis:['artikel']},
+ {no:35,ad:'Emir Kipi',                 de:'Imperative',              kaynak:{p:'kl',s:'95-96'}, anlatim:null,          kat:null,              gr:'imperativ',   slayt:null,       alis:['gramer:imperativ']},
+ {no:36,ad:'Perfekt (Geçmiş Zaman)',    de:'Das Perfekt',             kaynak:{p:'kl',s:'96-112'},anlatim:null,          kat:null,              gr:'perfekt',     slayt:null,       alis:['gramer:perfekt']},
+ {no:37,ad:'Sıralama: zuerst/dann',     de:'Zuerst / Dann / Danach',  kaynak:{p:'kl',s:'113-117'},anlatim:'siralama',   kat:'Zarflar',         gr:'weil',        slayt:'konnektoren',alis:['gramer:weil','kelime:Zarflar']},
+ {no:38,ad:'Mektup Yazma',              de:'Einen Brief schreiben',   kaynak:{p:'kl',s:'118-122'},anlatim:'mektup',     kat:null,              gr:null,          slayt:null,       alis:['yazma']},
+ // ── A1 omurgasinin disinda kalan, uygulamada bulunan ek konular ──
+ {no:39,ad:'Wechselpräpositionen',      de:'Wechselpräpositionen',    kaynak:{p:'kl',s:'—'},     anlatim:null, ek:true, kat:null,              gr:'wechsel_praep',slayt:null,      alis:['gramer:wechsel_praep','edat']},
+ {no:40,ad:'Zaman Edatları: im/am/um',  de:'Temporale Präpositionen', kaynak:{p:'kl',s:'—'},     anlatim:null, ek:true, kat:null,              gr:'zaman_edat',  slayt:null,       alis:['gramer:zaman_edat']},
+ {no:41,ad:'A2 · weil / denn / dann',   de:'Konnektoren',             kaynak:{p:'a2',s:'—'},     anlatim:null, ek:true, kat:null,              gr:'weil',        slayt:'konnektoren',alis:['gramer:weil']},
+ {no:42,ad:'A2 · Futur I',              de:'Futur I',                 kaynak:{p:'a2',s:'—'},     anlatim:null, ek:true, kat:null,              gr:'futur',       slayt:'futur',    alis:['gramer:futur']},
+ {no:43,ad:'Günlük Kelimeler',          de:'Nomen & Alltag',          kaynak:{p:'kl',s:'—'},     anlatim:null, ek:true, kat:'İsimler',         gr:null,          slayt:null,       alis:['kelime:İsimler']},
+ {no:44,ad:'Çiftlik & Medeni Durum',    de:'Bauernhof & Familienstand',kaynak:{p:'kl',s:'—'},    anlatim:null, ek:true, kat:'Çiftlik',         gr:null,          slayt:null,       alis:['kelime:Çiftlik','kelime:Medeni Durum']},
+];
+function konuBul(no){ return KONULAR.find(k=>k.no===no)||null; }
+
+// ══════════════════════════════════════════
+//  KONU ANLATIMLARI — hocanin kendi slaytlarindan yazildi
+//  Her girdi, KONULAR[].anlatim kimligiyle eslesir.
+//  Kaynak sayfa numaralari dogrulanarak okundu (PLAN30'daki tahminler duzeltildi).
+// ══════════════════════════════════════════
+const ANLATIMLAR={
+
+alfabe:{ baslik:'🔤 Alfabe ve Telaffuz', kaynak:'Teil-1 · s.4-6', html:`
+<span class="r-head">⚡ Alman alfabesi — harflerin OKUNUŞU</span>
+<p>Harfin adı ile sesi farklı. Kodlarken (<b>buchstabieren</b>) harfin <u>adını</u> söylersin.</p>
+<table class="r-table">
+<tr><th>Harf</th><th>Okunuş</th><th>Harf</th><th>Okunuş</th><th>Harf</th><th>Okunuş</th></tr>
+<tr><td>A</td><td><b>a</b></td><td>J</td><td><b>yot</b></td><td>S</td><td><b>es</b></td></tr>
+<tr><td>B</td><td><b>be</b></td><td>K</td><td><b>ka</b></td><td>T</td><td><b>te</b></td></tr>
+<tr><td>C</td><td><b>tse</b></td><td>L</td><td><b>el</b></td><td>U</td><td><b>u</b></td></tr>
+<tr><td>D</td><td><b>de</b></td><td>M</td><td><b>em</b></td><td>V</td><td><b>fau</b></td></tr>
+<tr><td>E</td><td><b>e</b></td><td>N</td><td><b>en</b></td><td>W</td><td><b>ve</b></td></tr>
+<tr><td>F</td><td><b>ef</b></td><td>O</td><td><b>o</b></td><td>X</td><td><b>iks</b></td></tr>
+<tr><td>G</td><td><b>ge</b></td><td>P</td><td><b>pe</b></td><td>Y</td><td><b>üpsilon</b></td></tr>
+<tr><td>H</td><td><b>ha</b></td><td>Q</td><td><b>ku</b></td><td>Z</td><td><b>tset</b></td></tr>
+<tr><td>I</td><td><b>i</b></td><td>R</td><td><b>er</b></td><td>ß</td><td><b>es-tset</b></td></tr>
+</table>
+<span class="r-tip">⚠️ Dikkat — Türkçeden farklı olanlar:<br>
+<b>V</b> = "fau", ses olarak <b>F</b> okunur → <i>Vater</i> = "fater"<br>
+<b>W</b> = "ve", ses olarak <b>V</b> okunur → <i>Wasser</i> = "vasser"<br>
+<b>Z</b> = "tset", ses olarak <b>TS</b> → <i>Zahl</i> = "tsal"<br>
+<b>J</b> = "yot", ses olarak <b>Y</b> → <i>ja</i> = "ya"</span>
+
+<span class="r-head">🔴 Umlaut'lar — üç nokta, üç ayrı ses</span>
+<table class="r-table"><tr><th>Harf</th><th>Ses</th><th>Örnek</th></tr>
+<tr><td><b>Ä ä</b></td><td>açık <b>e</b></td><td>die <b>Ä</b>pfel (elmalar)</td></tr>
+<tr><td><b>Ö ö</b></td><td>Türkçe <b>ö</b></td><td><b>Ö</b>sterreich (Avusturya)</td></tr>
+<tr><td><b>Ü ü</b></td><td>Türkçe <b>ü</b></td><td>die <b>Ü</b>bung, die B<b>ü</b>cher</td></tr>
+<tr><td><b>ß</b></td><td>sert <b>s</b></td><td>die Stra<b>ß</b>e (cadde)</td></tr></table>
+<span class="r-tip">💡 <b>ß</b> yalnız Almancada var ("nur auf Deutsch"). Klavyede yoksa <b>ss</b> yazabilirsin: <i>Straße = Strasse</i>.</span>
+
+<span class="r-head">🎯 Harf BİRLEŞİMLERİ — en kritik kısım</span>
+<table class="r-table"><tr><th>Yazılış</th><th>Okunuş</th><th>Örnek</th></tr>
+<tr><td><b>ei</b></td><td><b>ay</b></td><td>ein <b>Ei</b> = "ayn ay" (yumurta)</td></tr>
+<tr><td><b>ie</b></td><td>uzun <b>i</b></td><td>W<b>ie</b>n = "viin", das Kn<b>ie</b></td></tr>
+<tr><td><b>au</b></td><td><b>au</b></td><td>das <b>Au</b>to, das <b>Au</b>ge, das H<b>au</b>s</td></tr>
+<tr><td><b>eu</b> / <b>äu</b></td><td><b>oy</b></td><td><b>Eu</b>ropa = "oyropa", die H<b>äu</b>ser</td></tr>
+<tr><td><b>ch</b></td><td>hırıltılı <b>h</b></td><td>i<b>ch</b>, nä<b>ch</b>stes Mal</td></tr>
+<tr><td><b>sch</b></td><td><b>ş</b></td><td>die <b>Sch</b>ule = "şule" (okul)</td></tr>
+<tr><td><b>st</b> (başta)</td><td><b>şt</b></td><td>die <b>St</b>adt = "ştat", der <b>St</b>ift</td></tr>
+<tr><td><b>sp</b> (başta)</td><td><b>şp</b></td><td>der <b>Sp</b>ort = "şport", <b>sp</b>ielen</td></tr>
+<tr><td><b>tz</b></td><td><b>ts</b></td><td>der Sa<b>tz</b>, die Ka<b>tz</b>e</td></tr>
+<tr><td><b>ck</b></td><td><b>k</b></td><td>die Ja<b>ck</b>e, die De<b>ck</b>e</td></tr>
+<tr><td><b>ph</b></td><td><b>f</b></td><td>das Al<b>ph</b>abet, <b>Ph</b>ilippinen</td></tr>
+<tr><td><b>ss</b> / <b>ß</b></td><td><b>s</b></td><td>die Nu<b>ss</b>, die Stra<b>ß</b>e, ich hei<b>ß</b>e</td></tr>
+</table>
+<span class="r-tip">🔥 <b>Hocanın altını çizdiği kural:</b> <b>-er</b> ile biten kelimelerde sondaki -er <b>"a"</b> gibi okunur.<br>
+<i>Okt<b>ober</b></i> → "okt<b>oba</b>" · <i>Vat<b>er</b></i> → "fat<b>a</b>" · <i>Mutt<b>er</b></i> → "mutt<b>a</b>"</span>
+
+<span class="r-head">🗣️ Sınıfta lazım olan kalıplar</span>
+<span class="r-tip">
+<b>Entschuldigung! Buchstabieren Sie bitte!</b> — Pardon, kodlar mısınız lütfen!<br>
+<b>Entschuldigung! Noch einmal bitte!</b> — Pardon, bir kez daha lütfen!<br>
+<b>Entschuldigung! Wiederholen Sie bitte!</b> — Pardon, tekrarlar mısınız lütfen!</span>` },
+
+selam:{ baslik:'👋 Selamlaşma', kaynak:'Teil-1 · s.7-10', html:`
+<span class="r-head">⚡ Merhaba demenin yolları</span>
+<table class="r-table"><tr><th>Almanca</th><th>Türkçe</th><th>Ne zaman</th></tr>
+<tr><td><b>Hallo!</b></td><td>Merhaba!</td><td>Her zaman, en yaygın</td></tr>
+<tr><td><b>Hi!</b></td><td>Selam!</td><td>Samimi</td></tr>
+<tr><td><b>Guten Morgen!</b></td><td>Günaydın!</td><td>Sabah</td></tr>
+<tr><td><b>Guten Tag!</b></td><td>İyi günler!</td><td>Gündüz, resmi</td></tr>
+<tr><td><b>Guten Abend!</b></td><td>İyi akşamlar!</td><td>Akşam</td></tr>
+</table>
+<span class="r-tip">⚠️ <b>Hey</b> Almancada <b>"Hei"</b> diye yazılmaz — <i>Hallo</i> veya <i>Hi</i> kullan.</span>
+
+<span class="r-head">🎯 du mu, Sie mi? — Almancanın ilk büyük ayrımı</span>
+<p>Türkçede "sen/siz" ayrımı var; Almancada da aynı mantık, ama <b>Sie her zaman büyük harfle</b> yazılır.</p>
+<table class="r-table"><tr><th></th><th>Samimi (du)</th><th>Resmi (Sie)</th></tr>
+<tr><td>Nasılsın?</td><td>Wie geht es <b>dir</b>?</td><td>Wie geht es <b>Ihnen</b>?</td></tr>
+<tr><td>Adın ne?</td><td>Wie heißt <b>du</b>?</td><td>Wie heißen <b>Sie</b>?</td></tr>
+<tr><td>Kimsin?</td><td>Wer bist <b>du</b>?</td><td>Wer sind <b>Sie</b>?</td></tr>
+</table>
+<span class="r-tip">💡 Tanımadığın yetişkine, öğretmene, memura → <b>Sie</b>. Arkadaşa, çocuğa, aileye → <b>du</b>.</span>` },
+
+nasilsin:{ baslik:'🙂 Nasılsınız?', kaynak:'Teil-1 · s.11', html:`
+<span class="r-head">🔴 EN SIK YAPILAN HATA</span>
+<p style="font-size:1.1rem"><s style="color:#c0392b">Ich bin gut.</s> ❌ &nbsp;→&nbsp; <b style="color:#2d7a2d">Mir geht es gut.</b> ✅</p>
+<span class="r-tip">⚠️ "İyiyim" derken <b>ich bin</b> KULLANILMAZ. Almanca "bana iyi gidiyor" der: <b>Mir geht's gut.</b><br>
+"Ich bin gut" = "Ben iyiyim (yetenekliyim)" anlamına kayar — yanlış anlaşılır.</span>
+
+<span class="r-head">⚡ Soru ve cevap</span>
+<table class="r-table"><tr><th>Soru</th><th>Türkçe</th></tr>
+<tr><td><b>Wie geht es Ihnen?</b></td><td>Nasılsınız? (resmi)</td></tr>
+<tr><td><b>Wie geht es dir?</b></td><td>Nasılsın? (samimi)</td></tr>
+<tr><td><b>Wie geht's?</b></td><td>Naber? (kısa)</td></tr>
+<tr><td><b>Was geht ab?</b></td><td>N'aber? (çok samimi)</td></tr>
+<tr><td><b>Ist alles in Ordnung?</b></td><td>Her şey yolunda mı?</td></tr>
+<tr><td><b>Wie läuft es bei dir?</b></td><td>İşler nasıl gidiyor?</td></tr>
+</table>
+<table class="r-table"><tr><th>Cevap</th><th>Türkçe</th></tr>
+<tr><td><b>Mir geht's gut.</b></td><td>İyiyim.</td></tr>
+<tr><td><b>Mir geht's prima!</b></td><td>Harikayım!</td></tr>
+<tr><td><b>Mir geht's nicht gut.</b></td><td>İyi değilim.</td></tr>
+<tr><td><b>Gut, danke. Und Ihnen?</b></td><td>İyiyim, teşekkürler. Ya siz? (resmi)</td></tr>
+<tr><td><b>Gut, danke. Und dir?</b></td><td>İyiyim, teşekkürler. Ya sen?</td></tr>
+<tr><td><b>Auch gut.</b></td><td>Ben de iyiyim.</td></tr>
+<tr><td><b>Ganz gut so weit.</b></td><td>Şimdilik gayet iyiyim.</td></tr>
+</table>
+
+<span class="r-head">🎯 Duygular — üç ayrı kalıp, karıştırma!</span>
+<table class="r-table"><tr><th>Kalıp</th><th>Örnek</th><th>Türkçe</th></tr>
+<tr><td><b>Ich bin…</b></td><td>Ich <b>bin</b> müde.</td><td>Yorgunum.</td></tr>
+<tr><td></td><td>Ich <b>bin</b> böse.</td><td>Kızgınım.</td></tr>
+<tr><td></td><td>Ich <b>bin</b> traurig.</td><td>Üzgünüm.</td></tr>
+<tr><td></td><td>Ich <b>bin</b> krank.</td><td>Hastayım.</td></tr>
+<tr><td></td><td>Ich <b>bin</b> nervös.</td><td>Gerginim.</td></tr>
+<tr><td></td><td>Ich <b>bin</b> verliebt.</td><td>Âşığım.</td></tr>
+<tr><td><b>Ich habe…</b></td><td>Ich <b>habe</b> Angst.</td><td>Korkuyorum.</td></tr>
+<tr><td></td><td>Ich <b>habe</b> schlechte Laune.</td><td>Moralim bozuk.</td></tr>
+<tr><td><b>Mir ist…</b></td><td><b>Mir ist</b> kalt.</td><td>Üşüyorum.</td></tr>
+<tr><td></td><td><b>Mir ist</b> warm.</td><td>Sıcakladım.</td></tr>
+</table>
+<span class="r-tip">🔥 <b>Kritik:</b> Korku <b>haben</b> ile (<i>Ich habe Angst</i>), sıcak-soğuk <b>Mir ist</b> ile.<br>
+<s>Ich bin kalt</s> dersen "Ben soğuk bir insanım" demiş olursun!</span>
+
+<span class="r-head">🗣️ Ayrıca</span>
+<span class="r-tip"><b>Wie fühlst du dich heute?</b> — Bugün nasıl hissediyorsun?<br>
+<b>Wie fühlen Sie sich heute?</b> — (resmi)<br>
+<b>Ich fühle mich glücklich.</b> — Mutlu hissediyorum. · <b>Ich bin wütend.</b> — Öfkeliyim.</span>` },
+
+tanisma:{ baslik:'🤝 Tanışma — Adınız ne?', kaynak:'Teil-1 · s.7, 12-16', html:`
+<span class="r-head">⚡ Üç ayrı soru, üç ayrı cevap kalıbı</span>
+<table class="r-table"><tr><th>Soru</th><th>Cevap</th></tr>
+<tr><td><b>Wie heißen Sie?</b> / Wie heißt du?<br><i>Adınız ne?</i></td><td><b>Ich heiße</b> Güneş.</td></tr>
+<tr><td><b>Wer sind Sie?</b> / Wer bist du?<br><i>Kimsiniz?</i></td><td><b>Ich bin</b> Güneş.</td></tr>
+<tr><td><b>Wie ist Ihr Name?</b> / Wie ist dein Name?<br><i>İsminiz nedir?</i></td><td><b>Mein Name ist</b> Güneş.</td></tr>
+</table>
+<span class="r-tip">⚠️ Üçü aynı şeyi sorar ama cevap fiili değişir: <b>heißen → heiße</b>, <b>sein → bin</b>, <b>Name → ist</b>. Karıştırma.</span>
+
+<span class="r-head">🔑 heißen — "diye adlandırılmak"</span>
+<table class="r-table"><tr><th>Kişi</th><th>Çekim</th><th>Kişi</th><th>Çekim</th></tr>
+<tr><td>ich</td><td><b>heiße</b></td><td>wir</td><td><b>heißen</b></td></tr>
+<tr><td>du</td><td><b>heißt</b></td><td>ihr</td><td><b>heißt</b></td></tr>
+<tr><td>er/sie/es</td><td><b>heißt</b></td><td>sie/Sie</td><td><b>heißen</b></td></tr></table>
+<span class="r-tip">💡 <b>ß = ss.</b> Klavyende yoksa <i>heisse</i> yazabilirsin.</span>
+
+<span class="r-head">🔑 sein — "olmak"</span>
+<table class="r-table"><tr><th>Kişi</th><th>Çekim</th><th>Kişi</th><th>Çekim</th></tr>
+<tr><td>ich</td><td><b>bin</b></td><td>wir</td><td><b>sind</b></td></tr>
+<tr><td>du</td><td><b>bist</b></td><td>ihr</td><td><b>seid</b></td></tr>
+<tr><td>er/sie/es</td><td><b>ist</b></td><td>sie/Sie</td><td><b>sind</b></td></tr></table>
+<span class="r-tip">💡 <b>der Name</b> = isim (eril). <b>dein Name</b> = senin adın · <b>Ihr Name</b> = sizin adınız.</span>
+
+<span class="r-head">🗣️ Anlamadığında sor</span>
+<span class="r-tip">
+<b>Wie heißt "das" auf Deutsch?</b> — "Şu" Almanca nasıl denir?<br>
+<b>Was bedeutet "das" auf Deutsch?</b> — "Şu" ne demek?<br>
+<b>Wie sagt man … auf Deutsch?</b> — … Almanca nasıl söylenir?<br>
+<b>Buchstabieren Sie, bitte!</b> — Kodlar mısınız lütfen!</span>` },
+
+veda:{ baslik:'👋 Vedalaşma', kaynak:'Teil-1 · s.14', html:`
+<span class="r-head">⚡ Hoşça kal demenin yolları</span>
+<table class="r-table"><tr><th>Almanca</th><th>Türkçe</th><th>Kelime kökü</th></tr>
+<tr><td><b>Tschüs!</b></td><td>Hoşça kal!</td><td>En yaygın, samimi</td></tr>
+<tr><td><b>Bye!</b></td><td>Bay bay!</td><td>İngilizceden</td></tr>
+<tr><td><b>Auf Wiedersehen!</b></td><td>Tekrar görüşürüz</td><td><b>wieder</b>=tekrar + <b>sehen</b>=görmek</td></tr>
+<tr><td><b>Auf Wiederhören!</b></td><td>Tekrar konuşuruz</td><td><b>hören</b>=duymak — <u>telefonda</u></td></tr>
+<tr><td><b>Bis morgen!</b></td><td>Yarın görüşürüz</td><td><b>morgen</b>=yarın</td></tr>
+<tr><td><b>Bis bald!</b></td><td>Yakında görüşürüz</td><td><b>bald</b>=yakında</td></tr>
+<tr><td><b>Bis später!</b></td><td>Sonra görüşürüz</td><td><b>spät</b>=geç → <b>später</b>=daha sonra</td></tr>
+<tr><td><b>Bis gleich!</b></td><td>Birazdan görüşürüz</td><td><b>gleich</b>=hemen, birazdan</td></tr>
+<tr><td><b>Guten Abend!</b></td><td>İyi akşamlar</td><td>= Schönen Abend!</td></tr>
+<tr><td><b>Ich bin dann mal weg!</b></td><td>Hadi ben kaçtım!</td><td><b>weg</b>=uzakta, yok</td></tr>
+</table>
+<span class="r-tip">🔥 <b>Wiedersehen mi Wiederhören mü?</b><br>
+Yüz yüzeysen <b>Auf Wiedersehen</b> (sehen = görmek).<br>
+Telefondaysan <b>Auf Wiederhören</b> (hören = duymak) — birbirinizi görmüyorsunuz!</span>
+<span class="r-tip">⚠️ <b>morgen</b> (küçük harf) = yarın · <b>der Morgen</b> (büyük harf) = sabah<br>
+<b>morgen früh</b> = yarın sabah</span>` },
+
+sayilar:{ baslik:'🔢 Sayılar, Tarih ve Doğum Günü', kaynak:'Teil-1 · s.19-22, 17', html:`
+<span class="r-head">⚡ Almanca sayıların ters mantığı</span>
+<p><b>21 = einundzwanzig</b> → kelimesi kelimesine "bir-ve-yirmi". Almanca <u>birler basamağını önce</u> söyler.</p>
+<span class="r-tip">🔥 Türkçe "yirmi bir" der, Almanca "<b>bir</b> ve <b>yirmi</b>" der. Telefon numarası ve fiyat dinlerken en çok burada hata yapılır.</span>
+
+<span class="r-head">🎯 Sıra sayıları — "kaçıncı?"</span>
+<p>Kural: <b>1-19</b> arası <b>-te</b>, <b>20'den sonra</b> <b>-ste</b>.</p>
+<table class="r-table"><tr><th>Sayı</th><th>Sıra</th><th>Sayı</th><th>Sıra</th></tr>
+<tr><td>1</td><td>ers<b>te</b></td><td>11</td><td>elf<b>te</b></td></tr>
+<tr><td>2</td><td>zwei<b>te</b></td><td>12</td><td>zwölf<b>te</b></td></tr>
+<tr><td>3</td><td>drit<b>te</b></td><td>13</td><td>dreizehn<b>te</b></td></tr>
+<tr><td>4</td><td>vier<b>te</b></td><td>20</td><td>zwanzig<b>ste</b></td></tr>
+<tr><td>7</td><td>sieb<b>te</b></td><td>21</td><td>einundzwanzig<b>ste</b></td></tr>
+<tr><td>8</td><td>ach<b>te</b></td><td>30</td><td>dreißig<b>ste</b></td></tr></table>
+<span class="r-tip">⚠️ Düzensizler: <b>erste</b> (eins değil), <b>dritte</b> (drei değil), <b>siebte</b> (sieben değil), <b>achte</b> (acht+e, tek t).</span>
+
+<span class="r-head">🎂 Doğum günü — Der Geburtstag</span>
+<table class="r-table"><tr><th>Soru</th><th>Cevap</th></tr>
+<tr><td><b>Wann haben Sie Geburtstag?</b><br><b>Wann hast du Geburtstag?</b></td>
+<td><b>Am 10.11.</b> (am zehnten elften)<br><b>Am zehnten November habe ich Geburtstag.</b><br><b>Ich habe am zehnten November Geburtstag.</b></td></tr></table>
+<span class="r-tip">💡 Tarih kalıbı: <b>am</b> + sıra sayısı + <b>-en</b> → <i>am vier<b>ten</b> Januar</i> (4 Ocak'ta).<br>
+Örnek: <i>Am vierten Ersten / Am vierten Januar hat Angelika Geburtstag.</i></span>
+
+<span class="r-head">🔑 haben — "sahip olmak" (doğum günü için şart)</span>
+<table class="r-table"><tr><th>Kişi</th><th>Çekim</th><th>Kişi</th><th>Çekim</th></tr>
+<tr><td>ich</td><td><b>habe</b></td><td>wir</td><td><b>haben</b></td></tr>
+<tr><td>du</td><td><b>hast</b></td><td>ihr</td><td><b>habt</b></td></tr>
+<tr><td>er/sie/es</td><td><b>hat</b></td><td>sie/Sie</td><td><b>haben</b></td></tr></table>
+
+<span class="r-head">🎉 Kutlama kalıpları</span>
+<span class="r-tip">
+<b>Alles Gute zum Geburtstag!</b> — İyi ki doğdun!<br>
+<b>Herzlichen Glückwunsch (zum Geburtstag)!</b> — Tebrikler / Doğum günün kutlu olsun!<br>
+<b>Zum Geburtstag viel Glück!</b> — Doğum gününde bol şans!<br>
+<b>Zum Geburtstag liebe/lieber …</b> — Sevgili … doğum günün kutlu olsun</span>
+<span class="r-tip">💡 Yaş: <b>Meine Katze ist zweieinhalb Jahre alt.</b> = Kedim iki buçuk yaşında. (<b>zwei</b>+<b>einhalb</b> = iki buçuk)<br>
+<b>Am kommenden Sonntag habe ich Geburtstag.</b> = Gelecek pazar doğum günüm.</span>` },
+
+eposta:{ baslik:'📧 E-posta Adresi', kaynak:'Teil-1 · s.23-25', html:`
+<span class="r-head">⚡ Adres okuma işaretleri</span>
+<table class="r-table"><tr><th>İşaret</th><th>Almancası</th><th>Okunuşu</th></tr>
+<tr><td><b>@</b></td><td>at</td><td>"et"</td></tr>
+<tr><td><b>.</b></td><td>Punkt</td><td>"punkt"</td></tr>
+<tr><td><b>-</b></td><td>Bindestrich</td><td>"bindeştrih"</td></tr>
+<tr><td><b>_</b></td><td>Unterstrich</td><td>"unterştrih"</td></tr>
+</table>
+<span class="r-tip">💡 Kalıp: <b>Meine E-Mail-Adresse ist ……@…… .</b><br>
+Soru: <b>Wie ist Ihre E-Mail-Adresse?</b> — E-posta adresiniz nedir?</span>
+<span class="r-tip">🎯 Örnek okuma: <i>yunus_ist.88@gmail.com</i> →<br>
+"ypsilon-u-en-u-es &nbsp;<b>Unterstrich</b>&nbsp; i-es-te &nbsp;<b>Punkt</b>&nbsp; acht-acht &nbsp;<b>at</b>&nbsp; ge-em-a-i-el &nbsp;<b>Punkt</b>&nbsp; ce-o-em"</span>
+
+<span class="r-head">🗣️ Anlamadığında — hayat kurtaran üç cümle</span>
+<span class="r-tip">
+<b>Entschuldigung! Buchstabieren Sie bitte!</b><br>Pardon, kodlar mısınız lütfen!<br><br>
+<b>Entschuldigung! Wiederholen Sie bitte!</b><br>Pardon, tekrarlar mısınız lütfen!<br><br>
+<b>Noch ein Mal, bitte!</b><br>Bir kez daha lütfen!</span>
+<span class="r-tip">⚠️ Sınavın dinleme bölümünde e-posta ve telefon kodlaması <b>çok sık</b> çıkar. Alfabeyi (Konu 1) ezberlemeden buraya geçme.</span>` },
+
+nerede:{ baslik:'🏠 Nerede oturuyorsunuz?', kaynak:'Teil-1 · s.26', html:`
+<span class="r-head">⚡ Soru ve cevap</span>
+<table class="r-table"><tr><th>Soru</th><th>Cevap</th></tr>
+<tr><td><b>Wo wohnen Sie?</b> / Wo wohnst du?<br><i>Nerede oturuyorsunuz?</i></td><td><b>Ich wohne in</b> Berlin.</td></tr>
+<tr><td><b>Wo leben Sie?</b><br><i>Nerede yaşıyorsunuz?</i></td><td><b>Ich lebe in</b> der Türkei.</td></tr>
+</table>
+<span class="r-tip">💡 <b>wohnen</b> = oturmak (ev, adres) · <b>leben</b> = yaşamak (ülke, hayat). İkisi de <b>in</b> ile kullanılır.</span>
+
+<span class="r-head">🎯 wohnen çekimi</span>
+<table class="r-table"><tr><th>Kişi</th><th>Çekim</th><th>Kişi</th><th>Çekim</th></tr>
+<tr><td>ich</td><td>wohn<b>e</b></td><td>wir</td><td>wohn<b>en</b></td></tr>
+<tr><td>du</td><td>wohn<b>st</b></td><td>ihr</td><td>wohn<b>t</b></td></tr>
+<tr><td>er/sie/es</td><td>wohn<b>t</b></td><td>sie/Sie</td><td>wohn<b>en</b></td></tr></table>
+<span class="r-tip">🔥 Bu <b>düzenli fiil</b> kalıbı. Kökü (<i>wohn-</i>) al, eki ekle: <b>-e, -st, -t, -en, -t, -en</b>. Almanca fiillerin çoğu böyle.</span>
+<span class="r-tip">⚠️ <b>Wo</b> = nerede (yer sorar) · <b>Wohin</b> = nereye (yön sorar) · <b>Woher</b> = nereden (köken sorar). Üçünü karıştırma!</span>` },
+
+nereden:{ baslik:'🌍 Nereden geliyorsunuz?', kaynak:'Teil-1 · s.27-28', html:`
+<span class="r-head">⚡ Tek soru, iki anlam</span>
+<p><b>Woher kommst du?</b> / <b>Woher kommen Sie?</b></p>
+<table class="r-table"><tr><th>Anlamı</th><th>Türkçesi</th></tr>
+<tr><td>1)</td><td>Nereden geliyorsun? (şu an)</td></tr>
+<tr><td>2)</td><td>Nerelisin? (köken)</td></tr></table>
+
+<span class="r-head">🔑 Cevap: aus + <span style="color:#2d7a2d">DATIV</span></span>
+<p><b>Ich komme aus</b> der Türkei. · <b>Sie kommt aus</b> England.</p>
+<span class="r-tip">🔥 <b>aus</b> her zaman <b>Dativ</b> ister. Hocanın vurguladığı nokta bu — Konu 31'de (Hep Dativ edatları) tekrar karşına çıkacak.</span>
+<table class="r-table"><tr><th>Ülke</th><th>Artikelli mi?</th><th>Kalıp</th></tr>
+<tr><td>England, Deutschland, Berlin</td><td>Artikelsiz</td><td>Ich komme aus <b>England</b>.</td></tr>
+<tr><td>die Türkei</td><td>Dişil</td><td>Ich komme aus <b>der</b> Türkei.</td></tr>
+<tr><td>die Schweiz</td><td>Dişil</td><td>Ich komme aus <b>der</b> Schweiz.</td></tr>
+<tr><td>die USA</td><td>Çoğul</td><td>Ich komme aus <b>den</b> USA.</td></tr></table>
+<span class="r-tip">⚠️ Ülkelerin çoğu <b>artikelsiz</b>dir. <b>die Türkei</b>, <b>die Schweiz</b>, <b>die USA</b> istisnadır — Dativ'de <b>der / der / den</b> olur.</span>
+
+<span class="r-head">📖 Hocanın örnek metni</span>
+<span class="r-tip"><i>Das ist meine Freundin. Sie <b>heißt</b> Sally. Sie <b>ist</b> 18 Jahre alt. Sie <b>wohnt</b> in Berlin. Sie <b>kommt aus</b> England. Ihre Muttersprache <b>ist</b> Englisch, aber sie <b>kann</b> Deutsch und Türkisch <b>sprechen</b>.</i><br><br>
+Bu, benim kız arkadaşım. Onun adı Sally. O, 18 yaşında. Berlin'de oturuyor. İngiltereli. Ana dili İngilizce ama Almanca ve Türkçe konuşabiliyor.</span>` },
+
+ulkeler:{ baslik:'🗺️ Ülkeler ve Diller', kaynak:'Teil-1 · s.29-31', html:`
+<span class="r-head">⚡ Ülke → Dil → Milliyet</span>
+<table class="r-table"><tr><th>Ülke</th><th>Dil</th><th>Kişi (e/k)</th></tr>
+<tr><td><b>Deutschland</b></td><td>Deutsch</td><td>Deutsch<b>er</b> / Deutsch<b>e</b></td></tr>
+<tr><td><b>die Türkei</b></td><td>Türkisch</td><td>Türk<b>e</b> / Türk<b>in</b></td></tr>
+<tr><td><b>England</b></td><td>Englisch</td><td>Englän<b>der</b> / Englän<b>derin</b></td></tr>
+<tr><td><b>Frankreich</b></td><td>Französisch</td><td>Franzos<b>e</b> / Französ<b>in</b></td></tr>
+<tr><td><b>Spanien</b></td><td>Spanisch</td><td>Spani<b>er</b> / Spani<b>erin</b></td></tr>
+<tr><td><b>Italien</b></td><td>Italienisch</td><td>Italien<b>er</b> / Italien<b>erin</b></td></tr>
+<tr><td><b>Österreich</b></td><td>Deutsch</td><td>Österreich<b>er</b> / <b>-in</b></td></tr>
+<tr><td><b>die Schweiz</b></td><td>Deutsch/Fr./It.</td><td>Schweiz<b>er</b> / <b>-in</b></td></tr>
+</table>
+<span class="r-tip">💡 <b>-in</b> eki dişil yapar: <i>Türke → Türkin</i>, <i>Engländer → Engländerin</i>. Bu ek mesleklerde de aynı (Konu 18).</span>
+<span class="r-tip">🔥 Dil adları <b>büyük harfle</b> ve <b>artikelsiz</b>: <i>Ich spreche <b>Deutsch</b>.</i> (<s>das Deutsch</s> değil)<br>
+<b>die Muttersprache</b> = ana dil → <i>Meine Muttersprache ist Türkisch.</i></span>
+
+<span class="r-head">🎯 Lazım olan kalıplar</span>
+<span class="r-tip">
+<b>Welche Sprachen sprechen Sie?</b> — Hangi dilleri konuşuyorsunuz?<br>
+<b>Ich spreche Deutsch und Englisch.</b> — Almanca ve İngilizce konuşuyorum.<br>
+<b>Ich kann Deutsch sprechen.</b> — Almanca konuşabiliyorum.<br>
+<b>Wo sind Sie geboren?</b> — Nerede doğdunuz? → <b>Ich bin in London geboren.</b></span>` },
+
+bilgiler:{ baslik:'📋 Kişisel Bilgiler', kaynak:'Teil-1 · s.32-33', html:`
+<span class="r-head">⚡ Form doldururken lazım olan kelimeler</span>
+<table class="r-table"><tr><th>Almanca</th><th>Türkçe</th></tr>
+<tr><td><b>der Vorname</b>(n)</td><td>ad</td></tr>
+<tr><td><b>der Nachname</b>(n)</td><td>soyad</td></tr>
+<tr><td><b>die Straße</b>(n)</td><td>cadde / sokak</td></tr>
+<tr><td><b>die Hausnummer</b>(n)</td><td>bina numarası</td></tr>
+<tr><td><b>die Postleitzahl</b>(en)</td><td>posta kodu</td></tr>
+<tr><td><b>die Stadt</b> (die Städte)</td><td>şehir</td></tr>
+<tr><td><b>der Ort</b> (die Orte)</td><td>yer, yerleşim</td></tr>
+<tr><td><b>die Telefonnummer</b>(n)</td><td>telefon numarası</td></tr>
+<tr><td><b>die Handynummer</b>(n)</td><td>cep telefonu numarası</td></tr>
+<tr><td><b>die E-Mail-Adresse</b>(n)</td><td>e-posta adresi</td></tr>
+<tr><td><b>die Webseite</b>(n)</td><td>web sitesi</td></tr>
+</table>
+<span class="r-tip">💡 Parantezdeki ek <b>çoğul</b> ekidir: <i>die Straße → die Straße<b>n</b></i>. Kelimeyi öğrenirken çoğulunu da öğren.</span>
+
+<span class="r-head">💍 Medeni Durum — der Familienstand</span>
+<table class="r-table"><tr><th>Almanca</th><th>Türkçe</th></tr>
+<tr><td><b>ledig</b> / Single</td><td>bekar</td></tr>
+<tr><td><b>verheiratet</b></td><td>evli</td></tr>
+<tr><td><b>geschieden</b></td><td>boşanmış</td></tr>
+<tr><td><b>verwitwet</b></td><td>dul</td></tr>
+<tr><td><b>verlobt</b></td><td>nişanlı</td></tr>
+<tr><td><b>in einer Beziehung</b></td><td>ilişkide</td></tr>
+<tr><td><b>getrennt</b></td><td>ayrı yaşıyor</td></tr>
+</table>
+<span class="r-tip">⚠️ <b>Ledig</b> = hiç evlenmemiş (resmi durum). <b>Single</b> = şu an partneri yok. İkisi aynı şey değil — hocanın notu: <i>Single: kein Partner · Ledig: unverheiratet</i>.</span>
+<span class="r-tip">🎯 <b>heiraten</b> = evlenmek (<u>-ile</u> demeden!)<br>
+<i>Eric <b>heiratet</b> Ariel.</i> = Eric, Ariel <b>ile</b> evleniyor.<br>
+<i>Eric <b>hat</b> Ariel <b>geheiratet</b>.</i> = Eric, Ariel ile evlendi.<br>
+⚠️ Türkçe "ile" der, Almanca <b>demez</b> — <s>heiraten mit</s> yanlıştır.</span>` },
+
+genitiv:{ baslik:'🔗 Artikel: Genitiv (-in hâli)', kaynak:'Kalan Üniteler · s.85-90', html:`
+<span class="r-head">⚡ Genitiv ne işe yarar?</span>
+<p>Sahiplik bildirir: "<b>babamın</b> arabası", "<b>şehrin</b> merkezi". Türkçedeki <b>-in / -ın / -nin</b> ekinin karşılığı.</p>
+<table class="r-table"><tr><th>Cins</th><th>Nominativ</th><th>Genitiv</th></tr>
+<tr><td>eril</td><td><b>der</b> Vater</td><td><b>des</b> Vater<b>s</b></td></tr>
+<tr><td>nötr</td><td><b>das</b> Kind</td><td><b>des</b> Kind<b>es</b></td></tr>
+<tr><td>dişil</td><td><b>die</b> Mutter</td><td><b>der</b> Mutter</td></tr>
+<tr><td>çoğul</td><td><b>die</b> Kinder</td><td><b>der</b> Kinder</td></tr></table>
+<span class="r-tip">🔥 <b>İki şey birden değişir:</b> artikel <u>ve</u> kelimenin sonu.<br>
+Eril/nötr → artikel <b>des</b>, kelimeye <b>-s</b> veya <b>-es</b> eklenir.<br>
+Dişil/çoğul → artikel <b>der</b>, kelime <u>değişmez</u>.</span>
+<span class="r-tip">💡 <b>-s mi -es mi?</b> Tek heceli kelimelere <b>-es</b> (des Kind<b>es</b>, des Mann<b>es</b>), uzun kelimelere <b>-s</b> (des Vater<b>s</b>, des Lehrer<b>s</b>).</span>
+
+<span class="r-head">🎯 Örnekler</span>
+<span class="r-tip">
+<b>Das Auto <u>des Vaters</u></b> ist neu. — Babanın arabası yeni.<br>
+<b>Die Farbe <u>des Kindes</u></b> ist Blau. — Çocuğun rengi mavi.<br>
+<b>Das Haus <u>der Mutter</u></b> ist groß. — Annenin evi büyük.<br>
+<b>Die Bücher <u>der Kinder</u></b> sind hier. — Çocukların kitapları burada.</span>
+<span class="r-tip">⚠️ <b>Sıra Türkçenin tersi!</b> Türkçe "babamın arabası" (sahip önce), Almanca "<i>das Auto des Vaters</i>" (sahip <u>sonra</u>).</span>
+
+<span class="r-head">🗣️ Günlük konuşmada kısayol</span>
+<span class="r-tip">Konuşurken Genitiv yerine <b>von + Dativ</b> çok kullanılır:<br>
+<i>das Auto <b>von meinem Vater</b></i> = <i>das Auto <b>des Vaters</b></i><br>
+İkisi de doğru; yazıda Genitiv, konuşmada <b>von</b> tercih edilir.</span>` },
+
+demonstrativ:{ baslik:'👉 İşaret Zamirleri', kaynak:'Kalan Üniteler · s.95', html:`
+<span class="r-head">⚡ "Bu / şu / o" demek</span>
+<p>İşaret zamiri, artikelin yerine geçip "<b>bu</b>" vurgusu katar. Artikel gibi çekilir.</p>
+<table class="r-table"><tr><th>Hâl</th><th>eril</th><th>dişil</th><th>nötr</th><th>çoğul</th></tr>
+<tr><td><b>Nominativ</b></td><td>dies<b>er</b></td><td>dies<b>e</b></td><td>dies<b>es</b></td><td>dies<b>e</b></td></tr>
+<tr><td><b>Akkusativ</b></td><td>dies<b>en</b></td><td>dies<b>e</b></td><td>dies<b>es</b></td><td>dies<b>e</b></td></tr>
+<tr><td><b>Dativ</b></td><td>dies<b>em</b></td><td>dies<b>er</b></td><td>dies<b>em</b></td><td>dies<b>en</b></td></tr></table>
+<span class="r-tip">🔥 <b>Hile:</b> Tablo <b>der/die/das</b> tablosuyla neredeyse aynı! <i>der→dieser, die→diese, das→dieses, den→diesen, dem→diesem</i>. Artikeli biliyorsan bunu da biliyorsun.</span>
+
+<span class="r-head">🎯 Örnekler</span>
+<span class="r-tip">
+<b>Dieser</b> Mann ist mein Vater. — <u>Bu</u> adam babam. (N, eril)<br>
+Ich kaufe <b>diesen</b> Tisch. — <u>Bu</u> masayı alıyorum. (A, eril)<br>
+Ich gebe <b>diesem</b> Kind das Buch. — <u>Bu</u> çocuğa kitabı veriyorum. (D, nötr)<br>
+<b>Diese</b> Frau ist Lehrerin. — <u>Bu</u> kadın öğretmen. (N, dişil)</span>
+<span class="r-tip">💡 <b>dieser</b> = bu (yakın) · <b>jener</b> = şu/o (uzak). Günlük Almancada <i>jener</i> az kullanılır; onun yerine <b>der/die/das da</b> denir.</span>
+<span class="r-tip">⚠️ <b>das</b> tek başına da "bu" demektir ve <u>çekilmez</u>:<br>
+<i><b>Das</b> ist meine Freundin.</i> — Bu, kız arkadaşım.<br>
+<i><b>Das</b> sind meine Eltern.</i> — Bunlar, annem babam. (çoğulda bile <b>das</b>!)</span>` },
+
+siralama:{ baslik:'📝 Sıralama: zuerst / dann / danach', kaynak:'Kalan Üniteler · s.113-117', html:`
+<span class="r-head">⚡ Olayları sırayla anlatmak</span>
+<table class="r-table"><tr><th>Almanca</th><th>Türkçe</th><th>Nerede</th></tr>
+<tr><td><b>zuerst</b></td><td>önce, ilk olarak</td><td>İlk olay</td></tr>
+<tr><td><b>dann</b></td><td>sonra</td><td>Sonraki olay</td></tr>
+<tr><td><b>danach</b></td><td>ondan sonra</td><td>Sonraki olay</td></tr>
+<tr><td><b>später</b></td><td>daha sonra</td><td>Araya zaman girmiş</td></tr>
+<tr><td><b>zum Schluss</b> / <b>endlich</b></td><td>en sonunda</td><td>Son olay</td></tr></table>
+
+<span class="r-head">🔴 EN KRİTİK KURAL — fiil ikinci sırada!</span>
+<p>Cümleye <b>zuerst/dann/danach</b> ile başlarsan, <b>özne fiilin arkasına geçer</b>.</p>
+<span class="r-tip">
+✅ <b>Dann <u>gehe ich</u></b> nach Hause. — Sonra eve giderim.<br>
+❌ <s>Dann ich gehe nach Hause.</s><br><br>
+✅ <b>Zuerst <u>trinke ich</u></b> Kaffee. — Önce kahve içerim.<br>
+❌ <s>Zuerst ich trinke Kaffee.</s></span>
+<span class="r-tip">🔥 Almancada <b>fiil her zaman 2. sırada</b>. Başa başka bir şey koyarsan özne 3. sıraya düşer. Bu kural tüm Almancanın temeli — "Kral &amp; Soytarı" kuralı.</span>
+
+<span class="r-head">🎯 Tam örnek</span>
+<span class="r-tip"><i><b>Zuerst</b> stehe ich auf. <b>Dann</b> dusche ich. <b>Danach</b> frühstücke ich. <b>Später</b> gehe ich zur Arbeit. <b>Zum Schluss</b> komme ich nach Hause.</i><br><br>
+Önce kalkarım. Sonra duş alırım. Ondan sonra kahvaltı ederim. Daha sonra işe giderim. En sonunda eve gelirim.</span>
+<span class="r-tip">💡 Her cümlede fiilin <u>hemen</u> sıralama kelimesinden sonra geldiğine dikkat et: <i>Zuerst <b>stehe</b> ich…</i>, <i>Dann <b>dusche</b> ich…</i></span>` },
+
+mektup:{ baslik:'✉️ Mektup Yazma', kaynak:'Kalan Üniteler · s.118-122', html:`
+<span class="r-head">⚡ Mektubun iskeleti</span>
+<table class="r-table"><tr><th>Bölüm</th><th>Kalıp</th></tr>
+<tr><td>Selamlama (samimi)</td><td><b>Hallo Tim,</b> / <b>Liebe</b> Anna, (kadın) / <b>Lieber</b> Tim, (erkek)</td></tr>
+<tr><td>Selamlama (resmi)</td><td><b>Sehr geehrte Frau</b> Müller, / <b>Sehr geehrter Herr</b> Müller,</td></tr>
+<tr><td>Giriş</td><td><b>Wie geht es dir?</b> / <b>Vielen Dank für deinen Brief.</b></td></tr>
+<tr><td>Kapanış</td><td><b>Schreib mir bald!</b> / <b>Ich freue mich auf deine Antwort.</b></td></tr>
+<tr><td>Veda (samimi)</td><td><b>Viele Grüße</b> / <b>Liebe Grüße</b> / <b>Grüße</b></td></tr>
+<tr><td>Veda (resmi)</td><td><b>Mit freundlichen Grüßen</b></td></tr></table>
+<span class="r-tip">🔥 <b>Virgülden sonra küçük harf!</b><br>
+✅ <i>Hallo Tim,<br>wie geht es dir?</i><br>
+❌ <s>Hallo Tim,<br>Wie geht es dir?</s><br>
+Almancada selamlamadan sonraki ilk kelime (isim değilse) <u>küçük</u> yazılır.</span>
+
+<span class="r-head">📖 Hocanın örnek mektubu</span>
+<span class="r-tip"><i>Hallo,<br>
+mein Name ist Tim. Ich bin 34 Jahre alt. Ich habe am 14.02. Geburtstag. Ich bin in London geboren. Ich liebe London, aber ich wohne in Berlin. Meine Muttersprache ist Englisch, aber ich kann zwei Sprachen sprechen: Deutsch und Französisch.<br>
+Meine Telefonnummer: 0774 – 407 5413<br>
+Meine E-Mail-Adresse: tmm_oceanx-300@yahoo.com<br><br>
+Und wie heißt du? Wie alt bist du? Wann hast du Geburtstag? Wo bist du geboren? Wo wohnst du? Welche Sprachen sprichst du?<br><br>
+Grüße<br>Tim</i></span>
+
+<span class="r-head">🎯 Kendine sorulacak sorular (sınavda bunları cevaplarsın)</span>
+<span class="r-tip">
+<b>Wie heißt du?</b> — Adın ne?<br>
+<b>Wie alt bist du?</b> — Kaç yaşındasın?<br>
+<b>Wann hast du Geburtstag?</b> — Doğum günün ne zaman?<br>
+<b>Wo bist du geboren?</b> — Nerede doğdun?<br>
+<b>Wo wohnst du?</b> — Nerede oturuyorsun?<br>
+<b>Welche Sprachen sprichst du?</b> — Hangi dilleri konuşuyorsun?<br>
+<b>Wie ist deine Telefonnummer?</b> — Telefon numaran kaç?</span>` },
+
+tmp:{ baslik:'⏰ Fiiller ve TMP sırası', kaynak:'Teil-1 · s.50-60', html:`
+<span class="r-head">⚡ TMP — cümle içinde bilgi sırası</span>
+<p>Almancada ek bilgiler rastgele sıralanmaz. Sıra: <b>T</b>e-<b>M</b>e-<b>P</b>e.</p>
+<table class="r-table"><tr><th>Harf</th><th>Almancası</th><th>Ne sorar</th><th>Örnek</th></tr>
+<tr><td><b>T</b></td><td><b>T</b>emporal</td><td>Ne zaman?</td><td>heute, am Montag</td></tr>
+<tr><td><b>M</b></td><td><b>M</b>odal</td><td>Nasıl? Kiminle?</td><td>mit dem Bus, gern</td></tr>
+<tr><td><b>P</b></td><td><b>P</b>osition/Lokal</td><td>Nerede? Nereye?</td><td>nach Berlin, in die Schule</td></tr></table>
+<span class="r-tip">🎯 <i>Ich fahre <b>heute</b> (T) <b>mit dem Bus</b> (M) <b>nach Berlin</b> (P).</i><br>
+Bugün otobüsle Berlin'e gidiyorum.</span>
+<span class="r-tip">⚠️ Türkçede sıra serbest ("Berlin'e bugün otobüsle gidiyorum" da olur). Almancada <b>TMP sırası bozulursa cümle kulağa yanlış gelir.</b></span>
+
+<span class="r-head">🔑 Düzenli fiil çekimi</span>
+<p>Mastar: <b>wohn<u>en</u></b>. Kökü al (<b>wohn-</b>), eki ekle:</p>
+<table class="r-table"><tr><th>Kişi</th><th>Ek</th><th>Örnek</th></tr>
+<tr><td>ich</td><td><b>-e</b></td><td>ich wohn<b>e</b></td></tr>
+<tr><td>du</td><td><b>-st</b></td><td>du wohn<b>st</b></td></tr>
+<tr><td>er/sie/es</td><td><b>-t</b></td><td>er wohn<b>t</b></td></tr>
+<tr><td>wir</td><td><b>-en</b></td><td>wir wohn<b>en</b></td></tr>
+<tr><td>ihr</td><td><b>-t</b></td><td>ihr wohn<b>t</b></td></tr>
+<tr><td>sie/Sie</td><td><b>-en</b></td><td>sie wohn<b>en</b></td></tr></table>
+<span class="r-tip">💡 <b>wir</b> ve <b>sie/Sie</b> ekleri mastarla aynı (<b>-en</b>). <b>er</b> ve <b>ihr</b> ekleri aynı (<b>-t</b>). Ezberlenecek dört ek var: <b>-e, -st, -t, -en</b>.</span>` },
+
+};
+function anlatimGetir(kimlik){ return ANLATIMLAR[kimlik]||null; }
+
+// ══════════════════════════════════════════
+//  KONU AKISI — anlatim → kelimeler → alistirma → test
+//  Durum mevcut SRS motoruna 'konu:<no>' anahtariyla baglanir.
+// ══════════════════════════════════════════
+const KONU_ADIM=[
+ {k:'anlatim', ad:'Anlatım',   ik:'📖'},
+ {k:'kelime',  ad:'Kelimeler', ik:'🔤'},
+ {k:'alistir', ad:'Alıştırma', ik:'✏️'},
+ {k:'test',    ad:'Test',      ik:'🎯'},
+];
+let AKTIF_KONU=null, AKTIF_ADIM=0;
+
+function konuDurumKaydi(no){
+  DB.konu=DB.konu||{};
+  return DB.konu[no]||(DB.konu[no]={adim:0, bitti:false});
+}
+// 'yok' | 'devam' | 'tamam' | 'tekrar'
+function konuDurum(no){
+  const d=(DB.konu||{})[no];
+  if(!d||(!d.bitti&&!d.adim)) return 'yok';
+  if(!d.bitti) return 'devam';
+  return isDue('konu:'+no)?'tekrar':'tamam';
+}
+function konuAdimVar(k,adimKey){
+  if(adimKey==='anlatim') return !!(k.anlatim||k.gr||k.slayt);
+  if(adimKey==='kelime')  return !!k.kat;
+  if(adimKey==='alistir') return !!(k.alis&&k.alis.length);
+  if(adimKey==='test')    return !!k.gr;
+  return false;
+}
+
+function openKonu(no,adim){
+  const k=konuBul(no); if(!k) return;
+  AKTIF_KONU=k;
+  const d=konuDurumKaydi(no);
+  AKTIF_ADIM = (adim!=null)?adim:(d.adim||0);
+  // var olmayan adimi atla
+  let guard=0;
+  while(!konuAdimVar(k,KONU_ADIM[AKTIF_ADIM].k) && guard++<4) AKTIF_ADIM=(AKTIF_ADIM+1)%4;
+  setHeader('📚 Konu '+k.no,false);
+  showScreen('konuScreen');
+  renderKonu();
+}
+
+function renderKonu(){
+  const k=AKTIF_KONU; if(!k) return;
+  document.getElementById('konuNo').textContent=k.no;
+  document.getElementById('konuAd').textContent=k.ad;
+  document.getElementById('konuDe').textContent=k.de;
+  const d=konuDurumKaydi(k.no);
+  document.getElementById('konuAdimlar').innerHTML=KONU_ADIM.map((a,i)=>{
+    if(!konuAdimVar(k,a.k)) return '';
+    const cls = i===AKTIF_ADIM?'konu-adim aktif' : (d.adim>i||d.bitti)?'konu-adim bitti':'konu-adim';
+    return '<div class="'+cls+'" onclick="gitKonuAdim('+i+')"><span class="ka-ik">'+a.ik+'</span>'+a.ad+'</div>';
+  }).join('');
+  const g=document.getElementById('konuGovde');
+  const adim=KONU_ADIM[AKTIF_ADIM].k;
+
+  if(adim==='anlatim'){
+    const a=k.anlatim?anlatimGetir(k.anlatim):null;
+    const grKart=(!a&&k.gr)?(GRAMER_TOPICS.find(t=>t.id===k.gr)||{}).rule:null;
+    if(a){
+      g.innerHTML='<div class="anlatim-kaynak">Kaynak: '+a.kaynak+'</div>'+
+        '<div class="rule-card">'+a.html+'</div>'+
+        (k.slayt?'<button class="btn-toggle" style="width:100%;margin-top:10px" onclick="openSlideDeck(\''+k.slayt+'\')">🎬 Animasyonlu anlatımı izle</button>':'')+
+        '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam →</button>';
+    } else if(grKart){
+      g.innerHTML='<div class="rule-card">'+grKart+'</div>'+
+        (k.slayt?'<button class="btn-toggle" style="width:100%;margin-top:10px" onclick="openSlideDeck(\''+k.slayt+'\')">🎬 Animasyonlu anlatımı izle</button>':'')+
+        '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam →</button>';
+    } else {
+      g.innerHTML='<div class="konu-bos">📝 Bu konunun anlatımı henüz hazırlanıyor.<br><small>Kaynak: '+k.kaynak.p+' s.'+k.kaynak.s+'</small></div>'+
+        '<button class="konu-ilerle" onclick="konuSonraki()">Devam →</button>';
+    }
+  }
+  else if(adim==='kelime'){
+    const n=(CATS[k.kat]||{words:[]}).words.length;
+    g.innerHTML='<div class="konu-bos">🔤 <b>'+k.kat+'</b> kategorisi<br><small>'+n+' kelime</small></div>'+
+      '<button class="konu-ilerle" onclick="konuKelimeBasla()">Kelimeleri çalış →</button>'+
+      '<button class="btn-home" style="width:100%;margin-top:8px" onclick="konuSonraki()">Atla, alıştırmaya geç</button>';
+  }
+  else if(adim==='alistir'){
+    g.innerHTML='<div class="konu-bos">✏️ Bu konunun alıştırmaları</div>'+
+      k.alis.map(a=>'<button class="konu-ilerle" style="margin-top:8px" onclick="konuAlistirma(\''+a.replace(/'/g,"\\'")+'\')">'+alisAdi(a)+'</button>').join('')+
+      '<button class="btn-home" style="width:100%;margin-top:10px" onclick="konuSonraki()">Teste geç →</button>';
+  }
+  else if(adim==='test'){
+    g.innerHTML='<div class="konu-bos">🎯 Konu testi<br><small>Bu testi geçince konu tamamlanır ve tekrara girer.</small></div>'+
+      '<button class="konu-ilerle" onclick="konuTestBasla()">Testi başlat →</button>';
+  }
+}
+
+function alisAdi(a){
+  const [tip,hedef]=a.split(':');
+  if(tip==='kelime') return '🔤 '+hedef+' kelimeleri';
+  if(tip==='gramer') return '📚 Gramer alıştırması';
+  if(tip==='edat')   return '🔗 Edat egzersizi';
+  if(tip==='artikel')return '🎯 der / die / das';
+  if(tip==='cogul')  return '🔢 Çoğul yapma';
+  if(tip==='yazma')  return '✍️ Yazma egzersizi';
+  if(tip==='dinleme')return '🎧 Dinleme';
+  return a;
+}
+function konuAlistirma(a){
+  const [tip,hedef]=a.split(':');
+  if(tip==='kelime') return goCatSelect('learn',hedef);
+  if(tip==='gramer') return openGrTopic(hedef);
+  if(tip==='edat')   return startEdat();
+  if(tip==='artikel')return startArtikel();
+  if(tip==='cogul')  return startPlural();
+  if(tip==='yazma')  return openYazmaList();
+  if(tip==='dinleme')return (typeof startDinleme==='function')?startDinleme(hedef):openYazmaList();
+}
+function konuKelimeBasla(){ if(AKTIF_KONU&&AKTIF_KONU.kat) goCatSelect('learn',AKTIF_KONU.kat); }
+function konuTestBasla(){ if(AKTIF_KONU&&AKTIF_KONU.gr) openGrTopic(AKTIF_KONU.gr); else konuBitir(); }
+
+function gitKonuAdim(i){ AKTIF_ADIM=i; renderKonu(); }
+function konuSonraki(){
+  const k=AKTIF_KONU; if(!k) return;
+  const d=konuDurumKaydi(k.no);
+  d.adim=Math.max(d.adim,AKTIF_ADIM+1); saveDB();
+  let n=AKTIF_ADIM+1, guard=0;
+  while(n<4 && !konuAdimVar(k,KONU_ADIM[n].k) && guard++<4) n++;
+  if(n>=4){ konuBitir(); return; }
+  AKTIF_ADIM=n; renderKonu();
+}
+function konuBitir(){
+  const k=AKTIF_KONU; if(!k) return;
+  const d=konuDurumKaydi(k.no);
+  d.bitti=true; d.adim=4; saveDB();
+  srsUpdate('konu:'+k.no,true);
+  gunKontrol();
+  document.getElementById('konuGovde').innerHTML=
+    '<div class="bugun-tamam">🎉 <b>'+k.ad+'</b> tamamlandı!<br><small>Bu konu belirli aralıklarla tekrar karşına çıkacak.</small></div>'+
+    '<button class="konu-ilerle" onclick="goHome()">Ana ekrana dön</button>';
+  document.getElementById('konuAdimlar').innerHTML=KONU_ADIM.map(a=>
+    konuAdimVar(k,a.k)?'<div class="konu-adim bitti"><span class="ka-ik">'+a.ik+'</span>'+a.ad+'</div>':'').join('');
+}
+
+// ── Konu listesi ──────────────────────────
+function openKonuListe(){ setHeader('📚 Konular',false); showScreen('konuListScreen'); renderKonuListe(); }
+function renderKonuListe(){
+  const nokta={yok:'kd-yok',devam:'kd-dev',tamam:'kd-ok',tekrar:'kd-tek'};
+  let h='', sonGrup='';
+  KONULAR.forEach(k=>{
+    const grup=k.ek?'Ek Konular':(k.no<=24?'A1 · Temel (1-24)':'A1 · İleri (25-38)');
+    if(grup!==sonGrup){ h+='<div class="konu-grup">'+grup+'</div>'; sonGrup=grup; }
+    const dur=konuDurum(k.no);
+    const anlatimVar=!!(k.anlatim||k.gr||k.slayt);
+    h+='<div class="konu-sat" onclick="openKonu('+k.no+')">'+
+       '<span class="kd '+nokta[dur]+'" style="width:10px;height:10px"></span>'+
+       '<div class="ks-no">'+k.no+'</div>'+
+       '<div class="ks-ad">'+k.ad+'<div class="ks-de">'+k.de+'</div></div>'+
+       (anlatimVar?'':'<span class="ks-hazir">hazırlanıyor</span>')+
+       '</div>';
+  });
+  document.getElementById('konuListe').innerHTML=h;
+}
+
+// ── Gunluk akis ───────────────────────────
+// Gun maddesinin konu numarasi: m[0] (0 ise konu yok, tekrar/hafif gun demek)
+function gunKonulari(g){
+  return (g.k||[]).map(m=>m[0]).filter(n=>n>0).map(n=>konuBul(n)).filter(Boolean);
+}
+function bugunGun(){
+  if(!DB.plan.bas) return PLAN30.gunler[0];
+  const fark=Math.floor((new Date(todayStr())-new Date(DB.plan.bas))/86400000);
+  return PLAN30.gunler[Math.max(0,Math.min(PLAN30.gunler.length-1,fark))];
+}
+function gunBitti(g){
+  const ks=gunKonulari(g);
+  if(!ks.length) return !!(DB.plan.tamam||{})[g.g];
+  return ks.every(k=>konuDurum(k.no)==='tamam'||konuDurum(k.no)==='tekrar');
+}
+function gunKontrol(){
+  const g=bugunGun();
+  if(gunBitti(g)){ DB.plan.tamam=DB.plan.tamam||{}; DB.plan.tamam[g.g]=true; saveDB(); }
+}
+function gunBaslat(){
+  const g=bugunGun();
+  const ks=gunKonulari(g).filter(k=>konuDurum(k.no)!=='tamam');
+  if(ks.length){ openKonu(ks[0].no); return; }
+  // konusu olmayan gun (tekrar/hafif) → ilk eylemi calistir
+  const m=(g.k||[]).find(x=>x[4]);
+  if(m){ try{ new Function(m[4])(); }catch(e){ startReview(); } return; }
+  startReview();
+}
+function renderBugun(){
+  const el=document.getElementById('bugunWrap'); if(!el) return;
+  if(!DB.plan.bas){ DB.plan.bas=todayStr(); saveDB(); }
+  const g=bugunGun();
+  const ks=gunKonulari(g);
+  const bitenSayi=ks.filter(k=>konuDurum(k.no)==='tamam'||konuDurum(k.no)==='tekrar').length;
+  const hepsiBitti=gunBitti(g);
+  const tip=(PLAN_TIP&&PLAN_TIP[g.t])||{ad:g.t};
+  const idx=PLAN30.gunler.indexOf(g);
+  const dun=idx>0?PLAN30.gunler[idx-1]:null, yarin=idx<PLAN30.gunler.length-1?PLAN30.gunler[idx+1]:null;
+  const ad=o=>o?(gunKonulari(o).map(k=>k.ad).join(', ')||tipAdi(o)):'—';
+
+  let h='<div class="bugun-card">'+
+    '<div class="bugun-ust"><span class="bugun-gun">Gün '+g.g+' / 30 · '+(tip.ad||'')+'</span>'+
+    '<span class="bugun-sure">⏱ ~'+g.dk+' dk</span></div>';
+  if(ks.length){
+    h+='<div class="bugun-konular">'+ks.map(k=>{
+      const b=konuDurum(k.no)==='tamam'||konuDurum(k.no)==='tekrar';
+      return '<div class="bugun-konu'+(b?' bitti':'')+'" onclick="openKonu('+k.no+')">'+
+             '<span class="bk-ik">'+(b?'✅':'▸')+'</span><span>'+k.ad+'</span></div>';
+    }).join('')+'</div>';
+  } else {
+    h+='<div class="bugun-konular"><div class="bugun-konu"><span class="bk-ik">🔁</span><span>'+tipAdi(g)+'</span></div></div>';
+  }
+  h+= hepsiBitti
+    ? '<div class="bugun-tamam">🎉 Bugünü tamamladın!<br><small>Yarın yeni konu seni bekliyor.</small></div>'
+    : '<button class="bugun-bas" onclick="gunBaslat()">'+(bitenSayi?'Kaldığın yerden devam →':'Bugüne başla →')+'</button>';
+  h+='<div class="bugun-komsu">'+
+     '<div><b>Dün</b>'+ad(dun)+(dun&&gunBitti(dun)?' ✅':'')+'</div>'+
+     '<div><b>Yarın</b>'+ad(yarin)+'</div></div>';
+  h+='</div>';
+  el.innerHTML=h;
+}
+function tipAdi(g){
+  const t=(PLAN_TIP&&PLAN_TIP[g.t])||{};
+  return t.ad||'Çalışma';
+}
+function renderKonuOzet(){
+  const el=document.getElementById('konuOzetWrap'); if(!el) return;
+  const t=KONULAR.filter(k=>konuDurum(k.no)==='tamam').length;
+  const tek=KONULAR.filter(k=>konuDurum(k.no)==='tekrar').length;
+  el.innerHTML='<div class="bugun-card" style="border-color:var(--border);cursor:pointer" onclick="openKonuListe()">'+
+    '<div style="display:flex;justify-content:space-between;align-items:center">'+
+    '<div><b style="font-size:1rem">'+KONULAR.length+' konu</b>'+
+    '<div style="font-size:.8rem;color:var(--light);margin-top:2px">'+t+' tamamlandı'+(tek?' · <b style="color:var(--red)">'+tek+' tekrarı geldi</b>':'')+'</div></div>'+
+    '<span style="font-size:1.3rem">›</span></div>'+
+    '<div class="goal-track" style="margin-top:10px"><div class="goal-fill" style="width:'+Math.round(t/KONULAR.length*100)+'%"></div></div>'+
+    '</div>';
+}
+function toggleEk(){
+  const w=document.getElementById('ekWrap'), o=document.getElementById('ekOk');
+  const ac=w.style.display==='none';
+  w.style.display=ac?'block':'none'; o.textContent=ac?'▾':'▸';
+}
+
 // ══════════════════════════════════════════
 //  30 GUNLUK CALISMA TAKVIMI
 //  Kaynak: icerik/plan30.json — PDF envanterinden uretildi.
@@ -2743,6 +3659,14 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'16 Ekim 2026 — Konu düzeni: anlatım + gün gün akış', items:[
+    '📚 <b>38 konuluk omurga kuruldu.</b> Artık her konu tek bir yerde: <b>anlatım → kelimeler → alıştırma → test</b>. Konu listesinde hangisinin bittiği, hangisinin tekrarının geldiği renkli noktayla görünür.',
+    '📖 <b>Konu anlatımları eklendi — hocanın kendi slaytlarından.</b> PDF görsel sayfaları okunup uygulamaya yazıldı. İlk parti: Alfabe ve Telaffuz, Selamlaşma, Nasılsınız?, Tanışma, Vedalaşma, Sayılar/Doğum günü, E-posta, Nerede oturuyorsun, Nereden geliyorsun, Ülkeler ve Diller, Kişisel Bilgiler, Genitiv, İşaret Zamirleri, Sıralama, Mektup Yazma, TMP.',
+    '🔴 <b>Hocanın vurguladığı tuzaklar ayrıca işaretlendi:</b> "Ich bin gut" YANLIŞ (doğrusu <i>Mir geht es gut</i>) · korku <i>haben</i> ile, üşümek <i>Mir ist</i> ile · <i>Auf Wiedersehen</i> yüz yüze, <i>Auf Wiederhören</i> telefonda · -er ile biten kelime "a" okunur (Oktober → oktoba).',
+    '📅 <b>Ana ekran sadeleşti.</b> Üç bölüm kaldı: <b>Bugün</b> (o günün konuları, dün ne yaptın, yarın ne var) · <b>Konular</b> (44 konu, durumuyla) · <b>Ek Çalışma</b> (eski modların hepsi, katlanmış). Hiçbir mod silinmedi.',
+    '✅ <b>"Bugünü tamamladın" artık kendiliğinden geliyor</b> — günün bütün konuları bitince. Elle işaretleme yok.',
+    '👋🗺️ <b>İki yeni kelime kategorisi:</b> Selamlaşma (18 kelime) ve Ülkeler &amp; Diller (18 kelime) — hepsi örnek cümleli.'
+  ]},
   {date:'16 Ekim 2026 — Giriş ve Düello (Supabase bağlandı)', items:[
     '🔐 <b>Giriş / Kayıt ekranı eklendi.</b> İkiniz de kendi e-postanızla kayıt olabilirsiniz. "Şimdi değil" derseniz uygulama eskisi gibi sadece bu telefonda çalışır.',
     '🟢 <b>Çevrimiçi göstergesi:</b> Arkadaşın uygulamayı açtığı an üst çubukta yeşil nokta ve adı belirir.',
@@ -2840,7 +3764,8 @@ function renderChangelog(){
 // Ana ekran panelini güncelle (seri, XP, hedef, zayıf kelime butonu)
 function renderHome(){
   ensureDay();
-  renderWeeklyPlan();
+  renderBugun();
+  renderKonuOzet();
   renderChangelog();
   document.getElementById('dStreak').textContent=DB.streak.cur;
   document.getElementById('dXp').textContent=DB.xp;
