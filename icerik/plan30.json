@@ -1,0 +1,183 @@
+{
+  "surum": 1,
+  "olusturma": "2026-10-15",
+  "baslik": "A1 Tam Tekrar — 30 Gün",
+  "baslangic": "2026-10-15",
+  "bitis": "2026-11-13",
+  "aciklama": "Teil-1 + Kalan Üniteler'deki 38 A1 konusunun tamamı 30 güne dağıtıldı. Pazarlar hafif gün, her 7. gün tekrar günü, son gün deneme sınavı.",
+  "kaynaklar": {
+    "t1": { "ad": "Teil-1.pdf", "sayfa": 101, "seviye": "A1", "kapsam": "konu 1-25" },
+    "kl": { "ad": "Kalan Üniteler.pdf", "sayfa": 127, "seviye": "A1", "kapsam": "konu 26-38 + Wörter" },
+    "a2": { "ad": "A2 Dosyası.pdf", "sayfa": 249, "seviye": "A2", "kapsam": "konu 1-28" },
+    "t2": { "ad": "Teil-2.pdf", "sayfa": 93, "seviye": "B1", "kapsam": "bu planın dışında" }
+  },
+  "gunTipleri": {
+    "yeni": "Yeni konu işlenir: anlatım → alıştırma → beceri çalışması",
+    "tekrar": "Önceki konulardan karışık test + hata düzeltme",
+    "hafif": "Kısa gün: kelime listesi + dinleme",
+    "sinav": "Süreli deneme sınavı"
+  },
+  "gunler": [
+    { "gun": 1, "tarih": "2026-10-15", "haftaGunu": "Perşembe", "tip": "yeni", "sure": 40,
+      "konular": [
+        { "no": 1, "ad": "Das Alphabet", "kaynak": "t1", "sayfa": "4-6" },
+        { "no": 2, "ad": "Hallo! Hi!", "kaynak": "t1", "sayfa": "7-10" },
+        { "no": 3, "ad": "Wie geht es Ihnen?", "kaynak": "t1", "sayfa": "11" }
+      ],
+      "beceriler": ["grammatik", "horen", "lesen"] },
+
+    { "gun": 2, "tarih": "2026-10-16", "haftaGunu": "Cuma", "tip": "yeni", "sure": 40,
+      "konular": [
+        { "no": 4, "ad": "Wie heißen Sie?", "kaynak": "t1", "sayfa": "12-16" },
+        { "no": 5, "ad": "Tschüs! Bye!", "kaynak": "t1", "sayfa": "17-18" }
+      ],
+      "beceriler": ["grammatik", "schreiben", "lesen"] },
+
+    { "gun": 3, "tarih": "2026-10-17", "haftaGunu": "Cumartesi", "tip": "yeni", "sure": 45,
+      "konular": [
+        { "no": 6, "ad": "Die Zahlen", "kaynak": "t1", "sayfa": "19-22" },
+        { "no": 7, "ad": "Die E-Mail-Adresse", "kaynak": "t1", "sayfa": "23-25" }
+      ],
+      "beceriler": ["grammatik", "horen", "schreiben"] },
+
+    { "gun": 4, "tarih": "2026-10-18", "haftaGunu": "Pazar", "tip": "hafif", "sure": 20,
+      "konular": [ { "no": null, "ad": "Wörter-1 kelime listesi (1. bölüm)", "kaynak": "kl", "sayfa": "123-125" } ],
+      "beceriler": ["wortschatz", "horen"] },
+
+    { "gun": 5, "tarih": "2026-10-19", "haftaGunu": "Pazartesi", "tip": "yeni", "sure": 40,
+      "konular": [
+        { "no": 8, "ad": "Wo wohnen Sie?", "kaynak": "t1", "sayfa": "26" },
+        { "no": 9, "ad": "Woher kommen Sie?", "kaynak": "t1", "sayfa": "27-28" },
+        { "no": 10, "ad": "Die Länder / Die Sprachen", "kaynak": "t1", "sayfa": "29-31" }
+      ],
+      "beceriler": ["grammatik", "lesen", "horen"] },
+
+    { "gun": 6, "tarih": "2026-10-20", "haftaGunu": "Salı", "tip": "yeni", "sure": 45,
+      "konular": [
+        { "no": 11, "ad": "Ihre Information", "kaynak": "t1", "sayfa": "32-33" },
+        { "no": 12, "ad": "Die Farben", "kaynak": "t1", "sayfa": "34" },
+        { "no": 13, "ad": "Die Kleidung", "kaynak": "t1", "sayfa": "35-49" }
+      ],
+      "beceriler": ["wortschatz", "lesen", "schreiben"] },
+
+    { "gun": 7, "tarih": "2026-10-21", "haftaGunu": "Çarşamba", "tip": "tekrar", "sure": 35,
+      "konular": [ { "no": null, "ad": "Tekrar: konu 1-13", "kaynak": "t1", "sayfa": "4-49" } ],
+      "beceriler": ["lesen", "schreiben"] },
+
+    { "gun": 8, "tarih": "2026-10-22", "haftaGunu": "Perşembe", "tip": "yeni", "sure": 50,
+      "konular": [
+        { "no": 14, "ad": "Die Verben + TMP (Zaman-Sebep-Yer sırası)", "kaynak": "t1", "sayfa": "50-60" },
+        { "no": 15, "ad": "Die Hobbys / Gern", "kaynak": "t1", "sayfa": "61-67" }
+      ],
+      "beceriler": ["grammatik", "schreiben"] },
+
+    { "gun": 9, "tarih": "2026-10-23", "haftaGunu": "Cuma", "tip": "yeni", "sure": 40,
+      "konular": [
+        { "no": 16, "ad": "Das Wetter", "kaynak": "t1", "sayfa": "68-70" },
+        { "no": 17, "ad": "Gehen wir ins Kino?", "kaynak": "t1", "sayfa": "71-72" }
+      ],
+      "beceriler": ["wortschatz", "horen", "lesen"] },
+
+    { "gun": 10, "tarih": "2026-10-24", "haftaGunu": "Cumartesi", "tip": "yeni", "sure": 45,
+      "konular": [ { "no": 18, "ad": "Die Berufe", "kaynak": "t1", "sayfa": "73-82" } ],
+      "beceriler": ["wortschatz", "lesen", "schreiben"] },
+
+    { "gun": 11, "tarih": "2026-10-25", "haftaGunu": "Pazar", "tip": "hafif", "sure": 20,
+      "konular": [ { "no": null, "ad": "Wörter-1 kelime listesi (2. bölüm)", "kaynak": "kl", "sayfa": "123-125" } ],
+      "beceriler": ["wortschatz", "horen"] },
+
+    { "gun": 12, "tarih": "2026-10-26", "haftaGunu": "Pazartesi", "tip": "yeni", "sure": 50,
+      "konular": [ { "no": 19, "ad": "Die Artikel / Nominativ", "kaynak": "t1", "sayfa": "83-86" } ],
+      "beceriler": ["grammatik", "schreiben"] },
+
+    { "gun": 13, "tarih": "2026-10-27", "haftaGunu": "Salı", "tip": "yeni", "sure": 50,
+      "konular": [
+        { "no": 20, "ad": "Die Artikel / Akkusativ", "kaynak": "t1", "sayfa": "87-89" },
+        { "no": 21, "ad": "Präpositionen mit immer Akkusativ", "kaynak": "t1", "sayfa": "90" }
+      ],
+      "beceriler": ["grammatik", "schreiben"] },
+
+    { "gun": 14, "tarih": "2026-10-28", "haftaGunu": "Çarşamba", "tip": "tekrar", "sure": 35,
+      "konular": [ { "no": null, "ad": "Tekrar: konu 14-21", "kaynak": "t1", "sayfa": "50-90" } ],
+      "beceriler": ["lesen", "schreiben"] },
+
+    { "gun": 15, "tarih": "2026-10-29", "haftaGunu": "Perşembe", "tip": "yeni", "sure": 45,
+      "konular": [ { "no": 22, "ad": "Die Plural-Formen", "kaynak": "t1", "sayfa": "91-95" } ],
+      "beceriler": ["grammatik", "wortschatz"] },
+
+    { "gun": 16, "tarih": "2026-10-30", "haftaGunu": "Cuma", "tip": "yeni", "sure": 45,
+      "konular": [
+        { "no": 23, "ad": "Nicht oder Kein", "kaynak": "t1", "sayfa": "96-98" },
+        { "no": 24, "ad": "W-Fragen", "kaynak": "t1", "sayfa": "99-101" }
+      ],
+      "beceriler": ["grammatik", "horen", "schreiben"] },
+
+    { "gun": 17, "tarih": "2026-10-31", "haftaGunu": "Cumartesi", "tip": "yeni", "sure": 45,
+      "konular": [ { "no": 25, "ad": "Guten Appetit (Obst und Gemüse)", "kaynak": "kl", "sayfa": "9-18" } ],
+      "beceriler": ["wortschatz", "lesen", "horen"] },
+
+    { "gun": 18, "tarih": "2026-11-01", "haftaGunu": "Pazar", "tip": "hafif", "sure": 20,
+      "konular": [ { "no": null, "ad": "Kelime tekrarı + dinleme", "kaynak": "kl", "sayfa": "123-125" } ],
+      "beceriler": ["wortschatz", "horen"] },
+
+    { "gun": 19, "tarih": "2026-11-02", "haftaGunu": "Pazartesi", "tip": "yeni", "sure": 50,
+      "konular": [ { "no": 26, "ad": "Modalverben (Präsens)", "kaynak": "kl", "sayfa": "3-8" } ],
+      "beceriler": ["grammatik", "schreiben"] },
+
+    { "gun": 20, "tarih": "2026-11-03", "haftaGunu": "Salı", "tip": "yeni", "sure": 55,
+      "konular": [ { "no": 27, "ad": "Die trennbaren Verben (ayrılabilen fiiller)", "kaynak": "kl", "sayfa": "19-46" } ],
+      "beceriler": ["grammatik", "lesen", "schreiben"] },
+
+    { "gun": 21, "tarih": "2026-11-04", "haftaGunu": "Çarşamba", "tip": "tekrar", "sure": 35,
+      "konular": [ { "no": null, "ad": "Tekrar: konu 22-27", "kaynak": "kl", "sayfa": "3-46" } ],
+      "beceriler": ["lesen", "schreiben"] },
+
+    { "gun": 22, "tarih": "2026-11-05", "haftaGunu": "Perşembe", "tip": "yeni", "sure": 45,
+      "konular": [ { "no": 28, "ad": "Wie spät ist es? (Uhrzeit)", "kaynak": "kl", "sayfa": "47-55" } ],
+      "beceriler": ["horen", "schreiben"] },
+
+    { "gun": 23, "tarih": "2026-11-06", "haftaGunu": "Cuma", "tip": "yeni", "sure": 45,
+      "konular": [ { "no": 29, "ad": "Präteritum – sein und haben", "kaynak": "kl", "sayfa": "56-63" } ],
+      "beceriler": ["grammatik", "lesen"] },
+
+    { "gun": 24, "tarih": "2026-11-07", "haftaGunu": "Cumartesi", "tip": "yeni", "sure": 55,
+      "konular": [ { "no": 30, "ad": "Die Artikel / Dativ", "kaynak": "kl", "sayfa": "64-78" } ],
+      "beceriler": ["grammatik", "schreiben"] },
+
+    { "gun": 25, "tarih": "2026-11-08", "haftaGunu": "Pazar", "tip": "hafif", "sure": 20,
+      "konular": [ { "no": null, "ad": "Wörter-2 kelime listesi", "kaynak": "kl", "sayfa": "126-127" } ],
+      "beceriler": ["wortschatz", "horen"] },
+
+    { "gun": 26, "tarih": "2026-11-09", "haftaGunu": "Pazartesi", "tip": "yeni", "sure": 50,
+      "konular": [
+        { "no": 31, "ad": "Präpositionen mit immer Dativ", "kaynak": "kl", "sayfa": "79-84" },
+        { "no": 32, "ad": "Die Artikel / Genitiv", "kaynak": "kl", "sayfa": "85-90" }
+      ],
+      "beceriler": ["grammatik", "schreiben"] },
+
+    { "gun": 27, "tarih": "2026-11-10", "haftaGunu": "Salı", "tip": "yeni", "sure": 45,
+      "konular": [
+        { "no": 33, "ad": "Meine Familie", "kaynak": "kl", "sayfa": "91-94" },
+        { "no": 34, "ad": "Demonstrativpronomen", "kaynak": "kl", "sayfa": "95" },
+        { "no": 35, "ad": "Imperative", "kaynak": "kl", "sayfa": "?" }
+      ],
+      "beceriler": ["wortschatz", "lesen", "schreiben"],
+      "not": "35) Imperative metinde bulunamadı — görsel sayfada olabilir, kontrol edilecek." },
+
+    { "gun": 28, "tarih": "2026-11-11", "haftaGunu": "Çarşamba", "tip": "tekrar", "sure": 35,
+      "konular": [ { "no": null, "ad": "Tekrar: konu 28-35", "kaynak": "kl", "sayfa": "47-95" } ],
+      "beceriler": ["lesen", "schreiben"] },
+
+    { "gun": 29, "tarih": "2026-11-12", "haftaGunu": "Perşembe", "tip": "yeni", "sure": 60,
+      "konular": [
+        { "no": 36, "ad": "Das Perfekt", "kaynak": "kl", "sayfa": "96-112" },
+        { "no": 37, "ad": "Zuerst / Dann / Danach", "kaynak": "kl", "sayfa": "113-117" },
+        { "no": 38, "ad": "Einen Brief schreiben", "kaynak": "kl", "sayfa": "118-122" }
+      ],
+      "beceriler": ["grammatik", "schreiben", "lesen"] },
+
+    { "gun": 30, "tarih": "2026-11-13", "haftaGunu": "Cuma", "tip": "sinav", "sure": 60,
+      "konular": [ { "no": null, "ad": "Deneme sınavı — Hören, Lesen, Schreiben", "kaynak": null, "sayfa": null } ],
+      "beceriler": ["horen", "lesen", "schreiben"] }
+  ]
+}

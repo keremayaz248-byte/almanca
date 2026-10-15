@@ -1,0 +1,16 @@
+# Kaynak PDF'ler — GitHub'a gitmemeli.
+# A2 Dosyası.pdf (127 MB) ve Teil-x.pdf (106 MB) GitHub'ın 100 MB sınırını aşıyor,
+# commit edilirse push tamamen reddedilir. Metinleri zaten icerik/temiz/ altında.
+*.pdf
+
+# Yedekler
+index.backup-*.html
+
+# Node
+node_modules/
+
+# Geçici sayfa görüntüleri
+icerik/sayfa/
+
+# Playwright ekran goruntuleri
+icerik/ss/

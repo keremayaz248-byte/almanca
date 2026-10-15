@@ -670,7 +670,116 @@ header{
 /* Dokunsal his: yeni bloklarda geçiş */
 .hub-card,.cat-card,.mode-card{transition:transform .12s ease,box-shadow .12s ease}
 /* Google fontu yüklenemezse (çevrimdışı) sistem fontu zaten devrede — sorun olmaz */
+
+/* ═══════════════════════════════════════════════════════════
+   🌙 KOYU TEMA (2026-10-15)
+   Gün batımı paletinin gece hali. <html data-theme="dark"> ile açılır.
+   Sadece renk değişkenleri değişir — hiçbir ölçü/yerleşim kuralına dokunmaz,
+   o yüzden tek blok olarak kaldırılabilir.
+   ═══════════════════════════════════════════════════════════ */
+html[data-theme="dark"]{
+  --green:#6FBF3A;--green-dark:#9FD66E;--green-bg:#21301A;
+  --red:#E8553D;--red-bg:#3A211A;
+  --blue:#4FB8DC;--blue-bg:#15303A;
+  --purple:#E58A5A;--purple-bg:#33211A;--purple-dark:#F0905C;
+  --yellow:#F2A83A;--yellow-bg:#352616;
+  --bg:#1A1410;--white:#261D17;--text:#F6EDE2;--light:#B49C85;
+  --border:#3B2E25;
+  --shadow:0 4px 0 #120D0A;
+  --sun:#F7B23C;--dusk:#F0B88C;
+}
+html[data-theme="dark"] body{
+  background:radial-gradient(135% 95% at 50% -18%, #2E2017 0%, #241A14 40%, var(--bg) 72%) no-repeat fixed;
+}
+/* Koyu zeminde dolgu rengi açık olan yerlerde yazı koyu kalmalı */
+html[data-theme="dark"] .hero-card{background:linear-gradient(135deg,#B0501E 0%,#8A3D14 100%);color:#FFF6EE}
+html[data-theme="dark"] .hero-btn{background:#FFFDF8;color:#B0501E}
+html[data-theme="dark"] .ws-cell{background:var(--white);color:var(--text)}
+/* Sabit açık dolgular koyu temada okunmuyordu — gece karşılıklarını ver */
+html[data-theme="dark"] .ds-pill.fire{background:var(--yellow-bg);border-color:var(--yellow)}
+html[data-theme="dark"] .ds-pill.fire .dsp-v{color:var(--text)}
+html[data-theme="dark"] img{filter:brightness(.92)}
+/* ═══════════════════════════════════════════════════════════
+   📅 30 GÜNLÜK TAKVİM (2026-10-15)
+   Bugünün dersi kartı + ay takvimi + sıradaki günler.
+   ═══════════════════════════════════════════════════════════ */
+/* Bugünün dersi */
+.plan-today{background:linear-gradient(135deg,var(--purple-dark) 0%,#8A3D14 100%);border-radius:22px;
+  padding:16px 17px 17px;margin-bottom:14px;color:#FFF1E6;box-shadow:0 5px 0 var(--dusk)}
+.plan-today.pt-done{background:linear-gradient(135deg,var(--green-dark) 0%,#2f6a12 100%);box-shadow:0 5px 0 #2a5c10}
+.pt-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}
+.pt-kicker{font-size:.66rem;font-weight:800;letter-spacing:1.1px;color:#FFF1E6}
+.pt-sure{font-size:.7rem;font-weight:700;border:1.5px solid #FFF1E6;border-radius:999px;padding:2px 10px;white-space:nowrap}
+.pt-konular{display:flex;flex-direction:column;gap:6px;margin-bottom:11px}
+.pt-konu{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:rgba(255,255,255,.14);
+  border-radius:12px;padding:9px 12px;font-size:.9rem;line-height:1.35}
+.pt-konu.pt-tik{cursor:pointer;transition:transform .12s,background-color .12s}
+.pt-konu.pt-tik:hover{background:rgba(255,255,255,.24)}
+.pt-konu.pt-tik:active{transform:scale(.98)}
+.pt-ad{flex:1;font-weight:700;color:#FFFDF8;min-width:0}
+.pt-kaynak{font-size:.68rem;font-weight:700;background:rgba(0,0,0,.22);border-radius:999px;padding:2px 8px;white-space:nowrap}
+.pt-ok{font-weight:800;font-size:1rem}
+.pt-beceri{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:13px}
+.pt-bec{font-size:.68rem;font-weight:700;border:1.5px solid #FFF1E6;border-radius:999px;padding:3px 9px}
+.pt-btn{width:100%;background:#FFFDF8;color:var(--purple-dark);border:none;border-radius:14px;
+  padding:13px;font-size:.95rem;font-weight:800;font-family:inherit;cursor:pointer;
+  box-shadow:0 3px 0 rgba(0,0,0,.18);transition:transform .12s,box-shadow .12s}
+.pt-btn:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.18)}
+.pt-tamamlandi{text-align:center;font-weight:800;font-size:.92rem;background:rgba(255,255,255,.18);
+  border-radius:14px;padding:12px}
+/* Ay takvimi */
+.plan-cal{background:var(--white);border:2px solid var(--border);border-radius:18px;padding:13px 12px 11px;margin-bottom:14px}
+.pc-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:9px;padding:0 3px;
+  font-size:.86rem;font-weight:800;color:var(--text)}
+.pc-aralik{font-size:.72rem;font-weight:600;color:var(--light)}
+.pc-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+.pc-wd{text-align:center;font-size:.62rem;font-weight:700;color:var(--light);padding-bottom:3px}
+.pc-day{height:34px;border-radius:9px;background:var(--bg);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:2px;cursor:pointer;transition:transform .1s,background-color .12s}
+.pc-day:hover{background:var(--purple-bg)}
+.pc-day:active{transform:scale(.92)}
+.pc-no{font-size:.76rem;font-weight:700;color:var(--text);line-height:1}
+.pc-dot{width:5px;height:5px;border-radius:50%}
+.pc-today{background:var(--purple-dark)}
+.pc-today .pc-no{color:#FFFDF8;font-weight:800}
+.pc-done{background:var(--green-bg);box-shadow:inset 0 0 0 1.5px var(--green)}
+.pc-missed{opacity:.45}
+.pc-legend{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:10px;padding:0 3px}
+.pc-legend span{display:flex;align-items:center;gap:4px;font-size:.64rem;font-weight:600;color:var(--light)}
+.pc-legend i{width:7px;height:7px;border-radius:50%;display:inline-block}
+/* Sıradaki günler */
+.pc-next{display:flex;align-items:center;gap:11px;background:var(--white);border:2px solid var(--border);
+  border-radius:14px;padding:10px 12px;margin-bottom:7px}
+.pn-date{flex-shrink:0;width:36px;text-align:center}
+.pn-date b{display:block;font-size:.95rem;font-weight:800;line-height:1.1}
+.pn-date span{font-size:.62rem;color:var(--light);font-weight:600}
+.pn-body{flex:1;min-width:0}
+.pn-ad{font-size:.82rem;font-weight:700;line-height:1.3}
+.pn-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.pn-tag{font-size:.62rem;font-weight:700;background:var(--bg);border:1px solid var(--border);
+  border-radius:999px;padding:2px 7px;color:var(--light)}
+/* Plan bitti */
+.plan-bitti{background:var(--white);border:2.5px dashed var(--purple);border-radius:20px;padding:26px 20px;text-align:center}
+.pb-emoji{font-size:3rem;margin-bottom:8px}
+.pb-title{font-size:1.15rem;font-weight:800;margin-bottom:6px}
+.pb-sub{font-size:.86rem;color:var(--light);line-height:1.55;margin-bottom:18px}
+
+/* Tema düğmesi */
+.theme-btn{background:var(--bg);border:2px solid var(--border);border-radius:11px;width:38px;height:34px;
+  font-size:1rem;cursor:pointer;color:var(--text);line-height:1;flex-shrink:0;padding:0;
+  display:flex;align-items:center;justify-content:center;transition:all .12s}
+.theme-btn:hover{border-color:var(--purple)}
+.theme-btn:active{transform:scale(.94)}
 </style>
+<script>
+/* Tema sayfa boyanmadan ÖNCE uygulanır — yoksa açılışta beyaz parlama olur.
+   Kayıt yoksa telefonun kendi ayarına uyar. */
+(function(){try{
+  var t=localStorage.getItem('almanca_tema');
+  if(!t) t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);
+}catch(e){}})();
+</script>
 </head>
 <body>
 
@@ -682,6 +791,7 @@ header{
     <div class="hstat" id="hs2"></div>
     <div class="hstat" id="hs3" style="display:none"></div>
   </div>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Açık / koyu tema" aria-label="Açık veya koyu temaya geç">🌙</button>
 </header>
 
 <div class="prog-wrap" id="progWrap" style="display:none">
@@ -706,7 +816,11 @@ header{
     <div class="goal-lbl" id="dGoalLbl">Bugünkü hedef</div>
   </div>
 
-  <!-- BUGÜNÜN DERSİ: tek tıkla yönlendirilmiş akış -->
+  <!-- 30 GÜNLÜK PLAN: bugünün dersi + ay takvimi + sıradakiler. Veri: PLAN30 (icerik/plan30.json) -->
+  <div class="sec-head">📅 30 Günlük Program</div>
+  <div id="weeklyPlanWrap"></div>
+
+  <!-- SERBEST HIZLI DERS: plandan bağımsız, 5-10 dakikalık tur -->
   <div class="hero-card" onclick="startDailyLesson()">
     <div class="hero-kicker">Ne yapacağını bilmiyorsan buna bas</div>
     <div class="hero-title">Bugünün Dersi</div>
@@ -836,9 +950,6 @@ header{
     </div>
   </div>
 
-  <!-- BÖLÜM 5: HAFTALIK PLAN — tarihli, beceri etiketli (Yazma/Dinleme/Okuma/Kelime/Tekrar), tıklayınca ilgili bölüme götürür -->
-  <div class="sec-head">📅 Haftalık Plan</div>
-  <div id="weeklyPlanWrap"></div>
 
   <!-- BÖLÜM 6: YENİLİKLER — her güncellemede buraya not düşülür -->
   <div class="sec-head">🆕 Yenilikler</div>
@@ -1520,10 +1631,29 @@ header{
 //  Tüm ilerleme tarayıcıda saklanır; sekme kapansa da kalır.
 // ══════════════════════════════════════════
 const SKEY='almanca_v1';
-function defaultDB(){return{srs:{},xp:0,streak:{cur:0,max:0,last:null},daily:{date:null,xp:0,goal:40},grammar:{},mistakes:[],bestGameScore:0};}
+function defaultDB(){return{srs:{},xp:0,streak:{cur:0,max:0,last:null},daily:{date:null,xp:0,goal:40},grammar:{},mistakes:[],bestGameScore:0,plan:{bas:null,tamam:{}}};}
 let DB=loadDB();
 function loadDB(){try{const r=JSON.parse(localStorage.getItem(SKEY));if(!r)return defaultDB();const d=defaultDB();return{...d,...r,streak:{...d.streak,...(r.streak||{})},daily:{...d.daily,...(r.daily||{})}};}catch(e){return defaultDB();}}
 function saveDB(){try{localStorage.setItem(SKEY,JSON.stringify(DB));}catch(e){}}
+
+// ══════════════════════════════════════════
+//  TEMA (açık / koyu)
+//  Seçim localStorage'da ayrı anahtarda durur, ilerleme verisine karışmaz.
+// ══════════════════════════════════════════
+function curTheme(){ return document.documentElement.getAttribute('data-theme')||'light'; }
+function applyThemeBtn(){
+  const b=document.getElementById('themeBtn');
+  if(b){ b.textContent = curTheme()==='dark' ? '☀️' : '🌙';
+         b.title = curTheme()==='dark' ? 'Açık temaya geç' : 'Koyu temaya geç'; }
+}
+function toggleTheme(){
+  const yeni = curTheme()==='dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', yeni);
+  try{ localStorage.setItem('almanca_tema', yeni); }catch(e){}
+  applyThemeBtn();
+  const m=document.querySelector('meta[name="theme-color"]');
+  if(m) m.setAttribute('content', yeni==='dark' ? '#1A1410' : '#E27A45');
+}
 
 // Yerel tarihe göre gün numarası ve tarih dizisi
 function dayNum(d){d=d||new Date();return Math.round(new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime()/86400000);}
@@ -2171,55 +2301,211 @@ function hdrBackGo(){
 
 // Haftalık Plan — her hafta elle güncellenir (statik veri), o haftaki her gün için beceri etiketli görev(ler).
 // Tıklanan görev doğrudan ilgili bölüme götürür. "today" ISO tarihiyle eşleşen gün yeşil vurgulanır.
-const WEEKLY_PLAN = [
-  {iso:'2026-07-27', label:'27 Temmuz — Pazartesi · Konu: Çiftlik', tasks:[
-    {tag:'vocab', tagLabel:'🧠 Kelime', text:'"Çiftlik" kategorisini Öğrenme Modu\'nda çalış (grup bitince otomatik okuma parçası + test çıkar)', fn:"goCatSelect('learn','Çiftlik')"},
-    {tag:'puzzle', tagLabel:'🧩 Bulmaca', text:'Kelime Avı\'nda çiftlik kelimelerini harf tablosunda bul', fn:"startWordSearch('Çiftlik')"},
-    {tag:'write', tagLabel:'✍️ Yazma', text:'"Kendimi Tanıtıyorum" metnini Yazma Egzersizi\'nde tamamla', fn:'openYazmaList()'},
-  ]},
-  {iso:'2026-07-28', label:'28 Temmuz — Salı · Konu: Medeni Durum & Evlilik', tasks:[
-    {tag:'vocab', tagLabel:'🧠 Kelime', text:'"Medeni Durum" kategorisini Öğrenme Modu\'nda çalış (grup sonunda okuma parçası + 🔊 Dinle + test)', fn:"goCatSelect('learn','Medeni Durum')"},
-    {tag:'puzzle', tagLabel:'🧩 Bulmaca', text:'Kelime Avı → "Medeni Durum" bulmacasını çöz', fn:"startWordSearch('Medeni Durum')"},
-    {tag:'game', tagLabel:'🎮 Oyun', text:'Eşleştirme Oyunu\'nda "Medeni Durum" ile rekor dene', fn:"goCatSelect('game','Medeni Durum')"},
-    {tag:'review', tagLabel:'🩹 Tekrar', text:'Dünkü Çiftlik kelimelerini Zayıf Kelimelerim ile tazele', fn:'startReview()'},
-  ]},
-  {iso:'2026-07-29', label:'29 Temmuz — Çarşamba · Konu: Soru Kelimeleri (W-Fragen)', tasks:[
-    {tag:'vocab', tagLabel:'🧠 Kelime', text:'"Soru Kelimeleri" (Wo/Was/Wann/Wer/Wie/Warum...) kategorisini öğren', fn:"goCatSelect('learn','Soru Kelimeleri')"},
-    {tag:'puzzle', tagLabel:'🧩 Bulmaca', text:'Kelime Avı → "Soru Kelimeleri" bulmacasını çöz', fn:"startWordSearch('Soru Kelimeleri')"},
-    {tag:'game', tagLabel:'🎭 Oyun', text:'"Noldu?" sahne oyununu oyna — fiilleri sahnede öğren', fn:'startSceneGame()'},
-    {tag:'listen', tagLabel:'🎧 Dinleme', text:'Günün Çalışması\'nda paragrafı "🔊 Dinle"', fn:'openYSHub()'},
-  ]},
-  {iso:'2026-07-30', label:'30 Temmuz — Perşembe · Konu: Dativ Edatları', tasks:[
-    {tag:'grammar', tagLabel:'🎬 Slayt', text:'"Dativ Edatları" animasyonlu slaytını baştan sona izle (aus-bei-mit-nach-seit-von-zu-ab)', fn:"openSlideDeck('dativ')"},
-    {tag:'grammar', tagLabel:'📚 Test', text:'Edat Egzersizi ile Dativ edatlarını pekiştir', fn:'startEdat()'},
-    {tag:'review', tagLabel:'🩹 Tekrar', text:'Zayıf Kelimelerim ile hatalarını tazele', fn:'startReview()'},
-  ]},
-  {iso:'2026-07-31', label:'31 Temmuz — Cuma', tasks:[
-    {tag:'write', tagLabel:'✍️ Yazma', text:'Yazma Egzersizi\'nde kalan parçaları bitir, tekrar dene', fn:'openYazmaList()'},
-  ]},
-  {iso:'2026-08-01', label:'1 Ağustos — Cumartesi', tasks:[
-    {tag:'game', tagLabel:'🎮 Oyun', text:'Eşleştirme Oyunu\'nda "Hepsi" ile genel tekrar rekoru dene', fn:"goCat('game')"},
-  ]},
-  {iso:'2026-08-02', label:'2 Ağustos — Pazar', tasks:[
-    {tag:'grammar', tagLabel:'📚 Gramer', text:'Hızlı Test ile haftayı özetle', fn:'startHizliTest()'},
-  ]},
-];
+// ══════════════════════════════════════════
+//  30 GUNLUK CALISMA TAKVIMI
+//  Kaynak: icerik/plan30.json — PDF envanterinden uretildi.
+//  A1 kitabinin 38 konusu tam bir kez, 21 yeni + 4 tekrar + 4 hafif + 1 deneme gunu.
+// ══════════════════════════════════════════
+const PLAN30={
+ bas:"2026-10-15", bit:"2026-11-13",
+ kaynak:{t1:"Teil-1",kl:"Kalan Üniteler",a2:"A2 Dosyası"},
+ gunler:[
+  {g:1,d:"2026-10-15",t:"yeni",dk:40,b:["grammatik","horen","lesen"],k:[[1,"Das Alphabet","t1","4-6"],[2,"Hallo! Hi!","t1","7-10"],[3,"Wie geht es Ihnen?","t1","11"]]},
+  {g:2,d:"2026-10-16",t:"yeni",dk:40,b:["grammatik","schreiben","lesen"],k:[[4,"Wie heißen Sie?","t1","12-16"],[5,"Tschüs! Bye!","t1","17-18"]]},
+  {g:3,d:"2026-10-17",t:"yeni",dk:45,b:["grammatik","horen","schreiben"],k:[[6,"Die Zahlen","t1","19-22"],[7,"Die E-Mail-Adresse","t1","23-25"]]},
+  {g:4,d:"2026-10-18",t:"hafif",dk:20,b:["wortschatz","horen"],k:[[0,"Wörter-1 kelime listesi (1. bölüm)","kl","123-125","goCat('list')"]]},
+  {g:5,d:"2026-10-19",t:"yeni",dk:40,b:["grammatik","lesen","horen"],k:[[8,"Wo wohnen Sie?","t1","26"],[9,"Woher kommen Sie?","t1","27-28"],[10,"Die Länder / Die Sprachen","t1","29-31"]]},
+  {g:6,d:"2026-10-20",t:"yeni",dk:45,b:["wortschatz","lesen","schreiben"],k:[[11,"Ihre Information","t1","32-33"],[12,"Die Farben","t1","34"],[13,"Die Kleidung","t1","35-49"]]},
+  {g:7,d:"2026-10-21",t:"tekrar",dk:35,b:["lesen","schreiben"],k:[[0,"Tekrar: konu 1-13","t1","4-49","startReview()"]]},
+  {g:8,d:"2026-10-22",t:"yeni",dk:50,b:["grammatik","schreiben"],k:[[14,"Die Verben + TMP (Zaman-Sebep-Yer sırası)","t1","50-60"],[15,"Die Hobbys / Gern","t1","61-67","openGrTopic('gern')"]]},
+  {g:9,d:"2026-10-23",t:"yeni",dk:40,b:["wortschatz","horen","lesen"],k:[[16,"Das Wetter","t1","68-70","openGrTopic('wetter')"],[17,"Gehen wir ins Kino?","t1","71-72"]]},
+  {g:10,d:"2026-10-24",t:"yeni",dk:45,b:["wortschatz","lesen","schreiben"],k:[[18,"Die Berufe","t1","73-82","openGrTopic('meslekler')"]]},
+  {g:11,d:"2026-10-25",t:"hafif",dk:20,b:["wortschatz","horen"],k:[[0,"Wörter-1 kelime listesi (2. bölüm)","kl","123-125","goCat('list')"]]},
+  {g:12,d:"2026-10-26",t:"yeni",dk:50,b:["grammatik","schreiben"],k:[[19,"Die Artikel / Nominativ","t1","83-86","openGrTopic('nominativ')"]]},
+  {g:13,d:"2026-10-27",t:"yeni",dk:50,b:["grammatik","schreiben"],k:[[20,"Die Artikel / Akkusativ","t1","87-89","openGrTopic('akkusativ')"],[21,"Präpositionen mit immer Akkusativ","t1","90","openGrTopic('akkusativ')"]]},
+  {g:14,d:"2026-10-28",t:"tekrar",dk:35,b:["lesen","schreiben"],k:[[0,"Tekrar: konu 14-21","t1","50-90","startReview()"]]},
+  {g:15,d:"2026-10-29",t:"yeni",dk:45,b:["grammatik","wortschatz"],k:[[22,"Die Plural-Formen","t1","91-95","startPlural()"]]},
+  {g:16,d:"2026-10-30",t:"yeni",dk:45,b:["grammatik","horen","schreiben"],k:[[23,"Nicht oder Kein","t1","96-98","openGrTopic('negation')"],[24,"W-Fragen","t1","99-101","goCatSelect('learn','Soru Kelimeleri')"]]},
+  {g:17,d:"2026-10-31",t:"yeni",dk:45,b:["wortschatz","lesen","horen"],k:[[25,"Guten Appetit (Obst und Gemüse)","kl","9-18"]]},
+  {g:18,d:"2026-11-01",t:"hafif",dk:20,b:["wortschatz","horen"],k:[[0,"Kelime tekrarı + dinleme","kl","123-125"]]},
+  {g:19,d:"2026-11-02",t:"yeni",dk:50,b:["grammatik","schreiben"],k:[[26,"Modalverben (Präsens)","kl","3-8","openGrTopic('modal')"]]},
+  {g:20,d:"2026-11-03",t:"yeni",dk:55,b:["grammatik","lesen","schreiben"],k:[[27,"Die trennbaren Verben (ayrılabilen fiiller)","kl","19-46","openGrTopic('trennbar')"]]},
+  {g:21,d:"2026-11-04",t:"tekrar",dk:35,b:["lesen","schreiben"],k:[[0,"Tekrar: konu 22-27","kl","3-46","startReview()"]]},
+  {g:22,d:"2026-11-05",t:"yeni",dk:45,b:["horen","schreiben"],k:[[28,"Wie spät ist es? (Uhrzeit)","kl","47-55"]]},
+  {g:23,d:"2026-11-06",t:"yeni",dk:45,b:["grammatik","lesen"],k:[[29,"Präteritum – sein und haben","kl","56-63","openGrTopic('praeteritum')"]]},
+  {g:24,d:"2026-11-07",t:"yeni",dk:55,b:["grammatik","schreiben"],k:[[30,"Die Artikel / Dativ","kl","64-78","openGrTopic('dativ')"]]},
+  {g:25,d:"2026-11-08",t:"hafif",dk:20,b:["wortschatz","horen"],k:[[0,"Wörter-2 kelime listesi","kl","126-127","goCat('list')"]]},
+  {g:26,d:"2026-11-09",t:"yeni",dk:50,b:["grammatik","schreiben"],k:[[31,"Präpositionen mit immer Dativ","kl","79-84","openGrTopic('dat_praep')"],[32,"Die Artikel / Genitiv","kl","85-90"]]},
+  {g:27,d:"2026-11-10",t:"yeni",dk:45,b:["wortschatz","lesen","schreiben"],k:[[33,"Meine Familie","kl","91-94"],[34,"Demonstrativpronomen","kl","95"],[35,"Imperative","kl","?","openGrTopic('imperativ')"]]},
+  {g:28,d:"2026-11-11",t:"tekrar",dk:35,b:["lesen","schreiben"],k:[[0,"Tekrar: konu 28-35","kl","47-95","startReview()"]]},
+  {g:29,d:"2026-11-12",t:"yeni",dk:60,b:["grammatik","schreiben","lesen"],k:[[36,"Das Perfekt","kl","96-112","openGrTopic('perfekt')"],[37,"Zuerst / Dann / Danach","kl","113-117"],[38,"Einen Brief schreiben","kl","118-122","openYazmaList()"]]},
+  {g:30,d:"2026-11-13",t:"sinav",dk:60,b:["horen","lesen","schreiben"],k:[[0,"Deneme sınavı — Hören, Lesen, Schreiben","","","startGramerTest()"]]}
+ ]};
+
+// ── Gün tipleri ve beceri etiketleri ──────────────────
+const PLAN_TIP={
+  yeni:  {ad:'Yeni konu',  nokta:'var(--green)', bg:'var(--green-bg)', yazi:'var(--green-dark)'},
+  tekrar:{ad:'Tekrar günü',nokta:'var(--blue)',  bg:'var(--blue-bg)',  yazi:'#1C7CA0'},
+  hafif: {ad:'Hafif gün',  nokta:'#BDA88F',      bg:'var(--bg)',       yazi:'var(--light)'},
+  sinav: {ad:'Deneme sınavı',nokta:'var(--red)', bg:'var(--red-bg)',   yazi:'#A83A26'},
+};
+const BECERI_AD={grammatik:'📚 Gramer',horen:'🎧 Hören',lesen:'📖 Lesen',schreiben:'✍️ Schreiben',wortschatz:'🧠 Kelime'};
+const AY_AD=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+const GUN_AD=['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+// Kısaltmalar ayrı dizi: slice(0,3) "Cumartesi"yi de "Cum" yapıyordu, Cuma ile karışıyordu.
+const GUN_KISA=['Paz','Pzt','Sal','Çar','Per','Cum','Cmt'];
+
 function isoTodayLocal(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
-function renderWeeklyPlan(){
-  const w=document.getElementById('weeklyPlanWrap');
-  if(!w)return;
-  const t=isoTodayLocal();
-  w.innerHTML = WEEKLY_PLAN.map(day=>{
-    const isToday = day.iso===t;
-    return '<div class="wp-day'+(isToday?' wp-today':'')+'">'+
-      '<div class="wp-date">'+(isToday?'📍 ':'')+day.label+'</div>'+
-      day.tasks.map(tk=>'<div class="wp-task" onclick="'+tk.fn+'"><span class="wp-tag wp-tag-'+tk.tag+'">'+tk.tagLabel+'</span><span>'+tk.text+'</span></div>').join('')+
-      '</div>';
-  }).join('');
+function isoLocal(dt){ return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0'); }
+function isoToDate(s){ const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); }
+
+// Plan başlangıcı DB'de tutulur → "yeni 30 gün başlat" dendiğinde tarihler kayar.
+function planBasISO(){ return (DB.plan && DB.plan.bas) || PLAN30.bas; }
+function planTarih(gunNo){ const dt=isoToDate(planBasISO()); dt.setDate(dt.getDate()+(gunNo-1)); return isoLocal(dt); }
+function planBitISO(){ return planTarih(PLAN30.gunler.length); }
+function planBugunNo(){
+  const bugun=isoToDate(isoTodayLocal()), bas=isoToDate(planBasISO());
+  const fark=Math.round((bugun-bas)/86400000)+1;
+  return (fark>=1 && fark<=PLAN30.gunler.length) ? fark : null;
 }
+function planBugun(){ const n=planBugunNo(); return n?PLAN30.gunler[n-1]:null; }
+function planBittiMi(){ return isoTodayLocal() > planBitISO(); }
+function planGunTamamMi(no){ return !!(DB.plan && DB.plan.tamam && DB.plan.tamam[no]); }
+function planGunuTamamla(no){
+  if(!DB.plan) DB.plan={bas:null,tamam:{}};
+  if(!DB.plan.tamam) DB.plan.tamam={};
+  DB.plan.tamam[no]=isoTodayLocal(); saveDB(); renderPlan30();
+}
+function planYenile(){
+  if(!confirm('Yeni bir 30 günlük tur başlatılsın mı?\n\nKonular baştan sıralanır, geçmiş XP ve seri korunur.')) return;
+  DB.plan={bas:isoTodayLocal(),tamam:{}}; saveDB(); renderPlan30();
+  alert('Yeni 30 gün başladı! Bugün 1. gün: '+PLAN30.gunler[0].k.map(k=>k[1]).join(', '));
+}
+
+// Gramer konusunu id ile aç (takvimden tıklanınca)
+function openGrTopic(id){
+  const t=(typeof GRAMER_TOPICS!=='undefined') && GRAMER_TOPICS.find(x=>x.id===id);
+  if(t) openGramerTopic(t); else openGramer();
+}
+
+// ── Takvim çizimi ─────────────────────────────────────
+function renderPlan30(){
+  const w=document.getElementById('weeklyPlanWrap');
+  if(!w) return;
+
+  if(planBittiMi()){
+    w.innerHTML='<div class="plan-bitti">'+
+      '<div class="pb-emoji">🏁</div>'+
+      '<div class="pb-title">30 günlük plan tamamlandı!</div>'+
+      '<div class="pb-sub">'+trTarih(planBasISO())+' – '+trTarih(planBitISO())+' arası program bitti.<br>Yeni bir tura başlayalım mı?</div>'+
+      '<button class="btn-start" onclick="planYenile()">🔄 Yeni 30 gün başlat</button></div>';
+    return;
+  }
+
+  const bugunNo=planBugunNo();
+  let h='';
+
+  // 1) BUGÜNÜN DERSİ
+  if(bugunNo){
+    const g=PLAN30.gunler[bugunNo-1], tip=PLAN_TIP[g.t];
+    const tamam=planGunTamamMi(bugunNo);
+    h+='<div class="plan-today'+(tamam?' pt-done':'')+'">'+
+       '<div class="pt-top"><span class="pt-kicker">GÜN '+bugunNo+' / '+PLAN30.gunler.length+' · '+tip.ad.toLocaleUpperCase('tr-TR')+'</span>'+
+       '<span class="pt-sure">'+g.dk+' dk</span></div>'+
+       '<div class="pt-konular">'+ g.k.map(k=>{
+          const kaynak=k[2]?('<span class="pt-kaynak">'+(PLAN30.kaynak[k[2]]||k[2])+' s.'+k[3]+'</span>'):'';
+          const tik=k[4]?(' onclick="'+k[4].replace(/"/g,'&quot;')+'"'):'';
+          return '<div class="pt-konu'+(k[4]?' pt-tik':'')+'"'+tik+'>'+
+                 '<span class="pt-ad">'+(k[0]?k[0]+') ':'')+k[1]+'</span>'+kaynak+
+                 (k[4]?'<span class="pt-ok">→</span>':'')+'</div>';
+       }).join('') +'</div>'+
+       '<div class="pt-beceri">'+ g.b.map(b=>'<span class="pt-bec">'+(BECERI_AD[b]||b)+'</span>').join('') +'</div>'+
+       (tamam
+         ? '<div class="pt-tamamlandi">✅ Bugünü tamamladın</div>'
+         : '<button class="pt-btn" onclick="planGunuTamamla('+bugunNo+')">Bugünü tamamladım ✓</button>')+
+       '</div>';
+  } else {
+    const kalan=Math.round((isoToDate(planBasISO())-isoToDate(isoTodayLocal()))/86400000);
+    h+='<div class="plan-today"><div class="pt-top"><span class="pt-kicker">PLAN HENÜZ BAŞLAMADI</span></div>'+
+       '<div class="pt-konular"><div class="pt-konu"><span class="pt-ad">Başlangıç: '+trTarih(planBasISO())+
+       (kalan>0?' ('+kalan+' gün sonra)':'')+'</span></div></div>'+
+       '<button class="pt-btn" onclick="planYenile()">Bugünden başlat →</button></div>';
+  }
+
+  // 2) AY TAKVİMİ
+  h+='<div class="plan-cal"><div class="pc-head"><span>'+PLAN30.gunler.length+' günlük plan</span>'+
+     '<span class="pc-aralik">'+trTarihKisa(planBasISO())+' – '+trTarihKisa(planBitISO())+'</span></div>';
+  h+='<div class="pc-grid">'+['Pt','Sa','Ça','Pe','Cu','Ct','Pa'].map(d=>'<div class="pc-wd">'+d+'</div>').join('')+'</div>';
+
+  const basDt=isoToDate(planBasISO());
+  let bosluk=(basDt.getDay()+6)%7;          // Pazartesi = 0
+  let hucreler='';
+  for(let i=0;i<bosluk;i++) hucreler+='<div></div>';
+  const bugunISO=isoTodayLocal();
+  PLAN30.gunler.forEach(g=>{
+    const iso=planTarih(g.g), tip=PLAN_TIP[g.t], d=isoToDate(iso);
+    const bugunMu = iso===bugunISO;
+    const tamam = planGunTamamMi(g.g);
+    const gecmis = iso<bugunISO && !tamam;
+    let cls='pc-day';
+    if(bugunMu) cls+=' pc-today';
+    else if(tamam) cls+=' pc-done';
+    else if(gecmis) cls+=' pc-missed';
+    const baslik=g.g+'. gün · '+tip.ad+' · '+g.k.map(k=>k[1]).join(', ');
+    hucreler+='<div class="'+cls+'" title="'+baslik.replace(/"/g,'&quot;')+'" onclick="planGunDetay('+g.g+')">'+
+      '<span class="pc-no">'+d.getDate()+'</span>'+
+      '<span class="pc-dot" style="background:'+(tamam?'var(--green)':bugunMu?'#fff':tip.nokta)+'"></span></div>';
+  });
+  h+='<div class="pc-grid">'+hucreler+'</div>';
+  h+='<div class="pc-legend">'+
+     '<span><i style="background:var(--green)"></i>Yeni konu</span>'+
+     '<span><i style="background:var(--blue)"></i>Tekrar</span>'+
+     '<span><i style="background:#BDA88F"></i>Hafif gün</span>'+
+     '<span><i style="background:var(--red)"></i>Deneme</span></div></div>';
+
+  // 3) SIRADAKİ GÜNLER
+  if(bugunNo && bugunNo<PLAN30.gunler.length){
+    h+='<div class="pc-head" style="padding:0 4px 8px"><span>Sırada</span></div>';
+    for(let i=bugunNo; i<Math.min(bugunNo+2,PLAN30.gunler.length); i++){
+      const g=PLAN30.gunler[i], iso=planTarih(g.g), d=isoToDate(iso), tip=PLAN_TIP[g.t];
+      h+='<div class="pc-next">'+
+         '<div class="pn-date"><b>'+d.getDate()+'</b><span>'+GUN_KISA[d.getDay()]+'</span></div>'+
+         '<div class="pn-body"><div class="pn-ad">'+g.k.map(k=>k[1]).join(' · ')+'</div>'+
+         '<div class="pn-tags">'+g.b.map(b=>'<span class="pn-tag">'+(BECERI_AD[b]||b)+'</span>').join('')+'</div></div></div>';
+    }
+  }
+
+  w.innerHTML=h;
+}
+
+function planGunDetay(no){
+  const g=PLAN30.gunler[no-1]; if(!g) return;
+  const iso=planTarih(no), d=isoToDate(iso), tip=PLAN_TIP[g.t];
+  alert(no+'. gün — '+trTarih(iso)+' '+GUN_AD[d.getDay()]+'\n'+
+        tip.ad+' · '+g.dk+' dakika\n\n'+
+        g.k.map(k=>'• '+(k[0]?k[0]+') ':'')+k[1]+(k[2]?'  ['+(PLAN30.kaynak[k[2]]||k[2])+' s.'+k[3]+']':'')).join('\n')+
+        '\n\nBeceriler: '+g.b.map(b=>(BECERI_AD[b]||b).replace(/^\S+\s/,'')).join(', '));
+}
+
+function trTarih(iso){ const d=isoToDate(iso); return d.getDate()+' '+AY_AD[d.getMonth()]+' '+d.getFullYear(); }
+function trTarihKisa(iso){ const d=isoToDate(iso); return d.getDate()+' '+AY_AD[d.getMonth()].slice(0,3); }
+
+// Eski ada çağrı yapan yerler kırılmasın
+function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'15 Ekim 2026 — 30 günlük program, koyu tema, Imperative', items:[
+    '📅 Ana ekranın en üstü tamamen değişti: artık <b>30 Günlük Program</b> var. Bugünün dersi (Gün N/30 + konu + kaynak sayfası + süre), altında ayın tamamını gösteren takvim, altında sıradaki iki gün.',
+    '📖 Program uydurma değil: Teil-1 + Kalan Üniteler PDF\'lerinden çıkarılan <b>A1 kitabının 38 konusunun tamamı</b> 30 güne dağıtıldı — hiçbiri eksik, hiçbiri mükerrer. 21 yeni konu günü, 4 tekrar günü, 4 hafif gün (pazarlar), son gün deneme sınavı.',
+    '🔗 Takvimdeki konular tıklanabilir: "Modalverben" deyince doğrudan o gramer konusu, "Die Zahlen" deyince o kelime kategorisi açılıyor. Her konunun yanında PDF\'teki sayfa numarası yazıyor.',
+    '✅ "Bugünü tamamladım" düğmesi eklendi — tamamlanan günler takvimde yeşil, kaçırılanlar soluk görünüyor.',
+    '🔄 30 gün dolunca program kendini kapatıp "Yeni 30 gün başlat" diyor; bastığında konular baştan sıralanıyor, XP ve serin korunuyor.',
+    '🗑️ Temmuz 2026\'dan kalma eski "Haftalık Plan" kaldırıldı — tarihi geçmişti, her güne rastgele egzersiz atıyordu.',
+    '🌙 <b>Koyu tema</b> geldi. Sağ üstteki düğmeyle geçiş yapılıyor; seçimin hatırlanıyor. Hiç dokunmazsan telefonunun kendi ayarına uyuyor.',
+    '📣 <b>Imperative (Emir Kipi)</b> konusu eklendi — Gramer Konuları içinde, ayrılabilen fiillerden hemen sonra. Kaynak PDF\'te bu konu eksikti (içindekilerde 35. sıra var ama sayfası yok), bu yüzden sıfırdan yazıldı.',
+    '⚠️ Imperative sorularında bilerek en çok karıştırılan yerler soruldu: <b>Fahr!</b> (a→ä umlaut ALMAZ) ama <b>Lies!</b> (e→ie KORUNUR), <b>Warte!</b> (-t ile biten kök -e alır), <b>Seien Sie!</b> (sein düzensiz), <b>Steh auf!</b> (ayrılabilen fiil).',
+  ]},
   {date:'23 Ağustos 2026 — A2 konularını yazarak pekiştirme', items:[
     '✍️ 3 A2 konusunun (weil/denn/dann/deshalb, Futur I, Ayrılabilen Fiiller Derin) animasyonlu slaytını bitirince artık otomatik olarak "Yazarak Pekiştir" alıştırması açılıyor — önce kısa öğretim (slayt), hemen ardından o konuya özel 6\'şar cümlelik yazma testi.',
     '📐 Her yanlış cevapta "Yazma Egzersizi" ile aynı format: doğru cümle + 📐 doğru mantık + ⚠️ muhtemel hata nedeni ayrı ayrı gösteriliyor.',
@@ -2433,7 +2719,8 @@ function goCatSelect(mode,catName){
   const cards=document.querySelectorAll('#catGrid .cat-card');
   let target=null;
   cards.forEach(c=>{ const n=c.querySelector('.cc-name'); if(n && n.textContent===catName) target=c; });
-  if(target) target.click();
+  if(!target){ return; }   // kategori yoksa secim ekraninda birak, bos derse girme
+  target.click();
   catGo();
 }
 
@@ -3492,6 +3779,52 @@ const GRAMER_TOPICS = [
       {sent:'Wir ___ das Licht an. (anmachen)',blank:'machen',opts:['machen','macht','machst','mache'],tr:'Biz ışığı açıyoruz.',exp:'wir + anmachen → machen (an sona gitti)'},
       {sent:'Sie ___ um 8 Uhr mit der Arbeit an. (anfangen)',blank:'fängt',opts:['fängt','fangt','fange','fangen'],tr:'O saat 8\'de işe başlıyor.',exp:'sie + anfangen → fängt (an sona gitti)'},
       {sent:'Ich ___ in die S-Bahn ein. (einsteigen)',blank:'steige',opts:['steige','steigst','steigt','steigen'],tr:'Ben S-Bahn\'a biniyorum.',exp:'ich + einsteigen → steige (ein sona gitti)'},
+    ]
+  },
+  {
+    id:'imperativ',
+    title:'Imperative (Emir Kipi)',
+    emoji:'📣',
+    desc:'Komm! Geht! Warten Sie! — 3 ayrı hitap biçimi',
+    rule:`<span class="r-head">📣 Emir kipi — birine bir şey söylerken</span>
+<span class="r-tip">Türkçede "Gel!" deriz, kişiyi söylemeyiz. Almanca da öyle: <b>zamir düşer.</b><br>Ama Almancada <b>3 ayrı hitap</b> var — kiminle konuştuğuna göre değişir.</span>
+<table class="r-table"><tr><th>Kime?</th><th>Nasıl yapılır</th><th>Örnek (kommen)</th></tr>
+<tr><td><b>du</b><br>sen</td><td>fiil kökü · ek yok · zamir yok</td><td><b>Komm!</b><br>Gel!</td></tr>
+<tr><td><b>ihr</b><br>siz (çoğul)</td><td>normal ihr çekimi · zamir yok</td><td><b>Kommt!</b><br>Gelin!</td></tr>
+<tr><td><b>Sie</b><br>siz (resmî)</td><td>fiil + <b>Sie</b> · yer değişir</td><td><b>Kommen Sie!</b><br>Geliniz!</td></tr>
+<tr><td><b>wir</b><br>hadi biz</td><td>fiil + <b>wir</b></td><td><b>Kommen wir!</b><br>Hadi gidelim!</td></tr></table>
+<span class="r-head">⚠️ du biçiminde 3 kritik istisna</span>
+<span class="r-tip"><b>1) e → i/ie değişimi KORUNUR</b><br>
+geben → <b>Gib!</b> · lesen → <b>Lies!</b> · sprechen → <b>Sprich!</b> · nehmen → <b>Nimm!</b> · helfen → <b>Hilf!</b><br><br>
+<b>2) a → ä olan fiiller umlaut ALMAZ</b><br>
+fahren → <b>Fahr!</b> (Fähr! DEĞİL) · schlafen → <b>Schlaf!</b> · tragen → <b>Trag!</b><br>
+💡 En sık yapılan hata burası. Şimdiki zamanda <b>du fährst</b> ama emirde <b>Fahr!</b><br><br>
+<b>3) Kökü -d, -t, -ig ile bitenler -e alır</b><br>
+warten → <b>Warte!</b> · arbeiten → <b>Arbeite!</b> · entschuldigen → <b>Entschuldige!</b><br>
+💡 Sebebi basit: "Wart!" telaffuz edilemiyor, dil dönmüyor.</span>
+<span class="r-head">🔑 Düzensizler: sein ve haben</span>
+<table class="r-table"><tr><th>Kime?</th><th>sein (olmak)</th><th>haben (sahip olmak)</th></tr>
+<tr><td>du</td><td><b>Sei</b> ruhig!</td><td><b>Hab</b> keine Angst!</td></tr>
+<tr><td>ihr</td><td><b>Seid</b> ruhig!</td><td><b>Habt</b> keine Angst!</td></tr>
+<tr><td>Sie</td><td><b>Seien Sie</b> ruhig!</td><td><b>Haben Sie</b> keine Angst!</td></tr></table>
+<span class="r-tip">🎯 Sei ruhig! = Sakin ol! · Hab keine Angst! = Korkma!</span>
+<span class="r-head">🔗 Ayrılabilen fiiller — ön ek yine sona gider</span>
+<span class="r-tip">aufstehen → <b>Steh auf!</b> (Kalk!)<br>
+anrufen → <b>Ruf</b> mich <b>an!</b> (Beni ara!)<br>
+zumachen → <b>Mach</b> die Tür <b>zu!</b> (Kapıyı kapat!)<br>
+aufräumen → <b>Räum</b> dein Zimmer <b>auf!</b> (Odanı topla!)<br>
+💡 Ayrılabilen fiil konusunu hatırla: ön ek sona kaçıyordu, emirde de aynı.</span>
+<span class="r-head">🙏 bitte — emri yumuşatır</span>
+<span class="r-tip">Emir kipi Almancada kaba durabilir. <b>bitte</b> zorunlu değil ama nazik yapar.<br>
+<b>Komm bitte!</b> · <b>Warten Sie bitte!</b> · <b>Mach bitte die Tür zu!</b><br>
+🎯 Kitaptaki kalıp: <b>Entschuldigung, buchstabieren Sie bitte!</b><br>(Pardon, kodlar mısınız lütfen!)</span>`,
+    qs:[
+      {sent:'___ nicht so schnell! (fahren · du)',blank:'Fahr',opts:['Fahr','Fähr','Fahre','Fährst'],tr:'Bu kadar hızlı sürme!',exp:'a → ä olan fiiller emirde umlaut ALMAZ. du fährst ama Fahr!'},
+      {sent:'___ den Text, bitte! (lesen · du)',blank:'Lies',opts:['Lies','Les','Lese','Liest'],tr:'Metni oku lütfen.',exp:'e → ie değişimi emirde KORUNUR: lesen → Lies! (Les! değil)'},
+      {sent:'___ einen Moment! (warten · du)',blank:'Warte',opts:['Warte','Wart','Wartest','Wartet'],tr:'Bir dakika bekle!',exp:'Kök -t ile bitiyor → sonuna -e gelir: Warte! ("Wart!" söylenemiyor)'},
+      {sent:'___ bitte ruhig! (sein · Sie)',blank:'Seien Sie',opts:['Seien Sie','Sind Sie','Seid','Sei'],tr:'Lütfen sakin olun. (resmî)',exp:'sein düzensiz. Sie biçimi: Seien Sie! — "Sind Sie" soru olur, emir değil.'},
+      {sent:'___ auf! Es ist schon 7 Uhr. (aufstehen · du)',blank:'Steh',opts:['Steh','Stehe','Stehst','Aufsteh'],tr:'Kalk! Saat çoktan 7 oldu.',exp:'Ayrılabilen fiil: ön ek "auf" sona gider, kök tek başına kalır → Steh auf!'},
+      {sent:'___ den Bus, nicht das Taxi! (nehmen · du)',blank:'Nimm',opts:['Nimm','Nehm','Nimmst','Nehme'],tr:'Otobüse bin, taksiye değil!',exp:'nehmen → e-i değişimi + çift m: Nimm! Bu fiil tamamen düzensiz, ezberle.'},
     ]
   },
   {
@@ -5553,6 +5886,7 @@ function showWsDone(){
 }
 
 // Başlangıç
+applyThemeBtn();
 showScreen('homeScreen');
 </script>
 </body>

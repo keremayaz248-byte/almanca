@@ -1,0 +1,17 @@
+{
+  "name": "almanca",
+  "version": "1.0.0",
+  "description": "Almanca ogrenme uygulamasi - PDF icerik araclari ve test duzenegi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "playwright": "^1.64.1"
+  },
+  "private": true
+}
