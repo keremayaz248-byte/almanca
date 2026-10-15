@@ -11,8 +11,8 @@
 //   3) Bu dosyadaki fonksiyonları index.html'den çağırmaya başla.
 // ══════════════════════════════════════════════════════════════
 
-const SUPABASE_URL = '';         // <-- buraya Project URL yapıştırılacak (https://xxxxx.supabase.co)
-const SUPABASE_ANON_KEY = '';    // <-- buraya "anon public" anahtarı yapıştırılacak
+const SUPABASE_URL = 'https://tculmzddalcrxhzxjdnk.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_OwJiglI0Kdj9I9Q2NF2JIA_48bZXlZx';
 
 let sb = null;
 function sbHazirMi() {
@@ -30,10 +30,20 @@ async function sbGirisYap(email, parola) {
 }
 async function sbKayitOl(email, parola, adSoyad) {
   if (!sbHazirMi()) return { hata: 'Supabase henüz bağlı değil.' };
-  const { data, error } = await sb.auth.signUp({ email, password: parola });
+  const { data, error } = await sb.auth.signUp({ email, password: parola, options: { data: { display_name: adSoyad } } });
   if (error) return { error };
-  await sb.from('profiles').insert({ id: data.user.id, display_name: adSoyad });
+  if (data.session) await sbProfilGaranti(data.user, adSoyad);
   return { data };
+}
+
+// Profil satiri yoksa olusturur (e-posta dogrulamali kayitta ilk giriste calisir)
+async function sbProfilGaranti(user, adSoyad) {
+  if (!sbHazirMi() || !user) return adSoyad || (user && user.email) || '';
+  const { data } = await sb.from('profiles').select('display_name').eq('id', user.id).maybeSingle();
+  if (data && data.display_name) return data.display_name;
+  const isim = adSoyad || (user.user_metadata && user.user_metadata.display_name) || (user.email || 'Kullanici').split('@')[0];
+  await sb.from('profiles').insert({ id: user.id, display_name: isim });
+  return isim;
 }
 
 // ── İlerleme ────────────────────────────────────────────
@@ -56,17 +66,28 @@ async function sbArkadasIlerlemesi() {
 
 // ── Çevrimiçi durumu (Realtime Presence) ────────────────
 let sbPresenceChannel = null;
-function sbCevrimiciBaslat(userId) {
+let sbPresenceTaban = {};
+function sbCevrimiciBaslat(userId, extraData) {
   if (!sbHazirMi()) return;
-  sbPresenceChannel = sb.channel('online-users');
+  if (sbPresenceChannel) return;
+  sbPresenceChannel = sb.channel('almanca-duo-online');
   sbPresenceChannel
     .on('presence', { event: 'sync' }, () => {
       const durum = sbPresenceChannel.presenceState();
       window.dispatchEvent(new CustomEvent('almanca-online-degisti', { detail: durum }));
     })
     .subscribe((status) => {
-      if (status === 'SUBSCRIBED') sbPresenceChannel.track({ user_id: userId, online_at: new Date().toISOString() });
+      if (status === 'SUBSCRIBED') {
+        sbPresenceTaban = Object.assign({ user_id: userId }, extraData || {});
+        sbPresenceChannel.track(Object.assign({ online_at: new Date().toISOString() }, sbPresenceTaban));
+      }
     });
+}
+
+function sbPresenceMarka(extraData) {
+  if (!sbPresenceChannel) return;
+  sbPresenceTaban = Object.assign(sbPresenceTaban, extraData || {});
+  sbPresenceChannel.track(Object.assign({ online_at: new Date().toISOString() }, sbPresenceTaban));
 }
 
 // ── Ortak çalışma oturumu ────────────────────────────────

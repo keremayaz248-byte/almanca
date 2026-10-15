@@ -16,6 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.0/dist/umd/supabase.min.js"></script>
+<script src="icerik/supabase/client.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -807,6 +809,49 @@ html[data-theme="dark"] .pc-today{background:#B0501E}
   display:flex;align-items:center;justify-content:center;transition:all .12s}
 .theme-btn:hover{border-color:var(--purple)}
 .theme-btn:active{transform:scale(.94)}
+
+/* ── Login overlay ── */
+#loginOverlay{position:fixed;inset:0;background:var(--bg);z-index:2000;display:none;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px;overflow-y:auto}
+.login-card{background:var(--white);border:2px solid var(--border);border-radius:22px;padding:28px 22px;width:100%;max-width:380px;box-shadow:0 8px 32px rgba(0,0,0,.12)}
+.login-logo{font-size:2.4rem;text-align:center;margin-bottom:4px}
+.login-title{text-align:center;font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.login-sub{text-align:center;font-size:.82rem;color:var(--light);margin-bottom:20px}
+.login-tabs{display:flex;gap:8px;margin-bottom:18px}
+.login-tab-btn{flex:1;padding:9px;border-radius:11px;border:2px solid var(--border);background:transparent;font-family:Fredoka,sans-serif;font-size:.93rem;font-weight:600;cursor:pointer;color:var(--light);transition:all .15s}
+.login-tab-btn.active{background:var(--purple);border-color:var(--purple);color:#fff}
+.login-input{width:100%;padding:11px 13px;border-radius:12px;border:2px solid var(--border);background:var(--bg);font-family:Fredoka,sans-serif;font-size:.95rem;color:var(--text);margin-bottom:10px;outline:none}
+.login-input:focus{border-color:var(--purple)}
+.login-btn{width:100%;padding:13px;border-radius:13px;border:none;background:var(--purple);color:#fff;font-family:Fredoka,sans-serif;font-size:1rem;font-weight:700;cursor:pointer;margin-top:4px;margin-bottom:8px}
+.login-btn:disabled{opacity:.6;cursor:default}
+.login-msg{font-size:.82rem;font-weight:600;color:var(--red);text-align:center;min-height:18px;margin-bottom:4px}
+.login-skip{text-align:center;font-size:.82rem;color:var(--light);cursor:pointer;text-decoration:underline;margin-top:6px}
+
+/* ── Header online dot ── */
+#friendOnlineWrap{display:none;align-items:center;gap:5px;font-size:.78rem;font-weight:700;color:var(--green);padding:4px 10px;background:var(--green-bg);border-radius:999px;border:1.5px solid var(--green);margin-right:6px;white-space:nowrap}
+.friend-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;animation:dotPulse 1.5s infinite}
+@keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ── Düello bölümü ── */
+.duello-card-wrap{background:var(--white);border:2px solid var(--border);border-radius:18px;padding:16px;margin-bottom:14px}
+.duello-prompt{text-align:center;padding:16px 8px;color:var(--light)}
+.duello-prompt-icon{font-size:2rem;margin-bottom:8px}
+.duello-empty{text-align:center;padding:14px 8px;color:var(--light);font-size:.9rem}
+.duello-hint{font-size:.78rem;margin-top:6px;color:var(--light)}
+.duello-live{display:flex;align-items:center;gap:10px}
+.duello-user{flex:1;text-align:center;padding:10px 8px;border-radius:14px;background:var(--bg)}
+.duello-user.me{border:2px solid var(--purple)}
+.duello-user.friend{border:2px solid var(--green)}
+.du-avatar{font-size:1.8rem;position:relative;display:inline-block}
+.du-dot{position:absolute;bottom:1px;right:-2px;width:10px;height:10px;border-radius:50%;background:var(--green);border:2px solid var(--white);display:inline-block}
+.du-name{font-weight:700;font-size:.9rem;margin:4px 0 2px}
+.du-xp{font-size:.82rem;color:var(--text);font-weight:600}
+.du-streak{font-size:.82rem;color:var(--text)}
+.duello-vs{font-size:1.1rem;font-weight:800;color:var(--purple);flex-shrink:0}
+.duello-user-indicator{font-size:.78rem;margin-top:4px;color:var(--light)}
+
+html[data-theme="dark"] .login-card{box-shadow:0 8px 32px rgba(0,0,0,.4)}
+html[data-theme="dark"] .login-input{color:var(--text)}
+.btn-sm-orange{background:var(--purple);color:#fff;border:none;border-radius:11px;padding:9px 22px;font-family:Fredoka,sans-serif;font-size:.92rem;font-weight:700;cursor:pointer}
 </style>
 <script>
 /* Tema sayfa boyanmadan ÖNCE uygulanır — yoksa açılışta beyaz parlama olur.
@@ -820,6 +865,35 @@ html[data-theme="dark"] .pc-today{background:#B0501E}
 </head>
 <body>
 
+<!-- LOGIN OVERLAY -->
+<div id="loginOverlay">
+  <div class="login-card">
+    <div class="login-logo">🇩🇪</div>
+    <div class="login-title">Almanca — Deutsch Duo</div>
+    <div class="login-sub">Arkadaşınla birlikte çalışmak için giriş yap</div>
+    <div class="login-tabs">
+      <button class="login-tab-btn active" id="loginTabBtn" onclick="loginTabSwitch('login')">Giriş Yap</button>
+      <button class="login-tab-btn" id="registerTabBtn" onclick="loginTabSwitch('register')">Kayıt Ol</button>
+    </div>
+    <!-- Giriş formu -->
+    <div id="loginTab">
+      <input class="login-input" type="email" id="loginEmailInput" placeholder="Email adresi" autocomplete="email">
+      <input class="login-input" type="password" id="loginPwInput" placeholder="Şifre" autocomplete="current-password">
+      <div class="login-msg" id="loginMsg"></div>
+      <button class="login-btn" id="loginBtn" onclick="doLogin()">Giriş Yap</button>
+    </div>
+    <!-- Kayıt formu -->
+    <div id="registerTab" style="display:none">
+      <input class="login-input" type="text" id="regNameInput" placeholder="Adın (sana böyle görüneceğiz)" autocomplete="name">
+      <input class="login-input" type="email" id="regEmailInput" placeholder="Email adresi" autocomplete="email">
+      <input class="login-input" type="password" id="regPwInput" placeholder="Şifre (en az 6 karakter)" autocomplete="new-password">
+      <div class="login-msg" id="registerMsg"></div>
+      <button class="login-btn" id="registerBtn" onclick="doRegister()">Kayıt Ol</button>
+    </div>
+    <div class="login-skip" onclick="skipLogin()">Şimdi değil — sadece local çalış</div>
+  </div>
+</div>
+
 <header>
   <button class="hdr-back" id="hdrBack" onclick="hdrBackGo()" title="Geri">←</button>
   <div class="logo" id="headerLogo">🇩🇪 Almanca</div>
@@ -828,6 +902,7 @@ html[data-theme="dark"] .pc-today{background:#B0501E}
     <div class="hstat" id="hs2"></div>
     <div class="hstat" id="hs3" style="display:none"></div>
   </div>
+  <div id="friendOnlineWrap"><div class="friend-dot" id="friendOnlineDot"></div><span id="friendOnlineLabel">Çevrimiçi</span></div>
   <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Açık / koyu tema" aria-label="Açık veya koyu temaya geç">🌙</button>
 </header>
 
@@ -998,6 +1073,18 @@ html[data-theme="dark"] .pc-today{background:#B0501E}
     </div>
   </div>
 
+
+  <!-- BÖLÜM 5: DÜELLO — arkadaşınla çevrimiçi karşılaşma -->
+  <div class="sec-head">⚔️ Arkadaşınla Yarış</div>
+  <div class="duello-card-wrap" id="duelloSection">
+    <div id="duelloContent">
+      <div class="duello-prompt">
+        <div class="duello-prompt-icon">🔐</div>
+        <div style="margin-bottom:10px">Giriş yap ve arkadaşınla yarış</div>
+        <button class="btn-sm-orange" onclick="showLoginOverlay()">Giriş Yap</button>
+      </div>
+    </div>
+  </div>
 
   <!-- BÖLÜM 6: YENİLİKLER — her güncellemede buraya not düşülür -->
   <div class="sec-head">🆕 Yenilikler</div>
@@ -2656,6 +2743,12 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'16 Ekim 2026 — Giriş ve Düello (Supabase bağlandı)', items:[
+    '🔐 <b>Giriş / Kayıt ekranı eklendi.</b> İkiniz de kendi e-postanızla kayıt olabilirsiniz. "Şimdi değil" derseniz uygulama eskisi gibi sadece bu telefonda çalışır.',
+    '🟢 <b>Çevrimiçi göstergesi:</b> Arkadaşın uygulamayı açtığı an üst çubukta yeşil nokta ve adı belirir.',
+    '⚔️ <b>"Arkadaşınla Yarış" bölümü:</b> İkiniz aynı anda çevrimiçiyken ana ekranda toplam XP ve gün serileriniz yan yana görünür. Rakam her 2 dakikada ve ana ekrana dönüşte güncellenir.',
+    '⏳ Henüz yok: ortak ders oturumu, günlük bildirim ve sesli konuşma. Bunlar sonraki adımlar.'
+  ]},
   {date:'15 Ekim 2026 (gece, son kontrol) — Opus 5 incelemesi', items:[
     '🌙 <b>Koyu tema okunabilirliği düzeltildi:</b> Kelime Listesi\'ndeki Almanca kelimeler, Yazma Egzersizi\'nde "doğrusu" cevabı ve açıklama kutuları, gramer kural kutuları ve şık butonları koyu zeminde neredeyse görünmüyordu. Artık hepsi okunuyor; üst çubuk da koyu temaya uyuyor.',
     '📐 <b>Dilbilgisi açıklamalarındaki yanlışlar düzeltildi:</b> "der Geburtstag" nötr diye anlatılıyordu (erildir); "Russland, Deutschland istisna" deniyordu (ikisi de artikelsiz, istisnalar die Türkei, die Schweiz); "Ich bin geboren" Perfekt diye anlatılıyordu (sabit kalıptır). Imperative\'de "Kommen wir!" artık doğru çeviriyle "Hadi gelelim!"; 2 soruda aslında doğru olan yanlış şık (Fahre! / Stehe auf!) değiştirildi.',
@@ -2763,6 +2856,7 @@ function renderHome(){
   document.getElementById('heroSub').textContent = due>0
     ? '🩹 '+due+' kelimenin tekrar zamanı geldi — ders önce onlarla başlar, sonra kısa mola + mini gramer.'
     : 'Yeni kelimeler → kısa mola → mini gramer. Yaklaşık 5-10 dakika.';
+  if(typeof sbPresenceSyncIfNeeded==='function') sbPresenceSyncIfNeeded();
 }
 
 function setHeader(logo, showStats, s1='', s2='', s3=''){
@@ -6321,9 +6415,173 @@ window.addEventListener('appinstalled',()=>{
   }
 })();
 
+// ══════════════════════════════════════════
+//  SUPABASE ENTEGRASYONU — giriş, presence, düello
+// ══════════════════════════════════════════
+var sbUser = null;
+
+function showLoginOverlay() {
+  document.getElementById('loginOverlay').style.display = 'flex';
+}
+function hideLoginOverlay() {
+  document.getElementById('loginOverlay').style.display = 'none';
+}
+function loginTabSwitch(tab) {
+  document.getElementById('loginTab').style.display = tab === 'login' ? 'block' : 'none';
+  document.getElementById('registerTab').style.display = tab === 'register' ? 'block' : 'none';
+  document.getElementById('loginTabBtn').classList.toggle('active', tab === 'login');
+  document.getElementById('registerTabBtn').classList.toggle('active', tab === 'register');
+}
+
+async function doLogin() {
+  const email = document.getElementById('loginEmailInput').value.trim();
+  const pw = document.getElementById('loginPwInput').value;
+  const btn = document.getElementById('loginBtn');
+  const msg = document.getElementById('loginMsg');
+  msg.textContent = '';
+  if (!email || !pw) { msg.textContent = 'Email ve şifre girilmeli.'; return; }
+  btn.disabled = true; btn.textContent = 'Giriş yapılıyor...';
+  try {
+    const res = await sbGirisYap(email, pw);
+    if (res.error) { msg.textContent = res.error.message || 'Giriş başarısız.'; }
+    else { sbUser = res.data.user; hideLoginOverlay(); sbAfterLogin(sbUser); }
+  } catch(e) { msg.textContent = 'Bağlantı hatası.'; }
+  btn.disabled = false; btn.textContent = 'Giriş Yap';
+}
+
+async function doRegister() {
+  const isim = document.getElementById('regNameInput').value.trim();
+  const email = document.getElementById('regEmailInput').value.trim();
+  const pw = document.getElementById('regPwInput').value;
+  const btn = document.getElementById('registerBtn');
+  const msg = document.getElementById('registerMsg');
+  msg.textContent = ''; msg.style.color = 'var(--red)';
+  if (!isim || !email || !pw) { msg.textContent = 'Tüm alanlar doldurulmalı.'; return; }
+  if (pw.length < 6) { msg.textContent = 'Şifre en az 6 karakter olmalı.'; return; }
+  btn.disabled = true; btn.textContent = 'Kayıt yapılıyor...';
+  try {
+    const res = await sbKayitOl(email, pw, isim);
+    if (res.error) { msg.textContent = res.error.message || 'Kayıt başarısız.'; }
+    else { msg.style.color = 'var(--green)'; msg.textContent = '✅ Email adresine onay linki gönderildi. Kontrol et, sonra giriş yap.'; }
+  } catch(e) { msg.textContent = 'Bağlantı hatası.'; }
+  btn.disabled = false; btn.textContent = 'Kayıt Ol';
+}
+
+function skipLogin() {
+  try { localStorage.setItem('almanca_login_skip', '1'); } catch(e) {}
+  hideLoginOverlay();
+  renderDuelloGirisIste();
+}
+
+async function sbAfterLogin(user) {
+  try { localStorage.removeItem('almanca_login_skip'); } catch(e) {}
+  var displayName = (user.email || 'Sen').split('@')[0];
+  try { displayName = await sbProfilGaranti(user); } catch(e) {}
+  sbCevrimiciBaslat(user.id, { display_name: displayName, xp: DB.xp, streak: DB.streak.cur });
+  window.removeEventListener('almanca-online-degisti', onOnlineChange);
+  window.addEventListener('almanca-online-degisti', onOnlineChange);
+  renderDuelloBosBekle();
+}
+
+function onOnlineChange(e) {
+  var durum = e.detail;
+  var myId = sbUser && sbUser.id;
+  var arkadaslar = [];
+  Object.values(durum).forEach(function(arr){
+    arr.forEach(function(p){ if (p.user_id !== myId) arkadaslar.push(p); });
+  });
+  // Header dot
+  var wrap = document.getElementById('friendOnlineWrap');
+  var label = document.getElementById('friendOnlineLabel');
+  if (wrap) {
+    if (arkadaslar.length > 0) {
+      var isim = arkadaslar[0].display_name || 'Arkadaşın';
+      label.textContent = isim + ' çevrimiçi';
+      wrap.style.display = 'flex';
+    } else {
+      wrap.style.display = 'none';
+    }
+  }
+  // Düello bölümü
+  renderDuelloOnline(arkadaslar);
+}
+
+function renderDuelloOnline(arkadaslar) {
+  var el = document.getElementById('duelloContent');
+  if (!el) return;
+  if (arkadaslar.length === 0) { renderDuelloBosBekle(); return; }
+  var a = arkadaslar[0];
+  var aIsim = a.display_name || 'Arkadaşın';
+  var aXp = a.xp || 0;
+  var aStreak = a.streak || 0;
+  var benimXp = DB ? DB.xp : 0;
+  var benimStreak = DB ? DB.streak.cur : 0;
+  el.innerHTML =
+    '<div class="duello-live">' +
+      '<div class="duello-user me">' +
+        '<div class="du-avatar">👤</div>' +
+        '<div class="du-name">Sen</div>' +
+        '<div class="du-xp">⭐ ' + benimXp + ' XP</div>' +
+        '<div class="du-streak">🔥 ' + benimStreak + ' gün</div>' +
+      '</div>' +
+      '<div class="duello-vs">VS</div>' +
+      '<div class="duello-user friend">' +
+        '<div class="du-avatar">👤<span class="du-dot"></span></div>' +
+        '<div class="du-name">' + aIsim + '</div>' +
+        '<div class="du-xp">⭐ ' + aXp + ' XP</div>' +
+        '<div class="du-streak">🔥 ' + aStreak + ' gün</div>' +
+      '</div>' +
+    '</div>';
+}
+
+function renderDuelloBosBekle() {
+  var el = document.getElementById('duelloContent');
+  if (!el) return;
+  el.innerHTML =
+    '<div class="duello-empty">' +
+      '<div>🕐 Arkadaşın henüz çevrimiçi değil</div>' +
+      '<div class="duello-hint">İkiniz aynı anda giriş yapınca burada birbirinizi görürsünüz.</div>' +
+    '</div>';
+}
+
+function renderDuelloGirisIste() {
+  var el = document.getElementById('duelloContent');
+  if (!el) return;
+  el.innerHTML =
+    '<div class="duello-prompt">' +
+      '<div class="duello-prompt-icon">🔐</div>' +
+      '<div style="margin-bottom:10px">Giriş yap ve arkadaşınla yarış</div>' +
+      '<button class="btn-sm-orange" onclick="showLoginOverlay()">Giriş Yap</button>' +
+    '</div>';
+}
+
+// XP değişince presence'ı güncelle (renderHome içinden çağrılır)
+function sbPresenceSyncIfNeeded() {
+  if (sbUser && typeof sbPresenceMarka === 'function') {
+    sbPresenceMarka({ xp: DB.xp, streak: DB.streak.cur });
+  }
+}
+// 2 dakikada bir otomatik sync
+setInterval(function(){ sbPresenceSyncIfNeeded(); }, 120000);
+
+async function sbInit() {
+  if (!sbHazirMi()) return;
+  try {
+    var r = await sb.auth.getSession();
+    if (r.data && r.data.session) {
+      sbUser = r.data.session.user;
+      sbAfterLogin(sbUser);
+    } else {
+      var skip = ''; try { skip = localStorage.getItem('almanca_login_skip') || ''; } catch(e) {}
+      if (!skip) showLoginOverlay();
+    }
+  } catch(e) { /* Supabase erişilemez */ }
+}
+
 // Başlangıç
 applyThemeBtn();
 showScreen('homeScreen');
+sbInit();
 </script>
 </body>
 </html>
