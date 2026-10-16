@@ -3603,23 +3603,46 @@ function horenSecim(konu){
 }
 
 // ── Almanca ses var mi? ────────────────────
-function almancaSesVar(){
-  if(!('speechSynthesis' in window)) return false;
-  const v=window.speechSynthesis.getVoices();
-  if(!v||!v.length) return true; // sesler henuz yuklenmemis olabilir — engelleme
-  return v.some(x=>/^de/i.test(x.lang));
+// Android Chrome'da getVoices() ILK cagrida bos doner, sonra 'voiceschanged' ile dolar.
+// Bu yuzden senkron kontrol guvenilmez; once sesleri bekliyoruz.
+function sesleriBekle(){
+  return new Promise(res=>{
+    if(!('speechSynthesis' in window)) return res([]);
+    const simdi=window.speechSynthesis.getVoices();
+    if(simdi&&simdi.length) return res(simdi);
+    let n=0;
+    const t=setInterval(()=>{
+      const v=window.speechSynthesis.getVoices();
+      if((v&&v.length)||++n>12){ clearInterval(t); res(v||[]); }
+    },200);
+    try{ window.speechSynthesis.onvoiceschanged=()=>{
+      const v=window.speechSynthesis.getVoices();
+      if(v&&v.length){ clearInterval(t); res(v); }
+    }; }catch(e){}
+  });
 }
+function almancaSesSec(sesler){
+  if(!sesler||!sesler.length) return null;
+  return sesler.filter(v=>/^de/i.test(v.lang));
+}
+let HOREN_SESLER=null;   // [almanca sesler]
+let HOREN_SESSIZ=false;  // hic ses yoksa metin modu
 
 let hQs=[], hIdx=0, hDogru=0, hYanlis=0, hCevapli=false, hKez=0;
 
-function startDinleme(konu){
+async function startDinleme(konu){
   if(!('speechSynthesis' in window)){
     alert('Bu tarayıcı sesli okumayı desteklemiyor, dinleme modu açılamıyor.\n\nAndroid’de Chrome, iPhone’da Safari kullanmayı dene.');
     return;
   }
-  if(!almancaSesVar()){
-    alert('Cihazında Almanca ses paketi bulunamadı.\n\nAyarlar → Diller bölümünden Almanca (Deutsch) ses paketini indirirsen dinleme modu çalışır.');
-    return;
+  const hepsi=await sesleriBekle();
+  const de=almancaSesSec(hepsi);
+  HOREN_SESLER = (de&&de.length)?de:null;
+  // Almanca ses yoksa mod yine de acilir ama METIN MODUNA duser:
+  // yanlis dille okumak ogrenmeyi bozar, bu yuzden ses yerine metni gosteririz.
+  HOREN_SESSIZ = !HOREN_SESLER;
+  if(HOREN_SESSIZ && hepsi.length){
+    alert('Telefonunda Almanca ses paketi bulunamadı.\n\nDinleme yine açılacak ama ses yerine METİN gösterilecek.\n\nSesi açmak için: Ayarlar → Diller / Metin okuma → Almanca (Deutsch) paketini indir.');
   }
   hQs=shuffle(horenSecim(konu)).slice(0,10);
   hIdx=0; hDogru=0; hYanlis=0;
@@ -3650,30 +3673,59 @@ function renderHoren(){
   setProgress(Math.round(hIdx/hQs.length*100), hIdx+' / '+hQs.length);
 }
 
-// Diyalogu sirayla seslendirir; konusmaci degisince ton degisir.
+// Diyalogu seslendirir. iOS Safari'de onend zinciri kullanici hareketi
+// baglamindan cikinca kopar ve sadece ilk cumle okunur; bu yuzden TUM satirlar
+// ayni tiklama icinde kuyruga verilir — speechSynthesis onlari sirayla calar.
 function horenCal(hiz){
   const q=hQs[hIdx]; if(!q) return;
+  const btn=document.getElementById('horenPlay');
+  const kezEl=document.getElementById('horenKez');
+
+  if(HOREN_SESSIZ){ // ses yok → metin modu
+    hKez++;
+    kezEl.innerHTML='<div class="horen-metin">'+
+      q.d.map(x=>'<div><span class="hm-k">'+horenKimAd(x[0])+':</span> '+x[1]+'</div>').join('')+
+      '</div><div style="margin-top:6px">🔇 Almanca ses paketi yok — metin gösteriliyor.</div>';
+    btn.textContent='📄 Metni göster';
+    return;
+  }
+
   try{ window.speechSynthesis.cancel(); }catch(e){}
   hKez++;
-  const btn=document.getElementById('horenPlay');
   btn.className='horen-play calisiyor'; btn.textContent='🔊 Çalıyor…';
-  document.getElementById('horenKez').textContent=hKez+'. kez dinliyorsun'+(hiz<1?' (yavaş)':'');
-  const sesler=(window.speechSynthesis.getVoices()||[]).filter(v=>/^de/i.test(v.lang));
-  let i=0;
-  const sira=()=>{
-    if(i>=q.d.length){ btn.className='horen-play'; btn.textContent='🔁 Tekrar dinle'; return; }
-    const [kim,metin]=q.d[i++];
+  kezEl.textContent=hKez+'. kez dinliyorsun'+(hiz<1?' (yavaş)':'');
+
+  const sesler=HOREN_SESLER||[];
+  const bitir=()=>{ btn.className='horen-play'; btn.textContent='🔁 Tekrar dinle'; };
+  let kalan=q.d.length, patladi=false;
+
+  q.d.forEach(([kim,metin],i)=>{
     const u=new SpeechSynthesisUtterance(metin);
-    u.lang='de-DE'; u.rate=hiz*0.92;
+    u.lang='de-DE';
+    u.rate=hiz*0.92;
     // iki konusmaciyi ayirt etmek icin ton farki
-    u.pitch=(kim==='F'||kim==='V'||kim==='K'&&false)?1.18:0.92;
-    if(sesler.length>1) u.voice=sesler[(kim==='F'||kim==='V')?1%sesler.length:0];
+    const kadin=(kim==='F'||kim==='V');
+    u.pitch=kadin?1.18:0.9;
+    if(sesler.length>1) u.voice=sesler[kadin?1:0];
     else if(sesler.length) u.voice=sesler[0];
-    u.onend=()=>setTimeout(sira,320);
-    u.onerror=()=>{ btn.className='horen-play'; btn.textContent='🔁 Tekrar dinle'; };
-    try{ window.speechSynthesis.speak(u); }catch(e){ btn.className='horen-play'; }
-  };
-  sira();
+    u.onend=()=>{ if(--kalan<=0) bitir(); };
+    u.onerror=()=>{ patladi=true; bitir(); };
+    try{ window.speechSynthesis.speak(u); }catch(e){ patladi=true; bitir(); }
+  });
+
+  // Hicbir sey calmadiysa (bazi tarayicilar sessizce yutar) kullaniciyi bilgilendir
+  setTimeout(()=>{
+    if(!patladi && window.speechSynthesis && !window.speechSynthesis.speaking && kalan===q.d.length){
+      kezEl.innerHTML='🔇 Ses çalmadı. Telefonun sessizde olabilir veya Almanca ses paketi gerekiyor.'+
+        '<br><button class="btn-toggle" style="margin-top:7px" onclick="horenMetinGoster()">📄 Metni göster</button>';
+      bitir();
+    }
+  },1800);
+}
+function horenMetinGoster(){
+  const q=hQs[hIdx]; if(!q) return;
+  document.getElementById('horenKez').innerHTML='<div class="horen-metin">'+
+    q.d.map(x=>'<div><span class="hm-k">'+horenKimAd(x[0])+':</span> '+x[1]+'</div>').join('')+'</div>';
 }
 
 function horenPick(i,btn,q){
@@ -4154,6 +4206,12 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'16 Ekim 2026 — Dinleme sağlamlaştırıldı', items:[
+    '🔊 <b>iPhone hatası düzeltildi:</b> diyalog satırları zincirleme çalınıyordu, iOS Safari bu zinciri kopardığı için <b>sadece ilk cümle okunacaktı</b>. Artık tüm satırlar tek seferde sıraya veriliyor.',
+    '📱 <b>Android ses listesi düzeltildi:</b> telefon ses listesini gecikmeli veriyor; uygulama artık sesleri bekliyor, yoksa yanlış dille okuma riski vardı.',
+    '📄 <b>Almanca ses paketi yoksa mod artık kapanmıyor:</b> uyarı verip ses yerine METNİ gösteriyor, egzersiz yine yapılabiliyor.',
+    '🔇 Ses hiç çalmazsa (telefon sessizde vb.) uygulama bunu fark edip metni açan bir düğme gösteriyor.'
+  ]},
   {date:'16 Ekim 2026 — Düzen düzeltildi + Okuma (Lesen) eklendi', items:[
     '🎯 <b>Sınavın üç bölümü artık ana ekranda, ilk bakışta:</b> Dinleme (Hören) · Okuma (Lesen) · Yazma (Schreiben). Önceki sürümde Dinleme, katlanmış Ek Çalışma bölümünün içinde kaldığı için GÖRÜNMÜYORDU — düzeltildi.',
     '📖 <b>Okuma (Lesen) modülü eklendi</b> — Goethe model sınavı formatında: Teil 1 kısa mektup/e-posta (richtig/falsch), Teil 2 ilan karşılaştırma (a/b), Teil 3 tabela ve duyuru (richtig/falsch). Toplam 15 soru. Her metnin Türkçesi tek tuşla açılıyor.',
