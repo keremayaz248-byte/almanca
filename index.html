@@ -895,6 +895,23 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .konu-bos{text-align:center;padding:26px 16px;color:var(--light);background:var(--white);border:2px dashed var(--border);border-radius:16px}
 .anlatim-kaynak{font-size:.74rem;color:var(--light);text-align:right;margin-bottom:8px;font-style:italic}
 .konu-ilerle{width:100%;background:var(--purple);color:#fff;border:none;border-radius:14px;padding:14px;font-family:Fredoka,sans-serif;font-size:1rem;font-weight:700;cursor:pointer;margin-top:14px}
+/* ── Sınava Hazırlık: üç bölüm ── */
+.sinav-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}
+.sinav-kart{background:var(--white);border:2.5px solid var(--border);border-radius:16px;padding:14px 6px;text-align:center;cursor:pointer;transition:transform .12s,border-color .12s}
+.sinav-kart:active{transform:scale(.96)}
+.sinav-kart.s-horen{border-color:var(--blue)}
+.sinav-kart.s-lesen{border-color:var(--green)}
+.sinav-kart.s-schreiben{border-color:var(--purple)}
+.sk-ik{font-size:1.75rem;line-height:1;margin-bottom:5px}
+.sk-ad{font-weight:800;font-size:.92rem;line-height:1.1}
+.sk-de{font-size:.7rem;color:var(--light);font-weight:600;font-style:italic}
+.sk-alt{font-size:.66rem;color:var(--light);font-weight:600;margin-top:4px}
+
+.lesen-metin{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:14px 15px;margin-bottom:10px;text-align:left}
+.lm-baslik{font-weight:800;font-size:.95rem;margin-bottom:7px;color:var(--purple-dark)}
+.lm-govde{font-size:.9rem;line-height:1.65}
+.lesen-ceviri{background:var(--bg);border-radius:11px;padding:11px 13px;margin-bottom:14px;font-size:.84rem;line-height:1.6;color:var(--light);text-align:left}
+
 /* ── Hören ── */
 .horen-teil{display:inline-block;background:var(--blue-bg);color:#0d5e75;border:1.5px solid var(--blue);border-radius:999px;padding:4px 14px;font-size:.76rem;font-weight:800;margin-bottom:12px}
 .horen-soru{font-size:1.15rem;font-weight:800;line-height:1.35;margin-bottom:5px}
@@ -1002,7 +1019,30 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   <div class="sec-head">📅 Bugün</div>
   <div id="bugunWrap"></div>
 
-  <!-- ══ BÖLÜM B: KONULAR ══ 38 konuluk omurga -->
+  <!-- ══ BÖLÜM B: SINAVA HAZIRLIK ══ sınavın üç bölümü, her zaman görünür -->
+  <div class="sec-head">🎯 Sınava Hazırlık</div>
+  <div class="sinav-grid">
+    <div class="sinav-kart s-horen" onclick="startDinleme()">
+      <div class="sk-ik">🎧</div>
+      <div class="sk-ad">Dinleme</div>
+      <div class="sk-de">Hören</div>
+      <div class="sk-alt" id="skHoren">21 soru</div>
+    </div>
+    <div class="sinav-kart s-lesen" onclick="openLesen()">
+      <div class="sk-ik">📖</div>
+      <div class="sk-ad">Okuma</div>
+      <div class="sk-de">Lesen</div>
+      <div class="sk-alt" id="skLesen">metin + soru</div>
+    </div>
+    <div class="sinav-kart s-schreiben" onclick="openYazmaList()">
+      <div class="sk-ik">✍️</div>
+      <div class="sk-ad">Yazma</div>
+      <div class="sk-de">Schreiben</div>
+      <div class="sk-alt" id="skSchreiben">7 metin</div>
+    </div>
+  </div>
+
+  <!-- ══ BÖLÜM C: KONULAR ══ 38 konuluk omurga -->
   <div class="sec-head">📚 Konular</div>
   <div id="konuOzetWrap"></div>
 
@@ -1165,8 +1205,40 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   </div>
 
   <!-- BÖLÜM 6: YENİLİKLER — her güncellemede buraya not düşülür -->
-  <div class="sec-head">🆕 Yenilikler</div>
-  <div id="changelogWrap"></div>
+  <div class="sec-head ek-head" id="clHead" onclick="toggleChangelog()">
+    <span id="clOk">▸</span> 🆕 Yenilikler
+    <small style="font-weight:600;color:var(--light);font-size:.75rem;display:block;margin-top:2px">Uygulamaya ne eklendi</small>
+  </div>
+  <div id="changelogWrap" style="display:none"></div>
+</div>
+
+<!-- LESEN — sınav formatında okuma -->
+<div id="lesenScreen">
+  <div class="horen-teil" id="lesenTeil">Teil 1</div>
+  <div class="lesen-metin" id="lesenMetin"></div>
+  <button class="btn-toggle" id="lesenTrBtn" onclick="lesenTrGoster()" style="width:100%;margin-bottom:14px">🇹🇷 Türkçesini göster</button>
+  <div class="lesen-ceviri" id="lesenCeviri" style="display:none"></div>
+  <div class="horen-soru" id="lesenSoru"></div>
+  <div class="horen-tr" id="lesenSoruTr"></div>
+  <div class="opts" id="lesenOpts"></div>
+  <div class="fb-box" id="lesenFb">
+    <div class="fb-title" id="lesenFbTitle"></div>
+    <div class="fb-body" id="lesenFbBody"></div>
+  </div>
+  <button class="btn-next" id="lesenNext" onclick="lesenSonraki()">Sonraki →</button>
+</div>
+
+<!-- LESEN BİTTİ -->
+<div id="lesenDoneScreen">
+  <div class="trophy">📖</div>
+  <div class="done-title">Okuma bitti!</div>
+  <div class="done-sub" id="lesenDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="lesenDogru">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="lesenYanlis">0</div><div class="dl">Yanlış</div></div>
+  </div>
+  <button class="btn-replay" onclick="openLesen()">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
 <!-- HÖREN — sınav formatında dinleme -->
@@ -2718,7 +2790,7 @@ const WORD_PARTS = {
 // ══════════════════════════════════════════
 //  NAVİGASYON
 // ══════════════════════════════════════════
-const ALL_SCREENS = ['homeScreen','konuListScreen','konuScreen','horenScreen','horenDoneScreen','catScreen','gameScreen','gameDoneScreen',
+const ALL_SCREENS = ['homeScreen','konuListScreen','konuScreen','horenScreen','horenDoneScreen','lesenScreen','lesenDoneScreen','catScreen','gameScreen','gameDoneScreen',
   'listScreen','learnScreen','learnDoneScreen','lessonBreakScreen','edatScreen','edatDoneScreen',
   'gramerScreen','gramerTopicScreen','gramerTestScreen','gramerTestDoneScreen',
   'artikelScreen','artikelDoneScreen','pluralScreen','pluralDoneScreen',
@@ -2735,7 +2807,7 @@ function showScreen(id){
   clearAutoNext();
   curScreen=id;
   ALL_SCREENS.forEach(s=>{ document.getElementById(s).style.display = s===id?'block':'none'; });
-  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen','yazmaScreen','topicWriteScreen','horenScreen'].includes(id);
+  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen','yazmaScreen','topicWriteScreen','horenScreen','lesenScreen'].includes(id);
   document.getElementById('progWrap').style.display = showProg?'block':'none';
   if(id==='homeScreen'){ setHeader('🇩🇪 Almanca', false); document.getElementById('headerStats').style.display='none'; renderHome(); }
   // Global geri butonu: ana ekran hariç her yerde görünür
@@ -3401,6 +3473,129 @@ const SINAV_HOREN=[
  ip:'Ağustos değil, EYLÜL. "erst im September" = ancak eylülde.'},
 ];
 
+// ══════════════════════════════════════════
+//  LESEN — Start Deutsch 1 formatinda okuma
+//  Teil 1: kisa mektup/e-posta → richtig/falsch
+//  Teil 2: ilan/duyuru        → a veya b
+//  Teil 3: tabela/not         → richtig/falsch
+//  Format kaynagi: Goethe-Institut A1 Modellsatz.
+// ══════════════════════════════════════════
+const SINAV_LESEN=[
+{teil:1,tip:'mail',baslik:'Hallo Li,',
+ metin:'danke für deine Mail. Dein Zug kommt hier in Hannover um 12.36 Uhr an. Ich bin ab 12.15 Uhr im Hauptbahnhof und warte auf dich vor der Auskunft.\nDu kannst mich den ganzen Vormittag auf meinem Handy (++49 173 62 205 59) erreichen.\nDeine Karin',
+ tr:'Merhaba Li, mailin için teşekkürler. Trenin Hannover’a 12.36’da varıyor. Ben 12.15’ten itibaren ana garda, danışmanın önünde seni bekliyorum. Bütün sabah cep telefonumdan bana ulaşabilirsin. Karin',
+ sorular:[
+  {s:'Lis Zug kommt nach halb eins an.',tr:'Li’nin treni 12:30’dan sonra varıyor.',c:0,ip:'12.36, "halb eins" (12:30) sonrasıdır → Richtig.'},
+  {s:'Karin wartet den ganzen Vormittag vor der Auskunft.',tr:'Karin bütün sabah danışmanın önünde bekliyor.',c:1,ip:'Danışmada 12.15’ten itibaren bekliyor; bütün sabah ulaşılabilir olan CEP TELEFONU → Falsch.'},
+  {s:'Karin ist ab Viertel nach zwölf im Hauptbahnhof.',tr:'Karin 12:15’ten itibaren ana garda.',c:0,ip:'"Viertel nach zwölf" = 12:15 → Richtig.'}]},
+{teil:1,tip:'mail',baslik:'Liebe Frau Meier,',
+ metin:'ich kann morgen leider nicht zum Deutschkurs kommen. Mein Sohn ist krank und ich muss mit ihm zum Arzt. Am Donnerstag bin ich wieder da.\nKönnen Sie mir bitte die Hausaufgaben schicken?\nViele Grüße\nAnna Petrova',
+ tr:'Sevgili Meier Hanım, yarın maalesef Almanca kursuna gelemiyorum. Oğlum hasta, onunla doktora gitmem gerek. Perşembe günü yine oradayım. Bana ödevleri gönderebilir misiniz? Saygılar, Anna Petrova',
+ sorular:[
+  {s:'Anna ist krank.',tr:'Anna hasta.',c:1,ip:'Hasta olan OĞLU, Anna değil → Falsch.'},
+  {s:'Anna kommt am Donnerstag wieder in den Kurs.',tr:'Anna perşembe kursa dönüyor.',c:0,ip:'"Am Donnerstag bin ich wieder da" → Richtig.'},
+  {s:'Anna möchte die Hausaufgaben bekommen.',tr:'Anna ödevleri almak istiyor.',c:0,ip:'"Können Sie mir die Hausaufgaben schicken?" → Richtig.'}]},
+{teil:2,tip:'ilan',baslik:'Sie suchen eine Wohnung in Berlin.',
+ metin:'<b>a)</b> 2-Zimmer-Wohnung in Berlin-Mitte, 55 m², 850 € warm, ab sofort frei. Tel. 030-445566\n\n<b>b)</b> Schönes Zimmer in Berlin-Kreuzberg, 18 m², 390 € warm, nur für Studenten, ab 1. Oktober.',
+ tr:'Berlin’de daire arıyorsunuz.',
+ sorular:[
+  {s:'Sie sind Student und haben wenig Geld. Welche Anzeige passt?',tr:'Öğrencisiniz ve paranız az. Hangi ilan uyar?',o:['a','b'],c:1,ip:'b) öğrenciler için ve 390 € — daha ucuz.'},
+  {s:'Sie brauchen die Wohnung sofort. Welche Anzeige passt?',tr:'Daireye hemen ihtiyacınız var. Hangi ilan uyar?',o:['a','b'],c:0,ip:'a) "ab sofort frei" = hemen boş. b) 1 Ekim’den itibaren.'}]},
+{teil:2,tip:'ilan',baslik:'Sie möchten Deutsch lernen.',
+ metin:'<b>a)</b> Deutschkurs A1 – Abendkurs, Montag und Mittwoch 18–20 Uhr, 180 € pro Monat.\n\n<b>b)</b> Deutschkurs A1 – Intensivkurs, Montag bis Freitag 9–13 Uhr, 320 € pro Monat.',
+ tr:'Almanca öğrenmek istiyorsunuz.',
+ sorular:[
+  {s:'Sie arbeiten tagsüber. Welcher Kurs passt?',tr:'Gündüz çalışıyorsunuz. Hangi kurs uyar?',o:['a','b'],c:0,ip:'a) akşam kursu (18-20). b) sabah 9-13, çalışırken olmaz.'},
+  {s:'Sie wollen schnell Deutsch lernen und haben Zeit. Welcher Kurs passt?',tr:'Hızlı öğrenmek istiyorsunuz ve vaktiniz var. Hangi kurs uyar?',o:['a','b'],c:1,ip:'b) yoğun kurs, haftada 5 gün.'}]},
+{teil:3,tip:'tabela',baslik:'An der Tür einer Praxis',
+ metin:'<b>Praxis Dr. Weber</b>\nSprechzeiten:\nMo, Di, Do: 8–12 Uhr und 15–18 Uhr\nMi, Fr: 8–12 Uhr\nSamstag und Sonntag geschlossen',
+ tr:'Bir muayenehanenin kapısında',
+ sorular:[
+  {s:'Am Mittwoch ist die Praxis nachmittags geöffnet.',tr:'Çarşamba öğleden sonra açık.',c:1,ip:'Çarşamba sadece 8-12 → Falsch.'},
+  {s:'Am Samstag ist die Praxis geschlossen.',tr:'Cumartesi kapalı.',c:0,ip:'"Samstag und Sonntag geschlossen" → Richtig.'},
+  {s:'Am Dienstag kann man um 16 Uhr kommen.',tr:'Salı saat 16’da gelinebilir.',c:0,ip:'Salı 15-18 arası açık, 16 bu aralıkta → Richtig.'}]},
+{teil:3,tip:'tabela',baslik:'Im Supermarkt',
+ metin:'<b>ÖFFNUNGSZEITEN</b>\nMontag – Samstag: 7.00 – 22.00 Uhr\nSonntag: geschlossen\n\n<b>Achtung:</b> Am 3. Oktober (Feiertag) bleibt das Geschäft geschlossen.',
+ tr:'Süpermarkette',
+ sorular:[
+  {s:'Man kann am Sonntag einkaufen.',tr:'Pazar günü alışveriş yapılabilir.',c:1,ip:'"Sonntag: geschlossen" → Falsch.'},
+  {s:'Am Samstag ist der Supermarkt bis 22 Uhr offen.',tr:'Cumartesi 22’ye kadar açık.',c:0,ip:'Pazartesi-Cumartesi 7-22 → Richtig.'}]},
+];
+
+function lesenTumSorular(){
+  const out=[];
+  SINAV_LESEN.forEach(m=>m.sorular.forEach(q=>out.push({metin:m,q})));
+  return out;
+}
+
+let lQs=[], lIdx=0, lDog=0, lYan=0, lCevapli=false;
+
+function openLesen(){
+  lQs=lesenTumSorular(); lIdx=0; lDog=0; lYan=0;
+  setHeader('📖 Okuma',true,'✅ 0','❌ 0');
+  showScreen('lesenScreen');
+  setProgress(0,'0 / '+lQs.length);
+  renderLesen();
+}
+function renderLesen(){
+  const it=lQs[lIdx]; if(!it){ showLesenDone(); return; }
+  lCevapli=false;
+  const m=it.metin, q=it.q;
+  document.getElementById('lesenTeil').textContent='Teil '+m.teil+' · '+
+    (m.teil===1?'kısa mektup':m.teil===2?'ilan — a veya b':'tabela / duyuru');
+  document.getElementById('lesenMetin').innerHTML=
+    '<div class="lm-baslik">'+m.baslik+'</div><div class="lm-govde">'+m.metin.replace(/\n/g,'<br>')+'</div>';
+  document.getElementById('lesenCeviri').textContent=m.tr;
+  document.getElementById('lesenCeviri').style.display='none';
+  document.getElementById('lesenTrBtn').textContent='🇹🇷 Türkçesini göster';
+  document.getElementById('lesenSoru').textContent=q.s;
+  document.getElementById('lesenSoruTr').textContent=q.tr||'';
+  document.getElementById('lesenFb').className='fb-box';
+  document.getElementById('lesenNext').className='btn-next';
+  const secenek=q.o||['Richtig','Falsch'];
+  const g=document.getElementById('lesenOpts'); g.innerHTML='';
+  secenek.forEach((o,i)=>{
+    const b=document.createElement('button'); b.className='opt';
+    b.textContent=(q.o?o+')  '+(i===0?'ilk ilan':'ikinci ilan'):o);
+    b.onclick=()=>lesenPick(i,b,q); g.appendChild(b);
+  });
+  setProgress(Math.round(lIdx/lQs.length*100), lIdx+' / '+lQs.length);
+}
+function lesenTrGoster(){
+  const c=document.getElementById('lesenCeviri'), b=document.getElementById('lesenTrBtn');
+  const ac=c.style.display==='none';
+  c.style.display=ac?'block':'none';
+  b.textContent=ac?'🇩🇪 Türkçeyi gizle':'🇹🇷 Türkçesini göster';
+}
+function lesenPick(i,btn,q){
+  if(lCevapli) return; lCevapli=true;
+  document.querySelectorAll('#lesenOpts .opt').forEach((b,j)=>{
+    b.disabled=true; if(j!==i&&j!==q.c) b.classList.add('muted');
+    if(j===q.c) b.classList.add('correct');
+  });
+  const ok=i===q.c;
+  if(ok){ lDog++; awardXP(10); } else { btn.classList.add('wrong'); lYan++; }
+  srsUpdate('lesen:'+q.s.slice(0,24), ok);
+  registerStudy(); feedbackFx(ok,btn);
+  const fb=document.getElementById('lesenFb');
+  fb.className='fb-box show '+(ok?'fb-ok':'fb-err');
+  document.getElementById('lesenFbTitle').className='fb-title '+(ok?'fb-c':'fb-w');
+  document.getElementById('lesenFbTitle').textContent=ok?'✅ Doğru!':'❌ Yanlış';
+  document.getElementById('lesenFbBody').innerHTML=q.ip?'<div class="horen-ipucu">💡 '+q.ip+'</div>':'';
+  setHeader('📖 Okuma',true,'✅ '+lDog,'❌ '+lYan);
+  document.getElementById('lesenNext').className='btn-next show';
+}
+function lesenSonraki(){ lIdx++; if(lIdx>=lQs.length) showLesenDone(); else renderLesen(); }
+function showLesenDone(){
+  document.getElementById('lesenDogru').textContent=lDog;
+  document.getElementById('lesenYanlis').textContent=lYan;
+  const y=lQs.length?Math.round(lDog/lQs.length*100):0;
+  document.getElementById('lesenDoneSub').textContent=
+    y>=80?'Çok iyi! Okuma bölümüne hazırsın.':y>=60?'Geçer not sınırındasın (60).':'Metinleri Türkçesiyle birlikte tekrar oku.';
+  setProgress(100,lQs.length+' / '+lQs.length);
+  showScreen('lesenDoneScreen');
+}
+
 function horenSecim(konu){
   if(!konu) return SINAV_HOREN.slice();
   const t=SINAV_HOREN.filter(q=>q.konu===konu);
@@ -3759,6 +3954,11 @@ function toggleEk(){
   const ac=w.style.display==='none';
   w.style.display=ac?'block':'none'; o.textContent=ac?'▾':'▸';
 }
+function toggleChangelog(){
+  const w=document.getElementById('changelogWrap'), o=document.getElementById('clOk');
+  const ac=w.style.display==='none';
+  w.style.display=ac?'block':'none'; o.textContent=ac?'▾':'▸';
+}
 
 // ══════════════════════════════════════════
 //  30 GUNLUK CALISMA TAKVIMI
@@ -3954,6 +4154,12 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'16 Ekim 2026 — Düzen düzeltildi + Okuma (Lesen) eklendi', items:[
+    '🎯 <b>Sınavın üç bölümü artık ana ekranda, ilk bakışta:</b> Dinleme (Hören) · Okuma (Lesen) · Yazma (Schreiben). Önceki sürümde Dinleme, katlanmış Ek Çalışma bölümünün içinde kaldığı için GÖRÜNMÜYORDU — düzeltildi.',
+    '📖 <b>Okuma (Lesen) modülü eklendi</b> — Goethe model sınavı formatında: Teil 1 kısa mektup/e-posta (richtig/falsch), Teil 2 ilan karşılaştırma (a/b), Teil 3 tabela ve duyuru (richtig/falsch). Toplam 15 soru. Her metnin Türkçesi tek tuşla açılıyor.',
+    '📏 <b>Ana ekran 7642 pikselden 1439 piksele indi.</b> Artık neredeyse tek ekrana sığıyor — Yenilikler bölümü de katlandı.',
+    '✅ Ana ekrandaki 32 düğmenin hepsi tek tek tıklanarak test edildi, hepsi doğru ekrana gidiyor.'
+  ]},
   {date:'16 Ekim 2026 — Dinleme (Hören): gerçek sınav formatı', items:[
     '🎧 <b>Dinleme modu eklendi — sınavın eksik olan 1/3’ü.</b> Goethe-Institut’un resmî <b>Start Deutsch 1 model sınavından</b> alınan formatta: Teil 1 (kısa diyalog, a/b/c), Teil 2 (anons, richtig/falsch), Teil 3 (konuşma, a/b/c). Toplam <b>21 soru</b>.',
     '🔊 <b>Gerçek sınav gibi:</b> soru ve şıklar görünür, <b>metin görünmez</b>. Dinledikten sonra cevaplarsın, sonra transkript ve ipucu açılır. İstediğin kadar tekrar dinleyebilirsin, yavaş seçeneği de var.',

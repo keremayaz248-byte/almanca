@@ -5,18 +5,18 @@
 
 ## 2. Konu omurgası (kod — içerik yok)
 
-- [ ] 2.1 `KONULAR` dizisini kur: 38 konu, her biri `{no, ad, kaynak:{pdf,sayfa}, anlatim, kategori, gramer, slayt, alistirma[]}` (design Karar 1). Sayfa bilgisi `PLAN30`'daki mevcut eşlemeden alınır.
-- [ ] 2.2 Mevcut 26 konunun karşılıklarını bağla: gramer id'leri, kelime kategorileri, slaytlar, YS Hub anlatımları — hiçbirini kopyalama, yalnız işaret et.
-- [ ] 2.3 Konu ekranını yaz: dört adım (anlatım → kelimeler → alıştırma → test), hangi adımda olunduğu görünür, adımlar arası geçiş bu ekrandan yapılır.
-- [ ] 2.4 Konu durumunu `srsUpdate('konu:'+no, ...)` ile mevcut SRS motoruna bağla (design Karar 6).
-- [ ] 2.5 Konu listesi ekranını yaz: 38 konu, her birinin durumu (başlanmadı / devam / tamamlandı / tekrarı geldi).
-- [ ] 2.6 Anlatımı henüz yazılmamış konuyu listede "hazırlanıyor" olarak işaretle — boş ekran gösterme.
-- [ ] 2.7 `node icerik/araclar/gece-testi.js` çalıştır — sıfır hata.
+- [x] 2.1 `KONULAR` dizisini kur: 38 konu, her biri `{no, ad, kaynak:{pdf,sayfa}, anlatim, kategori, gramer, slayt, alistirma[]}` (design Karar 1). Sayfa bilgisi `PLAN30`'daki mevcut eşlemeden alınır.
+- [x] 2.2 Mevcut 26 konunun karşılıklarını bağla: gramer id'leri, kelime kategorileri, slaytlar, YS Hub anlatımları — hiçbirini kopyalama, yalnız işaret et.
+- [x] 2.3 Konu ekranını yaz: dört adım (anlatım → kelimeler → alıştırma → test), hangi adımda olunduğu görünür, adımlar arası geçiş bu ekrandan yapılır.
+- [x] 2.4 Konu durumunu `srsUpdate('konu:'+no, ...)` ile mevcut SRS motoruna bağla (design Karar 6).
+- [x] 2.5 Konu listesi ekranını yaz: 38 konu, her birinin durumu (başlanmadı / devam / tamamlandı / tekrarı geldi).
+- [x] 2.6 Anlatımı henüz yazılmamış konuyu listede "hazırlanıyor" olarak işaretle — boş ekran gösterme.
+- [x] 2.7 `node icerik/araclar/gece-testi.js` çalıştır — sıfır hata.
 
 ## 3. Konu anlatımları — hocanın slaytlarından (içerik)
 
-- [ ] 3.1 Konu 1-5 sayfalarını `sayfa-cek.js` ile çek, oku, anlatımı yaz (Das Alphabet, Hallo! Hi!, Wie geht es Ihnen?, Wie heißen Sie?, Tschüs! Bye!). Alfabe için IPA telaffuz tablosu ve okuma kuralları (`ei/ie/au/eu`, `ch/sch/st/sp`, `ss/ß`, `tz`, `ck`, `ph`) dahil.
-- [ ] 3.2 Konu 6-11 anlatımları (Die Zahlen, Die E-Mail-Adresse, Wo wohnen Sie?, Woher kommen Sie?, Die Länder-Die Sprachen, Ihre Information).
+- [x] 3.1 Konu 1-5 sayfalarını `sayfa-cek.js` ile çek, oku, anlatımı yaz (Das Alphabet, Hallo! Hi!, Wie geht es Ihnen?, Wie heißen Sie?, Tschüs! Bye!). Alfabe için IPA telaffuz tablosu ve okuma kuralları (`ei/ie/au/eu`, `ch/sch/st/sp`, `ss/ß`, `tz`, `ck`, `ph`) dahil.
+- [x] 3.2 Konu 6-11 anlatımları (Die Zahlen, Die E-Mail-Adresse, Wo wohnen Sie?, Woher kommen Sie?, Die Länder-Die Sprachen, Ihre Information).
 - [ ] 3.3 Konu 12-18 anlatımları (Die Farben, Die Kleidung, Die Verben + TMP, Die Hobbys/Gern, Das Wetter, Gehen wir ins Kino?, Die Berufe).
 - [ ] 3.4 Konu 19-25 anlatımları (Artikel/Nominativ, Artikel/Akkusativ, Präp. immer Akkusativ, Plural-Formen, Nicht oder Kein, W-Fragen, Guten Appetit).
 - [ ] 3.5 Konu 26-32 anlatımları (Modalverben, Trennbare-Verben, Wie spät ist es?, Präteritum Sein/Haben, Artikel/Dativ, Präp. immer Dativ, Artikel/Genitiv).
@@ -35,20 +35,20 @@
 
 ## 5. Günlük akış (kod)
 
-- [ ] 5.1 `PLAN30` gün maddelerini konuya bağla: PDF sayfası yerine `KONULAR` numarasına işaret etsin.
+- [x] 5.1 `PLAN30` gün maddelerini konuya bağla: PDF sayfası yerine `KONULAR` numarasına işaret etsin.
 - [ ] 5.2 Günü tek akış olarak yürüten mekanizmayı yaz: tek başlatma, adım bitince sıradaki kendiliğinden gelir, kullanıcı adım seçmez.
 - [ ] 5.3 Akışın neresinde olunduğunu göster (kaç adımdan kaçıncısı).
-- [ ] 5.4 Gün tamamlanma bildirimini yalnız tüm adımlar bitince göster; elle "tamamladım" seçeneği sunma.
-- [ ] 5.5 Ana ekranda dün / bugün / yarın bilgisini göster: dün ne çalışıldı ve tamamlandı mı, bugün ne var, sırada ne geliyor.
+- [x] 5.4 Gün tamamlanma bildirimini yalnız tüm adımlar bitince göster; elle "tamamladım" seçeneği sunma.
+- [x] 5.5 Ana ekranda dün / bugün / yarın bilgisini göster: dün ne çalışıldı ve tamamlandı mı, bugün ne var, sırada ne geliyor.
 - [ ] 5.6 Yarım kalan günü eksik olarak işaretle ve geri dönüp tamamlamayı mümkün kıl.
-- [ ] 5.7 Gün 1, 2, 5 ve 18 dahil her günün çalıştırılabilir içeriği olduğunu doğrula.
+- [x] 5.7 Gün 1, 2, 5 ve 18 dahil her günün çalıştırılabilir içeriği olduğunu doğrula.
 - [ ] 5.8 Kapsama testi: egzersizsiz gün 0, bozuk bağlantı 0, programa girmemiş konu 0.
 
 ## 6. Ana ekran düzeni (kod — mevcut modlar silinmez)
 
-- [ ] 6.1 Ana ekranı üç bölüme indir: Bugün · Konular · Ek Çalışma (design Karar 5).
-- [ ] 6.2 Mevcut 17 modu "Ek Çalışma" altına taşı ve türlerine göre grupla (kelime · gramer · oyun · yazma); hiçbirini silme.
-- [ ] 6.3 Ek Çalışma bölümünü varsayılan olarak katlanmış getir.
+- [x] 6.1 Ana ekranı üç bölüme indir: Bugün · Konular · Ek Çalışma (design Karar 5).
+- [x] 6.2 Mevcut 17 modu "Ek Çalışma" altına taşı ve türlerine göre grupla (kelime · gramer · oyun · yazma); hiçbirini silme.
+- [x] 6.3 Ek Çalışma bölümünü varsayılan olarak katlanmış getir.
 - [ ] 6.4 Her alt ekranda hangi konuya/güne ait olunduğunu göster ve geri dönüşü sağla.
 - [ ] 6.5 Önceden erişilebilen her modun hâlâ erişilebilir olduğunu test et; `node icerik/araclar/gece-testi.js` sıfır hata.
 
@@ -77,8 +77,8 @@
 
 ## 9. Kelime bağlam cümleleri (içerik)
 
-- [ ] 9.1 `b:{de,tr}` biçimini sabitle; mevcut `s:` alanına dokunma.
-- [ ] 9.2 `s:` olan 34 kelimenin `b:` değerini mevcut `chunks`'tan türet — yeni cümle yazma.
+- [x] 9.1 `b:{de,tr}` biçimini sabitle; mevcut `s:` alanına dokunma.
+- [x] 9.2 `s:` olan 34 kelimenin `b:` değerini mevcut `chunks`'tan türet — yeni cümle yazma.
 - [ ] 9.3 Fiiller (58) için `b:` cümleleri yaz.
 - [ ] 9.4 İsimler (46) için `b:` cümleleri yaz.
 - [ ] 9.5 Zarflar (28) + Edatlar (12) için `b:` cümleleri yaz.
@@ -109,8 +109,8 @@
 
 ## 12. Kapanış
 
-- [ ] 12.1 `CHANGELOG` dizisine kullanıcıya görünen her değişiklik için girdi ekle (konu anlatımları, konu akışı, yeni ana ekran düzeni, günlük akış, dinleme modu, Almanca yazma aşaması, bağlam cümleleri, gramer hata açıklamaları, gramer tekrarı).
-- [ ] 12.2 `sw.js` içindeki `CACHE` sürümünü güncelle.
+- [x] 12.1 `CHANGELOG` dizisine kullanıcıya görünen her değişiklik için girdi ekle (konu anlatımları, konu akışı, yeni ana ekran düzeni, günlük akış, dinleme modu, Almanca yazma aşaması, bağlam cümleleri, gramer hata açıklamaları, gramer tekrarı).
+- [x] 12.2 `sw.js` içindeki `CACHE` sürümünü güncelle.
 - [ ] 12.3 `index.html` boyutunu ölç; 700 KB aşıldıysa veri ayırma ihtiyacını not et.
 - [ ] 12.4 Tüm test araçlarını son kez çalıştır: `gece-testi.js`, `kapsama-testi.js`, `supabase-testi.js` — hepsi sıfır hata.
 - [ ] 12.5 Ana ekran, konu ekranı, günlük akış, dinleme modu ve gramer geri bildirimini iki temada ekran görüntüsüyle gözle kontrol et.
