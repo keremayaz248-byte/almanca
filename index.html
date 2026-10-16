@@ -15,7 +15,7 @@
 <title>🇩🇪 Almanca</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.0/dist/umd/supabase.min.js"></script>
 <script src="icerik/supabase/client.js"></script>
 <style>
@@ -86,7 +86,7 @@ header{width:100%;background:var(--white);border-bottom:2px solid var(--border);
 
 /* PROGRESS */
 .prog-wrap{width:100%;max-width:700px;padding:12px 22px 4px}
-.prog-track{width:100%;height:11px;background:var(--border);border-radius:999px;overflow:hidden}
+.prog-track{width:100%;height:11px;background:var(--track);overflow:hidden}
 .prog-fill{height:100%;border-radius:999px;transition:width .5s;width:0%}
 .prog-lbl{font-size:.75rem;color:var(--light);font-weight:600;margin-top:4px}
 
@@ -503,8 +503,8 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
 .ds-pill.goal{background:var(--blue-bg);border-color:var(--blue)}
 .dsp-v{font-size:1.4rem;font-weight:800;line-height:1.1}
 .dsp-l{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0;color:var(--light);margin-top:2px;word-break:keep-all;overflow-wrap:normal;hyphens:none}
-.goal-track{height:12px;background:var(--border);border-radius:999px;overflow:hidden;margin-bottom:5px}
-.goal-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:999px;transition:width .5s;width:0}
+.goal-track{height:12px;background:var(--track);overflow:hidden;margin-bottom:5px}
+.goal-fill{height:100%;background:var(--blue);transition:width .5s;width:0}
 .goal-lbl{font-size:.74rem;color:var(--light);font-weight:600;margin-bottom:12px;text-align:center}
 .dash-cta{display:block;width:100%;border:none;border-radius:14px;padding:13px;font-size:.94rem;font-weight:700;cursor:pointer;text-align:center}
 .dash-cta.review{background:var(--red);color:#fff;box-shadow:0 4px 0 #c93535}
@@ -616,23 +616,115 @@ main{width:100%;max-width:700px;padding:18px 22px 80px}
    istenirse tek parça olarak kaldırılıp eski görünüme dönülebilir.
    ═══════════════════════════════════════════════════════════ */
 :root{
-  --green:#5FA82E;--green-dark:#437d1c;--green-bg:#edf6df;
-  --red:#E8553D;--red-bg:#fcebe6;
-  --blue:#2E9CC4;--blue-bg:#e6f4f9;
-  --purple:#E27A45;--purple-bg:#fbe9dd;--purple-dark:#B0501E;
-  --yellow:#F2A83A;--yellow-bg:#fdf1dd;
-  --bg:#FBF3E8;--white:#FFFDF8;--text:#3B2A1E;--light:#977E67;
-  --border:#EAD9C4;
-  --shadow:0 4px 0 #E7D6C0;
-  --sun:#F7B23C;--dusk:#8A4A34;
+  /* Alman isaret sistemi paleti — renk ANLAM tasir, sus degil.
+     Birincil mavi, hata kirmizi, dogru yesil; sari yalniz zemin olarak (siyah yaziyla). */
+  --green:#00803D;--green-dark:#006430;--green-bg:#E3F3E9;
+  --red:#E30613;--red-bg:#FDE7E8;
+  --blue:#005BBB;--blue-bg:#E4EFF9;
+  --purple:#005BBB;--purple-bg:#E4EFF9;--purple-dark:#00428A;
+  --yellow:#FFCC00;--yellow-bg:#FFF6D6;
+  --bg:#F2F2F0;--white:#FFFFFF;--text:#000000;--light:#6E6E6E;--track:#DCDCDA;--teil-fg:#00428A;
+  --border:#000000;
+  --shadow:none;
+  --sun:#FFCC00;--dusk:#E30613;
 }
 body{
-  font-family:'Fredoka','Segoe UI',system-ui,sans-serif;
-  background:radial-gradient(135% 95% at 50% -18%, #FCE0BB 0%, #FBEEDA 40%, var(--bg) 72%) no-repeat fixed;
+  font-family:'Archivo','Helvetica Neue',Arial,sans-serif;
+  background:var(--bg);
 }
+/* ── Bauhaus / DIN form dili ──────────────────────────────
+   Keskin kose, gercek siyah cizgi, golge yok. Yuvarlak kose + yumusak
+   golge kombinasyonu her yerde ayni olunca sablon gibi okunuyordu. */
+.dash,.hero-card,.mode-card,.cat-card,.wcard,.sent-card,.rule-card,.opt,.type-input,
+.bugun-card,.sinav-kart,.konu-sat,.lesen-metin,.login-card,.duello-card-wrap,
+.fb-box,.ds-pill,.konu-adim,.horen-metin,.horen-ipucu,.r-tip,.login-input,
+.btn-next,.btn-check,.btn-replay,.btn-cont,.btn-test,.btn-intro,.btn-know,
+.slide-navbtn,.btn-start,.btn-home,.btn-toggle,.btn-sm-orange,.login-btn,
+.bugun-bas,.konu-ilerle,.horen-play,.horen-slow,.pwa-install,.pwa-ios,
+.goal-track,.goal-fill,.prog-track,.prog-fill,.ks-no,.konu-no,.bugun-konu,
+.horen-teil,.bugun-gun,.mc-badge-new,.ds,.r-table,.r-table td,.r-table th{
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+.dash,.mode-card,.bugun-card,.sinav-kart,.konu-sat,.lesen-metin,.wcard,
+.sent-card,.rule-card,.opt,.fb-box,.login-card,.duello-card-wrap,.horen-metin{
+  border-width:2px !important;
+  border-style:solid !important;
+}
+/* Birincil eylemler: dolu siyah/renk blok, cerceve yok */
+.btn-next,.btn-start,.btn-replay,.bugun-bas,.konu-ilerle,.horen-play,.login-btn,.btn-sm-orange,.btn-check{
+  border:none !important;
+  letter-spacing:.2px;
+  text-transform:none;
+}
+/* Bolum basliklari: seyrek harfli BUYUK HARF etiket yerine kalin baslik + renkli kural cizgisi */
+.sec-head{
+  font-size:.95rem;font-weight:900;text-transform:none;letter-spacing:-.2px;
+  color:var(--text);margin:26px 0 10px;gap:9px;
+}
+.sec-head::after{height:3px;background:var(--text);border-radius:0}
+h1,h2,.hero-title,.done-title,.konu-ad,.horen-soru,.bugun-gun,.mc-title,.sk-ad{
+  font-weight:900;letter-spacing:-.4px;
+}
+/* Sira bildiren sayilar tasarim ogesi — 30 gun ve 38 konu gercek bir sira */
+.ks-no,.konu-no{font-variant-numeric:tabular-nums;font-weight:900}
+
+/* Birincil eylem SIYAH blok: yesil "basarili" demek, "baslat" demek degil.
+   Tek cesur hamle burada — etrafindaki her sey sessiz kaliyor. */
+.bugun-bas,.btn-start,.konu-ilerle{
+  background:var(--text) !important;color:var(--white) !important;
+  font-weight:800;font-size:1.05rem;padding:17px;
+}
+.bugun-bas:active,.btn-start:active,.konu-ilerle:active{transform:translateY(2px)}
+
+/* Sinavin uc bolumu sabit renk kodu tasir — Alman isaret sistemi mantigi.
+   Renk burada SUS degil, hangi bolumde oldugunu soyleyen bilgi. */
+.sinav-kart{border-width:3px !important;padding:16px 6px}
+.sinav-kart.s-horen{border-color:var(--blue) !important}
+.sinav-kart.s-horen .sk-ad{color:var(--blue)}
+.sinav-kart.s-lesen{border-color:#B8930A !important}
+.sinav-kart.s-lesen .sk-ad{color:#8A6E00}
+.sinav-kart.s-schreiben{border-color:var(--red) !important}
+.sinav-kart.s-schreiben .sk-ad{color:var(--red)}
+html[data-theme="dark"] .sinav-kart.s-lesen{border-color:var(--yellow) !important}
+html[data-theme="dark"] .sinav-kart.s-lesen .sk-ad{color:var(--yellow)}
+/* Hören ekranindaki Teil rozeti de ayni mavi koda uyar */
+.horen-teil{border-width:2px;font-weight:800}
+
+/* Bugun kartinin kenari gunun rengi degil, yapinin cizgisi */
+.bugun-card{border-color:var(--text) !important;border-width:3px !important}
+.bugun-gun{background:var(--text);color:var(--white);font-weight:800}
+.bugun-konu{border-left:4px solid var(--text)}
+.bugun-konu.bitti{border-left-color:var(--green)}
+
+/* ══ ERISILEBILIRLIK (WCAG 2.1 AA) — denetimle olculup duzeltildi ══ */
+
+/* 1.4.3 Kontrast: ikincil metin 4.36:1 idi, 4.5 gerekiyordu */
+:root{--light:#595959}
+html[data-theme="dark"]{--light:#A8A8A8}
+
+/* Acik zeminli dugmede beyaz yazi koyu temada 2.51:1 dusuyordu → koyu yazi */
+html[data-theme="dark"] .btn-sm-orange,
+html[data-theme="dark"] .login-btn,
+html[data-theme="dark"] .horen-play{color:#0A0A0A !important}
+
+/* 2.5.5 Dokunma hedefi: en az 44x44 CSS pikseli */
+.theme-btn{width:44px !important;height:44px !important}
+.hdr-back{min-height:44px;padding:9px 16px}
+.btn-home,.btn-toggle,.btn-sm-orange{min-height:44px}
+.bugun-konu{min-height:44px}
+.hb-close{min-width:44px !important;min-height:44px !important;display:flex;
+  align-items:center;justify-content:center}
+.opt{min-height:44px}
+
+/* 2.4.7 Gorunur odak gostergesi — klavyeyle gezerken nerede oldugun belli olsun */
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+html[data-theme="dark"] :focus-visible{outline-color:var(--yellow)}
+.sinav-kart:focus-visible,.konu-sat:focus-visible,.bugun-konu:focus-visible,
+.mode-card:focus-visible,.konu-adim:focus-visible{outline-offset:-1px}
 h1,h2,.logo,.hero-title,.hero-kicker,.done-title,.mc-title,.cc-name,
 .slide-big,.break-title,.modal-title,.wcard-de,.phase-badge,.sec-head{
-  font-family:'Fredoka','Segoe UI',sans-serif;font-weight:700;
+  font-family:'Archivo','Segoe UI',sans-serif;font-weight:700;
 }
 /* Dokunsal blok kartlar — sıcak alt gölge, basınca çöker */
 .mode-card,.cat-card,.hub-card,.wcard,.sent-card,.read-card{
@@ -651,9 +743,9 @@ h1,h2,.logo,.hero-title,.hero-kicker,.done-title,.mc-title,.cc-name,
 }
 /* Header: sıcak oyun HUD'u */
 header{
-  background:linear-gradient(180deg,#FFF6E8,#FDEEDB);
-  border-bottom:3px solid var(--purple);
-  box-shadow:0 4px 0 rgba(176,80,30,.10);
+  background:var(--white);
+  border-bottom:3px solid var(--text);
+  box-shadow:none;
 }
 .logo{color:var(--purple-dark);font-size:1.3rem;letter-spacing:.3px}
 .hdr-back{border-width:2px;box-shadow:0 3px 0 var(--border)}
@@ -671,7 +763,7 @@ header{
 .hero-card::after{content:'🏔️';opacity:.22;font-size:5rem;right:-4px;bottom:-12px;transform:rotate(0)}
 .hero-btn{box-shadow:0 3px 0 rgba(138,74,52,.25)}
 /* Bölüm başlıkları — sıcak, hafif büyük */
-.sec-head{color:var(--dusk);font-size:.74rem;letter-spacing:1px;opacity:.95}
+.sec-head{color:var(--text);font-size:.95rem;letter-spacing:-.2px;opacity:1;text-transform:none;font-weight:900}
 /* Kelime kartı (öğrenme) ve rozetler biraz daha yumuşak-sıcak */
 .wcard{border-radius:24px}
 .mc-badge-new{box-shadow:0 2px 0 #a5321f}
@@ -686,19 +778,28 @@ header{
    o yüzden tek blok olarak kaldırılabilir.
    ═══════════════════════════════════════════════════════════ */
 html[data-theme="dark"]{
-  --green:#6FBF3A;--green-dark:#9FD66E;--green-bg:#21301A;
-  --red:#E8553D;--red-bg:#3A211A;
-  --blue:#4FB8DC;--blue-bg:#15303A;
-  --purple:#E58A5A;--purple-bg:#33211A;--purple-dark:#F0905C;
-  --yellow:#F2A83A;--yellow-bg:#352616;
-  --bg:#1A1410;--white:#261D17;--text:#F6EDE2;--light:#B49C85;
-  --border:#3B2E25;
-  --shadow:0 4px 0 #120D0A;
-  --sun:#F7B23C;--dusk:#F0B88C;
+  /* Ayni isaret paleti, koyu zeminde okunacak sekilde acildi */
+  --green:#3FBF6A;--green-dark:#7FD99C;--green-bg:#0E2A18;
+  --red:#FF5447;--red-bg:#330E0C;
+  --blue:#5AA9F0;--blue-bg:#0C2238;
+  --purple:#5AA9F0;--purple-bg:#0C2238;--purple-dark:#8CC4F5;
+  --yellow:#FFD633;--yellow-bg:#322A08;
+  --bg:#0A0A0A;--white:#161616;--text:#FFFFFF;--light:#9A9A9A;--track:#2E2E2E;--teil-fg:#8CC4F5;
+  --border:#FFFFFF;
+  --shadow:none;
+  --sun:#FFD633;--dusk:#FF5447;
 }
-html[data-theme="dark"] body{
-  background:radial-gradient(135% 95% at 50% -18%, #2E2017 0%, #241A14 40%, var(--bg) 72%) no-repeat fixed;
+html[data-theme="dark"] body{ background:var(--bg); }
+/* Koyu temada cerceveler beyaz ama her yerde tam beyaz cok sert — kartlarda kisilir */
+html[data-theme="dark"] .dash,html[data-theme="dark"] .mode-card,
+html[data-theme="dark"] .bugun-card,
+html[data-theme="dark"] .konu-sat,html[data-theme="dark"] .lesen-metin,
+html[data-theme="dark"] .wcard,html[data-theme="dark"] .rule-card,
+html[data-theme="dark"] .opt,html[data-theme="dark"] .login-card,
+html[data-theme="dark"] .duello-card-wrap,html[data-theme="dark"] .sent-card{
+  border-color:#3A3A3A !important;
 }
+html[data-theme="dark"] .sec-head::after{background:#FFFFFF}
 /* Koyu zeminde dolgu rengi açık olan yerlerde yazı koyu kalmalı */
 html[data-theme="dark"] .hero-card{background:linear-gradient(135deg,#B0501E 0%,#8A3D14 100%);color:#FFF6EE}
 html[data-theme="dark"] .hero-btn{background:#FFFDF8;color:#B0501E}
@@ -709,7 +810,7 @@ html[data-theme="dark"] .ds-pill.fire .dsp-v{color:var(--text)}
 html[data-theme="dark"] img{filter:brightness(.92)}
 /* Bazı sınıflarda yazı rengi sabit koyu hex (#1a1a2e, #374151, #7c4a03...) olarak yazılmıştı;
    zemin koyulaşınca bu yazılar okunmuyordu (kontrast 1.0–2.0). Gece karşılıkları: */
-html[data-theme="dark"] header{background:linear-gradient(#2A1F18,#211813)}
+html[data-theme="dark"] header{background:var(--white);border-bottom-color:#FFFFFF}
 html[data-theme="dark"] :is(.word-de,.part-word,.read-de){color:var(--text)}
 html[data-theme="dark"] :is(.word-tr,.read-tr,.fb-body,.exp-why,.rule-card,.gr-fb-body){color:#E6D6C4}
 html[data-theme="dark"] .rule-card b{color:var(--blue)}
@@ -817,11 +918,11 @@ html[data-theme="dark"] .pc-today{background:#B0501E}
 .login-title{text-align:center;font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:4px}
 .login-sub{text-align:center;font-size:.82rem;color:var(--light);margin-bottom:20px}
 .login-tabs{display:flex;gap:8px;margin-bottom:18px}
-.login-tab-btn{flex:1;padding:9px;border-radius:11px;border:2px solid var(--border);background:transparent;font-family:Fredoka,sans-serif;font-size:.93rem;font-weight:600;cursor:pointer;color:var(--light);transition:all .15s}
+.login-tab-btn{flex:1;padding:9px;border-radius:11px;border:2px solid var(--border);background:transparent;font-family:'Archivo',sans-serif;font-size:.93rem;font-weight:600;cursor:pointer;color:var(--light);transition:all .15s}
 .login-tab-btn.active{background:var(--purple);border-color:var(--purple);color:#fff}
-.login-input{width:100%;padding:11px 13px;border-radius:12px;border:2px solid var(--border);background:var(--bg);font-family:Fredoka,sans-serif;font-size:.95rem;color:var(--text);margin-bottom:10px;outline:none}
+.login-input{width:100%;padding:11px 13px;border-radius:12px;border:2px solid var(--border);background:var(--bg);font-family:'Archivo',sans-serif;font-size:.95rem;color:var(--text);margin-bottom:10px;outline:none}
 .login-input:focus{border-color:var(--purple)}
-.login-btn{width:100%;padding:13px;border-radius:13px;border:none;background:var(--purple);color:#fff;font-family:Fredoka,sans-serif;font-size:1rem;font-weight:700;cursor:pointer;margin-top:4px;margin-bottom:8px}
+.login-btn{width:100%;padding:13px;border-radius:13px;border:none;background:var(--purple);color:#fff;font-family:'Archivo',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;margin-top:4px;margin-bottom:8px}
 .login-btn:disabled{opacity:.6;cursor:default}
 .login-msg{font-size:.82rem;font-weight:600;color:var(--red);text-align:center;min-height:18px;margin-bottom:4px}
 .login-skip{text-align:center;font-size:.82rem;color:var(--light);cursor:pointer;text-decoration:underline;margin-top:6px}
@@ -851,7 +952,7 @@ html[data-theme="dark"] .pc-today{background:#B0501E}
 
 html[data-theme="dark"] .login-card{box-shadow:0 8px 32px rgba(0,0,0,.4)}
 html[data-theme="dark"] .login-input{color:var(--text)}
-.btn-sm-orange{background:var(--purple);color:#fff;border:none;border-radius:11px;padding:9px 22px;font-family:Fredoka,sans-serif;font-size:.92rem;font-weight:700;cursor:pointer}
+.btn-sm-orange{background:var(--purple);color:#fff;border:none;border-radius:11px;padding:9px 22px;font-family:'Archivo',sans-serif;font-size:.92rem;font-weight:700;cursor:pointer}
 
 /* ── Bugün kartı ── */
 .bugun-card{background:var(--white);border:2.5px solid var(--purple);border-radius:20px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}
@@ -862,7 +963,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .bugun-konu{display:flex;align-items:center;gap:9px;padding:9px 11px;background:var(--bg);border-radius:12px;margin-bottom:7px;font-weight:600;font-size:.92rem}
 .bugun-konu.bitti{opacity:.55}
 .bugun-konu .bk-ik{font-size:1.1rem;flex-shrink:0}
-.bugun-bas{width:100%;background:var(--green);color:#fff;border:none;border-radius:14px;padding:14px;font-family:Fredoka,sans-serif;font-size:1.02rem;font-weight:700;cursor:pointer;box-shadow:0 4px 0 var(--green-dark)}
+.bugun-bas{width:100%;background:var(--green);color:#fff;border:none;border-radius:14px;padding:14px;font-family:'Archivo',sans-serif;font-size:1.02rem;font-weight:700;cursor:pointer;box-shadow:0 4px 0 var(--green-dark)}
 .bugun-bas:active{transform:translateY(2px);box-shadow:0 2px 0 var(--green-dark)}
 .bugun-tamam{text-align:center;padding:14px;background:var(--green-bg);border:2px solid var(--green);border-radius:14px;font-weight:700;color:var(--green-dark)}
 .bugun-komsu{display:flex;gap:8px;margin-top:10px}
@@ -894,7 +995,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .konu-adim .ka-ik{display:block;font-size:1rem;margin-bottom:1px}
 .konu-bos{text-align:center;padding:26px 16px;color:var(--light);background:var(--white);border:2px dashed var(--border);border-radius:16px}
 .anlatim-kaynak{font-size:.74rem;color:var(--light);text-align:right;margin-bottom:8px;font-style:italic}
-.konu-ilerle{width:100%;background:var(--purple);color:#fff;border:none;border-radius:14px;padding:14px;font-family:Fredoka,sans-serif;font-size:1rem;font-weight:700;cursor:pointer;margin-top:14px}
+.konu-ilerle{width:100%;background:var(--purple);color:#fff;border:none;border-radius:14px;padding:14px;font-family:'Archivo',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;margin-top:14px}
 /* ── Sınava Hazırlık: üç bölüm ── */
 .sinav-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}
 .sinav-kart{background:var(--white);border:2.5px solid var(--border);border-radius:16px;padding:14px 6px;text-align:center;cursor:pointer;transition:transform .12s,border-color .12s}
@@ -913,14 +1014,14 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .lesen-ceviri{background:var(--bg);border-radius:11px;padding:11px 13px;margin-bottom:14px;font-size:.84rem;line-height:1.6;color:var(--light);text-align:left}
 
 /* ── Hören ── */
-.horen-teil{display:inline-block;background:var(--blue-bg);color:#0d5e75;border:1.5px solid var(--blue);border-radius:999px;padding:4px 14px;font-size:.76rem;font-weight:800;margin-bottom:12px}
+.horen-teil{display:inline-block;background:var(--blue-bg);color:var(--teil-fg);border:1.5px solid var(--blue);border-radius:999px;padding:4px 14px;font-size:.76rem;font-weight:800;margin-bottom:12px}
 .horen-soru{font-size:1.15rem;font-weight:800;line-height:1.35;margin-bottom:5px}
 .horen-tr{font-size:.85rem;color:var(--light);font-weight:600;margin-bottom:18px}
 .horen-ses{display:flex;gap:9px;margin-bottom:8px}
-.horen-play{flex:2;background:var(--blue);color:#fff;border:none;border-radius:14px;padding:16px;font-family:Fredoka,sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer}
+.horen-play{flex:2;background:var(--blue);color:#fff;border:none;border-radius:14px;padding:16px;font-family:'Archivo',sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer}
 .horen-play.calisiyor{background:var(--green);animation:horenPulse 1s infinite}
 @keyframes horenPulse{0%,100%{opacity:1}50%{opacity:.72}}
-.horen-slow{flex:1;background:var(--white);color:var(--text);border:2px solid var(--border);border-radius:14px;padding:16px 8px;font-family:Fredoka,sans-serif;font-size:.88rem;font-weight:700;cursor:pointer}
+.horen-slow{flex:1;background:var(--white);color:var(--text);border:2px solid var(--border);border-radius:14px;padding:16px 8px;font-family:'Archivo',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer}
 .horen-kez{font-size:.76rem;color:var(--light);text-align:center;margin-bottom:16px;min-height:16px}
 .horen-metin{background:var(--bg);border-radius:11px;padding:11px 13px;margin-top:9px;font-size:.87rem;line-height:1.6;text-align:left}
 .horen-metin .hm-k{font-weight:800;color:var(--purple-dark)}
@@ -1058,7 +1159,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="hero-kicker">Ne yapacağını bilmiyorsan buna bas</div>
     <div class="hero-title">Serbest Ders</div>
     <div class="hero-sub" id="heroSub">Kelime → kısa mola → mini gramer. Yaklaşık 5-10 dakika.</div>
-    <span class="hero-btn">Başla →</span>
+    <span class="hero-btn">Başla</span>
   </div>
 
   <!-- BÖLÜM 1: ÖĞRENME -->
@@ -1225,7 +1326,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="fb-title" id="lesenFbTitle"></div>
     <div class="fb-body" id="lesenFbBody"></div>
   </div>
-  <button class="btn-next" id="lesenNext" onclick="lesenSonraki()">Sonraki →</button>
+  <button class="btn-next" id="lesenNext" onclick="lesenSonraki()">Sonraki</button>
 </div>
 
 <!-- LESEN BİTTİ -->
@@ -1237,7 +1338,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv" id="lesenDogru">0</div><div class="dl">Doğru</div></div>
     <div class="ds"><div class="dv dv-red" id="lesenYanlis">0</div><div class="dl">Yanlış</div></div>
   </div>
-  <button class="btn-replay" onclick="openLesen()">Tekrar →</button>
+  <button class="btn-replay" onclick="openLesen()">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1256,7 +1357,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="fb-title" id="horenFbTitle"></div>
     <div class="fb-body" id="horenFbBody"></div>
   </div>
-  <button class="btn-next" id="horenNext" onclick="horenSonraki()">Sonraki →</button>
+  <button class="btn-next" id="horenNext" onclick="horenSonraki()">Sonraki</button>
 </div>
 
 <!-- HÖREN BİTTİ -->
@@ -1268,7 +1369,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv" id="horenDogru">0</div><div class="dl">Doğru</div></div>
     <div class="ds"><div class="dv dv-red" id="horenYanlis">0</div><div class="dl">Yanlış</div></div>
   </div>
-  <button class="btn-replay" onclick="startDinleme()">Tekrar →</button>
+  <button class="btn-replay" onclick="startDinleme()">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1308,7 +1409,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   </div>
   <div class="cat-grid2" id="catGrid"></div>
   <div style="text-align:center">
-    <button class="btn-start" id="btnCatGo" onclick="catGo()">Başla →</button>
+    <button class="btn-start" id="btnCatGo" onclick="catGo()">Başla</button>
   </div>
 </div>
 
@@ -1336,7 +1437,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv" id="gdBest">0</div><div class="dl">🏆 Rekor</div></div>
   </div>
   <div id="gdRecordBadge" style="display:none;background:var(--yellow-bg);border:1.5px solid var(--yellow);border-radius:10px;padding:8px 14px;font-weight:800;color:#7c4a03;margin-bottom:12px">🎉 Yeni rekor!</div>
-  <button class="btn-replay" onclick="goCat('game')">Tekrar →</button>
+  <button class="btn-replay" onclick="goCat('game')">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1370,7 +1471,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
       <button class="intro-pause-btn" id="introPauseBtn" onclick="toggleIntroTimer()">⏸ Duraklat</button>
     </div>
   </div>
-  <button class="btn-intro" id="btnIntroNext" onclick="introNext()">Anladım, devam →</button>
+  <button class="btn-intro" id="btnIntroNext" onclick="introNext()">Anladım, devam</button>
   <button class="btn-know" id="btnKnowIt" onclick="alreadyKnowWord()">✅ Biliyorum, atla</button>
   <div id="learnOpts" class="opts"></div>
   <div id="typeFormEl" class="type-form" style="display:none">
@@ -1391,7 +1492,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="fb-body" id="fbBody"></div>
     <div class="fb-hint" id="fbHint"></div>
   </div>
-  <button class="btn-next" id="btnNext" onclick="nextCard()">Sonraki →</button>
+  <button class="btn-next" id="btnNext" onclick="nextCard()">Sonraki</button>
 </div>
 
 <!-- GRUP SONU PARAGRAF EGZERSİZİ -->
@@ -1407,7 +1508,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   <div class="fb-box" id="paraExFb">
     <div class="fb-title" id="paraExFbTitle"></div>
   </div>
-  <button class="btn-next" id="paraExNext" onclick="paraExNextQ()">Sonraki →</button>
+  <button class="btn-next" id="paraExNext" onclick="paraExNextQ()">Sonraki</button>
 </div>
 
 <!-- LEARN DONE -->
@@ -1420,7 +1521,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv" id="ldCorrect">0</div><div class="dl">Doğru</div></div>
     <div class="ds"><div class="dv dv-red" id="ldWrong">0</div><div class="dl">Yanlış</div></div>
   </div>
-  <button class="btn-replay" onclick="goCat('learn')">Tekrar →</button>
+  <button class="btn-replay" onclick="goCat('learn')">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1432,7 +1533,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   <div class="break-sub" id="brkSub"></div>
   <div><span class="break-xp" id="brkXp">⭐ +0 XP</span></div>
   <div>
-    <button class="btn-start" id="brkNext" onclick="lessonNextStep()">Devam →</button>
+    <button class="btn-start" id="brkNext" onclick="lessonNextStep()">Devam</button>
   </div>
   <div style="margin-top:12px">
     <button class="btn-home" id="brkQuit" onclick="goHome()">Bugünlük yeter 👋</button>
@@ -1455,7 +1556,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="exp-why" id="expWhy"></div>
     <div class="exp-rule" id="expRule"></div>
   </div>
-  <button class="btn-next" id="edatNext" onclick="edatNextQ()">Sonraki →</button>
+  <button class="btn-next" id="edatNext" onclick="edatNextQ()">Sonraki</button>
 </div>
 
 <!-- EDAT DONE -->
@@ -1468,7 +1569,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv dv-red" id="edDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv dv-blue" id="edDP">0%</div><div class="dl">Başarı</div></div>
   </div>
-  <button class="btn-replay" onclick="startEdat()">Tekrar →</button>
+  <button class="btn-replay" onclick="startEdat()">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1480,7 +1581,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   </div>
   <p style="font-size:.82rem;color:var(--light);margin-bottom:14px">Her konuyu çalış, sonra Kapsamlı Test ile kendinizi sına.</p>
   <div class="topic-grid" id="topicGrid"></div>
-  <button class="btn-test" onclick="startGramerTest()">🏆 Kapsamlı Test →</button>
+  <button class="btn-test" onclick="startGramerTest()">🏆 Kapsamlı Test</button>
 </div>
 
 <!-- GRAMER KONU EGZERSİZİ -->
@@ -1498,7 +1599,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="gr-fb-title" id="grFbTitle"></div>
     <div class="gr-fb-body" id="grFbBody"></div>
   </div>
-  <button class="btn-next" id="grNext" onclick="grNextQ()">Sonraki →</button>
+  <button class="btn-next" id="grNext" onclick="grNextQ()">Sonraki</button>
 </div>
 
 <!-- GRAMER KAPSAMLı TEST -->
@@ -1514,7 +1615,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="gr-fb-title" id="gtFbTitle"></div>
     <div class="gr-fb-body" id="gtFbBody"></div>
   </div>
-  <button class="btn-next" id="gtNext" onclick="gtNextQ()">Sonraki →</button>
+  <button class="btn-next" id="gtNext" onclick="gtNextQ()">Sonraki</button>
 </div>
 
 <!-- GRAMER TEST BİTTİ -->
@@ -1527,7 +1628,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv dv-red" id="gtDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv dv-blue" id="gtDP">0%</div><div class="dl">Başarı</div></div>
   </div>
-  <button class="btn-replay" onclick="startGramerTest()">Tekrar →</button>
+  <button class="btn-replay" onclick="startGramerTest()">Tekrar</button>
   <button class="btn-home" onclick="showScreen('gramerScreen');buildTopicGrid()" style="margin-left:8px">Konular</button>
   <div style="margin-top:10px"><button class="btn-home" onclick="goHome()">Ana Menü</button></div>
 </div>
@@ -1548,7 +1649,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="exp-why" id="artExpWhy"></div>
     <div class="exp-rule" id="artExpRule"></div>
   </div>
-  <button class="btn-next" id="artNext" onclick="artNextQ()">Sonraki →</button>
+  <button class="btn-next" id="artNext" onclick="artNextQ()">Sonraki</button>
 </div>
 
 <!-- ARTİKEL DONE -->
@@ -1561,7 +1662,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv dv-red" id="artDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv dv-blue" id="artDP">0%</div><div class="dl">Başarı</div></div>
   </div>
-  <button class="btn-replay" onclick="startArtikel()">Tekrar →</button>
+  <button class="btn-replay" onclick="startArtikel()">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1583,7 +1684,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="exp-why" id="plExpWhy"></div>
     <div class="exp-rule" id="plExpRule"></div>
   </div>
-  <button class="btn-next" id="plNext" onclick="plNextQ()">Sonraki →</button>
+  <button class="btn-next" id="plNext" onclick="plNextQ()">Sonraki</button>
 </div>
 
 <!-- ÇOĞUL DONE -->
@@ -1596,7 +1697,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv dv-red" id="plDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv dv-blue" id="plDP">0%</div><div class="dl">Başarı</div></div>
   </div>
-  <button class="btn-replay" onclick="startPlural()">Tekrar →</button>
+  <button class="btn-replay" onclick="startPlural()">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1610,7 +1711,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="gr-fb-title" id="hizliFbTitle"></div>
     <div class="gr-fb-body" id="hizliFbBody"></div>
   </div>
-  <button class="btn-next" id="hizliNext" onclick="hizliNextQ()">Sonraki →</button>
+  <button class="btn-next" id="hizliNext" onclick="hizliNextQ()">Sonraki</button>
 </div>
 
 <!-- HIZLI TEST DONE -->
@@ -1623,7 +1724,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv dv-red" id="hizliDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv dv-blue" id="hizliDP">0%</div><div class="dl">Başarı</div></div>
   </div>
-  <button class="btn-replay" onclick="startHizliTest()">Tekrar →</button>
+  <button class="btn-replay" onclick="startHizliTest()">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1655,7 +1756,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <button class="btn-home" onclick="openYSHub()">← Geri</button>
   </div>
   <div id="refBody"></div>
-  <button class="btn-test" id="refToExBtn" onclick="refStartExercise()">Bu konuyu egzersizle pekiştir →</button>
+  <button class="btn-test" id="refToExBtn" onclick="refStartExercise()">Bu konuyu egzersizle pekiştir</button>
 </div>
 
 <!-- GENEL MC TEST MOTORU -->
@@ -1678,7 +1779,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="exp-why" id="mcExpWhy"></div>
     <div class="exp-rule" id="mcExpRule"></div>
   </div>
-  <button class="btn-next" id="mcNext" onclick="mcNextQ()">Sonraki →</button>
+  <button class="btn-next" id="mcNext" onclick="mcNextQ()">Sonraki</button>
 </div>
 
 <!-- GENEL MC TEST DONE -->
@@ -1691,7 +1792,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv dv-red" id="mcDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv" id="mcDP">0%</div><div class="dl">Başarı</div></div>
   </div>
-  <button class="btn-replay" id="mcReplay">Tekrar →</button>
+  <button class="btn-replay" id="mcReplay">Tekrar</button>
   <button class="btn-home" onclick="openYSHub()">← Merkez</button>
 </div>
 
@@ -1733,7 +1834,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="exp-why" id="hvbExpWhy"></div>
     <div class="exp-rule" id="hvbExpRule"></div>
   </div>
-  <button class="btn-next" id="hvbNext" onclick="hvbNextQ()">Sonraki →</button>
+  <button class="btn-next" id="hvbNext" onclick="hvbNextQ()">Sonraki</button>
 </div>
 
 <!-- HABEN VS BESİTZEN DONE -->
@@ -1746,7 +1847,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv dv-red" id="hvbDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv" id="hvbDP">0%</div><div class="dl">Başarı</div></div>
   </div>
-  <button class="btn-replay" onclick="startHavBes()">Tekrar →</button>
+  <button class="btn-replay" onclick="startHavBes()">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1771,7 +1872,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <input class="ys-input" type="text" id="ysInput" placeholder="Almanca çevirini yaz..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
     <button class="btn-check" id="ysCheckBtn" onclick="ysCheckAnswer()">✓</button>
   </div>
-  <button class="btn-next" id="ysNext" onclick="ysNextQ()">İleri →</button>
+  <button class="btn-next" id="ysNext" onclick="ysNextQ()">İleri</button>
 </div>
 
 <!-- YS DONE -->
@@ -1784,7 +1885,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv dv-red" id="ysDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv" id="ysDP">0%</div><div class="dl">Başarı</div></div>
   </div>
-  <button class="btn-replay" onclick="startYS()">Tekrar →</button>
+  <button class="btn-replay" onclick="startYS()">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1816,7 +1917,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="exp-rule" id="yazmaExpLogic"></div>
     <div class="exp-rule exp-mistake" id="yazmaExpMistake" style="display:none"></div>
   </div>
-  <button class="btn-next" id="yazmaNext" onclick="yazmaNextQ()">Sonraki →</button>
+  <button class="btn-next" id="yazmaNext" onclick="yazmaNextQ()">Sonraki</button>
 </div>
 
 <!-- YAZMA EGZERSİZİ — BİTTİ -->
@@ -1829,7 +1930,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv dv-red" id="yazmaDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv" id="yazmaDP">0%</div><div class="dl">Başarı</div></div>
   </div>
-  <button class="btn-replay" onclick="startYazma(yzTextIdx)">Tekrar →</button>
+  <button class="btn-replay" onclick="startYazma(yzTextIdx)">Tekrar</button>
   <button class="btn-home" onclick="openYazmaList()">Metin Listesi</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
@@ -1852,7 +1953,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="exp-rule" id="topicWriteExpLogic"></div>
     <div class="exp-rule" id="topicWriteExpMistake" style="background:var(--red-bg);border-color:var(--red);color:#8a1f1f;margin-top:8px;display:none"></div>
   </div>
-  <button class="btn-next" id="topicWriteNext" onclick="topicWriteNextQ()">Sonraki →</button>
+  <button class="btn-next" id="topicWriteNext" onclick="topicWriteNextQ()">Sonraki</button>
 </div>
 
 <!-- KONU TEKRARI — YAZMA BİTTİ -->
@@ -1865,7 +1966,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="ds"><div class="dv dv-red" id="topicWriteDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv" id="topicWriteDP">0%</div><div class="dl">Başarı</div></div>
   </div>
-  <button class="btn-replay" onclick="startTopicWrite(twKey)">Tekrar →</button>
+  <button class="btn-replay" onclick="startTopicWrite(twKey)">Tekrar</button>
   <button class="btn-home" onclick="openSlideDeck(twKey)">🎬 Slaytı Tekrar İzle</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
@@ -1891,7 +1992,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   <div class="para-ex-q" id="sceneQText" style="text-align:center;font-weight:800;margin-bottom:10px"></div>
   <div class="opts" id="sceneOpts"></div>
   <div class="fb-box" id="sceneFb"><div class="fb-title" id="sceneFbTitle"></div></div>
-  <button class="btn-next" id="sceneNext" onclick="sceneNextQ()">Sonraki →</button>
+  <button class="btn-next" id="sceneNext" onclick="sceneNextQ()">Sonraki</button>
 </div>
 
 <!-- SAHNE OYUNU BİTTİ -->
@@ -1899,7 +2000,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   <div class="trophy">🎭</div>
   <div class="done-title">Sahne Bitti!</div>
   <div class="done-sub" id="sceneDoneSub"></div>
-  <button class="btn-replay" onclick="startSceneGame()">Tekrar →</button>
+  <button class="btn-replay" onclick="startSceneGame()">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1913,7 +2014,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   <div class="slide-nav">
     <button class="slide-navbtn" id="slidePrevBtn" onclick="slidePrev()">←</button>
     <div class="slide-dots" id="slideDots"></div>
-    <button class="slide-navbtn" id="slideNextBtn" onclick="slideNext()">İleri →</button>
+    <button class="slide-navbtn" id="slideNextBtn" onclick="slideNext()">İleri</button>
   </div>
 </div>
 
@@ -1943,7 +2044,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   <div class="trophy">🧩</div>
   <div class="done-title">Bulmaca Tamam!</div>
   <div class="done-sub" id="wsDoneSub"></div>
-  <button class="btn-replay" onclick="startWordSearch(wsCatName)">Tekrar →</button>
+  <button class="btn-replay" onclick="startWordSearch(wsCatName)">Tekrar</button>
   <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
@@ -1965,7 +2066,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <div class="modal-emoji" id="mEmoji">🎉</div>
     <div class="modal-title" id="mTitle">Harika!</div>
     <div class="modal-sub" id="mSub"></div>
-    <button class="btn-cont" onclick="nextRound()">Devam →</button>
+    <button class="btn-cont" onclick="nextRound()">Devam</button>
   </div>
 </div>
 
@@ -2812,6 +2913,7 @@ function showScreen(id){
   if(id==='homeScreen'){ setHeader('🇩🇪 Almanca', false); document.getElementById('headerStats').style.display='none'; renderHome(); }
   // Global geri butonu: ana ekran hariç her yerde görünür
   document.getElementById('hdrBack').className = 'hdr-back'+(id==='homeScreen'?'':' show');
+  if(typeof klavyeyeAc==="function") klavyeyeAc();
   const active=document.getElementById(id);
   active.classList.remove('screen-anim');
   void active.offsetWidth; // animasyonu yeniden tetiklemek için reflow zorla
@@ -3820,6 +3922,7 @@ function renderKonu(){
     const cls = i===AKTIF_ADIM?'konu-adim aktif' : (d.adim>i||d.bitti)?'konu-adim bitti':'konu-adim';
     return '<div class="'+cls+'" onclick="gitKonuAdim('+i+')"><span class="ka-ik">'+a.ik+'</span>'+a.ad+'</div>';
   }).join('');
+  klavyeyeAc();
   const g=document.getElementById('konuGovde');
   const adim=KONU_ADIM[AKTIF_ADIM].k;
 
@@ -3830,30 +3933,30 @@ function renderKonu(){
       g.innerHTML='<div class="anlatim-kaynak">Kaynak: '+a.kaynak+'</div>'+
         '<div class="rule-card">'+a.html+'</div>'+
         (k.slayt?'<button class="btn-toggle" style="width:100%;margin-top:10px" onclick="openSlideDeck(\''+k.slayt+'\')">🎬 Animasyonlu anlatımı izle</button>':'')+
-        '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam →</button>';
+        '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam</button>';
     } else if(grKart){
       g.innerHTML='<div class="rule-card">'+grKart+'</div>'+
         (k.slayt?'<button class="btn-toggle" style="width:100%;margin-top:10px" onclick="openSlideDeck(\''+k.slayt+'\')">🎬 Animasyonlu anlatımı izle</button>':'')+
-        '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam →</button>';
+        '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam</button>';
     } else {
       g.innerHTML='<div class="konu-bos">📝 Bu konunun anlatımı henüz hazırlanıyor.<br><small>Kaynak: '+k.kaynak.p+' s.'+k.kaynak.s+'</small></div>'+
-        '<button class="konu-ilerle" onclick="konuSonraki()">Devam →</button>';
+        '<button class="konu-ilerle" onclick="konuSonraki()">Devam</button>';
     }
   }
   else if(adim==='kelime'){
     const n=(CATS[k.kat]||{words:[]}).words.length;
     g.innerHTML='<div class="konu-bos">🔤 <b>'+k.kat+'</b> kategorisi<br><small>'+n+' kelime</small></div>'+
-      '<button class="konu-ilerle" onclick="konuKelimeBasla()">Kelimeleri çalış →</button>'+
+      '<button class="konu-ilerle" onclick="konuKelimeBasla()">Kelimeleri çalış</button>'+
       '<button class="btn-home" style="width:100%;margin-top:8px" onclick="konuSonraki()">Atla, alıştırmaya geç</button>';
   }
   else if(adim==='alistir'){
     g.innerHTML='<div class="konu-bos">✏️ Bu konunun alıştırmaları</div>'+
       k.alis.map(a=>'<button class="konu-ilerle" style="margin-top:8px" onclick="konuAlistirma(\''+a.replace(/'/g,"\\'")+'\')">'+alisAdi(a)+'</button>').join('')+
-      '<button class="btn-home" style="width:100%;margin-top:10px" onclick="konuSonraki()">Teste geç →</button>';
+      '<button class="btn-home" style="width:100%;margin-top:10px" onclick="konuSonraki()">Teste geç</button>';
   }
   else if(adim==='test'){
     g.innerHTML='<div class="konu-bos">🎯 Konu testi<br><small>Bu testi geçince konu tamamlanır ve tekrara girer.</small></div>'+
-      '<button class="konu-ilerle" onclick="konuTestBasla()">Testi başlat →</button>';
+      '<button class="konu-ilerle" onclick="konuTestBasla()">Testi başlat</button>';
   }
 }
 
@@ -3921,7 +4024,7 @@ function renderKonuListe(){
        (anlatimVar?'':'<span class="ks-hazir">hazırlanıyor</span>')+
        '</div>';
   });
-  document.getElementById('konuListe').innerHTML=h;
+  document.getElementById('konuListe').innerHTML=h; klavyeyeAc();
 }
 
 // ── Gunluk akis ───────────────────────────
@@ -3978,7 +4081,7 @@ function renderBugun(){
   }
   h+= hepsiBitti
     ? '<div class="bugun-tamam">🎉 Bugünü tamamladın!<br><small>Yarın yeni konu seni bekliyor.</small></div>'
-    : '<button class="bugun-bas" onclick="gunBaslat()">'+(bitenSayi?'Kaldığın yerden devam →':'Bugüne başla →')+'</button>';
+    : '<button class="bugun-bas" onclick="gunBaslat()">'+(bitenSayi?'Kaldığın yerden devam':'Bugüne başla')+'</button>';
   h+='<div class="bugun-komsu">'+
      '<div><b>Dün</b>'+ad(dun)+(dun&&gunBitti(dun)?' ✅':'')+'</div>'+
      '<div><b>Yarın</b>'+ad(yarin)+'</div></div>';
@@ -4006,6 +4109,27 @@ function toggleEk(){
   const ac=w.style.display==='none';
   w.style.display=ac?'block':'none'; o.textContent=ac?'▾':'▸';
 }
+// ══════════════════════════════════════════
+//  ERISILEBILIRLIK — WCAG 2.1.1 (klavye) ve 4.1.2 (rol)
+//  Uygulamada tiklanabilir cok sayida <div onclick> var; bunlara Tab ile
+//  ulasilamiyor ve ekran okuyucu "dugme" demiyordu. Hepsini klavyeye aciyoruz.
+// ══════════════════════════════════════════
+function klavyeyeAc(kok){
+  (kok||document).querySelectorAll('[onclick]').forEach(el=>{
+    if(['BUTTON','A','INPUT','SELECT','TEXTAREA'].includes(el.tagName)) return;
+    if(el.hasAttribute('tabindex')) return;
+    el.setAttribute('tabindex','0');
+    if(!el.getAttribute('role')) el.setAttribute('role','button');
+  });
+}
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Enter' && e.key!==' ') return;
+  const t=e.target;
+  if(!t||!t.hasAttribute||!t.hasAttribute('onclick')) return;
+  if(['BUTTON','A','INPUT','SELECT','TEXTAREA'].includes(t.tagName)) return;
+  e.preventDefault(); t.click();
+});
+
 function toggleChangelog(){
   const w=document.getElementById('changelogWrap'), o=document.getElementById('clOk');
   const ac=w.style.display==='none';
@@ -4140,7 +4264,7 @@ function renderPlan30(){
     h+='<div class="plan-today"><div class="pt-top"><span class="pt-kicker">PLAN HENÜZ BAŞLAMADI</span></div>'+
        '<div class="pt-konular"><div class="pt-konu"><span class="pt-ad">Başlangıç: '+trTarih(planBasISO())+
        (kalan>0?' ('+kalan+' gün sonra)':'')+'</span></div></div>'+
-       '<button class="pt-btn" onclick="planYenile()">Bugünden başlat →</button></div>';
+       '<button class="pt-btn" onclick="planYenile()">Bugünden başlat</button></div>';
   }
 
   // 2) AY TAKVİMİ
@@ -4206,6 +4330,12 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'16 Ekim 2026 — Yeni tasarım: Bauhaus / DIN', items:[
+    '🎨 <b>Uygulama baştan sona yeniden tasarlandı.</b> Yön: Alman tasarım mirası (Bauhaus / DIN işaret sistemi) — konuyla doğrudan bağlantılı. Keskin köşeler, kalın siyah çizgiler, gölgesiz yüzeyler, Archivo grotesk yazı tipi.',
+    '🚦 <b>Renk artık bilgi taşıyor, süs değil:</b> Dinleme mavi, Okuma sarı, Yazma kırmızı — metro hattı gibi sabit kod. Birincil eylem düğmesi siyah blok.',
+    '🔍 <b>Neden değişti:</b> Anthropic&rsquo;in frontend-design aracı, eski krem+kiremit paletimizi &ldquo;her yapay zekânın ürettiği şablon&rdquo; listesinde birebir işaretledi — zemin rengimiz, aksan rengimiz, büyük harf etiketlerimiz ve düğmelerdeki oklar dahil beş maddede de eşleşiyorduk.',
+    '♿ <b>Erişilebilirlik denetimi (WCAG 2.1 AA) yapıldı ve tüm bulgular giderildi:</b> okunmayan 6 metin kontrastı düzeltildi · 44x44 piksel altındaki tüm dokunma hedefleri büyütüldü · tıklanabilir ama Tab ile ulaşılamayan öğeler klavyeye açıldı · görünür odak göstergesi eklendi.'
+  ]},
   {date:'16 Ekim 2026 — Dinleme sağlamlaştırıldı', items:[
     '🔊 <b>iPhone hatası düzeltildi:</b> diyalog satırları zincirleme çalınıyordu, iOS Safari bu zinciri kopardığı için <b>sadece ilk cümle okunacaktı</b>. Artık tüm satırlar tek seferde sıraya veriliyor.',
     '📱 <b>Android ses listesi düzeltildi:</b> telefon ses listesini gecikmeli veriyor; uygulama artık sesleri bekliyor, yoksa yanlış dille okuma riski vardı.',
@@ -4283,7 +4413,7 @@ const CHANGELOG = [
     '📌 Bu yeni konular kartlarda "A2" etiketiyle işaretli, A1 konularından ayırt edilebiliyor.',
   ]},
   {date:'27 Temmuz 2026 (5. güncelleme) — Yeni tasarım + oyunlar', items:[
-    '☀️ Uygulama baştan sona yeni "gün batımı" tasarımına geçti — sıcak renkler, yuvarlak Fredoka yazı tipi, tıklaması tatmin edici blok butonlar. Daha eğlenceli ve mutlu bir görünüm.',
+    '☀️ Uygulama baştan sona yeni "gün batımı" tasarımına geçti — sıcak renkler, yuvarlak Archivo yazı tipi, tıklaması tatmin edici blok butonlar. Daha eğlenceli ve mutlu bir görünüm.',
     '🎭 "Noldu? Sahne Oyunu" eklendi → Ana ekran / Keşif bölümü. Sahnede bir olay canlanıyor (adam düşüyor 🤸), Almanca fiili görüp dinliyorsun (fällt), Türkçesi altında, sonra hatırlama sorusu.',
     '❓ "Soru Kelimeleri" (W-Fragen) kategorisi eklendi (Wo/Wohin/Woher/Was/Wer/Wen/Wem/Wann/Wie/Warum...) → tüm modlarda + kendi kelime avı bulmacası + okuma parçası. 29 Temmuz\'un konusu.',
     '🔔 Günlük hatırlatma bildirimleri 5\'ten 20 farklı mesaja çıkarıldı — her gün farklı bir mesaj gelecek.',
@@ -4402,7 +4532,7 @@ function showLessonBreak(){
   document.getElementById('brkSub').textContent='Derin bir nefes al, istersen biraz su iç. Hazır olduğunda 5 soruluk mini gramerle dersi bitiriyoruz — acele yok.';
   document.getElementById('brkXp').textContent='⭐ Bu derste +'+(DB.xp-LESSON.xpStart)+' XP';
   document.getElementById('brkNext').style.display='inline-block';
-  document.getElementById('brkNext').textContent='Hazırım, devam →';
+  document.getElementById('brkNext').textContent='Hazırım, devam';
   document.getElementById('brkQuit').textContent='Bugünlük yeter 👋';
   setHeader('🎯 Bugünün Dersi',false);
   showScreen('lessonBreakScreen');
@@ -5964,7 +6094,7 @@ function openGramerTopic(topic){
   grTopic=topic; grQIdx=0; grCorrect=0; grWrong=0; grAnswered=false;
   document.getElementById('grTopicTitle').textContent=topic.emoji+' '+topic.title;
   document.getElementById('grRuleCard').innerHTML=topic.rule;
-  document.getElementById('grNext').textContent='Sonraki →';
+  document.getElementById('grNext').textContent='Sonraki';
   document.getElementById('grNext').onclick=grNextQ;
   document.getElementById('grBackBtn').onclick=()=>{showScreen('gramerScreen');buildTopicGrid();};
   showScreen('gramerTopicScreen');
@@ -6019,7 +6149,7 @@ function grNextQ(){
     document.getElementById('grNext').textContent='← Konulara Dön';
     document.getElementById('grNext').className='btn-next show';
     document.getElementById('grNext').onclick=()=>{
-      document.getElementById('grNext').textContent='Sonraki →';
+      document.getElementById('grNext').textContent='Sonraki';
       document.getElementById('grNext').onclick=grNextQ;
       showScreen('gramerScreen');
       buildTopicGrid();
@@ -7545,7 +7675,7 @@ function renderSlide(){
     '<div class="slide-dot'+(i===slideIdx?' on':'')+'" onclick="slideGo('+i+')"></div>').join('');
   document.getElementById('slidePrevBtn').disabled=(slideIdx===0);
   const nb=document.getElementById('slideNextBtn');
-  nb.textContent=(slideIdx===slideDeck.slides.length-1)?'Bitir ✓':'İleri →';
+  nb.textContent=(slideIdx===slideDeck.slides.length-1)?'Bitir ✓':'İleri';
 }
 function slideNext(){
   if(slideIdx>=slideDeck.slides.length-1){
