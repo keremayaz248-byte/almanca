@@ -895,6 +895,19 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .konu-bos{text-align:center;padding:26px 16px;color:var(--light);background:var(--white);border:2px dashed var(--border);border-radius:16px}
 .anlatim-kaynak{font-size:.74rem;color:var(--light);text-align:right;margin-bottom:8px;font-style:italic}
 .konu-ilerle{width:100%;background:var(--purple);color:#fff;border:none;border-radius:14px;padding:14px;font-family:Fredoka,sans-serif;font-size:1rem;font-weight:700;cursor:pointer;margin-top:14px}
+/* ── Hören ── */
+.horen-teil{display:inline-block;background:var(--blue-bg);color:#0d5e75;border:1.5px solid var(--blue);border-radius:999px;padding:4px 14px;font-size:.76rem;font-weight:800;margin-bottom:12px}
+.horen-soru{font-size:1.15rem;font-weight:800;line-height:1.35;margin-bottom:5px}
+.horen-tr{font-size:.85rem;color:var(--light);font-weight:600;margin-bottom:18px}
+.horen-ses{display:flex;gap:9px;margin-bottom:8px}
+.horen-play{flex:2;background:var(--blue);color:#fff;border:none;border-radius:14px;padding:16px;font-family:Fredoka,sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer}
+.horen-play.calisiyor{background:var(--green);animation:horenPulse 1s infinite}
+@keyframes horenPulse{0%,100%{opacity:1}50%{opacity:.72}}
+.horen-slow{flex:1;background:var(--white);color:var(--text);border:2px solid var(--border);border-radius:14px;padding:16px 8px;font-family:Fredoka,sans-serif;font-size:.88rem;font-weight:700;cursor:pointer}
+.horen-kez{font-size:.76rem;color:var(--light);text-align:center;margin-bottom:16px;min-height:16px}
+.horen-metin{background:var(--bg);border-radius:11px;padding:11px 13px;margin-top:9px;font-size:.87rem;line-height:1.6;text-align:left}
+.horen-metin .hm-k{font-weight:800;color:var(--purple-dark)}
+.horen-ipucu{background:var(--yellow-bg);border:1.5px solid var(--yellow);border-radius:9px;padding:8px 12px;margin-top:9px;font-size:.84rem;font-weight:600;color:#7c4a03;text-align:left}
 .ek-head{cursor:pointer;user-select:none;display:block !important;padding:10px 12px;background:var(--white);border:2px solid var(--border);border-radius:13px;text-transform:none;letter-spacing:.2px;font-size:.88rem;color:var(--text)}
 .ek-head::after{display:none}
 .ek-head small{text-transform:none;letter-spacing:0}
@@ -1031,6 +1044,12 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   <!-- BÖLÜM 2: PRATİK -->
   <div class="sec-head">⚡ Pratik</div>
   <div class="mode-grid">
+    <div class="mode-card col-blue mode-card-full" onclick="startDinleme()">
+      <span class="mc-badge-new">YENİ</span>
+      <div class="mc-icon">🎧</div>
+      <div class="mc-title">Dinleme (Hören)</div>
+      <div class="mc-sub">Sınav formatı · Goethe model sınavından · 21 soru</div>
+    </div>
     <div class="mode-card col-yellow" onclick="startHizliTest()">
       <div class="mc-icon">⚡</div>
       <div class="mc-title">Hızlı Test</div>
@@ -1148,6 +1167,37 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   <!-- BÖLÜM 6: YENİLİKLER — her güncellemede buraya not düşülür -->
   <div class="sec-head">🆕 Yenilikler</div>
   <div id="changelogWrap"></div>
+</div>
+
+<!-- HÖREN — sınav formatında dinleme -->
+<div id="horenScreen">
+  <div class="horen-teil" id="horenTeil">Teil 1</div>
+  <div class="horen-soru" id="horenSoru"></div>
+  <div class="horen-tr" id="horenTr"></div>
+  <div class="horen-ses">
+    <button class="horen-play" id="horenPlay" onclick="horenCal(1)">▶ Dinle</button>
+    <button class="horen-slow" id="horenSlow" onclick="horenCal(0.6)">🐢 Yavaş</button>
+  </div>
+  <div class="horen-kez" id="horenKez"></div>
+  <div class="opts" id="horenOpts"></div>
+  <div class="fb-box" id="horenFb">
+    <div class="fb-title" id="horenFbTitle"></div>
+    <div class="fb-body" id="horenFbBody"></div>
+  </div>
+  <button class="btn-next" id="horenNext" onclick="horenSonraki()">Sonraki →</button>
+</div>
+
+<!-- HÖREN BİTTİ -->
+<div id="horenDoneScreen">
+  <div class="trophy">🎧</div>
+  <div class="done-title">Dinleme bitti!</div>
+  <div class="done-sub" id="horenDoneSub"></div>
+  <div class="done-stats">
+    <div class="ds"><div class="dv" id="horenDogru">0</div><div class="dl">Doğru</div></div>
+    <div class="ds"><div class="dv dv-red" id="horenYanlis">0</div><div class="dl">Yanlış</div></div>
+  </div>
+  <button class="btn-replay" onclick="startDinleme()">Tekrar →</button>
+  <button class="btn-home" onclick="goHome()">Ana Menü</button>
 </div>
 
 <!-- KONU LİSTESİ — 38 konuluk omurga -->
@@ -2668,7 +2718,7 @@ const WORD_PARTS = {
 // ══════════════════════════════════════════
 //  NAVİGASYON
 // ══════════════════════════════════════════
-const ALL_SCREENS = ['homeScreen','konuListScreen','konuScreen','catScreen','gameScreen','gameDoneScreen',
+const ALL_SCREENS = ['homeScreen','konuListScreen','konuScreen','horenScreen','horenDoneScreen','catScreen','gameScreen','gameDoneScreen',
   'listScreen','learnScreen','learnDoneScreen','lessonBreakScreen','edatScreen','edatDoneScreen',
   'gramerScreen','gramerTopicScreen','gramerTestScreen','gramerTestDoneScreen',
   'artikelScreen','artikelDoneScreen','pluralScreen','pluralDoneScreen',
@@ -2685,7 +2735,7 @@ function showScreen(id){
   clearAutoNext();
   curScreen=id;
   ALL_SCREENS.forEach(s=>{ document.getElementById(s).style.display = s===id?'block':'none'; });
-  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen','yazmaScreen','topicWriteScreen'].includes(id);
+  const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen','yazmaScreen','topicWriteScreen','horenScreen'].includes(id);
   document.getElementById('progWrap').style.display = showProg?'block':'none';
   if(id==='homeScreen'){ setHeader('🇩🇪 Almanca', false); document.getElementById('headerStats').style.display='none'; renderHome(); }
   // Global geri butonu: ana ekran hariç her yerde görünür
@@ -3224,6 +3274,251 @@ Bugün otobüsle Berlin'e gidiyorum.</span>
 function anlatimGetir(kimlik){ return ANLATIMLAR[kimlik]||null; }
 
 // ══════════════════════════════════════════
+//  HÖREN — Start Deutsch 1 sinav formatinda dinleme
+//  Format kaynagi: Goethe-Institut A1 Modellsatz (icerik/goethe/).
+//  Teil 1: kisa diyalog → a/b/c   (6 soru)
+//  Teil 2: anons        → richtig/falsch (4 soru)
+//  Teil 3: kisa konusma → a/b/c   (5 soru)
+//  Gercek sinavda soru ve siklar GORUNUR, metin GORUNMEZ. Burada da oyle.
+//  Metin cevaptan sonra acilir. Ses: speechSynthesis (de-DE), her metin 2 kez.
+// ══════════════════════════════════════════
+const SINAV_HOREN=[
+// ── TEIL 1 — Modellsatz'tan birebir ──
+{teil:1,konu:'sayilar',soru:'Was kostet der Pullover?',tr:'Kazak kaç para?',
+ d:[['K','Entschuldigung, was kostet dieser Pullover jetzt? Da steht 30 Prozent billiger.'],
+    ['V','Einen Moment bitte … neunzehn fünfundneunzig.'],['K','19,95 Euro?'],
+    ['V','Ja, Euro natürlich.'],['K','Hm, ok, den nehme ich.']],
+ o:['Dreißig Euro.','Fünfundneunzig Euro.','Neunzehn Euro fünfundneunzig Cent.'],c:2,
+ ip:'30 sayısı tuzak — o indirim oranı (30 Prozent billiger), fiyat değil.'},
+{teil:1,konu:'saat',soru:'Wie spät ist es?',tr:'Saat kaç?',
+ d:[['M','Ach, entschuldigen Sie bitte.'],['F','Ja bitte.'],
+    ['M','Haben Sie eine Uhr? Wie spät ist es bitte?'],['F','Ja – jetzt ist es gleich 5 Uhr.'],
+    ['M','Was, schon 5. Vielen Dank, Wiedersehen.']],
+ o:['15 Uhr.','Gleich 5 Uhr.','Halb 5 Uhr.'],c:1,
+ ip:'GLEICH = birazdan, neredeyse. "gleich 5 Uhr" = neredeyse 5.'},
+{teil:1,konu:'yiyecek',soru:'Was isst die Frau im Restaurant?',tr:'Kadın restoranda ne yiyor?',
+ d:[['K','Was wünschen Sie bitte?'],['G','Ich hätte gern die Salatplatte und ein …'],
+    ['K','Entschuldigung, die Salatplatte ist leider aus, aber die Bratwurst kann ich Ihnen empfehlen, ganz frisch heute.'],
+    ['G','Nein danke, ich esse kein Fleisch. Gibt es etwas ohne Fleisch?'],
+    ['K','Ja, nicht mehr viel: Fisch oder Pommes.'],['G','Fisch … hm … Tja, dann wohl die Pommes.']],
+ o:['Pommes.','Fisch.','Wurst.'],c:0,
+ ip:'Sonuna kadar dinle! Önce salata, sonra balık geçiyor ama son karar POMMES.'},
+{teil:1,konu:'aile',soru:'Wie alt ist der Sohn von Frau Heger?',tr:'Heger Hanım’ın oğlu kaç yaşında?',
+ d:[['M','Haben Sie Kinder, Frau Heger?'],['F','Ja, einen Sohn.'],['M','Und wie alt ist er?'],
+    ['F','Neun Jahre … seit gestern.'],['M','Ah, dann geht er ja schon zur Schule?'],
+    ['F','Ja klar, schon in die dritte Klasse.']],
+ o:['Drei Jahre.','Neun Jahre.','Zehn Jahre.'],c:1,
+ ip:'"dritte Klasse" (3. sınıf) tuzak — yaş DOKUZ, sınıf üç.'},
+{teil:1,konu:'yon',soru:'Wie kommt die Kundin in den zweiten Stock?',tr:'Müşteri ikinci kata nasıl çıkar?',
+ d:[['F','Ach, entschuldigen Sie, wie komme ich denn hier in den zweiten Stock? Die Rolltreppe da vorn ist kaputt.'],
+    ['M','Da gehen Sie hier rechts um die Ecke und nehmen den Aufzug.'],
+    ['F','Um die Ecke rechts. Danke.']],
+ o:['Mit der Rolltreppe.','Mit dem Aufzug.','Zu Fuß über die Treppe.'],c:1,
+ ip:'Rolltreppe (yürüyen merdiven) BOZUK. Çözüm: der Aufzug = asansör.'},
+{teil:1,konu:'seyahat',soru:'Wohin fährt Herr Albers?',tr:'Albers Bey nereye gidiyor?',
+ d:[['F','Guten Morgen, Herr Albers. So früh schon bei der Arbeit?'],
+    ['M','Ja, ich habe noch viel zu tun. Morgen fahre ich doch für 3 Wochen weg.'],
+    ['F','Ach ja, das hab ich vergessen. Wohin fahren Sie denn?'],
+    ['M','Zu meinen Verwandten nach Polen.'],['F','Na dann … schöne Zeit.']],
+ o:['Nach Polen.','Zur Arbeit.','Nach Hause.'],c:0,
+ ip:'"nach Polen" — ülke adıyla NACH kullanılır.'},
+// ── TEIL 1 — ayni formatta, programdaki konulara gore ──
+{teil:1,konu:'selam',soru:'Wie heißt die Frau?',tr:'Kadının adı ne?',
+ d:[['M','Guten Tag, wie heißen Sie bitte?'],['F','Mein Name ist Schmidt, Anna Schmidt.'],
+    ['M','Schmitt mit zwei T?'],['F','Nein, Schmidt: S-C-H-M-I-D-T.']],
+ o:['Anna Schmitt.','Anna Schmidt.','Anna Schmied.'],c:1,
+ ip:'Kodlamayı dinle: S-C-H-M-I-D-T → Schmidt. Bu yüzden alfabe şart.'},
+{teil:1,konu:'telefon',soru:'Wie ist die Telefonnummer?',tr:'Telefon numarası kaç?',
+ d:[['F','Wie ist Ihre Telefonnummer?'],['M','Null eins sieben vier, drei drei zwei, acht fünf.'],
+    ['F','Also 0174 – 332 85?'],['M','Genau, richtig.']],
+ o:['0174 – 323 85.','0174 – 332 85.','0147 – 332 85.'],c:1,
+ ip:'Rakamları tek tek takip et. 332 ile 323 kolayca karışır.'},
+{teil:1,konu:'hava',soru:'Wie ist das Wetter morgen?',tr:'Yarın hava nasıl?',
+ d:[['F','Fahren wir morgen an den See?'],['M','Hmm, morgen soll es regnen.'],
+    ['F','Schade. Und am Sonntag?'],['M','Am Sonntag wird es sonnig und warm.']],
+ o:['Es regnet.','Es ist sonnig.','Es schneit.'],c:0,
+ ip:'Soru YARIN diyor. Pazar güneşli ama yarın yağmurlu — günleri karıştırma.'},
+{teil:1,konu:'alisveris',soru:'Was kauft der Mann?',tr:'Adam ne satın alıyor?',
+ d:[['V','Guten Tag, was darf es sein?'],['M','Ich möchte ein Kilo Äpfel, bitte.'],
+    ['V','Tut mir leid, Äpfel haben wir heute nicht. Aber die Bananen sind sehr gut.'],
+    ['M','Gut, dann nehme ich ein Kilo Bananen.']],
+ o:['Äpfel.','Bananen.','Nichts.'],c:1,
+ ip:'İlk istediği elma ama YOK. Sonunda muz alıyor.'},
+{teil:1,konu:'meslek',soru:'Was ist Herr Weber von Beruf?',tr:'Weber Bey’in mesleği ne?',
+ d:[['F','Herr Weber, was machen Sie beruflich?'],['M','Ich bin Lehrer. Ich arbeite an einer Schule in Hamburg.'],
+    ['F','Ach, meine Schwester ist auch Lehrerin.']],
+ o:['Arzt.','Lehrer.','Verkäufer.'],c:1,
+ ip:'Meslekte artikel KULLANILMAZ: "Ich bin Lehrer" (ein Lehrer değil).'},
+{teil:1,konu:'kiyafet',soru:'Welche Farbe hat die Jacke?',tr:'Ceket ne renk?',
+ d:[['F','Entschuldigung, haben Sie die Jacke auch in Blau?'],
+    ['V','In Blau leider nicht. Wir haben sie in Schwarz und in Rot.'],
+    ['F','Dann nehme ich die schwarze, bitte.']],
+ o:['Blau.','Schwarz.','Rot.'],c:1,
+ ip:'Mavi YOK. Siyah ve kırmızı var, kadın SİYAHI alıyor.'},
+// ── TEIL 2 — anons, richtig/falsch ──
+{teil:2,konu:'anons',soru:'Der Zug nach München fährt von Gleis 7 ab.',tr:'Münih treni 7. perondan kalkıyor.',
+ d:[['A','Achtung auf Gleis 5: Der Intercity nach München, Abfahrt 14 Uhr 20, fährt heute von Gleis 9 ab. Ich wiederhole: von Gleis 9.']],
+ o:['Richtig','Falsch'],c:1,
+ ip:'Anonsta Gleis 9 deniyor, soruda 7 yazıyor → Falsch.'},
+{teil:2,konu:'anons',soru:'Das Geschäft schließt heute um 18 Uhr.',tr:'Mağaza bugün saat 18’de kapanıyor.',
+ d:[['A','Liebe Kunden, unser Geschäft schließt heute um 18 Uhr. Bitte kommen Sie zur Kasse. Vielen Dank für Ihren Einkauf.']],
+ o:['Richtig','Falsch'],c:0,
+ ip:'Anons tam olarak "um 18 Uhr" diyor → Richtig.'},
+{teil:2,konu:'anons',soru:'Die Passagiere nach Berlin sollen zum Ausgang B 12 gehen.',tr:'Berlin yolcuları B 12 kapısına gitmeli.',
+ d:[['A','Letzter Aufruf für Flug LH 204 nach Berlin. Die Passagiere werden gebeten, sofort zum Ausgang B 12 zu kommen.']],
+ o:['Richtig','Falsch'],c:0,
+ ip:'"Ausgang B 12" doğrudan geçiyor → Richtig.'},
+{teil:2,konu:'anons',soru:'Der Arzt kommt heute später.',tr:'Doktor bugün geç geliyor.',
+ d:[['A','Guten Tag. Die Praxis von Doktor Meier ist heute geschlossen. Bitte kommen Sie morgen zwischen 9 und 12 Uhr.']],
+ o:['Richtig','Falsch'],c:1,
+ ip:'Muayenehane bugün KAPALI, geç açılmıyor → Falsch.'},
+// ── TEIL 3 — kisa konusma, a/b/c ──
+{teil:3,konu:'randevu',soru:'An welchem Tag will die Frau kommen?',tr:'Kadın hangi gün gelmek istiyor?',
+ d:[['F','Guten Tag, ich möchte einen Termin. Geht es am Montag?'],
+    ['M','Am Montag ist leider alles voll. Samstag hätte ich noch etwas frei.'],
+    ['F','Samstag ist gut, dann komme ich am Samstag.']],
+ o:['Am Montag.','Am Sonntag.','Am Samstag.'],c:2,
+ ip:'Pazartesi DOLU. Kadın CUMARTESİ geliyor.'},
+{teil:3,konu:'tamir',soru:'Was ist kaputt?',tr:'Ne bozuk?',
+ d:[['M','Hallo Lisa, kannst du mir helfen? Mein Computer geht nicht mehr.'],
+    ['F','Oh je. Und dein Handy?'],['M','Das Handy ist okay, nur der Computer macht Probleme.']],
+ o:['Der Fernseher.','Der Computer.','Das Handy.'],c:1,
+ ip:'Telefon İYİ, bilgisayar bozuk.'},
+{teil:3,konu:'yemek',soru:'Wann isst die Familie zu Abend?',tr:'Aile akşam yemeğini ne zaman yiyor?',
+ d:[['F','Wann essen wir heute zu Abend?'],['M','Papa kommt erst um sieben nach Hause.'],
+    ['F','Dann essen wir um halb acht.']],
+ o:['Um sieben.','Um halb acht.','Um acht.'],c:1,
+ ip:'Baba 7’de geliyor ama yemek HALB ACHT (7:30).'},
+{teil:3,konu:'ulasim',soru:'Wie kommt der Mann zur Arbeit?',tr:'Adam işe nasıl gidiyor?',
+ d:[['F','Fährst du mit dem Auto zur Arbeit?'],['M','Nein, das Auto ist in der Werkstatt. Ich fahre diese Woche mit dem Bus.'],
+    ['F','Und sonst mit dem Fahrrad, oder?'],['M','Ja, normalerweise schon.']],
+ o:['Mit dem Auto.','Mit dem Bus.','Mit dem Fahrrad.'],c:1,
+ ip:'BU HAFTA otobüs. Araba serviste, bisiklet normalde.'},
+{teil:3,konu:'ders',soru:'Wann beginnt der Deutschkurs?',tr:'Almanca kursu ne zaman başlıyor?',
+ d:[['M','Wann fängt der Deutschkurs an?'],['F','Der Kurs beginnt am ersten September.'],
+    ['M','Also nicht im August?'],['F','Nein, erst im September.']],
+ o:['Im Juli.','Im August.','Im September.'],c:2,
+ ip:'Ağustos değil, EYLÜL. "erst im September" = ancak eylülde.'},
+];
+
+function horenSecim(konu){
+  if(!konu) return SINAV_HOREN.slice();
+  const t=SINAV_HOREN.filter(q=>q.konu===konu);
+  return t.length?t:SINAV_HOREN.slice();
+}
+
+// ── Almanca ses var mi? ────────────────────
+function almancaSesVar(){
+  if(!('speechSynthesis' in window)) return false;
+  const v=window.speechSynthesis.getVoices();
+  if(!v||!v.length) return true; // sesler henuz yuklenmemis olabilir — engelleme
+  return v.some(x=>/^de/i.test(x.lang));
+}
+
+let hQs=[], hIdx=0, hDogru=0, hYanlis=0, hCevapli=false, hKez=0;
+
+function startDinleme(konu){
+  if(!('speechSynthesis' in window)){
+    alert('Bu tarayıcı sesli okumayı desteklemiyor, dinleme modu açılamıyor.\n\nAndroid’de Chrome, iPhone’da Safari kullanmayı dene.');
+    return;
+  }
+  if(!almancaSesVar()){
+    alert('Cihazında Almanca ses paketi bulunamadı.\n\nAyarlar → Diller bölümünden Almanca (Deutsch) ses paketini indirirsen dinleme modu çalışır.');
+    return;
+  }
+  hQs=shuffle(horenSecim(konu)).slice(0,10);
+  hIdx=0; hDogru=0; hYanlis=0;
+  setHeader('🎧 Dinleme',true,'✅ 0','❌ 0');
+  showScreen('horenScreen');
+  setProgress(0,'0 / '+hQs.length);
+  renderHoren();
+}
+
+function renderHoren(){
+  const q=hQs[hIdx]; if(!q){ showHorenDone(); return; }
+  hCevapli=false; hKez=0;
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  document.getElementById('horenTeil').textContent='Teil '+q.teil+(q.teil===2?' · richtig / falsch':'');
+  document.getElementById('horenSoru').textContent=q.soru;
+  document.getElementById('horenTr').textContent=q.tr;
+  document.getElementById('horenKez').textContent='Metni istediğin kadar dinleyebilirsin.';
+  document.getElementById('horenPlay').className='horen-play';
+  document.getElementById('horenPlay').textContent='▶ Dinle';
+  const fb=document.getElementById('horenFb'); fb.className='fb-box';
+  document.getElementById('horenNext').className='btn-next';
+  const g=document.getElementById('horenOpts'); g.innerHTML='';
+  q.o.forEach((o,i)=>{
+    const b=document.createElement('button'); b.className='opt';
+    b.textContent=(q.teil===2?'':String.fromCharCode(97+i)+')  ')+o;
+    b.onclick=()=>horenPick(i,b,q); g.appendChild(b);
+  });
+  setProgress(Math.round(hIdx/hQs.length*100), hIdx+' / '+hQs.length);
+}
+
+// Diyalogu sirayla seslendirir; konusmaci degisince ton degisir.
+function horenCal(hiz){
+  const q=hQs[hIdx]; if(!q) return;
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  hKez++;
+  const btn=document.getElementById('horenPlay');
+  btn.className='horen-play calisiyor'; btn.textContent='🔊 Çalıyor…';
+  document.getElementById('horenKez').textContent=hKez+'. kez dinliyorsun'+(hiz<1?' (yavaş)':'');
+  const sesler=(window.speechSynthesis.getVoices()||[]).filter(v=>/^de/i.test(v.lang));
+  let i=0;
+  const sira=()=>{
+    if(i>=q.d.length){ btn.className='horen-play'; btn.textContent='🔁 Tekrar dinle'; return; }
+    const [kim,metin]=q.d[i++];
+    const u=new SpeechSynthesisUtterance(metin);
+    u.lang='de-DE'; u.rate=hiz*0.92;
+    // iki konusmaciyi ayirt etmek icin ton farki
+    u.pitch=(kim==='F'||kim==='V'||kim==='K'&&false)?1.18:0.92;
+    if(sesler.length>1) u.voice=sesler[(kim==='F'||kim==='V')?1%sesler.length:0];
+    else if(sesler.length) u.voice=sesler[0];
+    u.onend=()=>setTimeout(sira,320);
+    u.onerror=()=>{ btn.className='horen-play'; btn.textContent='🔁 Tekrar dinle'; };
+    try{ window.speechSynthesis.speak(u); }catch(e){ btn.className='horen-play'; }
+  };
+  sira();
+}
+
+function horenPick(i,btn,q){
+  if(hCevapli) return; hCevapli=true;
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  document.getElementById('horenPlay').className='horen-play';
+  document.querySelectorAll('#horenOpts .opt').forEach((b,j)=>{
+    b.disabled=true; if(j!==i&&j!==q.c) b.classList.add('muted');
+    if(j===q.c) b.classList.add('correct');
+  });
+  const ok=i===q.c;
+  if(ok){ hDogru++; awardXP(10); } else { btn.classList.add('wrong'); hYanlis++; }
+  srsUpdate('horen:'+q.soru.slice(0,24), ok);
+  registerStudy(); feedbackFx(ok,btn);
+  const fb=document.getElementById('horenFb');
+  fb.className='fb-box show '+(ok?'fb-ok':'fb-err');
+  document.getElementById('horenFbTitle').className='fb-title '+(ok?'fb-c':'fb-w');
+  document.getElementById('horenFbTitle').textContent=ok?'✅ Doğru!':'❌ Yanlış';
+  document.getElementById('horenFbBody').innerHTML=
+    '<div class="horen-metin">'+q.d.map(x=>'<div><span class="hm-k">'+horenKimAd(x[0])+':</span> '+x[1]+'</div>').join('')+'</div>'+
+    (q.ip?'<div class="horen-ipucu">💡 '+q.ip+'</div>':'');
+  setHeader('🎧 Dinleme',true,'✅ '+hDogru,'❌ '+hYanlis);
+  document.getElementById('horenNext').className='btn-next show';
+}
+function horenKimAd(k){
+  return {F:'Kadın',M:'Erkek',K:'Müşteri',V:'Satıcı',G:'Misafir',A:'Anons'}[k]||k;
+}
+function horenSonraki(){ hIdx++; if(hIdx>=hQs.length) showHorenDone(); else renderHoren(); }
+function showHorenDone(){
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  document.getElementById('horenDogru').textContent=hDogru;
+  document.getElementById('horenYanlis').textContent=hYanlis;
+  const y=hQs.length?Math.round(hDogru/hQs.length*100):0;
+  document.getElementById('horenDoneSub').textContent=
+    y>=80?'Harika! Sınav dinleme bölümüne hazırsın.':y>=60?'Fena değil — geçer not sınırındasın (60).':'Biraz daha çalışmak lazım. Metinleri tekrar dinle.';
+  setProgress(100,hQs.length+' / '+hQs.length);
+  showScreen('horenDoneScreen');
+}
+
+// ══════════════════════════════════════════
 //  KONU AKISI — anlatim → kelimeler → alistirma → test
 //  Durum mevcut SRS motoruna 'konu:<no>' anahtariyla baglanir.
 // ══════════════════════════════════════════
@@ -3659,6 +3954,13 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'16 Ekim 2026 — Dinleme (Hören): gerçek sınav formatı', items:[
+    '🎧 <b>Dinleme modu eklendi — sınavın eksik olan 1/3’ü.</b> Goethe-Institut’un resmî <b>Start Deutsch 1 model sınavından</b> alınan formatta: Teil 1 (kısa diyalog, a/b/c), Teil 2 (anons, richtig/falsch), Teil 3 (konuşma, a/b/c). Toplam <b>21 soru</b>.',
+    '🔊 <b>Gerçek sınav gibi:</b> soru ve şıklar görünür, <b>metin görünmez</b>. Dinledikten sonra cevaplarsın, sonra transkript ve ipucu açılır. İstediğin kadar tekrar dinleyebilirsin, yavaş seçeneği de var.',
+    '🎭 İki konuşmacı farklı tonla seslendiriliyor, böylece diyaloğu takip etmek kolaylaşıyor.',
+    '🪤 <b>Her soruda tuzak uyarısı:</b> örneğin "30 Prozent billiger" indirim oranıdır fiyat değil · "dritte Klasse" sınıftır yaş değil · ilk istenen yemek yoksa cevap sonda söylenendir.',
+    '📱 Cihazında Almanca ses paketi yoksa mod açılmaz, sebebi Türkçe anlatılır — sessizce boş ekran gelmez.'
+  ]},
   {date:'16 Ekim 2026 — Konu düzeni: anlatım + gün gün akış', items:[
     '📚 <b>38 konuluk omurga kuruldu.</b> Artık her konu tek bir yerde: <b>anlatım → kelimeler → alıştırma → test</b>. Konu listesinde hangisinin bittiği, hangisinin tekrarının geldiği renkli noktayla görünür.',
     '📖 <b>Konu anlatımları eklendi — hocanın kendi slaytlarından.</b> PDF görsel sayfaları okunup uygulamaya yazıldı. İlk parti: Alfabe ve Telaffuz, Selamlaşma, Nasılsınız?, Tanışma, Vedalaşma, Sayılar/Doğum günü, E-posta, Nerede oturuyorsun, Nereden geliyorsun, Ülkeler ve Diller, Kişisel Bilgiler, Genitiv, İşaret Zamirleri, Sıralama, Mektup Yazma, TMP.',
