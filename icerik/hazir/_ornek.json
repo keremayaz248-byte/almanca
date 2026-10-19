@@ -1,0 +1,7 @@
+{
+  "konu": 0,
+  "baslik": "Biçim örneği (gerçek içerik değil)",
+  "maddeler": [
+    { "tur": "kural", "tr": "Yan cümlede fiil sona gider.", "de": "Ich lerne Deutsch, weil ich in Deutschland arbeite.", "kaynak": { "arac": "PDF", "sayfa": "kl s.0 (örnek)" } }
+  ]
+}

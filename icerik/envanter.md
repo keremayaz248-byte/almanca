@@ -235,3 +235,25 @@ icerik/
   envanter.md   bu dosya
   plan30.json   15 Ekim – 13 Kasım çalışma takvimi
 ```
+
+---
+
+## 5. Temel ölçümler — `gunluk-ders-ve-aksam-sinavi` başlangıcı (19.10.2026)
+
+| Ölçüm | Değer |
+|---|---|
+| `index.html` satır / boyut | 8.314 satır / 564 KB |
+| `gece-testi.js` | 0 hata |
+| `derin-kontrol.js` | 0 hata (koyu temada giriş sekmesi düğmesi için 2.51 kontrast uyarısı bilgi olarak listeleniyor) |
+| `horen-testi.js` | 0 hata; Hören dağılımı Teil 1: 12, Teil 2: 4, Teil 3: 5 (toplam 21) |
+| `kapsama-testi.js` | 490 açık (beklenen başlangıç: eski değişikliğin anlatım/`b:`/`wrongExp` boşlukları) |
+
+## 6. Telif envanteri — Goethe Modellsatz'dan birebir alınan içerik
+
+Depo herkese açık (GitHub Pages). `icerik/goethe/a1-modellsatz.pdf` metni (`pdftotext`) ile `index.html:3493–3700` aralığındaki Almanca parçalar karşılaştırıldı (121 parça tarandı, 18'i birebir eşleşti):
+
+- **Hören Teil 1, 6 soru (satır 3495, 3501, 3507, 3514, 3520, 3526)** — bloğun başlığı da "Modellsatz'tan birebir". Değiştirilecek.
+- **Hören, satır 3539** ("Wie ist die Telefonnummer?") — kısa, yaygın bir ifade eşleşmesi; sorunun geri kalanı Modellsatz'da değilse sorun değil. Madde madde bakılacak.
+- **Lesen Teil 1, "Hallo Li" e-postası ve soruları (satır 3620 civarı)** — birebir eşleşiyor. Değiştirilecek.
+
+Toplam: 7 kesin madde (6 Hören + 1 Lesen), 1 belirsiz. Git geçmişindeki eski commit (`ec8a74a`) silinemez; temizlik ileriye dönüktür.

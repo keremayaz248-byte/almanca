@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -18,7 +18,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.0/dist/umd/supabase.min.js"></script>
 <script src="icerik/supabase/client.js"></script>
-<script src="https://js.puter.com/v2/"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -1031,6 +1030,27 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .ek-head::after{display:none}
 .ek-head small{text-transform:none;letter-spacing:0}
 
+/* ── Ana ekran sekmeleri + alt menü ── */
+.tab-sec{display:none}
+#homeScreen[data-hometab="bugun"] .tab-sec[data-tab="bugun"],
+#homeScreen[data-hometab="ogren"] .tab-sec[data-tab="ogren"],
+#homeScreen[data-hometab="sinav"] .tab-sec[data-tab="sinav"],
+#homeScreen[data-hometab="pratik"] .tab-sec[data-tab="pratik"]{display:block}
+#bottomNav{display:none;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--white);
+  border-top:3px solid var(--text);padding-bottom:env(safe-area-inset-bottom)}
+#bottomNav .bn{flex:1;min-height:56px;min-width:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;background:var(--white);color:var(--text);border:none;border-left:2px solid var(--border);font-family:inherit;cursor:pointer}
+#bottomNav .bn:first-child{border-left:none}
+#bottomNav .bn-ik{font-size:1.25rem;line-height:1}
+#bottomNav .bn-ad{font-size:.74rem;font-weight:800}
+#bottomNav .bn.on{background:var(--text);color:var(--white)}
+body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+
+/* viewport-fit=cover: yatay modda çentik yan kenarları kesmesin */
+@supports(padding:max(0px)){
+  body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+}
+
 /* ── AI Sohbet ── */
 .ai-chat-intro{font-size:.84rem;color:var(--light);line-height:1.5;margin-bottom:14px}
 .ai-chat-msgs{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;min-height:200px}
@@ -1106,6 +1126,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 
 <!-- HOME -->
 <div id="homeScreen">
+  <div class="tab-sec" data-tab="bugun">
   <h1>🇩🇪 Almanca</h1>
 
   <!-- Günlük panel (seri / XP / hedef) -->
@@ -1133,7 +1154,10 @@ html[data-theme="dark"] .login-input{color:var(--text)}
   <!-- ══ BÖLÜM A: BUGÜN ══ günün çalışması tek akış halinde -->
   <div class="sec-head">📅 Bugün</div>
   <div id="bugunWrap"></div>
+  </div>
 
+
+  <div class="tab-sec" data-tab="sinav">
   <!-- ══ BÖLÜM B: SINAVA HAZIRLIK ══ sınavın üç bölümü, her zaman görünür -->
   <div class="sec-head">🎯 Sınava Hazırlık</div>
   <div class="sinav-grid">
@@ -1157,16 +1181,17 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     </div>
   </div>
 
+  </div>
+
+  <div class="tab-sec" data-tab="ogren">
   <!-- ══ BÖLÜM C: KONULAR ══ 38 konuluk omurga -->
   <div class="sec-head">📚 Konular</div>
   <div id="konuOzetWrap"></div>
-
-  <!-- ══ BÖLÜM C: EK ÇALIŞMA ══ serbest araçlar, katlanmış gelir -->
-  <div class="sec-head ek-head" id="ekHead" onclick="toggleEk()">
-    <span id="ekOk">▸</span> 🧰 Ek Çalışma
-    <small style="font-weight:600;color:var(--light);font-size:.75rem;display:block;margin-top:2px">Plan dışı serbest çalışmak istersen</small>
   </div>
-  <div id="ekWrap" style="display:none">
+
+
+  <!-- Ek Çalışma sekmelere dağıtıldı: Öğren / Pratik -->
+  <div class="tab-sec" data-tab="pratik">
 
   <!-- SERBEST HIZLI DERS: plandan bağımsız, 5-10 dakikalık tur -->
   <div class="hero-card" onclick="startDailyLesson()">
@@ -1176,6 +1201,8 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <span class="hero-btn">Başla</span>
   </div>
 
+  </div>
+  <div class="tab-sec" data-tab="ogren">
   <!-- BÖLÜM 1: ÖĞRENME -->
   <div class="sec-head">📖 Kendi Seçimin — Öğrenme</div>
   <div class="mode-grid">
@@ -1196,15 +1223,11 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     </div>
   </div>
 
+  </div>
+  <div class="tab-sec" data-tab="pratik">
   <!-- BÖLÜM 2: PRATİK -->
   <div class="sec-head">⚡ Pratik</div>
   <div class="mode-grid">
-    <div class="mode-card col-blue mode-card-full" onclick="startDinleme()">
-      <span class="mc-badge-new">YENİ</span>
-      <div class="mc-icon">🎧</div>
-      <div class="mc-title">Dinleme (Hören)</div>
-      <div class="mc-sub">Sınav formatı · Goethe model sınavından · 21 soru</div>
-    </div>
     <div class="mode-card col-yellow" onclick="startHizliTest()">
       <div class="mc-icon">⚡</div>
       <div class="mc-title">Hızlı Test</div>
@@ -1227,6 +1250,8 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     </div>
   </div>
 
+  </div>
+  <div class="tab-sec" data-tab="ogren">
   <!-- BÖLÜM 2.5: ANİMASYONLU SLAYTLAR -->
   <div class="sec-head">🎬 Animasyonlu Slaytlar</div>
   <div class="mode-grid">
@@ -1261,6 +1286,8 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     </div>
   </div>
 
+  </div>
+  <div class="tab-sec" data-tab="pratik">
   <!-- BÖLÜM 3: KEŞİF -->
   <div class="sec-head">🗺️ Keşif</div>
   <div class="mode-grid">
@@ -1288,6 +1315,8 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     </div>
   </div>
 
+  </div>
+  <div class="tab-sec" data-tab="ogren">
   <!-- BÖLÜM 4: ÖĞRETMEN EGZERSİZLERİ -->
   <div class="sec-head">📝 Öğretmen Egzersizleri</div>
   <div class="mode-grid">
@@ -1296,17 +1325,12 @@ html[data-theme="dark"] .login-input{color:var(--text)}
       <div class="mc-title">YS Hocanla Çalışmalar</div>
       <div class="mc-sub">Yöntemler · Egzersizler · Günün paragrafı</div>
     </div>
-    <div class="mode-card col-green mode-card-full" onclick="openYazmaList()">
-      <span class="mc-badge-new">YENİ</span>
-      <div class="mc-icon">✍️</div>
-      <div class="mc-title">Yazma Egzersizi</div>
-      <div class="mc-sub">Kendi metnini Türkçeden Almancaya SEN yaz, kontrol et</div>
-    </div>
   </div>
 
 
-  </div><!-- /ekWrap -->
+  </div>
 
+  <div class="tab-sec" data-tab="pratik">
   <!-- BÖLÜM 5: DÜELLO — arkadaşınla çevrimiçi karşılaşma -->
   <div class="sec-head">⚔️ Arkadaşınla Yarış</div>
   <div class="duello-card-wrap" id="duelloSection">
@@ -1319,12 +1343,15 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     </div>
   </div>
 
+  </div>
+  <div class="tab-sec" data-tab="bugun">
   <!-- BÖLÜM 6: YENİLİKLER — her güncellemede buraya not düşülür -->
   <div class="sec-head ek-head" id="clHead" onclick="toggleChangelog()">
     <span id="clOk">▸</span> 🆕 Yenilikler
     <small style="font-weight:600;color:var(--light);font-size:.75rem;display:block;margin-top:2px">Uygulamaya ne eklendi</small>
   </div>
   <div id="changelogWrap" style="display:none"></div>
+  </div>
 </div>
 
 <!-- LESEN — sınav formatında okuma -->
@@ -2083,6 +2110,14 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 </div>
 
 </main>
+
+<!-- ALT MENÜ — dört ana bölüm; soru/sınav ekranlarında gizlenir -->
+<nav id="bottomNav" aria-label="Ana bölümler">
+  <button class="bn" data-tab="bugun" onclick="goTab('bugun')"><span class="bn-ik" aria-hidden="true">📅</span><span class="bn-ad">Bugün</span></button>
+  <button class="bn" data-tab="ogren" onclick="goTab('ogren')"><span class="bn-ik" aria-hidden="true">📚</span><span class="bn-ad">Öğren</span></button>
+  <button class="bn" data-tab="sinav" onclick="goTab('sinav')"><span class="bn-ik" aria-hidden="true">🎯</span><span class="bn-ad">Sınav</span></button>
+  <button class="bn" data-tab="pratik" onclick="goTab('pratik')"><span class="bn-ik" aria-hidden="true">🧰</span><span class="bn-ad">Pratik</span></button>
+</nav>
 
 <!-- HINT BAR (game) -->
 <div id="hintBar">
@@ -2942,6 +2977,7 @@ function showScreen(id){
   clearAutoNext();
   curScreen=id;
   ALL_SCREENS.forEach(s=>{ document.getElementById(s).style.display = s===id?'block':'none'; });
+  updateNav(id);
   const showProg = ['gameScreen','learnScreen','edatScreen','gramerTopicScreen','gramerTestScreen','artikelScreen','pluralScreen','hizliScreen','ysScreen','havbesScreen','mcScreen','yazmaScreen','topicWriteScreen','horenScreen','lesenScreen'].includes(id);
   document.getElementById('progWrap').style.display = showProg?'block':'none';
   if(id==='homeScreen'){ setHeader('🇩🇪 Almanca', false); document.getElementById('headerStats').style.display='none'; renderHome(); }
@@ -2965,6 +3001,7 @@ function hdrBackGo(){
   if(BACK_TO_GRAMER.includes(curScreen)){ showScreen('gramerScreen'); buildTopicGrid(); return; }
   if(BACK_TO_YAZMA.includes(curScreen)){ openYazmaList(); return; }
   if(BACK_TO_TOPICWRITE.includes(curScreen)){ openSlideDeck(twKey); return; }
+  if(curScreen==='konuScreen'){ openKonuListe(); return; }  // konudan geri = Öğren sekmesindeki konu listesi
   goHome();
 }
 
@@ -4138,11 +4175,6 @@ function renderKonuOzet(){
     '<div class="goal-track" style="margin-top:10px"><div class="goal-fill" style="width:'+Math.round(t/KONULAR.length*100)+'%"></div></div>'+
     '</div>';
 }
-function toggleEk(){
-  const w=document.getElementById('ekWrap'), o=document.getElementById('ekOk');
-  const ac=w.style.display==='none';
-  w.style.display=ac?'block':'none'; o.textContent=ac?'▾':'▸';
-}
 // ══════════════════════════════════════════
 //  ERISILEBILIRLIK — WCAG 2.1.1 (klavye) ve 4.1.2 (rol)
 //  Uygulamada tiklanabilir cok sayida <div onclick> var; bunlara Tab ile
@@ -4364,6 +4396,12 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'19 Ekim 2026 — Alt menü: Bugün / Öğren / Sınav / Pratik', items:[
+    '🧭 <b>Ana ekran artık 4 sekme.</b> Altta sabit bir menü var: <b>Bugün</b> (günün dersi), <b>Öğren</b> (konular, kelime/gramer, slaytlar, YS Hoca), <b>Sınav</b> (Dinleme, Okuma, Yazma), <b>Pratik</b> (hızlı test, oyunlar, Düello). Uygulama her açılışta "Bugün"e açılıyor.',
+    '🧹 Uzun tek sayfa ve kapalı "Ek Çalışma" bloğu kalktı; hiçbir özellik silinmedi, hepsi bir sekmeye taşındı. Dinleme ve Yazma artık iki yerde değil, yalnız Sınav sekmesinde.',
+    '🔒 Soru, sınav ve oyun ekranlarında alt menü gizli — sınavın ortasında yanlışlıkla sekme değişmesin. Konudan geri bastığında konu listesine dönüyorsun.',
+    '⚡ Arka planda: yapay zekâ sohbetinin üçüncü taraf betiği artık yalnız sohbeti açınca yükleniyor, uygulamanın açılışını yavaşlatmıyor.'
+  ]},
   {date:'19 Ekim 2026 — Canlı AI Sohbet (Yazma Egzersizi)', items:[
     '🤖 <b>"Almanca Sohbet" eklendi</b> → Yazma Egzersizi listesinin en üstünde. Serbestçe Almanca yazıp anlık cevap alabiliyorsun; hatalarını Türkçe açıklamayla düzeltiyor.',
     '🆓 <b>Ücretsiz, anahtarsız üçüncü taraf servis (Puter.js)</b> kullanıldı — site saf statik (GitHub Pages, sunucu yok) olduğu için kendi API anahtarımızı koymak herkese açık olurdu. İlk mesajda bir kerelik küçük bir izin penceresi açılabilir.',
@@ -4538,6 +4576,28 @@ function setProgress(pct, lbl){
 }
 
 function goHome(){ LESSON=null; showScreen('homeScreen'); closeHint(); renderHome(); }
+
+// ── Alt menü ──────────────────────────────
+// Uygulama her açılışta "Bugün" sekmesine başlar; goHome() son açık sekmeye döner.
+let homeTab='bugun';
+// Alt menünün göründüğü ekranlar → hangi sekmeye ait. '__home' = son açık ana sekme.
+// Soru, sınav ve oyun ekranları listede yok: orada menü gizlenir (sınav ortasında yanlışlıkla sekme değişmesin).
+const NAV_EKRAN_SEKME={konuListScreen:'ogren',gramerScreen:'ogren',ysHubScreen:'ogren',yazmaListScreen:'sinav',
+  wordSearchListScreen:'pratik',catScreen:'__home'};
+function goTab(t){ homeTab=t; LESSON=null; showScreen('homeScreen'); closeHint(); renderHome(); window.scrollTo(0,0); }
+function updateNav(id){
+  let tab = id==='homeScreen' ? homeTab : NAV_EKRAN_SEKME[id];
+  if(tab==='__home') tab=homeTab;
+  const nav=document.getElementById('bottomNav');
+  if(nav) nav.style.display = tab ? 'flex' : 'none';
+  document.body.classList.toggle('has-nav', !!tab);
+  const hs=document.getElementById('homeScreen'); if(hs) hs.setAttribute('data-hometab', homeTab);
+  document.querySelectorAll('#bottomNav .bn').forEach(b=>{
+    const on=b.dataset.tab===tab;
+    b.classList.toggle('on',on);
+    if(on) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current');
+  });
+}
 
 // ══════════════════════════════════════════
 //  BUGÜNÜN DERSİ — yönlendirilmiş akış
@@ -7483,7 +7543,23 @@ const AI_SYSTEM_PROMPT = 'Sen Türk bir A1 seviyesindeki Almanca öğrencisine �
   '3) Cevapların kısa olsun (en fazla 3-4 cümle), sohbeti devam ettirecek bir soru sor. ' +
   '4) Asla İngilizce yazma.';
 
+// Puter.js yalnızca sohbet açılınca yüklenir: üçüncü taraf betik uygulamanın açılışını geciktirmesin.
+let puterYuklemesi=null;
+function puterYukle(){
+  if(typeof puter!=='undefined') return Promise.resolve();
+  if(puterYuklemesi) return puterYuklemesi;
+  puterYuklemesi=new Promise((res,rej)=>{
+    const s=document.createElement('script');
+    s.src='https://js.puter.com/v2/';
+    s.onload=()=>res();
+    s.onerror=()=>{ puterYuklemesi=null; rej(new Error('Servis yüklenemedi')); };
+    document.head.appendChild(s);
+  });
+  return puterYuklemesi;
+}
+
 function openAiChat(){
+  puterYukle().catch(()=>{});
   showScreen('aiChatScreen');
   setHeader('🤖 Almanca Sohbet', false);
   if(aiChatHistory.length === 0){
@@ -7516,6 +7592,7 @@ async function aiChatSend(){
   const loadingEl = aiChatAppend('bot', 'yazıyor...');
   loadingEl.classList.add('loading');
   try {
+    await puterYukle();
     if (typeof puter === 'undefined' || !puter.ai || !puter.ai.chat) {
       throw new Error('Servis yüklenemedi');
     }

@@ -15,3 +15,11 @@ icerik/sayfa/
 # Playwright ekran goruntuleri
 icerik/ss/
 icerik/goethe/
+
+# Perplexity / NotebookLM yerel arac yan urunleri (oturum cerezleri iceriyor, ASLA commit edilmez)
+_pplx_profile/
+_pplx.js
+_pplx_giris.js
+_pplx.png
+_test_*.js
+icerik/hazir/_ham/
