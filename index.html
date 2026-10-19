@@ -18,6 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.0/dist/umd/supabase.min.js"></script>
 <script src="icerik/supabase/client.js"></script>
+<script src="https://js.puter.com/v2/"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -1029,6 +1030,19 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .ek-head{cursor:pointer;user-select:none;display:block !important;padding:10px 12px;background:var(--white);border:2px solid var(--border);border-radius:13px;text-transform:none;letter-spacing:.2px;font-size:.88rem;color:var(--text)}
 .ek-head::after{display:none}
 .ek-head small{text-transform:none;letter-spacing:0}
+
+/* ── AI Sohbet ── */
+.ai-chat-intro{font-size:.84rem;color:var(--light);line-height:1.5;margin-bottom:14px}
+.ai-chat-msgs{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;min-height:200px}
+.ai-msg{max-width:84%;padding:10px 14px;border-radius:16px;font-size:.92rem;line-height:1.5;white-space:pre-wrap}
+.ai-msg.me{align-self:flex-end;background:var(--purple);color:#fff;border-bottom-right-radius:4px}
+.ai-msg.bot{align-self:flex-start;background:var(--white);border:2px solid var(--border);border-bottom-left-radius:4px}
+.ai-msg.bot.loading{color:var(--light);font-style:italic}
+.ai-chat-inputrow{display:flex;gap:8px;position:sticky;bottom:0;background:var(--bg);padding-top:6px}
+.ai-chat-inputrow textarea{flex:1;min-height:46px;max-height:120px;resize:vertical;font-family:inherit;font-size:.92rem;padding:11px 13px;border-radius:14px;border:2px solid var(--border);background:var(--white);color:var(--text)}
+.ai-chat-send{background:var(--purple);color:#fff;border:none;border-radius:14px;padding:0 18px;font-weight:800;font-size:1.2rem;cursor:pointer}
+.ai-chat-send:disabled{opacity:.5;cursor:default}
+.ai-chat-err{background:var(--red-bg);border:1.5px solid var(--red);border-radius:9px;padding:8px 12px;margin-bottom:10px;font-size:.82rem;color:#A83A26;display:none}
 </style>
 <script>
 /* Tema sayfa boyanmadan ÖNCE uygulanır — yoksa açılışta beyaz parlama olur.
@@ -1896,7 +1910,27 @@ html[data-theme="dark"] .login-input{color:var(--text)}
     <button class="btn-home" onclick="goHome()">← Geri</button>
   </div>
   <div class="hub-intro">Önce Türkçesini oku, sonra Almancasını <b>SEN</b> yaz. Kontrol ettiğinde doğru mantığı ve olası hata nedenini ayrı ayrı göreceksin.</div>
+  <div class="hub-card" onclick="openAiChat()">
+    <div class="hub-emoji">🤖</div>
+    <div class="hub-info"><div class="hub-title">Almanca Sohbet (Canlı AI)</div><div class="hub-desc">İstediğin gibi Almanca yaz, anlık cevap alıp pratik yap — ücretsiz</div></div>
+    <div class="hub-arrow">→</div>
+  </div>
   <div id="yazmaListWrap"></div>
+</div>
+
+<!-- AI SOHBET — Puter.js üzerinden ücretsiz, anlık model -->
+<div id="aiChatScreen">
+  <div class="cat-top">
+    <h2>🤖 Almanca Sohbet</h2>
+    <button class="btn-home" onclick="openYazmaList()">← Geri</button>
+  </div>
+  <div class="ai-chat-intro">Almanca yaz veya Türkçe sor, yapay zeka seninle Almanca pratik yapsın. Hatalarını düzeltip açıklayacak. İlk mesajında küçük bir onay penceresi açılabilir, "izin ver" / "continue" de — bir daha sormaz. (Üçüncü taraf ücretsiz servis üzerinden çalışır, yazdıkların bu servise gider.)</div>
+  <div class="ai-chat-err" id="aiChatErr"></div>
+  <div class="ai-chat-msgs" id="aiChatMsgs"></div>
+  <div class="ai-chat-inputrow">
+    <textarea id="aiChatInput" placeholder="Almanca yaz... (Enter ile gönder)" autocomplete="off" autocorrect="off" spellcheck="false"></textarea>
+    <button class="ai-chat-send" id="aiChatSendBtn" onclick="aiChatSend()">➤</button>
+  </div>
 </div>
 
 <!-- YAZMA EGZERSİZİ — SORU -->
@@ -2898,7 +2932,7 @@ const ALL_SCREENS = ['homeScreen','konuListScreen','konuScreen','horenScreen','h
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
   'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen',
-  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
+  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','aiChatScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
   'sceneScreen','sceneDoneScreen','topicWriteScreen','topicWriteDoneScreen'];
 
 let curScreen='homeScreen';
@@ -2923,7 +2957,7 @@ function showScreen(id){
 // Global geri: ekrana göre bir üst seviyeye döner (YS alt ekranları → hub, gramer alt → konu listesi, gerisi → ana menü)
 const BACK_TO_HUB=['ysScreen','ysDoneScreen','havbesScreen','havbesDoneScreen','mcScreen','mcDoneScreen','ysRefScreen','paraScreen'];
 const BACK_TO_GRAMER=['gramerTopicScreen','gramerTestScreen','gramerTestDoneScreen'];
-const BACK_TO_YAZMA=['yazmaScreen','yazmaDoneScreen'];
+const BACK_TO_YAZMA=['yazmaScreen','yazmaDoneScreen','aiChatScreen'];
 const BACK_TO_TOPICWRITE=['topicWriteScreen','topicWriteDoneScreen'];
 function hdrBackGo(){
   if(LESSON){ LESSON=null; goHome(); return; }  // ders akışındayken geri = dersi bırak
@@ -4330,6 +4364,11 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'19 Ekim 2026 — Canlı AI Sohbet (Yazma Egzersizi)', items:[
+    '🤖 <b>"Almanca Sohbet" eklendi</b> → Yazma Egzersizi listesinin en üstünde. Serbestçe Almanca yazıp anlık cevap alabiliyorsun; hatalarını Türkçe açıklamayla düzeltiyor.',
+    '🆓 <b>Ücretsiz, anahtarsız üçüncü taraf servis (Puter.js)</b> kullanıldı — site saf statik (GitHub Pages, sunucu yok) olduğu için kendi API anahtarımızı koymak herkese açık olurdu. İlk mesajda bir kerelik küçük bir izin penceresi açılabilir.',
+    '⚠️ Yazdıkların bu üçüncü taraf servise (puter.com) gidiyor — gizlilik notu sohbet ekranının üstünde yazıyor.'
+  ]},
   {date:'16 Ekim 2026 — Yeni tasarım: Bauhaus / DIN', items:[
     '🎨 <b>Uygulama baştan sona yeniden tasarlandı.</b> Yön: Alman tasarım mirası (Bauhaus / DIN işaret sistemi) — konuyla doğrudan bağlantılı. Keskin köşeler, kalın siyah çizgiler, gölgesiz yüzeyler, Archivo grotesk yazı tipi.',
     '🚦 <b>Renk artık bilgi taşıyor, süs değil:</b> Dinleme mavi, Okuma sarı, Yazma kırmızı — metro hattı gibi sabit kod. Birincil eylem düğmesi siyah blok.',
@@ -7426,7 +7465,74 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(yi) yi.addEventListener('keydown',e=>{ if(e.key==='Enter') ysCheckAnswer(); });
   const yzi=document.getElementById('yazmaInput');
   if(yzi) yzi.addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key==='Enter') checkYazma(); });
+  const aci=document.getElementById('aiChatInput');
+  if(aci) aci.addEventListener('keydown',e=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); aiChatSend(); } });
 });
+
+// ══════════════════════════════════════════
+//  🤖 AI SOHBET — Puter.js (ücretsiz, anahtarsız model erişimi)
+//  Not: yazdıklar puter.com sunucularına gider, statik site arkasında
+//  sunucumuz olmadığı için anahtar gizlenemez — bu yüzden anahtarsız,
+//  üçüncü taraf ücretsiz servis tercih edildi.
+// ══════════════════════════════════════════
+let aiChatHistory = [];
+const AI_SYSTEM_PROMPT = 'Sen Türk bir A1 seviyesindeki Almanca öğrencisine özel ders veren, sabırlı bir Almanca öğretmenisin. ' +
+  'Kullanıcı sana Almanca veya Türkçe yazabilir. Kurallar: ' +
+  '1) Cevabını önce kısa ve basit Almanca yaz (A1-A2 seviyesi kelimelerle), hemen altına parantez içinde Türkçe çevirisini ekle. ' +
+  '2) Kullanıcının yazdığı Almanca cümlede hata varsa, nazikçe düzelt: doğru hâlini göster ve hatanın nedenini 1 cümleyle Türkçe açıkla. ' +
+  '3) Cevapların kısa olsun (en fazla 3-4 cümle), sohbeti devam ettirecek bir soru sor. ' +
+  '4) Asla İngilizce yazma.';
+
+function openAiChat(){
+  showScreen('aiChatScreen');
+  setHeader('🤖 Almanca Sohbet', false);
+  if(aiChatHistory.length === 0){
+    aiChatAppend('bot', 'Merhaba! 👋 Benimle Almanca pratik yapabilirsin. Bir şeyler yaz, bakalım.\n(Hallo! Mit mir kannst du Deutsch üben. Schreib etwas, dann sehen wir weiter.)');
+  }
+  setTimeout(()=>{ const i=document.getElementById('aiChatInput'); if(i) i.focus(); }, 50);
+}
+
+function aiChatAppend(who, text){
+  const wrap = document.getElementById('aiChatMsgs');
+  const div = document.createElement('div');
+  div.className = 'ai-msg ' + (who==='me' ? 'me' : 'bot');
+  div.textContent = text;
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+  return div;
+}
+
+async function aiChatSend(){
+  const inp = document.getElementById('aiChatInput');
+  const text = inp.value.trim();
+  if(!text) return;
+  const errBox = document.getElementById('aiChatErr');
+  errBox.style.display = 'none';
+  const btn = document.getElementById('aiChatSendBtn');
+  aiChatAppend('me', text);
+  aiChatHistory.push({role:'user', content:text});
+  inp.value = '';
+  btn.disabled = true;
+  const loadingEl = aiChatAppend('bot', 'yazıyor...');
+  loadingEl.classList.add('loading');
+  try {
+    if (typeof puter === 'undefined' || !puter.ai || !puter.ai.chat) {
+      throw new Error('Servis yüklenemedi');
+    }
+    const messages = [{role:'system', content: AI_SYSTEM_PROMPT}, ...aiChatHistory];
+    const res = await puter.ai.chat(messages);
+    const reply = (res && (res.message?.content || res.text || res.toString())) || 'Cevap alınamadı, tekrar dener misin?';
+    loadingEl.remove();
+    aiChatAppend('bot', reply);
+    aiChatHistory.push({role:'assistant', content:reply});
+  } catch(e) {
+    loadingEl.remove();
+    errBox.textContent = '⚠️ Bağlanamadı. İnternetini kontrol et ve tekrar dene. (' + (e.message||'bilinmeyen hata') + ')';
+    errBox.style.display = 'block';
+  }
+  btn.disabled = false;
+  inp.focus();
+}
 
 // ══════════════════════════════════════════
 //  🎭 SAHNE HİKAYESİ OYUNU — "Noldu?" (animasyonlu fiil öğrenme)
