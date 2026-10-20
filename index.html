@@ -1030,6 +1030,53 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .ek-head::after{display:none}
 .ek-head small{text-transform:none;letter-spacing:0}
 
+/* ── Görsel ders sayfaları ── */
+.slide-baslik{font-size:1.35rem;font-weight:900;line-height:1.25;margin-bottom:12px}
+.slide-panel{background:var(--white);color:var(--text);border:2px solid var(--text);padding:14px;margin:10px 0 0;text-align:left;overflow:hidden}
+.sema-satir{margin-bottom:16px}
+.sema-et{font-size:.76rem;font-weight:800;color:var(--light);margin-bottom:7px}
+.sema-not{color:var(--text);background:var(--yellow-bg);padding:1px 7px;margin-left:4px}
+.sema-cumle{display:flex;flex-wrap:wrap;gap:6px}
+.sema-tok{display:inline-flex;flex-direction:column;align-items:center;padding:6px 9px;border:2px solid;font-weight:800;font-size:.95rem;line-height:1.2}
+.sema-n{font-size:.64rem;font-weight:700}
+.sema-tok.mini{flex-direction:row;padding:2px 8px;font-size:.7rem}
+.sema-tok.sonda{box-shadow:inset -4px 0 0 currentColor}
+.sema-tr{font-size:.8rem;color:var(--light);margin-top:5px;font-weight:600}
+.sema-lej{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px;padding-top:10px;border-top:2px dashed var(--border)}
+.sema-kural{font-size:.86rem;line-height:1.5;font-weight:700;padding:10px 12px;border-left:5px solid var(--text);background:var(--bg)}
+.r-ozne{border-color:#1f6fb2;background:#e1effa;color:#0f3f6b}
+.r-fiil{border-color:#c0392b;background:#fbe4e1;color:#7a1f15}
+.r-bag{border-color:#2e8b57;background:#e0f3e8;color:#14532d}
+.r-nesne{border-color:#c2711a;background:#fbeedd;color:#6b3a0a}
+.r-zaman{border-color:#7b3fa0;background:#efe3f6;color:#3d1a57}
+.r-diger{border-color:#8a7461;background:#f0ebe4;color:#3a2e26}
+html[data-theme="dark"] .r-ozne{background:#14293b;color:#9fd0f5;border-color:#5aa6e0}
+html[data-theme="dark"] .r-fiil{background:#3a1a17;color:#ffb3a8;border-color:#e8786a}
+html[data-theme="dark"] .r-bag{background:#122e1f;color:#9be0b5;border-color:#4fbf7f}
+html[data-theme="dark"] .r-nesne{background:#392411;color:#ffcf99;border-color:#e0954a}
+html[data-theme="dark"] .r-zaman{background:#2a1738;color:#dab3f0;border-color:#a56ccc}
+html[data-theme="dark"] .r-diger{background:#2b2620;color:#d9cfc3;border-color:#8a7a68}
+.slide-tablo{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ders-tablo{border-collapse:collapse;width:100%;font-size:.88rem}
+.ders-tablo th,.ders-tablo td{border:2px solid var(--border);padding:7px 9px;text-align:left;vertical-align:top}
+.ders-tablo thead th{background:var(--text);color:var(--white);font-weight:800;white-space:nowrap}
+.ders-tablo tbody th{background:var(--bg);font-weight:800;white-space:nowrap}
+.zaman-cizgi{position:relative;margin:4px 0 12px;padding-left:4px}
+.zaman-cizgi::before{content:'';position:absolute;left:17px;top:10px;bottom:10px;width:3px;background:var(--text)}
+.zaman-nokta{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;position:relative}
+.zaman-isaret{flex:0 0 28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--text);color:var(--white);font-weight:900;font-size:.85rem;z-index:1}
+.zaman-et{font-size:.72rem;font-weight:800;color:var(--light)}
+.zaman-ornek{font-size:.9rem;font-weight:700;margin-top:3px}
+.kural-liste{margin:0 0 6px 18px;font-size:.92rem;line-height:1.6;font-weight:600}
+.kural-liste li{margin-bottom:6px}
+.kural-uyari{margin-top:8px;font-size:.84rem;font-weight:700;padding:9px 12px;background:var(--yellow-bg);border-left:5px solid var(--yellow)}
+.podcast-kutu{border:2px solid var(--text);background:var(--white);padding:12px;margin-bottom:12px}
+.podcast-bas small{display:block;font-size:.74rem;color:var(--light);font-weight:600}
+.podcast-kontrol{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.podcast-kontrol button{min-height:44px}
+.podcast-kontrol select{min-height:44px;padding:0 8px;border:2px solid var(--border);background:var(--white);color:var(--text);font-family:inherit;font-weight:700}
+.podcast-durum{font-size:.8rem;color:var(--red);margin-top:8px;font-weight:700}
+
 /* ── Hedef sınav ── */
 .hedef-kart{display:flex;align-items:center;gap:12px;padding:12px 14px;border:2px solid var(--text);background:var(--white);cursor:pointer;margin-bottom:10px}
 .hedef-kart small{display:block;font-size:.78rem;color:var(--light);margin-top:2px;font-weight:600}
@@ -4180,7 +4227,7 @@ function renderKonu(){
     const a=k.anlatim?anlatimGetir(k.anlatim):null;
     const grKart=(!a&&k.gr)?(GRAMER_TOPICS.find(t=>t.id===k.gr)||{}).rule:null;
     if(a){
-      g.innerHTML=b1Notu(k)+'<div class="anlatim-kaynak">Kaynak: '+a.kaynak+'</div>'+
+      g.innerHTML=b1Notu(k)+podcastHtml(k.podcast)+'<div class="anlatim-kaynak">Kaynak: '+a.kaynak+'</div>'+
         '<div class="rule-card">'+a.html+'</div>'+
         (k.slayt?'<button class="btn-toggle" style="width:100%;margin-top:10px" onclick="openSlideDeck(\''+k.slayt+'\')">🎬 Animasyonlu anlatımı izle</button>':'')+
         '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam</button>';
@@ -8256,6 +8303,78 @@ const SLIDE_DECKS = {
     ]
   },
 };
+// ── Görsel ders sayfası türleri ───────────────────────────────────
+// Tüm Almanca metin gerçek metindir (yapay zekâ görseli değil): seçilebilir, koyu temada okunur.
+const SEMA_ROL={ozne:'özne',fiil:'fiil',bag:'bağlaç',nesne:'nesne',zaman:'zaman/yer',diger:'diğer'};
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+// jetonlar: [{t:'Ich',r:'ozne'}, ...] — sıra numarası otomatik; r renk + yazı etiketi (renk tek başına bilgi taşımaz)
+function semaCumleHtml(jetonlar){
+  return '<div class="sema-cumle">'+jetonlar.map((j,i)=>
+    '<span class="sema-tok r-'+j.r+(j.sonda?' sonda':'')+'"><span class="sema-t">'+esc(j.t)+'</span>'+
+    '<span class="sema-n">'+(SEMA_ROL[j.r]||'')+' · '+(i+1)+'</span></span>').join('')+'</div>';
+}
+function semaHtml(s){
+  const kullanilan=new Set(); (s.satirlar||[]).forEach(r=>r.jetonlar.forEach(j=>kullanilan.add(j.r)));
+  let o='<div class="slide-panel">';
+  (s.satirlar||[]).forEach(r=>{
+    o+='<div class="sema-satir"><div class="sema-et">'+esc(r.etiket)+(r.not?' <span class="sema-not">'+esc(r.not)+'</span>':'')+'</div>'+semaCumleHtml(r.jetonlar)+
+       (r.tr?'<div class="sema-tr">'+esc(r.tr)+'</div>':'')+'</div>';
+  });
+  o+='<div class="sema-lej">'+[...kullanilan].map(k=>'<span class="sema-tok mini r-'+k+'">'+SEMA_ROL[k]+'</span>').join('')+'</div>';
+  if(s.not) o+='<div class="sema-kural">'+s.not+'</div>';
+  return o+'</div>';
+}
+function tabloHtml(s){
+  let o='<div class="slide-panel"><div class="slide-tablo"><table class="ders-tablo"><thead><tr>'+
+    s.basliklar.map(b=>'<th>'+esc(b)+'</th>').join('')+'</tr></thead><tbody>'+
+    s.satirlar.map(r=>'<tr>'+r.map((c,i)=>'<'+(i===0&&s.ilkSutunBaslik!==false?'th scope="row"':'td')+'>'+(s.html?c:esc(c))+'</'+(i===0&&s.ilkSutunBaslik!==false?'th':'td')+'>').join('')+'</tr>').join('')+
+    '</tbody></table></div>';
+  if(s.not) o+='<div class="sema-kural">'+s.not+'</div>';
+  return o+'</div>';
+}
+function zamanHtml(s){
+  return '<div class="slide-panel"><div class="zaman-cizgi">'+s.noktalar.map((n,i)=>
+    '<div class="zaman-nokta"><span class="zaman-isaret">'+(i+1)+'</span><div><b>'+esc(n.baslik)+'</b>'+
+    (n.etiket?' <span class="zaman-et">'+esc(n.etiket)+'</span>':'')+
+    (n.ornek?'<div class="zaman-ornek">'+n.ornek+'</div>':'')+(n.tr?'<div class="sema-tr">'+esc(n.tr)+'</div>':'')+'</div></div>').join('')+'</div>'+
+    (s.not?'<div class="sema-kural">'+s.not+'</div>':'')+'</div>';
+}
+function kuralHtml(s){
+  return '<div class="slide-panel"><ul class="kural-liste">'+s.maddeler.map(m=>'<li>'+m+'</li>').join('')+'</ul>'+
+    (s.uyari?'<div class="kural-uyari">⚠️ '+s.uyari+'</div>':'')+'</div>';
+}
+function slideBlok(s){
+  if(s.tur==='sema') return semaHtml(s);
+  if(s.tur==='tablo') return tabloHtml(s);
+  if(s.tur==='zaman') return zamanHtml(s);
+  if(s.tur==='kural') return kuralHtml(s);
+  return '';
+}
+
+// ── Podcast oynatıcı (konu sayfasında; podcast yoksa hiç gösterilmez) ──
+function podcastHtml(url){
+  if(!url) return '';
+  return '<div class="podcast-kutu" id="podcastKutu"><div class="podcast-bas">🎙️ <b>Konu podcast\'i</b><small>dinleyerek de öğren</small></div>'+
+    '<audio id="podcastAudio" preload="none" src="'+url+'" onerror="podcastHata()"></audio>'+
+    '<div class="podcast-kontrol">'+
+    '<button class="btn-toggle" onclick="podcastSar(-10)" aria-label="10 saniye geri">⏪ 10</button>'+
+    '<button class="btn-start" id="podcastOynat" onclick="podcastOynat()">▶ Oynat</button>'+
+    '<button class="btn-toggle" onclick="podcastSar(10)" aria-label="10 saniye ileri">10 ⏩</button>'+
+    '<select id="podcastHiz" onchange="podcastHiz()" aria-label="Oynatma hızı"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select>'+
+    '</div><div class="podcast-durum" id="podcastDurum"></div></div>';
+}
+function podcastOynat(){
+  const a=document.getElementById('podcastAudio'), b=document.getElementById('podcastOynat'); if(!a) return;
+  if(a.paused){ a.play().then(()=>{ b.textContent='⏸ Duraklat'; }).catch(()=>podcastHata()); }
+  else { a.pause(); b.textContent='▶ Oynat'; }
+}
+function podcastSar(sn){ const a=document.getElementById('podcastAudio'); if(a) a.currentTime=Math.max(0,a.currentTime+sn); }
+function podcastHiz(){ const a=document.getElementById('podcastAudio'), s=document.getElementById('podcastHiz'); if(a&&s) a.playbackRate=parseFloat(s.value); }
+function podcastHata(){
+  const d=document.getElementById('podcastDurum'); if(!d) return;
+  d.textContent='🔇 Ses indirilemedi (internet yok olabilir). Yazılı anlatım aşağıda çalışmaya devam ediyor.';
+}
+
 let slideDeck=null, slideIdx=0, slideDeckKey=null;
 function openSlideDeck(key){
   slideDeck=SLIDE_DECKS[key]; slideIdx=0; slideDeckKey=key;
@@ -8268,8 +8387,10 @@ function renderSlide(){
   const stage=document.getElementById('slideStage');
   let inner='<div class="slide-card slide-anim" style="background:'+slideDeck.accent+'">';
   if(s.kicker) inner+='<div class="slide-kicker">'+s.kicker+'</div>';
-  inner+='<div class="slide-big">'+s.big+'</div>';
+  if(s.big) inner+='<div class="slide-big">'+s.big+'</div>';
+  if(s.baslik) inner+='<div class="slide-baslik">'+s.baslik+'</div>';
   if(s.mean) inner+='<div class="slide-mean">'+s.mean+'</div>';
+  if(s.tur) inner+=slideBlok(s);
   if(s.egs) s.egs.forEach((e,i)=>{ inner+='<div class="slide-eg" style="animation-delay:'+(0.15+i*0.18)+'s">'+e+'</div>'; });
   if(s.story) inner+='<div class="slide-story">'+s.story+'</div>';
   if(s.tip) inner+='<div class="slide-tip">'+s.tip+'</div>';
@@ -8280,12 +8401,13 @@ function renderSlide(){
     '<div class="slide-dot'+(i===slideIdx?' on':'')+'" onclick="slideGo('+i+')"></div>').join('');
   document.getElementById('slidePrevBtn').disabled=(slideIdx===0);
   const nb=document.getElementById('slideNextBtn');
-  nb.textContent=(slideIdx===slideDeck.slides.length-1)?'Bitir ✓':'İleri';
+  nb.textContent=(slideIdx===slideDeck.slides.length-1)?((slideDeck.sonra||TOPIC_WRITE[slideDeckKey])?'Alıştırmaya geç →':'Bitir ✓'):'İleri';
 }
 function slideNext(){
   if(slideIdx>=slideDeck.slides.length-1){
     awardXP(5);
     if(TOPIC_WRITE[slideDeckKey]){ startTopicWrite(slideDeckKey); return; }
+    if(slideDeck.sonra){ konuAlistirma(slideDeck.sonra); return; }
     goHome(); return;
   }
   slideIdx++; renderSlide();

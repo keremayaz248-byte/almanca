@@ -307,14 +307,16 @@ async function aksamSenaryosu(browser) {
     const s = await page.evaluate(() => ({ ekran: curScreen, aksam: AKSAM, n: gtQs.length, basliklar: [...new Set(gtQs.map(q => q.topicTitle))] }));
     kontrol('sinav basladi (akşam modu, soru var)', s.ekran === 'gramerTestScreen' && s.aksam === true && s.n >= 8, JSON.stringify(s));
     kontrol('sorular bugunun konusunu icerir (Selamlasma)', s.basliklar.includes('Selamlaşma'), s.basliklar.join());
-    // ilk soruyu yanlis, kalanini dogru yap
+    // konuya bagli (_konu) ilk soruyu yanlis, kalanini dogru yap (siralama rastgele, bu yuzden ilk _konu'lu soru secilir)
     await page.evaluate(() => {
-      let ilk = true;
+      let yanlisYapildi = false;
       while (curScreen === 'gramerTestScreen' && gtIdx < gtQs.length) {
         const q = gtQs[gtIdx];
         const secenekler = [...document.querySelectorAll('#gtOpts .gr-opt')];
-        const hedef = ilk ? secenekler.find(b => b.textContent !== q.blank) : secenekler.find(b => b.textContent === q.blank);
-        ilk = false; hedef.click(); gtNextQ();
+        const yanlisYap = !yanlisYapildi && q._konu;
+        const hedef = yanlisYap ? secenekler.find(b => b.textContent !== q.blank) : secenekler.find(b => b.textContent === q.blank);
+        if (yanlisYap) yanlisYapildi = true;
+        hedef.click(); gtNextQ();
       }
     });
     await page.waitForFunction(() => curScreen === 'gramerTestDoneScreen');
@@ -407,6 +409,81 @@ async function hedefSenaryosu(browser) {
   await ctx.close();
 }
 
+// ── Senaryo: gorsel ders sayfasi motoru + podcast oynatici (gorev 8.x) ───
+function kontrastOrani(rgb1, rgb2) {
+  const lum = c => { const [r, g, b] = c.map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+  const a = lum(rgb1), b = lum(rgb2); return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+}
+async function gorselSenaryosu(browser) {
+  const sessiz = (() => { const n = 4000, buf = Buffer.alloc(44 + n * 2); buf.write('RIFF', 0); buf.writeUInt32LE(36 + n * 2, 4); buf.write('WAVEfmt ', 8); buf.writeUInt32LE(16, 16); buf.writeUInt16LE(1, 20); buf.writeUInt16LE(1, 22); buf.writeUInt32LE(8000, 24); buf.writeUInt32LE(16000, 28); buf.writeUInt16LE(2, 32); buf.writeUInt16LE(16, 34); buf.write('data', 36); buf.writeUInt32LE(n * 2, 40); return 'data:audio/wav;base64,' + buf.toString('base64'); })();
+  const deste = {
+    title: '🧪 Test', accent: 'linear-gradient(135deg,#2AACD1,#1c7fa0)', sonra: 'gramer:weil',
+    slides: [
+      { type: 'intro', kicker: 'Test', big: 'weil', mean: 'çünkü' },
+      { tur: 'sema', kicker: 'Fiil sırası', baslik: 'Ana cümle ↔ weil cümlesi', satirlar: [
+        { etiket: 'Ana cümle', not: 'fiil 2. sırada', jetonlar: [{ t: 'Ich', r: 'ozne' }, { t: 'lerne', r: 'fiil' }, { t: 'Deutsch', r: 'nesne' }], tr: 'Almanca öğreniyorum.' },
+        { etiket: 'weil cümlesi', not: 'fiil SONDA', jetonlar: [{ t: 'weil', r: 'bag' }, { t: 'ich', r: 'ozne' }, { t: 'in Berlin', r: 'zaman' }, { t: 'arbeite', r: 'fiil', sonda: true }] }],
+        not: '<b>weil</b>\'den sonra çekimli fiil <b>en sona</b> gider.' },
+      { tur: 'tablo', kicker: 'Çekim', baslik: 'sein / haben', basliklar: ['', 'sein', 'haben'], satirlar: [['ich', 'bin', 'habe'], ['du', 'bist', 'hast'], ['er/sie/es', 'ist', 'hat'], ['wir', 'sind', 'haben'], ['ihr', 'seid', 'habt'], ['sie/Sie', 'sind', 'haben']], not: 'Çok kullanılan iki yardımcı fiil.' },
+      { tur: 'zaman', kicker: 'Zaman çizgisi', baslik: 'Geçmiş zamanlar', noktalar: [{ baslik: 'Präteritum', etiket: 'yazı dili', ornek: 'Ich <b>war</b> müde.', tr: 'Yorgundum.' }, { baslik: 'Perfekt', etiket: 'konuşma dili', ornek: 'Ich <b>bin</b> müde <b>gewesen</b>.' }], not: 'sein ve haben\'de Präteritum konuşmada da sık.' },
+      { tur: 'kural', kicker: 'Kural', baslik: 'Kısaca', maddeler: ['weil → fiil sona', 'denn → fiil 2. sırada'], uyari: 'İkisini karıştırma.' }
+    ]
+  };
+  for (const tema of ['acik', 'koyu']) {
+    const { ctx, page } = await sayfaAc(browser, { tema });
+    const ad = '[' + tema + '] ';
+    await page.evaluate(d => { SLIDE_DECKS.__test = d; window.__ap = null; konuAlistirma = function (a) { window.__ap = a; }; openSlideDeck('__test'); }, deste);
+    // slayt giris animasyonu (0.42 sn) bitmeden olcum yapma: ortasinda kart kaymis gorunur
+    const sayfa = async (i) => { const m = await page.evaluate(i => { slideGo(i); return document.getElementById('slideStage').innerText; }, i); await page.waitForTimeout(700); return m; };
+    let t = await sayfa(1);
+    kontrol(ad + 'sema: iki cumle, etiketler, yazili rol ve sira', /Ana cümle/.test(t) && /weil cümlesi/.test(t) && /özne · 1/.test(t) && /fiil · 4/.test(t) && /bağlaç · 1/.test(t), t.replace(/\n/g, ' | ').slice(0, 200));
+    kontrol(ad + 'sema: Almanca yazi gercek metin (secilebilir)', await page.evaluate(() => { const e = document.querySelector('.sema-tok .sema-t'); return !!e && getComputedStyle(e).userSelect !== 'none' && e.textContent === 'Ich'; }));
+    kontrol(ad + 'sema: aciklama kutusu', /en sona/.test(t));
+    // kontrast: sema jetonlari
+    const ren = await page.evaluate(() => [...document.querySelectorAll('.sema-tok')].map(e => { const cs = getComputedStyle(e); const p = s => s.match(/[\d.]+/g).slice(0, 3).map(Number); return [p(cs.color), p(cs.backgroundColor)]; }));
+    const enDusuk = Math.min(...ren.map(([f, b]) => kontrastOrani(f, b)));
+    kontrol(ad + 'sema jeton kontrasti >= 4.5', enDusuk >= 4.5, enDusuk.toFixed(2));
+    await tasmaYok(page, ad + 'sema');
+
+    t = await sayfa(2);
+    kontrol(ad + 'tablo: basliklar ve satirlar', /sein/.test(t) && /haben/.test(t) && /er\/sie\/es/.test(t) && /ist/.test(t), t.replace(/\n/g, ' ').slice(0, 120));
+    const kt = await page.evaluate(() => { const th = document.querySelector('.ders-tablo thead th:nth-child(2)'); const cs = getComputedStyle(th); const p = s => s.match(/[\d.]+/g).slice(0, 3).map(Number); return [p(cs.color), p(cs.backgroundColor)]; });
+    kontrol(ad + 'tablo baslik kontrasti >= 4.5', kontrastOrani(kt[0], kt[1]) >= 4.5, kontrastOrani(kt[0], kt[1]).toFixed(2));
+    await tasmaYok(page, ad + 'tablo');
+
+    t = await sayfa(3);
+    kontrol(ad + 'zaman cizgisi: iki nokta, ornekler', /Präteritum/.test(t) && /Perfekt/.test(t) && /Ich war müde/.test(t) && /Yorgundum/.test(t), t.replace(/\n/g, ' ').slice(0, 140));
+    await tasmaYok(page, ad + 'zaman');
+    t = await sayfa(4);
+    kontrol(ad + 'kural: maddeler + uyari', /weil → fiil sona/.test(t) && /İkisini karıştırma/.test(t));
+
+    // son sayfa: egzersize gec
+    const son = await page.evaluate(() => { const b = document.getElementById('slideNextBtn').textContent; slideNext(); return { b, ap: window.__ap }; });
+    kontrol(ad + 'son sayfa: "Alistirmaya gec" ve egzersiz acilir', /Alıştırmaya geç/.test(son.b) && son.ap === 'gramer:weil', JSON.stringify(son));
+
+    // podcast
+    await page.evaluate(s => { KONULAR.find(k => k.no === 2).podcast = s; openKonu(2, 0); }, sessiz);
+    await page.waitForTimeout(200);
+    kontrol(ad + 'podcast: oynatici gorunur', await page.isVisible('#podcastKutu') && /Konu podcast/.test(await page.evaluate(() => document.getElementById('podcastKutu').innerText)));
+    await page.click('#podcastOynat'); await page.waitForTimeout(250);
+    const p1 = await page.evaluate(() => { const a = document.getElementById('podcastAudio'); return { yukluDeger: a.readyState >= 1, buton: document.getElementById('podcastOynat').textContent }; });
+    kontrol(ad + 'podcast: oynat -> duraklat dugmesi', /Duraklat|Oynat/.test(p1.buton), JSON.stringify(p1));
+    await page.selectOption('#podcastHiz', '1.5');
+    kontrol(ad + 'podcast: hiz degisti', await page.evaluate(() => document.getElementById('podcastAudio').playbackRate === 1.5));
+    await page.click('[aria-label="10 saniye geri"]');
+    kontrol(ad + 'podcast: geri sarma 0\'in altina inmez', await page.evaluate(() => document.getElementById('podcastAudio').currentTime >= 0));
+    // podcast yok
+    await page.evaluate(() => { KONULAR.find(k => k.no === 2).podcast = null; openKonu(2, 0); }); await page.waitForTimeout(150);
+    kontrol(ad + 'podcast yoksa oynatici yok, anlatim var', await page.evaluate(() => !document.getElementById('podcastKutu') && /Kaynak:/.test(document.getElementById('konuGovde').innerText)));
+    // internet yok / bozuk adres
+    await page.evaluate(() => { KONULAR.find(k => k.no === 2).podcast = 'https://invalid.invalid/yok.mp3'; openKonu(2, 0); }); await page.waitForTimeout(150);
+    await page.click('#podcastOynat'); await page.waitForTimeout(1500);
+    kontrol(ad + 'podcast indirilemezse Turkce mesaj, yazili anlatim duruyor', await page.evaluate(() => /Ses indirilemedi/.test(document.getElementById('podcastDurum').innerText) && /Kaynak:/.test(document.getElementById('konuGovde').innerText)));
+    await tasmaYok(page, ad + 'podcast');
+    await ctx.close();
+  }
+}
+
 // Dogrudan calistirildiginda
 if (require.main === module) {
   (async () => {
@@ -420,6 +497,7 @@ if (require.main === module) {
     await sinavSenaryosu(browser);
     await aksamSenaryosu(browser);
     await hedefSenaryosu(browser);
+    await gorselSenaryosu(browser);
     // Yeni senaryolar bu satirin ustune eklenir.
     await browser.close();
     console.log('BASARILI:', sonuc.basarili.length);

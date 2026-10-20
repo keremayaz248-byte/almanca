@@ -72,12 +72,12 @@
 
 ## 8. Görsel ders sayfası motoru ve medya oynatıcı (kod)
 
-- [ ] 8.1 Slayt oluşturucuya yeni türler ekle: `sema` (renk kodlu cümle yapısı), `tablo`, `zaman`; mevcut türlere dokunma.
-- [ ] 8.2 Cümle öğesi renk paleti ve sıra numaraları (özne, fiil, bağlaç, diğer) — açık/koyu temada kontrast WCAG AA.
-- [ ] 8.3 Satır içi SVG/HTML bileşenleri: fiil-sırası oku, ana cümle / yan cümle karşılaştırma şeması, çekim tablosu, zaman çizgisi; Almanca yazı gerçek metin.
-- [ ] 8.4 Anlatımın son sayfasına konunun egzersizini başlatan düğme.
-- [ ] 8.5 Podcast oynatıcı: oynat/duraklat, ±10 sn, hız; podcast yoksa gösterme; çevrimdışıyken Türkçe mesaj.
-- [ ] 8.6 Playwright testi: örnek deste her yeni türle; oynatıcı podcast'li ve podcast'siz konuda; 390 piksel genişlikte taşma ve kontrast; `icerik/araclar/erisim-denetimi.js` ve `gece-testi.js` sıfır hata.
+- [x] 8.1 Slayt oluşturucuya yeni türler ekle: `sema` (renk kodlu cümle yapısı), `tablo`, `zaman`; mevcut türlere dokunma.
+- [x] 8.2 Cümle öğesi renk paleti ve sıra numaraları (özne, fiil, bağlaç, diğer) — açık/koyu temada kontrast WCAG AA.
+- [x] 8.3 Satır içi SVG/HTML bileşenleri: fiil-sırası oku, ana cümle / yan cümle karşılaştırma şeması, çekim tablosu, zaman çizgisi; Almanca yazı gerçek metin.
+- [x] 8.4 Anlatımın son sayfasına konunun egzersizini başlatan düğme.
+- [x] 8.5 Podcast oynatıcı: oynat/duraklat, ±10 sn, hız; podcast yoksa gösterme; çevrimdışıyken Türkçe mesaj.
+- [x] 8.6 Playwright testi: örnek deste her yeni türle; oynatıcı podcast'li ve podcast'siz konuda; 390 piksel genişlikte taşma ve kontrast; `icerik/araclar/erisim-denetimi.js` ve `gece-testi.js` sıfır hata.
 
 ## 9. Teil-1 konu 12–25 anlatımları (içerik)
 
