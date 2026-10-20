@@ -1031,6 +1031,7 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .ek-head small{text-transform:none;letter-spacing:0}
 
 /* ── Görsel ders sayfaları ── */
+.slide-kaynak{margin-top:12px;font-size:.7rem;font-weight:700;opacity:.8}
 .slide-baslik{font-size:1.35rem;font-weight:900;line-height:1.25;margin-bottom:12px}
 .slide-panel{background:var(--white);color:var(--text);border:2px solid var(--text);padding:14px;margin:10px 0 0;text-align:left;overflow:hidden}
 .sema-satir{margin-bottom:16px}
@@ -4229,12 +4230,16 @@ function renderKonu(){
     if(a){
       g.innerHTML=b1Notu(k)+podcastHtml(k.podcast)+'<div class="anlatim-kaynak">Kaynak: '+a.kaynak+'</div>'+
         '<div class="rule-card">'+a.html+'</div>'+
-        (k.slayt?'<button class="btn-toggle" style="width:100%;margin-top:10px" onclick="openSlideDeck(\''+k.slayt+'\')">🎬 Animasyonlu anlatımı izle</button>':'')+
+        slaytDugmesi(k)+
         '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam</button>';
     } else if(grKart){
       g.innerHTML='<div class="rule-card">'+grKart+'</div>'+
-        (k.slayt?'<button class="btn-toggle" style="width:100%;margin-top:10px" onclick="openSlideDeck(\''+k.slayt+'\')">🎬 Animasyonlu anlatımı izle</button>':'')+
+        slaytDugmesi(k)+
         '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam</button>';
+    } else if(k.slayt&&SLIDE_DECKS[k.slayt]){
+      g.innerHTML=b1Notu(k)+podcastHtml(k.podcast)+'<div class="anlatim-kaynak">Kaynak: '+kaynakAdi(k.kaynak)+'</div>'+
+        '<div class="rule-card"><b>'+SLIDE_DECKS[k.slayt].title+'</b><br><small>Şemalı ders: sayfaları gez, sonra alıştırmaya geç.</small></div>'+slaytDugmesi(k)+
+        '<button class="btn-home" style="width:100%;margin-top:8px" onclick="konuSonraki()">Zaten biliyorum, devam</button>';
     } else {
       const baskaAdim=konuAdimVar(k,'kelime')||konuAdimVar(k,'alistir')||konuAdimVar(k,'test');
       g.innerHTML=b1Notu(k)+'<div class="konu-bos">📝 Bu konunun anlatımı henüz hazırlanıyor.<br><small>Kaynak: '+kaynakAdi(k.kaynak)+'</small></div>'+
@@ -4280,7 +4285,8 @@ function konuAlistirma(a){
   if(tip==='dinleme')return (typeof startDinleme==='function')?startDinleme(hedef):openYazmaList();
 }
 function konuKelimeBasla(){ if(AKTIF_KONU&&AKTIF_KONU.kat) goCatSelect('learn',AKTIF_KONU.kat); }
-function konuTestBasla(){ if(AKTIF_KONU&&AKTIF_KONU.gr) openGrTopic(AKTIF_KONU.gr); else konuBitir(); }
+let KONU_TEST_AKTIF=null;   // konu akışından açılan gramer testi hangi konuya ait
+function konuTestBasla(){ if(AKTIF_KONU&&AKTIF_KONU.gr){ KONU_TEST_AKTIF=AKTIF_KONU.no; openGrTopic(AKTIF_KONU.gr); } else konuBitir(); }
 
 function gitKonuAdim(i){ AKTIF_ADIM=i; renderKonu(); }
 function konuSonraki(){
@@ -4292,11 +4298,21 @@ function konuSonraki(){
   if(n>=4){ konuBitir(); return; }
   AKTIF_ADIM=n; renderKonu();
 }
+// Konuyu tamamlandı olarak işaretler (ekrana dokunmaz)
+function konuTamamla(no){
+  const d=konuDurumKaydi(no);
+  d.bitti=true; d.adim=4; saveDB();
+  srsUpdate('konu:'+no,true);
+}
+function slaytDugmesi(k){
+  if(!k.slayt) return '';
+  const dk=SLIDE_DECKS[k.slayt];
+  if(dk&&dk.konu) return '<button class="konu-ilerle" style="margin-top:10px" onclick="openSlideDeck(\''+k.slayt+'\')">📖 Dersi başlat ('+dk.slides.length+' sayfa)</button>';
+  return '<button class="btn-toggle" style="width:100%;margin-top:10px" onclick="openSlideDeck(\''+k.slayt+'\')">🎬 Animasyonlu anlatımı izle</button>';
+}
 function konuBitir(){
   const k=AKTIF_KONU; if(!k) return;
-  const d=konuDurumKaydi(k.no);
-  d.bitti=true; d.adim=4; saveDB();
-  srsUpdate('konu:'+k.no,true);
+  konuTamamla(k.no);
   document.getElementById('konuGovde').innerHTML=
     '<div class="bugun-tamam">🎉 <b>'+k.ad+'</b> tamamlandı!<br><small>Bu konu belirli aralıklarla tekrar karşına çıkacak.</small></div>'+
     '<button class="konu-ilerle" onclick="goHome()">Ana ekrana dön</button>';
@@ -4671,6 +4687,11 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'20 Ekim 2026 — Konular artık gerçekten tamamlanıyor + şemalı ders sayfaları', items:[
+    '🐞 <b>Hata düzeltildi:</b> gramer testi olan konular (ör. "Adınız ne?") testi bitirsen bile "tamamlandı" olmuyordu; bu yüzden Bugün ekranındaki "Alıştırma ve test" adımı hiç bitmeyecekti. Artık konu testinde <b>en az %60</b> yapınca konu tamamlanıyor ve "Bugün ekranına dön" düğmesi çıkıyor. %60\'ın altındaysa neden tamamlanmadığı yazıyor.',
+    '📖 <b>Ders sayfaları şemalı:</b> konu anlatımı artık sayfa sayfa gezilen derse dönüşebiliyor — renk kodlu cümle şemaları (özne, fiil, bağlaç…), çekim tabloları, zaman çizgisi ve kural kutuları. Almanca yazılar gerçek metin, koyu temada da okunur. Her sayfanın altında kaynağı yazar.',
+    '🎙️ Konu sayfasına <b>podcast oynatıcı</b> altyapısı eklendi (oynat, ±10 sn, hız). Podcast\'i olmayan konuda görünmez.'
+  ]},
   {date:'19 Ekim 2026 — Hedef sınav ve geri sayım', items:[
     '🎯 <b>Hedef sınavını artık uygulamada ayarlıyorsun:</b> Bugün sekmesinin üstündeki karttan sınav türünü (Goethe / telc / ÖSD, A1–B1) ve tarihini seç. Bilmiyorsan "Belirsiz" seç, sonra değiştirirsin.',
     '⏳ Tarih girersen Bugün ekranında <b>kaç gün kaldığı</b> görünür. Program hedef tarihinden sonra bitiyorsa bunu sana söyler (programı kendiliğinden değiştirmez).',
@@ -6538,14 +6559,26 @@ function grNextQ(){
   grQIdx++;
   if(grQIdx>=grTopic.qs.length){
     grDone[grTopic.id]=true; saveDB();
-    document.getElementById('grSent').innerHTML='<div style="font-size:2.5rem;margin-bottom:8px">🎉</div><div>Konu tamamlandı!</div><div class="gr-tr">'+grCorrect+' doğru · '+grWrong+' yanlış</div>';
+    // Konu akışından gelen test: en az %60 ile konu tamamlanır
+    let konuMesaj='', konuBitti=false;
+    if(KONU_TEST_AKTIF!=null){
+      const kk=konuBul(KONU_TEST_AKTIF);
+      if(kk&&kk.gr===grTopic.id){
+        const oran=grTopic.qs.length?grCorrect/grTopic.qs.length:0;
+        if(oran>=0.6){ konuTamamla(kk.no); konuBitti=true; KONU_TEST_AKTIF=null;
+          konuMesaj='<div class="bugun-tamam" style="margin-top:12px">✅ <b>'+kk.ad+'</b> konusu tamamlandı!<br><small>Belirli aralıklarla tekrar karşına çıkacak.</small></div>'; }
+        else konuMesaj='<div class="hedef-not" style="margin-top:12px">Bu konunun testinde %'+Math.round(oran*100)+' yaptın; konunun tamamlanması için en az %60 gerekiyor. Anlatıma dönüp tekrar dene.</div>';
+      }
+    }
+    document.getElementById('grSent').innerHTML='<div style="font-size:2.5rem;margin-bottom:8px">🎉</div><div>Test bitti!</div><div class="gr-tr">'+grCorrect+' doğru · '+grWrong+' yanlış</div>'+konuMesaj;
     document.getElementById('grOpts').innerHTML='';
     document.getElementById('grFb').className='gr-fb';
-    document.getElementById('grNext').textContent='← Konulara Dön';
+    document.getElementById('grNext').textContent=konuBitti?'Bugün ekranına dön':'← Konulara Dön';
     document.getElementById('grNext').className='btn-next show';
     document.getElementById('grNext').onclick=()=>{
       document.getElementById('grNext').textContent='Sonraki';
       document.getElementById('grNext').onclick=grNextQ;
+      if(konuBitti){ goTab('bugun'); return; }
       showScreen('gramerScreen');
       buildTopicGrid();
     };
@@ -8303,6 +8336,28 @@ const SLIDE_DECKS = {
     ]
   },
 };
+// <DERS_ICERIK>
+const DERS_ICERIK={};
+// </DERS_ICERIK>
+// icerik/hazir/konu-<no>.json dosyalarından üretilir (icerik/araclar/hazir-yerlestir.js). Elle düzenlenmez.
+(function dersKaydet(){
+  Object.keys(DERS_ICERIK).forEach(no=>{
+    const d=DERS_ICERIK[no], k=KONULAR.find(x=>x.no===+no); if(!k) return;
+    if(d.deste){
+      d.deste.konu=+no;
+      const gid=d.gramer&&d.gramer.id;
+      d.deste.sonra=d.deste.sonra||(k.gr?('gramer:'+k.gr):(gid?('gramer:'+gid):null));
+      SLIDE_DECKS['ders'+no]=d.deste; k.slayt='ders'+no;
+    }
+    if(d.gramer){
+      if(!GRAMER_TOPICS.find(t=>t.id===d.gramer.id)) GRAMER_TOPICS.push(d.gramer);
+      if(!k.gr) k.gr=d.gramer.id;
+      const a='gramer:'+d.gramer.id; if(!k.alis.includes(a)) k.alis.push(a);
+    }
+    if(d.kaynak) k.dersKaynak=d.kaynak;
+  });
+})();
+
 // ── Görsel ders sayfası türleri ───────────────────────────────────
 // Tüm Almanca metin gerçek metindir (yapay zekâ görseli değil): seçilebilir, koyu temada okunur.
 const SEMA_ROL={ozne:'özne',fiil:'fiil',bag:'bağlaç',nesne:'nesne',zaman:'zaman/yer',diger:'diğer'};
@@ -8394,6 +8449,7 @@ function renderSlide(){
   if(s.egs) s.egs.forEach((e,i)=>{ inner+='<div class="slide-eg" style="animation-delay:'+(0.15+i*0.18)+'s">'+e+'</div>'; });
   if(s.story) inner+='<div class="slide-story">'+s.story+'</div>';
   if(s.tip) inner+='<div class="slide-tip">'+s.tip+'</div>';
+  if(s.kaynak) inner+='<div class="slide-kaynak">Kaynak: '+esc(s.kaynak)+'</div>';
   inner+='</div>';
   stage.innerHTML=inner;
   // noktalar
@@ -8407,6 +8463,7 @@ function slideNext(){
   if(slideIdx>=slideDeck.slides.length-1){
     awardXP(5);
     if(TOPIC_WRITE[slideDeckKey]){ startTopicWrite(slideDeckKey); return; }
+    if(slideDeck.konu){ const dd=konuDurumKaydi(slideDeck.konu); dd.adim=Math.max(dd.adim,1); saveDB(); }   // ders bitti → anlatım adımı tamam
     if(slideDeck.sonra){ konuAlistirma(slideDeck.sonra); return; }
     goHome(); return;
   }

@@ -151,7 +151,7 @@ async function gunSenaryosu(browser) {
   kontrol('gun tamam mesaji', /Bugünü tamamladın/.test(t) && /Yarın:/.test(t), t.slice(-160));
 
   // kalicilik
-  await page.reload(); await page.waitForTimeout(500);
+  await page.waitForTimeout(300); await page.reload(); await page.waitForTimeout(500);
   t = await kartMetni();
   kontrol('yeniden acinca gun ve tamamlanma korunur', /Gün 1 \/ 45/.test(t) && /Bugünü tamamladın/.test(t), t.slice(0, 80));
 
@@ -178,10 +178,36 @@ async function gunSenaryosu(browser) {
   t = await kartMetni();
   kontrol('gun 29: Genitiv hazirlaniyor, ders adimlari engellemiyor', /Gün 29 \/ 45/.test(t) && /Genitiv/.test(t) && /hazırlanıyor/.test(t) && /Devam et — Akşam sınavı/.test(t), t.slice(0, 220));
 
+  // gramer testi olan konu (konu 4: sein) test gecilince TAMAMLANIR; <%60 ile tamamlanmaz
+  await page.evaluate(() => { DB.konu = {}; saveDB(); openKonu(4, 3); });   // 3 = test adimi
+  await page.waitForTimeout(150);
+  kontrol('konu 4: test adimi "Testi baslat" gosterir', /Testi başlat/.test(await page.evaluate(() => document.getElementById('konuGovde').innerText)));
+  const tamamsiz = await page.evaluate(() => {
+    konuTestBasla();
+    const t = grTopic; let n = 0;
+    while (grQIdx < t.qs.length) { const q = t.qs[grQIdx]; const sec = [...document.querySelectorAll('#grOpts .gr-opt')]; sec.find(b => b.textContent !== q.blank).click(); grNextQ(); n++; }
+    return { durum: konuDurum(4), mesaj: document.getElementById('grSent').innerText, aktif: KONU_TEST_AKTIF };
+  });
+  kontrol('hepsi yanlis: konu tamamlanmaz, %60 uyarisi', tamamsiz.durum !== 'tamam' && /en az %60/.test(tamamsiz.mesaj) && tamamsiz.aktif === 4, JSON.stringify(tamamsiz));
+  const tamam = await page.evaluate(() => {
+    DB.konu = {}; saveDB(); openKonu(4, 3); konuTestBasla();
+    const t = grTopic;
+    while (grQIdx < t.qs.length) { const q = t.qs[grQIdx]; [...document.querySelectorAll('#grOpts .gr-opt')].find(b => b.textContent === q.blank).click(); grNextQ(); }
+    const dugme = document.getElementById('grNext').textContent;
+    return { durum: konuDurum(4), mesaj: document.getElementById('grSent').innerText, dugme, aktif: KONU_TEST_AKTIF };
+  });
+  kontrol('hepsi dogru: konu TAMAMLANDI, Bugun dugmesi', tamam.durum === 'tamam' && /tamamlandı/.test(tamam.mesaj) && /Bugün ekranına dön/.test(tamam.dugme) && tamam.aktif === null, JSON.stringify(tamam));
+  await page.evaluate(() => document.getElementById('grNext').click()); await page.waitForTimeout(250);
+  kontrol('dugme Bugun ekranina goturur', await page.evaluate(() => curScreen === 'homeScreen' && homeTab === 'bugun'));
+  // Gramer menusunden dogrudan acilan test konuyu etkilemez
+  await page.evaluate(() => { DB.konu = {}; saveDB(); KONU_TEST_AKTIF = null; openGrTopic('sein'); const t = grTopic; while (grQIdx < t.qs.length) { const q = t.qs[grQIdx]; [...document.querySelectorAll('#grOpts .gr-opt')].find(b => b.textContent === q.blank).click(); grNextQ(); } });
+  kontrol('menuden acilan test konuyu tamamlamaz', await page.evaluate(() => konuDurum(4) !== 'tamam'));
+
   // program sonu
   await basGunOnce(60);
   t = await kartMetni();
   kontrol('program sonunda son gune sabitlenir (45)', /Gün 45 \/ 45/.test(t), t.slice(0, 60));
+  await page.evaluate(() => goTab('bugun')); await page.waitForTimeout(700);   // ekran gecis animasyonu bitsin
   await tasmaYok(page, 'bugun karti');
   await ctx.close();
 }
@@ -228,7 +254,7 @@ async function sinavSenaryosu(browser) {
   kontrol('Lesen sonucu kaydedildi (15 soru)', k2.bolum === 'lesen' && k2.toplam === 15 && k2.dogru === 15, JSON.stringify(k2));
 
   // 4) kalicilik + Sinav sekmesinde gecmis
-  await page.reload(); await page.waitForTimeout(500);
+  await page.waitForTimeout(300); await page.reload(); await page.waitForTimeout(500);
   await page.evaluate(() => goTab('sinav')); await page.waitForTimeout(200);
   const g = await page.evaluate(() => document.getElementById('sinavGecmisWrap').innerText);
   kontrol('yeniden acinca gecmis duruyor (Horen + Lesen)', /Hören/.test(g) && /Lesen/.test(g), g.replace(/\n/g, ' | '));
@@ -279,7 +305,7 @@ async function aksamSenaryosu(browser) {
 
   // 1) 19:59 -> kapi yok
   { const { ctx, page } = await sayfaAc(browser, { saat: '2026-10-20T19:59:00' });
-    await programKur(page); await page.reload(); await page.waitForTimeout(500);
+    await programKur(page); await page.waitForTimeout(300); await page.reload(); await page.waitForTimeout(500);
     kontrol('19:59: kapi yok, ana ekran acik', await page.evaluate(() => curScreen === 'homeScreen'));
     // takvim adresi
     await page.evaluate(() => { window.__acilan = null; window.open = (u) => { window.__acilan = u; }; });
@@ -292,14 +318,14 @@ async function aksamSenaryosu(browser) {
 
   // 2) 20:01 -> kapi, ertele bir kez, ikinci acilista ertelenemez, sinav, sonra serbest
   { const { ctx, page } = await sayfaAc(browser, { saat: '2026-10-20T20:01:00' });
-    await programKur(page); await page.reload(); await page.waitForTimeout(500);
+    await programKur(page); await page.waitForTimeout(300); await page.reload(); await page.waitForTimeout(500);
     kontrol('20:01: kapi ekrani', await page.evaluate(() => curScreen === 'aksamKapiScreen'));
     kontrol('ilk acilista Ertele var', await page.isVisible('#aksamErteleBtn'));
     kontrol('kapida geri tusu gizli', await page.evaluate(() => !document.getElementById('hdrBack').classList.contains('show')));
     await page.evaluate(() => { window.__acilan = null; window.open = (u) => { window.__acilan = u; }; });
     await page.click('#aksamErteleBtn'); await page.waitForTimeout(250);
     kontrol('Ertele -> normal acilir ve kaydedilir', await page.evaluate(() => curScreen === 'homeScreen' && DB.okul.aksam[todayStr()].ertelendi === true));
-    await page.reload(); await page.waitForTimeout(500);
+    await page.waitForTimeout(300); await page.reload(); await page.waitForTimeout(500);
     kontrol('ikinci acilista kapi geri gelir', await page.evaluate(() => curScreen === 'aksamKapiScreen'));
     kontrol('ikinci acilista Ertele YOK', !(await page.isVisible('#aksamErteleBtn')));
 
@@ -324,7 +350,7 @@ async function aksamSenaryosu(browser) {
     kontrol('sinav sonucu kaydedildi (yapildi)', b.a.yapildi === true && b.son.bolum === 'aksam' && b.son.toplam === b.a.toplam, JSON.stringify(b));
     kontrol('yanlis yapilan konu zayif listesinde', Object.keys(b.zayif).length >= 1, JSON.stringify(b.zayif));
     kontrol('bitis ekrani: Bugun dugmesi, Tekrar gizli, mod kapandi', b.gizli === 'none' && b.bugun === '' && b.kalanAksam === false);
-    await page.reload(); await page.waitForTimeout(500);
+    await page.waitForTimeout(300); await page.reload(); await page.waitForTimeout(500);
     kontrol('sinav yapilinca kapi yok', await page.evaluate(() => curScreen === 'homeScreen'));
     await page.evaluate(() => goTab('bugun')); await page.waitForTimeout(150);
     const t = await page.evaluate(() => document.getElementById('bugunWrap').innerText);
@@ -335,7 +361,7 @@ async function aksamSenaryosu(browser) {
   // 3) sinav gunu (45) kapi cikarmaz
   { const { ctx, page } = await sayfaAc(browser, { saat: '2026-10-20T21:00:00' });
     await page.evaluate(() => { const d = isoToDate(todayStr()); d.setDate(d.getDate() - 44); DB.okul.bas = isoLocal(d); DB.okul.aksam = {}; saveDB(); });
-    await page.reload(); await page.waitForTimeout(500);
+    await page.waitForTimeout(300); await page.reload(); await page.waitForTimeout(500);
     kontrol('deneme sinavi gununde kapi cikmaz', await page.evaluate(() => curScreen === 'homeScreen'));
     await ctx.close(); }
 
@@ -367,7 +393,7 @@ async function hedefSenaryosu(browser) {
   let m = await hedefMetni();
   kontrol('geri sayim: Goethe A1, 56 gun kaldi', /Goethe-Zertifikat A1/.test(m) && /56 gün kaldı/.test(m) && /15 Aralık 2026/.test(m), m.replace(/\n/g, ' | '));
   kontrol('hedef cihazda saklandi', await page.evaluate(() => DB.okul.hedef.tur === 'goethe_a1' && DB.okul.hedef.tarih === '2026-12-15'));
-  await page.reload(); await page.waitForTimeout(400);
+  await page.waitForTimeout(300); await page.reload(); await page.waitForTimeout(400);
   await page.evaluate(() => goTab('bugun'));
   kontrol('yeniden acinca hedef duruyor', /56 gün kaldı/.test(await hedefMetni()));
 

@@ -39,6 +39,8 @@
 - [x] 4.6 Atlanan günü eksik olarak işaretle ve geri dönüp tamamlamayı sağla.
 - [x] 4.7 Zayıf konu için günün başına kısa tekrar adımı ekle (görev 5.5'e bağlanır).
 - [x] 4.8 Playwright testi: sıfırdan bir gün baştan sona; uygulamayı kapat-aç, durumun korunduğunu doğrula; `gece-testi.js` sıfır hata.
+- [x] 4.9 Gramer testi olan konular tamamlanmıyordu (konuTestBasla testi açıyor ama bitirmiyordu): konu testinde en az %60 ile konuyu tamamla, %60 altında uyar; Playwright testi.
+- [x] 4.10 İçerik altyapısı: icerik/hazir/konu-<no>.json → doğrulama (hazir-kontrol.js) → gömme (hazir-yerlestir.js) → kayıt (DERS_ICERIK); uçtan uca test (ders-icerik-testi.js).
 
 ## 5. Sınav akışı (kod)
 
