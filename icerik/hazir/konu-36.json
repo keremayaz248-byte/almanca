@@ -69,10 +69,10 @@
         "maddeler": [
           "<b>haben</b> (s.102) — <b>1)</b> Akkusativ nesneli fiiller (<b>machen / kaufen / sehen</b>). <b>2)</b> <b>Tüm dönüşlü fiiller</b> (<b>sich waschen / sich treffen</b>).",
           "<b>sein</b> (s.98-100) — <b>1)</b> Yer değiştirme / hareket (<b>gehen, fahren, kommen, fliegen, laufen</b>). <b>2)</b> Durum değişimi (<b>einschlafen, aufstehen, sterben</b>). <b>3)</b> 4 özel fiil: <b>sein, werden, bleiben, passieren</b>.",
-          "Önce fiile sor: <b>bir yerden bir yere gidiyor mu?</b> (A → B) ya da <b>bir durumdan başka duruma mı geçiyor?</b> Evet ise sein, değilse (nesne alıyorsa) haben.",
+          "Hocanın slaytlarının özeti: <b>A → B hareketi</b> ya da <b>durum değişimi</b> varsa hoca sein listesini veriyor; Akkusativ nesne ve dönüşlü fiiller için haben listesini veriyor. Hoca bu iki liste dışında ayrıca kural yazmıyor.",
           "Hocanın örneği: <b>Er ist nach Hause gekommen.</b> (sein) / <b>Ich habe ein Foto gemacht.</b> (haben)"
         ],
-        "uyari": "En sık yapılan hata: hareket fiilinde <b>haben</b> kullanmak (<b>Ich habe gegangen</b> yanlış). Gehen, fahren, kommen, fliegen, laufen, bleiben hep <b>sein</b> ile gelir.",
+        "uyari": "En sık yapılan hata: hareket fiilinde <b>haben</b> kullanmak (<b>Ich habe gegangen</b> yanlış). Hocanın örneklerinde gehen, fahren, kommen, fliegen, laufen, bleiben <b>sein</b> ile geliyor.",
         "kaynak": "Kalan s.98-102"
       },
       {
@@ -104,7 +104,7 @@
           ["sterben", "gestorben", "Wo ist Atatürk gestorben?"],
           ["gebären → geboren", "geboren", "Ich bin geboren."]
         ],
-        "not": "Hocanın görseli: bitki küçükten büyüğe geçiyor → <b>Die Pflanze ist gewachsen.</b> (durum değişti). <b>Doğmak</b> için hoca s.100'de leylek ve bebek resmiyle <b>Ich bin geboren</b> diyor. Aynı sayfadaki tabloda <b>gebären</b> (doğurmak) fiilinin Perfekt'i <b>ich habe geboren</b> diye verilmiş: doğuran kişi haben, doğan kişi sein (<b>Ich bin geboren</b>). Dördüncü grup (sein, werden, bleiben, passieren) hocanın s.98 slaytında yalnız adıyla geçiyor; werden / passieren'in Partizip II'si sayfada yok.",
+        "not": "Hocanın görseli: bitki küçükten büyüğe geçiyor → <b>Die Pflanze ist gewachsen.</b> (durum değişti). <b>Doğmak</b> için hoca s.100'de leylek ve bebek resmiyle <b>Ich bin geboren</b> diyor. Aynı sayfadaki tabloda <b>gebären</b> (doğurmak) fiilinin Perfekt'i <b>ich habe geboren</b> diye verilmiş; hoca iki kullanım arasındaki farkı yazmıyor (doğrulama listesinde). Dördüncü grup (sein, werden, bleiben, passieren) hocanın s.98 slaytında yalnız adıyla geçiyor; werden / passieren'in Partizip II'si sayfada yok.",
         "kaynak": "Kalan s.99-100"
       },
       {
@@ -160,13 +160,13 @@
             "tr": "Çok çalıştık."
           }
         ],
-        "not": "<b>Hocanın ipucu:</b> 'Conjugation of the 3rd person singular in present tense': <b>er/sie/es macht → ge-macht</b>. Hocanın örnekleri: <b>Kaufen: er kauft → gekauft</b>, <b>Arbeiten: er arbeitet → gearbeitet</b>. Hocanın cümleleri: <b>Was hast du mit mir gemacht?</b> = Bana ne yaptın? <b>Ich habe nichts Falsches gemacht.</b> = Ben yanlış bir şey yapmadım.",
+        "not": "<b>Hocanın ipucu:</b> 'Conjugation of the 3rd person singular in present tense': <b>er/sie/es macht → ge-macht</b>. Hocanın örnekleri: <b>Kaufen: er kauft → gekauft</b>, <b>Arbeiten: er arbeitet → gearbeitet</b>. (Yukarıdaki Er hat Brot gekauft / Wir haben viel gearbeitet cümlelerini kaufen ve arbeiten satırlarına dayanarak biz kurduk.) Hocanın cümleleri: <b>Was hast du mit mir gemacht?</b> = Bana ne yaptın? <b>Ich habe nichts Falsches gemacht.</b> = Ben yanlış bir şey yapmadım.",
         "kaynak": "Kalan s.103"
       },
       {
         "tur": "tablo",
         "kicker": "Düzensiz fiiller",
-        "baslik": "Ünlü değişir: er/sie/es çekiminden türetme!",
+        "baslik": "Düzensiz fiiller: er/sie/es yöntemi çalışmaz",
         "basliklar": ["Fiil", "Partizip II", "Hocanın örneği"],
         "satirlar": [
           ["sehen", "gesehen", "Hast du den Film gesehen?"],
@@ -211,7 +211,7 @@
           ["anrufen", "", "angerufen"],
           ["einschlafen", "", "eingeschlafen"]
         ],
-        "not": "<b>Gemischte Verben / Mischverben</b> (karışık fiiller): hem Präteritum'da hem Partizip II'de ünlü değişir ama sonu <b>-t</b> ile biter (gebracht, gekannt, gewusst). Hocanın not düştüğü örnek: <b>bauen (inşa etmek) – bauten – (haben) gebaut</b>. <b>Trennbare Verben</b>: ge-, ayrılabilen önekten SONRA gelir (aufgemacht, eingekauft, angerufen). Hocanın cümlesi: <b>Er hat mich gerade angerufen.</b>",
+        "not": "<b>Gemischte Verben / Mischverben</b> (karışık fiiller) hocanın tablosunda: bringen – brachten – gebracht, kennen – kannten – gekannt, wissen – wussten – gewusst (hoca bu grubu ayrıca açıklamıyor; Partizip II biçimleri ezberlenir). Hocanın not düştüğü örnek: <b>bauen (inşa etmek) – bauten – (haben) gebaut</b>. <b>Trennbare Verben</b>: ge-, ayrılabilen önekten SONRA gelir (aufgemacht, eingekauft, angerufen). Hocanın cümlesi: <b>Er hat mich gerade angerufen.</b>",
         "kaynak": "Kalan s.105, 110"
       },
       {
@@ -222,9 +222,9 @@
           "<b>einschlafen</b> (sein): <b>Ich bin eingeschlafen.</b> = Uykuya daldım / uyuyakaldım. — <b>schlafen</b> (haben): <b>Ich habe geschlafen.</b> = Uyudum. (Hoca s.106: aynı kökten iki fiil, iki farklı yardımcı fiil.)",
           "Hocanın küçük notu: <b>das Nickerchen</b> = şekerleme, <b>Nickerchen machen</b> = şekerleme yapmak. <b>Ich mache ein Nickerchen.</b>",
           "<b>verpassen</b> (kaçırmak): <b>Ich habe den Bus verpasst.</b> = Otobüsü kaçırdım. — <b>vermissen</b> (özlemek): <b>Ich habe meine Oma vermisst.</b> = Büyükannemi özledim.",
-          "Hoca 'vermisst' kelimesini otobüs cümlesinde <b>kırmızı çarpıyla</b> çizdi: otobüs için asla <b>vermissen</b> kullanılmaz."
+          "Hoca 'vermisst' kelimesini otobüs cümlesinde <b>kırmızı çarpıyla</b> çizdi: otobüs için <b>verpassen</b> kullanılır."
         ],
-        "uyari": "Hocanın üç ünlem kutusu bu fiillerin üzerinde: <b>einschlafen ≠ schlafen</b> ve <b>verpassen ≠ vermissen</b>. Ayrıca verpassen ve vermissen <b>ge-</b> almaz: verpasst, vermisst. Einschlafen ise ayrılabilen fiildir, ge- ortaya girer: eingeschlafen.",
+        "uyari": "Hocanın kırmızı ünlem kutuları bu fiillerin üzerinde: <b>einschlafen ≠ schlafen</b> ve <b>verpassen ≠ vermissen</b>. Ayrıca verpassen ve vermissen <b>ge-</b> almaz: verpasst, vermisst. Einschlafen ise ayrılabilen fiildir, ge- ortaya girer: eingeschlafen.",
         "kaynak": "Kalan s.106-107"
       },
       {
@@ -240,7 +240,7 @@
           ["letztes Jahr", "nächstes Jahr"],
           ["vor zehn Jahren", "in zehn Jahren"]
         ],
-        "not": "Hocanın 'ACHTUNG!' sayfası: ortada <b>heute</b> (bugün), solda geçmiş, sağda gelecek. Hocanın Türkçe notları: <b>vorgestern</b> = birkaç gün önce, <b>übermorgen</b> = yarından sonra, <b>in letzter Zeit</b> = son zamanlarda. Diğer ifadelerin Türkçesi hocada yok (doğrulama listesinde). <b>Perfekt'te geçmişi gösteren sözcüklerle</b> (gestern, letzte Woche, vor zehn Jahren) kullanılır.",
+        "not": "Hocanın 'ACHTUNG!' sayfası: ortada <b>heute</b> (bugün), solda geçmiş, sağda gelecek. Hocanın Türkçe notları: <b>vorgestern</b> = birkaç gün önce, <b>übermorgen</b> = yarından sonra, <b>in letzter Zeit</b> = son zamanlarda. Diğer ifadelerin Türkçesi hocada yok (doğrulama listesinde). Satır eşleştirmesini (gestern ↔ morgen vb.) biz yaptık; hocanın sayfasında bu bir eşleştirme alıştırması.",
         "kaynak": "Kalan s.108"
       },
       {

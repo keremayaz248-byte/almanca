@@ -20,7 +20,7 @@ if (kontrol.status !== 0) { console.log(kontrol.stdout); console.error('Dogrulam
 const nesne = {};
 dosyalar.forEach(f => {
   const v = JSON.parse(fs.readFileSync(path.join(klasor, f), 'utf8'));
-  nesne[v.konu] = { kaynak: v.kaynak, deste: v.deste, gramer: v.gramer };
+  nesne[v.konu] = { kaynak: v.kaynak, deste: v.deste, gramer: v.gramer, mini: v.mini };
 });
 
 // <script> icinde guvenli olsun: "</script" ve satir ayiricilari kacirilir (ters bolu icin kod 92 kullanilir)

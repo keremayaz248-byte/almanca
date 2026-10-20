@@ -38,7 +38,7 @@
       {
         "tur": "tablo",
         "kicker": "Gemüse",
-        "baslik": "Sebzeler (das Gemüse)",
+        "baslik": "Sebzeler",
         "basliklar": ["Artikel", "Almanca", "Türkçe"],
         "satirlar": [
           ["die", "Gemüsesorte", "sebze çeşidi"],
@@ -112,7 +112,7 @@
       },
       {
         "big": "Das Obst: çoğulu yok",
-        "mean": "<b>das Obst</b> (meyve) çoğul olmayan isimlerden biridir; <b>die Milch</b> (süt) de öyle. Çoğul gerekirse <b>Obstsorte</b> (meyve çeşidi) kullanılır.",
+        "mean": "<b>das Obst</b> (meyve) çoğul olmayan isimlerden biridir; <b>die Milch</b> (süt) de öyle. Hocanın listesinde ayrıca <b>die Obstsorte</b> (meyve çeşidi) kelimesi var.",
         "egs": [
           "das Obst → meyve (çoğulu yok)",
           "die Milch → süt (çoğulu yok)",
@@ -133,7 +133,7 @@
       },
       {
         "big": "Bileşik kelimeler",
-        "mean": "Almancada iki kelime birleşerek yeni kelime oluşturur: <b>Apfel + Saft = Apfelsaft</b> (elma suyu), <b>Orange + n + Saft = Orangensaft</b>, <b>Abend + Essen = Abendessen</b>.",
+        "mean": "Almancada iki kelime birleşerek yeni kelime oluşturur: <b>Apfel + Saft = Apfelsaft</b> (elma suyu), <b>Orange + Saft = Orangensaft</b> (araya bir n girmiş; hoca açıklamıyor, sadece kelimeyi veriyor), <b>Abend + Essen = Abendessen</b>.",
         "egs": [
           "der Apfel + der Saft → der <b>Apfelsaft</b> — elma suyu",
           "die Orange + der Saft → der <b>Orangensaft</b> — portakal suyu",
@@ -180,7 +180,7 @@
       { "sent": "Da ist die ___. (soğan)", "blank": "Zwiebel", "opts": ["Zwiebel", "Karotte", "Gurke", "Tomate"], "tr": "Orada soğan var.", "exp": "die Zwiebel = soğan. Karotte havuç, Gurke salatalık, Tomate domates (Kalan s.9)." },
       { "sent": "Da ist die ___. (havuç)", "blank": "Karotte", "opts": ["Karotte", "Kartoffel", "Zwiebel", "Gurke"], "tr": "Orada havuç var.", "exp": "die Karotte = havuç; Kartoffel patates, Zwiebel soğan, Gurke salatalık demektir (Kalan s.9)." },
       { "sent": "Da ist der ___. (portakal suyu)", "blank": "Orangensaft", "opts": ["Orangensaft", "Apfelsaft", "Kaffee", "Tee"], "tr": "Orada portakal suyu var.", "exp": "Orange (portakal) + Saft (meyve suyu) = der Orangensaft. Apfelsaft elma suyudur (Kalan s.9)." },
-      { "sent": "Ich esse viel ___. (meyve)", "blank": "Obst", "opts": ["Obst", "Obste", "Obsten", "Obster"], "tr": "Çok meyve yerim.", "exp": "das Obst çoğulu olmayan bir isimdir; sadece tekil kullanılır. Obste/Obsten/Obster gibi biçimler yoktur (Teil-1 s.95)." },
+      { "sent": "Ich esse viel ___. (meyve)", "blank": "Obst", "opts": ["Obst", "Obste", "Obsten", "Obster"], "tr": "Çok meyve yerim.", "exp": "das Obst çoğulu olmayan bir isimdir; hocaya göre sadece tekil kullanılır; çoğul eki (Obste, Obsten...) eklenmez (Teil-1 s.95)." },
       { "sent": "Ich kaufe zwei ___. (muz)", "blank": "Bananen", "opts": ["Bananen", "Banane", "Bananer", "Bananes"], "tr": "İki muz alıyorum.", "exp": "-e ile biten dişi isimler çoğulda -n alır: die Banane → die Bananen. Banane + n = Bananen (Teil-1 s.101)." },
       { "sent": "Da ist das ___. (akşam yemeği)", "blank": "Abendessen", "opts": ["Abendessen", "Frühstück", "Essen", "Abend"], "tr": "Orada akşam yemeği var.", "exp": "das Abendessen = akşam yemeği; das Frühstück kahvaltı, das Essen yemek, der Abend sadece akşam demektir (Kalan s.9)." },
       { "sent": "Da ist die ___. (çorba)", "blank": "Suppe", "opts": ["Suppe", "Milch", "Orange", "Traube"], "tr": "Orada çorba var.", "exp": "die Suppe = çorba (Kalan s.9). Sebze/meyve değil, öğün yemeğidir." },

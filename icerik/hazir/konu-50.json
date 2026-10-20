@@ -79,7 +79,7 @@
           ["ihr", "wart", "hattet"],
           ["sie / Sie", "waren", "hatten"]
         ],
-        "not": "<b>ich ve er/sie/es aynı biçim</b> (war, hatte). Hocanın Perfekt tablosunda 'Ich bin gewesen' duruyor; 'Ich habe gehabt' ise üstü çizilmiş. Yani konuşmada da war / hatte kullanılıyor.",
+        "not": "<b>ich ve er/sie/es aynı biçim</b> (war, hatte). Hocanın Perfekt tablosunda 'Ich bin gewesen' duruyor; 'Ich habe gehabt' ise üstü çizilmiş.",
         "kaynak": "A2 s.239-240; Teil-2 s.69"
       },
       {
@@ -118,7 +118,7 @@
           "Hocanın tablosunda Perfekt sütunundaki <b>ich habe gewollt / gedurft / gekonnt / gemusst / gesollt</b> hep ÜSTÜ ÇİZİLMİŞ. Präteritum hücreleri ise daire içine alınmış.",
           "Örnek: <b>Warum konntest du gestern nicht lernen? — Ich wollte lernen, aber ich war so müde.</b> (Neden dün çalışamadın? — Çalışmak istedim ama çok yorgundum.)",
           "Örnek: <b>Ich konnte nicht kommen. Ich musste zum Arzt gehen.</b> (Gelemedim. Doktora gitmem gerekiyordu.)",
-          "Präsens mı Präteritum mu? Zaman kelimesine bak: heute / jetzt → Präsens (müsst, dürfen, soll) · gestern → Präteritum (konntest, wollte, konnte, musste)."
+          "Präsens mı Präteritum mu? Zaman kelimesine bak: jetzt (şimdi) → Präsens (müsst, dürfen, soll) · gestern → Präteritum (konntest, wollte, konnte, musste)."
         ],
         "uyari": "Hocanın P.S.'i: <b>«möchten»'in Präteritum'u yoktur.</b> 'Dün bir bira istedim' demek için wollen kullan: Gestern wollte ich ein Bier.",
         "kaynak": "A2 s.240-241"
@@ -181,7 +181,7 @@
           ["laufen (koşmak)", "liefen (Tom, Lena)", "sind gelaufen"]
         ],
         "not": "Hocanın ek örnekleri: <b>unterbrechen → unterbrach</b> (Perfekt: habe unterbrochen), <b>begreifen → begriff</b> (Perfekt: habe begriffen). Perfekt'te laufen yardımcı fiil olarak <b>sein</b> alır (sind gelaufen).",
-        "kaynak": "Teil-2 s.51; A2 s.176, s.182"
+        "kaynak": "Teil-2 s.50-51; A2 s.176, s.182"
       },
       {
         "tur": "tablo",
@@ -228,7 +228,7 @@
       },
       {
         "big": "als + Präteritum",
-        "mean": "Hocanın örneklerinde als ile birlikte hep Präteritum: <b>geçmişte bir kez olmuş olayı</b> anlatırken. Als-cümlesinde çekimli fiil SONDA (war, ging).",
+        "mean": "Hocanın örneklerinde als-cümlesindeki fiil hep Präteritum'dur (war, ging): <b>geçmişte bir kez olmuş olayı</b> anlatırken. Als-cümlesinde çekimli fiil SONDA durur.",
         "egs": [
           "<b>Als</b> ich ein Kind <b>war</b>, <b>hatten</b> wir einen Autounfall. — Çocukken bir araba kazası geçirdik.",
           "<b>Als</b> Jan 14 Jahre alt <b>war</b>, <b>war</b> er das erste Mal auf einem Konzert. — Jan 14 yaşındayken ilk kez bir konsere gitti.",
@@ -297,7 +297,7 @@
         "exp": "Modallerde geçmiş için Präteritum kullanılır: ich konnte. Hocanın tablosunda 'ich habe gekonnt' çizilmiş; 'kann' ise Präsens."
       },
       {
-        "sent": "Ich ___ lernen, aber ich war so müde.",
+        "sent": "Gestern ___ ich lernen, aber ich war so müde.",
         "blank": "wollte",
         "opts": ["wollte", "will", "habe gewollt"],
         "tr": "Çalışmak istedim ama çok yorgundum.",
@@ -353,11 +353,11 @@
         "exp": "sehen düzensizdir: sah (Teil-2 s.50). 'sieht' Präsens, 'sahte' düzensiz fiile -te eklenmiş yanlış biçimdir."
       },
       {
-        "sent": "Ich ___, wir hätten mehr Zeit.",
+        "sent": "Als Kind ___ ich mir immer einen Hund.",
         "blank": "wünschte",
         "opts": ["wünschte", "wünsche", "wünschtete"],
-        "tr": "Keşke daha çok zamanımız olsaydı.",
-        "exp": "wünschen düzenlidir: ich wünschte (kök + -te, hocanın tablosu). 'wünsche' Präsens; 'wünschtete' iki kez -te eklenmiş hatalı biçim."
+        "tr": "Çocukken hep bir köpek isterdim.",
+        "exp": "wünschen düzenlidir: ich wünschte (kök + -te, Teil-2 s.56 tablosu). 'Als Kind' geçmişi gösterir, bu yüzden 'wünsche' (Präsens) olmaz; 'wünschtete' iki kez -te eklenmiş hatalı biçimdir."
       },
       {
         "sent": "Gestern ___ ich einen neuen Termin aus.",
@@ -385,7 +385,7 @@
         "blank": "war",
         "opts": ["war", "bin", "wurde"],
         "tr": "Çocukken bir araba kazası geçirdik.",
-        "exp": "Geçmişte bir kez olan olay → als + Präteritum; fiil yan cümlenin sonunda: war. 'bin' Präsens'tir, 'wurde' hocanın bu sayfasında kullanılmıyor."
+        "exp": "Geçmişte bir kez olan olay → als + Präteritum; fiil yan cümlenin sonunda: war. 'bin' Präsens'tir, 'wurde' ise 'oldu/-laştı' (werden) demektir ve burada anlam uymaz."
       },
       {
         "sent": "Es gibt kein Präteritum von ___.",

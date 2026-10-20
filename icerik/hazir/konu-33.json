@@ -37,7 +37,7 @@
           ["Die Mutter", "Mama"],
           ["Der Vater", "Papa"]
         ],
-        "not": "Hocanın ★★★★ kutusu: <b>Die Großmutter – Oma</b>, <b>Der Großvater – Opa</b>, <b>Die Mutter – Mama</b>, <b>Der Vater – Papa</b>. Yani Türkçedeki 'büyükanne / babaanne-anneanne' ile 'nine' gibi: resmi söylenişle günlük söyleniş. Almancada anneanne ile babaanne ayrımı yok: ikisi de <b>Großmutter / Oma</b>.",
+        "not": "Hocanın ★★★★ kutusu: <b>Die Großmutter – Oma</b>, <b>Der Großvater – Opa</b>, <b>Die Mutter – Mama</b>, <b>Der Vater – Papa</b>. Yani resmi söyleniş ile günlük (sevgi) söyleniş yan yana verilmiş. Hoca anneanne / babaanne ayrımı hakkında bir şey yazmıyor.",
         "kaynak": "Kalan s.91"
       },
       {
@@ -51,7 +51,7 @@
           ["Die Geschwister", "kardeş / kardeşler"],
           ["Die Zwillinge", "ikiz"]
         ],
-        "not": "Hocanın örneği: <b>Sie sind Zwillinge.</b> = Onlar ikiz. <b>Die Geschwister</b> hem erkek hem kız kardeşleri kapsar ve hep <b>çoğul</b>dur (die). Tek bir kardeş için ağaçta <b>der Bruder</b> (erkek kardeş) ve <b>die Schwester</b> (kız kardeş) geçiyor.",
+        "not": "Hocanın örneği: <b>Sie sind Zwillinge.</b> = Onlar ikiz. Hoca <b>Die Geschwister</b> için 'Kardeş/ler' yazmış (die ile). Tek bir kardeş için ağaçta <b>der Bruder</b> (erkek kardeş) ve <b>die Schwester</b> (kız kardeş) geçiyor.",
         "kaynak": "Kalan s.91"
       },
       {
@@ -60,14 +60,14 @@
         "baslik": "Aile, akraba, komşu, üvey",
         "basliklar": ["Almanca", "Türkçe (hoca)", "Çoğul"],
         "satirlar": [
-          ["Die Eltern", "ebeveyn", "(zaten çoğul)"],
+          ["Die Eltern", "ebeveyn", ""],
           ["Die Familie", "aile", ""],
           ["Der Verwandte", "akraba", "die Verwandten"],
           ["Der Nachbar", "komşu", "die Nachbarn"],
           ["Die Stiefmutter", "üvey anne", ""],
           ["Der Stiefvater", "üvey baba", ""]
         ],
-        "not": "Hocanın iki ★★★★ kutusu birleşti. <b>Die Eltern</b> hep çoğuldur (tek 'Elter' yok, hoca da vermiyor). Hocanın cümleleri: <b>Er gehört zu unserer Familie!</b> = O, ailemizin bir parçası! — <b>Hier geht es um meine Familie!</b> = Ailem mevzubahis burada!",
+        "not": "Hocanın iki ★★★★ kutusu birleşti. <b>Die Eltern</b> hocada 'Ebeveyn' diye geçiyor. Hocanın cümleleri: <b>Er gehört zu unserer Familie!</b> = O, ailemizin bir parçası! — <b>Hier geht es um meine Familie!</b> = Ailem mevzubahis burada!",
         "kaynak": "Kalan s.91"
       },
       {
@@ -90,12 +90,12 @@
       },
       {
         "big": "mein / meine",
-        "mean": "<b>Benim</b> demek için artikele göre: <b>der</b> kelimesi → <b>mein</b>, <b>die</b> kelimesi → <b>meine</b>. Çoğulda da <b>meine</b> (die Eltern → meine Eltern).",
+        "mean": "<b>Benim</b> demek için artikele göre: <b>der</b> kelimesi → <b>mein</b>, <b>die</b> kelimesi → <b>meine</b>. Çoğulda da <b>meine</b> (s.92 alıştırmasındaki boşluklar: ... sind <b>meine</b> ___).",
         "egs": [
-          "Das ist <b>mein</b> Vater. — Bu benim babam.",
-          "Das ist <b>meine</b> Mutter. — Bu benim annem.",
-          "<b>Meine</b> Eltern wohnen in Wien. — Anne babam Viyana'da oturuyor.",
-          "Ich habe zwei Kinder. — İki çocuğum var."
+          "Der Vater – <b>Mein</b> Vater. — Baba – benim babam.",
+          "Die Mutter – <b>Meine</b> Mutter. — Anne – benim annem.",
+          "Das – <b>Mein</b> Baby. — Bebek – benim bebeğim.",
+          "Hier geht es um <b>meine</b> Familie! — Ailem mevzubahis burada!"
         ],
         "tip": "💡 Hocanın ağacındaki yazılar kuralı kendiliğinden gösteriyor: <b>mein</b> Vater / Bruder / Onkel / Großvater / Cousin, <b>meine</b> Mutter / Schwester / Tante / Großmutter / Cousinen. Önce <b>der mi, die mi?</b> diye bak, sonra mein / meine seç.",
         "kaynak": "Kalan s.91"
@@ -106,8 +106,8 @@
         "baslik": "Hocanın resimli aile sözlüğü",
         "basliklar": ["Almanca", "Anlam / not"],
         "satirlar": [
-          ["der Ehemann = der Mann", "koca (hoca: = der Mann)"],
-          ["die Ehefrau = die Frau", "eş / hanım (hoca: = die Frau)"],
+          ["der Ehemann = der Mann", "erkek eş (hoca: = der Mann)"],
+          ["die Ehefrau = die Frau", "kadın eş (hoca: = die Frau)"],
           ["das Ehepaar", "evli çift"],
           ["die Großeltern", "büyükanne ve büyükbaba"],
           ["der Enkel / die Enkelin", "torun (erkek / kız)"],
@@ -164,11 +164,11 @@
         "kicker": "Tuzaklar",
         "baslik": "Aile kelimelerinde sık yapılan hatalar",
         "maddeler": [
-          "<b>Geschwister, Eltern, Großeltern, Zwillinge</b>: her zaman çoğul gibi kullanılır, başına <b>die</b> gelir: <b>Sie sind Zwillinge.</b>",
+          "<b>Geschwister, Eltern, Zwillinge</b>: hocanın listesinde <b>die</b> ile ve çoğul anlamlı verilmiş (Kardeş/ler, Ebeveyn, İkiz): <b>Sie sind Zwillinge.</b>",
           "<b>Mein / meine</b>: der → mein, die → meine. Hocanın ağacı: mein Vater, <b>meine</b> Mutter.",
           "<b>Mutter - Mama, Vater - Papa, Großmutter - Oma, Großvater - Opa</b>: resmi ve sevgi adı ikilileri.",
-          "<b>Enkel</b> (torun) ile <b>Neffe</b> (yeğen) ve <b>Cousin</b> (kuzen) farklı kelimelerdir: torun kendi çocuğunun çocuğudur, yeğen kardeşinin çocuğudur.",
-          "<b>Onkel</b> ve <b>Tante</b> anne mi baba tarafı mı olduğunu söylemez; bunu söylemek için <b>von</b> ile ayrıca belirtirsin (<b>Der Bruder von meiner Mutter</b>)."
+          "<b>Enkel</b> (torun), <b>Neffe</b> (yeğen) ve <b>Cousin</b> (kuzen) farklı kelimelerdir (hocanın s.92 alıştırmasına göre: Die Tochter von meiner Tochter → Enkelin, Der Sohn von meinem Bruder → Neffe, Der Sohn von meinem Onkel → Cousin).",
+          "Hocanın s.92 alıştırmasında <b>Onkel</b> hem 'Der Bruder von meiner Mutter' hem 'Der Sohn von meinem Onkel' cümlesinde geçiyor; hangi taraf olduğu <b>von</b> ile belirtiliyor."
         ],
         "uyari": "En sık hata: <b>meine Vater</b> demek. Vater 'der' kelimesi olduğundan doğrusu <b>mein Vater</b>'dır.",
         "kaynak": "Kalan s.91-92"
@@ -215,14 +215,14 @@
         "blank": "Großmutter",
         "opts": ["Großmutter", "Tante", "Tochter"],
         "tr": "Annemin annesi benim büyükannemdir.",
-        "exp": "Annenin annesi = <b>die Großmutter</b> (Oma). Almancada anneanne / babaanne ayrımı yoktur. Die Tante annenin kız kardeşidir."
+        "exp": "Annenin annesi = <b>die Großmutter</b> (Oma). Die Tante annenin kız kardeşidir."
       },
       {
         "sent": "Mein Opa und meine Oma sind meine ___.",
         "blank": "Großeltern",
         "opts": ["Großeltern", "Eltern", "Geschwister"],
         "tr": "Dedem ve ninem benim büyükanne-büyükbabamdır.",
-        "exp": "Opa + Oma = <b>die Großeltern</b> (hep çoğul). Eltern anne+babadır, Geschwister kardeşlerdir."
+        "exp": "Opa + Oma = <b>die Großeltern</b> (hocanın resimli sözlüğünde die Großeltern). Eltern anne+babadır, Geschwister kardeşlerdir."
       },
       {
         "sent": "Der Bruder von meiner Mutter ist mein ___.",
@@ -260,11 +260,11 @@
         "exp": "Laura kız olduğu için <b>die Tochter</b>. Sohn erkek evlattır; ayrıca 'meine' (die) ile 'Sohn' (der) uyuşmaz."
       },
       {
-        "sent": "Jonas und Laura sind meine ___.",
+        "sent": "Jonas ist mein Sohn und Laura ist meine Tochter. Jonas und Laura sind meine ___.",
         "blank": "Kinder",
         "opts": ["Kinder", "Eltern", "Geschwister"],
-        "tr": "Jonas ve Laura benim çocuklarımdır.",
-        "exp": "Jonas oğlum, Laura kızım: ikisi <b>meine Kinder</b>. Geschwister olsaydı ikisi benim kardeşim olurdu, ama ben onların ebeveyniyim."
+        "tr": "Jonas benim oğlum, Laura benim kızım. Jonas ve Laura benim çocuklarımdır.",
+        "exp": "Jonas oğlum, Laura kızım: ikisi <b>meine Kinder</b>. Eltern ebeveyn, Geschwister kardeşler demektir; ben onların ebeveyniyim."
       },
       {
         "sent": "Der Mann von meiner Schwester ist mein ___.",

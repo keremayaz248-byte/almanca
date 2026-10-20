@@ -92,6 +92,21 @@ function gramerDenetle(dosya, g, konuNo) {
   if (ayni < Math.min(4, g.qs.length)) uyari(dosya, 'gramer', 'sorularin cevaplari cok tekduze (' + ayni + ' farkli cevap)');
 }
 
+// NotebookLM'den gelen mini test: {baslik, kaynak, sorular:[{prompt, answer, opts, exp, wrongExp?, hint?}]}
+function miniDenetle(dosya, m) {
+  if (!metin(m.kaynak) || !/NotebookLM/.test(m.kaynak)) hata(dosya, 'mini', 'kaynak "NotebookLM ..." ile baslamali');
+  if (!Array.isArray(m.sorular) || m.sorular.length < 5) { hata(dosya, 'mini', 'en az 5 soru gerekli'); return; }
+  m.sorular.forEach((q, i) => {
+    const yer = 'mini ' + (i + 1);
+    if (!metin(q.prompt)) hata(dosya, yer, 'prompt eksik');
+    if (!Array.isArray(q.opts) || q.opts.length < 3 || q.opts.length > 5 || new Set(q.opts).size !== q.opts.length) hata(dosya, yer, 'opts 3-5 benzersiz secenek olmali');
+    else if (!q.opts.includes(q.answer)) hata(dosya, yer, 'answer secenekler arasinda degil');
+    if (!metin(q.exp) || q.exp.length < 20) hata(dosya, yer, 'exp eksik veya cok kisa');
+    if (q.wrongExp) Object.keys(q.wrongExp).forEach(k2 => { if (!(q.opts || []).includes(k2)) hata(dosya, yer, 'wrongExp anahtari secenek degil: ' + k2); });
+    htmlDenetle(dosya, yer, [q.prompt, q.exp, JSON.stringify(q.wrongExp || {})].join(' '));
+  });
+}
+
 function dersDenetle(dosya, v, konular) {
   if (typeof v.konu !== 'number' || !konular.has(v.konu)) hata(dosya, null, '"konu" KONULAR icinde yok: ' + v.konu);
   if (!metin(v.baslik)) hata(dosya, null, '"baslik" eksik');
@@ -106,6 +121,7 @@ function dersDenetle(dosya, v, konular) {
     if (!d.slides.some(s => s.type === 'outro')) uyari(dosya, 'deste', 'outro (ezber/ozet) sayfasi yok');
   }
   gramerDenetle(dosya, v.gramer, v.konu);
+  if (v.mini) miniDenetle(dosya, v.mini);
   if (v.dogrulama && !Array.isArray(v.dogrulama)) hata(dosya, null, '"dogrulama" dizi olmali');
   if (Array.isArray(v.dogrulama) && v.dogrulama.length) uyari(dosya, null, v.dogrulama.length + ' madde Perplexity dogrulamasi bekliyor');
 }

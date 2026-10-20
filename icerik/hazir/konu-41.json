@@ -2,9 +2,18 @@
   "konu": 41,
   "baslik": "Bağlaçlar (Konnektoren)",
   "kaynak": [
-    { "arac": "PDF", "sayfa": "A2 Dosyası s.96-99, s.135-142, s.215-225" },
-    { "arac": "PDF", "sayfa": "Teil-2 s.6-10" },
-    { "arac": "PDF", "sayfa": "Teil-1 s.60 (Kral & Soytarı)" }
+    {
+      "arac": "PDF",
+      "sayfa": "A2 Dosyası s.96-99, s.135-142, s.215-225"
+    },
+    {
+      "arac": "PDF",
+      "sayfa": "Teil-2 s.6-10"
+    },
+    {
+      "arac": "PDF",
+      "sayfa": "Teil-1 s.60 (Kral & Soytarı)"
+    }
   ],
   "deste": {
     "title": "🔗 Bağlaçlar: und, weil, deshalb, wenn…",
@@ -62,11 +71,26 @@
             "etiket": "Ana cümle",
             "not": "fiil 2. sırada",
             "jetonlar": [
-              { "t": "Ich", "r": "ozne" },
-              { "t": "gehe", "r": "fiil" },
-              { "t": "nicht", "r": "diger" },
-              { "t": "heute", "r": "zaman" },
-              { "t": "in die Schule", "r": "nesne" }
+              {
+                "t": "Ich",
+                "r": "ozne"
+              },
+              {
+                "t": "gehe",
+                "r": "fiil"
+              },
+              {
+                "t": "nicht",
+                "r": "diger"
+              },
+              {
+                "t": "heute",
+                "r": "zaman"
+              },
+              {
+                "t": "in die Schule",
+                "r": "nesne"
+              }
             ],
             "tr": "Bugün okula gitmiyorum."
           },
@@ -74,10 +98,23 @@
             "etiket": "weil (ortada)",
             "not": "fiil SONDA",
             "jetonlar": [
-              { "t": "weil", "r": "bag" },
-              { "t": "ich", "r": "ozne" },
-              { "t": "krank", "r": "diger" },
-              { "t": "bin", "r": "fiil", "sonda": true }
+              {
+                "t": "weil",
+                "r": "bag"
+              },
+              {
+                "t": "ich",
+                "r": "ozne"
+              },
+              {
+                "t": "krank",
+                "r": "diger"
+              },
+              {
+                "t": "bin",
+                "r": "fiil",
+                "sonda": true
+              }
             ],
             "tr": "…çünkü hastayım. (Yan cümlede çekimli fiil en sonda.)"
           },
@@ -85,12 +122,31 @@
             "etiket": "weil (başta)",
             "not": "önce fiil sonda, sonra ana fiil",
             "jetonlar": [
-              { "t": "Weil", "r": "bag" },
-              { "t": "ich", "r": "ozne" },
-              { "t": "krank", "r": "diger" },
-              { "t": "bin,", "r": "fiil", "sonda": true },
-              { "t": "gehe", "r": "fiil" },
-              { "t": "ich…", "r": "ozne" }
+              {
+                "t": "Weil",
+                "r": "bag"
+              },
+              {
+                "t": "ich",
+                "r": "ozne"
+              },
+              {
+                "t": "krank",
+                "r": "diger"
+              },
+              {
+                "t": "bin,",
+                "r": "fiil",
+                "sonda": true
+              },
+              {
+                "t": "gehe",
+                "r": "fiil"
+              },
+              {
+                "t": "ich…",
+                "r": "ozne"
+              }
             ],
             "tr": "Hasta olduğum için (bugün okula) gitmiyorum."
           },
@@ -98,10 +154,22 @@
             "etiket": "denn",
             "not": "fiil yer değiştirmez",
             "jetonlar": [
-              { "t": "denn", "r": "bag" },
-              { "t": "ich", "r": "ozne" },
-              { "t": "bin", "r": "fiil" },
-              { "t": "krank", "r": "diger" }
+              {
+                "t": "denn",
+                "r": "bag"
+              },
+              {
+                "t": "ich",
+                "r": "ozne"
+              },
+              {
+                "t": "bin",
+                "r": "fiil"
+              },
+              {
+                "t": "krank",
+                "r": "diger"
+              }
             ],
             "tr": "…çünkü hastayım. (denn'den sonra düz cümle.)"
           }
@@ -130,10 +198,22 @@
             "etiket": "deshalb",
             "not": "Pos.1 · Pos.2 fiil · Pos.3 özne",
             "jetonlar": [
-              { "t": "deshalb", "r": "bag" },
-              { "t": "hat", "r": "fiil" },
-              { "t": "er", "r": "ozne" },
-              { "t": "kein Geld", "r": "nesne" }
+              {
+                "t": "deshalb",
+                "r": "bag"
+              },
+              {
+                "t": "hat",
+                "r": "fiil"
+              },
+              {
+                "t": "er",
+                "r": "ozne"
+              },
+              {
+                "t": "kein Geld",
+                "r": "nesne"
+              }
             ],
             "tr": "(Er arbeitet nicht,) bu yüzden parası yok."
           },
@@ -141,10 +221,22 @@
             "etiket": "özne başta",
             "not": "bağlaç 3. sıraya düşer",
             "jetonlar": [
-              { "t": "er", "r": "ozne" },
-              { "t": "hat", "r": "fiil" },
-              { "t": "deshalb", "r": "bag" },
-              { "t": "kein Geld", "r": "nesne" }
+              {
+                "t": "er",
+                "r": "ozne"
+              },
+              {
+                "t": "hat",
+                "r": "fiil"
+              },
+              {
+                "t": "deshalb",
+                "r": "bag"
+              },
+              {
+                "t": "kein Geld",
+                "r": "nesne"
+              }
             ],
             "tr": "(Er arbeitet nicht,) onun bu yüzden parası yok."
           },
@@ -152,10 +244,22 @@
             "etiket": "darum",
             "not": "aynı kalıp",
             "jetonlar": [
-              { "t": "darum", "r": "bag" },
-              { "t": "lernt", "r": "fiil" },
-              { "t": "er", "r": "ozne" },
-              { "t": "Englisch", "r": "nesne" }
+              {
+                "t": "darum",
+                "r": "bag"
+              },
+              {
+                "t": "lernt",
+                "r": "fiil"
+              },
+              {
+                "t": "er",
+                "r": "ozne"
+              },
+              {
+                "t": "Englisch",
+                "r": "nesne"
+              }
             ],
             "tr": "(Er ist arbeitslos,) bu yüzden İngilizce öğreniyor."
           },
@@ -163,10 +267,22 @@
             "etiket": "deswegen",
             "not": "aynı kalıp",
             "jetonlar": [
-              { "t": "deswegen", "r": "bag" },
-              { "t": "bleibt", "r": "fiil" },
-              { "t": "sie", "r": "ozne" },
-              { "t": "zu Hause", "r": "diger" }
+              {
+                "t": "deswegen",
+                "r": "bag"
+              },
+              {
+                "t": "bleibt",
+                "r": "fiil"
+              },
+              {
+                "t": "sie",
+                "r": "ozne"
+              },
+              {
+                "t": "zu Hause",
+                "r": "diger"
+              }
             ],
             "tr": "(Sie ist krank,) bu yüzden evde kalıyor."
           },
@@ -174,15 +290,28 @@
             "etiket": "deshalb ↔ weshalb",
             "not": "weshalb: fiil SONDA",
             "jetonlar": [
-              { "t": "weshalb", "r": "bag" },
-              { "t": "sie", "r": "ozne" },
-              { "t": "immer eine Maske", "r": "nesne" },
-              { "t": "trägt", "r": "fiil", "sonda": true }
+              {
+                "t": "weshalb",
+                "r": "bag"
+              },
+              {
+                "t": "sie",
+                "r": "ozne"
+              },
+              {
+                "t": "immer eine Maske",
+                "r": "nesne"
+              },
+              {
+                "t": "trägt",
+                "r": "fiil",
+                "sonda": true
+              }
             ],
             "tr": "…bu yüzden hep maske takıyor. (deshalb trägt sie ↔ weshalb sie … trägt)"
           }
         ],
-        "not": "<b>Kral–Soytarı benzetmesi (hocanın):</b> Kral + Soytarı (fiil) + Garibim Halk (özne). deshalb/darum/deswegen Kral'ın yerine geçer: hemen arkasında <b>Soytarı (fiil)</b>, sonra <b>halk (özne)</b>. weshalb ise yan cümle kurar: fiil en sona gider.",
+        "not": "<b>Hocanın sıra benzetmesi (Teil-1 s.60):</b> Kral + Soytarı (fiil) + Garibim Halk (özne): fiil hep 2., özne ondan sonra. Aynı düzen deshalb/darum/deswegen için de geçerlidir: bağlaç 1. sırada, hemen arkasında <b>fiil</b>, sonra <b>özne</b> (Teil-2 s.6 tablosu: I deshalb · II hat · III er). weshalb ise yan cümle kurar: fiil en sona gider.",
         "kaynak": "Teil-2 s.6-7; Teil-1 s.60"
       },
       {
@@ -261,20 +390,72 @@
         "tur": "tablo",
         "kicker": "Bağlaç sınıfları",
         "baslik": "Hangi bağlaç fiili nereye koyar?",
-        "basliklar": ["Bağlaç", "Fiil nerede?", "Hocanın örneği"],
+        "basliklar": [
+          "Bağlaç",
+          "Fiil nerede?",
+          "Hocanın örneği"
+        ],
         "satirlar": [
-          ["und / oder / aber / denn", "2. sıra (değişmez)", "…denn man lernt viel."],
-          ["sondern", "olumsuzdan sonra düzeltir", "…nicht müde, sondern hungrig."],
-          ["weil / da", "SONDA", "…weil ich krank bin."],
-          ["weshalb", "SONDA", "…weshalb sie … trägt."],
-          ["wenn / als / falls", "SONDA", "Wenn dein Motorrad kaputt ist,…"],
-          ["damit / um … zu", "SONDA (um…zu: zu + mastar)", "…damit der Arzt schnell kommt."],
-          ["dass", "SONDA", "Ich denke, dass die Sprache wichtig … ist."],
-          ["seit / bis / sobald", "SONDA", "Ich helfe dir, bis du wieder gesund bist."],
-          ["deshalb / deswegen / darum / daher", "bağlaç 1., fiil 2., özne 3.", "Deshalb gehe ich…"],
-          ["sonst / dann / danach", "bağlaç 1., fiil 2., özne 3.", "…dann koche ich."],
-          ["es sei denn", "örneklerde fiil 2.", "…es sei denn, es hört auf zu regnen."],
-          ["nämlich", "ana cümlenin içinde, 3. sırada", "Sie geht früh ins Bett, sie muss nämlich um 6 Uhr aufstehen."]
+          [
+            "und / oder / aber / denn",
+            "2. sıra (değişmez)",
+            "…denn man lernt viel."
+          ],
+          [
+            "sondern",
+            "olumsuzdan sonra düzeltir",
+            "…nicht müde, sondern hungrig."
+          ],
+          [
+            "weil / da",
+            "SONDA",
+            "…weil ich krank bin."
+          ],
+          [
+            "weshalb",
+            "SONDA",
+            "…weshalb sie … trägt."
+          ],
+          [
+            "wenn / als / falls",
+            "SONDA",
+            "Wenn dein Motorrad kaputt ist,…"
+          ],
+          [
+            "damit / um … zu",
+            "SONDA (um…zu: zu + mastar)",
+            "…damit der Arzt schnell kommt."
+          ],
+          [
+            "dass",
+            "SONDA",
+            "Ich denke, dass die Sprache wichtig … ist."
+          ],
+          [
+            "seit / bis / sobald",
+            "SONDA",
+            "Ich helfe dir, bis du wieder gesund bist."
+          ],
+          [
+            "deshalb / deswegen / darum / daher",
+            "bağlaç 1., fiil 2., özne 3.",
+            "Deshalb gehe ich…"
+          ],
+          [
+            "sonst / dann / danach",
+            "bağlaç 1., fiil 2., özne 3.",
+            "…dann koche ich."
+          ],
+          [
+            "es sei denn",
+            "örneklerde fiil 2.",
+            "…es sei denn, es hört auf zu regnen."
+          ],
+          [
+            "nämlich",
+            "ana cümlenin içinde, 3. sırada",
+            "Sie geht früh ins Bett, sie muss nämlich um 6 Uhr aufstehen."
+          ]
         ],
         "not": "Hocanın üçlüsü: <b>'Warum? weil · Wann? wenn · Was? dass'</b> (Ich lerne Deutsch, weil ich die Sprache interessant finde / Ich besuche dich, wenn ich Zeit habe / Ich denke, dass …). Üçünde de fiil SONDA. 'seit' için hoca '-dığından dolayı' çevirisini vermiş (bkz. doğrulama listesi).",
         "kaynak": "A2 s.96, 99, 140, 142, 144, 220; Teil-2 s.6-10"
@@ -316,133 +497,214 @@
       {
         "sent": "Ich bleibe zu Hause, ___ ich bin krank.",
         "blank": "denn",
-        "opts": ["denn", "weil", "deshalb"],
+        "opts": [
+          "denn",
+          "weil",
+          "deshalb"
+        ],
         "tr": "Evde kalıyorum, çünkü hastayım.",
         "exp": "'ich bin krank' düz cümle (fiil 2.), o yüzden denn gelir. weil olsaydı fiil sona gitmeliydi (weil ich krank bin); deshalb ise sebebi değil sonucu bağlar."
       },
       {
         "sent": "Gehen wir heute schwimmen ___ lieber ins Kino?",
         "blank": "oder",
-        "opts": ["oder", "aber", "weil"],
+        "opts": [
+          "oder",
+          "aber",
+          "weil"
+        ],
         "tr": "Bugün yüzmeye mi gidelim, yoksa sinemaya mı?",
         "exp": "oder iki seçenek sunar (alternative). aber zıtlık, weil sebep bildirir; burada seçenek sorulduğu için oder doğru."
       },
       {
         "sent": "Ich möchte gern ins Kino, ___ ich habe heute keine Zeit.",
         "blank": "aber",
-        "opts": ["aber", "weil", "sondern"],
+        "opts": [
+          "aber",
+          "weil",
+          "sondern"
+        ],
         "tr": "Sinemaya gitmek isterim, ama bugün vaktim yok.",
         "exp": "İki ana cümle zıtlık oluşturuyor (opposite) → aber, fiil 2. sırada kalır (ich habe). weil kullansaydın fiil sona giderdi; sondern ise olumsuz bir ifadeyi düzeltmek içindir."
       },
       {
         "sent": "Ich bin nicht müde, ___ hungrig.",
         "blank": "sondern",
-        "opts": ["sondern", "oder", "denn"],
+        "opts": [
+          "sondern",
+          "oder",
+          "denn"
+        ],
         "tr": "Yorgun değilim, aksine açım.",
         "exp": "Önceki ifade olumsuz (nicht müde) ve 'bu değil, şu' diye düzeltiliyor → sondern. Hocanın kutusu: Sondern: not this but that, nicht/kein ister."
       },
       {
         "sent": "Ich lerne Deutsch, weil ___.",
         "blank": "ich die Sprache interessant finde",
-        "opts": ["ich die Sprache interessant finde", "ich finde die Sprache interessant", "finde ich die Sprache interessant", "ich die Sprache finde interessant"],
+        "opts": [
+          "ich die Sprache interessant finde",
+          "ich finde die Sprache interessant",
+          "finde ich die Sprache interessant",
+          "ich die Sprache finde interessant"
+        ],
         "tr": "Almanca öğreniyorum, çünkü bu dili ilginç buluyorum.",
         "exp": "weil yan cümle kurar: çekimli fiil (finde) cümlenin EN SONUNA gider. Diğer seçeneklerde fiil 2. sırada ya da sonun bir önünde."
       },
       {
         "sent": "Weil ich krank bin, ___ nicht in die Schule.",
         "blank": "gehe ich",
-        "opts": ["gehe ich", "ich gehe", "ich gehen", "gehen ich"],
+        "opts": [
+          "gehe ich",
+          "ich gehe",
+          "ich gehen",
+          "gehen ich"
+        ],
         "tr": "Hasta olduğum için okula gitmiyorum.",
         "exp": "weil-cümlesi başta ise bir bütün olarak 1. kutuyu doldurur; sonra gelen ana cümle fiille başlar: gehe ich (hocanın 'Eski devrik'i). 'ich gehe' yanlış, çünkü fiil 2. kutuda olmak zorunda."
       },
       {
         "sent": "___ ich krank bin, bleibe ich zu Hause.",
         "blank": "Weil",
-        "opts": ["Weil", "Denn", "Deshalb"],
+        "opts": [
+          "Weil",
+          "Denn",
+          "Deshalb"
+        ],
         "tr": "Hasta olduğum için evde kalıyorum.",
-        "exp": "Cümle başına yalnızca weil (veya da) geçebilir; denn asla başa geçmez. 'krank bin' sırası (fiil sonda) de weil yapısına uyuyor."
+        "exp": "Cümle başına yalnızca weil (ya da 'da' bağlacı) geçebilir; denn asla başa geçmez. 'krank bin' sırası (fiil sonda) da weil yapısına uyuyor."
       },
       {
         "sent": "Ich bin krank, ___ nicht in die Schule.",
         "blank": "deshalb gehe ich",
-        "opts": ["deshalb gehe ich", "deshalb ich gehe", "weil gehe ich", "weil ich gehe"],
+        "opts": [
+          "deshalb gehe ich",
+          "deshalb ich gehe",
+          "weil gehe ich",
+          "weil ich gehe"
+        ],
         "tr": "Hastayım, bu yüzden okula gitmiyorum.",
         "exp": "deshalb 1. sıraya geçer, fiil 2., özne 3. olur: deshalb gehe ich. 'deshalb ich gehe' fiili 3. sıraya iter; weil'li seçeneklerde de sebep/sonuç yönü ters olur."
       },
       {
         "sent": "Er ist arbeitslos, ___ Englisch.",
         "blank": "darum lernt er",
-        "opts": ["darum lernt er", "darum er lernt", "lernt darum er", "weil er lernt"],
+        "opts": [
+          "darum lernt er",
+          "darum er lernt",
+          "lernt darum er",
+          "weil er lernt"
+        ],
         "tr": "İşsiz, bu yüzden İngilizce öğreniyor.",
         "exp": "darum de deshalb gibi çalışır: 1. bağlaç, 2. fiil (lernt), 3. özne (er). Hocanın tablosundaki kalıp budur."
       },
       {
         "sent": "Sie ist krank, ___ zu Hause.",
         "blank": "sie bleibt deswegen",
-        "opts": ["sie bleibt deswegen", "deswegen sie bleibt", "sie deswegen bleibt", "bleibt deswegen sie"],
+        "opts": [
+          "sie bleibt deswegen",
+          "deswegen sie bleibt",
+          "sie deswegen bleibt",
+          "bleibt deswegen sie"
+        ],
         "tr": "Hasta, bu yüzden evde kalıyor.",
-        "exp": "Hocanın tablosunda deswegen 3. sıraya da geçebilir: özne 1. sırada, fiil 2. sırada kalır (sie bleibt deswegen). Fiil her zaman 2. kutuda; bu yüzden diğer sıralar yanlış."
+        "exp": "Hocanın Teil-2 s.6 tablosunda deswegen 3. sıraya da geçebilir: özne 1. sırada, fiil 2. sırada kalır (sie bleibt deswegen zu Hause). Fiil her zaman 2. kutuda; bu yüzden diğer sıralar yanlış. (Bağlaç başta olsaydı: deswegen bleibt sie.)"
       },
       {
         "sent": "Sie möchte sich nicht anstecken, ___ sie immer eine Maske trägt.",
         "blank": "weshalb",
-        "opts": ["weshalb", "deshalb", "denn"],
+        "opts": [
+          "weshalb",
+          "deshalb",
+          "denn"
+        ],
         "tr": "Kapmak istemiyor, bu yüzden hep maske takıyor.",
         "exp": "'trägt' cümlenin sonunda → yan cümle yapısı → weshalb. deshalb olsaydı fiil 2. sırada olurdu (deshalb trägt sie); denn'den sonra da düz sıra gelirdi."
       },
       {
         "sent": "Komm zu mir, ___ bin ich so allein.",
         "blank": "sonst",
-        "opts": ["sonst", "weil", "deshalb"],
+        "opts": [
+          "sonst",
+          "weil",
+          "deshalb"
+        ],
         "tr": "Bana gel, yoksa çok yalnız kalırım.",
         "exp": "sonst: 'yoksa, zira' (wenn nicht…, dann…) ve ana cümle bağlacıdır (bin ich: fiil 2.). weil fiili sona atardı; deshalb sonuç bildirir, burada anlam 'yoksa' olmalı."
       },
       {
         "sent": "___ ich ein Kind war, hatten wir einen Autounfall.",
         "blank": "Als",
-        "opts": ["Als", "Wenn", "Falls"],
+        "opts": [
+          "Als",
+          "Wenn",
+          "Falls"
+        ],
         "tr": "Çocukken bir araba kazası geçirdik.",
         "exp": "Geçmişte bir kez olmuş olay → als. Wenn tekrar eden olaylar içindir (immer wenn…), falls ise düşük ihtimali anlatır."
       },
       {
         "sent": "Immer ___ ich allein zu Hause war, habe ich laut Musik gehört.",
         "blank": "wenn",
-        "opts": ["wenn", "als", "damit"],
+        "opts": [
+          "wenn",
+          "als",
+          "damit"
+        ],
         "tr": "Evde yalnız olduğum her seferde yüksek sesle müzik dinledim.",
         "exp": "Geçmişte ama TEKRAR eden bir durum ('immer') → wenn. Als yalnızca tek seferlik geçmiş olay için."
       },
       {
         "sent": "Nico kommt wahrscheinlich nicht zurück. ___ er zurückkommt, werden wir heiraten.",
         "blank": "Falls",
-        "opts": ["Falls", "Wenn", "Als"],
+        "opts": [
+          "Falls",
+          "Wenn",
+          "Als"
+        ],
         "tr": "Nico muhtemelen dönmeyecek. Olur da dönerse evleneceğiz.",
-        "exp": "Hocanın görseli: wenn ≈ %75 (muhtemelen olacak), falls ≈ %25 (muhtemelen olmayacak). Burada ihtimal düşük → Falls."
+        "exp": "Hocanın görseli (A2 s.217): wenn ≈ %75 (muhtemelen olacak), falls ≈ %25 (muhtemelen olmayacak). İlk cümle ihtimalin düşük olduğunu söylüyor → Falls. (Wenn ihtimal yüksekken kullanılır.)"
       },
       {
         "sent": "Ich hole einen Besen, ___ die Terrasse zu kehren.",
         "blank": "um",
-        "opts": ["um", "damit", "weil"],
+        "opts": [
+          "um",
+          "damit",
+          "weil"
+        ],
         "tr": "Terası süpürmek için bir süpürge getiriyorum.",
         "exp": "Her iki cümlenin öznesi aynı (ich) ve fiil 'zu kehren' mastarı olarak sonda → um … zu. Özne değişseydi damit gerekirdi."
       },
       {
         "sent": "Ich rufe den Rettungsdienst, ___ der Arzt schnell kommt.",
         "blank": "damit",
-        "opts": ["damit", "um", "denn"],
+        "opts": [
+          "damit",
+          "um",
+          "denn"
+        ],
         "tr": "Doktor çabuk gelsin diye ambulansı arıyorum.",
         "exp": "Yan cümlenin kendi öznesi var (der Arzt) → um…zu kullanılamaz, damit gerekir ve fiil sona gider (kommt)."
       },
       {
         "sent": "Du kannst mitkommen, ___ du bist müde.",
         "blank": "es sei denn",
-        "opts": ["es sei denn", "auch wenn", "damit"],
+        "opts": [
+          "es sei denn",
+          "auch wenn",
+          "damit"
+        ],
         "tr": "Yorgun olmadıkça sen de gelebilirsin.",
         "exp": "'…madıkça' anlamı için es sei denn (hocanın notu: Unless). auch wenn '-sa bile' demektir, damit amaç bildirir."
       },
       {
         "sent": "Ich bleibe heute zu Hause, weil ich meinen Vater ___.",
         "blank": "abhole",
-        "opts": ["abhole", "hole ab", "holeab"],
+        "opts": [
+          "abhole",
+          "hole ab",
+          "holeab"
+        ],
         "tr": "Bugün evde kalıyorum, çünkü babamı karşılayacağım.",
         "exp": "Ayrılabilen fiiller weil-cümlesinde AYRILMAZ: önek yapışık ve fiil sonda durur (…, weil ich ihn abhole). Hocanın !!!!!!!! notu: Trennbare Verben + weil."
       }
@@ -455,5 +717,130 @@
     "A2 s.140: hoca 'seit' için '-dığından dolayı' (sebep) çevirisini vermiş; örnek ise 'Ich fühle mich besser, seit ich Yoga mache' (since). Hocanın çevirisi mi, 'since'in zaman anlamı mı? Perplexity'ye sor: 'seit bağlacı: zaman mı sebep mi?'",
     "A2 s.142: 'Ich weiß sonst nicht, wohin.' (hocanın çevirisi: 'Gidecek başka yerim yok'). Çeviri ve sonst'ın bu kullanımı doğru mu? Perplexity'ye sor.",
     "PDF'de bulunamayanlar: obwohl, trotzdem, weswegen/warum ayrı bir anlatım olarak, 'dass'ın kendi anlatım sayfası (yalnızca A2 s.220'deki mini tablo var). Bu yüzden derste yer almadı."
-  ]
+  ],
+  "mini": {
+    "baslik": "Mini test · Bağlaçlar (NotebookLM)",
+    "kaynak": "NotebookLM · A2 Dosyası (soru ve gerekçeleri NotebookLM üretti; 2 soru düzenlendi)",
+    "sorular": [
+      {
+        "prompt": "\"Weil\" bağlacı ile kurulan bir yan cümlede (Nebensatz) çekimlenmiş fiilin (konjugiertes Verb) pozisyonu nasıl olmalıdır?",
+        "answer": "Çekimlenmiş fiil yan cümlenin en sonuna gider.",
+        "opts": [
+          "Çekimlenmiş fiil yan cümlenin en sonuna gider.",
+          "Çekimlenmiş fiil bağlaçtan hemen sonra (1. sırada) gelir.",
+          "Çekimlenmiş fiil cümlenin 2. sırasında sabit kalır.",
+          "Çekimlenmiş fiil mastar (Infinitiv) haline dönüşür."
+        ],
+        "exp": "Weil bir yan cümle (Nebensatz) bağlacı olduğu için çekimlenmiş fiili yan cümlenin en sonuna taşır.",
+        "wrongExp": {
+          "Çekimlenmiş fiil bağlaçtan hemen sonra (1. sırada) gelir.": "Çekimlenmiş fiilin bağlaçtan hemen sonra gelmesi devrik ana cümle yapılarında görülür, yan cümle düzeninde geçerli değildir.",
+          "Çekimlenmiş fiil cümlenin 2. sırasında sabit kalır.": "Fiilin 2. sırada kalması 'denn' gibi ana cümle bağlaçlarında geçerlidir; 'weil' ise yan cümle yapısı oluşturur.",
+          "Çekimlenmiş fiil mastar (Infinitiv) haline dönüşür.": "Weil bağlacı fiilin zaman/özne çekimini ortadan kaldırmaz, sadece çekimlenmiş fiilin konumunu cümlenin sonuna kaydırır."
+        },
+        "hint": "Bu bağlaç cümlenin kelime sırasını değiştirerek fiili cümlenin kapanışına doğru iter."
+      },
+      {
+        "prompt": "\"Ich bleibe heute zu Hause, ___ ich krank bin.\" cümlesindeki boşluğa cümlenin sonundaki \"bin\" fiilinin pozisyonu dikkate alındığında hangi bağlaç gelmelidir?",
+        "answer": "weil",
+        "opts": [
+          "weil",
+          "denn",
+          "deshalb",
+          "sonst"
+        ],
+        "exp": "Cümlenin sonundaki 'bin' fiili bir yan cümle yapısını gösterir ve 'weil' yan cümle oluşturan bir bağlaçtır.",
+        "wrongExp": {
+          "denn": "'Denn' bir ana cümle bağlacıdır ve kendisinden sonra fiilin 2. sırada gelmesini gerektirir ('denn ich bin krank').",
+          "deshalb": "'deshalb' ana cümle bağlacıdır (yan cümle değil): kendisi 1. sırada durur, fiil hemen arkasından 2. sırada gelir ('Deshalb bin ich krank'); cümlenin sonuna atmaz.",
+          "sonst": "'sonst' (aksi takdirde) de ana cümleyi bağlar: fiil 2. sırada kalır, cümlenin sonuna gitmez."
+        },
+        "hint": "Fiilin cümlenin en sonunda yer alması, kullanılan bağlacın bir Nebensatz bağlacı olduğunu gösterir."
+      },
+      {
+        "prompt": "\"denn\" bağlacının kullanımı ile ilgili kaynakta özellikle belirtilen kural hangisidir?",
+        "answer": "'Denn' bağlacı cümle başında kullanılamaz; sadece iki ana cümleyi bağlarken ortada yer alır.",
+        "opts": [
+          "'Denn' bağlacı cümle başında kullanılamaz; sadece iki ana cümleyi bağlarken ortada yer alır.",
+          "'Denn' bağlacı çekimlenmiş fiili cümlenin en sonuna atar.",
+          "'Denn' bağlacı kendisinden sonra gelen özneyi tamamen düşürür.",
+          "'Denn' bağlacı sadece geçmiş zaman cümlelerinde kullanılır."
+        ],
+        "exp": "Kaynakta 'Denn ich bin krank, bleibe ich zu Hause' kullanımı açıkça yanlış olarak işaretlenmiş ve 'denn' bağlacının cümle başında yer alamayacağı vurgulanmıştır.",
+        "wrongExp": {
+          "'Denn' bağlacı çekimlenmiş fiili cümlenin en sonuna atar.": "'Denn' sıfırıncı pozisyonda (Position 0) yer alan bir ana cümle bağlacıdır ve düz cümle sırasını bozmaz.",
+          "'Denn' bağlacı kendisinden sonra gelen özneyi tamamen düşürür.": "'Denn' bağlacından sonra tam bir ana cümle gelir ve özne kullanımı zorunludur.",
+          "'Denn' bağlacı sadece geçmiş zaman cümlelerinde kullanılır.": "'Denn' bağlacının kullanımı zaman (Tense) kısıtlamasına bağlı değildir."
+        },
+        "hint": "Bu bağlaçla cümleye başlamak Almanca dilbilgisi kurallarına aykırıdır."
+      },
+      {
+        "prompt": "\"Weil ich krank bin, ___ ich heute nicht in die Schule.\" cümlesinde boşluğa ne gelmelidir? (Yan cümle başa geçmiştir.)",
+        "answer": "gehe",
+        "opts": [
+          "gehe",
+          "ich gehe",
+          "gehen",
+          "gegangen bin"
+        ],
+        "exp": "Yan cümle (Weil-Satz) bütün olarak cümlenin 1. öğesi olduğu için, virgülden sonra ana cümle hemen çekimli fiille başlar: \"..., gehe ich heute nicht in die Schule.\"",
+        "wrongExp": {
+          "ich gehe": "Yan cümleden sonra özneyle başlarsan fiil 3. sıraya düşer; Almanca ana cümlede fiil 2. sırada olmalıdır (burada yan cümle 1. sırayı doldurdu).",
+          "gehen": "Fiil özneye uymalı: ich → gehe. \"gehen\" wir/sie/Sie ile kullanılır.",
+          "gegangen bin": "Cümle şimdiki zamandadır (gehe); Perfekt biçimi (bin ... gegangen) burada anlamı ve yapıyı bozar."
+        },
+        "hint": "Yan cümle birinci öge kabul edildiğinden, virgül sonrasında ana cümlenin fiili hemen gelmelidir."
+      },
+      {
+        "prompt": "\"nämlich\" (çünkü / nitekim) kelimesi bir gerekçe belirtirken cümle içinde nasıl konumlanır?",
+        "answer": "Bağlaç gibi cümlenin başında değil, ana cümlenin içinde (genellikle fiil ve özneden sonra) yer alır.",
+        "opts": [
+          "Bağlaç gibi cümlenin başında değil, ana cümlenin içinde (genellikle fiil ve özneden sonra) yer alır.",
+          "Cümlenin en başında 0. pozisyonda yer alır ve devrik cümle yapmaz.",
+          "Çekimlenmiş fiili cümlenin en sonuna gönderir.",
+          "Sadece 'um ... zu' yapısı ile birlikte cümlenin sonunda kullanılır."
+        ],
+        "exp": "'Nämlich' bir bağlaç pozisyonunda (0 veya 1) yer almaz; cümlenin içine girerek fiilden sonra (örneğin 'ich bin nämlich krank') konumlanır.",
+        "wrongExp": {
+          "Cümlenin en başında 0. pozisyonda yer alır ve devrik cümle yapmaz.": "'Nämlich' sözcüğü cümle başında yer alan geleneksel bağlaçlardan değildir.",
+          "Çekimlenmiş fiili cümlenin en sonuna gönderir.": "'Nämlich' bir yan cümle bağlacı (Nebensatzkonjunktion) olmadığı için fiili cümlenin sonuna atmaz.",
+          "Sadece 'um ... zu' yapısı ile birlikte cümlenin sonunda kullanılır.": "'Nämlich' bağımsız bir ana cümlede gerekçe sunmak için kullanılır ve 'um...zu' yapısıyla ilişkisi yoktur."
+        },
+        "hint": "Bu kelime 'ich bin ___ krank' örneğinde olduğu gibi fiilden sonra cümlenin içine yerleşir."
+      },
+      {
+        "prompt": "Amaç belirten bir cümlede \"um ... zu\" yapısı YERİNE \"damit\" bağlacı ne zaman kullanılmak zorundadır?",
+        "answer": "Temel cümlenin öznesi ile amaç cümlesinin öznesi birbirinden farklı olduğunda.",
+        "opts": [
+          "Temel cümlenin öznesi ile amaç cümlesinin öznesi birbirinden farklı olduğunda.",
+          "Temel cümlenin öznesi ile amaç cümlesinin öznesi aynı olduğunda.",
+          "Cümlede ayrılabilir bir fiil (trennbares Verb) kullanıldığında.",
+          "Cümle geçmiş zamanda (Präteritum) kurulduğunda."
+        ],
+        "exp": "'um ... zu' kalıbının kendi öznesi olamaz; iki cümlenin öznesi farklıysa amaç 'damit' bağlacı ile yan cümle yapılarak ifade edilir.",
+        "wrongExp": {
+          "Temel cümlenin öznesi ile amaç cümlesinin öznesi aynı olduğunda.": "Özneler aynı olduğunda 'um ... zu' yapısı rahatlıkla kullanılabilir ve tercih edilir.",
+          "Cümlede ayrılabilir bir fiil (trennbares Verb) kullanıldığında.": "Ayrılabilir fiiller 'um ... zu' kalıbı ile (örneğin 'einzuladen') sorunsuz şekilde kullanılabilir.",
+          "Cümle geçmiş zamanda (Präteritum) kurulduğunda.": "Amaç cümlelerindeki bağlaç seçimi zaman yapısına değil, öznelerin aynı veya farklı oluşuna bağlıdır."
+        },
+        "hint": "İki eylemi gerçekleştiren kişilerin aynı olup olmadığına dikkat ediniz."
+      },
+      {
+        "prompt": "\"Seit ich Yoga mache, ___ ich mich besser.\" cümlesindeki boşluğa cümlenin öge dizilimine göre hangi kelime gelmelidir?",
+        "answer": "fühle",
+        "opts": [
+          "fühle",
+          "ich fühle",
+          "fühlen",
+          "gefühlt"
+        ],
+        "exp": "Seit-Satz (yan cümle) cümlenin 1. ögesi konumunda olduğu için ana cümle hemen çekimlenmiş fiille ('fühle') başlamalıdır.",
+        "wrongExp": {
+          "ich fühle": "Yan cümleden sonra öznenin gelmesi fiili 3. sıraya iteceği için devrik cümle kuralına aykırıdır.",
+          "fühlen": "Fiil 'ich' öznesine göre çekimlenmelidir, mastar halde bırakılamaz.",
+          "gefühlt": "Cümle yapısı geniş zaman akışındadır, Partizip II kullanımı uyumsuzdur."
+        },
+        "hint": "Yan cümle cümlenin başında yer aldığında, ana cümle özne ile değil fiil ile başlar."
+      }
+    ]
+  }
 }

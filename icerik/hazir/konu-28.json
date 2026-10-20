@@ -91,7 +91,7 @@
           "Er steht <b>um</b> 6.00 Uhr auf. — O saat 6.00'da kalkıyor."
         ],
         "tip": "💡 Hocanın saat tablosunda «um» sarı vurgulu ve 24:00 yanında mavi bir «um» düğmesi var: saat söylerken «um» unutulmaz.",
-        "kaynak": "Kalan Üniteler s.47, s.51"
+        "kaynak": "Kalan Üniteler s.47, s.50"
       },
       {
         "big": "Um wie viel Uhr …?",
@@ -147,7 +147,7 @@
       {
         "tur": "zaman",
         "kicker": "Was mache ich jeden Tag?",
-        "baslik": "Günün akışı (hocanın resimli sayfası)",
+        "baslik": "Günün akışı (hocanın resimli sayfası, s.50)",
         "noktalar": [
           { "baslik": "6.00", "etiket": "Um 6.00 Uhr", "ornek": "Um 6.00 Uhr <b>stehe</b> ich <b>auf</b>.", "tr": "Saat 6.00'da kalkarım." },
           { "baslik": "6.30", "etiket": "Um 6.30 Uhr", "ornek": "Um 6.30 Uhr <b>frühstücke</b> ich.", "tr": "Saat 6.30'da kahvaltı yaparım." },
@@ -158,7 +158,7 @@
           { "baslik": "22.00", "etiket": "Um 22.00 Uhr", "ornek": "Um 22.00 Uhr gehe ich ins Bett.", "tr": "Saat 22.00'de yatağa giderim." }
         ],
         "not": "Hep aynı kalıp: <b>Um + saat + fiil + ich</b>. Saat başa geçince fiil yine ikinci sırada kalır, «ich» fiilin arkasına gider.",
-        "kaynak": "Kalan Üniteler s.51"
+        "kaynak": "Kalan Üniteler s.50"
       },
       {
         "big": "Wann? · Wie lange?",
@@ -171,7 +171,7 @@
           "Mara arbeitet <b>von</b> Donnerstag <b>bis</b> Sonntag. — Mara perşembeden pazara kadar çalışıyor."
         ],
         "tip": "💡 Gün adı → <b>am</b>. Saat → <b>um</b>. Süre → <b>von … bis</b>.",
-        "kaynak": "Kalan Üniteler s.52"
+        "kaynak": "Kalan Üniteler s.51"
       },
       {
         "tur": "kural",
@@ -186,7 +186,7 @@
           "Gün → <b>am</b>, saat → <b>um</b>, süre → <b>von … bis</b>."
         ],
         "uyari": "En sık hata: «Wie viel Uhr kommst du?» demek. Doğrusu: <b>Um</b> wie viel Uhr kommst du?",
-        "kaynak": "Kalan Üniteler s.47-52"
+        "kaynak": "Kalan Üniteler s.47-51"
       },
       {
         "type": "outro",
@@ -225,9 +225,9 @@
   },
   "dogrulama": [
     "Hocanın s.47'deki «Gegen 8:00 Uhr» (!!!!) notu çevirisiz; 'gegen = -e doğru / civarı' anlamını Perplexity'ye sor: «'Es ist gegen 8 Uhr' Almanca'da tam olarak ne anlama gelir, saat 8'den önce mi sonra mı?»",
-    "s.51 günlük rutin resimlerinde cümlelerin Türkçesi yok (Um 6.00 Uhr stehe ich auf vb.); zaman çizgisindeki Türkçe çevirileri ben yazdım. Doğru mu?",
+    "s.50 günlük rutin resimlerinde cümlelerin Türkçesi yok (Um 6.00 Uhr stehe ich auf vb.); zaman çizgisindeki Türkçe çevirileri ben yazdım. Doğru mu?",
     "s.47 «kurz vor / kurz nach» ve s.49 «schon / erst» örneklerinde Türkçe karşılıkları hoca yalnızca kısmen yazmış; «Er steht um 6.00 Uhr auf» ve «Wir frühstücken um 8 Uhr» çevirileri bana ait.",
-    "s.52 'Wann? / Wie lange?' kutusunda Türkçe yok; Türkçeleri ben yazdım (am Montag = pazartesi günü vb.). Doğru mu?",
+    "s.51 'Wann? / Wie lange?' kutusunda Türkçe yok; Türkçeleri ben yazdım (am Montag = pazartesi günü vb.). Doğru mu?",
     "s.53 hocanın «sich duschen — Ich dusche mich morgen» notunda 'morgen' (yarın) kullanılmış, yazı içeriği ise sabah duşundan söz ediyor; hocanın kastı «sabah» olabilir mi? Perplexity'ye sor: «Ich dusche mich morgen» cümlesi 'yarın duş alacağım' demek değil mi?"
   ]
 }

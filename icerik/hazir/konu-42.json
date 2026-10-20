@@ -23,12 +23,12 @@
         "satirlar": [
           ["ich", "werde", "Ich werde nicht mehr so lang schlafen."],
           ["du", "wirst", "Wirst du auch früher aufstehen?"],
-          ["er/sie/es", "wird", "Mirjam wird ... im Fitness-Studio verbringen."],
+          ["er/sie/es", "wird", "Mirjam wird jeden Tag eine halbe Stunde im Fitness-Studio verbringen."],
           ["wir", "werden", "Wir werden am Samstag nach Berlin fahren."],
           ["ihr", "werdet", "Werdet ihr auch irgendetwas verändern?"],
           ["sie/Sie", "werden", "Eva und John werden etwas unternehmen."]
         ],
-        "not": "Hocanın s.83 tablosu: <b>Ich werde, du wirst, er/sie/es wird, wir werden, ihr werdet, sie/Sie werden</b>. Sağ sütun Teil-2 s.86-87'deki Futur I alıştırmasının cevap anahtarından ve s.244'ten; cümleleri kısalttım.",
+        "not": "Hocanın s.83 tablosu: <b>Ich werde, du wirst, er/sie/es wird, wir werden, ihr werdet, sie/Sie werden</b>. Sağ sütun Teil-2 s.86-87'deki Futur I alıştırmasının cevap anahtarından ve s.244'ten; bazı cümleler kısaltılmıştır. Hocanın cevap anahtarı yalnızca fiil çiftini verir (ör. „wird ... verbringen“); cümleler alıştırma metninden tamamlanmıştır.",
         "kaynak": "Teil-2 s.83, s.86; A2 Dosyası s.242, s.244"
       },
       {
@@ -88,14 +88,15 @@
       },
       {
         "big": "Tahmin",
-        "mean": "Hocanın örneklerinde geleceğe dair <b>öngörü / tahmin</b> cümleleri: hava, teknoloji, gelecekte ne olacağı. Yapı aynı: werden + mastar. <b>wahrscheinlich</b> = büyük ihtimalle. (Tahmin / söz / plan başlıklarını ben koydum; hoca örnekleri başlıksız verir.)",
+        "mean": "Hocanın örneklerinde geleceğe dair <b>öngörü / tahmin</b> cümleleri: hava, teknoloji, gelecekte ne olacağı. Yapı aynı: werden + mastar. <b>wahrscheinlich</b> = büyük ihtimalle. (Tahmin / söz / plan başlıkları hocanın değil, ders hazırlayıcının gruplamasıdır; hoca örnekleri başlıksız verir.)",
         "egs": [
           "Morgen <b>wird</b> es wahrscheinlich <b>schneien</b>. — Yarın büyük ihtimalle kar yağacak.",
           "In der Zukunft <b>wird</b> es nur noch Elektroautos <b>geben</b>. — Gelecekte yalnızca elektrikli arabalar olacak.",
           "Bald <b>wird</b> in jedem Haushalt ein PC <b>stehen</b>. — Yakında her evde bir bilgisayar olacaktır.",
+          "Du <b>wirst</b> dein Diplom als Physiker mit der Note „Sehr gut“ <b>machen</b>. — Fizikçi diplomanı „Çok iyi“ notuyla alacaksın.",
           "Er <b>wird</b> bald ein Arzt. — O yakında bir doktor olacak."
         ],
-        "tip": "💡 Hocanın örneğinde <b>es</b> özne olarak werden'den hemen sonra geliyor; cümle zaman sözcüğüyle (Morgen) başladığı için werden yine 2. sırada.",
+        "tip": "💡 Hocanın örneğinde <b>es</b> özne olarak werden'den hemen sonra geliyor; cümle zaman sözcüğüyle (Morgen) başladığı için werden yine 2. sırada. Dikkat: son cümlede (<b>Er wird bald ein Arzt</b>) mastar yok; orada werden „olmak“ anlamındadır (aşağıdaki „werden = olmak“ sayfasına bak). Hoca bu cümleyi Futur I örnekleri arasında veriyor.",
         "kaynak": "Teil-2 s.83"
       },
       {
@@ -103,10 +104,9 @@
         "mean": "Bir <b>karar, söz veya niyet</b> bildirirken de aynı yapı: werden + mastar. Hocanın örneği: sigarayı bırakma kararı. <b>nicht mehr</b> = artık ... değil.",
         "egs": [
           "Ab morgen <b>werde</b> ich nicht mehr <b>rauchen</b>. — Yarından itibaren daha fazla sigara içmeyeceğim.",
-          "Ich <b>werde</b> morgen mit dem Rauchen <b>aufhören</b>. — Yarın sigara içmeyi bırakacağım.",
-          "Du <b>wirst</b> dein Diplom als Physiker mit der Note „Sehr gut“ <b>machen</b>. — Fizikçi diplomanı „Çok iyi“ notuyla alacaksın."
+          "Ich <b>werde</b> morgen mit dem Rauchen <b>aufhören</b>. — Yarın sigara içmeyi bırakacağım."
         ],
-        "tip": "💡 Hoca <b>Ab morgen</b> (yarından itibaren) ve <b>morgen</b> (yarın) gibi zaman sözcüklerini hep başa veya fiilin yanına koyuyor. Mastar <b>aufhören</b> sonda duruyor (hocanın s.10 notu: aufhören = enden).",
+        "tip": "💡 <b>Ab morgen</b> = yarından itibaren, <b>morgen</b> = yarın. Mastar <b>aufhören</b> (ayrılabilen fiil) cümlenin sonunda duruyor ve ayrılmıyor (A2 s.10'da hoca: aufhören = enden).",
         "kaynak": "Teil-2 s.83"
       },
       {
@@ -171,7 +171,7 @@
             "tr": "İspanya'yı gezebileceksin."
           }
         ],
-        "not": "<b>Hoca (Teil-2 s.82):</b> „werden“ ikinci yerde, asıl fiil (Vollverb) <b>mastar</b> halinde sondan bir önce, <b>Modalverb</b> mastar halinde <b>en sonda</b>. Futur I, können, müssen ve dürfen ile kurulabilir (Du wirst im nächsten Jahr hart arbeiten müssen).",
+        "not": "<b>Hoca (Teil-2 s.82):</b> „werden“ ikinci yerde, asıl fiil (Vollverb) <b>mastar</b> halinde sondan bir önce, <b>Modalverb</b> mastar halinde <b>en sonda</b>. Futur I, üç modal fiille (können, müssen, dürfen) kurulabilir (Du wirst im nächsten Jahr hart arbeiten müssen). Hoca s.85'te <b>wollen</b> ile de örnek veriyor.",
         "kaynak": "Teil-2 s.82, s.85"
       },
       {
@@ -181,7 +181,7 @@
         "noktalar": [
           { "baslik": "Präsens", "ornek": "Ich <b>kann</b> Jonas nicht <b>helfen</b>.", "tr": "Jonas'a yardım edemiyorum." },
           { "baslik": "Präteritum", "ornek": "Ich <b>konnte</b> Jonas nicht <b>helfen</b>.", "tr": "Jonas'a yardım edemedim." },
-          { "baslik": "Perfekt", "ornek": "Ich <b>habe</b> Jonas nicht <b>helfen können</b>.", "tr": "Jonas'a yardım edememişim." },
+          { "baslik": "Perfekt", "ornek": "Ich <b>habe</b> Jonas nicht <b>helfen können</b>.", "tr": "Jonas'a yardım edemedim." },
           { "baslik": "Plusquamperfekt", "ornek": "Ich <b>hatte</b> Jonas nicht <b>helfen können</b>.", "tr": "Jonas'a yardım edememiştim." },
           { "baslik": "Futur I", "ornek": "Ich <b>werde</b> Jonas nicht <b>helfen können</b>.", "tr": "Jonas'a yardım edemeyeceğim." }
         ],
@@ -202,14 +202,14 @@
       },
       {
         "big": "mit der Zeit",
-        "mean": "Hocanın üç ünlemle işaretlediği kalıp: <b>mit der Zeit</b> = zamanla. Genellikle Futur I ile gelir; zamanla olacak şeyleri anlatır.",
+        "mean": "Hocanın ünlem dizisiyle işaretlediği kalıp: <b>mit der Zeit</b> = zamanla (over time, with time). Hocanın dört örneğinden üçünde <b>werden</b> var; zamanla olacak şeyleri anlatır.",
         "egs": [
           "<b>Mit der Zeit wirst</b> du dich daran gewöhnen. — Zamanla buna alışacaksın.",
           "Die Erinnerung <b>wird</b> mit der Zeit schwächer. — Hatıra zamanla zayıflayacak.",
           "<b>Mit der Zeit wird</b> es bestimmt einfacher. — Zamanla kesin kolaylaşacak.",
           "Der Geruch geht mit der Zeit weg. — Koku zamanla geçer."
         ],
-        "tip": "💡 Son örnekte hoca werden kullanmıyor (<b>geht ... weg</b>); yani zaman sözcüğü gelecek anlamı verince Präsens de görülüyor. Bunun kuralını hocadan öğrenemiyoruz.",
+        "tip": "💡 Son örnekte hoca werden kullanmıyor (<b>geht ... weg</b>); yani zaman sözcüğü gelecek anlamı verince Präsens de görülüyor. Bunun kuralını hocadan öğrenemiyoruz. Ayrıca <b>wird schwächer</b> ve <b>wird einfacher</b> cümlelerinde mastar yoktur: orada werden „olmak, ... haline gelmek“ anlamındadır; gerçek Futur I (werden + mastar) örneği <b>wirst ... gewöhnen</b>'dir.",
         "kaynak": "Teil-2 s.84"
       },
       {
@@ -320,7 +320,7 @@
         "blank": "wirst",
         "opts": ["wirst", "wird", "werde"],
         "tr": "Zamanla buna alışacaksın.",
-        "exp": "Hocanın üç ünlemli kalıbı: Mit der Zeit wirst du dich daran gewöhnen. du ile werden → wirst; mit der Zeit gelecek anlamı katar."
+        "exp": "Hocanın ünlemle işaretlediği kalıp: Mit der Zeit wirst du dich daran gewöhnen. du ile werden → wirst; mit der Zeit gelecek anlamı katar."
       },
       {
         "sent": "Ab morgen ___ ich nicht mehr rauchen.",
@@ -332,9 +332,9 @@
       {
         "sent": "Es ___ kalt.",
         "blank": "wird",
-        "opts": ["wird", "ist", "werde"],
+        "opts": ["wird", "werden", "werde"],
         "tr": "Hava soğuyor.",
-        "exp": "Hocanın s.242 örneği: Es wird kalt. Burada werden tek başına ‘olmak, ... haline gelmek’ anlamındadır; mastar yoktur. ist ‘soğuktur’ demek olurdu."
+        "exp": "Hocanın s.242 örneği: Es wird kalt. Burada werden tek başına ‘olmak, ... haline gelmek’ anlamındadır; mastar yoktur. Özne es olduğu için wird gerekir (werden wir/sie için, werde ich için). Es ist kalt ise ‘soğuk’ (durum) derdi, ‘soğuyor’ (değişim) değil."
       },
       {
         "sent": "Sie wird arbeiten ___.",
@@ -360,9 +360,9 @@
       {
         "sent": "Ich ___ Jonas nicht helfen können.",
         "blank": "werde",
-        "opts": ["werde", "habe", "hatte"],
+        "opts": ["werde", "werden", "wirst"],
         "tr": "Jonas'a yardım edemeyeceğim.",
-        "exp": "Hocanın 5 zamanlı sayfasında Futur satırı: Ich werde Jonas nicht helfen können. habe ve hatte Perfekt/Plusquamperfekt kurar (geçmiş), gelecek anlamı vermez."
+        "exp": "Hocanın 5 zamanlı sayfasında Futur satırı: Ich werde Jonas nicht helfen können. Özne ich olduğu için werde; werden wir/sie/Sie, wirst du içindir. (habe/hatte ile aynı cümle Perfekt/Plusquamperfekt olur, yani geçmiş; bu soruda anlam gelecek.)"
       }
     ]
   },

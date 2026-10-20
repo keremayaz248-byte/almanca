@@ -67,7 +67,7 @@
           ["Ab wann?", "Ne zamandan itibaren?"],
           ["Bis wann?", "Ne zamana kadar?"]
         ],
-        "not": "<b>Hocanın hilesi:</b> Hepsi 'ne zaman' ile ilgili ama başlangıç (seit / ab), bitiş (bis) ve toplam süre (wie lange) ayrı sorulur.",
+        "not": "<b>Not (yazar açıklaması, hocanın sayfasında yok):</b> Hoca bu dört soruyu yalnız Türkçe karşılıklarıyla listeliyor. Karşılıklardan: seit / ab başlangıcı, bis bitişi, wie lange toplam süreyi sorar.",
         "kaynak": "Teil-1 s.99"
       },
       {
@@ -76,7 +76,7 @@
         "egs": [
           "<b>Warum</b> sagst du ihm nicht die Wahrheit? — Ona neden gerçeği söylemiyorsun?"
         ],
-        "tip": "💡 Hocanın hilesi: <b>WARUM</b> = en genel, <b>WIESO</b> = günlük dil, <b>WESHALB</b> = daha resmi. Emin değilsen Warum kullan.",
+        "tip": "💡 Hocanın hilesi: <b>WARUM</b> = en genel, <b>WIESO</b> = günlük dil, <b>WESHALB</b> = daha resmi.",
         "kaynak": "Teil-1 s.99, s.97"
       },
       {
@@ -139,7 +139,7 @@
             "tr": "O Pafos'ta mı oturuyor?"
           }
         ],
-        "not": "<b>Hocanın tablosu:</b> Ja & Nein Fragen'de sıra <b>Verb + özne + devamı</b>. W-Fragen'de başa soru kelimesi geliyor (Wo gehst du hin?).",
+        "not": "<b>Hocanın tablosu:</b> Ja & Nein Fragen'de sıra <b>Verb + özne + devamı</b>. <b>Gözlem (hoca ayrıca yazmamış):</b> W-Fragen örneklerinde başa soru kelimesi geliyor, fiil ondan sonra (Wo gehst du hin?, Woher kommst du?).",
         "kaynak": "Teil-1 s.99"
       },
       {
@@ -219,7 +219,6 @@
   "dogrulama": [
     "Hoca s.99'da soru kelimelerinin sadece İngilizce karşılıklarını vermiş; Türkçe karşılıkları (Wo = nerede, Was = ne, ... Wofür = ne için, Worüber = ne hakkında) ben İngilizceden çevirdim. 'Wofür/Worüber' ve 'Wem/Wessen' için Türkçe karşılıkları Perplexity'ye sor.",
     "Hoca 'W-Frage cümlesinde fiil 2. sırada' kuralını açıkça yazmamış. 'Woher kommst du?' sırası, sayfadaki alıştırmanın (du / kommst / woher) cevabıyla 'Woher...' başlangıcından çıkarıldı. Perplexity'ye sor: 'W-Fragen cümlesinde fiil kaçıncı sırada olur?'",
-    "'Wo gehst du hin?' ile 'Wohin gehst du?' farkı hocanın sayfasında yok; sadece 'Wo gehst du hin?' örneği var. Alıştırmada ('___ gehst du?') Wohin cevabı verilirken ikisinin de kullanılıp kullanılmadığı Perplexity'ye sorulmalı.",
-    "Sayfa 101 hocanın Türkçe diyalogu ve çoğul listesi (Konu 22'de kullanıldı); W-Fragen içeriği değil. Okunamayan sayfa yok."
+    "'Wo gehst du hin?' ile 'Wohin gehst du?' farkı hocanın sayfasında yok; sadece 'Wo gehst du hin?' örneği var. Alıştırmada ('___ gehst du?') Wohin cevabı verilirken ikisinin de kullanılıp kullanılmadığı Perplexity'ye sorulmalı."
   ]
 }

@@ -13,7 +13,7 @@
         "kicker": "Altın Kural",
         "big": "IM · AM · UM",
         "mean": "<b>Wann?</b> (ne zaman?) sorusuna üç küçük edatla cevap verirsin: gün için <b>am</b>, ay ve mevsim için <b>im</b>, saat için <b>um</b>.",
-        "story": "Hocanın sayfalarında bu konu açık bir kural cümlesi olarak değil, <b>örnek grupları</b> olarak geçiyor: Teil-1 s.16'da <b>am Montag, im Januar, im Frühling, am Wochenende</b>; Kalan Üniteler s.47'de <b>um 8 Uhr</b>. Bu derste o örnekleri sırayla açıyoruz."
+        "story": "<b>Not:</b> „gün → am, ay/mevsim → im, saat → um“ kural cümlesi hocada yazmıyor; hocanın örneklerinden çıkarılmış bir gözlemdir. Hocanın sayfalarında bu konu açık bir kural cümlesi olarak değil, <b>örnek grupları</b> olarak geçiyor: Teil-1 s.16'da <b>am Montag, im Januar, im Frühling, am Wochenende</b>; Kalan Üniteler s.47'de <b>um 8 Uhr</b>. Bu derste o örnekleri sırayla açıyoruz."
       },
       {
         "big": "am + gün",
@@ -36,7 +36,7 @@
           "Er hat <b>im</b> Winter drei Kilo zugenommen. — Kışın üç kilo aldı.",
           "Wann hast du denn Urlaub? — Erst wieder <b>im</b> Oktober. — Tatilin ne zaman? — Ancak ekimde yine."
         ],
-        "tip": "💡 Hoca s.16'da dört mevsimi ve on iki ayı yan yana listeliyor: der Winter, der Frühling, der Sommer, der Herbst. Hepsiyle <b>im</b>.",
+        "tip": "💡 Hoca s.16'da dört mevsimi ve on iki ayı listeliyor (der Winter, der Frühling, der Sommer, der Herbst) ve yalnızca <b>im Januar</b> ile <b>im Frühling</b> örneğini veriyor. Diğer ay ve mevsimlerin de <b>im</b> aldığı bu örneklerden çıkarılan gözlemdir.",
         "kaynak": "Teil-1 s.16; Kalan Üniteler s.31; A2 Dosyası s.163"
       },
       {
@@ -70,7 +70,7 @@
           ["der Mai", "im Mai", "der November", "im November"],
           ["der Juni", "im Juni", "der Dezember", "im Dezember"]
         ],
-        "not": "Mevsimler (Teil-1 s.16): <b>der Winter, der Frühling, der Sommer, der Herbst</b> → <b>im Winter, im Frühling, im Sommer, im Herbst</b>. Hoca ayrıca <b>Es ist Mitte Januar.</b> (Ocağın ortasındayız) notunu veriyor.",
+        "not": "Mevsimler (Teil-1 s.16): <b>der Winter, der Frühling, der Sommer, der Herbst</b> → <b>im Winter, im Frühling, im Sommer, im Herbst</b> (hocada yalnız im Frühling geçiyor; diğerleri örnekten genellenmiştir; aylar için de aynı: hocada im Januar var). Hoca ayrıca <b>Es ist Mitte Januar.</b> (Ocağın ortasındayız) notunu veriyor.",
         "kaynak": "Teil-1 s.16"
       },
       {
@@ -82,8 +82,8 @@
           "Das Meeting findet <b>um</b> 10 Uhr statt. — Toplantı, saat 10'da.",
           "<b>Um</b> 18 Uhr hat er angerufen. — Saat 18.00'de aradı."
         ],
-        "tip": "💡 Hoca s.47'de „kurz vor neun / kurz nach acht“ örneklerinde de <b>um</b> kullanıyor: <b>Ich gehe um kurz vor neun.</b> Kutuda ayrıca <b>Gegen 8:00 Uhr</b> uyarısı var.",
-        "kaynak": "Kalan Üniteler s.47-48"
+        "tip": "💡 Hoca s.47'de „kurz vor neun / kurz nach acht“ örneklerinde de <b>um</b> kullanıyor: <b>Ich gehe um kurz vor neun.</b> Kutuda ayrıca <b>!!!! Gegen 8:00 Uhr !!!!</b> diye işaretli bir not var; hoca bunun açıklamasını sayfada vermiyor.",
+        "kaynak": "Kalan Üniteler s.47-48; A2 Dosyası s.11"
       },
       {
         "tur": "sema",
@@ -114,7 +114,7 @@
           },
           {
             "etiket": "im (mevsim)",
-            "not": "zaman öğesi sona da gelir",
+            "not": "zaman öğesi fiil ile mastar arasında",
             "jetonlar": [
               { "t": "Er", "r": "ozne" },
               { "t": "hat", "r": "fiil" },
@@ -130,13 +130,13 @@
               { "t": "Nächste Woche", "r": "zaman" },
               { "t": "findet", "r": "fiil" },
               { "t": "ein Test", "r": "ozne" },
-              { "t": "am Mittwoch um zehn Uhr", "r": "zaman" },
-              { "t": "statt", "r": "fiil" }
+              { "t": "statt,", "r": "fiil" },
+              { "t": "und zwar am Mittwoch um zehn Uhr", "r": "zaman" }
             ],
             "tr": "Gelecek hafta bir sınav olacak, daha doğrusu Çarşamba günü saat 10'da."
           }
         ],
-        "not": "<b>Kural:</b> Gün ve saat birlikte geliyorsa hocanın örneği gibi sırayla <b>am Mittwoch um zehn Uhr</b> (Çarşamba günü saat 10'da). Hocanın cümlesi \"Grammatiktest\" (dil bilgisi sınavı) idi; burada kısalttım.",
+        "not": "<b>Kural:</b> Gün ve saat birlikte geliyorsa hocanın örneği gibi sırayla <b>am Mittwoch um zehn Uhr</b> (Çarşamba günü saat 10'da). Hocanın cümlesinde <b>Grammatiktest</b> (dil bilgisi sınavı) geçer; burada <b>Test</b> olarak kısaltıldı. <b>und zwar</b> = daha doğrusu (A2 s.98).",
         "kaynak": "Kalan Üniteler s.47-48; Kalan Üniteler s.31; A2 Dosyası s.98"
       },
       {
@@ -335,8 +335,9 @@
   },
   "dogrulama": [
     "Hocanın sayfalarında 'gün → am, ay/mevsim → im, saat → um' diye açık bir kural cümlesi yok; eşleştirmeyi Teil-1 s.16'daki üçlü örnek kutusundan (am Montag, im Januar, im Frühling) ve Kalan Üniteler s.47'deki 'um 8 Uhr' örneğinden çıkardım. Perplexity'ye sor: Almanca zaman edatlarında Tag/Wochentag → am, Monat/Jahreszeit → im, Uhrzeit → um kuralı doğru mu, istisnası var mı?",
-    "Günün bölümleri: hocada 'am Morgen', 'am Abend', 'am Nachmittag' örnek olarak geçiyor ama kural olarak anlatılmıyor; 'in der Nacht', 'am Mittag', 'um Mitternacht' hocada açıklanmıyor (s.168'de Mitternacht kutusunun yanında yalnız 'um' görünüyor). Perplexity'ye sor: Almanca'da gece / öğle / gece yarısı için hangi edat kullanılır?",
+    "Günün bölümleri: hocada 'am Morgen', 'am Abend', 'am Nachmittag' örnek olarak geçiyor ama kural olarak anlatılmıyor; 'in der Nacht', 'am Mittag', 'um Mitternacht' hocada açıklanmıyor (Kalan Üniteler s.47'de Mitternacht kutusunun yanında yalnız 'um' görünüyor). Perplexity'ye sor: Almanca'da gece / öğle / gece yarısı için hangi edat kullanılır?",
     "'heute Nachmittag', 'nächste Woche' gibi ifadelerde edat kullanılmadığını hocanın örneklerinden (A2 s.122, s.163) gördüm ama bu bir kural olarak yazılmamış. Perplexity'ye sor: heute / morgen / nächste Woche + Tageszeit ifadelerinde neden am yok?",
+    "Hoca A2 s.10'da 'Ab (Dativ – halk dilinde Akkusativ)' ve 'Bis (Akk.)' yazıyor; derste 'hoca' etiketiyle verildi. Perplexity'ye sor: zaman edatı 'bis' gerçekten Akkusativ mu yönetir, yoksa çoğunlukla artikelsiz (bis nächste Woche, bis Montag) mi kullanılır? 'ab' için Dativ doğru mu?",
     "Gün adlarının ve ay adlarının Türkçe karşılıkları hocanın sayfasında yok; derste Türkçe karşılıklarını yazmadım, sadece Almanca tablo verdim."
   ]
 }

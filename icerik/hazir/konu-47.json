@@ -59,9 +59,9 @@
         "big": "hätte ODER wäre?",
         "mean": "<b>wäre</b>: sıfatlarla, meslek / uyrukla, yaş ve tarihle, kibar sorularla. <b>hätte</b>: dilek (özellikle restoran gibi bir yerde), kibar rica ve sahip olma. (Hocanın İngilizce kartlarının Türkçesi.)",
         "egs": [
-          "Sie <b>wäre</b> lieber 16 Jahre alt. — Keşke 16 yaşında olsa.",
+          "Sie <b>wäre</b> lieber 16 Jahre alt. — 16 yaşında olmayı tercih ederdi.",
           "Wenn ich reich <b>wäre</b>, würde ich mir ein Auto kaufen. — Zengin olsam kendime bir araba alırdım.",
-          "Ich <b>hätte</b> gern eine Cola, bitte! — Bir kola alabilir miyim?",
+          "Ich <b>hätte</b> gern eine Cola, bitte! — Bir kola isterdim (rica ederim)!",
           "<b>Hättest</b> du Lust, mit mir ins Kino zu gehen? — Benimle sinemaya gitmek ister miydin?"
         ],
         "tip": "💡 Hocanın alıştırması: „Ich wäre lieber Lehrerin.“ (meslek → wäre), „Tim hätte lieber am Freitag frei.“ (sahip olma → hätte).",
@@ -242,13 +242,13 @@
       { "sent": "Ich ___ gern Pizza essen.", "blank": "würde", "opts": ["würde", "wäre", "hätte"], "tr": "Pizza yemek isterdim.", "exp": "'essen' sein/haben değil, normal bir fiildir; bu yüzden würde gern + mastar (essen sonda). Hoca: würden gern = would like to (s.52)." },
       { "sent": "Ich ___ gern wohlhabend.", "blank": "wäre", "opts": ["wäre", "hätte", "würde"], "tr": "Varlıklı olmak isterdim.", "exp": "'wohlhabend' bir sıfattır; hocanın kartı: WÄRE GERN → sıfatlarla kullan (s.53). hätte gern isimle gelir." },
       { "sent": "Ich ___ gern ein Kind.", "blank": "hätte", "opts": ["hätte", "wäre", "würde"], "tr": "Bir çocuğum olsun isterdim.", "exp": "Kartta HÄTTE GERN → isimlerle. 'ein Kind' isim olduğu için wäre gern ya da würde gern yanlıştır (s.53)." },
-      { "sent": "Tim ___ lieber am Freitag frei.", "blank": "hätte", "opts": ["hätte", "wäre", "würde"], "tr": "Tim keşke cuma günü izinli olsa.", "exp": "'frei haben' = izinli olmak, haben fiilidir; Konjunktiv II hali hätte. Hocanın hätte/wäre alıştırmasının 4. cümlesi (s.55)." },
+      { "sent": "Tim ___ lieber am Freitag frei.", "blank": "hätte", "opts": ["hätte", "wäre", "würde"], "tr": "Tim cuma günü izinli olmayı tercih ederdi.", "exp": "'frei haben' = izinli olmak, haben fiilidir; Konjunktiv II hali hätte. Hocanın hätte/wäre alıştırmasının 4. cümlesi (s.55)." },
       { "sent": "Sie ___ aber gern gut Französisch sprechen.", "blank": "würde", "opts": ["würde", "hätte", "wäre"], "tr": "Ama iyi Fransızca konuşmak isterdi.", "exp": "'sprechen' sıradan bir fiildir: würde gern + mastar. Hocanın Eva alıştırmasında cevap würde (s.60)." },
       { "sent": "Wenn er nicht krank ___, würde er kommen.", "blank": "wäre", "opts": ["wäre", "hätte", "ist"], "tr": "Hasta olmasaydı gelirdi.", "exp": "'krank sein' → sein fiili, wenn cümlesinde Konjunktiv II wäre gerekir, fiil sonda. Hocanın alıştırma çözümü (s.55)." },
       { "sent": "___ wir doch bloß eine größere Wohnung!", "blank": "Hätten", "opts": ["Hätten", "Wären", "Würden"], "tr": "Keşke daha büyük bir dairemiz olsaydı!", "exp": "'Wohnung haben' → haben, wir ile hätten. 'doch bloß' keşke tadı verir; hocanın alıştırma cevabı Hätten (s.63, s.75)." },
       { "sent": "Sie tut so, als ob sie reich ___.", "blank": "wäre", "opts": ["wäre", "hätte", "ist"], "tr": "Sanki zenginmiş gibi davranıyor.", "exp": "'als ob' = -mış gibi, sonrasında Konjunktiv II gelir. 'reich sein' için wäre. 'ist' gerçek gibi olurdu (s.59)." },
       { "sent": "Er sah aus, als ob er seit Tagen nicht geschlafen ___.", "blank": "hätte", "opts": ["hätte", "wäre", "hatte"], "tr": "Günlerdir uyumamış gibi görünüyordu.", "exp": "als ob + geçmiş: schlafen haben ile çekilir, bu yüzden hätte. hatte (ä'sız) Plusquamperfekt olurdu, dilek değil (s.59)." },
-      { "sent": "Ich ___ fast zu spät gekommen.", "blank": "wäre", "opts": ["wäre", "hätte", "war"], "tr": "Az kalsın geç kalıyordum.", "exp": "'ich wäre fast + Partizip II' = az kalsın. 'kommen' sein ile çekildiği için wäre gekommen (s.57)." },
+      { "sent": "Ich ___ fast zu spät gekommen.", "blank": "wäre", "opts": ["wäre", "hätte", "würde"], "tr": "Az kalsın geç kalıyordum.", "exp": "'ich wäre fast + Partizip II' = az kalsın. 'kommen' sein ile çekildiği için wäre gekommen; hätte haben fiilleriyle gelir, würde + Partizip II biçimi yoktur (s.57)." },
       { "sent": "Du ___ die Antwort.", "blank": "wüsstest", "opts": ["wüsstest", "wusstest", "weißt"], "tr": "Cevabı bilirdin.", "exp": "wissen'in Konjunktiv II hali wüsste (du wüsstest). wusstest Präteritum, weißt Präsens'tir; ü noktası dilek demektir (s.50)." },
       { "sent": "Wir ___ diesen Plan gut.", "blank": "fänden", "opts": ["fänden", "fanden", "finden"], "tr": "Bu planı iyi bulurduk.", "exp": "finden → fänden (Konjunktiv II). fanden Präteritum, finden Präsens'tir. Hocanın örnek cümlesi (s.50)." },
       { "sent": "Ich ___ besser arbeiten, wenn ich einen neuen Computer hätte.", "blank": "könnte", "opts": ["könnte", "konnte", "kann"], "tr": "Yeni bir bilgisayarım olsa daha iyi çalışabilirdim.", "exp": "Gerçek dışı sonuçta modal Konjunktiv II kullanılır: könnte. konnte Präteritum, kann Präsens olurdu (s.77)." },
@@ -268,6 +268,7 @@
     "s.72'deki 'Wenn unser Vater nicht so viel arbeiten müsste, hätte er mehr Zeit für uns.', s.59'daki 'Er sah aus, als ob er seit Tagen nicht geschlafen hätte.' cümlelerinin Türkçeleri hocada yok; çevirileri bana ait, kontrol et.",
     "s.54'teki wäre / hätte kartları İngilizceydi; Türkçe özetini ben yazdım (wäre: sıfat, meslek, yaş, tarih, kibar soru; hätte: dilek, rica, sahip olma). Doğru özet mi?",
     "s.63 cevap anahtarında 'wär(e)st' yazımı var (f şıkkı); du wärst / du wär(e)st iki yazım da doğru mu? Derse yalnızca hocanın s.52 tablosundaki wärst yazımını aldım.",
-    "Metin katmanı olan ama görüntü olarak okumadığım sayfalar: s.48, 50, 51, 67, 76 (s.76 'bloß/nur/gerade mal' notu derse alınmadı)."
+    "Hocanın helfen için iki farklı yazımı var: s.48-49 listesinde 'hülfen', s.51 kartında 'hälfen' başlığı (içeride hülfe/hülfen). Derste hülfe/hülfen yazıldı, günlük dilde würden helfen notu korundu. Perplexity'ye sor: 'helfen Konjunktiv II hülfe oder hälfe'.",
+    "Metin katmanı olan ama görüntü olarak okumadığım sayfalar: s.67, 76 (s.76 'bloß/nur/gerade mal' notu derse alınmadı)."
   ]
 }

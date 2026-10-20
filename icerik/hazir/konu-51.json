@@ -1,0 +1,68 @@
+{
+  "konu": 51,
+  "baslik": "obwohl · trotzdem · dass (hocanın PDF'inde yok — Perplexity kaynaklı)",
+  "kaynak": [{ "arac": "Perplexity", "sayfa": "obwohl / trotzdem / dass (hocanın A2/Teil-2 dosyalarında yok)" }],
+  "deste": {
+    "title": "🔗 obwohl · trotzdem · dass",
+    "accent": "linear-gradient(135deg,#D9714E,#A8502F)",
+    "slides": [
+      { "type": "intro", "kicker": "Hocanın PDF'inde yok · Perplexity", "big": "OBWOHL TROTZDEM DASS", "mean": "-e rağmen · yine de · -dığını: üç bağlaç, iki ayrı fiil kuralı",
+        "story": "Bu üç kelime hocanın dosyalarında geçmiyor; bu ders <b>Perplexity</b>'den derlendi. Kural çok kısa:<br><br><span class=\"hl\">obwohl</span> ve <span class=\"hl\">dass</span> → fiili <b>SONA</b> atar.<br><span class=\"hl\">trotzdem</span> → fiili <b>2. sırada</b> bırakır." },
+      { "big": "obwohl", "mean": "-e rağmen · her ne kadar … olsa da (yan cümle: fiil SONDA)",
+        "egs": ["Ich gehe raus, <b>obwohl</b> es regnet. — Yağmur yağmasına rağmen dışarı çıkıyorum.", "Sie lernt Deutsch, <b>obwohl</b> sie müde ist. — Yorgun olmasına rağmen Almanca öğreniyor.", "Wir essen Kuchen, <b>obwohl</b> wir keinen Hunger haben. — Aç olmadığımız hâlde kek yiyoruz."],
+        "tip": "💡 obwohl'dan sonra gelen çekimli fiil cümlenin EN SONUNA gider (regnet, ist, haben).", "kaynak": "Perplexity (hocanın PDF'inde yok)" },
+      { "tur": "sema", "kicker": "Fiil sırası", "baslik": "obwohl cümlesinde fiil sona gider",
+        "satirlar": [
+          { "etiket": "Ana cümle", "not": "fiil 2. sırada", "jetonlar": [{ "t": "Ich", "r": "ozne" }, { "t": "gehe", "r": "fiil" }, { "t": "raus", "r": "diger" }], "tr": "Dışarı çıkıyorum." },
+          { "etiket": "obwohl cümlesi", "not": "fiil SONDA", "jetonlar": [{ "t": "obwohl", "r": "bag" }, { "t": "es", "r": "ozne" }, { "t": "regnet", "r": "fiil", "sonda": true }], "tr": "…yağmur yağmasına rağmen." },
+          { "etiket": "obwohl cümlesi BAŞTA olursa", "not": "ana cümlede fiil hemen arkadan gelir", "jetonlar": [{ "t": "Obwohl", "r": "bag" }, { "t": "es", "r": "ozne" }, { "t": "regnet", "r": "fiil", "sonda": true }, { "t": "gehen", "r": "fiil" }, { "t": "wir", "r": "ozne" }, { "t": "raus", "r": "diger" }], "tr": "Yağmur yağmasına rağmen dışarı çıkıyoruz." }],
+        "not": "<b>obwohl</b> sonrası fiil SONDA. obwohl cümlesi başa geçince, virgülden sonra <b>fiil ana cümleyi başlatır</b> (gehen wir).", "kaynak": "Perplexity (hocanın PDF'inde yok)" },
+      { "big": "trotzdem", "mean": "yine de · buna rağmen (fiil 2. sırada, özne arkada)",
+        "egs": ["Es regnet. <b>Trotzdem</b> gehe ich raus. — Yağmur yağıyor. Yine de dışarı çıkıyorum.", "Ich bin müde. <b>Trotzdem</b> lerne ich Deutsch. — Yorgunum. Yine de Almanca öğreniyorum.", "Wir haben keinen Hunger. <b>Trotzdem</b> essen wir Kuchen. — Aç değiliz. Yine de kek yiyoruz."],
+        "tip": "💡 trotzdem yan cümle başlatmaz; tek başına bir zarftır. Başa geçince fiil yine 2. sırada, özne fiilin ARKASINA (3. sıraya) kayar.", "kaynak": "Perplexity (hocanın PDF'inde yok)" },
+      { "tur": "sema", "kicker": "Aynı fikir, iki yol", "baslik": "obwohl ↔ trotzdem",
+        "satirlar": [
+          { "etiket": "obwohl (tek cümle)", "not": "fiil SONDA", "jetonlar": [{ "t": "Ich gehe raus", "r": "diger" }, { "t": "obwohl", "r": "bag" }, { "t": "es", "r": "ozne" }, { "t": "regnet", "r": "fiil", "sonda": true }], "tr": "Yağmur yağmasına rağmen dışarı çıkıyorum." },
+          { "etiket": "trotzdem (iki cümle)", "not": "fiil 2., özne 3.", "jetonlar": [{ "t": "Es regnet.", "r": "diger" }, { "t": "Trotzdem", "r": "bag" }, { "t": "gehe", "r": "fiil" }, { "t": "ich", "r": "ozne" }, { "t": "raus", "r": "diger" }], "tr": "Yağmur yağıyor. Yine de dışarı çıkıyorum." }],
+        "not": "<b>obwohl</b> + yan cümle → fiil sonda. <b>trotzdem</b> + ana cümle → fiil 2. sırada, özne arkada.", "kaynak": "Perplexity (hocanın PDF'inde yok)" },
+      { "big": "dass", "mean": "-dığını · -acağını (İngilizce 'that'); fiil SONDA",
+        "egs": ["Ich denke, <b>dass</b> du nett bist. — Senin iyi biri olduğunu düşünüyorum.", "Er sagt, <b>dass</b> er heute kommt. — Bugün geleceğini söylüyor.", "Wir wissen, <b>dass</b> sie Deutsch lernt. — Onun Almanca öğrendiğini biliyoruz."],
+        "tip": "💡 dass'tan önce virgül konur. dass'tan sonra çekimli fiil cümlenin sonuna gider.", "kaynak": "Perplexity (hocanın PDF'inde yok)" },
+      { "tur": "sema", "kicker": "Fiil sırası", "baslik": "dass cümlesinde fiil sona gider",
+        "satirlar": [
+          { "etiket": "Ana cümle + dass cümlesi", "not": "dass'tan sonra fiil SONDA", "jetonlar": [{ "t": "Ich", "r": "ozne" }, { "t": "denke", "r": "fiil" }, { "t": "dass", "r": "bag" }, { "t": "du", "r": "ozne" }, { "t": "nett", "r": "diger" }, { "t": "bist", "r": "fiil", "sonda": true }], "tr": "Senin iyi biri olduğunu düşünüyorum." },
+          { "etiket": "Ana cümle + dass cümlesi", "not": "dass'tan sonra fiil SONDA", "jetonlar": [{ "t": "Er", "r": "ozne" }, { "t": "sagt", "r": "fiil" }, { "t": "dass", "r": "bag" }, { "t": "er", "r": "ozne" }, { "t": "heute", "r": "zaman" }, { "t": "kommt", "r": "fiil", "sonda": true }], "tr": "Bugün geleceğini söylüyor." }],
+        "not": "<b>dass</b> bağlaçtır ve iki <b>s</b> ile yazılır. Tek <b>s</b> ile yazılan <b>das</b> ise artikel/zamirdir (\"das Haus\", \"das ist gut\").", "kaynak": "Perplexity (hocanın PDF'inde yok)" },
+      { "tur": "kural", "kicker": "Üçü bir arada", "baslik": "Hangisinde fiil nerede?",
+        "maddeler": ["<b>obwohl</b> → yan cümle → çekimli fiil <b>SONDA</b>", "<b>dass</b> → yan cümle → çekimli fiil <b>SONDA</b>", "<b>trotzdem</b> → ana cümle zarfı → fiil <b>2. sırada</b>, özne arkada", "yan cümle (obwohl/dass) <b>başa geçerse</b> virgülden sonra ana cümle <b>fiille</b> başlar"],
+        "uyari": "obwohl ile trotzdem'i karıştırma: obwohl cümleyi bağlar, trotzdem yeni bir ana cümle başlatır.", "kaynak": "Perplexity (hocanın PDF'inde yok)" },
+      { "tur": "kural", "kicker": "Sık hatalar", "baslik": "Yanlış ↔ doğru",
+        "maddeler": ["❌ obwohl es regnet, wir gehen raus → ✅ <b>Obwohl es regnet, gehen wir raus.</b>", "❌ Trotzdem es regnet, gehe ich raus → ✅ <b>Es regnet. Trotzdem gehe ich raus.</b>", "❌ Ich denke, dass du bist nett → ✅ <b>Ich denke, dass du nett bist.</b>"],
+        "uyari": "Üçünde de hata fiilin yeri: obwohl/dass sonrası fiil sonda, trotzdem'de 2. sırada.", "kaynak": "Perplexity (hocanın PDF'inde yok)" },
+      { "type": "outro", "kicker": "Ezber", "big": "OBWOHL · DASS = SONA", "mean": "trotzdem = 2. sıra",
+        "story": "Tek nefeste söyle:<br><br><span class=\"hl\">obwohl</span> ve <span class=\"hl\">dass</span> fiili sona atar,<br><span class=\"hl\">trotzdem</span> fiili 2. sırada bırakır." }
+    ]
+  },
+  "gramer": {
+    "id": "d51_obwohl_dass", "title": "obwohl · trotzdem · dass", "emoji": "🔗", "desc": "-e rağmen, yine de, -dığını: fiil nerede?",
+    "rule": "<b>obwohl</b> (-e rağmen) ve <b>dass</b> (-dığını) → yan cümle, çekimli fiil <b>SONDA</b>.<br><b>trotzdem</b> (yine de) → ana cümle zarfı, fiil <b>2. sırada</b>, özne arkada.<br>Yan cümle başa geçerse ana cümle <b>fiille</b> başlar: <i>Obwohl es regnet, gehen wir raus.</i><br><small>Kaynak: Perplexity (hocanın PDF'inde yok).</small>",
+    "qs": [
+      { "sent": "Ich gehe raus, ___ es regnet.", "blank": "obwohl", "opts": ["obwohl", "trotzdem", "dass"], "tr": "Yağmur yağmasına rağmen dışarı çıkıyorum.", "exp": "\"-e rağmen\" anlamı için obwohl gerekir; sonrasında yan cümle gelir (es regnet, fiil sonda). trotzdem cümleyi bağlamaz, dass ise \"-dığını\" demektir." },
+      { "sent": "Es regnet. ___ gehe ich raus.", "blank": "Trotzdem", "opts": ["Trotzdem", "Obwohl", "Dass"], "tr": "Yağmur yağıyor. Yine de dışarı çıkıyorum.", "exp": "İki ayrı cümle var ve \"yine de\" deniyor: trotzdem. Obwohl ve dass yan cümle başlatır, fiili sona atar; burada fiil (gehe) 2. sırada." },
+      { "sent": "Ich denke, ___ du nett bist.", "blank": "dass", "opts": ["dass", "das", "trotzdem"], "tr": "Senin iyi biri olduğunu düşünüyorum.", "exp": "\"-dığını düşünüyorum\" bağlacı dass'tır ve iki s ile yazılır. Tek s'li das artikel/zamirdir; trotzdem \"yine de\" demektir." },
+      { "sent": "Sie lernt Deutsch, obwohl ___.", "blank": "sie müde ist", "opts": ["sie müde ist", "sie ist müde", "ist sie müde"], "tr": "Yorgun olmasına rağmen Almanca öğreniyor.", "exp": "obwohl yan cümle başlatır; çekimli fiil (ist) cümlenin sonuna gider: sie müde ist." },
+      { "sent": "Es regnet. Trotzdem ___ raus.", "blank": "gehe ich", "opts": ["gehe ich", "ich gehe", "ich gehe nicht"], "tr": "Yağmur yağıyor. Yine de dışarı çıkıyorum.", "exp": "trotzdem cümle başında olunca fiil 2. sırada kalır, özne fiilin arkasına geçer: Trotzdem gehe ich. \"ich gehe\" sırası trotzdem'den sonra yanlıştır." },
+      { "sent": "Obwohl es regnet, ___ raus.", "blank": "gehen wir", "opts": ["gehen wir", "wir gehen", "wir raus gehen"], "tr": "Yağmur yağmasına rağmen dışarı çıkıyoruz.", "exp": "obwohl cümlesi başa geçince bütün yan cümle \"1. kutu\" sayılır; virgülden sonra ana cümle fiille başlar: gehen wir." },
+      { "sent": "Er sagt, dass ___.", "blank": "er heute kommt", "opts": ["er heute kommt", "er kommt heute", "kommt er heute"], "tr": "Bugün geleceğini söylüyor.", "exp": "dass'tan sonra çekimli fiil (kommt) en sona gider: er heute kommt. Düz cümle sırası (er kommt heute) dass'tan sonra yanlıştır." },
+      { "sent": "Ich bin müde. ___ lerne ich Deutsch.", "blank": "Trotzdem", "opts": ["Trotzdem", "Obwohl", "Weil"], "tr": "Yorgunum. Yine de Almanca öğreniyorum.", "exp": "\"Yine de\" = trotzdem. Cümlenin devamı \"lerne ich\" şeklinde fiil 2. sırada; obwohl ve weil olsaydı fiil sona giderdi (\"Obwohl ich Deutsch lerne\")." },
+      { "sent": "Wir essen Kuchen, ___ wir keinen Hunger haben.", "blank": "obwohl", "opts": ["obwohl", "trotzdem", "dass"], "tr": "Aç olmadığımız hâlde kek yiyoruz.", "exp": "Virgülden sonra yan cümle geliyor ve fiil (haben) sonda: bu obwohl'un özelliği. trotzdem'den sonra \"wir keinen Hunger haben\" sırası yanlış olurdu." },
+      { "sent": "Wir haben keinen Hunger. ___ essen wir Kuchen.", "blank": "Trotzdem", "opts": ["Trotzdem", "Obwohl", "Dass"], "tr": "Aç değiliz. Yine de kek yiyoruz.", "exp": "İki bağımsız cümle ve aralarında \"yine de\" ilişkisi var: Trotzdem + fiil (essen) 2. sırada + özne (wir)." },
+      { "sent": "Wir wissen, ___ sie Deutsch lernt.", "blank": "dass", "opts": ["dass", "trotzdem", "obwohl"], "tr": "Onun Almanca öğrendiğini biliyoruz.", "exp": "\"-dığını biliyoruz\" = wissen + dass; sonrasında fiil sonda (lernt). trotzdem ve obwohl bu anlamı vermez." },
+      { "sent": "Ich denke, dass du ___.", "blank": "nett bist", "opts": ["nett bist", "bist nett", "bist du nett"], "tr": "Senin iyi biri olduğunu düşünüyorum.", "exp": "dass yan cümle başlatır; çekimli fiil (bist) en sona gider: nett bist. \"dass du bist nett\" klasik başlangıç hatasıdır." }
+    ]
+  },
+  "dogrulama": [
+    "Bu ders hocanın PDF'inden değil Perplexity'den derlenmiştir; Perplexity'nin Almanca örnekleri ve Türkçe karşılıkları basit ve standart görünüyor ama bir A2 ders kitabıyla karşılaştırılmadı.",
+    "Perplexity bir yerde 'dass tek s ile yazılır' demiştir; bu YANLIŞTIR (bağlaç dass iki s, das artikel/zamir tek s). Derste doğrusu yazıldı."
+  ]
+}

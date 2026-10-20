@@ -130,8 +130,8 @@
           ["Derece", "das Grad"],
           ["(+) artı", "Plus"],
           ["(-) eksi", "Minus"],
-          ["Sıcak", "heiß"],
-          ["Sıcak (ılık-sıcak)", "warm"],
+          ["Sıcak (hocanın kartı)", "heiß"],
+          ["Sıcak (hocanın kartı)", "warm"],
           ["Soğuk", "kalt"]
         ],
         "not": "Hocanın kartında 'Sıcak' iki karşılığa bağlı: <b>heiß</b> ve <b>warm</b>. Örnekler (s.69): <b>Es sind 25 Grad. Es ist warm.</b> / <b>Es sind nur 7 Grad. Es ist kalt.</b>",
@@ -139,7 +139,7 @@
       },
       {
         "big": "Doğal anlatım",
-        "mean": "Hocanın sayfasındaki günlük konuşma cümleleri. 'Çok / gerçekten' vurgusu: <b>voll, echt, richtig</b>.",
+        "mean": "Hocanın sayfasındaki ek cümleler. Cümlelerdeki <b>voll, echt, richtig</b> kelimeleri vurgu katıyor (çok / gerçekten / epey).",
         "egs": [
           "Draußen ist es <b>voll</b> windig. — Dışarısı çok rüzgârlı.",
           "Gestern hat es <b>echt</b> heftig geregnet. — Dün gerçekten şiddetli yağmur yağdı.",
@@ -187,6 +187,15 @@
               { "t": "scheint", "r": "fiil" }
             ],
             "tr": "İyi. Güneş parlıyor."
+          },
+          {
+            "etiket": "Soru",
+            "not": "hocanın 2. sorusu",
+            "jetonlar": [
+              { "t": "Und", "r": "bag" },
+              { "t": "in England?", "r": "zaman" }
+            ],
+            "tr": "Peki İngiltere'de?"
           },
           {
             "etiket": "Cevap",

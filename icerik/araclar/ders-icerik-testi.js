@@ -35,6 +35,14 @@ const { sayfaAc, kontrol, tasmaYok, sonuc } = require('./gun-akisi-testi.js');
         if (t.trim().length < 10) sonuc.hatalar.push('BASARISIZ: ' + ad + 'sayfa ' + (i + 1) + ' bos');
         const tas = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
         if (tas > 1) sonuc.hatalar.push('BASARISIZ: ' + ad + 'sayfa ' + (i + 1) + ' yatay tasma ' + tas + 'px');
+        // kart icinde tasan/kesilen eleman (kart overflow:hidden oldugundan sayfa olcumu bunu gormez); kaydirilabilir tablo haric
+        const tasanlar = await page.evaluate(() => {
+          const c = document.querySelector('#slideStage .slide-card'); if (!c) return ['kart yok'];
+          const r = c.getBoundingClientRect(), out = [];
+          c.querySelectorAll('*').forEach(e => { if (e.closest('.slide-tablo')) return; const b = e.getBoundingClientRect(); if (b.width > 0 && b.right > r.right - 4) out.push((e.className || e.tagName) + ' +' + Math.round(b.right - r.right + 4)); });
+          return out.slice(0, 3);
+        });
+        if (tasanlar.length) sonuc.hatalar.push('BASARISIZ: ' + ad + 'sayfa ' + (i + 1) + ' kartin disina tasiyor: ' + tasanlar.join(', '));
       }
       sonuc.basarili.push(ad + bilgi.sayfa + ' sayfa gezildi');
 
@@ -58,9 +66,30 @@ const { sayfaAc, kontrol, tasmaYok, sonuc } = require('./gun-akisi-testi.js');
       }, no);
       kontrol(ad + 'hepsi dogruyken konu tamamlandi', sonuc2.durum === 'tamam' && /tamamlandı/.test(sonuc2.mesaj) && sonuc2.kalan === null, JSON.stringify(sonuc2));
 
+      // NotebookLM mini testi varsa: kayitli, calisiyor, yanlis sikkin KENDI gerekcesi gorunuyor, geri donus konuya
+      const mini = await page.evaluate(no => { const m = MCSETS['mini' + no]; return m ? { n: m.questions.length, bagli: konuBul(no).alis.includes('mini:' + no) } : null; }, no);
+      if (mini) {
+        kontrol(ad + 'mini test kayitli ve alistirmalara bagli', mini.n >= 5 && mini.bagli, JSON.stringify(mini));
+        const r = await page.evaluate(no => {
+          konuAlistirma('mini:' + no);
+          const q = mcQ[0], yanlis = [...document.querySelectorAll('#mcOpts .eopt')].find(b => b.textContent !== q.answer);
+          yanlis.click();
+          const why = document.getElementById('mcExpWhy').textContent;
+          const beklenen = (q.wrongExp || {})[yanlis.textContent] || '';
+          return { ekran: curScreen, ok: !!beklenen && why.includes(beklenen.slice(0, 25)) };
+        }, no);
+        kontrol(ad + 'mini test: yanlis sikkin kendi gerekcesi gosteriliyor', r.ekran === 'mcScreen' && r.ok, JSON.stringify(r));
+        const bitis = await page.evaluate(no => {
+          while (mcIdx < mcQ.length) { if (!mcAnswered) [...document.querySelectorAll('#mcOpts .eopt')].find(b => b.textContent === mcQ[mcIdx].answer).click(); mcNextQ(); }
+          const ekran = curScreen; mcGeri();
+          return { ekran, geri: curScreen, konu: AKTIF_KONU && AKTIF_KONU.no };
+        }, no);
+        kontrol(ad + 'mini test bitince sonuc ekrani, geri konuya donuyor', bitis.ekran === 'mcDoneScreen' && bitis.geri === 'konuScreen' && bitis.konu === no, JSON.stringify(bitis));
+      }
       // akşam sınavı havuzu bu konudan soru verebilir
       const havuz = await page.evaluate(no => { const k = konuBul(no); return konuSorulari(k, 4).length; }, no);
       kontrol(ad + 'aksam havuzu konudan soru uretiyor', havuz >= 3, 'soru ' + havuz);
+      await page.waitForTimeout(700);   // ekran gecis animasyonu bitsin (yarida olcum sahte tasma gosterir)
       await tasmaYok(page, ad);
       await ctx.close();
     }

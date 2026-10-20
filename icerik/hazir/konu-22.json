@@ -31,12 +31,12 @@
       },
       {
         "big": "-en / -n alanlar (1): Student, Polizist",
-        "mean": "<b>-e, -ent, -ant, -and, -or, -ist</b> ile biten eril isimler çoğulda <b>-en</b> alır.",
+        "mean": "<b>-e, -ent, -ant, -and, -or, -ist</b> ile biten eril isimler çoğulda <b>-n / -en</b> eki alır (hocanın başlığı: 'Sonuna n/en eki alanlar').",
         "egs": [
           "der Student → die Student<b>en</b> — öğrenci → öğrenciler",
           "der Polizist → die Polizist<b>en</b> — polis → polisler"
         ],
-        "tip": "💡 Hocanın tabloda gösterdiği örnekler bunlar: Student ve Polizist. Eril ama -er/-e kuralına girmeyen bu gruba dikkat.",
+        "tip": "💡 Hocanın bu sayfada gösterdiği örnekler yalnız Student ve Polizist (-ent ve -ist sonları). Diğer sonlar (-e, -ant, -and, -or) için hoca örnek vermiyor.",
         "kaynak": "Teil-1 s.92"
       },
       {
@@ -51,12 +51,12 @@
       },
       {
         "big": "-e ile biten isimler → -n",
-        "mean": "Sonu <b>-e</b> olan isimlerin (hocaya göre %99'u) çoğulu <b>-n</b> ile yapılır: die Flasche → die Flaschen.",
+        "mean": "Sonu <b>-e</b> olan isimlerin neredeyse hepsinin çoğulu <b>-n</b> ile yapılır: die Flasche → die Flaschen. (Hoca s.92'de '%99' yazıyor.)",
         "egs": [
           "die Flasche → die Flasche<b>n</b> — şişe → şişeler",
           "die Tasse → die Tasse<b>n</b> — fincan → fincanlar"
         ],
-        "tip": "💡 Hocanın özet sayfasında: <b>-e ile biten isimler (%90) → -n</b>. Yani 'e'yle bitiyorsa sonuna sadece n ekle.",
+        "tip": "💡 Hocanın özet sayfasında (s.96) aynı kural <b>%90</b> olarak yazılı; yani hocanın iki sayfası oranda birbirini tutmuyor (%99 / %90). Önemli olan: 'e'yle bitiyorsa sonuna sadece n ekle.",
         "kaynak": "Teil-1 s.92, s.96"
       },
       {
@@ -78,7 +78,7 @@
           "die Nacht → die N<b>ä</b>cht<b>e</b> — gece → geceler",
           "die Hand → die H<b>ä</b>nd<b>e</b> — el → eller"
         ],
-        "tip": "💡 Hocanın notu: <b>a, o, u</b> harfli dişi isimler üzerine iki nokta alır (<b>Umlaut</b>): die Stadt → die Städte (şehir → şehirler). Eril isimlerde de çoğunlukla geçerli: der Ball → die Bälle (top → toplar). Umlaut = sesli harfin üzerindeki iki nokta.",
+        "tip": "💡 Hocanın notu: 'a, o, u harflerine sahip dişi isimler <b>her zaman</b> üzerine iki nokta alır (<b>Umlaut</b>); eril isimler için de çoğunlukla geçerlidir': die Stadt → die Städte, der Ball → die Bälle. <b>Dikkat:</b> hocanın kendi örnekleri bu 'her zaman'ı tutmuyor: die Frau → die Frauen (s.91), die Flasche → die Flaschen (s.92) Umlaut'suz. Bu yüzden Umlaut'lu biçimleri tek tek ezberle. Umlaut = sesli harfin üzerindeki iki nokta.",
         "kaynak": "Teil-1 s.93"
       },
       {
@@ -91,7 +91,7 @@
           "das Wort → die W<b>ört</b>er — kelime → kelimeler",
           "das Buch → die B<b>üch</b>er — kitap → kitaplar"
         ],
-        "tip": "💡 Hocanın uyarısı: <b>Dişi isimler ASLA r veya er ile çoğul oluşturmaz.</b> Dişi isimler yalnız <b>n, en, e</b> alır.",
+        "tip": "💡 Hocanın uyarısı: <b>Dişi isimler ASLA r veya er ile çoğul oluşturmaz.</b> Hoca dişi isimler için <b>n, en, e</b> ekini sayıyor. (Not: aynı hocanın s.94'teki die Oma → die Omas örneği dişi isimde -s gösteriyor.)",
         "kaynak": "Teil-1 s.93"
       },
       {
@@ -195,8 +195,8 @@
       { "sent": "Die ___ sind klein. (das Mädchen)", "blank": "Mädchen", "opts": ["Mädchen", "Mädchens", "Mädchene", "Mädchenen"], "tr": "Kız çocukları küçük.", "exp": "-chen ile biten isimler çoğulda ek almaz: das Mädchen → die Mädchen (s.94)." },
       { "sent": "Die ___ sind schön. (die Stadt)", "blank": "Städte", "opts": ["Städte", "Stadte", "Stadten", "Stadts"], "tr": "Şehirler güzel.", "exp": "Stadt tek heceli bir dişi isim: -e alır ve a harfi Umlaut alır: die Stadt → die Städte (s.93). Umlaut = a, o, u üzerindeki iki nokta." },
       { "sent": "Meine ___ sind nett. (die Freundin)", "blank": "Freundinnen", "opts": ["Freundinen", "Freundinnen", "Freundiner", "Freundins"], "tr": "Kız arkadaşlarım iyi (hoş).", "exp": "-in ile biten isim: Freundin → Freundinnen (n tekrarlanır). Freundinen yazmak hocanın gösterdiği hatadır (s.92)." },
-      { "sent": "Ich suche ___. (meyve; das Obst)", "blank": "Obst", "opts": ["Obst", "Obste", "Obsten", "Obster"], "tr": "Meyve arıyorum.", "exp": "das Obst çoğulu olmayan bir isimdir: sadece tekil kullanılır (s.95). Bu yüzden Obste/Obsten gibi biçimler yoktur." },
-      { "sent": "Meine ___ sind sehr alt. (die Eltern)", "blank": "Eltern", "opts": ["Eltern", "Elter", "Elterne", "Elternen"], "tr": "Ebeveynlerim çok yaşlı.", "exp": "Eltern tekili olmayan bir isimdir; her zaman çoğul kullanılır (s.95)." }
+      { "sent": "Ich suche ___. (meyve; das Obst)", "blank": "Obst", "opts": ["Obst", "Obste", "Obsten", "Obster"], "tr": "Meyve arıyorum.", "exp": "das Obst çoğulu olmayan bir isimdir: hocaya göre sadece tekil kullanılır (s.95). Bu yüzden çoğul eki eklenmez (Obste, Obsten diye bir şey kullanmıyoruz)." },
+      { "sent": "Meine ___ sind sehr alt. (die Eltern)", "blank": "Eltern", "opts": ["Eltern", "Elters", "Elterne", "Elternen"], "tr": "Ebeveynlerim çok yaşlı.", "exp": "Eltern tekili olmayan bir isimdir; her zaman çoğul kullanılır (s.95)." }
     ]
   },
   "dogrulama": [

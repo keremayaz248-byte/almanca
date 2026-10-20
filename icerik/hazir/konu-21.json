@@ -54,7 +54,7 @@
           "Warte bitte bis morgen! — Lütfen yarına kadar bekle!",
           "Der Kurs dauert bis Freitag. — Kurs cumaya kadar sürüyor."
         ],
-        "tip": "💡 Hocanın TMP notu: <b>bis</b> = TMP'nin <b>T</b>'si (zaman). Artikel gerektiren isimlerde bis genelde artikelsiz zaman sözcükleriyle kullanılır (18 Uhr, morgen, Freitag).",
+        "tip": "💡 Hocanın TMP notu: <b>bis</b> = TMP'nin <b>T</b>'si (zaman). Hocanın örneklerindeki zaman sözcükleri: 18 Uhr, morgen, Freitag.",
         "kaynak": "Teil-1 s.90"
       },
       {
@@ -70,7 +70,7 @@
           ["um", "etrafında, saat..., hakkında", "Der Film beginnt um 20 Uhr."],
           ["bis", "kadar, dek", "Wir gehen bis zum Bahnhof."]
         ],
-        "not": "Hocanın tablosundan (Präposition – Türkçe – Beispiel). Hocanın numaralı anlatımında yalnız durch, für, ohne, bis var; gegen ve um tabloda ek olarak yer alır.",
+        "not": "Hocanın tablosundan (Präposition – Türkçe – Beispiel). Hocanın numaralı anlatımında yalnız durch, für, ohne, bis var; gegen ve um tabloda ek olarak yer alır. Tablodaki <b>um = hakkında</b> anlamı hocanın yazdığı gibidir, kontrol bekliyor; <b>zum Bahnhof</b> (zum = zu dem) hocanın örneğidir, bu derste ayrıca açıklanmadı, şimdilik kalıp olarak al.",
         "kaynak": "Teil-1 s.90"
       },
       {
@@ -116,7 +116,7 @@
           "<b>bis</b> → <b>T</b> (zaman: 18 Uhr, morgen, Freitag).",
           "<b>für das = fürs</b> (kısaltma)."
         ],
-        "uyari": "Hocanın TMP'si cümlede edatın hangi türde bilgi verdiğini hatırlatan bir etikettir; edat seçerken bu etiketle düşün.",
+        "uyari": "TMP kısaltmasının açılımı hocanın sayfasında yazmıyor; muhtemelen T = zaman, M = tarz/araç, P = yer (teyit edilmedi). Etiketleri hocanın yazdığı gibi al.",
         "kaynak": "Teil-1 s.90"
       },
       {
@@ -208,7 +208,7 @@
       {
         "sent": "Ich lerne Deutsch ___ Videos.",
         "blank": "durch",
-        "opts": ["durch", "für", "bis"],
+        "opts": ["durch", "bis", "um"],
         "tr": "Almancayı videolar yoluyla öğreniyorum.",
         "exp": "durch yalnız 'içinden' değil, 'yoluyla / sayesinde' anlamına da gelir. Hocanın örneği: Ich lerne Deutsch durch Videos."
       },
@@ -245,14 +245,14 @@
         "blank": "Fürs",
         "opts": ["Fürs", "Fürdas", "Furs"],
         "tr": "Çocuk için",
-        "exp": "Hocanın notu: für das = fürs. Yazımda tek kelime olur, ü ve apostrof gerekmez; Fürdas bitişik yazılmış hatalı biçimdir."
+        "exp": "Hocanın notu: für das = fürs. Tek kelime olur ve ü korunur; araya apostrof konmaz. Furs (ü'süz) ve Fürdas (das'ı olduğu gibi bitiştirmek) hatalıdır."
       },
       {
-        "sent": "Ich gehe ohne ___ Lehrer. (der Lehrer, belirsiz değil)",
-        "blank": "den",
-        "opts": ["der", "den", "die"],
-        "tr": "Öğretmen olmadan gidiyorum.",
-        "exp": "ohne her zaman Akkusativ ister. Maskulin olan der Lehrer nesne olunca den Lehrer olur. 'die' feminin ve çoğul içindir."
+        "sent": "Das Geschenk ist für ___ Frau. (die Frau)",
+        "blank": "die",
+        "opts": ["der", "die", "den"],
+        "tr": "Hediye kadın için.",
+        "exp": "für her zaman Akkusativ ister ama feminin isimlerde artikel değişmez: die Frau kalır. 'den' yalnız maskulin içindir; 'der' Nominativ biçimidir ve für'den sonra gelmez."
       }
     ]
   },
@@ -260,7 +260,6 @@
     "s.90'daki 'TMP' kısaltmasının açılımı sayfada yazmıyor; T = zaman, M = tarz/araç, P = yer diye yorumladım ve derste açılımı yazmadım. Perplexity'ye sor: \"Almanca cümle sıralamasında TMP ne demek?\" (Hocanın kastettiği bu mu, hocaya sor).",
     "Hocanın numaralı listesinde yalnız durch, für, ohne, bis var; gegen ve um yalnızca sağdaki küçük tabloda (görsel) geçiyor. Bu iki edat derse tablodaki cümleleriyle alındı.",
     "s.90 tablosunda um için 'etrafında, saat..., hakkında' yazıyor; 'hakkında' görselden okundu ve belirsiz (um = hakkında anlamı A1'de yaygın mı?). Perplexity'ye sor: \"um edatının A1 anlamları nelerdir?\"",
-    "Soru 'Für das Kind = Fürs Kind' hocanın 'Für das = Fürs' notundan türetildi; 'Fürs Kind' kullanımı Almancada doğru mu, kontrol edilmeli.",
-    "bis ile ilgili tip'te 'artikelli isimlerle bis genelde artikelsiz zaman sözcüklerinde kullanılır' notu ben yazdım (hocanın örnekleri yalnız 18 Uhr, morgen, Freitag); bis zum Bahnhof örneği tablodan alındı, 'zum' (zu dem) A1 öğrencisine açıklanmadı."
+    "s.90 tablosundaki 'bis zum Bahnhof' (hocanın örneği) A1 öğrencisine 'zum' açıklanmadan veriliyor; bu derste kalıp olarak bırakıldı."
   ]
 }

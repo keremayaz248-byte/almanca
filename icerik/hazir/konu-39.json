@@ -101,7 +101,7 @@
         "mean": "Bazı edat + artikel çiftleri birleşir. Hocanın örnekleri: <b>an das = ans</b>, <b>in das = ins</b> (Akkusativ), <b>in dem = im</b> (Dativ). <b>an der Tür</b> Dativ'dir.",
         "egs": [
           "Wir gehen <b>ins</b> Kino (in das Kino). — Sinemaya gidiyoruz. (Akk.)",
-          "Wir sind <b>im</b> Hotel. — Otelde kalıyoruz. (Dativ: im Hotel)",
+          "Wir sind <b>im</b> Hotel. — Oteldeyiz. (Dativ: im Hotel)",
           "Ich lege das Kind <b>ins</b> Bett. — Çocuğu yatağa yatırıyorum. (Wohin?)",
           "Das Kind liegt <b>im</b> (in dem) Bett. — Çocuk yatakta yatıyor. (Wo?)"
         ],
@@ -273,7 +273,7 @@
         "blank": "dem",
         "opts": ["dem", "den", "der"],
         "tr": "Kitap masanın üstünde duruyor.",
-        "exp": "Cümle wo? (nerede?) sorusuna cevap verir; yer sorusu Dativ ister, der Tisch Dativ'de dem Tisch olur. den Akkusativ (wohin?) için, der ise die/der kelimeler içindir."
+        "exp": "Cümle wo? (nerede?) sorusuna cevap verir; yer sorusu Dativ ister, der Tisch Dativ'de dem Tisch olur. den Akkusativ (wohin?) için; der ise der Tisch'in Nominativ'idir, Dativ'de kullanılmaz (der yalnızca die Wand gibi dişil kelimelerin Dativ'inde görülür)."
       },
       {
         "sent": "Ich lege das Buch auf ___ Tisch.",
@@ -392,7 +392,6 @@
   "dogrulama": [
     "Hocanın s.31 tablosunda edatların karşılıkları yalnızca İngilizce verilmiş (on, over/above, under/below, in front of, behind, between, next to, at). Türkçe karşılıkları (üstünde, altında, önünde, arkasında, arasında...) derse yazmadım. Perplexity'ye sor: auf, über, unter, vor, hinter, neben, an, zwischen, in edatlarının günlük Türkçe karşılıkları nelerdir?",
     "Bazı cümlelerde hocada Türkçe çeviri yoktu (ör. 'Ich lege das Buch auf den Tisch', 'Wo liegt denn meine Brille?', s.44-45); çevirileri ben yazdım. Perplexity'ye sor: bu cümlelerin doğal Türkçesi doğru mu?",
-    "Hoca s.44'te 'Tabea hängt has Handtuch ins Bad' ve 'auf den Baden stellen' yazmış (yazım hatası görünüyor: has → das, Baden → Boden). Derste doğru yazımı kullandım. Perplexity'ye sor: has ve Baden gerçekten yazım hatası mı?",
     "Hoca s.45 tablosunda hängen (Dativ) için Perfekt 'gehangen' vermiş, Akkusativ için 'gehängt'. Perplexity'ye sor: hängen'in iki Partizip II biçimi (gehängt / gehangen) ve hangi anlamda kullanıldığı doğru mu?",
     "Hoca stellen = dikey, legen = yatay diyor, ama aynı sayfada 'Ich lege/stelle das Buch auf den Tisch' ikisini de veriyor. Perplexity'ye sor: kitabı masaya koymak için legen mi stellen mi, fark ne?"
   ]

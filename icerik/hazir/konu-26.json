@@ -14,7 +14,7 @@
         "kicker": "Altın Kural",
         "big": "MODAL 2. SIRADA",
         "mean": "Modal fiil çekimlenir ve cümlede 2. sırada durur; asıl fiil mastar (-en) halinde, çekimlenmeden cümlenin SONUNA gider.",
-        "story": "Hocanın formülü: <b>Özne + Modalverb (Çekimlenir) + İ/N/T/M/P + Ana Fiil (Çekimlenmez)</b>.<br>Altı modal fiil var: <b>dürfen, können, mögen, müssen, sollen, wollen</b> (+ nazik istek için <b>möchten</b>).<br>Bu derste önce çekimleri, sonra cümle çerçevesini, sonra her modalin hocanın örneklerini göreceğiz."
+        "story": "Hocanın formülü: <b>Özne + Modalverb (Çekimlenir) + İ/N/T/M/P + Ana Fiil (Çekimlenmez)</b>.<br>Altı modal fiil var: <b>dürfen, können, mögen, müssen, sollen, wollen</b> (+ nazik istek için <b>möchten</b>).<br><b>Not:</b> Hoca dürfen, sollen, wollen ve können için ayrı anlatım vermiyor; yalnız çekim tablosu ve örnek cümleler var, bu derste de öyle.<br>Bu derste önce çekimleri, sonra cümle çerçevesini, sonra her modalin hocanın örneklerini göreceğiz."
       },
       {
         "tur": "tablo",
@@ -175,7 +175,7 @@
       },
       {
         "big": "möchten",
-        "mean": "Nazik istek: 'istiyorum / isterim'. Hep asıl fiille gelir: möchte + ... + MASTAR (sonda).",
+        "mean": "Nazik istek: 'istiyorum / isterim'. Hocanın örneklerinde asıl fiille gelir: möchte + ... + MASTAR (sonda).",
         "egs": [
           "Mama, Papa, ich <b>möchte</b> gern bei der Musik-AG <b>mitmachen</b>. — Baba, anne, ben müzik kulübüne katılmak istiyorum.",
           "<b>Möchtest</b> du heute Tennis <b>spielen</b>? — Bugün tenis oynamak ister misin?"
@@ -222,7 +222,7 @@
       },
       {
         "big": "wollen",
-        "mean": "İstemek (kararlı istek). ich ve er/sie/es için <b>will</b>. Olumsuzda nicht araya girer.",
+        "mean": "İstemek (hocanın tablosunda: want). ich ve er/sie/es için <b>will</b>. Olumsuzda nicht araya girer.",
         "egs": [
           "Ich <b>will</b> <b>abnehmen</b>. — Kilo vermek istiyorum.",
           "Ich <b>will</b> nicht <b>zunehmen</b>. — Kilo almak istemiyorum.",
@@ -234,12 +234,12 @@
       },
       {
         "big": "dürfen · sollen",
-        "mean": "Hocanın örneklerinde: dürfen + nicht = 'yapamazsın / yapmamalısın'; sollen + nicht = 'yapmamalı'. İkisi de modal: çekimli 2. sırada, mastar sonda.",
+        "mean": "Hocanın iki örneği: <b>Du darfst die Hoffnung nicht aufgeben</b> (Umudu bırakamazsın!) ve <b>Kinder sollen ... nicht ... sitzen</b> (... oturmamalı). İkisi de modal: çekimli 2. sırada, mastar sonda.",
         "egs": [
           "Du <b>darfst</b> die Hoffnung nicht <b>aufgeben</b>. — Umudu bırakamazsın!",
           "Kinder <b>sollen</b> nachmittags nicht allein am Computer <b>sitzen</b>. — Çocuklar öğleden sonraları tek başına bilgisayar başında oturmamalı."
         ],
-        "tip": "💡 İkisinde de <b>nicht</b> mastarın hemen önüne / ara kısma girer, mastar yine sonda kalır. dürfen ile sollen arasındaki anlam farkını hoca bu sayfalarda ayrıca açıklamıyor (dogrulama listesine bak).",
+        "tip": "💡 İkisinde de <b>nicht</b> mastarın hemen önüne / ara kısma girer, mastar yine sonda kalır. Hoca dürfen, sollen, wollen ve können için ayrı bir anlatım sayfası vermiyor (NotebookLM ile teyit edildi): bu derste yalnız çekim tablosu ve hocanın örnek cümleleri var; anlam farkları (izin, zorunluluk, tavsiye) dersin kapsamı dışında.",
         "kaynak": "Kalan Üniteler s.22, s.3"
       },
       {
@@ -304,7 +304,7 @@
           "Devrik cümlede de modal 2. sırada kalır: <b>Am Abend muss ich</b> Englisch lernen.",
           "Soruda modal başa geçer: <b>Möchtest du</b> ... trinken? (modalsiz: Trinkst du ...?)",
           "ich ve er/sie/es aynıdır: ich kann = er kann, ich will = er will. <b>Ama möchten'de -e var (ich möchte).</b>",
-          "<b>möchten ≠ mögen:</b> möchte + mastar (ich möchte gern mitmachen), mag + sevilen şey (ich mag Sport)."
+          "<b>möchten ≠ mögen</b> (hocanın örneklerinden): möchte + mastar (ich möchte gern mitmachen), mag + sevilen şey (ich mag Sport)."
         ],
         "uyari": "En sık hata: modalın yanındaki fiili de çekimlemek (✗ Ich muss lerne) ya da onu 2. sıraya koymak. Çekimlenen TEK fiil modaldir; diğeri mastar ve sonda.",
         "kaynak": "Kalan Üniteler s.3-5"
@@ -407,7 +407,7 @@
         "blank": "möchte",
         "opts": ["möchte", "mag", "möchten"],
         "tr": "Anne, baba, müzik kulübüne katılmak istiyorum.",
-        "exp": "Ardından bir mastar (mitmachen) geldiği için möchte kullanılır; mag yanında isim ister (Ich mag Sport). 'ich' için möchte (möchten değil). Hocanın örneği."
+        "exp": "Ardından bir mastar (mitmachen) geldiği için möchte kullanılır; hocanın örneklerinde mag'ın yanında sevilen şey (isim) var (Ich mag Sport). 'ich' için möchte (möchten değil). Hocanın örneği."
       },
       {
         "sent": "Du ___ mir unbedingt helfen.",
@@ -426,7 +426,7 @@
     ]
   },
   "dogrulama": [
-    "Hocanın s.3'teki formülünde 'İ/N/T/M/P' kısaltması geçiyor (Özne + Modalverb + İ/N/T/M/P + Ana Fiil). Açılımı sayfada yok. Perplexity'ye sor: 'Almanca cümlede modal fiil ile mastar arasındaki ara kısım hangi sırayla dizilir (zaman, neden, tarz, yer)? Türkçe kısaltma İ/N/T/M/P neyi ifade ediyor olabilir?'",
+    "Hocanın s.3'teki formülünde 'İ/N/T/M/P' kısaltması geçiyor (Özne + Modalverb + İ/N/T/M/P + Ana Fiil). Açılımı sayfada yok (s.63'te aynı mantıkta 'TMP önceliği' başlığı var). Perplexity'ye sor: 'Almanca cümlede modal fiil ile mastar arasındaki ara kısım hangi sırayla dizilir (zaman, neden, tarz, yer)? Türkçe kısaltma İ/N/T/M/P neyi ifade ediyor olabilir?'",
     "s.3'teki siyah kutu 'Eigentlich will ich nicht nach Hause,' diye kesik görünüyor (Türkçesi: Aslında eve gitmek istemiyorum). Cümle derste kullanılmadı; tam hali doğrulansın.",
     "s.3'teki hoca notunda 'I muss am Abend Englisch lernen.' yazıyor; 'Ich muss ...' olması gerekir. Derste 'Ich' yazıldı, hocadan teyit edilsin.",
     "s.4'teki 'Ich mache gern Sport. / Ich mag Sport machen.' notunda ikinci cümlenin üstü çizili görünüyor. Gerçekten 'yanlış' anlamında mı çizilmiş? Perplexity'ye sor: 'Ich mag Sport machen' doğru mu, yoksa 'Ich mache gern Sport' mu denir?",

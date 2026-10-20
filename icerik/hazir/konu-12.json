@@ -10,8 +10,8 @@
         "type": "intro",
         "kicker": "Konu 12",
         "big": "DIE FARBEN",
-        "mean": "Almanca renk isimlerini öğreniyorsun: 18 renk + 'renkli' demenin 3 yolu + 'blaumachen' deyimi.",
-        "story": "Hocanın sayfası (s.34) tek bir tablo ve iki küçük kutudan oluşuyor: <b>18 renk</b>, <b>'renkli' demenin 3 yolu</b> ve <b>blaumachen</b> (mavi yapmak) deyimi. Önce kelime sınıfını görelim: <b>die Farbe</b> = renk, <b>die Farben</b> = renkler."
+        "mean": "Almanca renk isimlerini öğreniyorsun: 21 renk + 'renkli' demenin 3 yolu + 'blaumachen' deyimi.",
+        "story": "Hocanın sayfası (s.34) tek bir tablo ve iki küçük kutudan oluşuyor: <b>21 renk</b>, <b>'renkli' demenin 3 yolu</b> ve <b>blaumachen</b> (mavi yapmak) deyimi. Önce kelime sınıfını görelim: <b>die Farbe</b> = renk, <b>die Farben</b> = renkler."
       },
       {
         "big": "die Farbe — die Farben",
@@ -48,7 +48,7 @@
           ["mavi", "dunkelblau", "blau", "hellblau"],
           ["yeşil", "dunkelgrün", "grün", "hellgrün"]
         ],
-        "not": "Hocanın tablosunda renk örnekleri yan yanadır: <b>dunkel-</b> koyu, <b>hell-</b> açık tonu gösteriyor (anlam, sayfadaki renk topçuklarından çıkarıldı). Ön ek ile renk <b>tek kelime</b> yazılır. Ayrıca <b>türkis</b> = turkuaz.",
+        "not": "Hocanın sayfasında renkler renkli toplarla gösterilir; <b>dunkel-</b> koyu, <b>hell-</b> açık tonu gösteriyor (anlam, topların renginden çıkarıldı; sayfada Türkçesi yazmıyor). Ön ek ile renk <b>tek kelime</b> yazılır. Ayrıca <b>türkis</b> = turkuaz.",
         "kaynak": "Teil-1 s.34"
       },
       {
@@ -63,10 +63,10 @@
           ["beige", "bej"],
           ["silber", "gümüş"],
           ["gold", "altın"],
-          ["braunrot", "kahverengi-kırmızı (bordo tonu)"],
-          ["haselnuss", "fındık rengi"]
+          ["braunrot", "kahverengi-kırmızı (resimden)"],
+          ["haselnuss", "fındık rengi (resimden)"]
         ],
-        "not": "Hocanın notu: <b>rosa = Pink</b>. Yani pembe için iki kelime biliyorsun.",
+        "not": "Hocanın notu: <b>rosa = Pink</b>. Yani pembe için iki kelime biliyorsun. Not: sayfada renklerin Türkçesi yazmaz; karşılıklar renk toplarına bakılarak verilmiştir.",
         "kaynak": "Teil-1 s.34"
       },
       {
@@ -77,7 +77,7 @@
           "Ich mag diese <b>vielfarbige</b> Figur. — Bu rengârenk figürü severim.",
           "Ich finde <b>mehrfarbige</b> Häuser schön. — Çok renkli evleri güzel bulurum."
         ],
-        "tip": "💡 Hoca üç kelimeyi de 'renkli' olarak veriyor. Kelimelerin sonundaki <b>-s / -e</b> harfleri sıfat çekimidir; bu konuda ezberlemen gereken ana kelimeler: <b>bunt, vielfarbig, mehrfarbig</b>.",
+        "tip": "💡 Hoca üç kelimeyi de 'renkli' olarak veriyor. Cümlelerde kelimeler buntes / vielfarbige / mehrfarbige biçiminde geçer; ezberlemen gereken ana kelimeler: <b>bunt, vielfarbig, mehrfarbig</b>.",
         "kaynak": "Teil-1 s.34"
       },
       {
@@ -107,7 +107,7 @@
       {
         "type": "outro",
         "kicker": "Ezber",
-        "big": "18 renk",
+        "big": "21 renk",
         "mean": "schwarz · rot · gelb · dunkelblau · blau · hellblau · braun · braunrot · haselnuss · violett · rosa · orange · dunkelgrün · grün · hellgrün · türkis · grau · weiß · beige · silber · gold",
         "story": "Hepsi <b>die Farbe</b> — çoğulu <b>die Farben</b>. Renkli = <b>bunt / vielfarbig / mehrfarbig</b>. Tembellik = <b>blaumachen</b>."
       }
@@ -137,7 +137,7 @@
   "dogrulama": [
     "Hocanın s.34 tablosunda dunkel-/hell- anlamı yazılı değil; renk topçuklarından (koyu/açık) çıkarıldı. 'dunkel = koyu, hell = açık' doğru mu? Perplexity'ye sor.",
     "braunrot ve haselnuss renk isimlerinin Türkçe karşılıkları sayfada yazmıyor (bordo tonu / fındık rengi benim yorumum). Doğru karşılıkları Perplexity'ye sor.",
-    "'Renkli' örneklerindeki buntes / vielfarbige / mehrfarbige sonları sıfat çekimidir; hoca bu konuyu bu sayfada anlatmıyor, derse bilerek eklenmedi.",
-    "Renk isimleri Türkçe karşılıkları (schwarz=siyah vb.) sayfada sadece Almanca yazılı; Türkçeleri benim verdiğim çeviri."
+    "'Renkli' örneklerindeki buntes / vielfarbige / mehrfarbige sonları (sıfat çekimi) hocanın sayfasında açıklanmıyor; derste kural olarak anlatılmadı.",
+    "Renk isimlerinin Türkçeleri (schwarz=siyah vb.) sayfada yazmıyor (NotebookLM ile de doğrulandı); renk toplarından verilen çeviridir, en belirsizleri braunrot ve haselnuss."
   ]
 }

@@ -23,3 +23,6 @@ _pplx_giris.js
 _pplx.png
 _test_*.js
 icerik/hazir/_ham/
+
+# NotebookLM podcast denemeleri (boyut kararı verilene kadar depoya girmez)
+icerik/ses/

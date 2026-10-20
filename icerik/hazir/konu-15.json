@@ -16,7 +16,7 @@
         "kicker": "Altın Kural",
         "big": "GERN",
         "mean": "Hobilerini anlatmak ve 'severek yapıyorum' demek için: <b>gern</b>, <b>lieber</b>, <b>am liebsten</b>.",
-        "story": "Hocanın s.61-65'inde önce <b>das Hobby</b> kelimesi ve hobi listesi, sonra <b>gern</b> (severek) ve yerini gösteren 5 pozisyon, en sonda <b>lieber</b> (tercih) ve <b>am liebsten</b> (en çok) var. Önemli: <b>gern asla tek başına bir cümle olmaz</b>, mutlaka bir fiille kullanılır."
+        "story": "Hocanın s.61-65'inde önce <b>das Hobby</b> kelimesi ve hobi listesi, sonra <b>gern</b> (severek) ve yerini gösteren 5 pozisyon, en sonda <b>lieber</b> (tercih) ve <b>am liebsten</b> (en çok) var. Önemli: hocanın sayfasında <b>'Ich gern.'</b> çarpı ile silinmiş: gern <b>fiilsiz</b> kullanılmaz, bir fiille birlikte durur."
       },
       {
         "tur": "tablo",
@@ -62,7 +62,7 @@
       {
         "tur": "tablo",
         "kicker": "Hobi listesi 1",
-        "baslik": "Hocanın 17'lik listesi (s.61)",
+        "baslik": "Hocanın hobi listesi (s.61, 1. kısım)",
         "basliklar": [
           "Almanca",
           "Türkçe"
@@ -237,12 +237,12 @@
           "Warum machst du nicht einen kleinen <b>Spaziergang</b>? — Neden küçük bir yürüyüşe çıkmıyorsun? / Sen bir yürüyüşe çıksana!",
           "Ich gehe <b>spazieren</b>. — (Anlam, hocanın listesinden) Yürüyüşe çıkıyorum."
         ],
-        "tip": "💡 Hocanın sayfasında bu cümle mavi kutuda ve 'Neden yürüyüşe çıkmıyorsun? / Sen bi yürüyüşe çıksana!' diye çevrilmiş.",
+        "tip": "💡 Hocanın sayfasında bu cümle sağdaki notta, 'Neden yürüyüşe çıkmıyorsun? / Sen bi yürüyüşe çıksana!' diye çevrilmiş.",
         "kaynak": "Teil-1 s.62"
       },
       {
         "big": "gern",
-        "mean": "<b>gern</b> = severek, '-meyi severim' anlamı katar. Mutlaka bir fiille kullanılır; tek başına cümle olmaz. <b>Ich gern.</b> ✘ — Fiil yok!",
+        "mean": "<b>gern</b> = severek, '-meyi severim' anlamı katar. Bir fiille birlikte kullanılır; fiilsiz olmaz. <b>Ich gern.</b> ✘ — Fiil yok!",
         "egs": [
           "Laura wohnt <b>gern</b> in Berlin. — Laura Berlin'de severek yaşıyor.",
           "Gehst du <b>gern</b> ins Kino? — Sinemaya gitmeyi sever misin?",
@@ -507,7 +507,7 @@
             "schläft"
           ]
         ],
-        "not": "Hocanın s.61'indeki küçük tablodan: du ve er/sie biçimleri. Örnek: <b>Liest du auch gern?</b>",
+        "not": "Hocanın s.61'indeki küçük tablodan: du ve er/sie biçimleri (sayfada sütun başlıkları kesik olduğundan fiil adları tamamlanmıştır; çekimler hocanın tablosundandır). Örnek: <b>Liest du auch gern?</b>",
         "kaynak": "Teil-1 s.61"
       },
       {
@@ -515,14 +515,14 @@
         "kicker": "Tuzaklar",
         "baslik": "Hobi ve gern: sık hatalar",
         "maddeler": [
-          "<b>gern</b> tek başına cümle olmaz: ✘ Ich gern. → ✔ Ich schwimme gern.",
+          "<b>gern</b> fiilsiz kullanılmaz: ✘ Ich gern. → ✔ Ich schwimme gern.",
           "<b>Gern geschehen.</b> = Bir şey değil (teşekkür cevabı); hobi anlatan gern ile karıştırma.",
           "Ana cümle: <b>fiil + gern</b>. Yan cümle: <b>gern + fiil (sonda)</b>.",
           "Olumsuz: <b>nicht gern</b> (nicht önce, gern sonra).",
           "Zaman sözcüğü <b>morgens</b> gern'den önce gelir; zamirden sonra gern: <b>Ich helfe dir gern.</b>",
           "Hobi çoğul: <b>Meine Hobbys sind ...</b> (sind). Tek hobi: <b>Eines meiner Hobbys ist ...</b> (ist)."
         ],
-        "uyari": "En sık yapılan hata: gern'i cümlenin sonuna tek başına atmak. Hocanın sayfasında 'Ich gern.' çarpı ile silinmiş.",
+        "uyari": "En sık yapılan hata: gern'i fiil olmadan kullanmak ('Ich gern.'). Hocanın sayfasında bu cümle çarpı ile silinmiş; doğrusu: Ich schwimme gern.",
         "kaynak": "Teil-1 s.62-63"
       },
       {
@@ -580,7 +580,7 @@
         "opts": [
           "gern",
           "nicht",
-          "lieber"
+          "geschehen"
         ],
         "tr": "Sabahları müzik dinlemeyi severim.",
         "exp": "Hocanın örneği: Morgens höre ich gern Musik. Zaman sözcüğü (morgens) başta, gern özneden sonra gelir."
@@ -627,7 +627,7 @@
           "macht"
         ],
         "tr": "Boş zamanında ne yapmayı seversin?",
-        "exp": "Hocanın sorusu: Was machst du gern in der Freizeit? du ile fiil -st alır. 'machen' wir/sie ile, 'macht' er/sie ile."
+        "exp": "Hocanın sorusu: Was machst du gern in der Freizeit? du ile fiil -st alır. 'machen' wir/sie ile, 'macht' er/sie/ihr ile kullanılır."
       },
       {
         "sent": "Meine Hobbys ___ Lesen und Schwimmen.",
@@ -671,7 +671,7 @@
           "dich"
         ],
         "tr": "Sana severek yardım ederim.",
-        "exp": "Hocanın istisnası: gern zamirden sonra gelir: Ich helfe dir gern. 'du' özne zamiridir, burada nesne gerekir; kalıp dir ile verildi."
+        "exp": "Hocanın istisnası: gern zamirden sonra gelir: Ich helfe dir gern. 'du' özne biçimidir, burada nesne biçimi gerekir; hocanın kalıbı 'Ich helfe dir gern.' 'dich' ile değil dir ile kurulmuştur."
       },
       {
         "sent": "Du ___ auch gern?",
@@ -711,6 +711,7 @@
   "dogrulama": [
     "s.61 tablosunda fiil sütun başlıkları (lesen/treffen/fahren/schlafen) görselde kesik; çekim biçimleri (liest, triffst/trifft, fährst/fährt, schläfst/schläft) okundu, fiil adları benim tamamlamam. Perplexity'ye sor: 'treffen: du triffst, er trifft; schlafen: du schläfst; doğru mu?'",
     "Hocanın s.61 notu 'Ich bin am kochen' (= yemek yapıyorum): bu bir günlük konuşma kalıbı mı, A1'de kullanılır mı? Perplexity'ye sor.",
+    "s.61'deki hobi listesinde yalnız 'Fahrrad = Rad: Bisiklet' ve 'kochen: yemek yapıyorum' Türkçe verilmiş; diğer Türkçe karşılıklar (Joggen = koşu yapmak, Tauchen = dalış yapmak vb.) bana ait. Perplexity'ye sor.",
     "s.62 resimli listedeki Türkçe karşılıklar (basteln = el işi yapmak, Sticker sammeln = çıkartma biriktirmek vb.) hocada yok; çeviriler bana ait. Perplexity'ye sor.",
     "s.62 'Ich habe einen Scheißohrwurm' ve 'der Ohrwurm' notu argo içerdiği için derse alınmadı.",
     "'Eines meiner Hobbys ist Lesen' (s.62) hocanın cümlesi; 'Eines meiner' çekimi (Genitiv) hoca açıklamıyor, derste açıklanmadı.",

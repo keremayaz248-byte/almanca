@@ -11,7 +11,7 @@
         "kicker": "Altın Kural",
         "big": "NICHT oder KEIN",
         "mean": "Almancada 'değil / yok' demenin iki yolu var; hangisini kullanacağın olumsuzlayacağın kelimenin türüne bağlıdır.",
-        "story": "Türkçede <b>değil</b> ve <b>yok</b> ayrımı var: 'Ev eski <b>değil</b>' ama 'Kitabım <b>yok</b>'. Almancada da aynı mantık: <b>isim</b> olumsuzlanıyorsa <b>kein</b>, <b>sıfat - zarf - fiil</b> olumsuzlanıyorsa <b>nicht</b>. Hocanın şeması bu iki oku gösterir."
+        "story": "Türkçede <b>değil</b> ve <b>yok</b> ayrımı var: 'Ev eski <b>değil</b>' ama 'Kitabım <b>yok</b>'. Almancada da aynı mantık: <b>isim</b> olumsuzlanıyorsa <b>kein</b> (ein/eine yerine geçer), <b>sıfat - zarf - fiil</b> olumsuzlanıyorsa <b>nicht</b>. Hocanın şeması bu iki oku gösterir."
       },
       {
         "tur": "tablo",
@@ -120,7 +120,7 @@
           },
           {
             "etiket": "Eril isim",
-            "not": "keinen + eril isim",
+            "not": "keinen (hat'ın nesnesi olan eril isim)",
             "jetonlar": [
               { "t": "Lara", "r": "ozne" },
               { "t": "hat", "r": "fiil" },
@@ -152,7 +152,7 @@
             "tr": "Gözlükleri yok."
           }
         ],
-        "not": "<b>Not:</b> Hoca ayrı bir 'kein çekim tablosu' vermiyor; yukarıdaki biçimler onun örneklerinden alındı: kein Buch, keine Schwester, keinen Bruder, keine Brillen.",
+        "not": "<b>Not:</b> Hoca ayrı bir 'kein çekim tablosu' vermiyor; biçimler onun örneklerinden alındı: kein Buch, keine Schwester, keinen Bruder, keine Brillen. <b>Dikkat:</b> eril isim her zaman keinen almaz: 'hat ...' gibi cümlelerde nesne olan eril isimde keinen (keinen Bruder, keinen Hunger, keinen Kaffee), ama hocanın 'Das ist kein Kühlschrank (Nom.)' örneğinde eril isim kein alıyor. Hoca bu farkın adını (Nominativ/Akkusativ) bu sayfada açıklamıyor.",
         "kaynak": "Teil-1 s.97"
       },
       {
@@ -210,9 +210,10 @@
           "<b>kein</b> = isim önünde, isme göre çekimlenir: kein Buch, keine Schwester, keinen Bruder, keine Brillen.",
           "<b>nicht</b> = sıfat, zarf, fiil: hiç değişmez.",
           "<b>sein</b> + sıfat = nicht (Das Haus ist nicht alt); <b>sein</b> + isim = kein (Das ist kein Kühlschrank).",
-          "'Nicht einen Kaffee' DEĞİL, 'keinen Kaffee'."
+          "'Nicht einen Kaffee' DEĞİL, 'keinen Kaffee'.",
+          "Eril isimde: 'hat/habe/will ...' nesnesi = keinen (keinen Bruder), 'Das ist ...' = kein (kein Kühlschrank) — hocanın örneklerinden gözlem."
         ],
-        "uyari": "En sık yapılan hata: ismi nicht ile olumsuzlamak ('Ich habe nicht Hunger' yanlış, 'Ich habe keinen Hunger' doğru) veya sıfatın önüne kein koymak.",
+        "uyari": "En sık yapılan hata: ein/eine ile kullanılabilecek bir ismi nicht ile olumsuzlamak ('Ich habe keinen Hunger' doğru; 'nicht einen Kaffee' hocanın çarpıladığı yanlış). Hocanın örneklerinde belirli artikelli isim (die Wahrheit, ins Theater) nicht ile olumsuzlanıyor; çünkü kein, ein/eine yerine geçer. Sıfatın önüne de kein konmaz.",
         "kaynak": "Teil-1 s.97-98"
       },
       {
@@ -234,14 +235,14 @@
       { "sent": "Er hat ___ Buch.", "blank": "kein", "opts": ["kein", "keine", "nicht", "keinen"], "tr": "Onun kitabı yok.", "exp": "Buch bir isim (nötr) olduğu için nicht değil kein kullanılır: kein Buch (s.97, Negation alıştırması)." },
       { "sent": "Katja hat ___ Schwester.", "blank": "keine", "opts": ["keine", "kein", "keinen", "nicht"], "tr": "Katja'nın kız kardeşi yok.", "exp": "Schwester dişi bir isim: isim olduğu için kein, dişi olduğu için keine (s.97)." },
       { "sent": "Ich höre Musik ___ gern.", "blank": "nicht", "opts": ["nicht", "kein", "keine", "keinen"], "tr": "Müzik dinlemeyi sevmem.", "exp": "gern bir zarftır; zarfları nicht olumsuzlar. kein sadece isimlerin önüne gelir (s.97)." },
-      { "sent": "Lara hat ___ Bruder.", "blank": "keinen", "opts": ["keinen", "kein", "keine", "nicht"], "tr": "Lara'nın erkek kardeşi yok.", "exp": "Bruder eril bir isim: kein isimle çekimlenir, eril isimde keinen olur (s.97)." },
+      { "sent": "Lara hat ___ Bruder.", "blank": "keinen", "opts": ["keinen", "kein", "keine", "nicht"], "tr": "Lara'nın erkek kardeşi yok.", "exp": "Bruder eril bir isim: kein isimle çekimlenir. 'Lara hat ...' cümlesinde eril isim keinen olur (hocanın örneği, s.97). Dikkat: 'Das ist kein Kühlschrank' gibi 'ist' cümlesinde eril isim kein alır." },
       { "sent": "Wir gehen ___ ins Theater.", "blank": "nicht", "opts": ["nicht", "kein", "keine", "keinen"], "tr": "Tiyatroya gitmiyoruz.", "exp": "Hocanın alıştırma 4'ünde cevap nicht: 'ins Theater' belirli artikelli bir yer bildirimidir (ein/eine yerine geçen bir isim değil), kein burada ein yerine geçemez (s.97)." },
       { "sent": "Lisa ist ___ faul.", "blank": "nicht", "opts": ["nicht", "kein", "keine", "keinen"], "tr": "Lisa tembel değil.", "exp": "faul (tembel) bir sıfattır; sıfatın önünde nicht durur ve değişmez (s.97)." },
       { "sent": "Das ist ___ Kühlschrank.", "blank": "kein", "opts": ["kein", "nicht", "keine", "keinen"], "tr": "Bu bir buzdolabı değil.", "exp": "sein + isim (Kühlschrank) olduğunda kein kullanılır. Hocanın turuncu kutusunda 'Das ist kein Kühlschrank (Nom.)' (s.97)." },
       { "sent": "Das Haus ist ___ alt.", "blank": "nicht", "opts": ["nicht", "kein", "keine", "keinen"], "tr": "Ev eski değil.", "exp": "sein + sıfat (alt) olduğunda nicht kullanılır. Hocanın turuncu kutusunda 'Das Haus ist nicht alt (Adj.)' (s.97)." },
       { "sent": "Sie haben ___ Brillen.", "blank": "keine", "opts": ["keine", "kein", "keinen", "nicht"], "tr": "Gözlükleri yok.", "exp": "Brillen çoğul bir isim; çoğul isimlerin önünde keine kullanılır (s.97, 'Sie haben keine Brillen')." },
-      { "sent": "Ich habe ___ Hunger.", "blank": "keinen", "opts": ["keinen", "kein", "keine", "nicht"], "tr": "Acıkmadım.", "exp": "Hunger bir isim (eril): nicht değil kein. Hocanın P.S. notu: 'Ich habe keinen Hunger.' (s.97)." },
-      { "sent": "Sie will ___ Kaffee trinken.", "blank": "keinen", "opts": ["keinen", "nicht einen", "nicht", "kein"], "tr": "Kahve içmek istemiyor.", "exp": "Kaffee eril bir isim; 'nicht einen Kaffee' hocanın çarpıyla gösterdiği yanlış biçimdir. Doğrusu: keinen Kaffee (s.98)." },
+      { "sent": "Ich habe ___ Hunger.", "blank": "keinen", "opts": ["keinen", "kein", "keine", "nicht"], "tr": "Acıkmadım.", "exp": "Hunger bir isim: nicht değil kein. 'Ich habe ...' cümlesinde eril isim keinen alır; hocanın P.S. notu: 'Ich habe keinen Hunger.' (s.97)." },
+      { "sent": "Sie will ___ Kaffee trinken.", "blank": "keinen", "opts": ["keinen", "nicht einen", "nicht", "kein"], "tr": "Kahve içmek istemiyor.", "exp": "Kaffee bir isim (eril, 'will ... trinken' cümlesinde nesne); 'nicht einen Kaffee' hocanın çarpıyla gösterdiği yanlış biçimdir. Doğrusu: keinen Kaffee (s.98)." },
       { "sent": "Warum sagst du ihm ___ die Wahrheit?", "blank": "nicht", "opts": ["nicht", "kein", "keine", "keinen"], "tr": "Ona neden gerçeği söylemiyorsun?", "exp": "Hocanın örnek cümlesinde nicht kullanılıyor. 'die Wahrheit' belirli artikelli (die); kein ise ein/eine yerine geçtiği için burada kullanılmaz (s.97)." },
       { "sent": "Olga mag ___ Computerspiele.", "blank": "keine", "opts": ["keine", "kein", "keinen", "nicht"], "tr": "Olga bilgisayar oyunlarını sevmiyor.", "exp": "Computerspiele çoğul bir isim: keine Computerspiele (s.97, alıştırma 5)." },
       { "sent": "Der Sportler spielt Baseball ___ gut.", "blank": "nicht", "opts": ["nicht", "kein", "keine", "keinen"], "tr": "Sporcu beyzbolu iyi oynamıyor.", "exp": "gut bir zarf/sıfat: nicht gut. kein sadece isim önünde kullanılır (s.97, Negation alıştırması 2)." }

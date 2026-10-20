@@ -107,12 +107,13 @@
               { "t": "Gestern", "r": "zaman" },
               { "t": "war", "r": "fiil" },
               { "t": "ich", "r": "ozne" },
-              { "t": "bei meiner Tante", "r": "diger" }
+              { "t": "mit einem Polizisten", "r": "diger" },
+              { "t": "in seinem Haus", "r": "diger" }
             ],
-            "tr": "Dün teyzemdeydim."
+            "tr": "Dün bir polisle onun evindeydim."
           },
           {
-            "etiket": "Zaman başta",
+            "etiket": "Özne başta",
             "not": "hatten 2. sırada",
             "jetonlar": [
               { "t": "Wir", "r": "ozne" },
@@ -123,17 +124,17 @@
             "tr": "O zamanlar cep telefonlarımız yoktu."
           }
         ],
-        "not": "<b>Gözlem:</b> hocanın cümlelerinde «war / hatte / hatten» her zaman 2. sırada. Zaman kelimesi başa geçerse özne fiilin arkasına gider (Gestern war ich …). İlk ve ikinci satır hocanın «Ich war neulich bei meiner Tante» ve «Gestern war ich … in seinem Haus» cümlelerinden uyarlandı.",
+        "not": "<b>Gözlem:</b> hocanın cümlelerinde «war / hatte / hatten» her zaman 2. sırada. Zaman kelimesi başa geçerse özne fiilin arkasına gider (Gestern war ich …). Üç cümle de hocanın sayfasındaki cümlelerdir (ikincisi hocada «in seinem Haus/in seiner Wohnung» diye iki seçenekli yazılı); Türkçeleri bana aittir.",
         "kaynak": "Kalan Üniteler s.57"
       },
       {
         "big": "gestrig- / heutig-",
-        "mean": "Hoca (!!!!) «dünkü» ve «bugünkü» için gestern → <b>gestrig</b>, heute → <b>heutig</b> yapıp sonuna <b>-e</b> ekliyor. Vurgulu kısım: <b>gestrig</b>e, <b>heutig</b>e.",
+        "mean": "Hoca (!!!!) «dünkü» ve «bugünkü» için iki cümle veriyor ve sarı vurguyu <b>gestrig</b> ile <b>heutig</b> kısmına koyuyor; sondaki <b>-e</b> vurgusuz ayrı duruyor (gestern → gestrig, heute → heutig).",
         "egs": [
           "Das <b>gestrige</b> Gespräch war langweilig. — Dünkü konuşma sıkıcıydı.",
           "Ich habe die <b>heutige</b> Zeitung noch nicht gelesen. — Bugünkü gazeteyi henüz okumadım."
         ],
-        "tip": "💡 Türkçedeki «dünkü / bugünkü» (-ki eki) Almanca'da <b>-ig</b> ile kurulur: gestern → gestrig, heute → heutig.",
+        "tip": "💡 Hocanın sarı vurgusu «gestrig» ve «heutig» üzerinde: <i>das gestrige Gespräch</i>, <i>die heutige Zeitung</i>. Türkçedeki «dünkü / bugünkü» karşılığıdır.",
         "kaynak": "Kalan Üniteler s.58"
       },
       {
@@ -155,7 +156,7 @@
         "kicker": "Ezber",
         "big": "war · warst · war · waren · wart · waren",
         "mean": "ich war, du warst, er war, wir waren, ihr wart, sie waren. hatte: hatte, hattest, hatte, hatten, hattet, hatten.",
-        "story": "<b>Früher war es schwierig.</b> · <b>Wir hatten damals keine Handys.</b><br><b>Gestern war ich bei meiner Tante.</b> · <b>Das war's für heute.</b><br>ich/er hep aynı: <b>war · hatte</b>."
+        "story": "<b>Früher war es schwierig.</b> · <b>Wir hatten damals keine Handys.</b><br><b>Ich war neulich bei meiner Tante.</b> · <b>Das war's für heute.</b><br>ich/er hep aynı: <b>war · hatte</b>."
       }
     ]
   },
@@ -186,6 +187,6 @@
     "Hocanın s.57'deki «Das war's für heute» notunda 'war's' kısaltması «war es» diye açıklanmamış; «Das war es» olduğunu ben yazdım. Doğru mu? Perplexity'ye sor: «'Das war's' neyin kısaltması?»",
     "s.57'de Präteritum ile Perfekt (ich bin gewesen / ich habe gehabt) arasındaki fark ve hangisinin ne zaman kullanıldığı hocada anlatılmıyor; derste bu konuya girilmedi.",
     "s.58 'gestrig-/heutig-' (dünkü/bugünkü) yapısı: hocanın kuralı yalnızca iki örnekle; başka zaman kelimeleri (morgen → morgig?) için genelleme yapılmadı.",
-    "Zaman çizgisi ve şema sayfasındaki 'Gestern war ich bei meiner Tante' ve 'Wir hatten damals keine Handys' satırlarının Türkçe çevirileri kısmen bana ait (hocanın cümlelerinden uyarlama)."
+    "Şema sayfasındaki üç cümle hocanın sayfasından aynen alındı; yalnız Türkçe çevirileri (Geçenlerde teyzemdeydim, Dün bir polisle onun evindeydim) bana ait. Doğru mu?"
   ]
 }

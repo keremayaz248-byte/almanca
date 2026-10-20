@@ -25,10 +25,9 @@
           ["der Monat", "ay"],
           ["das Jahr", "yıl"],
           ["die Stunde", "saat (stundenlang: saatlerce)"],
-          ["das (der) Moment", "dakika"],
           ["die Freizeit", "boş zaman (in der Freizeit = in meiner Freizeit)"]
         ],
-        "not": "Hocanın notu: <b>Froher schaffen!</b> = Kolay gelsin!",
+        "not": "Hocanın notu (yazdığı gibi): <b>Froher schaffen!</b> = Kolay gelsin! (Bu yazımın doğruluğu kontrol ediliyor.) Not: hocanın bu listede \"das (der) Moment = dakika\" satırı da var; Moment normalde \"an, lahza\" demektir, bu yüzden dersten çıkarıldı.",
         "kaynak": "Teil-1 s.73"
       },
       {
@@ -66,7 +65,7 @@
           ["Ich bin <b>auf der</b> Arbeit.", "İşteyim. (Ofiste gibi)"],
           ["Ich bin <b>bei der</b> Arbeit.", "İşteyim. (Mesaide gibi)"],
           ["Ich gehe <b>zur</b> Arbeit.", "İşe gidiyorum."],
-          ["Ich komme <b>bei der</b> Arbeit <b>an</b>.", "İşe geliyorum."],
+          ["Ich komme <b>bei der</b> Arbeit <b>an</b>. (hocanın cümlesi)", "İşe geliyorum. (varıyorum)"],
           ["Um 7:30 Uhr fange ich <b>mit der</b> Arbeit <b>an</b>.", "Saat 7 buçukta işe başlarım."]
         ],
         "not": "Hocanın not kalıbı: <b>Ich gehe zur Arbeit um ... / Ich komme um ... raus.</b> (saat ...'de işe giderim / ...'de çıkarım).",
@@ -101,7 +100,7 @@
           ["der Friseur", "die Friseurin", "kuaför"],
           ["der Schauspieler", "die Schauspielerin", "oyuncu"]
         ],
-        "not": "Kadın biçimi = erkek biçim + <b>-in</b>. Dikkat: bazılarında a/o/u harfi <b>ä/ö/ü</b> olur: <b>Arzt → Ärztin</b>, <b>Koch → Köchin</b>, <b>Bauer → Bäuerin</b>, <b>Bäcker → Bäckerin</b> (hocanın alıştırmasındaki cevaplar).",
+        "not": "Kadın biçimi = erkek biçim + <b>-in</b>. Dikkat: bazılarında a/o/u harfi <b>ä/ö/ü</b> olur: <b>Arzt → Ärztin</b>, <b>Koch → Köchin</b>, <b>Bauer → Bäuerin</b> (hocanın alıştırmasındaki cevaplar). Bäcker'de ä zaten vardır: Bäcker → Bäckerin (değişen bir şey yok).",
         "kaynak": "Teil-1 s.74"
       },
       {
@@ -119,15 +118,15 @@
           ["der Automechaniker", "die Automechanikerin", "oto tamircisi"],
           ["der Ingenieur", "die Ingenieurin", "mühendis"]
         ],
-        "not": "Hocanın ek notu: <b>der Staatsanwalt</b> = savcı. Hocanın resimli sayfasında bu meslekler <b>DER</b> kutusunda, karşılıkları <b>DIE -in</b> kutusunda verilir.",
+        "not": "Hocanın ek notu: <b>der Staatsanwalt</b> = savcı. Hocanın resimli sayfasında bu meslekler <b>DER</b> kutusunda verilir; <b>kadın biçimlerden yalnız Schauspielerin sayfada yazılıdır</b>, tablodaki diğer kadın biçimleri (Polizistin, Verkäuferin, Journalistin, Sängerin, Musikerin, Rechtsanwältin, Automechanikerin, Ingenieurin) <b>-in kuralıyla türetilmiştir</b>; hocanın sayfasında görünmez.",
         "kaynak": "Teil-1 s.74"
       },
       {
         "big": "Bäcker, Bäckerei, Metzgerei",
         "mean": "<b>die Bäckerei</b> = fırın (dükkan), <b>der Bäcker</b> = fırıncı (kişi). Aynı şekilde <b>die Metzgerei</b> = kasap dükkanı, <b>der Metzger</b> = kasap (kişi). Dükkan sonu <b>-ei</b> ise artikel <b>die</b>.",
         "egs": [
-          "Ich bin <b>beim</b> Bäcker (= in der Bäckerei). — Fırıncıdayım (= fırındayım).",
-          "Er arbeitet <b>auf einem</b> Bauernhof. — O bir çiftlikte çalışıyor."
+          "Ich bin <b>beim</b> Bäcker (= in der Bäckerei). — Fırıncıdayım (= fırındayım). (hocanın notu)",
+          "<b>auf einem</b> Bauernhof — bir çiftlikte (hocanın kalıbı). Örnek cümle: Er arbeitet <b>auf einem</b> Bauernhof. — O bir çiftlikte çalışıyor."
         ],
         "tip": "💡 Hocanın notu: <b>der Bauernhof</b> = çiftlik; \"çiftlikte\" demek için <b>auf einem Bauernhof</b> kalıbı kullanılır.",
         "kaynak": "Teil-1 s.74"
@@ -223,7 +222,7 @@
         "kicker": "Tuzaklar",
         "baslik": "Sık yapılan hatalar",
         "maddeler": [
-          "Meslek söylerken <b>ein/eine</b> kullanılmaz: Er <b>ist</b> Polizist. (Von Beruf ist sie Yoga-Lehrerin.) Hocanın tüm örnekleri artikelsiz.",
+          "Meslek söylerken <b>ein/eine</b> kullanılmaz: Er <b>ist</b> Polizist. (Von Beruf ist sie Yoga-Lehrerin. — s.77 okuma metni.) Hocanın bu sayfalardaki örnekleri artikelsiz.",
           "Kadın biçimi için sadece <b>-in</b> eklemek yetmez: Arzt → <b>Ä</b>rztin, Koch → <b>Kö</b>chin, Bauer → <b>Bä</b>uerin.",
           "<b>studieren</b> (üniversitede okumak) ile <b>lernen</b> (beceri öğrenmek) karıştırılmaz.",
           "<b>Bäckerei</b> (die, dükkan) ile <b>Bäcker</b> (der, kişi) farklı kelimelerdir; aynı Metzgerei / Metzger.",
@@ -237,7 +236,7 @@
         "kicker": "Ezber",
         "big": "DER → DIE -in",
         "mean": "Erkek meslek <b>der</b>, kadın meslek <b>die + -in</b>; çalışmak = arbeiten.",
-        "story": "Der Arzt → die Ärztin · der Lehrer → die Lehrerin · der Koch → die Köchin · der Bauer → die Bäuerin. Ich arbeite als ... · pro Tag · von ... bis ... · Froher schaffen!"
+        "story": "Der Arzt → die Ärztin · der Lehrer → die Lehrerin · der Koch → die Köchin · der Bauer → die Bäuerin. Ich arbeite als ... · pro Tag · von ... bis ..."
       }
     ]
   },
@@ -277,11 +276,11 @@
         "exp": "Hocanın kalıbı: Ich gehe zur Arbeit = işe gidiyorum. auf der / bei der Arbeit ise 'işteyim' (bulunma) anlamı taşır."
       },
       {
-        "sent": "Ich komme ___ der Arbeit an.",
-        "blank": "bei",
-        "opts": ["bei", "auf", "zur"],
-        "tr": "İşe geliyorum (varıyorum).",
-        "exp": "Hocanın kalıbı: Ich komme bei der Arbeit an = işe geliyorum. Fiil 'ankommen' ayrılır; an sona gider."
+        "sent": "Um 7:30 Uhr fange ich ___ der Arbeit an.",
+        "blank": "mit",
+        "opts": ["mit", "zur", "pro"],
+        "tr": "Saat 7 buçukta işe başlarım.",
+        "exp": "Hocanın cümlesi: Um 7:30 Uhr fange ich mit der Arbeit an. 'mit der Arbeit anfangen' = işe başlamak; fiil 'anfangen' ayrılır, an sona gider."
       },
       {
         "sent": "Ich arbeite 8 Stunden ___ Tag.",
@@ -291,14 +290,14 @@
         "exp": "'pro Tag' = günde, 'pro Woche' = haftada. Hocanın sayfasında 8 Stunden pro Tag, 85 Stunden pro Woche gibi örnekler vardır. von/bis süre aralığı için kullanılır."
       },
       {
-        "sent": "Ich ___ Deutsch.",
+        "sent": "Ich ___ Deutsch. (beceri olarak öğrenmek)",
         "blank": "lerne",
         "opts": ["lerne", "studiere", "bringe"],
         "tr": "Almanca öğreniyorum.",
         "exp": "Hocanın görseli: Almanca gibi beceriler için lernen kullanılır (Ich lerne Deutsch). studieren üniversitede okumaktır."
       },
       {
-        "sent": "Ich ___ Jura in Köln.",
+        "sent": "Ich ___ Jura in Köln. (üniversitede okumak)",
         "blank": "studiere",
         "opts": ["studiere", "lerne", "arbeite"],
         "tr": "Köln'de hukuk okuyorum.",
@@ -358,9 +357,10 @@
   "dogrulama": [
     "Meslek ve çiftlik kelimelerinin Türkçe karşılıklarını hocanın resimli sayfaları (s.74, s.76) gösterdiği için resme bakarak kendim yazdım; sayfada Türkçe yazılı olmayanlar: Arzt, Polizist, Lehrer, Verkäufer, Friseur, Journalist, Sänger, Koch, Musiker, Rechtsanwalt, Bäcker, Bauer, Automechaniker, Schauspieler, Ingenieur ve s.76'daki tüm hayvan/eşya adları. Perplexity'ye sor: \"Bu Almanca kelimelerin Türkçe karşılıkları doğru mu?\"",
     "Kadın biçimlerinden hocanın alıştırmasında görünmeyenleri (Verkäuferin, Journalistin, Polizistin, Sängerin, Musikerin, Rechtsanwältin, Automechanikerin, Ingenieurin) -in kuralıyla kendim ürettim; Perplexity'ye sor: \"Rechtsanwalt'ın kadın biçimi Rechtsanwältin mi, Rechtsanwaltin mi? Automechaniker, Ingenieur için -in biçimleri doğru mu?\"",
-    "s.76'daki artikeller resimden okundu (küçük yazı); yanlış okunmuş olabilir: das Fohlen, das Kalb, das Lamm, das Ferkel, die Kuh, der Stier, der Pflug, die Axt, die Weide. Gözle kontrol edilmeli.",
     "s.73'teki 'tätig sein' ve 'schuften' kartlarında Türkçe açıklama yok; açıklamaları İngilizce kartlardan (to be active/employed, to toil) çevirdim. Perplexity'ye sor: \"tätig sein ve schuften arasındaki fark nedir?\"",
-    "s.73: 'das (der) Moment: dakika' hocanın yazdığı gibi bırakıldı; Moment normalde 'an' demektir, 'dakika' için Minute kullanılır. Hocaya/Perplexity'ye sor: \"der Moment = dakika doğru mu?\"",
+    "s.73: hoca 'das (der) Moment: dakika' yazmış (kaynakla teyit edildi). Moment normalde 'an, lahza' demektir; satır dersten ÇIKARILDI. Perplexity'ye sor: \"der Moment = dakika doğru mu, dakika için hangi kelime kullanılır?\"",
+    "s.73: hocanın notu 'Froher schaffen! = Kolay gelsin!' (kaynakla teyit edildi). Yaygın yazım 'Frohes Schaffen!' gibi görünüyor. Perplexity'ye sor: \"Kolay gelsin anlamında 'Froher schaffen' mi 'Frohes Schaffen' mi doğru?\" Cevap gelene kadar derste 'hocanın yazdığı gibi' etiketiyle duruyor.",
+    "s.73: hocanın 'Ich komme bei der Arbeit an' (işe geliyorum) cümlesi doğal mı? Perplexity'ye sor: \"'Ich komme bei der Arbeit an' doğru mu, 'Ich komme auf der Arbeit an / Ich komme zur Arbeit' ile farkı nedir?\" (Bu cümleyle ilgili alıştırma sorusu kaldırıldı.)",
     "s.77 (Alba Sánchez okuma) ve s.78 (Andreas'ın Türkçe metni) derse alınmadı; s.78 yalnızca Türkçe bir okuma-çeviri alıştırması."
   ]
 }

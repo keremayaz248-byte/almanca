@@ -11,7 +11,7 @@
         "kicker": "Konu 13",
         "big": "DIE KLEIDUNG",
         "mean": "Kıyafet kelimelerini artikeliyle (der/die/das) öğreniyorsun; 'giymek' fiili tragen ve 'yakışmak/uymak' kalıpları.",
-        "story": "Hocanın s.35'i resimli bir kıyafet sözlüğü. Kelimeler resmin altında <b>artikeliyle</b> yazılı; sen de her kelimeyi <b>der / die / das ile birlikte</b> öğren. Ayrıca solda <b>tragen</b> (giymek) çekimi, <b>sich anziehen</b> ve <b>Es steht dir! / Es passt mir!</b> kutuları var. (Not: s.36-49 başka konular: fiiller vb.)"
+        "story": "Hocanın s.35'i resimli bir kıyafet sözlüğü. Kelimeler resmin altında <b>artikeliyle</b> yazılı; sen de her kelimeyi <b>der / die / das ile birlikte</b> öğren. Ayrıca solda <b>tragen</b> (giymek) çekimi, <b>sich anziehen</b> ve <b>Es steht dir! / Es passt mir!</b> kutuları var. Sayfada kelimelerin Türkçesi yazmaz (yalnız <i>mücevher</i>); tablolardaki Türkçeler resimlere bakılarak verilmiştir."
       },
       {
         "tur": "tablo",
@@ -73,7 +73,7 @@
           ["die Hose", "pantolon"],
           ["die kurze Hose", "şort"],
           ["die Jeans", "kot pantolon"],
-          ["die Latzhose", "askılı (tulum) pantolon"],
+          ["die Latzhose", "askılı pantolon (salopet)"],
           ["der Rock", "etek"],
           ["der Gürtel", "kemer"],
           ["der Reißverschluss", "fermuar"],
@@ -139,12 +139,12 @@
       },
       {
         "big": "sich anziehen / aufsetzen",
-        "mean": "<b>sich anziehen</b> = giyinmek. Gözlük gibi başa/yüze takılanlar için hoca <b>aufsetzen</b> örneği veriyor.",
+        "mean": "<b>sich anziehen</b> = giyinmek. Gözlük için hocanın sayfasında <b>aufsetzen</b> örneği var.",
         "egs": [
           "Ich setze die Brille <b>auf</b>. — Gözlüğü takıyorum.",
-          "Ich ziehe mich einen Pullover <b>an</b>. — (Hocanın yazdığı hâliyle) Kazak giyiyorum."
+          "⚠ Hocanın sayfasında şöyle yazılı (doğruluğu kontrol ediliyor, EZBERLEME): Ich ziehe mich einen Pullover <b>an</b>. — Kazak giyiyorum."
         ],
-        "tip": "💡 Her iki cümlede ayrılabilen fiil: <b>auf</b> / <b>an</b> cümlenin SONUNA gider. ⚠ İkinci cümle (mich + einen Pullover) için dilbilgisi onayı bekliyor; ders sorularında kullanılmadı.",
+        "tip": "💡 Her iki cümlede ayrılabilen fiil: <b>auf</b> / <b>an</b> cümlenin SONUNA gider. ⚠ İkinci cümledeki <b>mich</b> + <b>einen Pullover</b> birlikteliği şüpheli (kazak zaten nesne olduğu için doğrusu <b>mir</b> olabilir); onay gelene kadar bu cümleyi kalıp olarak ezberleme. Ders sorularında kullanılmadı. Kesin bilgi: <b>sich anziehen</b> = giyinmek.",
         "kaynak": "Teil-1 s.35"
       },
       {

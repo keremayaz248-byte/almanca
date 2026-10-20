@@ -391,12 +391,12 @@
             "memnun etmek / hoşuna gitmek"
           ]
         ],
-        "not": "Bu liste hocanın s.59'daki renkli şemasından. Hoca yanına «Fragen: Akk. — Antworten: Dat.» yazmış: yani <b>fragen Akkusativ</b>, <b>antworten Dativ</b> ister. Her fiilin kendi sayfasını aşağıda göreceğiz (glauben, schenken, gefallen, schmecken, fragen, antworten, zustimmen, zuhören, gehören).",
+        "not": "Bu liste hocanın s.59'daki renkli şemasından (şemaya başlık yazılmamış; Almanca fiiller renkli kutularda, Türkçe karşılıkları sağda karışık sırayla duruyor, eşleşmeyi anlamdan yaptım ve sayfadaki Türkçe sözcüklerle birebir uyuşuyor). Hoca yanına «Fragen: Akk. — Antworten: Dat.» yazmış: yani <b>fragen Akkusativ</b>, <b>antworten Dativ</b> ister. Her fiilin kendi sayfasını aşağıda göreceğiz (glauben, schenken, gefallen, schmecken, fragen, antworten, zustimmen, zuhören, gehören).",
         "kaynak": "Kalan Üniteler s.59"
       },
       {
         "big": "glauben",
-        "mean": "<b>glauben + Dativ</b> = birine inanmak (doğru söylüyor demek). <b>glauben an + Akkusativ</b> = bir şeye/birine güvenmek, onun varlığına inanmak.",
+        "mean": "<b>glauben + Dativ</b> = birine inanmak (doğru söylüyor demek). <b>glauben an + Akkusativ</b> = bir şeye/birine inanmak (hocada İngilizce karşılığı «believe in»).",
         "egs": [
           "Ich glaube <b>dir</b>. — Sana inanıyorum. (Du lügst nicht. = Yalan söylemiyorsun.)",
           "Wir glauben <b>an die Demokratie</b>. — Demokrasiye inanıyoruz. (Demokrasinin iyi olduğundan eminiz.)"
@@ -461,12 +461,12 @@
           [
             "Örnek 2",
             "Das Bild gefällt mir.",
-            "Das Brot ist lecker."
+            "Aynı anlamda: Das Brot ist lecker."
           ],
           [
             "Örnek 3",
             "Es gefällt mir, alleine in Urlaub zu fahren.",
-            "Das Brot ist köstlich."
+            "Aynı anlamda: Das Brot ist köstlich."
           ]
         ],
         "not": "<b>Hocanın uyarısı (!!!):</b> yemek için «Das Brot gefällt mir» DEĞİL, <b>Das Brot schmeckt mir</b>. gefallen çekimi: ich gefalle, du gefällst, er gefällt, wir gefallen, ihr gefallt, sie gefallen. Hoca ayrıca <b>der Gefallen</b> = iyilik (Könnten Sie mir einen kleinen Gefallen tun? — Bir ricam olabilir mi?) ve <b>das Gefallen</b> = hoşlanma, beğenme diye ikiye ayırmış.",
@@ -651,7 +651,7 @@
           "mich",
           "ich"
         ],
-        "tr": "Ekmeğin tadı hoşuma gidiyor.",
+        "tr": "Ekmek bana lezzetli geliyor (tadı güzel).",
         "exp": "Hocanın uyarısı: «Das Brot schmeckt mir» (tadı olmak, Dativ). schmecken Dativ ister; «mich» Akkusativ olurdu. Yemek için gefallen değil schmecken kullanılır."
       },
       {
@@ -822,8 +822,8 @@
     ]
   },
   "dogrulama": [
-    "s.59 Dativ fiil şemasının (gehören, danken, glauben, helfen, zeigen, empfehlen, antworten, schenken, geben, vertrauen, gefallen) başlığı/okları okunamadı; Almanca-Türkçe eşleşmesini anlamdan yaptım. Hoca bunların hepsini Dativ fiili olarak mı gösteriyor? Perplexity'ye sor: «danken, helfen, zeigen, empfehlen, geben, vertrauen Dativ mu ister?»",
-    "s.59 şemada 'glauben' ve 'gefallen' yanında soru işareti var; hocanın neyi sorguladığı belli değil.",
+    "s.59 Dativ fiil şemasında (gehören, danken, glauben, helfen, zeigen, empfehlen, antworten, schenken, geben, vertrauen, gefallen) başlık yok; Türkçe sözcükler sayfada var ve eşleşme anlamdan yapıldı. Hoca bunların hepsini Dativ fiili olarak mı gösteriyor? Perplexity'ye sor: «danken, helfen, zeigen, empfehlen, geben, vertrauen Dativ mu ister?»",
+    "s.59 şemada 'glauben', 'geben', 'schenken' ve 'gefallen' yanında soru işareti var; hocanın neyi sorguladığı belli değil.",
     "s.60 Possessivartikel tablosunda kişi etiketleri (ich, du, er, sie, es, wir, ihr, sie/Sie) yok; sırayı mein/dein/sein/ihr/sein/unser/euer/ihr olarak ben eşleştirdim.",
     "s.61 ve s.78'deki Türkçe çeviri alıştırmalarının Almanca cevap anahtarı sayfalarda yok; derste kullanılmadı.",
     "s.62 'Ich schenke ...' cümlelerinin Türkçesi hocada yok (yalnız 'Ich kaufe für meine Schwester einen Ring' = 'Kız kardeşime bir yüzük alacağım' var); schenke cümlelerinin çevirisi bana ait.",
@@ -831,6 +831,6 @@
     "s.67-68 gefallen/schmecken örneklerinde Türkçe çevirileri bana ait: Du gefällst mir, Das Bild gefällt mir, Das Brot schmeckt mir.",
     "s.73 'widersprechen' için Türkçe karşılık hocada yok (yalnız İngilizce 'to contradict, disagree'); 'itiraz etmek / karşı çıkmak' ve tablodaki cümle çevirisi bana ait.",
     "Soru cümlelerinde (s.60 iyelik alıştırmaları: Marco macht mit seiner Freundin … vb.) Türkçe çevirileri bana ait; yalnız Almanca cümleler ve doğru cevaplar hocanın.",
-    "s.75 hocanın «Der Computer ist mein Computer» / «Der Computer gehört mir» ve s.64 'seinem Kind zuliebe' gibi kalıpların Türkçesi yok; çeviriler bana ait."
+    "s.64 'seinem Kind zuliebe / seiner Mutter zuliebe' kalıplarının Türkçesi hocada yok; «Çocuğunun hatırı için / annesinin hatırı için» çevirisi bana ait. (Ich mache das dir zuliebe = Bunu senin hatırın için yapıyorum ve Der Computer gehört mir = Bu bilgisayar, benim hocanındır.)"
   ]
 }

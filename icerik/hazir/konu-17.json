@@ -17,7 +17,7 @@
         "big": "Wohin? → ins",
         "mean": "<b>Wohin?</b> = Nereye? Gidilen yer sorulunca <b>ins</b> kullanılır. <b>ins = in das</b>, hocanın notu: <b>Akkusativ</b>.",
         "egs": [
-          "Wohin gehen wir? — Nereye gidiyoruz?",
+          "Wohin? — Nereye?",
           "Gehen wir <b>ins</b> Restaurant? — Restorana gidelim mi? — Ja, gern. — Evet, memnuniyetle."
         ],
         "tip": "💡 Hocanın kutusu: <b>Wohin? (Nereye?) ins = in das: Akkusativ</b>. Tüm 'ins ...' yerleri aynı kalıpla gelir.",
@@ -75,7 +75,7 @@
               { "t": "ins Kino", "r": "zaman" },
               { "t": "gehen?", "r": "fiil" }
             ],
-            "tr": "Sinemaya gitmek ister miyiz?"
+            "tr": "Sinemaya gidelim mi? (Gehen wir ins Kino? ile aynı davet)"
           },
           {
             "etiket": "Hocanın örneği",
@@ -130,8 +130,8 @@
           "Auf gar keinen Fall. — Kesinlikle olmaz!",
           "Ein andermal, danke. — Başka zaman, teşekkürler."
         ],
-        "tip": "💡 Hoca iki ret ucunu karşılaştırıyor: <b>Das geht leider nicht</b> (nazik) <b>X</b> <b>Auf gar keinen Fall</b> (kesin). Kayda değer: <b>Kommst du mit?</b> = Sen de gelmek ister misin? ('nee' = 'nein' günlük söyleyişi; Bayern/Österreich'ta 'na').",
-        "kaynak": "Teil-1 s.71"
+        "tip": "💡 Hocanın sayfasında iki ret yan yana, aralarında X işareti var: <b>Das geht leider nicht.</b> (Ne yazık ki olmaz!) ve <b>Auf gar keinen Fall.</b> (Kesinlikle olmaz!). Hocanın z.B. örnekleri: <b>Kommst du mit?</b> (Sen de gelmek ister misin?) — <b>Ein andermal, danke.</b> (Başka zaman, teşekkürler.) Kitaptaki not (s.70): Almanlar 'nein' yerine sık sık 'nee' veya 'nö' der; Bayern ve Österreich'ta 'na'.",
+        "kaynak": "Teil-1 s.70-71"
       },
       {
         "big": "Hast du heute Abend etwas vor?",
@@ -176,18 +176,18 @@
       { "sent": "Gehen wir ___ Kino?", "blank": "ins", "opts": ["ins", "im", "in die"], "tr": "Sinemaya gidelim mi?", "exp": "Hocanın kutusu: Wohin? (Nereye?) ins = in das: Akkusativ. Sinema 'nereye' sorusunun cevabıdır, bu yüzden ins gelir." },
       { "sent": "Wir gehen jeden Tag ___ Theater.", "blank": "ins", "opts": ["ins", "im", "in die"], "tr": "Biz her gün tiyatroya gideriz.", "exp": "Hocanın Türkçe örneğinden: 'Biz her gün tiyatroya gideriz.' Theater için ins Theater kalıbı kullanılır." },
       { "sent": "Sie geht jeden Abend ___ Café.", "blank": "ins", "opts": ["ins", "im", "in"], "tr": "O (kadın) her akşam kafeye gider.", "exp": "Hocanın Türkçe örneği: 'O (kadın), her akşam Kafeye gider.' Hocanın resimli sayfasında: ins Café." },
-      { "sent": "Gehst du jeden Abend ___ Kino?", "blank": "ins", "opts": ["ins", "im", "in die"], "tr": "Sen her akşam sinemaya gider misin?", "exp": "Hocanın Türkçe örneği: 'Sen her akşam sinemaya gider misin?' Soru ve cevap kalıbı ins Kino." },
+      { "sent": "Gehen wir ___ Mittwoch ins Kino?", "blank": "am", "opts": ["am", "im", "um"], "tr": "Çarşamba günü sinemaya gidelim mi?", "exp": "Hocanın sayfasında günler 'am' ile kullanılıyor: am Dienstag, am Mittwoch, am Samstag. 'im' ve 'um' gün adlarıyla bu kalıpta kullanılmaz." },
       { "sent": "Ich gehe am Wochenende ___ Schwimmbad.", "blank": "ins", "opts": ["ins", "im", "in die"], "tr": "Hafta sonu yüzme havuzuna giderim.", "exp": "Hocanın örneği: 'Ben hafta sonu yüzme havuzuna giderim.' Hocanın resimli listesinde: ins Schwimmbad." },
       { "sent": "Gehst du jeden Sonntag ___ Fußballstadion?", "blank": "ins", "opts": ["ins", "im", "in die"], "tr": "Sen her Pazar futbol sahasına gider misin?", "exp": "Hocanın Türkçe örneği: 'Sen her Pazar futbol sahasına gider misin?' Resimli listede: ins Fußballstadion." },
       { "sent": "Wann gehen Sie ___ Restaurant?", "blank": "ins", "opts": ["ins", "im", "in die"], "tr": "Siz (resmi) ne zaman restorana gidersiniz?", "exp": "Hocanın Türkçe örneği: 'Siz (resmi) ne zaman restorana gidersiniz?' das Restaurant → ins Restaurant." },
-      { "sent": "Wir gehen in ___ Gaststätte.", "blank": "die", "opts": ["die", "das", "der"], "tr": "Biz kıraathaneye/lokantaya gidiyoruz.", "exp": "Hocanın !!!! uyarısı: die Gaststätte → in die Gaststätte. Restaurant 'das' olduğu için ins ile kurulur; Gaststätte 'die' olduğu için in die." },
+      { "sent": "Wir gehen in ___ Gaststätte.", "blank": "die", "opts": ["die", "das", "der"], "tr": "Biz Gaststätte'ye (lokanta) gidiyoruz.", "exp": "Hocanın !!!! uyarısı: die Gaststätte → in die Gaststätte. Restaurant 'das' olduğu için ins ile kurulur; Gaststätte 'die' olduğu için in die." },
       { "sent": "___ wir am Samstag ins Kino?", "blank": "Gehen", "opts": ["Gehen", "Gehst", "Geht"], "tr": "Cumartesi sinemaya gidelim mi?", "exp": "Hocanın kalıbı: Gehen wir ... ? wir ile fiil -en alır (gehen). 'Gehst' du ile, 'Geht' ihr/er ile gelir." },
       { "sent": "Wollen wir heute Abend eine Pizza ___?", "blank": "bestellen", "opts": ["bestellen", "bestellt", "bestelle"], "tr": "Bu akşam pizza sipariş edelim mi?", "exp": "Hocanın örneği: Wollen wir heute Abend eine Pizza bestellen? 'Wollen' çekimlidir, ikinci fiil mastar (bestellen) cümlenin sonuna gider." },
       { "sent": "Das geht ___ nicht.", "blank": "leider", "opts": ["leider", "gern", "super"], "tr": "Ne yazık ki olmaz.", "exp": "Hocanın kutusu: Das geht leider nicht. (Ne yazık ki olmaz!) 'gern' ve 'super' kabul bildirir; ret cümlesinde uymaz." },
       { "sent": "Auf gar keinen ___.", "blank": "Fall", "opts": ["Fall", "Tag", "Mal"], "tr": "Kesinlikle olmaz!", "exp": "Hocanın kutusu: Auf gar keinen Fall. (Kesinlikle olmaz!) Kalıp tamdır; 'Tag' veya 'Mal' bu kalıpta kullanılmaz." },
       { "sent": "___ mir aus. (Bana uyar)", "blank": "Von", "opts": ["Von", "Bei", "Mit"], "tr": "Bana uyar.", "exp": "Hocanın kutusu: Von mir aus. (Bana uyar). Kabul ifadesidir. bei ve mit bu kalıpta kullanılmaz." },
-      { "sent": "Kommst du ___?", "blank": "mit", "opts": ["mit", "an", "auf"], "tr": "Sen de geliyor musun? (Sen de gelmek ister misin?)", "exp": "Hocanın örneği: Kommst du mit? (Sen de gelmek ister misin?) mit burada ayrılabilen fiilin 'mitkommen' parçasıdır ve cümle sonuna gider." },
-      { "sent": "Hast du heute Abend etwas ___?", "blank": "vor", "opts": ["vor", "mit", "an"], "tr": "Bu akşam bir planın var mı?", "exp": "Hocanın sayfasındaki kalıp: Hast du heute Abend etwas vor? (Are you going to do anything tonight?). 'vor' kalıbın parçası olarak sonda durur." }
+      { "sent": "Kommst du ___?", "blank": "mit", "opts": ["mit", "zu", "auf"], "tr": "Sen de geliyor musun? (Sen de gelmek ister misin?)", "exp": "Hocanın örneği: Kommst du mit? (Sen de gelmek ister misin?) mit burada ayrılabilen fiilin 'mitkommen' parçasıdır ve cümle sonuna gider." },
+      { "sent": "Hast du heute Abend etwas ___?", "blank": "vor", "opts": ["vor", "zu", "für"], "tr": "Bu akşam bir planın var mı?", "exp": "Hocanın sayfasındaki kalıp: Hast du heute Abend etwas vor? (Are you going to do anything tonight?). 'vor' kalıbın parçası olarak sonda durur." }
     ]
   },
   "dogrulama": [
@@ -196,6 +196,6 @@
     "s.71 'Nee' ve 'Nö' (nein'in günlük söyleyişi): s.70'teki 'Gut gesagt: Nein!' kutusu İngilizce/Almanca; dersteki Türkçe özet bana ait. Perplexity'ye sor.",
     "Gün adlarının (Montag-Sonntag) Türkçe karşılıkları sayfada yok; gün adları s.71'deki tablonun başlıklarındandır, çeviri bana ait.",
     "s.72 'SPRECHEN' ve Berufe/arbeiten sayfası (s.73) Kino konusuna dahil değil; ders s.70-71 ile sınırlandı.",
-    "'Gaststätte' kelimesinin Türkçe karşılığı: hoca yazmıyor; 'kıraathane/lokanta' benim yorumum. Perplexity'ye sor."
+    "'Gaststätte' kelimesinin Türkçe karşılığı: hoca yazmıyor; 'lokanta' benim yorumum (kıraathane değil). Perplexity'ye sor."
   ]
 }

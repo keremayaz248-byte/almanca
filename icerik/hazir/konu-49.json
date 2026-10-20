@@ -30,8 +30,8 @@
           ["ihr", "werdet"],
           ["sie / Sie", "werden"]
         ],
-        "not": "Hocanın Futur I cevap anahtarında bu biçimlerin hepsi geçiyor: werde, wirst, wird, werden, werdet. Futur II'de çekimlenen fiil yine <b>werden</b>; cümlenin 2. sırasında durur.",
-        "kaynak": "Teil-2 s.86, s.87"
+        "not": "Hocanın s.83'teki WERDEN tablosunda ve s.86 cevap anahtarında bu biçimlerin hepsi geçiyor: werde, wirst, wird, werden, werdet. Futur II'de çekimlenen fiil yine <b>werden</b>; cümlenin 2. sırasında durur.",
+        "kaynak": "Teil-2 s.83, s.86"
       },
       {
         "tur": "tablo",
@@ -96,7 +96,8 @@
         "egs": [
           "Um 9 Uhr <b>werden</b> wir das Abendessen <b>gekocht haben</b>. — Saat 9'a kadar akşam yemeğini pişirmiş olacağız. (hocanın Türkçesi)",
           "Er <b>wird</b> das Auto morgen <b>repariert haben</b>. — Yarına kadar arabayı tamir etmiş olacak. (hoca İngilizcesi: He will have repaired the car by tomorrow.)",
-          "In einer Stunde <b>wird</b> er <b>angekommen sein</b>. — Bir saat içinde varmış olacak. (He will have arrived in one hour from now.)"
+          "In einer Stunde <b>wird</b> er <b>angekommen sein</b>. — Bir saat içinde varmış olacak. (He will have arrived in one hour from now.)",
+          "Du <b>wirst</b> die Prüfung <b>bestanden haben</b>. — Sınavı geçmiş olacaksın. (You will have passed the exam.)"
         ],
         "tip": "💡 Hocanın kırmızı kutusu: <b>-BitMİŞ OLACAK</b>. Türkçede 'yapmış olacak' dediğin yerde Futur II aklına gelsin.",
         "kaynak": "Teil-2 s.88"
@@ -106,10 +107,9 @@
         "mean": "Bitmiştir (tahmin, belki, probably): geçmişte olmuş bir şey hakkında ihtimal belirtir. Hoca: 'assumptions about an action in the past or in the future'.",
         "egs": [
           "Er <b>wird</b> hingefallen <b>sein</b>. — Muhtemelen düşmüştür. (He probably fell.)",
-          "Sie <b>wird</b> wohl den Bus <b>verpasst haben</b>. — Herhalde otobüsü kaçırmıştır. (Probably, she has missed the bus.)",
-          "Du <b>wirst</b> die Prüfung <b>bestanden haben</b>. — Sınavı geçmiş olacaksın. (You will have passed the exam.)"
+          "Sie <b>wird</b> wohl den Bus <b>verpasst haben</b>. — Herhalde otobüsü kaçırmıştır. (Probably, she has missed the bus.)"
         ],
-        "tip": "💡 Hocanın oku <b>wohl</b>'ü gösterip 'probably' yazmış: wohl = muhtemelen. Hoca özetliyor: <b>Bitmiştir (Tahmin, Belki)</b>.",
+        "tip": "💡 Hocanın oku <b>wohl</b>'ü gösterip 'probably' yazmış: wohl = muhtemelen. Hoca özetliyor: <b>Bitmiştir (Tahmin, Belki)</b>. (Hoca her örneğin hangi anlama girdiğini ayrıca yazmamış; örnekleri İngilizce çevirilerine bakarak biz ayırdık.)",
         "kaynak": "Teil-2 s.88"
       },
       {
@@ -122,10 +122,11 @@
           ["haben", "repariert", "Er wird das Auto morgen repariert haben."],
           ["haben", "bestanden", "Du wirst die Prüfung bestanden haben."],
           ["haben", "verpasst", "Sie wird wohl den Bus verpasst haben."],
-          ["sein", "angekommen", "In einer Stunde wird er angekommen sein."]
+          ["sein", "angekommen", "In einer Stunde wird er angekommen sein."],
+          ["sein", "hingefallen", "Er wird hingefallen sein."]
         ],
-        "not": "Hocanın örneklerinde gelmek/varmak ve düşmek (angekommen, hingefallen) <b>sein</b> alır; pişirmek, tamir etmek, sınavı geçmek, otobüsü kaçırmak <b>haben</b> alır. s.69'da hoca sein'li biçimler için 'hareket, konum/koşul değişikliği' notunu yazmış (waren gekommen, waren gegangen) ve haben için hatten gegessen örneğini vermiş.",
-        "kaynak": "Teil-2 s.88, s.69"
+        "not": "Bu tablo yalnızca hocanın s.88'deki 6 örneğini yan yana koyar. Hoca Futur II sayfasında haben / sein seçimi için bir kural yazmamış. (Hoca s.69'da, Plusquamperfekt konusunda, 'hareket, konum/koşul değişikliği' notunu yazmış; bu notu Futur II'ye genellemiyoruz, doğrulama listesinde.)",
+        "kaynak": "Teil-2 s.88"
       },
       {
         "tur": "kural",
@@ -133,7 +134,7 @@
         "baslik": "Hocanın Türkçe paragrafları: -mış olacak",
         "maddeler": [
           "s.92 paragrafı (Clara Dresden'de): <b>görmüş olacak</b>, <b>öğrenmiş olacak</b>, <b>yaşamış olmayacak</b>, <b>anlamış olacak</b> — hoca bunları kalın yazmış.",
-          "s.93 paragrafı (Laura): <b>tamamlamış</b> (olacak), <b>almış</b> (olacak), <b>keşfetmiş olacak</b>, <b>üstlenmiş</b> ve <b>ulaşmış olacak</b>.",
+          "s.93 paragrafı (Laura): son iki cümlede <b>tamamlamış</b> (olacak), <b>almış</b> (olacak), <b>keşfetmiş olacak</b>, <b>üstlenmiş</b> ve <b>ulaşmış olacak</b> geçiyor (burada kalın yazı yok). Paragrafın ilk yarısı ise başka bir kalıp: -ebilirdi / -saydı (Konjunktiv II konusu).",
           "Bu kalıp Futur II'nin Türkçe karşılığıdır: bitmiş / yapılmış olacak.",
           "Aynı paragraflarda düz gelecek de var (gidecek, yürüyecekler, oturacaklar): bu Futur I tarafı; kalın yazılanlar ise Futur II."
         ],
@@ -150,7 +151,7 @@
           "Çekim werden'de: wirst (du), wird (er/sie/es); hocanın tablosundaki biçimleri kullan.",
           "<b>wohl</b> = probably: tahmin anlamı katar (Sie wird wohl den Bus verpasst haben)."
         ],
-        "uyari": "En sık hata: haben/sein'ı çekimleyip başa yerleştirmek ('Er hat repariert ...'). Doğrusu hocanın örneğindeki gibi: Er <b>wird</b> ... repariert <b>haben</b>.",
+        "uyari": "Dikkat: Futur II'de çekimlenen fiil <b>werden</b>'dir; haben / sein çekimlenmez, mastar halinde sonda durur. 'Er hat repariert ...' bir Perfekt cümlesi olurdu. Hocanın örneği: Er <b>wird</b> ... repariert <b>haben</b>.",
         "kaynak": "Teil-2 s.88, s.86"
       },
       {

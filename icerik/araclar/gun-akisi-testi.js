@@ -174,9 +174,11 @@ async function gunSenaryosu(browser) {
 
   // Teil-2 konusu: icerik hazirlaniyor, gunu engellemez
   await page.evaluate(() => { DB.okul.tamam = {}; DB.okul.aksam = {}; saveDB(); });
-  await basGunOnce(28);
+  // Icerigi henuz yazilmamis bir konuyu taklit et: konu 45'in (Genitiv) deste/gramer/alistirmasini bosalt (gun 31 = konu 45)
+  await page.evaluate(() => { const k = konuBul(45); k.slayt = null; k.gr = null; k.alis = []; k.kat = null; k.anlatim = null; });
+  await basGunOnce(30);
   t = await kartMetni();
-  kontrol('gun 29: Genitiv hazirlaniyor, ders adimlari engellemiyor', /Gün 29 \/ 45/.test(t) && /Genitiv/.test(t) && /hazırlanıyor/.test(t) && /Devam et — Akşam sınavı/.test(t), t.slice(0, 220));
+  kontrol('gun 31: icerigi olmayan konu hazirlaniyor, ders adimlari engellemiyor', /Gün 31 \/ 45/.test(t) && /Genitiv/.test(t) && /hazırlanıyor/.test(t) && /Devam et — Akşam sınavı/.test(t), t.slice(0, 220));
 
   // gramer testi olan konu (konu 4: sein) test gecilince TAMAMLANIR; <%60 ile tamamlanmaz
   await page.evaluate(() => { DB.konu = {}; saveDB(); openKonu(4, 3); });   // 3 = test adimi

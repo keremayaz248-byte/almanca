@@ -85,7 +85,7 @@
             "tr": "Bu adam, benim babam. (özne: Bu adam → er)"
           }
         ],
-        "not": "<b>Kural:</b> Özne yerine er / sie / es koyabiliyorsan, o kelime Nominativ'dedir. Hocanın sorusu: Wer? Was? (Kim? Ne?)",
+        "not": "<b>Kural:</b> Özne yerine er / sie / es koyabiliyorsan, o kelime Nominativ'dedir. Hocanın sorusu: Wer? Was? (Kim? Ne?) <i>Not: Hocanın sayfasında yalnız Türkçe cümleler vardır (Bu adam, benim babam / Öğrenci, eve gidiyor); yukarıdaki Almanca cümleleri örnek olarak yazdık, hocadan değildir.</i>",
         "kaynak": "Teil-1 s.81, s.86"
       },
       {
@@ -305,8 +305,7 @@
   },
   "dogrulama": [
     "s.81'de hocanın Almanca cümlesi yok, yalnız Türkçesi var ('Bu adam, benim babam' / 'Öğrenci eve gidiyor'). Almanca karşılıklarını (Der Mann ist mein Vater / Die Studentin geht nach Hause) ben yazdım; Perplexity'ye sor: \"Bu iki cümlenin Almancası doğru mu?\"",
-    "s.82'deki ek tablosunun dizilişi görselden okundu (\"-en\" hem DER hem DAS sütununda görünüyor, \"-e\" DIE'de). Perplexity'ye sor: \"-en ile biten isimler der mi das mı? (der Garten / das Essen)\"",
-    "s.80 tablosunun çoğul sütunu 'die Menschen' diyor ve altında 'sie - ein eine' üstü çizili yazılmış; çoğulda ein/eine yok anlamına aldım. Doğru okundu mu, gözle kontrol edilmeli.",
+    "s.82'deki ek tablosu görselle kontrol edildi (\"-en\" hem DER hem DAS sütununda, \"-e\" DIE'de gerçekten öyle yazıyor). Perplexity'ye sor: \"-en ile biten isimler der mi das mı? (der Garten / das Essen)\"",
     "s.80 ve s.86'daki yazı alıştırma sayfaları (Schreiben Sie die Artikel / Personalpronomen) çözülmemiş boş alıştırma; derse alınmadı.",
     "s.85'te hocanın 'Auf dem Balkon ist es ein Mann' örneğinin üstü çizili; bu kalıp derse sadece 'sein = Nominativ' notu olarak alındı."
   ]

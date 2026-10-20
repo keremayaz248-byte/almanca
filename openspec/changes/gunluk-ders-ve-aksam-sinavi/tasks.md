@@ -10,10 +10,10 @@
 ## 2. İçerik hattı kurulumu
 
 - [x] 2.1 `notebooklm-py[browser]` kurulumu; sürüm ve yardım çıktısını doğrula.
-- [ ] 2.2 `notebooklm login` çalıştır: kullanıcının bilgisayarında bir tarayıcı penceresi açılır, kullanıcı Google hesabıyla kendisi giriş yapar (link gerekmez, şifre ben görmem); `auth check` ile oturumu doğrula; oturum dosyasının depo dışında olduğunu doğrula.
-- [ ] 2.3 NotebookLM'de "Almanca" defteri oluştur; kaynak olarak `icerik/temiz/teil1.txt`, `kalan.txt`, `teil2.txt` ve gerekirse ilgili PDF'ler yüklenir (127 MB'lık A2 dosyası bu aşamada yüklenmez).
-- [ ] 2.4 Örnek sayfa testi: Teil-1'den görsel ağırlıklı bir sayfa (ör. s. 50), Kalan Üniteler'den bir sayfa ve Teil-2'den bir sayfa (ör. s. 113) için NotebookLM'e "bu sayfada ne yazıyor" sor; cevabı `icerik/temiz` metniyle ve sayfa görüntüsüyle karşılaştır; sonucu `icerik/envanter.md`'ye not et.
-- [ ] 2.5 Kaynak kararını yaz: NotebookLM okuması yeterliyse PDF doğrudan, değilse `temiz` metin + görsel okuma.
+- [x] 2.2 `notebooklm login` çalıştır: kullanıcının bilgisayarında bir tarayıcı penceresi açılır, kullanıcı Google hesabıyla kendisi giriş yapar (link gerekmez, şifre ben görmem); `auth check` ile oturumu doğrula; oturum dosyasının depo dışında olduğunu doğrula.
+- [x] 2.3 NotebookLM'de "Almanca" defteri oluştur; kaynak olarak `icerik/temiz/teil1.txt`, `kalan.txt`, `teil2.txt` ve gerekirse ilgili PDF'ler yüklenir (127 MB'lık A2 dosyası bu aşamada yüklenmez).
+- [x] 2.4 Örnek sayfa testi: Teil-1'den görsel ağırlıklı bir sayfa (ör. s. 50), Kalan Üniteler'den bir sayfa ve Teil-2'den bir sayfa (ör. s. 113) için NotebookLM'e "bu sayfada ne yazıyor" sor; cevabı `icerik/temiz` metniyle ve sayfa görüntüsüyle karşılaştır; sonucu `icerik/envanter.md`'ye not et.
+- [x] 2.5 Kaynak kararını yaz: NotebookLM okuması yeterliyse PDF doğrudan, değilse `temiz` metin + görsel okuma.
 - [ ] 2.6 Medya örnek testi: tek bir konu için podcast (Türkçe), flashcard, quiz ve zihin haritası üret ve indir; podcast'in dilini, Almanca telaffuzunu ve dosya boyutunu not et; sonuca göre depolama kararını yaz (depo / Supabase Storage / podcast'siz).
 - [ ] 2.7 `_pplx.js`'i `icerik/araclar/perplexity-sor.js` olarak, soru parametreli ve cevabı dosyaya yazan hâle getir; kullanıcı Perplexity'de giriş yaptıysa oturumun kalıcı olduğunu doğrula.
 - [x] 2.8 Kaynak etiketli ara biçimi tanımla: `icerik/hazir/<konu>.json` içinde her madde `{tur, tr, de, kaynak:{arac, sayfa}}`; biçimi doğrulayan küçük bir kontrol betiği yaz.
@@ -83,35 +83,35 @@
 
 ## 9. Teil-1 konu 12–25 anlatımları (içerik)
 
-- [ ] 9.1 Konu 12–14 (Renkler, Kıyafetler, Fiiller ve TMP sırası): NotebookLM ile çıkar, kaynak etiketli ara JSON, siteye göm.
-- [ ] 9.2 Konu 15–17 (Hobiler/gern, Hava, Sinema daveti).
-- [ ] 9.3 Konu 18–19 (Meslekler, Nominativ).
-- [ ] 9.4 Konu 20–21 (Akkusativ, Akkusativ edatları).
-- [ ] 9.5 Konu 22–23 (Çoğul biçimleri, nicht/kein).
-- [ ] 9.6 Konu 24–25 (W-Fragen, Guten Appetit).
-- [ ] 9.7 Her konunun egzersizini mevcut havuzlardan bağla; eksik olan konular için yeni soru yaz (kaynak etiketli).
+- [x] 9.1 Konu 12–14 (Renkler, Kıyafetler, Fiiller ve TMP sırası): NotebookLM ile çıkar, kaynak etiketli ara JSON, siteye göm.
+- [x] 9.2 Konu 15–17 (Hobiler/gern, Hava, Sinema daveti).
+- [x] 9.3 Konu 18–19 (Meslekler, Nominativ).
+- [x] 9.4 Konu 20–21 (Akkusativ, Akkusativ edatları).
+- [x] 9.5 Konu 22–23 (Çoğul biçimleri, nicht/kein).
+- [x] 9.6 Konu 24–25 (W-Fragen, Guten Appetit).
+- [x] 9.7 Her konunun egzersizini mevcut havuzlardan bağla; eksik olan konular için yeni soru yaz (kaynak etiketli).
 - [ ] 9.8 Kapsama testi: anlatımı olmayan konu 12–25 sayısı 0; `derin-kontrol.js` sıfır hata.
 
 ## 10. Kalan Üniteler konu 26–38 tam üniteler (içerik)
 
-- [ ] 10.1 Konu 26 Modalverben (Kalan Üniteler s. 3–8): tam anlatım, örnekler, egzersiz.
-- [ ] 10.2 Konu 27 Trennbare Verben (s. 19–46): tam anlatım (uzun ünite, birden çok bölüm).
-- [ ] 10.3 Konu 28–29 (Saat/Uhrzeit, Präteritum sein/haben).
-- [ ] 10.4 Konu 30–32 (Artikel/Dativ, Dativ edatları, Genitiv).
-- [ ] 10.5 Konu 33–35 (Aile, Demonstrativpronomen, Imperative; Imperative sayfası belirsiz: kaynakta bul, bulunamazsa Perplexity ile doğrula ve etiketle).
-- [ ] 10.6 Konu 36 Das Perfekt (s. 96–112): tam anlatım (uzun ünite, birden çok bölüm).
-- [ ] 10.7 Konu 37–38 (Zuerst/Dann/Danach, Einen Brief schreiben).
-- [ ] 10.8 Her konunun egzersizini bağla / yaz; kapsama testi: anlatımsız konu 26–38 sayısı 0; `derin-kontrol.js` sıfır hata.
+- [x] 10.1 Konu 26 Modalverben (Kalan Üniteler s. 3–8): tam anlatım, örnekler, egzersiz.
+- [x] 10.2 Konu 27 Trennbare Verben (s. 19–46): tam anlatım (uzun ünite, birden çok bölüm).
+- [x] 10.3 Konu 28–29 (Saat/Uhrzeit, Präteritum sein/haben).
+- [x] 10.4 Konu 30–32 (Artikel/Dativ, Dativ edatları, Genitiv).
+- [ ] 10.5 (HOCANIN PDF’LERİNDE YOK: Imperative bulunamadı; dosya yazılmadı) Konu 33–35 (Aile, Demonstrativpronomen, Imperative; Imperative sayfası belirsiz: kaynakta bul, bulunamazsa Perplexity ile doğrula ve etiketle).
+- [x] 10.6 Konu 36 Das Perfekt (s. 96–112): tam anlatım (uzun ünite, birden çok bölüm).
+- [x] 10.7 Konu 37–38 (Zuerst/Dann/Danach, Einen Brief schreiben).
+- [x] 10.8 Her konunun egzersizini bağla / yaz; kapsama testi: anlatımsız konu 26–38 sayısı 0; `derin-kontrol.js` sıfır hata.
 
 ## 11. Teil-2 (B1) içeriği
 
 - [x] 11.1 `KONULAR`'a 45'ten başlayan Teil-2 girişlerini ekle (kod); `kaynak:{p:'t2'}`; `gece-testi.js` ve kapsama testi sıfır hata.
-- [ ] 11.2 Genitiv Präpositionen (`icerik/temiz/teil2.txt` satır 8 ve devamı) — içerik.
-- [ ] 11.3 Zweiteilige Konjunktionen (satır 301 civarı) — içerik.
-- [ ] 11.4 Konjunktiv II (satır 542 civarı) — içerik, hatırlatma + Präteritum/Modalverben bağlantısı.
-- [ ] 11.5 Plusquamperfekt (Kapitel 4, satır 430 civarı) — içerik; kaynakta bölüm bulunamazsa Perplexity ile doğrula ve etiketle.
-- [ ] 11.6 Futur I (mevcut `futur` slaytına bağla) ve Futur II (satır 977 civarı) — içerik.
-- [ ] 11.7 Her konu için egzersiz seti yaz ve bağla; kapsama: Teil-2 konu sayısı 6, anlatımsız konu 0, kaynak etiketsiz madde 0.
+- [x] 11.2 Genitiv Präpositionen (`icerik/temiz/teil2.txt` satır 8 ve devamı) — içerik.
+- [x] 11.3 Zweiteilige Konjunktionen (satır 301 civarı) — içerik.
+- [x] 11.4 Konjunktiv II (satır 542 civarı) — içerik, hatırlatma + Präteritum/Modalverben bağlantısı.
+- [x] 11.5 Plusquamperfekt (Kapitel 4, satır 430 civarı) — içerik; kaynakta bölüm bulunamazsa Perplexity ile doğrula ve etiketle.
+- [x] 11.6 Futur I (mevcut `futur` slaytına bağla) ve Futur II (satır 977 civarı) — içerik.
+- [x] 11.7 Her konu için egzersiz seti yaz ve bağla; kapsama: Teil-2 konu sayısı 6, anlatımsız konu 0, kaynak etiketsiz madde 0.
 
 ## 12. Özgün A1 sınav soruları (içerik)
 
@@ -124,13 +124,13 @@
 
 ## 13. İlk görsel anlatım seti (içerik + görsel)
 
-- [ ] 13.1 Bağlaçlar: weil / denn / dann / deshalb mevcut kart ve slaytı yeni sayfa türleriyle (fiil sırası şeması) yeniden düzenle.
-- [ ] 13.2 weshalb / deswegen / darum anlatım sayfaları (NotebookLM + gerekirse Perplexity doğrulaması).
-- [ ] 13.3 dass / obwohl / wenn–als anlatım sayfaları (fiil sona gider şeması, wenn/als karşılaştırma tablosu).
-- [ ] 13.4 Bağlaçlar için egzersiz seti (karıştırılan çiftlerde yanlış şık açıklamalı).
-- [ ] 13.5 Präteritum: düzenli kalıp, düzensiz fiil listesi, Präteritum–Perfekt zaman çizgisi; kaynak: Kalan Üniteler + NotebookLM.
-- [ ] 13.6 Präteritum egzersiz seti.
-- [ ] 13.7 `derin-kontrol.js` ve `gece-testi.js` sıfır hata; iki temada ekran görüntüleri.
+- [x] 13.1 Bağlaçlar: weil / denn / dann / deshalb mevcut kart ve slaytı yeni sayfa türleriyle (fiil sırası şeması) yeniden düzenle.
+- [x] 13.2 weshalb / deswegen / darum anlatım sayfaları (NotebookLM + gerekirse Perplexity doğrulaması).
+- [x] 13.3 dass / obwohl / wenn–als anlatım sayfaları (fiil sona gider şeması, wenn/als karşılaştırma tablosu).
+- [x] 13.4 Bağlaçlar için egzersiz seti (karıştırılan çiftlerde yanlış şık açıklamalı).
+- [x] 13.5 Präteritum: düzenli kalıp, düzensiz fiil listesi, Präteritum–Perfekt zaman çizgisi; kaynak: Kalan Üniteler + NotebookLM.
+- [x] 13.6 Präteritum egzersiz seti.
+- [x] 13.7 `derin-kontrol.js` ve `gece-testi.js` sıfır hata; iki temada ekran görüntüleri.
 
 ## 14. Ders medyası içeriği
 

@@ -119,7 +119,7 @@
           "Wir fahren <b>zum</b> Bahnhof. — Biz tren istasyonuna gidiyoruz.",
           "Sie geht <b>zum</b> Arzt. — O doktora gidiyor."
         ],
-        "tip": "💡 Hocanın notları: <b>zum = zu dem</b>, <b>zur = zu der</b>. (!!!) «düğüne / partiye» için hoca ayrı uyarmış: <b>auf einer Hochzeit / auf der Party</b>.",
+        "tip": "💡 Hocanın notları: <b>zum = zu dem</b>, <b>zur = zu der</b>. Hoca zu satırının altına kırmızı ünlemle <b>auf einer Hochzeit / auf der Party</b> yazmış (bir düğünde / bir partide); neden eklediğini sayfada açıklamamış.",
         "kaynak": "Kalan Üniteler s.79"
       },
       {
@@ -255,7 +255,7 @@
           "<b>seit</b> = beri (süren), <b>ab</b> = itibaren (başlangıç). <b>seit + çoğul isim → -n</b> (seit drei Monaten).",
           "<b>nach</b>: şehir/artikelsiz ülke/kıta + Hause; <b>zu</b>: kişi, meslek, artikeli olan yer.",
           "<b>Zu Hause</b> (nerede) ≠ <b>nach Hause</b> (nereye).",
-          "<b>auf einer Hochzeit / auf der Party</b>: düğün ve parti için «auf» (hocanın ünlemi).",
+          "Hocanın ünlemli notu: <b>auf einer Hochzeit / auf der Party</b> (zu satırının altında; açıklaması sayfada yok).",
           "Yer değiştiren hareket: <b>Wo?</b> Dativ, <b>Wohin?</b> Akkusativ."
         ],
         "uyari": "En sık hata: «Ich gehe zu Berlin» demek. Şehir adı → <b>nach Berlin</b>. Kişi veya artikeli olan yer → <b>zu</b> (zum Arzt, zur Uni).",
@@ -293,11 +293,11 @@
         "blank": "bei",
         "opts": [
           "bei",
-          "mit",
-          "zu"
+          "aus",
+          "nach"
         ],
         "tr": "Biz ailemizin yanında oturuyoruz.",
-        "exp": "Hocanın örneği: «Wir wohnen bei unseren Eltern.» Birinin yanında yaşamak için <b>bei</b> kullanılır. «mit» ile yaparsan «ile birlikte» olur, «zu» ise hareket gerektirir."
+        "exp": "Hocanın örneği: «Wir wohnen bei unseren Eltern.» Birinin yanında yaşamak için <b>bei</b> kullanılır. «aus» çıkma/köken, «nach» ise yön anlatır; ikisi de «yanında oturmak» anlamı vermez."
       },
       {
         "sent": "Wir fahren ___ dem Bus.",
@@ -338,10 +338,10 @@
         "opts": [
           "seit",
           "ab",
-          "nach"
+          "bei"
         ],
         "tr": "Ben bir yıldır İstanbul'da oturuyorum.",
-        "exp": "Hocanın örneği: «Ich wohne seit einem Jahr in Istanbul.» Geçmişten beri süren durum için <b>seit</b> kullanılır, Dativ ister (einem Jahr). «ab» ileriye dönük bir başlangıcı anlatır."
+        "exp": "Hocanın örneği: «Ich wohne seit einem Jahr in Istanbul.» Geçmişten beri süren durum için <b>seit</b> kullanılır, Dativ ister (einem Jahr). «ab» ileriye dönük bir başlangıcı anlatır, «bei» ise süre değil yanında olmayı anlatır."
       },
       {
         "sent": "Ich gehe ___ meiner Freundin.",
@@ -482,6 +482,7 @@
     "Hocanın kendi 'ezber cümlesi' (Kral & Soytarı gibi) bu edat sayfalarında yok; yeni bir ezber uydurmadım.",
     "s.81 'vor' için hocanın «TMP'nin P'si / T'si» notları, TMP (Zaman-Biçim-Yer) konusunu bilmeyen biri için kısa kaldı; derste yalnız aktarıldı.",
     "s.83-84 hocanın Türkçe cümleleri (örn. «Kahvaltıdan sonra okula gidiyorum») Almanca cevap anahtarı olmadan verilmiş; derste ve sorularda kullanılmadı.",
+    "s.79 hocanın zu satırındaki kırmızı «!!! auf einer Hochzeit / auf der Party» notunun kastı sayfada açıklanmamış. Perplexity'ye sor: «zur Hochzeit gehen ile auf einer Hochzeit sein/auf eine Hochzeit gehen arasındaki fark nedir, A1'de hangisi öğretilmeli?»",
     "s.79'daki «Wir fahren zum Bahnhof (itren stasyonuna)» yazım hatasını 'tren istasyonuna' olarak düzelttim; hocanın orijinal yazımı 'itren' görünüyor."
   ]
 }
