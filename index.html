@@ -1030,6 +1030,11 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .ek-head::after{display:none}
 .ek-head small{text-transform:none;letter-spacing:0}
 
+/* ── Takvim kartı ve akşam kapısı ── */
+.takvim-kart{margin-top:6px}
+.takvim-not{font-size:.8rem;line-height:1.5;color:var(--light);margin-top:10px;padding:10px 12px;border-left:4px solid var(--yellow);background:var(--yellow-bg)}
+#aksamKapiScreen{display:none;text-align:center;padding:46px 0}
+
 /* ── Sınav geçmişi ── */
 .sinav-gecmis{display:flex;flex-direction:column;gap:6px;margin-top:10px}
 .sg-sat{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:var(--white);border:2px solid var(--border);font-size:.86rem}
@@ -1168,6 +1173,13 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   <!-- ══ BÖLÜM A: BUGÜN ══ günün çalışması tek akış halinde -->
   <div class="sec-head">📅 Bugün</div>
   <div id="bugunWrap"></div>
+
+  <div class="takvim-kart">
+    <div class="sec-head">🔔 Akşam hatırlatması</div>
+    <div class="okul-giris">Her akşam 20:00'de sınav için telefonuna bildirim gelsin. Aşağıdaki düğme Google Takvim'de her gün tekrarlayan bir olay hazırlar.</div>
+    <button class="btn-toggle" style="width:100%" onclick="takvimeEkle()">📅 Takvime ekle (her gün 20:00)</button>
+    <div class="takvim-not">⚠️ Telefondaki açılır bildirim her kişinin kendi takvim ayarına bağlıdır; uygulama bunu zorlayamaz. Olayı kaydettikten sonra Takvim'de olayı açıp <b>Bildirim ekle → 10 dakika önce</b> seç. Arkadaşın da aynı düğmeyi kendi telefonunda kullanır.</div>
+  </div>
   </div>
 
 
@@ -1416,6 +1428,15 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
     <div class="fb-body" id="horenFbBody"></div>
   </div>
   <button class="btn-next" id="horenNext" onclick="horenSonraki()">Sonraki</button>
+</div>
+
+<!-- AKŞAM KAPISI — 20:00'den sonra açılışta -->
+<div id="aksamKapiScreen">
+  <div class="trophy">🌙</div>
+  <div class="done-title">Akşam sınavı zamanı</div>
+  <div class="done-sub" id="aksamKapiSub"></div>
+  <button class="btn-start" style="width:100%;margin-top:14px" onclick="startAksamSinavi()">Sınavı başlat</button>
+  <button class="btn-home" id="aksamErteleBtn" style="width:100%;margin-top:10px" onclick="aksamErtele()">Sonra (bir kez ertelenebilir)</button>
 </div>
 
 <!-- DENEME SINAVI BİTTİ -->
@@ -1674,7 +1695,7 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
 <div id="gramerTestScreen">
   <div class="list-top">
     <div class="list-title">🏆 Kapsamlı Test</div>
-    <button class="btn-home" onclick="showScreen('gramerScreen');buildTopicGrid()">← Geri</button>
+    <button class="btn-home" onclick="gtGeri()">← Geri</button>
   </div>
   <div class="gr-q-num" id="gtQNum"></div>
   <div class="gr-sent" id="gtSent"></div>
@@ -1696,8 +1717,9 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
     <div class="ds"><div class="dv dv-red" id="gtDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv dv-blue" id="gtDP">0%</div><div class="dl">Başarı</div></div>
   </div>
-  <button class="btn-replay" onclick="startGramerTest()">Tekrar</button>
-  <button class="btn-home" onclick="showScreen('gramerScreen');buildTopicGrid()" style="margin-left:8px">Konular</button>
+  <button class="btn-replay" id="gtTekrarBtn" onclick="startGramerTest()">Tekrar</button>
+  <button class="btn-home" id="gtKonularBtn" onclick="showScreen('gramerScreen');buildTopicGrid()" style="margin-left:8px">Konular</button>
+  <button class="btn-start" id="gtBugunBtn" style="display:none;width:100%" onclick="goTab('bugun')">Bugün ekranına dön</button>
   <div style="margin-top:10px"><button class="btn-home" onclick="goHome()">Ana Menü</button></div>
 </div>
 
@@ -2994,7 +3016,7 @@ const ALL_SCREENS = ['homeScreen','konuListScreen','konuScreen','horenScreen','h
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
   'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen',
-  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','denemeDoneScreen','aiChatScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
+  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','denemeDoneScreen','aksamKapiScreen','aiChatScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
   'sceneScreen','sceneDoneScreen','topicWriteScreen','topicWriteDoneScreen'];
 
 let curScreen='homeScreen';
@@ -3023,6 +3045,7 @@ const BACK_TO_GRAMER=['gramerTopicScreen','gramerTestScreen','gramerTestDoneScre
 const BACK_TO_YAZMA=['yazmaScreen','yazmaDoneScreen','aiChatScreen'];
 const BACK_TO_TOPICWRITE=['topicWriteScreen','topicWriteDoneScreen'];
 function hdrBackGo(){
+  if(AKSAM && curScreen==='gramerTestScreen'){ AKSAM=false; goHome(); return; }
   if(LESSON){ LESSON=null; goHome(); return; }  // ders akışındayken geri = dersi bırak
   if(BACK_TO_HUB.includes(curScreen)){ openYSHub(); return; }
   if(BACK_TO_GRAMER.includes(curScreen)){ showScreen('gramerScreen'); buildTopicGrid(); return; }
@@ -4558,6 +4581,12 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'19 Ekim 2026 — Akşam sınavı ve takvim hatırlatması', items:[
+    '🌙 <b>Akşam sınavı:</b> o güne kadar işlediğin konulardan, zayıf kaldıklarından ve tekrarı gelen kelimelerden kısa bir sınav. Bugün sekmesindeki "Devam et" düğmesi ders adımlarından sonra seni buna getiriyor.',
+    '⏰ <b>Saat 20:00\'den sonra uygulamayı açınca önce sınav çıkıyor.</b> Bir kez "Sonra" diyebilirsin; aynı akşam ikinci açışında sınav ertelenemiyor. Sınavı yapınca kapı bir daha çıkmıyor.',
+    '📅 Bugün sekmesine <b>"Takvime ekle"</b> eklendi: Google Takvim\'de her gün 20:00\'de tekrarlayan olayı hazır doldurur, sen kaydedersin. Arkadaşın da kendi telefonunda aynı düğmeyi kullanır. Telefondaki bildirim her kişinin kendi takvim ayarına bağlı olduğu için uygulama bunu zorlayamıyor; düğmenin altında nasıl açacağın yazıyor.',
+    '🛡️ Sınavın ortasında geri basarsan akşam modu kapanıyor; normal Kapsamlı Test akşam sınavına karışmıyor.'
+  ]},
   {date:'19 Ekim 2026 — 45 günlük okul programı + düzgün sınav akışı', items:[
     '📅 <b>Bugün sekmesi artık tek bir programı gösteriyor:</b> 45 gün, <b>konu 1\'den başlıyor</b> → Teil-1 → Kalan Üniteler → Teil-2. Her gün: konu anlatımı → alıştırma ve test → akşam sınavı. Tek büyük <b>"Devam et"</b> düğmesi sıradaki adımı açıyor. Atladığın günler "Eksik kalan günler" olarak görünüyor ve geri dönüp tamamlayabiliyorsun.',
     '🆕 Konu listesine <b>Teil-2 (B1)</b> eklendi: Genitiv Edatları, İkili Bağlaçlar, Konjunktiv II, Plusquamperfekt, Futur II. Anlatımları henüz hazırlanıyor; takvimde ⏳ olarak görünüyor ve günü engellemiyor.',
@@ -6432,6 +6461,7 @@ function grNextQ(){
 }
 
 function startGramerTest(){
+  AKSAM=false;
   gtQs=[];
   GRAMER_TOPICS.forEach(t=>{
     const picks=shuffle([...t.qs]).slice(0,2);
@@ -6470,7 +6500,8 @@ function pickGtOpt(btn,chosen,q){
   document.querySelectorAll('#gtOpts .gr-opt').forEach(b=>{ if(b!==btn) b.classList.add('muted'); b.disabled=true; });
   if(ok){ btn.classList.add('correct'); gtCorrect++; feedbackFx(true,btn); }
   else { btn.classList.add('wrong'); document.querySelectorAll('#gtOpts .gr-opt').forEach(b=>{if(b.textContent===q.blank)b.classList.add('correct');}); gtWrong++; feedbackFx(false); }
-  setHeader(LESSON?'🎯 Ders · Gramer':'🏆 Kapsamlı Test',true,'✅ '+gtCorrect,'❌ '+gtWrong);
+  q._yanlis=!ok;
+  setHeader(AKSAM?'🌙 Akşam sınavı':(LESSON?'🎯 Ders · Gramer':'🏆 Kapsamlı Test'),true,'✅ '+gtCorrect,'❌ '+gtWrong);
   setProgress(Math.round((gtIdx+1)/gtQs.length*100),(gtIdx+1)+' / '+gtQs.length);
   const blankEl=document.querySelector('#gtSent .blank');
   if(blankEl){blankEl.textContent=q.blank;blankEl.style.color=ok?'var(--green-dark)':'var(--red)';}
@@ -6491,6 +6522,9 @@ function gtNextQ(){
 
 function showGtDone(){
   if(LESSON&&LESSON.step===3){ showLessonFinal(); return; } // ders akışı: gramer bitti → kutlama
+  if(AKSAM){ aksamBitti(); return; }
+  ['gtTekrarBtn','gtKonularBtn'].forEach(i=>{ const e=document.getElementById(i); if(e) e.style.display=''; });
+  const bb=document.getElementById('gtBugunBtn'); if(bb) bb.style.display='none';
   const pct=Math.round(gtCorrect/gtQs.length*100);
   document.getElementById('gtDC').textContent=gtCorrect;
   document.getElementById('gtDW').textContent=gtWrong;
@@ -6499,6 +6533,116 @@ function showGtDone(){
   showScreen('gramerTestDoneScreen');
   setProgress(100,gtQs.length+' / '+gtQs.length);
 }
+
+// ══════════════════════════════════════════
+//  AKŞAM SINAVI — o güne kadar işlenenlerden, zayıflar daha sık
+//  Mevcut gramer sınav ekranını (gtQs) kullanır; yeni ekran motoru yok.
+// ══════════════════════════════════════════
+let AKSAM=false;
+function gtGeri(){
+  if(AKSAM){ AKSAM=false; goHome(); return; }
+  showScreen('gramerScreen'); buildTopicGrid();
+}
+function kelimeSorusu(w,tum){
+  const yanlis=shuffle(tum.filter(x=>x.tr!==w.tr)).slice(0,3).map(x=>x.tr);
+  return {sent:'„'+w.de+'“ ne demek?',blank:w.tr,opts:shuffle([w.tr,...yanlis]),tr:'',
+          exp:w.de+' = '+w.tr+(w.h?' — '+w.h:''),topicTitle:'Kelime',topicEmoji:'🔤'};
+}
+// Bir konudan, gramer sorusu ve/veya kelime sorusu üretir
+function konuSorulari(k,adet){
+  const out=[];
+  if(k.gr){
+    const t=GRAMER_TOPICS.find(x=>x.id===k.gr);
+    if(t) shuffle([...t.qs]).slice(0,adet).forEach(q=>out.push(Object.assign({},q,{topicTitle:k.ad,topicEmoji:t.emoji,_konu:k.no})));
+  }
+  if(k.kat&&CATS[k.kat]){
+    const tum=vocabAll();
+    shuffle([...CATS[k.kat].words]).slice(0,Math.max(1,adet-out.length))
+      .forEach(w=>out.push(Object.assign(kelimeSorusu(w,tum),{topicTitle:k.ad,topicEmoji:'🔤',_konu:k.no})));
+  }
+  return out;
+}
+function aksamSoruHavuzu(){
+  const no=okulGunNo()||1, g=PLAN_OKUL[no-1];
+  const bugun=g?okulKonulari(g):[];
+  const bugunNo=new Set(bugun.map(k=>k.no));
+  const qs=[];
+  bugun.forEach(k=>qs.push(...konuSorulari(k,Math.max(3,Math.ceil(6/bugun.length)))));
+  const zayif=Object.keys(DB.okul.zayif||{}).map(n=>konuBul(+n)).filter(k=>k&&!bugunNo.has(k.no)).slice(0,2);
+  zayif.forEach(k=>qs.push(...konuSorulari(k,3)));
+  shuffle(KONULAR.filter(k=>konuBittiMi(k)&&!bugunNo.has(k.no)&&!zayif.includes(k))).slice(0,3)
+    .forEach(k=>qs.push(...konuSorulari(k,2)));
+  const tum=vocabAll();
+  weakWords(3).forEach(w=>qs.push(kelimeSorusu(w,tum)));
+  if(qs.length<8){ // yeterli içerik yoksa genel gramer havuzundan tamamla
+    GRAMER_TOPICS.forEach(t=>{ if(qs.length<10){ const q=shuffle([...t.qs])[0]; if(q) qs.push(Object.assign({},q,{topicTitle:t.title,topicEmoji:t.emoji})); } });
+  }
+  return shuffle(qs).slice(0,14);
+}
+function startAksamSinavi(){
+  gtQs=aksamSoruHavuzu();
+  if(!gtQs.length){ alert('Sınav için henüz soru yok. Önce bir konu çalış.'); goHome(); return; }
+  gtIdx=0; gtCorrect=0; gtWrong=0; gtAnswered=false; AKSAM=true;
+  showScreen('gramerTestScreen');
+  setHeader('🌙 Akşam sınavı',true,'✅ 0','❌ 0');
+  setProgress(0,'0 / '+gtQs.length);
+  renderGtQ();
+}
+function aksamBitti(){
+  const toplam=gtQs.length, dogru=gtCorrect, y=toplam?Math.round(dogru/toplam*100):0;
+  const yanlisKonu=[...new Set(gtQs.filter(q=>q._yanlis&&q._konu).map(q=>q._konu))];
+  const iso=todayStr();
+  DB.okul.aksam[iso]=Object.assign(DB.okul.aksam[iso]||{},{yapildi:true,dogru,toplam});
+  DB.okul.zayif=DB.okul.zayif||{};
+  yanlisKonu.forEach(n=>{ srsUpdate('konu:'+n,false); DB.okul.zayif[n]=iso; });
+  sinavKaydet('aksam',dogru,toplam,[]);
+  AKSAM=false;
+  document.getElementById('gtDC').textContent=dogru;
+  document.getElementById('gtDW').textContent=gtWrong;
+  document.getElementById('gtDP').textContent=y+'%';
+  document.getElementById('gtDoneSub').textContent='Bugünün sınavı bitti: '+toplam+' sorudan '+dogru+' doğru.'+
+    (yanlisKonu.length?' Yanlış yaptığın konular yarın tekrar karşına çıkacak: '+yanlisKonu.map(n=>(konuBul(n)||{}).ad).join(', ')+'.':'');
+  ['gtTekrarBtn','gtKonularBtn'].forEach(i=>{ const e=document.getElementById(i); if(e) e.style.display='none'; });
+  document.getElementById('gtBugunBtn').style.display='';
+  showScreen('gramerTestDoneScreen');
+  setProgress(100,toplam+' / '+toplam);
+  if(typeof hedefSorusuGoster==='function') hedefSorusuGoster();
+}
+
+// 20:00'den sonra uygulama açılınca önce sınav önerilir; bir kez ertelenebilir
+function aksamKapiKontrol(){
+  const o=DB.okul; if(!o||!o.bas) return;
+  if(new Date().getHours()<20) return;
+  const iso=todayStr(), a=o.aksam[iso];
+  if(a&&a.yapildi) return;
+  const no=okulGunNo(), g=PLAN_OKUL[no-1];
+  if(!g||g.t==='sinav') return;
+  const erteli=!!(a&&a.ertelendi);
+  showScreen('aksamKapiScreen');
+  setHeader('🌙 Akşam sınavı',false);
+  document.getElementById('hdrBack').className='hdr-back';   // kapıdan geri tuşuyla kaçılamaz
+  document.getElementById('aksamKapiSub').textContent=(erteli
+    ? 'Daha önce erteledin; bu kez sınavı yap. '
+    : 'Saat 20:00 geçti. ')+'Bugünün konularından kısa bir sınav hazır.';
+  document.getElementById('aksamErteleBtn').style.display=erteli?'none':'';
+}
+function aksamErtele(){
+  const iso=todayStr();
+  DB.okul.aksam[iso]=Object.assign(DB.okul.aksam[iso]||{},{ertelendi:true});
+  saveDB(); goHome();
+}
+
+// Google Takvim'de her gün 20:00 (İstanbul) tekrarlayan olay şablonu; kullanıcı kendi hesabında kaydeder
+function takvimeEkleUrl(){
+  const n=new Date(), g=new Date(n.getFullYear(),n.getMonth(),n.getDate()+(n.getHours()>=20?1:0));
+  const p=x=>String(x).padStart(2,'0');
+  const gun=g.getFullYear()+p(g.getMonth()+1)+p(g.getDate());
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE'+
+    '&text='+encodeURIComponent('Almanca akşam sınavı')+
+    '&details='+encodeURIComponent('Bugünün konularından kısa sınav. Uygulama: '+location.href.split('#')[0])+
+    '&dates='+gun+'T170000Z/'+gun+'T173000Z&ctz=Europe/Istanbul&recur=RRULE:FREQ=DAILY';
+}
+function takvimeEkle(){ window.open(takvimeEkleUrl(),'_blank','noopener'); }
 
 // ══════════════════════════════════════════
 //  ARTİKEL (der/die/das) — mevcut isimlerden üretilir
@@ -8557,6 +8701,7 @@ async function sbInit() {
 // Başlangıç
 applyThemeBtn();
 showScreen('homeScreen');
+aksamKapiKontrol();
 sbInit();
 </script>
 </body>

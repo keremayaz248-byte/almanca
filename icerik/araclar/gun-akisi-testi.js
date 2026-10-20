@@ -271,6 +271,83 @@ async function sinavSenaryosu(browser) {
   await ctx.close();
 }
 
+// ── Senaryo: aksam sinavi, 20:00 kapisi, takvim (gorev 6.x) ──────────────
+async function aksamSenaryosu(browser) {
+  const programKur = async (page) => {
+    await page.evaluate(() => { DB.okul.bas = todayStr(); DB.okul.aksam = {}; DB.okul.tamam = {}; DB.konu = {}; DB.okul.zayif = {}; saveDB(); });
+  };
+
+  // 1) 19:59 -> kapi yok
+  { const { ctx, page } = await sayfaAc(browser, { saat: '2026-10-20T19:59:00' });
+    await programKur(page); await page.reload(); await page.waitForTimeout(500);
+    kontrol('19:59: kapi yok, ana ekran acik', await page.evaluate(() => curScreen === 'homeScreen'));
+    // takvim adresi
+    await page.evaluate(() => { window.__acilan = null; window.open = (u) => { window.__acilan = u; }; });
+    await page.evaluate(() => takvimeEkle());
+    const u = await page.evaluate(() => window.__acilan);
+    kontrol('takvim adresi: sablon, gunluk tekrar, Istanbul, 20:00 (17:00Z)',
+      /^https:\/\/calendar\.google\.com\/calendar\/render\?action=TEMPLATE/.test(u) && /recur=RRULE:FREQ=DAILY/.test(u) && /ctz=Europe\/Istanbul/.test(u) && /dates=20261020T170000Z\/20261020T173000Z/.test(u), u);
+    kontrol('takvim bolumunde bildirim notu', /kendi takvim ayarına bağlı/.test(await page.evaluate(() => document.querySelector('.takvim-not').innerText)));
+    await ctx.close(); }
+
+  // 2) 20:01 -> kapi, ertele bir kez, ikinci acilista ertelenemez, sinav, sonra serbest
+  { const { ctx, page } = await sayfaAc(browser, { saat: '2026-10-20T20:01:00' });
+    await programKur(page); await page.reload(); await page.waitForTimeout(500);
+    kontrol('20:01: kapi ekrani', await page.evaluate(() => curScreen === 'aksamKapiScreen'));
+    kontrol('ilk acilista Ertele var', await page.isVisible('#aksamErteleBtn'));
+    kontrol('kapida geri tusu gizli', await page.evaluate(() => !document.getElementById('hdrBack').classList.contains('show')));
+    await page.evaluate(() => { window.__acilan = null; window.open = (u) => { window.__acilan = u; }; });
+    await page.click('#aksamErteleBtn'); await page.waitForTimeout(250);
+    kontrol('Ertele -> normal acilir ve kaydedilir', await page.evaluate(() => curScreen === 'homeScreen' && DB.okul.aksam[todayStr()].ertelendi === true));
+    await page.reload(); await page.waitForTimeout(500);
+    kontrol('ikinci acilista kapi geri gelir', await page.evaluate(() => curScreen === 'aksamKapiScreen'));
+    kontrol('ikinci acilista Ertele YOK', !(await page.isVisible('#aksamErteleBtn')));
+
+    await page.click('#aksamKapiScreen .btn-start'); await page.waitForTimeout(300);
+    const s = await page.evaluate(() => ({ ekran: curScreen, aksam: AKSAM, n: gtQs.length, basliklar: [...new Set(gtQs.map(q => q.topicTitle))] }));
+    kontrol('sinav basladi (akşam modu, soru var)', s.ekran === 'gramerTestScreen' && s.aksam === true && s.n >= 8, JSON.stringify(s));
+    kontrol('sorular bugunun konusunu icerir (Selamlasma)', s.basliklar.includes('Selamlaşma'), s.basliklar.join());
+    // ilk soruyu yanlis, kalanini dogru yap
+    await page.evaluate(() => {
+      let ilk = true;
+      while (curScreen === 'gramerTestScreen' && gtIdx < gtQs.length) {
+        const q = gtQs[gtIdx];
+        const secenekler = [...document.querySelectorAll('#gtOpts .gr-opt')];
+        const hedef = ilk ? secenekler.find(b => b.textContent !== q.blank) : secenekler.find(b => b.textContent === q.blank);
+        ilk = false; hedef.click(); gtNextQ();
+      }
+    });
+    await page.waitForFunction(() => curScreen === 'gramerTestDoneScreen');
+    const b = await page.evaluate(() => ({ a: DB.okul.aksam[todayStr()], son: DB.okul.sinav[DB.okul.sinav.length - 1], zayif: DB.okul.zayif, gizli: document.getElementById('gtTekrarBtn').style.display, bugun: document.getElementById('gtBugunBtn').style.display, kalanAksam: AKSAM }));
+    kontrol('sinav sonucu kaydedildi (yapildi)', b.a.yapildi === true && b.son.bolum === 'aksam' && b.son.toplam === b.a.toplam, JSON.stringify(b));
+    kontrol('yanlis yapilan konu zayif listesinde', Object.keys(b.zayif).length >= 1, JSON.stringify(b.zayif));
+    kontrol('bitis ekrani: Bugun dugmesi, Tekrar gizli, mod kapandi', b.gizli === 'none' && b.bugun === '' && b.kalanAksam === false);
+    await page.reload(); await page.waitForTimeout(500);
+    kontrol('sinav yapilinca kapi yok', await page.evaluate(() => curScreen === 'homeScreen'));
+    await page.evaluate(() => goTab('bugun')); await page.waitForTimeout(150);
+    const t = await page.evaluate(() => document.getElementById('bugunWrap').innerText);
+    kontrol('Bugun: aksam adimi tamam gorunur', /Akşam sınavı/.test(t), t.slice(0, 160));
+    await tasmaYok(page, 'aksam');
+    await ctx.close(); }
+
+  // 3) sinav gunu (45) kapi cikarmaz
+  { const { ctx, page } = await sayfaAc(browser, { saat: '2026-10-20T21:00:00' });
+    await page.evaluate(() => { const d = isoToDate(todayStr()); d.setDate(d.getDate() - 44); DB.okul.bas = isoLocal(d); DB.okul.aksam = {}; saveDB(); });
+    await page.reload(); await page.waitForTimeout(500);
+    kontrol('deneme sinavi gununde kapi cikmaz', await page.evaluate(() => curScreen === 'homeScreen'));
+    await ctx.close(); }
+
+  // 4) akşam sınavından yarım çıkış moda takılı kalmaz
+  { const { ctx, page } = await sayfaAc(browser);
+    await programKur(page);
+    await page.evaluate(() => startAksamSinavi());
+    await page.evaluate(() => hdrBackGo());
+    kontrol('geri tusu aksam modunu kapatir ve ana ekrana doner', await page.evaluate(() => AKSAM === false && curScreen === 'homeScreen'));
+    await page.evaluate(() => startGramerTest());
+    kontrol('normal Kapsamli Test aksam modunda degil', await page.evaluate(() => AKSAM === false));
+    await ctx.close(); }
+}
+
 // Dogrudan calistirildiginda
 if (require.main === module) {
   (async () => {
@@ -282,6 +359,7 @@ if (require.main === module) {
     await sekmeSenaryosu(browser);
     await gunSenaryosu(browser);
     await sinavSenaryosu(browser);
+    await aksamSenaryosu(browser);
     // Yeni senaryolar bu satirin ustune eklenir.
     await browser.close();
     console.log('BASARILI:', sonuc.basarili.length);

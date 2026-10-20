@@ -52,11 +52,11 @@
 
 ## 6. Akşam sınavı, takvim ve e-posta (kod)
 
-- [ ] 6.1 Akşam sınavı seçici: günün konusu + vadesi gelmiş SRS maddeleri + `DB.mistakes`; zayıf maddeler daha sık.
-- [ ] 6.2 Sınavı mevcut gramer/MC sınav ekranıyla çalıştır; sonucu `DB.okul.aksam[tarih]` altında `{yapildi, ertelendi}` olarak yaz.
-- [ ] 6.3 20:00 kapısı: açılışta yerel saat ≥ 20:00 ve sınav yapılmamışsa sınavı öner; "Ertele" bir kez; ikinci açılışta kalkmaz; yapılmışsa doğrudan açılır.
-- [ ] 6.4 "Takvime ekle" bölümü: düğme Google Calendar şablon adresini (günlük tekrar, İstanbul saati, ilk gün 20:00–20:30) açar; her telefon kendi olayını kurar; bildirimin kişiye özel olduğunu söyleyen not.
-- [ ] 6.5 Playwright testi: saat taklidiyle 19:59 / 20:01, ertele-bir-kez, sınav sonrası serbest giriş; takvim adresinin parametrelerini (`recur`, `ctz`, `dates`) doğrula; `gece-testi.js` sıfır hata.
+- [x] 6.1 Akşam sınavı seçici: günün konusu + vadesi gelmiş SRS maddeleri + `DB.mistakes`; zayıf maddeler daha sık.
+- [x] 6.2 Sınavı mevcut gramer/MC sınav ekranıyla çalıştır; sonucu `DB.okul.aksam[tarih]` altında `{yapildi, ertelendi}` olarak yaz.
+- [x] 6.3 20:00 kapısı: açılışta yerel saat ≥ 20:00 ve sınav yapılmamışsa sınavı öner; "Ertele" bir kez; ikinci açılışta kalkmaz; yapılmışsa doğrudan açılır.
+- [x] 6.4 "Takvime ekle" bölümü: düğme Google Calendar şablon adresini (günlük tekrar, İstanbul saati, ilk gün 20:00–20:30) açar; her telefon kendi olayını kurar; bildirimin kişiye özel olduğunu söyleyen not.
+- [x] 6.5 Playwright testi: saat taklidiyle 19:59 / 20:01, ertele-bir-kez, sınav sonrası serbest giriş; takvim adresinin parametrelerini (`recur`, `ctz`, `dates`) doğrula; `gece-testi.js` sıfır hata.
 - [ ] 6.6 İsteğe bağlı e-posta kurulumu: `profiles` tablosuna e-posta paylaşım onayı ve e-posta sütunu ekle; karşı tarafın okuyabileceği kural yaz (şu an yalnız kendi satırı okunuyor, `icerik/supabase/schema.sql:86`); `supabase-testi.js` ile doğrula; kullanıcıdan Supabase panelinde SQL'i çalıştırmasını iste.
 - [ ] 6.7 Kurulum ekranı: iki taraf da onayladıysa e-postaları yazılı Google Apps Script betiğini ve kopyalama düğmesini göster (olay + davet + 10 dk önce açılır/e-posta hatırlatma + günlük e-posta tetikleyicisi); onay yoksa karşı e-posta görünmez.
 - [ ] 6.8 Betiği kullanıcının hesabında bir kez çalıştırıp (yetkilendirme kullanıcıda) olayın iki takvimde göründüğünü ve e-postanın geldiğini elle doğrula; ücretsiz e-posta kotasını Google belgesinden doğrula.
