@@ -64,11 +64,11 @@
 
 ## 7. Hedef sınav (kod)
 
-- [ ] 7.1 Ayar ekranı: sınav türü (Goethe A1/A2/B1, telc, ÖSD, belirsiz) ve tarih; `DB.okul.hedef` altında saklanır.
-- [ ] 7.2 İlk akşam sınavının sonunda hedef sorusu ("Sonra" seçeneğiyle).
-- [ ] 7.3 Bugün'de geri sayım; hedef belirsizse gösterilmez.
-- [ ] 7.4 Uyuşmazlık notları: program hedeften sonra bitiyorsa; hedef A1 iken B1 konusu açılıyorsa.
-- [ ] 7.5 Playwright testi: hedef girişi, kalıcılık, geri sayım, iki uyuşmazlık notu; `gece-testi.js` sıfır hata.
+- [x] 7.1 Ayar ekranı: sınav türü (Goethe A1/A2/B1, telc, ÖSD, belirsiz) ve tarih; `DB.okul.hedef` altında saklanır.
+- [x] 7.2 İlk akşam sınavının sonunda hedef sorusu ("Sonra" seçeneğiyle).
+- [x] 7.3 Bugün'de geri sayım; hedef belirsizse gösterilmez.
+- [x] 7.4 Uyuşmazlık notları: program hedeften sonra bitiyorsa; hedef A1 iken B1 konusu açılıyorsa.
+- [x] 7.5 Playwright testi: hedef girişi, kalıcılık, geri sayım, iki uyuşmazlık notu; `gece-testi.js` sıfır hata.
 
 ## 8. Görsel ders sayfası motoru ve medya oynatıcı (kod)
 

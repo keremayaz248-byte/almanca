@@ -1030,6 +1030,15 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .ek-head::after{display:none}
 .ek-head small{text-transform:none;letter-spacing:0}
 
+/* ── Hedef sınav ── */
+.hedef-kart{display:flex;align-items:center;gap:12px;padding:12px 14px;border:2px solid var(--text);background:var(--white);cursor:pointer;margin-bottom:10px}
+.hedef-kart small{display:block;font-size:.78rem;color:var(--light);margin-top:2px;font-weight:600}
+.hedef-kart>span:nth-child(2){flex:1}
+.hedef-not{font-size:.8rem;line-height:1.5;padding:9px 12px;border-left:4px solid var(--yellow);background:var(--yellow-bg);margin:0 0 10px;color:var(--text)}
+.hedef-et{display:block;font-weight:800;font-size:.85rem;margin:16px 0 6px}
+#hedefScreen{display:none}
+#hedefScreen select,#hedefScreen input{width:100%}
+
 /* ── Takvim kartı ve akşam kapısı ── */
 .takvim-kart{margin-top:6px}
 .takvim-not{font-size:.8rem;line-height:1.5;color:var(--light);margin-top:10px;padding:10px 12px;border-left:4px solid var(--yellow);background:var(--yellow-bg)}
@@ -1171,6 +1180,7 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   </div>
 
   <!-- ══ BÖLÜM A: BUGÜN ══ günün çalışması tek akış halinde -->
+  <div id="hedefWrap"></div>
   <div class="sec-head">📅 Bugün</div>
   <div id="bugunWrap"></div>
 
@@ -1428,6 +1438,32 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
     <div class="fb-body" id="horenFbBody"></div>
   </div>
   <button class="btn-next" id="horenNext" onclick="horenSonraki()">Sonraki</button>
+</div>
+
+<!-- HEDEF SINAV AYARI -->
+<div id="hedefScreen">
+  <div class="cat-top">
+    <h2>🎯 Hedef sınav</h2>
+    <button class="btn-home" onclick="goTab('bugun')">← Geri</button>
+  </div>
+  <div class="okul-giris">Hangi sınava hazırlanıyorsun? Tarihi girersen Bugün ekranında kaç gün kaldığını gösteririm. Henüz bilmiyorsan <b>Belirsiz</b> seç, sonra değiştirebilirsin.</div>
+  <label class="hedef-et" for="hedefTur">Sınav</label>
+  <select id="hedefTur" class="login-input">
+    <option value="belirsiz">Belirsiz / henüz bilmiyorum</option>
+    <option value="goethe_a1">Goethe-Zertifikat A1 (Start Deutsch 1)</option>
+    <option value="goethe_a2">Goethe-Zertifikat A2</option>
+    <option value="goethe_b1">Goethe-Zertifikat B1</option>
+    <option value="telc_a1">telc Deutsch A1</option>
+    <option value="telc_a2">telc Deutsch A2</option>
+    <option value="telc_b1">telc Deutsch B1</option>
+    <option value="osd_a1">ÖSD Zertifikat A1</option>
+    <option value="osd_a2">ÖSD Zertifikat A2</option>
+    <option value="osd_b1">ÖSD Zertifikat B1</option>
+  </select>
+  <label class="hedef-et" for="hedefTarih">Sınav tarihi (bilmiyorsan boş bırak)</label>
+  <input type="date" id="hedefTarih" class="login-input">
+  <button class="btn-start" style="width:100%;margin-top:14px" onclick="hedefKaydet()">Kaydet</button>
+  <button class="btn-home" style="width:100%;margin-top:8px" onclick="hedefTemizle()">Hedefi sil</button>
 </div>
 
 <!-- AKŞAM KAPISI — 20:00'den sonra açılışta -->
@@ -1717,6 +1753,7 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
     <div class="ds"><div class="dv dv-red" id="gtDW">0</div><div class="dl">Yanlış</div></div>
     <div class="ds"><div class="dv dv-blue" id="gtDP">0%</div><div class="dl">Başarı</div></div>
   </div>
+  <div id="gtHedefWrap"></div>
   <button class="btn-replay" id="gtTekrarBtn" onclick="startGramerTest()">Tekrar</button>
   <button class="btn-home" id="gtKonularBtn" onclick="showScreen('gramerScreen');buildTopicGrid()" style="margin-left:8px">Konular</button>
   <button class="btn-start" id="gtBugunBtn" style="display:none;width:100%" onclick="goTab('bugun')">Bugün ekranına dön</button>
@@ -3016,7 +3053,7 @@ const ALL_SCREENS = ['homeScreen','konuListScreen','konuScreen','horenScreen','h
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
   'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen',
-  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','denemeDoneScreen','aksamKapiScreen','aiChatScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
+  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','denemeDoneScreen','aksamKapiScreen','hedefScreen','aiChatScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
   'sceneScreen','sceneDoneScreen','topicWriteScreen','topicWriteDoneScreen'];
 
 let curScreen='homeScreen';
@@ -4118,6 +4155,12 @@ function openKonu(no,adim){
   renderKonu();
 }
 
+function b1Notu(k){
+  if(!k.b1) return '';
+  const b=hedefBilgi();
+  if(b&&b.seviye&&b.seviye!=='A1') return '';
+  return '<div class="hedef-not">ℹ️ Bu konu <b>B1</b> seviyesindedir; '+(b?'hedefin A1 olduğu için ':'')+'Goethe Start Deutsch 1 (A1) sınavında çıkmayabilir.</div>';
+}
 function renderKonu(){
   const k=AKTIF_KONU; if(!k) return;
   document.getElementById('konuNo').textContent=k.no;
@@ -4137,7 +4180,7 @@ function renderKonu(){
     const a=k.anlatim?anlatimGetir(k.anlatim):null;
     const grKart=(!a&&k.gr)?(GRAMER_TOPICS.find(t=>t.id===k.gr)||{}).rule:null;
     if(a){
-      g.innerHTML='<div class="anlatim-kaynak">Kaynak: '+a.kaynak+'</div>'+
+      g.innerHTML=b1Notu(k)+'<div class="anlatim-kaynak">Kaynak: '+a.kaynak+'</div>'+
         '<div class="rule-card">'+a.html+'</div>'+
         (k.slayt?'<button class="btn-toggle" style="width:100%;margin-top:10px" onclick="openSlideDeck(\''+k.slayt+'\')">🎬 Animasyonlu anlatımı izle</button>':'')+
         '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam</button>';
@@ -4147,7 +4190,7 @@ function renderKonu(){
         '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam</button>';
     } else {
       const baskaAdim=konuAdimVar(k,'kelime')||konuAdimVar(k,'alistir')||konuAdimVar(k,'test');
-      g.innerHTML='<div class="konu-bos">📝 Bu konunun anlatımı henüz hazırlanıyor.<br><small>Kaynak: '+kaynakAdi(k.kaynak)+'</small></div>'+
+      g.innerHTML=b1Notu(k)+'<div class="konu-bos">📝 Bu konunun anlatımı henüz hazırlanıyor.<br><small>Kaynak: '+kaynakAdi(k.kaynak)+'</small></div>'+
         (baskaAdim?'<button class="konu-ilerle" onclick="konuSonraki()">Devam</button>':'<button class="konu-ilerle" onclick="openKonuListe()">Konu listesine dön</button>');
     }
   }
@@ -4581,6 +4624,12 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'19 Ekim 2026 — Hedef sınav ve geri sayım', items:[
+    '🎯 <b>Hedef sınavını artık uygulamada ayarlıyorsun:</b> Bugün sekmesinin üstündeki karttan sınav türünü (Goethe / telc / ÖSD, A1–B1) ve tarihini seç. Bilmiyorsan "Belirsiz" seç, sonra değiştirirsin.',
+    '⏳ Tarih girersen Bugün ekranında <b>kaç gün kaldığı</b> görünür. Program hedef tarihinden sonra bitiyorsa bunu sana söyler (programı kendiliğinden değiştirmez).',
+    '🅱️ Hedefin A1 iken (ya da belirsizken) bir <b>B1 konusunu</b> açarsan, o konunun A1 sınavında çıkmayabileceğini söyleyen bir not görürsün.',
+    '🌙 İlk akşam sınavını bitirince hedef sorulur; "Sonra" dersen bir daha kendiliğinden sormaz.'
+  ]},
   {date:'19 Ekim 2026 — Akşam sınavı ve takvim hatırlatması', items:[
     '🌙 <b>Akşam sınavı:</b> o güne kadar işlediğin konulardan, zayıf kaldıklarından ve tekrarı gelen kelimelerden kısa bir sınav. Bugün sekmesindeki "Devam et" düğmesi ders adımlarından sonra seni buna getiriyor.',
     '⏰ <b>Saat 20:00\'den sonra uygulamayı açınca önce sınav çıkıyor.</b> Bir kez "Sonra" diyebilirsin; aynı akşam ikinci açışında sınav ertelenemiyor. Sınavı yapınca kapı bir daha çıkmıyor.',
@@ -4736,6 +4785,7 @@ function renderChangelog(){
 function renderHome(){
   ensureDay();
   renderBugun();
+  renderHedefKarti();
   renderSinavGecmis();
   renderKonuOzet();
   renderChangelog();
@@ -6525,6 +6575,7 @@ function showGtDone(){
   if(AKSAM){ aksamBitti(); return; }
   ['gtTekrarBtn','gtKonularBtn'].forEach(i=>{ const e=document.getElementById(i); if(e) e.style.display=''; });
   const bb=document.getElementById('gtBugunBtn'); if(bb) bb.style.display='none';
+  const hw=document.getElementById('gtHedefWrap'); if(hw) hw.innerHTML='';
   const pct=Math.round(gtCorrect/gtQs.length*100);
   document.getElementById('gtDC').textContent=gtCorrect;
   document.getElementById('gtDW').textContent=gtWrong;
@@ -6608,6 +6659,61 @@ function aksamBitti(){
   setProgress(100,toplam+' / '+toplam);
   if(typeof hedefSorusuGoster==='function') hedefSorusuGoster();
 }
+
+// ══════════════════════════════════════════
+//  HEDEF SINAV — uygulama içinde ayarlanır
+// ══════════════════════════════════════════
+const HEDEF_SINAVLAR={
+  belirsiz:{ad:'Belirsiz',seviye:null},
+  goethe_a1:{ad:'Goethe-Zertifikat A1',seviye:'A1'}, goethe_a2:{ad:'Goethe-Zertifikat A2',seviye:'A2'}, goethe_b1:{ad:'Goethe-Zertifikat B1',seviye:'B1'},
+  telc_a1:{ad:'telc Deutsch A1',seviye:'A1'}, telc_a2:{ad:'telc Deutsch A2',seviye:'A2'}, telc_b1:{ad:'telc Deutsch B1',seviye:'B1'},
+  osd_a1:{ad:'ÖSD Zertifikat A1',seviye:'A1'}, osd_a2:{ad:'ÖSD Zertifikat A2',seviye:'A2'}, osd_b1:{ad:'ÖSD Zertifikat B1',seviye:'B1'}
+};
+function hedefBilgi(){
+  const hd=DB.okul&&DB.okul.hedef; if(!hd||!HEDEF_SINAVLAR[hd.tur]) return null;
+  const s=HEDEF_SINAVLAR[hd.tur];
+  const kalan=hd.tarih?Math.round((isoToDate(hd.tarih)-isoToDate(todayStr()))/86400000):null;
+  return {tur:hd.tur,ad:s.ad,seviye:s.seviye,tarih:hd.tarih||null,kalan};
+}
+function trTarih(iso){ const d=isoToDate(iso); return d.getDate()+' '+AY_AD[d.getMonth()]+' '+d.getFullYear(); }
+function renderHedefKarti(){
+  const el=document.getElementById('hedefWrap'); if(!el) return;
+  const b=hedefBilgi();
+  if(!b||b.tur==='belirsiz'){
+    el.innerHTML='<div class="hedef-kart" onclick="openHedef()" role="button"><span>🎯</span><span><b>Hedef sınavını ayarla</b><small>Hangi sınava, ne zaman? Girersen geri sayım burada görünür.</small></span><span>›</span></div>';
+    return;
+  }
+  let sayi='';
+  if(b.kalan!==null) sayi=b.kalan>0?'<b>'+b.kalan+' gün kaldı</b> · '+trTarih(b.tarih):(b.kalan===0?'<b>Sınav bugün!</b>':'Sınav tarihi geçti ('+trTarih(b.tarih)+')');
+  let notlar='';
+  if(b.tarih&&DB.okul.bas){
+    const bitis=okulTarih(PLAN_OKUL.length);
+    if(bitis>b.tarih) notlar+='<div class="hedef-not">⚠️ Programın son günü ('+trTarih(bitis)+') hedef tarihinden sonra. Günleri sıkıştırman gerekebilir.</div>';
+  }
+  el.innerHTML='<div class="hedef-kart" onclick="openHedef()" role="button"><span>🎯</span><span><b>'+b.ad+'</b><small>'+(sayi||'Tarih girilmedi')+'</small></span><span>›</span></div>'+notlar;
+}
+function openHedef(){
+  const hd=DB.okul.hedef||{};
+  showScreen('hedefScreen'); setHeader('🎯 Hedef sınav',false);
+  document.getElementById('hedefTur').value=hd.tur||'belirsiz';
+  document.getElementById('hedefTarih').value=hd.tarih||'';
+}
+function hedefKaydet(){
+  const tur=document.getElementById('hedefTur').value, tarih=document.getElementById('hedefTarih').value||null;
+  DB.okul.hedef={tur,tarih}; DB.okul.hedefSonra=null; saveDB(); goTab('bugun');
+}
+function hedefTemizle(){ DB.okul.hedef=null; saveDB(); goTab('bugun'); }
+// İlk akşam sınavının sonunda (hedef yoksa ve "sonra" denmediyse) sorulur
+function hedefSorusuGoster(){
+  const el=document.getElementById('gtHedefWrap'); if(!el) return;
+  const b=hedefBilgi();
+  if(b||DB.okul.hedefSonra){ el.innerHTML=''; return; }
+  el.innerHTML='<div class="hedef-kart" style="flex-direction:column;align-items:stretch;gap:8px;cursor:default">'+
+    '<b>🎯 Hangi sınava hazırlanıyorsun?</b><small>Tarihi de girersen Bugün ekranında geri sayım görürsün.</small>'+
+    '<button class="btn-start" onclick="openHedef()">Hedefi ayarla</button>'+
+    '<button class="btn-home" onclick="hedefSonra()">Sonra</button></div>';
+}
+function hedefSonra(){ DB.okul.hedefSonra=todayStr(); saveDB(); document.getElementById('gtHedefWrap').innerHTML=''; }
 
 // 20:00'den sonra uygulama açılınca önce sınav önerilir; bir kez ertelenebilir
 function aksamKapiKontrol(){

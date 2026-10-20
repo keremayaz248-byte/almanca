@@ -348,6 +348,65 @@ async function aksamSenaryosu(browser) {
     await ctx.close(); }
 }
 
+// ── Senaryo: hedef sinav (gorev 7.x) ─────────────────────────────────────
+async function hedefSenaryosu(browser) {
+  const { ctx, page } = await sayfaAc(browser, { saat: '2026-10-20T12:00:00' });
+  const hedefMetni = () => page.evaluate(() => document.getElementById('hedefWrap').innerText);
+  await page.evaluate(() => { DB.okul.hedef = null; DB.okul.hedefSonra = null; DB.okul.bas = todayStr(); DB.okul.aksam = {}; saveDB(); goTab('bugun'); });
+
+  kontrol('hedef yokken: Hedef sinavini ayarla karti', /Hedef sınavını ayarla/.test(await hedefMetni()));
+
+  // ayar ekrani
+  await page.click('#hedefWrap .hedef-kart'); await page.waitForTimeout(200);
+  kontrol('ayar ekrani aciliyor', await page.evaluate(() => curScreen === 'hedefScreen'));
+  await page.selectOption('#hedefTur', 'goethe_a1');
+  await page.fill('#hedefTarih', '2026-12-15');
+  await page.click('#hedefScreen .btn-start'); await page.waitForTimeout(250);
+  let m = await hedefMetni();
+  kontrol('geri sayim: Goethe A1, 56 gun kaldi', /Goethe-Zertifikat A1/.test(m) && /56 gün kaldı/.test(m) && /15 Aralık 2026/.test(m), m.replace(/\n/g, ' | '));
+  kontrol('hedef cihazda saklandi', await page.evaluate(() => DB.okul.hedef.tur === 'goethe_a1' && DB.okul.hedef.tarih === '2026-12-15'));
+  await page.reload(); await page.waitForTimeout(400);
+  await page.evaluate(() => goTab('bugun'));
+  kontrol('yeniden acinca hedef duruyor', /56 gün kaldı/.test(await hedefMetni()));
+
+  // program hedeften sonra bitiyor: bas bugun -> bitis 4 Aralik (44 gun sonra) -> hedefi 1 Kasim yap
+  await page.evaluate(() => { DB.okul.hedef = { tur: 'goethe_a1', tarih: '2026-11-20' }; saveDB(); renderHedefKarti(); });
+  m = await hedefMetni();
+  kontrol('program hedeften sonra bitiyorsa uyari', /son günü/.test(m) && /hedef tarihinden sonra/.test(m), m.replace(/\n/g, ' | '));
+  await page.evaluate(() => { DB.okul.hedef = { tur: 'goethe_a1', tarih: '2027-03-01' }; saveDB(); renderHedefKarti(); });
+  kontrol('program hedeften once bitiyorsa uyari yok', !/hedef tarihinden sonra/.test(await hedefMetni()));
+
+  // B1 konusu + hedef A1 -> not
+  await page.evaluate(() => openKonu(47, 0)); await page.waitForTimeout(200);
+  let g = await page.evaluate(() => document.getElementById('konuGovde').innerText);
+  kontrol('hedef A1 iken B1 konusunda seviye notu', /B1 seviyesindedir/.test(g) && /A1/.test(g), g.slice(0, 160));
+  await page.evaluate(() => { DB.okul.hedef = { tur: 'goethe_b1', tarih: null }; saveDB(); openKonu(47, 0); }); await page.waitForTimeout(150);
+  g = await page.evaluate(() => document.getElementById('konuGovde').innerText);
+  kontrol('hedef B1 iken not yok', !/B1 seviyesindedir/.test(g), g.slice(0, 120));
+  await page.evaluate(() => { DB.okul.hedef = null; saveDB(); openKonu(47, 0); }); await page.waitForTimeout(150);
+  g = await page.evaluate(() => document.getElementById('konuGovde').innerText);
+  kontrol('hedef belirsizken not var', /B1 seviyesindedir/.test(g));
+
+  // belirsiz secilirse geri sayim yok
+  await page.evaluate(() => { goTab('bugun'); openHedef(); }); await page.selectOption('#hedefTur', 'belirsiz');
+  await page.click('#hedefScreen .btn-start'); await page.waitForTimeout(200);
+  kontrol('belirsiz: geri sayim gosterilmez', /Hedef sınavını ayarla/.test(await hedefMetni()));
+
+  // ilk aksam sinavi sonunda hedef sorusu + "Sonra"
+  await page.evaluate(() => { DB.okul.hedef = null; DB.okul.hedefSonra = null; DB.okul.aksam = {}; saveDB(); startAksamSinavi(); });
+  await page.evaluate(() => { while (curScreen === 'gramerTestScreen' && gtIdx < gtQs.length) { const q = gtQs[gtIdx]; [...document.querySelectorAll('#gtOpts .gr-opt')].find(b => b.textContent === q.blank).click(); gtNextQ(); } });
+  await page.waitForFunction(() => curScreen === 'gramerTestDoneScreen');
+  kontrol('ilk aksam sinavi sonunda hedef sorusu', /Hangi sınava hazırlanıyorsun/.test(await page.evaluate(() => document.getElementById('gtHedefWrap').innerText)));
+  await page.click('#gtHedefWrap .btn-home'); await page.waitForTimeout(150);
+  kontrol('"Sonra" soruyu kapatir ve hatirlar', await page.evaluate(() => document.getElementById('gtHedefWrap').innerHTML === '' && !!DB.okul.hedefSonra));
+  await page.evaluate(() => { DB.okul.aksam = {}; saveDB(); startAksamSinavi(); });
+  await page.evaluate(() => { while (curScreen === 'gramerTestScreen' && gtIdx < gtQs.length) { const q = gtQs[gtIdx]; [...document.querySelectorAll('#gtOpts .gr-opt')].find(b => b.textContent === q.blank).click(); gtNextQ(); } });
+  await page.waitForFunction(() => curScreen === 'gramerTestDoneScreen');
+  kontrol('"Sonra" dendiyse ikinci sinavda tekrar sorulmaz', await page.evaluate(() => document.getElementById('gtHedefWrap').innerHTML === ''));
+  await tasmaYok(page, 'hedef');
+  await ctx.close();
+}
+
 // Dogrudan calistirildiginda
 if (require.main === module) {
   (async () => {
@@ -360,6 +419,7 @@ if (require.main === module) {
     await gunSenaryosu(browser);
     await sinavSenaryosu(browser);
     await aksamSenaryosu(browser);
+    await hedefSenaryosu(browser);
     // Yeni senaryolar bu satirin ustune eklenir.
     await browser.close();
     console.log('BASARILI:', sonuc.basarili.length);
