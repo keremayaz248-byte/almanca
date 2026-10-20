@@ -112,6 +112,165 @@ async function sekmeSenaryosu(browser) {
   }
 }
 
+// ── Senaryo: okul gunu programi (gorev 4.x) ──────────────────────────────
+async function gunSenaryosu(browser) {
+  const { ctx, page } = await sayfaAc(browser);
+  const kartMetni = () => page.evaluate(() => document.getElementById('bugunWrap').innerText);
+  const basGunOnce = n => page.evaluate(n => { const d = isoToDate(todayStr()); d.setDate(d.getDate() - n); DB.okul.bas = isoLocal(d); saveDB(); renderBugun(); }, n);
+
+  // program baslamamis
+  let t = await kartMetni();
+  kontrol('baslamamis: program baslat dugmesi', /Programı bugün başlat/.test(t) && /konu 1/.test(t), t.slice(0, 80));
+
+  // baslat -> gun 1
+  await page.click('#bugunWrap .bugun-bas'); await page.waitForTimeout(200);
+  t = await kartMetni();
+  kontrol('gun 1 / 45', /Gün 1 \/ 45/.test(t), t.slice(0, 60));
+  kontrol('gun 1 konulari: Alfabe, Selamlasma, Nasilsiniz', /Alfabe/.test(t) && /Selamlaşma/.test(t) && /Nasılsınız/.test(t));
+  kontrol('adimlar: anlatim, alistirma, aksam', /Konu anlatımı/.test(t) && /Alıştırma ve test/.test(t) && /Akşam sınavı/.test(t));
+  kontrol('Devam et dugmesi', /Devam et — Konu anlatımı/.test(t));
+
+  // Devam et -> konu 1 anlatimi
+  await page.click('#bugunWrap .bugun-bas'); await page.waitForTimeout(250);
+  const ekran = await page.evaluate(() => ({ ekran: curScreen, konu: document.getElementById('konuAd').textContent }));
+  kontrol('Devam et konu 1 anlatimini acar', ekran.ekran === 'konuScreen' && /Alfabe/.test(ekran.konu), JSON.stringify(ekran));
+
+  // anlatim adimi bitince sonraki adim: alistirma
+  await page.evaluate(() => { [1, 2, 3].forEach(n => { DB.konu[n] = { adim: 1, bitti: false }; }); saveDB(); goHome(); });
+  await page.waitForTimeout(200); t = await kartMetni();
+  kontrol('anlatim bitti -> sonraki: Alistirma', /Devam et — Alıştırma ve test/.test(t), t.slice(-160));
+
+  // konular bitince sonraki adim: aksam sinavi
+  await page.evaluate(() => { [1, 2, 3].forEach(n => { DB.konu[n] = { adim: 4, bitti: true }; }); saveDB(); renderBugun(); });
+  t = await kartMetni();
+  kontrol('ders bitti -> sonraki: Aksam sinavi', /Devam et — Akşam sınavı/.test(t), t.slice(-160));
+
+  // aksam sinavi yapilinca gun tamam
+  await page.evaluate(() => { DB.okul.aksam[todayStr()] = { yapildi: true }; saveDB(); renderBugun(); });
+  t = await kartMetni();
+  kontrol('gun tamam mesaji', /Bugünü tamamladın/.test(t) && /Yarın:/.test(t), t.slice(-160));
+
+  // kalicilik
+  await page.reload(); await page.waitForTimeout(500);
+  t = await kartMetni();
+  kontrol('yeniden acinca gun ve tamamlanma korunur', /Gün 1 \/ 45/.test(t) && /Bugünü tamamladın/.test(t), t.slice(0, 80));
+
+  // atlanan gun: 3 gun sonra
+  await page.evaluate(() => { DB.konu = {}; DB.okul.aksam = {}; DB.okul.tamam = {}; saveDB(); });
+  await basGunOnce(3);
+  t = await kartMetni();
+  kontrol('gun 4 + eksik gunler listesi', /Gün 4 \/ 45/.test(t) && /Eksik kalan günler/.test(t) && /Gün 1 ·/.test(t) && /Gün 3 ·/.test(t), t.slice(0, 200));
+  await page.click('.okul-eksik .btn-sm-orange'); await page.waitForTimeout(250);
+  kontrol('Tamamla eksik gunun konusunu acar', await page.evaluate(() => curScreen === 'konuScreen'));
+  await page.evaluate(() => goHome());
+
+  // tekrar gunu (gun 7)
+  await basGunOnce(6);
+  t = await kartMetni();
+  kontrol('gun 7 tekrar gunu', /Gün 7 \/ 45/.test(t) && /Tekrar: konu 1–13/.test(t) && /Devam et — Tekrar/.test(t), t.slice(0, 160));
+  await page.click('#bugunWrap .bugun-bas'); await page.waitForTimeout(250);
+  kontrol('tekrar gunu tekrari baslatir ve isaretler', await page.evaluate(() => !!DB.okul.tamam[7] && curScreen !== 'homeScreen'));
+  await page.evaluate(() => goHome());
+
+  // Teil-2 konusu: icerik hazirlaniyor, gunu engellemez
+  await page.evaluate(() => { DB.okul.tamam = {}; DB.okul.aksam = {}; saveDB(); });
+  await basGunOnce(28);
+  t = await kartMetni();
+  kontrol('gun 29: Genitiv hazirlaniyor, ders adimlari engellemiyor', /Gün 29 \/ 45/.test(t) && /Genitiv/.test(t) && /hazırlanıyor/.test(t) && /Devam et — Akşam sınavı/.test(t), t.slice(0, 220));
+
+  // program sonu
+  await basGunOnce(60);
+  t = await kartMetni();
+  kontrol('program sonunda son gune sabitlenir (45)', /Gün 45 \/ 45/.test(t), t.slice(0, 60));
+  await tasmaYok(page, 'bugun karti');
+  await ctx.close();
+}
+
+// ── Senaryo: sinav akisi (gorev 5.x) ─────────────────────────────────────
+async function sinavSenaryosu(browser) {
+  const { ctx, page } = await sayfaAc(browser);
+  const ekranBekle = (ad) => page.waitForFunction(a => curScreen === a, ad, { timeout: 15000 });
+  // Hören oturumunu bitirir: yanlisIdx'teki sorulari bilerek yanlis yapar
+  const horenBitir = (yanlisIdx) => page.evaluate((yanlis) => {
+    while (curScreen === 'horenScreen') {
+      const q = hQs[hIdx];
+      const sec = yanlis.includes(hIdx) ? (q.c + 1) % q.o.length : q.c;
+      document.querySelectorAll('#horenOpts .opt')[sec].click();
+      horenSonraki();
+    }
+  }, yanlisIdx);
+
+  // 1) Hören: Teil sirali, 6+4+5
+  await page.evaluate(() => startDinleme()); await ekranBekle('horenScreen');
+  const d1 = await page.evaluate(() => ({ teil: hQs.map(q => q.teil), toplam: hQs.length }));
+  const sayim = [1, 2, 3].map(t => d1.teil.filter(x => x === t).length);
+  const sirali = d1.teil.every((x, i) => i === 0 || x >= d1.teil[i - 1]);
+  kontrol('Horen: Teil 1 → 2 → 3 sirali', sirali, d1.teil.join(''));
+  kontrol('Horen: 6 + 4 + 5 = 15 madde', sayim.join() === '6,4,5', sayim.join());
+  const bolum = await page.evaluate(() => document.getElementById('horenTeil').textContent);
+  kontrol('Horen: Teil yonergesi gorunur', /Teil 1 · kısa diyalog/.test(bolum), bolum);
+  const kez = await page.evaluate(() => document.getElementById('horenKez').textContent);
+  kontrol('Horen: yeni bolum duyurusu', /Yeni bölüm/.test(kez), kez);
+
+  // 2) iki soruyu yanlis yap -> sonuc kaydi + zayif konu
+  const beklenenZayif = await page.evaluate(() => [...new Set(hQs.slice(0, 2).map(q => HOREN_KONU_ESLE[q.konu]).filter(n => n))].sort());
+  await horenBitir([0, 1]);
+  await ekranBekle('horenDoneScreen');
+  const k1 = await page.evaluate(() => { const s = DB.okul.sinav; return { son: s[s.length - 1], zayif: DB.okul.zayif }; });
+  kontrol('Horen sonucu kaydedildi', k1.son && k1.son.bolum === 'horen' && k1.son.toplam === 15 && k1.son.dogru === 13, JSON.stringify(k1.son));
+  kontrol('yanlis yapilan konular kayitta ve zayif listesinde', JSON.stringify([...k1.son.zayif].sort()) === JSON.stringify(beklenenZayif) && beklenenZayif.every(n => k1.zayif[n]), 'beklenen ' + beklenenZayif + ' kayit ' + JSON.stringify(k1));
+
+  // 3) Lesen
+  await page.evaluate(() => openLesen()); await ekranBekle('lesenScreen');
+  await page.evaluate(() => { while (curScreen === 'lesenScreen') { const it = lQs[lIdx]; document.querySelectorAll('#lesenOpts .opt')[it.q.c].click(); lesenSonraki(); } });
+  await ekranBekle('lesenDoneScreen');
+  const k2 = await page.evaluate(() => DB.okul.sinav[DB.okul.sinav.length - 1]);
+  kontrol('Lesen sonucu kaydedildi (15 soru)', k2.bolum === 'lesen' && k2.toplam === 15 && k2.dogru === 15, JSON.stringify(k2));
+
+  // 4) kalicilik + Sinav sekmesinde gecmis
+  await page.reload(); await page.waitForTimeout(500);
+  await page.evaluate(() => goTab('sinav')); await page.waitForTimeout(200);
+  const g = await page.evaluate(() => document.getElementById('sinavGecmisWrap').innerText);
+  kontrol('yeniden acinca gecmis duruyor (Horen + Lesen)', /Hören/.test(g) && /Lesen/.test(g), g.replace(/\n/g, ' | '));
+
+  // 5) etiket esleme tablosu eksiksiz
+  const eksik = await page.evaluate(() => [...new Set(SINAV_HOREN.map(q => q.konu))].filter(e => !(e in HOREN_KONU_ESLE)));
+  kontrol('eslenmemis sinav etiketi 0', eksik.length === 0, eksik.join());
+  const gecersiz = await page.evaluate(() => Object.values(HOREN_KONU_ESLE).filter(n => n && !konuBul(n)));
+  kontrol('esleme tablosundaki her konu gercek', gecersiz.length === 0, gecersiz.join());
+
+  // 6) zayif konu ertesi gun tekrar adimi
+  await page.evaluate(() => { DB.okul.bas = todayStr(); DB.okul.zayif = { 6: '2000-01-01' }; DB.konu = {}; DB.okul.aksam = {}; saveDB(); goTab('bugun'); });
+  await page.waitForTimeout(200);
+  let t = await page.evaluate(() => document.getElementById('bugunWrap').innerText);
+  kontrol('Bugun: zayif konu tekrar adimi cikti', /Zayıf konu tekrarı: Sayılar/.test(t) && /Devam et — Zayıf konu/.test(t), t.slice(0, 200));
+  await page.click('#bugunWrap .bugun-bas'); await page.waitForTimeout(250);
+  const acik = await page.evaluate(() => ({ e: curScreen, k: document.getElementById('konuAd').textContent, kaldi: !!DB.okul.zayif[6] }));
+  kontrol('Devam et zayif konuyu acar ve listeden duser', acik.e === 'konuScreen' && /Sayılar/.test(acik.k) && !acik.kaldi, JSON.stringify(acik));
+  await page.evaluate(() => goHome());
+
+  // 7) Deneme sinavi: Horen -> Lesen -> Schreiben -> ozet
+  await page.evaluate(() => startDeneme()); await ekranBekle('horenScreen');
+  await page.evaluate(() => { while (curScreen === 'horenScreen' && hIdx < hQs.length) { document.querySelectorAll('#horenOpts .opt')[hQs[hIdx].c].click(); horenSonraki(); } });
+  await ekranBekle('lesenScreen');
+  kontrol('deneme: Horen sonrasi Lesen kendiliginden', true);
+  await page.evaluate(() => { while (curScreen === 'lesenScreen' && lIdx < lQs.length) { document.querySelectorAll('#lesenOpts .opt')[lQs[lIdx].q.c].click(); lesenSonraki(); } });
+  await ekranBekle('yazmaScreen');
+  kontrol('deneme: Lesen sonrasi Schreiben kendiliginden', true);
+  await page.evaluate(() => { let n = 0; while (curScreen === 'yazmaScreen' && yzIdx < yzChunks.length && n++ < 20) { const c = yzChunks[yzIdx]; document.getElementById('yazmaInput').value = c.de; checkYazma(); yazmaNextQ(); } });
+  await ekranBekle('denemeDoneScreen');
+  const oz = await page.evaluate(() => ({ metin: document.getElementById('denemeOzet').innerText, sub: document.getElementById('denemeDoneSub').textContent, son: DB.okul.sinav[DB.okul.sinav.length - 1] }));
+  kontrol('deneme ozeti: uc bolum + toplam', /Hören/.test(oz.metin) && /Lesen/.test(oz.metin) && /Schreiben/.test(oz.metin) && /Toplam/.test(oz.sub), oz.metin.replace(/\n/g, ' | '));
+  kontrol('deneme sonucu kaydedildi', oz.son.bolum === 'deneme' && oz.son.dogru === oz.son.toplam, JSON.stringify(oz.son));
+
+  // 8) deneme yarida birakilirsa normal oturum denemeye karismaz
+  await page.evaluate(() => { startDeneme(); }); await ekranBekle('horenScreen');
+  await page.evaluate(() => goHome());
+  kontrol('goHome denemeyi temizler', await page.evaluate(() => DENEME === null));
+  await tasmaYok(page, 'sinav akisi');
+  await ctx.close();
+}
+
 // Dogrudan calistirildiginda
 if (require.main === module) {
   (async () => {
@@ -121,6 +280,8 @@ if (require.main === module) {
     await tasmaYok(page, 'ana ekran');
     await ctx.close();
     await sekmeSenaryosu(browser);
+    await gunSenaryosu(browser);
+    await sinavSenaryosu(browser);
     // Yeni senaryolar bu satirin ustune eklenir.
     await browser.close();
     console.log('BASARILI:', sonuc.basarili.length);

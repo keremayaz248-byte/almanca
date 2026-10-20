@@ -1030,6 +1030,20 @@ html[data-theme="dark"] .login-input{color:var(--text)}
 .ek-head::after{display:none}
 .ek-head small{text-transform:none;letter-spacing:0}
 
+/* ── Sınav geçmişi ── */
+.sinav-gecmis{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.sg-sat{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:var(--white);border:2px solid var(--border);font-size:.86rem}
+.sg-ok{color:var(--green-dark);font-weight:800}
+.sg-kotu{color:var(--red);font-weight:800}
+
+/* ── Okul günü kartı ── */
+.okul-giris{font-size:.9rem;line-height:1.55;margin:4px 0 14px}
+.okul-adimlar{display:flex;flex-direction:column;gap:6px;margin:12px 0}
+.okul-adim{display:flex;gap:10px;align-items:center;padding:9px 12px;background:var(--bg);font-size:.88rem;font-weight:700}
+.okul-adim.bitti{color:var(--light);text-decoration:line-through}
+.okul-eksik{margin-top:14px;padding:11px 12px;border:2px dashed var(--border);font-size:.84rem}
+.okul-eksik-sat{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
+
 /* ── Ana ekran sekmeleri + alt menü ── */
 .tab-sec{display:none}
 #homeScreen[data-hometab="bugun"] .tab-sec[data-tab="bugun"],
@@ -1184,6 +1198,9 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   </div>
 
   <div class="tab-sec" data-tab="ogren">
+  <button class="btn-start" style="width:100%;margin-top:14px" onclick="startDeneme()">📝 Deneme sınavı — Hören → Lesen → Schreiben</button>
+  <div class="sec-head">🕘 Son sonuçlar</div>
+  <div id="sinavGecmisWrap"></div>
   <!-- ══ BÖLÜM C: KONULAR ══ 38 konuluk omurga -->
   <div class="sec-head">📚 Konular</div>
   <div id="konuOzetWrap"></div>
@@ -1399,6 +1416,16 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
     <div class="fb-body" id="horenFbBody"></div>
   </div>
   <button class="btn-next" id="horenNext" onclick="horenSonraki()">Sonraki</button>
+</div>
+
+<!-- DENEME SINAVI BİTTİ -->
+<div id="denemeDoneScreen">
+  <div class="trophy">📝</div>
+  <div class="done-title">Deneme sınavı bitti</div>
+  <div class="done-sub" id="denemeDoneSub"></div>
+  <div class="sinav-gecmis" id="denemeOzet"></div>
+  <button class="btn-replay" onclick="startDeneme()">Tekrar dene</button>
+  <button class="btn-home" onclick="goTab('sinav')">Sınav sekmesi</button>
 </div>
 
 <!-- HÖREN BİTTİ -->
@@ -2145,7 +2172,7 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
 //  Tüm ilerleme tarayıcıda saklanır; sekme kapansa da kalır.
 // ══════════════════════════════════════════
 const SKEY='almanca_v1';
-function defaultDB(){return{srs:{},xp:0,streak:{cur:0,max:0,last:null},daily:{date:null,xp:0,goal:40},grammar:{},mistakes:[],bestGameScore:0,plan:{bas:null,tamam:{}}, konu:{}};}
+function defaultDB(){return{srs:{},xp:0,streak:{cur:0,max:0,last:null},daily:{date:null,xp:0,goal:40},grammar:{},mistakes:[],bestGameScore:0,plan:{bas:null,tamam:{}}, konu:{}, okul:{bas:null,tamam:{},aksam:{},hedef:null,sinav:[]}};}
 let DB=loadDB();
 function loadDB(){try{const r=JSON.parse(localStorage.getItem(SKEY));if(!r)return defaultDB();const d=defaultDB();return{...d,...r,streak:{...d.streak,...(r.streak||{})},daily:{...d.daily,...(r.daily||{})}};}catch(e){return defaultDB();}}
 function saveDB(){try{localStorage.setItem(SKEY,JSON.stringify(DB));}catch(e){}}
@@ -2967,7 +2994,7 @@ const ALL_SCREENS = ['homeScreen','konuListScreen','konuScreen','horenScreen','h
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
   'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen',
-  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','aiChatScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
+  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','denemeDoneScreen','aiChatScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
   'sceneScreen','sceneDoneScreen','topicWriteScreen','topicWriteDoneScreen'];
 
 let curScreen='homeScreen';
@@ -3062,8 +3089,18 @@ const KONULAR=[
  {no:42,ad:'A2 · Futur I',              de:'Futur I',                 kaynak:{p:'a2',s:'—'},     anlatim:null, ek:true, kat:null,              gr:'futur',       slayt:'futur',    alis:['gramer:futur']},
  {no:43,ad:'Günlük Kelimeler',          de:'Nomen & Alltag',          kaynak:{p:'kl',s:'—'},     anlatim:null, ek:true, kat:'İsimler',         gr:null,          slayt:null,       alis:['kelime:İsimler']},
  {no:44,ad:'Çiftlik & Medeni Durum',    de:'Bauernhof & Familienstand',kaynak:{p:'kl',s:'—'},    anlatim:null, ek:true, kat:'Çiftlik',         gr:null,          slayt:null,       alis:['kelime:Çiftlik','kelime:Medeni Durum']},
+ // ── Teil-2 (B1) — kaynak: icerik/temiz/teil2.txt ──
+ {no:45,ad:'Genitiv Edatları',          de:'Genitiv Präpositionen',   kaynak:{p:'t2',s:'113'},    anlatim:null, b1:true, kat:null,             gr:null,          slayt:null,       alis:[]},
+ {no:46,ad:'İkili Bağlaçlar',           de:'Zweiteilige Konjunktionen',kaynak:{p:'t2',s:'—'},     anlatim:null, b1:true, kat:null,             gr:null,          slayt:null,       alis:[]},
+ {no:47,ad:'Konjunktiv II',             de:'Konjunktiv II',           kaynak:{p:'t2',s:'—'},       anlatim:null, b1:true, kat:null,             gr:null,          slayt:null,       alis:[]},
+ {no:48,ad:'Plusquamperfekt',           de:'Plusquamperfekt',         kaynak:{p:'t2',s:'—'},       anlatim:null, b1:true, kat:null,             gr:null,          slayt:null,       alis:[]},
+ {no:49,ad:'Futur II',                  de:'Futur II',                kaynak:{p:'t2',s:'—'},       anlatim:null, b1:true, kat:null,             gr:null,          slayt:null,       alis:[]},
 ];
 function konuBul(no){ return KONULAR.find(k=>k.no===no)||null; }
+const KAYNAK_AD={t1:'Teil-1',kl:'Kalan Üniteler',a2:'A2 Dosyası',t2:'Teil-2'};
+function kaynakAdi(c){ return (KAYNAK_AD[c.p]||c.p)+(c.s&&c.s!=='—'?' s.'+c.s:''); }
+// Anlatımı/alıştırması hiç olmayan konu (ör. Teil-2'nin henüz yazılmamış konuları)
+function konuIcerikVar(k){ return !!(k.anlatim||k.gr||k.slayt||(k.alis&&k.alis.length)||k.kat); }
 
 // ══════════════════════════════════════════
 //  KONU ANLATIMLARI — hocanin kendi slaytlarindan yazildi
@@ -3704,7 +3741,7 @@ function lesenTumSorular(){
 let lQs=[], lIdx=0, lDog=0, lYan=0, lCevapli=false;
 
 function openLesen(){
-  lQs=lesenTumSorular(); lIdx=0; lDog=0; lYan=0;
+  lQs=lesenTumSorular(); lIdx=0; lDog=0; lYan=0; lZayif=[];
   setHeader('📖 Okuma',true,'✅ 0','❌ 0');
   showScreen('lesenScreen');
   setProgress(0,'0 / '+lQs.length);
@@ -3747,7 +3784,7 @@ function lesenPick(i,btn,q){
     if(j===q.c) b.classList.add('correct');
   });
   const ok=i===q.c;
-  if(ok){ lDog++; awardXP(10); } else { btn.classList.add('wrong'); lYan++; }
+  if(ok){ lDog++; awardXP(10); } else { btn.classList.add('wrong'); lYan++; lZayif.push('lesen'); }
   srsUpdate('lesen:'+q.s.slice(0,24), ok);
   registerStudy(); feedbackFx(ok,btn);
   const fb=document.getElementById('lesenFb');
@@ -3766,6 +3803,8 @@ function showLesenDone(){
   document.getElementById('lesenDoneSub').textContent=
     y>=80?'Çok iyi! Okuma bölümüne hazırsın.':y>=60?'Geçer not sınırındasın (60).':'Metinleri Türkçesiyle birlikte tekrar oku.';
   setProgress(100,lQs.length+' / '+lQs.length);
+  sinavKaydet('lesen',lDog,lQs.length,lZayif);
+  if(DENEME){ denemeIlerle('lesen',lDog,lQs.length); return; }
   showScreen('lesenDoneScreen');
 }
 
@@ -3801,7 +3840,76 @@ function almancaSesSec(sesler){
 let HOREN_SESLER=null;   // [almanca sesler]
 let HOREN_SESSIZ=false;  // hic ses yoksa metin modu
 
-let hQs=[], hIdx=0, hDogru=0, hYanlis=0, hCevapli=false, hKez=0;
+let hQs=[], hIdx=0, hDogru=0, hYanlis=0, hCevapli=false, hKez=0, hZayif=[], lZayif=[];
+
+// Gerçek sınav gibi: Teil 1 → Teil 2 → Teil 3. Her Teil kendi içinde karışır.
+// Konu verilmemişse sınav boyu: 6 + 4 + 5 = 15 madde.
+function horenTeilSirali(liste,adet){
+  const out=[];
+  [1,2,3].forEach(t=>{
+    const havuz=shuffle(liste.filter(q=>q.teil===t));
+    out.push(...havuz.slice(0,adet?adet[t]:havuz.length));
+  });
+  return out;
+}
+const HOREN_TEIL_YONERGE={
+  1:'Teil 1 · kısa diyalog — a, b veya c seç',
+  2:'Teil 2 · anons — richtig (doğru) / falsch (yanlış)',
+  3:'Teil 3 · kısa konuşma — a, b veya c seç'};
+// Sınav konu etiketi → KONULAR.no (null = karşılık gelen konu yok)
+const HOREN_KONU_ESLE={sayilar:6,saat:28,yiyecek:25,aile:33,selam:2,hava:16,meslek:18,kiyafet:13,telefon:6,yemek:25,randevu:28,
+  yon:null,seyahat:null,alisveris:null,tamir:null,ulasim:null,ders:null,anons:null};
+
+// Sınav sonucunu cihazda sakla; yanlış yapılan konuyu zayıf işaretle (ertesi gün Bugün'de tekrar adımı olur)
+function sinavKaydet(bolum,dogru,toplam,zayifEtiketler){
+  const o=DB.okul; o.sinav=o.sinav||[]; o.zayif=o.zayif||{};
+  const konular=[...new Set((zayifEtiketler||[]).map(e=>HOREN_KONU_ESLE[e]).filter(n=>n))];
+  konular.forEach(n=>{ srsUpdate('konu:'+n,false); o.zayif[n]=todayStr(); });
+  o.sinav.push({tarih:todayStr(),bolum,dogru,toplam,zayif:konular});
+  if(o.sinav.length>60) o.sinav=o.sinav.slice(-60);
+  saveDB();
+}
+const SINAV_BOLUM_AD={horen:'Hören',lesen:'Lesen',schreiben:'Schreiben',aksam:'Akşam sınavı',deneme:'Deneme'};
+function renderSinavGecmis(){
+  const el=document.getElementById('sinavGecmisWrap'); if(!el) return;
+  const l=((DB.okul||{}).sinav||[]).slice(-8).reverse();
+  if(!l.length){ el.innerHTML='<div class="okul-giris" style="color:var(--light)">Henüz sınav sonucu yok. Bir bölümü bitirince burada görünür.</div>'; return; }
+  el.innerHTML='<div class="sinav-gecmis">'+l.map(s=>{
+    const y=s.toplam?Math.round(s.dogru/s.toplam*100):0;
+    return '<div class="sg-sat"><span>'+s.tarih.slice(5).replace('-','.')+'</span><b>'+(SINAV_BOLUM_AD[s.bolum]||s.bolum)+'</b>'+
+           '<span>'+s.dogru+' / '+s.toplam+'</span><span class="'+(y>=60?'sg-ok':'sg-kotu')+'">%'+y+'</span></div>';
+  }).join('')+'</div>';
+}
+
+// Deneme sınavı: Hören → Lesen → Schreiben, sonunda tek özet
+let DENEME=null;
+function startDeneme(){ DENEME={asama:0,sonuc:[]}; denemeAsama(); }
+function denemeAsama(){
+  if(!DENEME) return;
+  const a=DENEME.asama;
+  if(a===0) startDinleme();
+  else if(a===1) openLesen();
+  else if(a===2){
+    const aday=YAZMA_TEXTS.map((t,i)=>i).filter(i=>YAZMA_TEXTS[i].chunks.length<=6);
+    startYazma((shuffle(aday)[0])||0);
+  } else denemeBitti();
+}
+function denemeIlerle(bolum,dogru,toplam){
+  DENEME.sonuc.push({bolum,dogru,toplam}); DENEME.asama++;
+  setTimeout(denemeAsama,0);
+}
+function denemeBitti(){
+  const s=DENEME.sonuc, d=s.reduce((a,x)=>a+x.dogru,0), t=s.reduce((a,x)=>a+x.toplam,0);
+  sinavKaydet('deneme',d,t,[]);
+  const y=t?Math.round(d/t*100):0;
+  document.getElementById('denemeDoneSub').textContent='Toplam '+d+' / '+t+' doğru (%'+y+')'+(y>=60?' — geçer not sınırının üstündesin.':' — geçer not sınırı %60.');
+  document.getElementById('denemeOzet').innerHTML=s.map(x=>{
+    const yy=x.toplam?Math.round(x.dogru/x.toplam*100):0;
+    return '<div class="sg-sat"><b>'+(SINAV_BOLUM_AD[x.bolum]||x.bolum)+'</b><span>'+x.dogru+' / '+x.toplam+'</span><span class="'+(yy>=60?'sg-ok':'sg-kotu')+'">%'+yy+'</span></div>';
+  }).join('');
+  DENEME=null;
+  showScreen('denemeDoneScreen'); setProgress(100,'');
+}
 
 async function startDinleme(konu){
   if(!('speechSynthesis' in window)){
@@ -3817,8 +3925,8 @@ async function startDinleme(konu){
   if(HOREN_SESSIZ && hepsi.length){
     alert('Telefonunda Almanca ses paketi bulunamadı.\n\nDinleme yine açılacak ama ses yerine METİN gösterilecek.\n\nSesi açmak için: Ayarlar → Diller / Metin okuma → Almanca (Deutsch) paketini indir.');
   }
-  hQs=shuffle(horenSecim(konu)).slice(0,10);
-  hIdx=0; hDogru=0; hYanlis=0;
+  hQs=konu?horenTeilSirali(horenSecim(konu)):horenTeilSirali(SINAV_HOREN,{1:6,2:4,3:5});
+  hIdx=0; hDogru=0; hYanlis=0; hZayif=[];
   setHeader('🎧 Dinleme',true,'✅ 0','❌ 0');
   showScreen('horenScreen');
   setProgress(0,'0 / '+hQs.length);
@@ -3829,10 +3937,13 @@ function renderHoren(){
   const q=hQs[hIdx]; if(!q){ showHorenDone(); return; }
   hCevapli=false; hKez=0;
   try{ window.speechSynthesis.cancel(); }catch(e){}
-  document.getElementById('horenTeil').textContent='Teil '+q.teil+(q.teil===2?' · richtig / falsch':'');
+  document.getElementById('horenTeil').textContent=HOREN_TEIL_YONERGE[q.teil]||('Teil '+q.teil);
   document.getElementById('horenSoru').textContent=q.soru;
   document.getElementById('horenTr').textContent=q.tr;
-  document.getElementById('horenKez').textContent='Metni istediğin kadar dinleyebilirsin.';
+  const oncekiTeil=hIdx>0?hQs[hIdx-1].teil:null;
+  document.getElementById('horenKez').textContent=(oncekiTeil!==q.teil)
+    ? 'Yeni bölüm: '+(HOREN_TEIL_YONERGE[q.teil]||'')+'. Metni istediğin kadar dinleyebilirsin.'
+    : 'Metni istediğin kadar dinleyebilirsin.';
   document.getElementById('horenPlay').className='horen-play';
   document.getElementById('horenPlay').textContent='▶ Dinle';
   const fb=document.getElementById('horenFb'); fb.className='fb-box';
@@ -3910,7 +4021,7 @@ function horenPick(i,btn,q){
     if(j===q.c) b.classList.add('correct');
   });
   const ok=i===q.c;
-  if(ok){ hDogru++; awardXP(10); } else { btn.classList.add('wrong'); hYanlis++; }
+  if(ok){ hDogru++; awardXP(10); } else { btn.classList.add('wrong'); hYanlis++; hZayif.push(q.konu); }
   srsUpdate('horen:'+q.soru.slice(0,24), ok);
   registerStudy(); feedbackFx(ok,btn);
   const fb=document.getElementById('horenFb');
@@ -3935,6 +4046,8 @@ function showHorenDone(){
   document.getElementById('horenDoneSub').textContent=
     y>=80?'Harika! Sınav dinleme bölümüne hazırsın.':y>=60?'Fena değil — geçer not sınırındasın (60).':'Biraz daha çalışmak lazım. Metinleri tekrar dinle.';
   setProgress(100,hQs.length+' / '+hQs.length);
+  sinavKaydet('horen',hDogru,hQs.length,hZayif);
+  if(DENEME){ denemeIlerle('horen',hDogru,hQs.length); return; }
   showScreen('horenDoneScreen');
 }
 
@@ -3962,7 +4075,7 @@ function konuDurum(no){
   return isDue('konu:'+no)?'tekrar':'tamam';
 }
 function konuAdimVar(k,adimKey){
-  if(adimKey==='anlatim') return !!(k.anlatim||k.gr||k.slayt);
+  if(adimKey==='anlatim') return !!(k.anlatim||k.gr||k.slayt||k.b1);
   if(adimKey==='kelime')  return !!k.kat;
   if(adimKey==='alistir') return !!(k.alis&&k.alis.length);
   if(adimKey==='test')    return !!k.gr;
@@ -4010,8 +4123,9 @@ function renderKonu(){
         (k.slayt?'<button class="btn-toggle" style="width:100%;margin-top:10px" onclick="openSlideDeck(\''+k.slayt+'\')">🎬 Animasyonlu anlatımı izle</button>':'')+
         '<button class="konu-ilerle" onclick="konuSonraki()">Anladım, devam</button>';
     } else {
-      g.innerHTML='<div class="konu-bos">📝 Bu konunun anlatımı henüz hazırlanıyor.<br><small>Kaynak: '+k.kaynak.p+' s.'+k.kaynak.s+'</small></div>'+
-        '<button class="konu-ilerle" onclick="konuSonraki()">Devam</button>';
+      const baskaAdim=konuAdimVar(k,'kelime')||konuAdimVar(k,'alistir')||konuAdimVar(k,'test');
+      g.innerHTML='<div class="konu-bos">📝 Bu konunun anlatımı henüz hazırlanıyor.<br><small>Kaynak: '+kaynakAdi(k.kaynak)+'</small></div>'+
+        (baskaAdim?'<button class="konu-ilerle" onclick="konuSonraki()">Devam</button>':'<button class="konu-ilerle" onclick="openKonuListe()">Konu listesine dön</button>');
     }
   }
   else if(adim==='kelime'){
@@ -4070,7 +4184,6 @@ function konuBitir(){
   const d=konuDurumKaydi(k.no);
   d.bitti=true; d.adim=4; saveDB();
   srsUpdate('konu:'+k.no,true);
-  gunKontrol();
   document.getElementById('konuGovde').innerHTML=
     '<div class="bugun-tamam">🎉 <b>'+k.ad+'</b> tamamlandı!<br><small>Bu konu belirli aralıklarla tekrar karşına çıkacak.</small></div>'+
     '<button class="konu-ilerle" onclick="goHome()">Ana ekrana dön</button>';
@@ -4084,7 +4197,7 @@ function renderKonuListe(){
   const nokta={yok:'kd-yok',devam:'kd-dev',tamam:'kd-ok',tekrar:'kd-tek'};
   let h='', sonGrup='';
   KONULAR.forEach(k=>{
-    const grup=k.ek?'Ek Konular':(k.no<=24?'A1 · Temel (1-24)':'A1 · İleri (25-38)');
+    const grup=k.b1?'B1 · Teil-2':(k.ek?'Ek Konular':(k.no<=24?'A1 · Temel (1-24)':'A1 · İleri (25-38)'));
     if(grup!==sonGrup){ h+='<div class="konu-grup">'+grup+'</div>'; sonGrup=grup; }
     const dur=konuDurum(k.no);
     const anlatimVar=!!(k.anlatim||k.gr||k.slayt);
@@ -4098,64 +4211,113 @@ function renderKonuListe(){
   document.getElementById('konuListe').innerHTML=h; klavyeyeAc();
 }
 
-// ── Gunluk akis ───────────────────────────
-// Gun maddesinin konu numarasi: m[0] (0 ise konu yok, tekrar/hafif gun demek)
-function gunKonulari(g){
-  return (g.k||[]).map(m=>m[0]).filter(n=>n>0).map(n=>konuBul(n)).filter(Boolean);
+// ── Okul günü programı ────────────────────
+// k: o gün işlenen konu numaraları (KONULAR.no). t: yeni | tekrar | sinav.
+// Konu 1'den başlar: Teil-1 → Kalan Üniteler → Ek konular → Teil-2 → tekrar ve deneme.
+const PLAN_OKUL=[
+ {g:1,t:'yeni',k:[1,2,3]},   {g:2,t:'yeni',k:[4,5]},     {g:3,t:'yeni',k:[6,7]},    {g:4,t:'yeni',k:[8,9]},
+ {g:5,t:'yeni',k:[10,11]},   {g:6,t:'yeni',k:[12,13]},   {g:7,t:'tekrar',ad:'Tekrar: konu 1–13'},
+ {g:8,t:'yeni',k:[14]},      {g:9,t:'yeni',k:[15,16]},   {g:10,t:'yeni',k:[17,18]},  {g:11,t:'yeni',k:[19]},
+ {g:12,t:'yeni',k:[20,21]},  {g:13,t:'yeni',k:[22,23]},  {g:14,t:'tekrar',ad:'Tekrar: konu 14–23'},
+ {g:15,t:'yeni',k:[24,25]},  {g:16,t:'yeni',k:[26]},     {g:17,t:'yeni',k:[27]},     {g:18,t:'yeni',k:[28,29]},
+ {g:19,t:'yeni',k:[30]},     {g:20,t:'tekrar',ad:'Tekrar: konu 24–30'},
+ {g:21,t:'yeni',k:[31,32]},  {g:22,t:'yeni',k:[33,34]},  {g:23,t:'yeni',k:[35]},     {g:24,t:'yeni',k:[36]},
+ {g:25,t:'yeni',k:[37,38]},  {g:26,t:'tekrar',ad:'Tekrar: konu 31–38'},
+ {g:27,t:'yeni',k:[39,40]},  {g:28,t:'yeni',k:[41]},     {g:29,t:'yeni',k:[45]},     {g:30,t:'yeni',k:[46]},
+ {g:31,t:'tekrar',ad:'Tekrar: konu 39–41, 45–46'},
+ {g:32,t:'yeni',k:[47]},     {g:33,t:'yeni',k:[48]},     {g:34,t:'yeni',k:[42]},     {g:35,t:'yeni',k:[49]},
+ {g:36,t:'tekrar',ad:'Tekrar: Teil-2 konuları (Konjunktiv II, Plusquamperfekt, Futur I–II)'},
+ {g:37,t:'yeni',k:[43]},     {g:38,t:'yeni',k:[44]},
+ {g:39,t:'tekrar',ad:'Genel tekrar: A1 (konu 1–40)'},
+ {g:40,t:'tekrar',ad:'Genel tekrar: Teil-2 ve bağlaçlar'},
+ {g:41,t:'tekrar',ad:'Zayıf konular tekrarı'}, {g:42,t:'tekrar',ad:'Zayıf konular tekrarı'},
+ {g:43,t:'tekrar',ad:'Genel tekrar: kelimeler ve gramer'}, {g:44,t:'tekrar',ad:'Genel tekrar: dinleme ve okuma'},
+ {g:45,t:'sinav',ad:'Deneme sınavı — Hören, Lesen, Schreiben'}
+];
+function okulGunNo(){
+  const b=DB.okul.bas; if(!b) return null;
+  const fark=Math.round((isoToDate(todayStr())-isoToDate(b))/86400000)+1;
+  return Math.max(1,Math.min(PLAN_OKUL.length,fark));
 }
-function bugunGun(){
-  if(!DB.plan.bas) return PLAN30.gunler[0];
-  const fark=Math.floor((new Date(todayStr())-new Date(DB.plan.bas))/86400000);
-  return PLAN30.gunler[Math.max(0,Math.min(PLAN30.gunler.length-1,fark))];
+function okulTarih(no){ const d=isoToDate(DB.okul.bas); d.setDate(d.getDate()+no-1); return isoLocal(d); }
+function okulKonulari(g){ return (g.k||[]).map(konuBul).filter(Boolean); }
+function konuAnlatildi(k){ const d=(DB.konu||{})[k.no]; return !!(d&&(d.bitti||d.adim>=1)); }
+function konuBittiMi(k){ const d=(DB.konu||{})[k.no]; return !!(d&&d.bitti); }
+function okulAksamYapildi(iso){ const a=DB.okul.aksam[iso]; return !!(a&&a.yapildi); }
+function okulGunAd(g){ return okulKonulari(g).map(k=>k.ad).join(', ')||g.ad||'—'; }
+// Günün adımları. bos: konunun içeriği henüz yazılmamış → adım "hazırlanıyor", günü engellemez.
+// Önceki günlerde sınavda yanlış yapılan konular (bugün işaretlenenler yarına kalır)
+function okulZayifListe(){
+  const z=DB.okul.zayif||{}, bugun=todayStr();
+  return Object.keys(z).filter(n=>z[n]<bugun).map(n=>konuBul(+n)).filter(Boolean).slice(0,2);
 }
-function gunBitti(g){
-  const ks=gunKonulari(g);
-  if(!ks.length) return !!(DB.plan.tamam||{})[g.g];
-  return ks.every(k=>konuDurum(k.no)==='tamam'||konuDurum(k.no)==='tekrar');
+function okulAdimlar(g){
+  const o=DB.okul, tum=okulKonulari(g), ks=tum.filter(konuIcerikVar), bos=tum.length>0&&ks.length===0;
+  const a=[];
+  if(g.t==='yeni'){
+    const zy=okulZayifListe();
+    if(zy.length) a.push({key:'zayif',ad:'Zayıf konu tekrarı: '+zy.map(k=>k.ad).join(', '),ik:'🩹',bitti:false,zayif:zy});
+    a.push({key:'anlatim',ad:'Konu anlatımı',ik:'📖',bitti:bos||ks.every(konuAnlatildi),bos});
+    a.push({key:'alistir',ad:'Alıştırma ve test',ik:'✏️',bitti:bos||ks.every(konuBittiMi),bos});
+  } else if(g.t==='tekrar') a.push({key:'tekrar',ad:g.ad,ik:'🔁',bitti:!!o.tamam[g.g]});
+  else a.push({key:'deneme',ad:g.ad,ik:'📝',bitti:!!o.tamam[g.g]});
+  if(g.t!=='sinav') a.push({key:'aksam',ad:'Akşam sınavı',ik:'🌙',bitti:okulAksamYapildi(okulTarih(g.g))});
+  return a;
 }
-function gunKontrol(){
-  const g=bugunGun();
-  if(gunBitti(g)){ DB.plan.tamam=DB.plan.tamam||{}; DB.plan.tamam[g.g]=true; saveDB(); }
+function okulGunDersBitti(g){ return okulAdimlar(g).filter(s=>s.key!=='aksam').every(s=>s.bitti); }
+function okulSonrakiAdim(g){ return okulAdimlar(g).find(s=>!s.bitti)||null; }
+function okulBaslat(){ DB.okul.bas=todayStr(); saveDB(); renderBugun(); }
+function okulAdimiAc(g,s){
+  const ks=okulKonulari(g).filter(konuIcerikVar);
+  if(s.key==='zayif'){ const k=s.zayif[0]; delete DB.okul.zayif[k.no]; saveDB(); openKonu(k.no,0); }
+  else if(s.key==='anlatim'){ const k=ks.find(x=>!konuAnlatildi(x)); if(k) openKonu(k.no,0); }
+  else if(s.key==='alistir'){ const k=ks.find(x=>!konuBittiMi(x)); if(k) openKonu(k.no); }
+  else if(s.key==='tekrar'){ DB.okul.tamam[g.g]=todayStr(); saveDB(); startReview(); }
+  else if(s.key==='deneme'){ DB.okul.tamam[g.g]=todayStr(); saveDB(); (typeof startDeneme==='function'?startDeneme:startGramerTest)(); }
+  else if(s.key==='aksam'){ (typeof startAksamSinavi==='function'?startAksamSinavi:startGramerTest)(); }
 }
-function gunBaslat(){
-  const g=bugunGun();
-  const ks=gunKonulari(g).filter(k=>konuDurum(k.no)!=='tamam');
-  if(ks.length){ openKonu(ks[0].no); return; }
-  // konusu olmayan gun (tekrar/hafif) → ilk eylemi calistir
-  const m=(g.k||[]).find(x=>x[4]);
-  if(m){ try{ new Function(m[4])(); }catch(e){ startReview(); } return; }
-  startReview();
+function okulDevam(no){
+  const g=PLAN_OKUL[(no||okulGunNo())-1], s=g&&okulSonrakiAdim(g);
+  if(s) okulAdimiAc(g,s);
+}
+// Bugünden önceki günlerden ders adımı eksik kalanlar (son 3'ü)
+function okulEksikGunler(){
+  const n=okulGunNo(); if(!n) return [];
+  return PLAN_OKUL.slice(0,n-1).filter(g=>!okulGunDersBitti(g)).slice(-3);
 }
 function renderBugun(){
   const el=document.getElementById('bugunWrap'); if(!el) return;
-  if(!DB.plan.bas){ DB.plan.bas=todayStr(); saveDB(); }
-  const g=bugunGun();
-  const ks=gunKonulari(g);
-  const bitenSayi=ks.filter(k=>konuDurum(k.no)==='tamam'||konuDurum(k.no)==='tekrar').length;
-  const hepsiBitti=gunBitti(g);
+  const o=DB.okul;
+  if(!o.bas){
+    el.innerHTML='<div class="bugun-card"><div class="bugun-ust"><span class="bugun-gun">Okul günü programı</span></div>'+
+      '<div class="okul-giris">Her gün: <b>konu anlatımı</b> → <b>alıştırma ve test</b> → akşam <b>sınavı</b>.<br>'+
+      'Program <b>konu 1\'den</b> başlar: Teil-1 → Kalan Üniteler → Teil-2. Toplam '+PLAN_OKUL.length+' gün.</div>'+
+      '<button class="bugun-bas" onclick="okulBaslat()">Programı bugün başlat</button></div>';
+    return;
+  }
+  const no=okulGunNo(), g=PLAN_OKUL[no-1];
   const tip=(PLAN_TIP&&PLAN_TIP[g.t])||{ad:g.t};
-  const idx=PLAN30.gunler.indexOf(g);
-  const dun=idx>0?PLAN30.gunler[idx-1]:null, yarin=idx<PLAN30.gunler.length-1?PLAN30.gunler[idx+1]:null;
-  const ad=o=>o?(gunKonulari(o).map(k=>k.ad).join(', ')||tipAdi(o)):'—';
-
+  const ks=okulKonulari(g), adimlar=okulAdimlar(g), s=okulSonrakiAdim(g);
   let h='<div class="bugun-card">'+
-    '<div class="bugun-ust"><span class="bugun-gun">Gün '+g.g+' / 30 · '+(tip.ad||'')+'</span>'+
-    '<span class="bugun-sure">⏱ ~'+g.dk+' dk</span></div>';
+    '<div class="bugun-ust"><span class="bugun-gun">Gün '+no+' / '+PLAN_OKUL.length+' · '+(tip.ad||'')+'</span></div>';
   if(ks.length){
     h+='<div class="bugun-konular">'+ks.map(k=>{
-      const b=konuDurum(k.no)==='tamam'||konuDurum(k.no)==='tekrar';
-      return '<div class="bugun-konu'+(b?' bitti':'')+'" onclick="openKonu('+k.no+')">'+
-             '<span class="bk-ik">'+(b?'✅':'▸')+'</span><span>'+k.ad+'</span></div>';
+      const b=konuBittiMi(k), bos=!konuIcerikVar(k);
+      return '<div class="bugun-konu'+(b?' bitti':'')+'" onclick="openKonu('+k.no+')"><span class="bk-ik">'+(b?'✅':(bos?'⏳':'▸'))+'</span>'+
+             '<span>'+k.ad+(bos?' <small>(anlatım hazırlanıyor)</small>':'')+'</span></div>';
     }).join('')+'</div>';
-  } else {
-    h+='<div class="bugun-konular"><div class="bugun-konu"><span class="bk-ik">🔁</span><span>'+tipAdi(g)+'</span></div></div>';
-  }
-  h+= hepsiBitti
-    ? '<div class="bugun-tamam">🎉 Bugünü tamamladın!<br><small>Yarın yeni konu seni bekliyor.</small></div>'
-    : '<button class="bugun-bas" onclick="gunBaslat()">'+(bitenSayi?'Kaldığın yerden devam':'Bugüne başla')+'</button>';
-  h+='<div class="bugun-komsu">'+
-     '<div><b>Dün</b>'+ad(dun)+(dun&&gunBitti(dun)?' ✅':'')+'</div>'+
-     '<div><b>Yarın</b>'+ad(yarin)+'</div></div>';
+  } else h+='<div class="bugun-konular"><div class="bugun-konu"><span class="bk-ik">🔁</span><span>'+(g.ad||tipAdi(g))+'</span></div></div>';
+  h+='<div class="okul-adimlar">'+adimlar.map(a=>
+    '<div class="okul-adim'+(a.bitti&&!a.bos?' bitti':'')+'"><span>'+(a.bos?'⏳':(a.bitti?'✅':a.ik))+'</span><span>'+a.ad+(a.bos?' — hazırlanıyor':'')+'</span></div>').join('')+'</div>';
+  h+= s
+    ? '<button class="bugun-bas" onclick="okulDevam()">Devam et — '+s.ad+'</button>'
+    : '<div class="bugun-tamam">🎉 Bugünü tamamladın!<br><small>'+(no<PLAN_OKUL.length?'Yarın: '+okulGunAd(PLAN_OKUL[no]):'Programın son günündesin.')+'</small></div>';
+  const dun=no>1?PLAN_OKUL[no-2]:null, yarin=no<PLAN_OKUL.length?PLAN_OKUL[no]:null;
+  h+='<div class="bugun-komsu"><div><b>Dün</b>'+(dun?okulGunAd(dun)+(okulGunDersBitti(dun)?' ✅':''):'—')+'</div>'+
+     '<div><b>Yarın</b>'+(yarin?okulGunAd(yarin):'—')+'</div></div>';
+  const eksik=okulEksikGunler();
+  if(eksik.length) h+='<div class="okul-eksik"><b>Eksik kalan günler</b>'+eksik.map(e=>
+    '<div class="okul-eksik-sat"><span>Gün '+e.g+' · '+okulGunAd(e)+'</span><button class="btn-sm-orange" onclick="okulDevam('+e.g+')">Tamamla</button></div>').join('')+'</div>';
   h+='</div>';
   el.innerHTML=h;
 }
@@ -4396,6 +4558,13 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'19 Ekim 2026 — 45 günlük okul programı + düzgün sınav akışı', items:[
+    '📅 <b>Bugün sekmesi artık tek bir programı gösteriyor:</b> 45 gün, <b>konu 1\'den başlıyor</b> → Teil-1 → Kalan Üniteler → Teil-2. Her gün: konu anlatımı → alıştırma ve test → akşam sınavı. Tek büyük <b>"Devam et"</b> düğmesi sıradaki adımı açıyor. Atladığın günler "Eksik kalan günler" olarak görünüyor ve geri dönüp tamamlayabiliyorsun.',
+    '🆕 Konu listesine <b>Teil-2 (B1)</b> eklendi: Genitiv Edatları, İkili Bağlaçlar, Konjunktiv II, Plusquamperfekt, Futur II. Anlatımları henüz hazırlanıyor; takvimde ⏳ olarak görünüyor ve günü engellemiyor.',
+    '🎧 <b>Dinleme artık gerçek sınav gibi sıralı:</b> Teil 1 (6 soru) → Teil 2 (4) → Teil 3 (5). Her bölümün başında nasıl cevaplanacağı yazıyor. Eskiden 21 sorudan rastgele 10 tanesi karışık geliyordu.',
+    '📊 <b>Sınav sonuçları kaydediliyor.</b> Sınav sekmesinde "Son sonuçlar" listesi var. Dinlemede yanlış yaptığın konu <b>zayıf işaretleniyor ve ertesi gün Bugün ekranında tekrar adımı olarak çıkıyor</b>.',
+    '📝 <b>Deneme sınavı:</b> Sınav sekmesinden tek dokunuşla Hören → Lesen → Schreiben arka arkaya, sonunda tek özet ekranı.'
+  ]},
   {date:'19 Ekim 2026 — Alt menü: Bugün / Öğren / Sınav / Pratik', items:[
     '🧭 <b>Ana ekran artık 4 sekme.</b> Altta sabit bir menü var: <b>Bugün</b> (günün dersi), <b>Öğren</b> (konular, kelime/gramer, slaytlar, YS Hoca), <b>Sınav</b> (Dinleme, Okuma, Yazma), <b>Pratik</b> (hızlı test, oyunlar, Düello). Uygulama her açılışta "Bugün"e açılıyor.',
     '🧹 Uzun tek sayfa ve kapalı "Ek Çalışma" bloğu kalktı; hiçbir özellik silinmedi, hepsi bir sekmeye taşındı. Dinleme ve Yazma artık iki yerde değil, yalnız Sınav sekmesinde.',
@@ -4538,6 +4707,7 @@ function renderChangelog(){
 function renderHome(){
   ensureDay();
   renderBugun();
+  renderSinavGecmis();
   renderKonuOzet();
   renderChangelog();
   document.getElementById('dStreak').textContent=DB.streak.cur;
@@ -4575,16 +4745,16 @@ function setProgress(pct, lbl){
   document.getElementById('progLbl').textContent = lbl||'';
 }
 
-function goHome(){ LESSON=null; showScreen('homeScreen'); closeHint(); renderHome(); }
+function goHome(){ LESSON=null; DENEME=null; showScreen('homeScreen'); closeHint(); renderHome(); }
 
 // ── Alt menü ──────────────────────────────
 // Uygulama her açılışta "Bugün" sekmesine başlar; goHome() son açık sekmeye döner.
 let homeTab='bugun';
 // Alt menünün göründüğü ekranlar → hangi sekmeye ait. '__home' = son açık ana sekme.
 // Soru, sınav ve oyun ekranları listede yok: orada menü gizlenir (sınav ortasında yanlışlıkla sekme değişmesin).
-const NAV_EKRAN_SEKME={konuListScreen:'ogren',gramerScreen:'ogren',ysHubScreen:'ogren',yazmaListScreen:'sinav',
+const NAV_EKRAN_SEKME={denemeDoneScreen:'sinav',horenDoneScreen:'sinav',lesenDoneScreen:'sinav',konuListScreen:'ogren',gramerScreen:'ogren',ysHubScreen:'ogren',yazmaListScreen:'sinav',
   wordSearchListScreen:'pratik',catScreen:'__home'};
-function goTab(t){ homeTab=t; LESSON=null; showScreen('homeScreen'); closeHint(); renderHome(); window.scrollTo(0,0); }
+function goTab(t){ homeTab=t; LESSON=null; DENEME=null; showScreen('homeScreen'); closeHint(); renderHome(); window.scrollTo(0,0); }
 function updateNav(id){
   let tab = id==='homeScreen' ? homeTab : NAV_EKRAN_SEKME[id];
   if(tab==='__home') tab=homeTab;
@@ -7515,6 +7685,8 @@ function showYazmaDone(){
   document.getElementById('yazmaDW').textContent=yzWrong;
   document.getElementById('yazmaDP').textContent=pct+'%';
   document.getElementById('yazmaDoneSub').textContent=total+' parçadan '+yzCorrect+' doğru.';
+  sinavKaydet('schreiben',yzCorrect,total,[]);
+  if(DENEME){ denemeIlerle('schreiben',yzCorrect,total); return; }
   showScreen('yazmaDoneScreen');
   setProgress(100,total+' / '+total);
   if(pct>=80) for(let i=0;i<60;i++) setTimeout(rainP,i*25);

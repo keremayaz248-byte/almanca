@@ -31,24 +31,24 @@
 
 ## 4. Gün programı (kod)
 
-- [ ] 4.1 Yeni program veri yapısını `PLAN30` biçiminde tanımla; ilerleme `DB.okul` altında (başlangıç tarihi, tamamlanma haritası, hedef); eski `DB.plan` kayıtlarına dokunma; `loadDB` eski kayıtlarla uyumlu.
-- [ ] 4.2 Program dizisini kur: konu 1–25, 26–38, Teil-2 konuları; hafif konular aynı güne, yoğun konular birden çok güne; araya tekrar günleri (içerik/sıralama kararı ayrı: bkz. 4.3).
-- [ ] 4.3 Program içeriğini yaz (içerik): hangi gün hangi konu, hangi tekrar günü; toplam 44 konunun ≈45 güne sığdığını göster.
-- [ ] 4.4 Gün ekranı: günün adımları (anlatım → egzersiz → akşam sınavı) sırayla, her birinin durumuyla.
-- [ ] 4.5 "Devam et" düğmesi: yarım kalan adımı kaldığı yerden, yoksa sıradaki adımı açar; adım bitince sıradaki kendiliğinden önerilir.
-- [ ] 4.6 Atlanan günü eksik olarak işaretle ve geri dönüp tamamlamayı sağla.
-- [ ] 4.7 Zayıf konu için günün başına kısa tekrar adımı ekle (görev 5.5'e bağlanır).
-- [ ] 4.8 Playwright testi: sıfırdan bir gün baştan sona; uygulamayı kapat-aç, durumun korunduğunu doğrula; `gece-testi.js` sıfır hata.
+- [x] 4.1 Yeni program veri yapısını `PLAN30` biçiminde tanımla; ilerleme `DB.okul` altında (başlangıç tarihi, tamamlanma haritası, hedef); eski `DB.plan` kayıtlarına dokunma; `loadDB` eski kayıtlarla uyumlu.
+- [x] 4.2 Program dizisini kur: konu 1–25, 26–38, Teil-2 konuları; hafif konular aynı güne, yoğun konular birden çok güne; araya tekrar günleri (içerik/sıralama kararı ayrı: bkz. 4.3).
+- [x] 4.3 Program içeriğini yaz (içerik): hangi gün hangi konu, hangi tekrar günü; toplam 44 konunun ≈45 güne sığdığını göster.
+- [x] 4.4 Gün ekranı: günün adımları (anlatım → egzersiz → akşam sınavı) sırayla, her birinin durumuyla.
+- [x] 4.5 "Devam et" düğmesi: yarım kalan adımı kaldığı yerden, yoksa sıradaki adımı açar; adım bitince sıradaki kendiliğinden önerilir.
+- [x] 4.6 Atlanan günü eksik olarak işaretle ve geri dönüp tamamlamayı sağla.
+- [x] 4.7 Zayıf konu için günün başına kısa tekrar adımı ekle (görev 5.5'e bağlanır).
+- [x] 4.8 Playwright testi: sıfırdan bir gün baştan sona; uygulamayı kapat-aç, durumun korunduğunu doğrula; `gece-testi.js` sıfır hata.
 
 ## 5. Sınav akışı (kod)
 
-- [ ] 5.1 `SINAV_HOREN` sorularını `teil`'e göre grupla ve Teil 1 → 2 → 3 sırasıyla ver; her Teil kendi içinde karışır; Teil geçişinde başlık ve nasıl cevaplanacağı gösterilir.
-- [ ] 5.2 Lesen için aynı sıralı akışı uygula.
-- [ ] 5.3 Sonuç geçmişi: `DB.sinavGecmis` listesine `{tarih, bolum, dogru, toplam, zayif}` yaz; Sınav sekmesinde geçmişi göster.
-- [ ] 5.4 Deneme sınavı: Hören → Lesen → Schreiben zinciri ve tek özet ekranı.
-- [ ] 5.5 `SINAV_HOREN.konu` etiketlerini `KONULAR.no`'ya eşleyen tabloyu yaz; yanlış soruda `srsUpdate('konu:'+no,false)` çağır ve konuyu zayıf olarak işaretle.
-- [ ] 5.6 Almanca ses yoksa Türkçe uyarı ve metin modu (mevcut davranışı spec'e uydur).
-- [ ] 5.7 Playwright testi (`horen-testi.js` genişletilmiş): Teil sırası, sonuç kaydı, uygulama yeniden açılınca geçmişin durması; eşlenmemiş etiket sayısı 0; `gece-testi.js` sıfır hata.
+- [x] 5.1 `SINAV_HOREN` sorularını `teil`'e göre grupla ve Teil 1 → 2 → 3 sırasıyla ver; her Teil kendi içinde karışır; Teil geçişinde başlık ve nasıl cevaplanacağı gösterilir.
+- [x] 5.2 Lesen için aynı sıralı akışı uygula.
+- [x] 5.3 Sonuç geçmişi: `DB.sinavGecmis` listesine `{tarih, bolum, dogru, toplam, zayif}` yaz; Sınav sekmesinde geçmişi göster.
+- [x] 5.4 Deneme sınavı: Hören → Lesen → Schreiben zinciri ve tek özet ekranı.
+- [x] 5.5 `SINAV_HOREN.konu` etiketlerini `KONULAR.no`'ya eşleyen tabloyu yaz; yanlış soruda `srsUpdate('konu:'+no,false)` çağır ve konuyu zayıf olarak işaretle.
+- [x] 5.6 Almanca ses yoksa Türkçe uyarı ve metin modu (mevcut davranışı spec'e uydur).
+- [x] 5.7 Playwright testi (`horen-testi.js` genişletilmiş): Teil sırası, sonuç kaydı, uygulama yeniden açılınca geçmişin durması; eşlenmemiş etiket sayısı 0; `gece-testi.js` sıfır hata.
 
 ## 6. Akşam sınavı, takvim ve e-posta (kod)
 
@@ -103,7 +103,7 @@
 
 ## 11. Teil-2 (B1) içeriği
 
-- [ ] 11.1 `KONULAR`'a 45'ten başlayan Teil-2 girişlerini ekle (kod); `kaynak:{p:'t2'}`; `gece-testi.js` ve kapsama testi sıfır hata.
+- [x] 11.1 `KONULAR`'a 45'ten başlayan Teil-2 girişlerini ekle (kod); `kaynak:{p:'t2'}`; `gece-testi.js` ve kapsama testi sıfır hata.
 - [ ] 11.2 Genitiv Präpositionen (`icerik/temiz/teil2.txt` satır 8 ve devamı) — içerik.
 - [ ] 11.3 Zweiteilige Konjunktionen (satır 301 civarı) — içerik.
 - [ ] 11.4 Konjunktiv II (satır 542 civarı) — içerik, hatırlatma + Präteritum/Modalverben bağlantısı.
