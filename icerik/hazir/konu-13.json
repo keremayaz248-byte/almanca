@@ -1,0 +1,215 @@
+{
+  "konu": 13,
+  "baslik": "Die Kleidung (Kıyafetler)",
+  "kaynak": [{ "arac": "PDF", "sayfa": "Teil-1 s.35" }],
+  "deste": {
+    "title": "👗 Die Kleidung (Kıyafetler)",
+    "accent": "linear-gradient(135deg,#F0503C,#c23421)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Konu 13",
+        "big": "DIE KLEIDUNG",
+        "mean": "Kıyafet kelimelerini artikeliyle (der/die/das) öğreniyorsun; 'giymek' fiili tragen ve 'yakışmak/uymak' kalıpları.",
+        "story": "Hocanın s.35'i resimli bir kıyafet sözlüğü. Kelimeler resmin altında <b>artikeliyle</b> yazılı; sen de her kelimeyi <b>der / die / das ile birlikte</b> öğren. Ayrıca solda <b>tragen</b> (giymek) çekimi, <b>sich anziehen</b> ve <b>Es steht dir! / Es passt mir!</b> kutuları var. (Not: s.36-49 başka konular: fiiller vb.)"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Fiil",
+        "baslik": "tragen — giymek (Akkusativ)",
+        "basliklar": ["", "tragen"],
+        "satirlar": [
+          ["ich", "trage"],
+          ["du", "trägst"],
+          ["er / sie / es", "trägt"],
+          ["wir", "tragen"],
+          ["ihr", "tragt"],
+          ["sie / Sie", "tragen"]
+        ],
+        "not": "Hocanın notu: <b>tragen = 'to wear' (Akk.)</b>. Yani giydiğin şey <b>Akkusativ</b>'dedir. du ve er/sie/es'te <b>a → ä</b> olur (trägst, trägt).",
+        "kaynak": "Teil-1 s.35"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "İç giyim ve uyku",
+        "baslik": "Çamaşır ve gecelik",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["das Unterhemd", "atlet / iç fanila"],
+          ["die Unterhose", "iç çamaşırı (alt)"],
+          ["die Socken", "çorap"],
+          ["die Strümpfe", "uzun çoraplar"],
+          ["die Strumpfhose", "külotlu çorap"],
+          ["das Nachthemd", "gecelik"],
+          ["der Schlafanzug", "pijama"]
+        ],
+        "not": "Hocanın resminde bunların hepsi yukarıdaki artikelle yazılı. <b>Socken / Strümpfe</b> çoğul olduğu için <b>die</b> ile verilmiş.",
+        "kaynak": "Teil-1 s.35"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Üst giyim",
+        "baslik": "Gömlek, kazak, ceket",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["die Bluse", "bluz"],
+          ["das Hemd", "gömlek"],
+          ["das T-Shirt", "tişört"],
+          ["der Pullover", "kazak"],
+          ["die Strickjacke", "hırka"],
+          ["das Sweatshirt", "sweatshirt"],
+          ["die Jacke", "ceket / mont"],
+          ["der Knopf", "düğme"]
+        ],
+        "not": "Artikellere dikkat: <b>die Bluse</b>, <b>das Hemd</b>, <b>das T-Shirt</b>, <b>der Pullover</b>, <b>die Strickjacke</b>, <b>das Sweatshirt</b>, <b>die Jacke</b>, <b>der Knopf</b>.",
+        "kaynak": "Teil-1 s.35"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Alt giyim",
+        "baslik": "Pantolon, etek, kemer",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["die Hose", "pantolon"],
+          ["die kurze Hose", "şort"],
+          ["die Jeans", "kot pantolon"],
+          ["die Latzhose", "askılı (tulum) pantolon"],
+          ["der Rock", "etek"],
+          ["der Gürtel", "kemer"],
+          ["der Reißverschluss", "fermuar"],
+          ["der Trainingsanzug", "eşofman takımı"]
+        ],
+        "not": "<b>der Rock</b> (etek) erkek artikelli: ezberle. <b>die Hose</b> ve <b>die Jeans</b> ise <b>die</b>.",
+        "kaynak": "Teil-1 s.35"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Dış giyim ve ayakkabı",
+        "baslik": "Mont, bere, ayakkabılar",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["der Mantel", "palto"],
+          ["der Anorak", "kapüşonlu mont (anorak)"],
+          ["die Regenjacke", "yağmurluk"],
+          ["die Mütze", "bere / şapka"],
+          ["der Schal", "atkı"],
+          ["die Handschuhe", "eldiven"],
+          ["die Schuhe", "ayakkabı"],
+          ["die Sandalen", "sandalet"],
+          ["die Turnschuhe", "spor ayakkabı"],
+          ["die Hausschuhe", "ev terliği"],
+          ["die Gummistiefel", "lastik çizme"]
+        ],
+        "not": "Ayakkabı ve eldiven kelimeleri hocanın resminde <b>die</b> (çoğul) ile yazılı: Schuhe, Sandalen, Turnschuhe, Hausschuhe, Gummistiefel, Handschuhe.",
+        "kaynak": "Teil-1 s.35"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Mayo ve eşyalar",
+        "baslik": "Yüzme, gardırop, şemsiye",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["der Bikini", "bikini"],
+          ["die Badehose", "(erkek) mayo şort"],
+          ["der Badeanzug", "(kadın) mayo"],
+          ["das Kleid", "elbise"],
+          ["der Kleiderschrank", "gardırop"],
+          ["der Kleiderbügel", "elbise askısı"],
+          ["der Regenschirm", "şemsiye"]
+        ],
+        "not": "<b>das Kleid</b> = elbise (nötr). <b>der Kleiderschrank</b> = gardırop.",
+        "kaynak": "Teil-1 s.35"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Takı ve aksesuar",
+        "baslik": "Gözlük, saat, takılar",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["die Brille", "gözlük"],
+          ["die Armbanduhr", "kol saati"],
+          ["die Halskette", "kolye"],
+          ["das Armband", "bileklik"],
+          ["der Ring", "yüzük"],
+          ["der Ohrring", "küpe"],
+          ["der Schmuck", "mücevher / takı"]
+        ],
+        "not": "Hocanın notu: <b>der Schmuck</b> = mücevher. Gözlük takmak: <b>Ich setze die Brille auf.</b> (Gözlüğü takıyorum.)",
+        "kaynak": "Teil-1 s.35"
+      },
+      {
+        "big": "sich anziehen / aufsetzen",
+        "mean": "<b>sich anziehen</b> = giyinmek. Gözlük gibi başa/yüze takılanlar için hoca <b>aufsetzen</b> örneği veriyor.",
+        "egs": [
+          "Ich setze die Brille <b>auf</b>. — Gözlüğü takıyorum.",
+          "Ich ziehe mich einen Pullover <b>an</b>. — (Hocanın yazdığı hâliyle) Kazak giyiyorum."
+        ],
+        "tip": "💡 Her iki cümlede ayrılabilen fiil: <b>auf</b> / <b>an</b> cümlenin SONUNA gider. ⚠ İkinci cümle (mich + einen Pullover) için dilbilgisi onayı bekliyor; ders sorularında kullanılmadı.",
+        "kaynak": "Teil-1 s.35"
+      },
+      {
+        "big": "Es steht dir! / Es passt mir!",
+        "mean": "<b>Es steht dir!</b> = Sana yakışıyor! (güzel duruyor). <b>Es passt mir!</b> = Bana uyuyor! (tam bedenim).",
+        "egs": [
+          "Es steht dir! — Sana yakışıyor!",
+          "Der Pullover steht dir! — Kazak sana yakışıyor!",
+          "Es passt mir! — Bana oluyor! (bedenim)",
+          "Das Kleid passt mir! — Elbise bana tam oluyor!"
+        ],
+        "tip": "💡 Hoca iki fiili ayırıyor: <b>stehen</b> = göze hoş görünmek, <b>passen</b> = ölçüsü/bedeni tam (= right size).",
+        "kaynak": "Teil-1 s.35"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Kıyafette sık hatalar",
+        "maddeler": [
+          "<b>tragen</b> (giymek) — du <b>trägst</b>, er <b>trägt</b> (ä'ya dikkat).",
+          "Giyilen şey <b>Akkusativ</b>'dedir (hocanın notu).",
+          "<b>der Rock</b> etektir ve 'der'dir; <b>das Kleid</b> elbisedir ve 'das'tır.",
+          "<b>Schuhe, Socken, Handschuhe, Jeans</b> resimde <b>die</b> ile yazılı.",
+          "<b>stehen</b> = yakışmak, <b>passen</b> = bedeni uymak.",
+          "<b>Ich setze die Brille auf.</b> — gözlük takmak için aufsetzen."
+        ],
+        "uyari": "En sık yapılan hata: artikeli atlayıp kelimeyi yalnız öğrenmek (örnek: 'Rock' diye bırakmak). Her kelimeyi <b>der Rock, das Kleid, die Bluse</b> diye bir bütün olarak ezberle.",
+        "kaynak": "Teil-1 s.35"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "der · die · das",
+        "mean": "der Rock, der Pullover, der Schal, der Mantel, der Gürtel · die Hose, die Bluse, die Jacke, die Brille, die Mütze · das Kleid, das Hemd, das T-Shirt, das Sweatshirt",
+        "story": "<b>Ich trage, du trägst, er trägt.</b> <b>Es steht dir! Es passt mir!</b> <b>Ich setze die Brille auf.</b>"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d13_kleidung",
+    "title": "Kıyafetler (Die Kleidung)",
+    "emoji": "👗",
+    "desc": "Kıyafet artikelleri, tragen çekimi, stehen/passen",
+    "rule": "<b>Artikel:</b> der Rock, der Pullover, der Schal, der Mantel, der Gürtel · die Hose, die Bluse, die Jacke, die Brille · das Kleid, das Hemd, das T-Shirt, das Sweatshirt.<br><b>tragen</b> (Akk.): ich trage, du trägst, er/sie/es trägt, wir tragen, ihr tragt, sie/Sie tragen.<br><b>Es steht dir!</b> = Sana yakışıyor. <b>Es passt mir!</b> = Bana uyuyor (beden).<br><b>Ich setze die Brille auf.</b> = Gözlüğü takıyorum.",
+    "qs": [
+      { "sent": "___ Kleid (elbise)", "blank": "das", "opts": ["das", "der", "die"], "tr": "Elbise: das Kleid.", "exp": "Hocanın resminde 'das Kleid' yazıyor. Kleid nötrdür; der/die ile karıştırılması sık yapılan hata." },
+      { "sent": "___ Rock (etek)", "blank": "der", "opts": ["der", "die", "das"], "tr": "Etek: der Rock.", "exp": "Hocanın resminde 'der Rock' yazıyor. Etek 'die' diye düşünülebilir ama doğru artikel der." },
+      { "sent": "___ Bluse (bluz)", "blank": "die", "opts": ["die", "der", "das"], "tr": "Bluz: die Bluse.", "exp": "Resimde 'die Bluse' yazıyor. Artikel kelimeyle birlikte ezberlenir; hocanın resmindeki artikel die'dir." },
+      { "sent": "___ Pullover (kazak)", "blank": "der", "opts": ["der", "die", "das"], "tr": "Kazak: der Pullover.", "exp": "Hocanın resminde 'der Pullover' yazıyor; kazak erkek artikellidir." },
+      { "sent": "___ T-Shirt (tişört)", "blank": "das", "opts": ["das", "der", "die"], "tr": "Tişört: das T-Shirt.", "exp": "Hocanın resminde 'das T-Shirt' yazıyor. Tişört nötrdür; der/die ile karıştırma." },
+      { "sent": "___ Brille (gözlük)", "blank": "die", "opts": ["die", "der", "das"], "tr": "Gözlük: die Brille.", "exp": "Resimde 'die Brille' yazıyor. Bu kelime hocanın ayrıca 'Ich setze die Brille auf.' cümlesinde de geçiyor." },
+      { "sent": "Ich ___ eine Jacke.", "blank": "trage", "opts": ["trage", "trägst", "trägt"], "tr": "Ben bir ceket giyiyorum.", "exp": "tragen: ich trage. 'trägst' du ile, 'trägt' er/sie/es ile kullanılır. ich'te ä'lı biçim kullanılmaz." },
+      { "sent": "Du ___ einen Mantel.", "blank": "trägst", "opts": ["trägst", "trage", "tragt"], "tr": "Sen bir palto giyiyorsun.", "exp": "du ile tragen → trägst (a → ä olur). tragt ise ihr formudur; ich formu trage'dir." },
+      { "sent": "Er ___ eine Mütze.", "blank": "trägt", "opts": ["trägt", "tragt", "trägst"], "tr": "O bir bere takıyor.", "exp": "er/sie/es ile tragen → trägt. 'tragt' ihr ile kullanılır; 'trägst' du ile." },
+      { "sent": "Ich setze die Brille ___.", "blank": "auf", "opts": ["auf", "an", "ab"], "tr": "Gözlüğü takıyorum.", "exp": "Hocanın örneği: Ich setze die Brille auf. Ayrılabilen fiil 'aufsetzen'in auf kısmı cümlenin sonuna gider. 'an' sich anziehen (giyinmek) fiiline ait." },
+      { "sent": "Der Pullover steht ___!", "blank": "dir", "opts": ["dir", "mir", "dich"], "tr": "Kazak sana yakışıyor!", "exp": "Hocanın kutusunda 'Der Pullover steht dir!' yazıyor; 'sana yakışıyor' anlamı için dir kullanılır. mir 'bana' demektir." },
+      { "sent": "Das Kleid passt ___!", "blank": "mir", "opts": ["mir", "dir", "mich"], "tr": "Elbise bana tam oluyor!", "exp": "Hocanın kutusunda 'Das Kleid passt mir!' yazıyor; passen = bedeni tam uymak. 'mir' = bana. 'dir' sana demektir." },
+      { "sent": "Wir ___ heute Schuhe.", "blank": "tragen", "opts": ["tragen", "trägt", "tragt"], "tr": "Bugün ayakkabı giyiyoruz.", "exp": "wir ve sie/Sie ile tragen aynı kalır (tragen). 'tragt' ihr, 'trägt' er/sie/es formudur." }
+    ]
+  },
+  "dogrulama": [
+    "s.35'te hocanın cümlesi: 'Ich ziehe mich einen Pullover an.' Fiil 'sich anziehen' iken kazak Akkusativ nesne olduğu için 'mich' + 'einen Pullover' birlikte doğru mu? Perplexity'ye sor: 'sich anziehen ile giysi nesnesi birlikte kullanılırken mich mi mir mi?'. Derste hocanın yazdığı gibi verildi, işaretlendi.",
+    "Hocanın 'tragen (Akk.)' notu: 'Akkusativ' ifadesi sayfada var ama başka bir açıklama yok; derste tek cümleyle verildi.",
+    "Kıyafet resimlerinin Türkçe karşılıkları sayfada yok; Türkçe çeviriler tablolarda bana aittir (örn. Latzhose = askılı pantolon, Strümpfe = uzun çoraplar). Perplexity'ye sor: 'Bu tablodaki Türkçe karşılıklar doğru mu?'",
+    "Hocanın 'Konu 13: s.35-49' aralığında yalnız s.35 kıyafet; s.36-49 fiil listeleri, düzenli/düzensiz fiiller, Es gibt vb. başka konulardır. Bu yüzden dersin kaynağı yalnız s.35.",
+    "der Schmuck'ın hocanın resmindeki konumu: 'mücevher' notu Ohrring/Schmuck'a yakın; tüm takıları kapsayan 'der Schmuck' olarak verildi."
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "konu": 16,
+  "baslik": "Das Wetter (Hava durumu)",
+  "kaynak": [{ "arac": "PDF", "sayfa": "Teil-1 s.68-69" }],
+  "deste": {
+    "title": "🌦️ Das Wetter (Hava durumu)",
+    "accent": "linear-gradient(135deg,#2AACD1,#1c7fa0)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Konu 16",
+        "big": "DAS WETTER",
+        "mean": "Hava durumunu sormayı ve anlatmayı öğreniyorsun: güneş, rüzgâr, bulut, yağmur, kar, sıcaklık, yönler.",
+        "story": "Hocanın s.68'i bir 'hava durumu kartı' sayfası, s.69 ise kitaptan iki alıştırma (resim eşleştirme ve Avrupa haritası). Önce soru: <b>Wie ist das Wetter?</b> = Hava nasıl? Kelimede artikel: <b>das Wetter</b>. Cümlelerin çoğu <b>Es ...</b> ile başlar: Es regnet, Es schneit."
+      },
+      {
+        "big": "Wie ist das Wetter?",
+        "mean": "<b>Wie ist das Wetter?</b> = Hava nasıl? Güzel havaya hayranlık: <b>Was für ein schönes Wetter!</b>",
+        "egs": [
+          "Wie ist das Wetter? — Hava nasıl?",
+          "Was für ein schönes Wetter! — Ne güzel bir hava!"
+        ],
+        "tip": "💡 Cevap cümlelerinin çoğu <b>Es ist ...</b> (Hava ... ) ile kurulur: Es ist sonnig, Es ist windig, Es ist bewölkt.",
+        "kaynak": "Teil-1 s.68"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Gökyüzü",
+        "baslik": "Güneş, rüzgâr, bulut, sis",
+        "basliklar": ["Türkçe", "İsim", "Cümle"],
+        "satirlar": [
+          ["Güneş / güneşli", "die Sonne", "Es ist sonnig."],
+          ["Rüzgâr / rüzgârlı", "der Wind", "Es ist windig."],
+          ["Bulut / bulutlu", "die Wolke", "Es ist bewölkt."],
+          ["Sis / sisli", "der Nebel", "Es ist nebelig."]
+        ],
+        "not": "Hocanın ek notu: <b>Parçalı bulutlu → Teilweise wolkig</b>. Güneş için fiil: <b>Die Sonne scheint</b> (Güneş parıldıyor).",
+        "kaynak": "Teil-1 s.68"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Yağış",
+        "baslik": "Yağmur, kar, dolu",
+        "basliklar": ["Türkçe", "İsim", "Cümle"],
+        "satirlar": [
+          ["Yağmur / yağmur yağıyor", "der Regen", "Es regnet."],
+          ["Kar / kar yağıyor", "der Schnee", "Es schneit."],
+          ["Dolu / dolu yağıyor", "der Hagel", "Es hagelt."]
+        ],
+        "not": "Hocanın eşitliği: <b>Es regnet. = Der Regen fällt.</b> Ayrıca <b>Es ist regnerisch</b> = Yağmurlu.",
+        "kaynak": "Teil-1 s.68"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Fırtına ve gökyüzü olayları",
+        "baslik": "Gök gürültüsü, şimşek, gökkuşağı",
+        "basliklar": ["Türkçe", "Almanca"],
+        "satirlar": [
+          ["Gök gürültüsü", "der Donner"],
+          ["Şimşek", "der Blitz"],
+          ["Gökkuşağı", "der Regenbogen"],
+          ["Kasırga", "der Tornado"],
+          ["Fırtına (gök gürültülü)", "das Gewitter"],
+          ["Fırtına sırasında", "bei Gewitter"]
+        ],
+        "not": "Hocanın notu: <b>das Gewitter</b> = gök gürültülü fırtına; <b>bei Gewitter</b> = fırtına sırasında.",
+        "kaynak": "Teil-1 s.68"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Hava fiilleri",
+        "baslik": "Es ... / özne + fiil",
+        "satirlar": [
+          {
+            "etiket": "Es ile",
+            "not": "yağış fiilleri",
+            "jetonlar": [
+              { "t": "Es", "r": "ozne" },
+              { "t": "regnet", "r": "fiil" }
+            ],
+            "tr": "Yağmur yağıyor."
+          },
+          {
+            "etiket": "Es ile",
+            "not": "kar",
+            "jetonlar": [
+              { "t": "Es", "r": "ozne" },
+              { "t": "schneit", "r": "fiil" }
+            ],
+            "tr": "Kar yağıyor."
+          },
+          {
+            "etiket": "İsim özne",
+            "not": "güneş",
+            "jetonlar": [
+              { "t": "Die Sonne", "r": "ozne" },
+              { "t": "scheint", "r": "fiil" }
+            ],
+            "tr": "Güneş parlıyor."
+          },
+          {
+            "etiket": "İsim özne",
+            "not": "rüzgâr",
+            "jetonlar": [
+              { "t": "Der Wind", "r": "ozne" },
+              { "t": "weht", "r": "fiil" }
+            ],
+            "tr": "Rüzgâr esiyor."
+          },
+          {
+            "etiket": "İsim özne",
+            "not": "yağmur (Es regnet ile aynı)",
+            "jetonlar": [
+              { "t": "Der Regen", "r": "ozne" },
+              { "t": "fällt", "r": "fiil" }
+            ],
+            "tr": "Yağmur düşüyor = Yağmur yağıyor."
+          }
+        ],
+        "not": "<b>Fiil her zaman ikinci sırada</b> (özne + fiil). Hocanın ek sözleri: <b>Der Nebel zieht auf</b> (aufziehen): Sis yaklaşıyor.",
+        "kaynak": "Teil-1 s.68"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Sıcaklık",
+        "baslik": "die Temperaturen",
+        "basliklar": ["Türkçe", "Almanca"],
+        "satirlar": [
+          ["Sıcaklıklar", "die Temperaturen"],
+          ["Derece", "das Grad"],
+          ["(+) artı", "Plus"],
+          ["(-) eksi", "Minus"],
+          ["Sıcak", "heiß"],
+          ["Sıcak (ılık-sıcak)", "warm"],
+          ["Soğuk", "kalt"]
+        ],
+        "not": "Hocanın kartında 'Sıcak' iki karşılığa bağlı: <b>heiß</b> ve <b>warm</b>. Örnekler (s.69): <b>Es sind 25 Grad. Es ist warm.</b> / <b>Es sind nur 7 Grad. Es ist kalt.</b>",
+        "kaynak": "Teil-1 s.68-69"
+      },
+      {
+        "big": "Doğal anlatım",
+        "mean": "Hocanın sayfasındaki günlük konuşma cümleleri. 'Çok / gerçekten' vurgusu: <b>voll, echt, richtig</b>.",
+        "egs": [
+          "Draußen ist es <b>voll</b> windig. — Dışarısı çok rüzgârlı.",
+          "Gestern hat es <b>echt</b> heftig geregnet. — Dün gerçekten şiddetli yağmur yağdı.",
+          "Es schneit <b>richtig</b> krass. — Çok yoğun kar yağıyor.",
+          "Es ist regnerisch. — Yağmurlu."
+        ],
+        "tip": "💡 Hocanın sayfasındaki örnekler: voll windig, echt heftig, richtig krass. Hoca bunların kullanım düzeyini (konuşma/yazı) yazmıyor.",
+        "kaynak": "Teil-1 s.68"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Haritada yön",
+        "baslik": "im Norden · im Süden · im Osten · im Westen",
+        "basliklar": ["Türkçe", "Almanca"],
+        "satirlar": [
+          ["kuzeyde", "im Norden"],
+          ["güneyde", "im Süden"],
+          ["doğuda", "im Osten"],
+          ["batıda", "im Westen"]
+        ],
+        "not": "Hocanın sayfasında (A3, Avrupa haritası) bu dört yön turuncu ile yazılı: <b>im ...</b> kalıbı.",
+        "kaynak": "Teil-1 s.69"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Haritayı anlatma",
+        "baslik": "Hocanın harita diyaloğu (A3)",
+        "satirlar": [
+          {
+            "etiket": "Soru",
+            "not": "Wie ist das Wetter in ...?",
+            "jetonlar": [
+              { "t": "Wie", "r": "bag" },
+              { "t": "ist", "r": "fiil" },
+              { "t": "das Wetter", "r": "ozne" },
+              { "t": "in Italien?", "r": "zaman" }
+            ],
+            "tr": "İtalya'da hava nasıl?"
+          },
+          {
+            "etiket": "Cevap",
+            "not": "Gut. Die Sonne scheint.",
+            "jetonlar": [
+              { "t": "Die Sonne", "r": "ozne" },
+              { "t": "scheint", "r": "fiil" }
+            ],
+            "tr": "İyi. Güneş parlıyor."
+          },
+          {
+            "etiket": "Cevap",
+            "not": "yön önce, fiil ikinci",
+            "jetonlar": [
+              { "t": "Im Norden", "r": "zaman" },
+              { "t": "ist", "r": "fiil" },
+              { "t": "es", "r": "ozne" },
+              { "t": "bewölkt", "r": "diger" }
+            ],
+            "tr": "Kuzeyde hava bulutlu."
+          },
+          {
+            "etiket": "Cevap",
+            "not": "yön önce, fiil ikinci",
+            "jetonlar": [
+              { "t": "Im Süden", "r": "zaman" },
+              { "t": "scheint", "r": "fiil" },
+              { "t": "die Sonne", "r": "ozne" }
+            ],
+            "tr": "Güneyde güneş parlıyor."
+          }
+        ],
+        "not": "Hocanın sayfası: <b>Im Norden ist es bewölkt. Im Süden scheint die Sonne.</b> Yön başa geldiğinde bile fiil ikinci kalır, özne fiilin arkasına geçer.",
+        "kaynak": "Teil-1 s.69"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Hava durumunda sık hatalar",
+        "maddeler": [
+          "<b>das Wetter</b> nötrdür; <b>die Sonne</b>, <b>der Wind</b>, <b>der Regen</b>, <b>der Schnee</b>, <b>der Nebel</b>, <b>die Wolke</b>.",
+          "Yağış fiilleri <b>Es</b> ile: <b>Es regnet / schneit / hagelt</b>.",
+          "<b>Es regnet = Der Regen fällt</b> (aynı anlam).",
+          "<b>Es sind 25 Grad</b>: sıcaklıkta fiil <b>sind</b> (Grad ile).",
+          "<b>Es ist warm / Es ist kalt</b>: durum bildiren cümlelerde fiil <b>ist</b>.",
+          "Hocanın kartında <b>heiß</b> ve <b>warm</b> ikisi de 'sıcak' olarak verilmiş."
+        ],
+        "uyari": "En sık yapılan hata: 'Es regnet'i 'Es ist regnet' diye kurmak. Yağış fiilleri doğrudan Es + fiil olur (regnet/schneit/hagelt).",
+        "kaynak": "Teil-1 s.68-69"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "Es regnet. Es schneit. Es hagelt.",
+        "mean": "Yağmur · kar · dolu",
+        "story": "<b>Wie ist das Wetter? — Es ist sonnig / windig / bewölkt / nebelig / regnerisch. Es sind 25 Grad. Es ist warm. Im Norden ist es bewölkt. Im Süden scheint die Sonne.</b>"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d16_wetter",
+    "title": "Hava durumu (Das Wetter)",
+    "emoji": "🌦️",
+    "desc": "Wie ist das Wetter? Es regnet, Es ist sonnig, Grad, yönler",
+    "rule": "<b>Wie ist das Wetter?</b> — <b>Was für ein schönes Wetter!</b><br><b>Es ist ...:</b> sonnig, windig, bewölkt, nebelig, regnerisch.<br><b>Fiiller:</b> Es regnet / Es schneit / Es hagelt · Die Sonne scheint · Der Wind weht · Der Regen fällt.<br><b>Sıcaklık:</b> Es sind 25 Grad. Es ist warm. / Es ist kalt.<br><b>Yön:</b> im Norden, im Süden, im Osten, im Westen.",
+    "qs": [
+      { "sent": "Es ___.", "blank": "regnet", "opts": ["regnet", "schneit", "hagelt"], "tr": "Yağmur yağıyor.", "exp": "Hocanın kartında: Yağmur → der Regen; Yağmur yağıyor → Es regnet. schneit kar, hagelt dolu demektir." },
+      { "sent": "Es ___.", "blank": "schneit", "opts": ["schneit", "regnet", "hagelt"], "tr": "Kar yağıyor.", "exp": "Kar → der Schnee; Kar yağıyor → Es schneit. regnet yağmur, hagelt dolu için kullanılır." },
+      { "sent": "Es ___.", "blank": "hagelt", "opts": ["hagelt", "schneit", "regnet"], "tr": "Dolu yağıyor.", "exp": "Dolu → der Hagel; Dolu yağıyor → Es hagelt. Karıştırılan kelimeler schneit (kar) ve regnet (yağmur)." },
+      { "sent": "Die Sonne ___.", "blank": "scheint", "opts": ["scheint", "weht", "fällt"], "tr": "Güneş parlıyor.", "exp": "Hocanın sayfasında 'Es (sie) scheint: Güneş parıldıyor' yazıyor. weht rüzgâr için, fällt yağmur için kullanılır." },
+      { "sent": "Der Wind ___.", "blank": "weht", "opts": ["weht", "scheint", "fällt"], "tr": "Rüzgâr esiyor.", "exp": "Hocanın örneği: Der Wind weht. = Rüzgâr esiyor. scheint güneş, fällt yağmur ile kullanılır." },
+      { "sent": "Es ist ___. (Güneşli)", "blank": "sonnig", "opts": ["sonnig", "windig", "bewölkt"], "tr": "Hava güneşli.", "exp": "Hocanın kartı: Güneşli → Es ist sonnig. windig rüzgârlı, bewölkt bulutlu demektir." },
+      { "sent": "Es ist ___. (Rüzgârlı)", "blank": "windig", "opts": ["windig", "sonnig", "nebelig"], "tr": "Hava rüzgârlı.", "exp": "Hocanın kartı: Rüzgârlı → Es ist windig. sonnig güneşli, nebelig sisli demektir." },
+      { "sent": "Es ist ___. (Bulutlu)", "blank": "bewölkt", "opts": ["bewölkt", "regnerisch", "nebelig"], "tr": "Hava bulutlu.", "exp": "Hocanın kartı: Bulutlu → Es ist bewölkt. Parçalı bulutlu olunca Teilweise wolkig denir." },
+      { "sent": "Es ist ___. (Sisli)", "blank": "nebelig", "opts": ["nebelig", "bewölkt", "windig"], "tr": "Hava sisli.", "exp": "Hocanın kartı: Sis → der Nebel; Sisli → Es ist nebelig. bewölkt bulutlu, windig rüzgârlı demektir." },
+      { "sent": "Es sind 25 ___. Es ist warm.", "blank": "Grad", "opts": ["Grad", "Plus", "Minus"], "tr": "Hava 25 derece. Hava sıcak.", "exp": "Hocanın alıştırması: Es sind 25 Grad. Es ist warm. das Grad = derece. Plus ve Minus artı/eksi işaretini bildirir, birimi değil." },
+      { "sent": "Es sind nur 7 Grad. Es ist ___.", "blank": "kalt", "opts": ["kalt", "warm", "heiß"], "tr": "Hava sadece 7 derece. Hava soğuk.", "exp": "Hocanın alıştırması: Es sind nur 7 Grad. Es ist kalt. 7 derece düşük sıcaklıktır; warm veya heiß burada uymaz." },
+      { "sent": "Im ___ ist es bewölkt.", "blank": "Norden", "opts": ["Norden", "Süden", "Westen"], "tr": "Kuzeyde hava bulutlu.", "exp": "Hocanın diyaloğu: Im Norden ist es bewölkt. Im Süden scheint die Sonne. Norden kuzey, Süden güney demektir." },
+      { "sent": "Im ___ scheint die Sonne.", "blank": "Süden", "opts": ["Süden", "Norden", "Osten"], "tr": "Güneyde güneş parlıyor.", "exp": "Hocanın diyaloğu: Im Süden scheint die Sonne. Yönler: im Norden, im Süden, im Osten, im Westen." },
+      { "sent": "Es regnet. = Der Regen ___.", "blank": "fällt", "opts": ["fällt", "weht", "scheint"], "tr": "Yağmur yağıyor = Yağmur düşüyor.", "exp": "Hocanın kırmızı kutusu: Es regnet. = Der Regen fällt. weht rüzgâr, scheint güneş için kullanılır." },
+      { "sent": "___ für ein schönes Wetter!", "blank": "Was", "opts": ["Was", "Wie", "Wo"], "tr": "Ne güzel bir hava!", "exp": "Hocanın ünlem kalıbı: Was für ein schönes Wetter! 'Wie ist das Wetter?' sorusunda Wie vardır, ünlemde Was für kullanılır." },
+      { "sent": "Gestern hat es echt heftig ___.", "blank": "geregnet", "opts": ["geregnet", "regnet", "regnen"], "tr": "Dün gerçekten şiddetli yağmur yağdı.", "exp": "Hocanın örneği: Gestern hat es echt heftig geregnet. Geçmişte 'hat es + geregnet' kullanılır; 'regnet' şimdiki zamandır." }
+    ]
+  },
+  "dogrulama": [
+    "s.68: 'Es (sie) scheint' notu: 'es' mi 'sie' mi yazılır? Hocanın yazımı güneşi (die Sonne = sie) kasteder; 'Die Sonne scheint' dersin ana formu. Perplexity'ye sor: 'scheinen ile es/sie kullanımı doğru mu?'",
+    "s.68: 'Es ist regnerisch' ile 'Es regnet' arasında fark var mı (hoca ikisini de veriyor)? Perplexity'ye sor.",
+    "s.68 kartında 'Sıcak → Heiß' ve 'Sıcak → Warm' birlikte veriliyor; hoca farkı yazmıyor. heiß ve warm arasındaki fark Perplexity'ye sorulacak.",
+    "Hocanın 'voll windig, echt heftig, richtig krass' (s.68) ifadeleri günlük konuşma dilidir; yazılı/sınav dilinde kullanılıp kullanılmayacağı hocanın sayfasında yok. Perplexity'ye sor.",
+    "Yön kelimelerinin (im Norden vb.) Türkçe karşılıkları sayfada yok, bana aittir; ayrıca s.68 kartlarının Türkçe çevirileri hocanındır.",
+    "s.70 'Wohin?' ve 'Gehen wir ...?' sayfası hava durumuyla ilgili değil; Konu 17'ye ayrıldı."
+  ]
+}

@@ -1,0 +1,836 @@
+{
+  "konu": 30,
+  "baslik": "Die Artikel / Dativ (-e hali)",
+  "kaynak": [
+    {
+      "arac": "PDF",
+      "sayfa": "Kalan Üniteler s.59-78"
+    }
+  ],
+  "deste": {
+    "title": "🎁 Dativ (-e hali)",
+    "accent": "linear-gradient(135deg,#D9714E,#A8502F)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "DATIV = WEM?",
+        "mean": "Dativ, Türkçedeki «-e / -a hali»dir (bana, ona, arkadaşıma). Sorusu <b>Wem?</b> (kime?). Der → dem, die → der, das → dem, çoğul → den + n.",
+        "story": "Hocanın üç hali: <b>Nominativ</b> (yalın hal, <i>Wer? Was?</i>) · <b>Akkusativ</b> (-i hali, <i>Wen? Was?</i>) · <b>Dativ</b> (-e hali, <i>Wem?</i>).<br>Hocanın şu notuna dikkat: <b>Fragen: Akk. — Antworten: Dat.</b> Yani «sormak» Akkusativ ister, «cevap vermek» Dativ ister.<br>Bu derste önce zamirler ve artikeller, sonra Dativ + Akkusativ sırası, sonra Dativ isteyen fiiller var."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Personalpronomen",
+        "baslik": "Kişi zamirleri: Nominativ · Akkusativ · Dativ",
+        "basliklar": [
+          "",
+          "Nominativ (Wer?)",
+          "Akkusativ (Wen?)",
+          "Dativ (Wem?)"
+        ],
+        "satirlar": [
+          [
+            "ich (ben)",
+            "ich",
+            "mich (beni)",
+            "mir (bana)"
+          ],
+          [
+            "du (sen)",
+            "du",
+            "dich (seni)",
+            "dir (sana)"
+          ],
+          [
+            "er (o, eril)",
+            "er",
+            "ihn (onu)",
+            "ihm (ona)"
+          ],
+          [
+            "sie (o, dişil)",
+            "sie",
+            "sie (onu)",
+            "ihr (ona)"
+          ],
+          [
+            "es (o, nötr)",
+            "es",
+            "es (onu)",
+            "ihm (ona)"
+          ],
+          [
+            "wir (biz)",
+            "wir",
+            "uns (bizi)",
+            "uns (bize)"
+          ],
+          [
+            "ihr (siz)",
+            "ihr",
+            "euch (sizi)",
+            "euch (size)"
+          ],
+          [
+            "sie (onlar)",
+            "sie",
+            "sie (onları)",
+            "ihnen (onlara)"
+          ],
+          [
+            "Sie (siz, saygı)",
+            "Sie",
+            "Sie (sizi)",
+            "Ihnen (size)"
+          ]
+        ],
+        "not": "Hocanın tablosundan: <b>er ve es</b> Dativ'de aynı: <b>ihm</b>. <b>sie</b> (dişil) Dativ'de <b>ihr</b>, <b>sie</b> (çoğul) ise <b>ihnen</b>. wir ve ihr için Akkusativ ile Dativ aynı: uns / euch.",
+        "kaynak": "Kalan Üniteler s.59"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Belirli artikel",
+        "baslik": "der · das · die → Dativ'de dem · dem · der · den",
+        "basliklar": [
+          "",
+          "eril (der)",
+          "nötr (das)",
+          "dişil (die)",
+          "çoğul (die)"
+        ],
+        "satirlar": [
+          [
+            "Nominativ",
+            "der",
+            "das",
+            "die",
+            "die"
+          ],
+          [
+            "Akkusativ",
+            "den",
+            "das",
+            "die",
+            "die"
+          ],
+          [
+            "Dativ",
+            "dem",
+            "dem",
+            "der",
+            "den … n"
+          ]
+        ],
+        "not": "<b>Hocanın özel notu:</b> Dativ'de çoğul isim <b>-n</b> alır: «den … n» (ör. seit 4 Jahre<b>n</b>). Akkusativ'de yalnız eril değişir (der → den); Dativ'de dört cinsin dördü de değişir.",
+        "kaynak": "Kalan Üniteler s.59"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Belirsiz ve olumsuz artikel",
+        "baslik": "ein / kein ve halleri",
+        "basliklar": [
+          "",
+          "eril",
+          "nötr",
+          "dişil",
+          "çoğul"
+        ],
+        "satirlar": [
+          [
+            "Nominativ",
+            "ein / kein",
+            "ein / kein",
+            "eine / keine",
+            "– / keine"
+          ],
+          [
+            "Akkusativ",
+            "einen / keinen",
+            "ein / kein",
+            "eine / keine",
+            "– / keine"
+          ],
+          [
+            "Dativ",
+            "einem / keinem",
+            "einem / keinem",
+            "einer / keiner",
+            "– / keinen … n"
+          ]
+        ],
+        "not": "Aynı düzen: Dativ'de <b>-em / -em / -er / -en</b> sonları. Çoğulda belirsiz artikel yoktur («–»); olumsuzu <b>keine / keinen … n</b>.",
+        "kaynak": "Kalan Üniteler s.59"
+      },
+      {
+        "big": "dem · der · dem · den",
+        "mean": "Hocanın sayfasının altında artikel sıralaması kısaca yazılıdır: <b>dem – der – dem – den</b>. Sıra: eril · dişil · nötr · çoğul.",
+        "egs": [
+          "Sie spricht mit <b>dem</b> Lehrer. — O öğretmenle konuşuyor. (eril)",
+          "Wir fahren mit <b>dem</b> Bus. — Biz otobüsle gidiyoruz. (eril)",
+          "Ich bin bei <b>meiner</b> Freundin. — Ben arkadaşımın yanındayım. (dişil: der → <b>meiner</b>)",
+          "Wir wohnen bei <b>unseren</b> Eltern. — Biz ailemizin yanında oturuyoruz. (çoğul: <b>-en</b>)"
+        ],
+        "tip": "💡 Ezber: <b>dem · der · dem · den (+n)</b>. Eril ve nötr aynı (dem), dişil <b>der</b>, çoğul <b>den</b> ve ismin sonuna <b>-n</b>.",
+        "kaynak": "Kalan Üniteler s.60, s.79"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Possessivartikel im Dativ",
+        "baslik": "mein, dein, sein … Dativ halleri",
+        "basliklar": [
+          "",
+          "eril / nötr (-em)",
+          "dişil (-er)",
+          "çoğul (-en)"
+        ],
+        "satirlar": [
+          [
+            "ich → mein-",
+            "meinem",
+            "meiner",
+            "meinen"
+          ],
+          [
+            "du → dein-",
+            "deinem",
+            "deiner",
+            "deinen"
+          ],
+          [
+            "er → sein-",
+            "seinem",
+            "seiner",
+            "seinen"
+          ],
+          [
+            "sie → ihr-",
+            "ihrem",
+            "ihrer",
+            "ihren"
+          ],
+          [
+            "es → sein-",
+            "seinem",
+            "seiner",
+            "seinen"
+          ],
+          [
+            "wir → unser-",
+            "unserem",
+            "unserer",
+            "unseren"
+          ],
+          [
+            "ihr → euer-",
+            "eurem",
+            "eurer",
+            "euren"
+          ],
+          [
+            "sie / Sie → ihr- / Ihr-",
+            "ihrem",
+            "ihrer",
+            "ihren"
+          ]
+        ],
+        "not": "Dativ'de iyelik kelimelerinin sonu artikelle aynı gider: <b>-em</b> (eril/nötr), <b>-er</b> (dişil), <b>-en</b> (çoğul). Hocanın alıştırma anahtarında saygı biçimi büyük harfle: <i>Ihrem</i>.",
+        "kaynak": "Kalan Üniteler s.60"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Dativ ve Akkusativ öncelik durumları",
+        "baslik": "Ich schenke … (hocanın 4 cümlesi)",
+        "satirlar": [
+          {
+            "etiket": "İki isim",
+            "not": "önce Dativ, sonra Akkusativ",
+            "jetonlar": [
+              {
+                "t": "Ich",
+                "r": "ozne"
+              },
+              {
+                "t": "schenke",
+                "r": "fiil"
+              },
+              {
+                "t": "meiner Schwester",
+                "r": "diger"
+              },
+              {
+                "t": "einen Ring",
+                "r": "nesne"
+              }
+            ],
+            "tr": "Kız kardeşime bir yüzük hediye ediyorum."
+          },
+          {
+            "etiket": "Dativ zamir",
+            "not": "zamir önce gelir",
+            "jetonlar": [
+              {
+                "t": "Ich",
+                "r": "ozne"
+              },
+              {
+                "t": "schenke",
+                "r": "fiil"
+              },
+              {
+                "t": "ihr",
+                "r": "diger"
+              },
+              {
+                "t": "einen Ring",
+                "r": "nesne"
+              }
+            ],
+            "tr": "Ona bir yüzük hediye ediyorum."
+          },
+          {
+            "etiket": "Akkusativ zamir",
+            "not": "zamir önce gelir",
+            "jetonlar": [
+              {
+                "t": "Ich",
+                "r": "ozne"
+              },
+              {
+                "t": "schenke",
+                "r": "fiil"
+              },
+              {
+                "t": "ihn",
+                "r": "nesne"
+              },
+              {
+                "t": "meiner Schwester",
+                "r": "diger"
+              }
+            ],
+            "tr": "Onu (yüzüğü) kız kardeşime hediye ediyorum."
+          },
+          {
+            "etiket": "İki zamir",
+            "not": "önce Akkusativ, sonra Dativ",
+            "jetonlar": [
+              {
+                "t": "Ich",
+                "r": "ozne"
+              },
+              {
+                "t": "schenke",
+                "r": "fiil"
+              },
+              {
+                "t": "ihn",
+                "r": "nesne"
+              },
+              {
+                "t": "ihr",
+                "r": "diger"
+              }
+            ],
+            "tr": "Onu ona hediye ediyorum."
+          }
+        ],
+        "not": "<b>Renkler:</b> özne (Nominativ) = özne rengi · Dativ = «diğer» rengi · Akkusativ = nesne rengi. <b>Hoca (!!!):</b> Cümlede hem Akkusativ hem Dativ nesne varsa ve ikisi de isimse → önce Dativ, sonra Akkusativ. Biri zamirse → önce zamir gelir. İkisi de zamirse → önce Akkusativ, sonra Dativ.",
+        "kaynak": "Kalan Üniteler s.62"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Hocanın fiil şeması",
+        "baslik": "Dativ'le kullanılan fiiller",
+        "basliklar": [
+          "Almanca",
+          "Türkçe"
+        ],
+        "satirlar": [
+          [
+            "gehören",
+            "ait olmak"
+          ],
+          [
+            "danken",
+            "teşekkür etmek"
+          ],
+          [
+            "glauben",
+            "inanmak"
+          ],
+          [
+            "helfen",
+            "yardım etmek"
+          ],
+          [
+            "zeigen",
+            "göstermek"
+          ],
+          [
+            "empfehlen",
+            "tavsiye vermek"
+          ],
+          [
+            "antworten",
+            "cevap vermek"
+          ],
+          [
+            "schenken",
+            "hediye vermek"
+          ],
+          [
+            "geben",
+            "vermek"
+          ],
+          [
+            "vertrauen",
+            "güvenmek"
+          ],
+          [
+            "gefallen",
+            "memnun etmek / hoşuna gitmek"
+          ]
+        ],
+        "not": "Bu liste hocanın s.59'daki renkli şemasından. Hoca yanına «Fragen: Akk. — Antworten: Dat.» yazmış: yani <b>fragen Akkusativ</b>, <b>antworten Dativ</b> ister. Her fiilin kendi sayfasını aşağıda göreceğiz (glauben, schenken, gefallen, schmecken, fragen, antworten, zustimmen, zuhören, gehören).",
+        "kaynak": "Kalan Üniteler s.59"
+      },
+      {
+        "big": "glauben",
+        "mean": "<b>glauben + Dativ</b> = birine inanmak (doğru söylüyor demek). <b>glauben an + Akkusativ</b> = bir şeye/birine güvenmek, onun varlığına inanmak.",
+        "egs": [
+          "Ich glaube <b>dir</b>. — Sana inanıyorum. (Du lügst nicht. = Yalan söylemiyorsun.)",
+          "Wir glauben <b>an die Demokratie</b>. — Demokrasiye inanıyoruz. (Demokrasinin iyi olduğundan eminiz.)"
+        ],
+        "tip": "💡 Hocanın görselindeki kısa ezber: <b>GLAUBEN + DATIV: ich glaube dir</b> — ama <b>GLAUBEN AN + AKKUSATIV: ich glaube an dich</b>.",
+        "kaynak": "Kalan Üniteler s.65"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "schenken ≠ beschenken",
+        "baslik": "İkisi de «hediye etmek» ama farklı yapı",
+        "basliklar": [
+          "",
+          "schenken",
+          "beschenken"
+        ],
+        "satirlar": [
+          [
+            "Hediye edilen KİŞİ",
+            "Dativ",
+            "Akkusativ"
+          ],
+          [
+            "Hediye edilen ŞEY",
+            "Akkusativ",
+            "mit + Dativ"
+          ],
+          [
+            "Örnek",
+            "Sie schenkte ihm zum Geburtstag ein Buch.",
+            "Er beschenkte die Kinder zu Weihnachten mit Schokolade."
+          ],
+          [
+            "Türkçe",
+            "Ona doğum gününde bir kitap hediye etti.",
+            "Noel için çocuklara çikolata hediye etti."
+          ]
+        ],
+        "not": "<b>Hoca:</b> schenken'de hediye ettiğimiz kişi DATIV, şey AKKUSATIV. beschenken'de kişi AKKUSATIV; hediye ettiğimiz şeyi söylemek istiyorsak mutlaka <b>mit</b> kullanmalıyız. Örnek: <i>Linda beschenkte ihn (Akk.) zu Weihnachten mit dem (Dat.) Auto.</i> — Linda Noel'de ona arabayı hediye etti.",
+        "kaynak": "Kalan Üniteler s.66"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Hoşuna gitmek",
+        "baslik": "gefallen ve schmecken: Dativ ister",
+        "basliklar": [
+          "",
+          "gefallen",
+          "schmecken"
+        ],
+        "satirlar": [
+          [
+            "Anlam",
+            "hoşuna gitmek, beğenmek",
+            "tadı olmak"
+          ],
+          [
+            "Örnek 1",
+            "Du gefällst mir.",
+            "Das Brot schmeckt mir."
+          ],
+          [
+            "Örnek 2",
+            "Das Bild gefällt mir.",
+            "Das Brot ist lecker."
+          ],
+          [
+            "Örnek 3",
+            "Es gefällt mir, alleine in Urlaub zu fahren.",
+            "Das Brot ist köstlich."
+          ]
+        ],
+        "not": "<b>Hocanın uyarısı (!!!):</b> yemek için «Das Brot gefällt mir» DEĞİL, <b>Das Brot schmeckt mir</b>. gefallen çekimi: ich gefalle, du gefällst, er gefällt, wir gefallen, ihr gefallt, sie gefallen. Hoca ayrıca <b>der Gefallen</b> = iyilik (Könnten Sie mir einen kleinen Gefallen tun? — Bir ricam olabilir mi?) ve <b>das Gefallen</b> = hoşlanma, beğenme diye ikiye ayırmış.",
+        "kaynak": "Kalan Üniteler s.67-68"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Soru ve cevap fiilleri",
+        "baslik": "fragen · stellen · antworten · beantworten",
+        "basliklar": [
+          "Fiil",
+          "Yapı",
+          "Hocanın örneği"
+        ],
+        "satirlar": [
+          [
+            "fragen",
+            "Akkusativ",
+            "Ich frage dich etwas. — Sana bir şey soruyorum."
+          ],
+          [
+            "jemandem eine Frage stellen",
+            "Dativ + Frage",
+            "Ich stelle dir eine Frage. — Sana bir soru soruyorum."
+          ],
+          [
+            "antworten",
+            "Dativ (kişi)",
+            "Ich werde dir morgen antworten. — Yarın sana cevap vereceğim."
+          ],
+          [
+            "antworten auf",
+            "auf + Akkusativ",
+            "Hast du auf die E-Mail schon geantwortet? — E-postaya cevap verdin mi?"
+          ],
+          [
+            "beantworten",
+            "Akkusativ (şey)",
+            "Ich beantworte dir morgen die Frage. — Yarın sana soruyu cevaplayacağım."
+          ]
+        ],
+        "not": "<b>Hocanın uyarısı:</b> «Ich frage dir eine Frage» yanlış (kırmızı çarpı). Doğrusu: <b>Ich frage dich etwas</b> veya <b>Ich stelle dir eine Frage</b>. beantworten her zaman bir Akkusativ nesne ister (die E-Mail, die Frage); kişi eklenecekse o Dativ olur. Yalnız antworten'de nesne yoksa da olur: <i>Lea antwortet immer sehr schnell.</i>",
+        "kaynak": "Kalan Üniteler s.70-71"
+      },
+      {
+        "big": "zustimmen",
+        "mean": "<b>zustimmen</b> = katılmak, hem fikir olmak. Kişi Dativ olur ve <b>zu</b> fiilin sonuna gider: <b>Ich stimme dir zu</b>. Zıttı: <b>widersprechen</b>.",
+        "egs": [
+          "Ich stimme <b>dir</b> zu. — Sana katılıyorum.",
+          "Ich stimme <b>Maria</b> zu! — Maria'ya katılıyorum.",
+          "Ich bin ganz <b>deiner</b> Meinung. — Tamamen seninle aynı fikirdeyim.",
+          "Ich widerspreche <b>dir</b> ungern, aber du liegst falsch. — Sana itiraz etmekten hoşlanmam ama yanılıyorsun."
+        ],
+        "tip": "💡 Hocanın çarpısı: ❌ «Ich stimme zu dir!» ❌ «Ich stimme zu Maria!» — <b>zu</b> kişiden önce değil, cümlenin SONUNDA olur.",
+        "kaynak": "Kalan Üniteler s.72-73"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Üç küçük Dativ kalıbı",
+        "baslik": "zuhören · gehören · zuliebe",
+        "basliklar": [
+          "Kalıp",
+          "Almanca",
+          "Türkçe"
+        ],
+        "satirlar": [
+          [
+            "zuhören (dinlemek) + Dativ",
+            "Hörst du mir zu? — Ja, ich höre dir zu.",
+            "Beni dinliyor musun? — Evet, seni dinliyorum."
+          ],
+          [
+            "hören (duymak) + Akkusativ",
+            "Kann man mich hören?",
+            "Beni duyabilen var mı (acaba)?"
+          ],
+          [
+            "gehören (ait olmak) + Dativ",
+            "Der Computer gehört mir.",
+            "Bu bilgisayar benim."
+          ],
+          [
+            "haben (Akkusativ fiili)",
+            "Ich habe einen Computer.",
+            "Benim bir bilgisayarım var."
+          ],
+          [
+            "Dativ + zuliebe",
+            "Ich mache das dir zuliebe.",
+            "Bunu senin hatırın için yapıyorum."
+          ],
+          [
+            "isim + zuliebe",
+            "seinem Kind zuliebe / seiner Mutter zuliebe",
+            "Çocuğunun hatırı için / annesinin hatırı için"
+          ]
+        ],
+        "not": "<b>Hocanın karşılaştırmaları:</b> zuhören → Dativ, hören → Akkusativ. gehören → Dativ (<i>Der Computer gehört mir</i>), haben → Akkusativ (<i>Ich habe einen Computer</i>). zuliebe ismin ARKASINA gelir ve Dativ ister.",
+        "kaynak": "Kalan Üniteler s.64, s.74, s.75"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Sık hatalar / tuzaklar",
+        "baslik": "Dativ'de dikkat",
+        "maddeler": [
+          "<b>fragen = Akkusativ</b> (Ich frage <i>dich</i>), ama <b>antworten = Dativ</b> (Ich antworte <i>dir</i>).",
+          "<b>zuhören = Dativ</b> (Ich höre dir zu), <b>hören = Akkusativ</b> (Ich höre dich).",
+          "<b>schenken</b>: kişi Dativ, şey Akkusativ. <b>beschenken</b>: kişi Akkusativ, şey <b>mit</b> + Dativ.",
+          "<b>glauben</b>: kişi Dativ (ich glaube dir); <b>glauben an</b> + Akkusativ (ich glaube an dich).",
+          "<b>schmecken</b> yemek için, <b>gefallen</b> genel beğeni için: Das Brot <i>schmeckt</i> mir (gefällt değil).",
+          "Dativ'de çoğul isim <b>-n</b> alır (den Kindern, seit 4 Jahren).",
+          "İki nesne varsa: iki isim → önce Dativ; zamir varsa → zamir önce; iki zamir → önce Akkusativ."
+        ],
+        "uyari": "En sık hata: kişiyi yanlış hale koymak: «Ich frage dir» (✗) / «Ich stimme zu dir» (✗) / «Das Brot gefällt mir» (✗, schmeckt olmalı).",
+        "kaynak": "Kalan Üniteler s.62-75"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "dem · der · dem · den + n",
+        "mean": "Dativ = -e hali (Wem?). eril/nötr → dem, dişil → der, çoğul → den + n.",
+        "story": "<b>mir · dir · ihm · ihr · ihm · uns · euch · ihnen · Ihnen</b><br>Dativ fiilleri: <b>gehören · glauben · gefallen · schmecken · antworten · zustimmen · zuhören</b><br><b>Ich schenke meiner Schwester einen Ring.</b> · <b>Ich schenke ihn ihr.</b>"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d30_dativ",
+    "title": "Dativ (-e hali)",
+    "emoji": "🎁",
+    "desc": "Dativ artikelleri, zamirler ve Dativ isteyen fiiller",
+    "rule": "<b>Dativ = Wem?</b> (kime?). Artikel: <b>der → dem, das → dem, die → der, çoğul → den + n</b>.<br>Zamirler: mir, dir, ihm, ihr, ihm, uns, euch, ihnen, Ihnen.<br>İki nesne: iki isim → önce <b>Dativ</b>, sonra Akkusativ; zamir varsa önce zamir; iki zamir → önce Akkusativ.<br>Dativ'le: <b>gehören, glauben, gefallen, schmecken, antworten, zustimmen, zuhören</b>. Akkusativ'le: <b>fragen, hören</b>.",
+    "qs": [
+      {
+        "sent": "Sie spricht mit ___ Lehrer.",
+        "blank": "dem",
+        "opts": [
+          "dem",
+          "den",
+          "der"
+        ],
+        "tr": "O öğretmenle konuşuyor.",
+        "exp": "Hocanın örneği: «Sie spricht mit dem Lehrer.» der Lehrer eril olduğu için Dativ'de <b>dem</b> olur. «den» Akkusativ eril veya Dativ çoğul, «der» dişil Dativ içindir."
+      },
+      {
+        "sent": "Ich schenke ___ Schwester einen Ring.",
+        "blank": "meiner",
+        "opts": [
+          "meiner",
+          "meine",
+          "meinem"
+        ],
+        "tr": "Kız kardeşime bir yüzük hediye ediyorum.",
+        "exp": "Hocanın örneği: «Ich schenke meiner Schwester einen Ring.» Schwester dişil olduğu için Dativ'de <b>meiner</b> olur. «meine» Nominativ/Akkusativ, «meinem» eril/nötr Dativ içindir."
+      },
+      {
+        "sent": "Ich schenke ___ einen Ring.",
+        "blank": "ihr",
+        "opts": [
+          "ihr",
+          "sie",
+          "ihn"
+        ],
+        "tr": "Ona bir yüzük hediye ediyorum.",
+        "exp": "Hocanın örneği: «Ich schenke ihr einen Ring.» Hediye edilen kişi (kız kardeş, dişil) Dativ'de <b>ihr</b> olur. «ihn» Akkusativ erildir, «sie» Akkusativ dişildir."
+      },
+      {
+        "sent": "Der Computer gehört ___.",
+        "blank": "mir",
+        "opts": [
+          "mir",
+          "mich",
+          "ich"
+        ],
+        "tr": "Bilgisayar bana ait.",
+        "exp": "Hocanın örneği: «Der Computer gehört mir.» gehören Dativ ister; «ich» Dativ'de <b>mir</b> olur. «mich» Akkusativ'dir. haben ise Akkusativ ister (Ich habe einen Computer)."
+      },
+      {
+        "sent": "Das Brot schmeckt ___.",
+        "blank": "mir",
+        "opts": [
+          "mir",
+          "mich",
+          "ich"
+        ],
+        "tr": "Ekmeğin tadı hoşuma gidiyor.",
+        "exp": "Hocanın uyarısı: «Das Brot schmeckt mir» (tadı olmak, Dativ). schmecken Dativ ister; «mich» Akkusativ olurdu. Yemek için gefallen değil schmecken kullanılır."
+      },
+      {
+        "sent": "Ich glaube ___.",
+        "blank": "dir",
+        "opts": [
+          "dir",
+          "dich",
+          "du"
+        ],
+        "tr": "Sana inanıyorum.",
+        "exp": "Hocanın örneği: «Ich glaube dir (Du lügst nicht).» glauben + kişi Dativ ister, du → <b>dir</b>. glauben an + Akkusativ olurdu: ich glaube an dich."
+      },
+      {
+        "sent": "Wir glauben ___ die Demokratie.",
+        "blank": "an",
+        "opts": [
+          "an",
+          "zu",
+          "auf"
+        ],
+        "tr": "Demokrasiye inanıyoruz.",
+        "exp": "Hocanın örneği: «Wir glauben an die Demokratie.» Bir şeye inanmak için glauben + <b>an</b> + Akkusativ kullanılır (die Demokratie = Akkusativ dişil)."
+      },
+      {
+        "sent": "Ich stimme ___ zu.",
+        "blank": "dir",
+        "opts": [
+          "dir",
+          "dich",
+          "zu dir"
+        ],
+        "tr": "Sana katılıyorum.",
+        "exp": "Hoca: «Ich stimme dir zu!» zustimmen Dativ ister; <b>zu</b> kişiden önce değil, cümle sonunda olur. «zu dir» hocanın çarpı koyduğu yanlış kalıptır."
+      },
+      {
+        "sent": "Ich frage ___ etwas.",
+        "blank": "dich",
+        "opts": [
+          "dich",
+          "dir",
+          "du"
+        ],
+        "tr": "Sana bir şey soruyorum.",
+        "exp": "Hocanın uyarısı: «Fragen: Akk.» Yani fragen Akkusativ ister ve «Ich frage dich etwas» denir. «Ich frage dir» hocanın çarpı koyduğu yanlış kalıptır."
+      },
+      {
+        "sent": "Ich stelle ___ eine Frage.",
+        "blank": "dir",
+        "opts": [
+          "dir",
+          "dich",
+          "du"
+        ],
+        "tr": "Sana bir soru soruyorum.",
+        "exp": "Hoca: «jemandem eine Frage stellen — Ich stelle dir eine Frage.» Kişi burada Dativ, soru (eine Frage) Akkusativ'dir; zamir Dativ'de <b>dir</b> olur."
+      },
+      {
+        "sent": "Ich werde ___ morgen antworten.",
+        "blank": "dir",
+        "opts": [
+          "dir",
+          "dich",
+          "auf dich"
+        ],
+        "tr": "Yarın sana cevap vereceğim.",
+        "exp": "Hocanın sayfası: «ANTWORTEN + Person: Dativ — Ich werde dir morgen antworten.» Kişiyle antworten Dativ ister. «auf» + şey (auf die E-Mail) için kullanılır, kişi için değil."
+      },
+      {
+        "sent": "Hörst du ___ zu?",
+        "blank": "mir",
+        "opts": [
+          "mir",
+          "mich",
+          "ich"
+        ],
+        "tr": "Beni dinliyor musun?",
+        "exp": "Hocanın örneği: «Hörst du mir zu?» zuhören (dinlemek) Dativ ister. hören (duymak) ise Akkusativ ister: «Kann man mich hören?»"
+      },
+      {
+        "sent": "Kann man ___ hören?",
+        "blank": "mich",
+        "opts": [
+          "mich",
+          "mir",
+          "ich"
+        ],
+        "tr": "Beni duyabiliyor musunuz?",
+        "exp": "Hocanın örneği: «Kann man mich hören?» hören (duymak) Akkusativ ister; Dativ olan zuhören'den farklıdır (Hörst du mir zu?)."
+      },
+      {
+        "sent": "Marco macht mit ___ Freundin einen Kochkurs.",
+        "blank": "seiner",
+        "opts": [
+          "seiner",
+          "seinem",
+          "seine"
+        ],
+        "tr": "Marco kız arkadaşıyla bir yemek kursu yapıyor.",
+        "exp": "Hocanın alıştırma anahtarı: 1. seiner. Freundin dişil olduğu için Dativ'de sein- + <b>-er</b> olur. «seinem» eril/nötr isimle kullanılırdı."
+      },
+      {
+        "sent": "Laura will ___ Freund beim Kochen helfen.",
+        "blank": "ihrem",
+        "opts": [
+          "ihrem",
+          "ihrer",
+          "ihren"
+        ],
+        "tr": "Laura erkek arkadaşına yemek yaparken yardım etmek istiyor.",
+        "exp": "Hocanın anahtarı: 3. ihrem. der Freund eril, bu yüzden Dativ'de iyelik <b>-em</b> alır. «ihrer» dişil, «ihren» çoğul isimle kullanılırdı."
+      },
+      {
+        "sent": "Er beschenkte die Kinder zu Weihnachten ___ Schokolade.",
+        "blank": "mit",
+        "opts": [
+          "mit",
+          "zu",
+          "für"
+        ],
+        "tr": "Noel için çocuklara çikolata hediye etti.",
+        "exp": "Hoca: beschenken'de kişi Akkusativ olur (die Kinder) ve hediye edilen şeyi söylemek için mutlaka <b>mit</b> kullanılır. Örnek: «Er beschenkte die Kinder zu Weihnachten mit Schokolade.»"
+      },
+      {
+        "sent": "Ich schenke ___ meiner Schwester.",
+        "blank": "ihn",
+        "opts": [
+          "ihn",
+          "ihm",
+          "ihr"
+        ],
+        "tr": "Onu (yüzüğü) kız kardeşime hediye ediyorum.",
+        "exp": "Hocanın sırası: biri zamirse önce zamir gelir. «Ich schenke ihn meiner Schwester.» Hediye edilen şey (der Ring) Akkusativ'dir: ihn. «ihm / ihr» Dativ olurdu."
+      },
+      {
+        "sent": "Ich schenke ___ ihr.",
+        "blank": "ihn",
+        "opts": [
+          "ihn",
+          "ihm",
+          "ihr"
+        ],
+        "tr": "Onu ona hediye ediyorum.",
+        "exp": "Hoca (!!!): ikisi de zamirse önce Akkusativ gelir, sonra Dativ: «Ich schenke ihn ihr.» Burada ihn = Akkusativ (der Ring), ihr = Dativ (kız kardeş)."
+      },
+      {
+        "sent": "Das Bild ___ mir.",
+        "blank": "gefällt",
+        "opts": [
+          "gefällt",
+          "gefallen",
+          "gefällst"
+        ],
+        "tr": "Resim hoşuma gidiyor.",
+        "exp": "Hocanın örneği: «Das Bild gefällt mir.» Özne Das Bild (3. tekil) olduğu için gefallen → <b>gefällt</b>. «gefällst» du içindir, «gefallen» wir/sie çoğuldur."
+      },
+      {
+        "sent": "Ich mache das ___ zuliebe.",
+        "blank": "dir",
+        "opts": [
+          "dir",
+          "dich",
+          "du"
+        ],
+        "tr": "Bunu senin hatırın için yapıyorum.",
+        "exp": "Hocanın örneği: «Ich mache das dir zuliebe.» zuliebe Dativ ister (Dativ + zuliebe) ve ismin/zamirin arkasına gelir; du → <b>dir</b>."
+      }
+    ]
+  },
+  "dogrulama": [
+    "s.59 Dativ fiil şemasının (gehören, danken, glauben, helfen, zeigen, empfehlen, antworten, schenken, geben, vertrauen, gefallen) başlığı/okları okunamadı; Almanca-Türkçe eşleşmesini anlamdan yaptım. Hoca bunların hepsini Dativ fiili olarak mı gösteriyor? Perplexity'ye sor: «danken, helfen, zeigen, empfehlen, geben, vertrauen Dativ mu ister?»",
+    "s.59 şemada 'glauben' ve 'gefallen' yanında soru işareti var; hocanın neyi sorguladığı belli değil.",
+    "s.60 Possessivartikel tablosunda kişi etiketleri (ich, du, er, sie, es, wir, ihr, sie/Sie) yok; sırayı mein/dein/sein/ihr/sein/unser/euer/ihr olarak ben eşleştirdim.",
+    "s.61 ve s.78'deki Türkçe çeviri alıştırmalarının Almanca cevap anahtarı sayfalarda yok; derste kullanılmadı.",
+    "s.62 'Ich schenke ...' cümlelerinin Türkçesi hocada yok (yalnız 'Ich kaufe für meine Schwester einen Ring' = 'Kız kardeşime bir yüzük alacağım' var); schenke cümlelerinin çevirisi bana ait.",
+    "s.66 'Linda beschenkte ihn zu Weihnachten mit dem Auto' cümlesinin Türkçesi bana ait.",
+    "s.67-68 gefallen/schmecken örneklerinde Türkçe çevirileri bana ait: Du gefällst mir, Das Bild gefällt mir, Das Brot schmeckt mir.",
+    "s.73 'widersprechen' için Türkçe karşılık hocada yok (yalnız İngilizce 'to contradict, disagree'); 'itiraz etmek / karşı çıkmak' ve tablodaki cümle çevirisi bana ait.",
+    "Soru cümlelerinde (s.60 iyelik alıştırmaları: Marco macht mit seiner Freundin … vb.) Türkçe çevirileri bana ait; yalnız Almanca cümleler ve doğru cevaplar hocanın.",
+    "s.75 hocanın «Der Computer ist mein Computer» / «Der Computer gehört mir» ve s.64 'seinem Kind zuliebe' gibi kalıpların Türkçesi yok; çeviriler bana ait."
+  ]
+}

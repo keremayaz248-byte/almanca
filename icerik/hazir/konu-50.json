@@ -1,0 +1,408 @@
+{
+  "konu": 50,
+  "baslik": "Präteritum (düzenli + düzensiz fiiller)",
+  "kaynak": [
+    { "arac": "PDF", "sayfa": "Teil-2 s.50-51, s.56, s.68-69" },
+    { "arac": "PDF", "sayfa": "A2 Dosyası s.176-177, s.181-182, s.218-219, s.238-241" },
+    { "arac": "PDF", "sayfa": "Kalan Üniteler s.57" }
+  ],
+  "deste": {
+    "title": "⏪ Präteritum: war, hatte, fand…",
+    "accent": "linear-gradient(135deg,#D9714E,#A8502F)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "PRÄTERITUM",
+        "mean": "Geçmişi tek kelimeyle anlatan biçim: ich war, ich hatte, ich fand, ich wünschte. Perfekt gibi yardımcı fiil + Partizip II gerekmez.",
+        "story": "Hocanın sayfalarında Präteritum üç kalıpla karşına çıkar:<br><b>1) sein / haben / modaller</b> (war, hatte, konnte, musste…) — en çok kullanılanlar.<br><b>2) Düzenli fiiller:</b> kök + <b>-te</b> (wünschte, suchte aus).<br><b>3) Düzensiz fiiller:</b> kök değişir (fand, gab, nahm, sah, blieb…).<br>Hepsini hocanın tablolarından, çekimleriyle birlikte öğreneceksin."
+      },
+      {
+        "tur": "zaman",
+        "kicker": "Zaman çizgisi",
+        "baslik": "Geçmişin üç yüzü ve şimdi",
+        "noktalar": [
+          {
+            "baslik": "Plusquamperfekt",
+            "etiket": "geçmişin geçmişi (-mişti)",
+            "ornek": "Ich <b>war</b> gerade <b>aufgestanden</b>, da klopfte es an der Tür.",
+            "tr": "Daha yeni kalkmıştım ki kapı çalındı."
+          },
+          {
+            "baslik": "Perfekt",
+            "etiket": "haben/sein + Partizip II",
+            "ornek": "Er <b>ist</b> heute zu Hause <b>geblieben</b>.",
+            "tr": "O bugün evde kaldı."
+          },
+          {
+            "baslik": "Präteritum",
+            "etiket": "tek kelimelik geçmiş",
+            "ornek": "Er <b>blieb</b> heute zu Hause.",
+            "tr": "O bugün evde kaldı."
+          },
+          {
+            "baslik": "Präsens",
+            "etiket": "şimdi",
+            "ornek": "Er <b>bleibt</b> heute zu Hause.",
+            "tr": "O bugün evde kalıyor / kalır."
+          },
+          {
+            "baslik": "Futur-1 / Futur-2",
+            "etiket": "gelecek"
+          }
+        ],
+        "not": "Hocanın diyagramı: solda Plusquamperfekt (-mişti), ortada Perfekt ve Präteritum (ikisi de 'geçmiş'), sonra Präsens, en sağda Futur. Hocanın Türkçe çevirilerinde <b>Perfekt de Präteritum da '-dı' ile</b> karşılanıyor.",
+        "kaynak": "Teil-2 s.50, s.69"
+      },
+      {
+        "big": "kam · ist gekommen · war gekommen",
+        "mean": "Aynı fiilin geçmişteki üç biçimi: <b>Präteritum</b> (kam), <b>Perfekt</b> (ist gekommen), <b>Plusquamperfekt</b> (war gekommen, 'gelmişti'). Bu derste ilkine, yani Präteritum'a odaklanıyoruz.",
+        "egs": [
+          "<b>kam</b> — Präteritum (geldi)",
+          "<b>ist gekommen</b> — Perfekt (geldi)",
+          "<b>war gekommen</b> — Plusquamperfekt (gelmişti)",
+          "<b>sagte</b> — Präteritum · <b>hat gesagt</b> — Perfekt · <b>hatte gesagt</b> — Plusquamperfekt"
+        ],
+        "tip": "💡 Hocanın tahtasında Plusquamperfekt'in yardımcı fiili Präteritum'a göre kurulur: <b>war gekommen</b> (war + Partizip II), <b>hatte gesagt</b> (hatte + Partizip II). Yani war/hatte bilmeden Plusquamperfekt de kurulamaz.",
+        "kaynak": "Teil-2 s.68-69"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim",
+        "baslik": "sein ve haben: Präteritum",
+        "basliklar": ["", "sein (olmak)", "haben (sahip olmak)"],
+        "satirlar": [
+          ["ich", "war", "hatte"],
+          ["du", "warst", "hattest"],
+          ["er / sie / es", "war", "hatte"],
+          ["wir", "waren", "hatten"],
+          ["ihr", "wart", "hattet"],
+          ["sie / Sie", "waren", "hatten"]
+        ],
+        "not": "<b>ich ve er/sie/es aynı biçim</b> (war, hatte). Hocanın Perfekt tablosunda 'Ich bin gewesen' duruyor; 'Ich habe gehabt' ise üstü çizilmiş. Yani konuşmada da war / hatte kullanılıyor.",
+        "kaynak": "A2 s.239-240; Teil-2 s.69"
+      },
+      {
+        "big": "war · hatte",
+        "mean": "En çok kullanacağın iki Präteritum. <b>war</b> 'idi, bulunuyordu', <b>hatte</b> 'vardı'. Zaman kelimeleri çoğu zaman yanlarındadır: gestern, letzte Woche, früher, damals, neulich.",
+        "egs": [
+          "Sie <b>war</b> müde. — Yorgundu.",
+          "Warum <b>waren</b> Sie gestern nicht im Unterricht? — Neden dün derste değildiniz?",
+          "Gestern <b>war</b> ich mit einem Polizisten in seinem Haus. — Dün bir polisle onun evindeydim.",
+          "Ich <b>war</b> neulich bei meiner Tante. — Geçenlerde teyzemdeydim."
+        ],
+        "tip": "💡 Hocanın zaman listesi: <b>Gestern</b> (dün) · <b>Letzte Woche</b> (geçen hafta) · <b>Letzten Monat</b> · <b>Letztes Jahr</b> · <b>Früher</b> (eskiden) · <b>Damals</b> (o zamanlar) · <b>Neulich</b> (geçenlerde).",
+        "kaynak": "Kalan Üniteler s.57; A2 s.241; Teil-2 s.69"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim",
+        "baslik": "Modalverben: Präteritum",
+        "basliklar": ["", "ich", "du", "er/sie/es", "wir / sie"],
+        "satirlar": [
+          ["dürfen", "durfte", "durftest", "durfte", "durften"],
+          ["können", "konnte", "konntest", "konnte", "konnten"],
+          ["mögen", "mochte", "mochtest", "mochte", "mochten"],
+          ["müssen", "musste", "musstest", "musste", "mussten"],
+          ["sollen", "sollte", "solltest", "sollte", "sollten"],
+          ["wollen", "wollte", "wolltest", "wollte", "wollten"]
+        ],
+        "not": "<b>ihr</b> formu: durftet, konntet, mochtet, musstet, solltet, wolltet. Sonlar: <b>-te · -test · -te · -ten · -tet · -ten</b>. Dikkat: dürfen → durfte, können → konnte, müssen → musste (ümlaut düşer).",
+        "kaynak": "A2 s.240"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Kural",
+        "baslik": "Modallerde Perfekt yerine Präteritum",
+        "maddeler": [
+          "Hocanın tablosunda Perfekt sütunundaki <b>ich habe gewollt / gedurft / gekonnt / gemusst / gesollt</b> hep ÜSTÜ ÇİZİLMİŞ. Präteritum hücreleri ise daire içine alınmış.",
+          "Örnek: <b>Warum konntest du gestern nicht lernen? — Ich wollte lernen, aber ich war so müde.</b> (Neden dün çalışamadın? — Çalışmak istedim ama çok yorgundum.)",
+          "Örnek: <b>Ich konnte nicht kommen. Ich musste zum Arzt gehen.</b> (Gelemedim. Doktora gitmem gerekiyordu.)",
+          "Präsens mı Präteritum mu? Zaman kelimesine bak: heute / jetzt → Präsens (müsst, dürfen, soll) · gestern → Präteritum (konntest, wollte, konnte, musste)."
+        ],
+        "uyari": "Hocanın P.S.'i: <b>«möchten»'in Präteritum'u yoktur.</b> 'Dün bir bira istedim' demek için wollen kullan: Gestern wollte ich ein Bier.",
+        "kaynak": "A2 s.240-241"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Düzenli fiil",
+        "baslik": "wünschen: Präsens ↔ Präteritum",
+        "basliklar": ["", "Präsens", "Präteritum"],
+        "satirlar": [
+          ["ich", "wünsche", "wünschte"],
+          ["du", "wünschst", "wünschtest"],
+          ["er / sie / es", "wünscht", "wünschte"],
+          ["wir", "wünschen", "wünschten"],
+          ["ihr", "wünscht", "wünschtet"],
+          ["sie / Sie", "wünschen", "wünschten"]
+        ],
+        "not": "<b>Düzenli fiil kalıbı:</b> kök değişmez, araya <b>-te</b> girer. Sonlar: ich <b>-te</b> · du <b>-test</b> · er/sie/es <b>-te</b> · wir <b>-ten</b> · ihr <b>-tet</b> · sie/Sie <b>-ten</b>. Modal fiillerin sonları da aynı.",
+        "kaynak": "Teil-2 s.56; A2 s.240"
+      },
+      {
+        "big": "klopfte · suchte aus · verfasste",
+        "mean": "<b>Düzenli fiiller</b> hocanın örneklerinde: kök + -te. <b>Ayrılabilen fiilde</b> önek cümle sonuna gider.",
+        "egs": [
+          "Ich war gerade aufgestanden, da <b>klopfte</b> es an der Tür. — Daha yeni kalkmıştım ki kapı çalındı.",
+          "Perfekt: ich habe ausgesucht · Präteritum: ich <b>suchte</b> … <b>aus</b>. — seçtim",
+          "Nach dem Krieg <b>verfasste</b> ich viele Bücher über Geschichte. — Savaştan sonra tarih hakkında çok kitap yazdım.",
+          "Ich <b>wünschte</b>, wir hätten mehr Zeit. — Keşke daha çok zamanımız olsaydı."
+        ],
+        "tip": "💡 Hocanın aussuchen notu: <b>das Aussuchen</b> (seçme). Ayrılabilen fiil: suchte … aus (Präteritum'da önek sonda). Perfekt: habe ausgesucht.",
+        "kaynak": "A2 s.177, s.181; Teil-2 s.56, s.69"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Düzensiz fiiller 1",
+        "baslik": "Kök değişenler (1/2)",
+        "basliklar": ["Mastar", "Präteritum", "Perfekt"],
+        "satirlar": [
+          ["bleiben (kalmak)", "blieb (er)", "ist geblieben"],
+          ["finden (bulmak)", "fanden (wir)", "haben gefunden"],
+          ["geben (vermek)", "gab (Mutter)", "hat gegeben"],
+          ["nehmen (almak, binmek)", "nahm (Ali)", "hat genommen"],
+          ["sehen (görmek)", "sah (Clara)", "hat gesehen"],
+          ["wissen (bilmek)", "wusstest (du)", "hast gewusst"]
+        ],
+        "not": "Şu fiillerde kök değişir: bleiben → <b>blieb</b>, geben → <b>gab</b>, nehmen → <b>nahm</b>, sehen → <b>sah</b>. Parantezlerde hocanın cümlesindeki özne var. Perfekt'te bleiben yardımcı fiil olarak <b>sein</b> alır (ist geblieben).",
+        "kaynak": "Teil-2 s.50"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Düzensiz fiiller 2",
+        "baslik": "Kök değişenler (2/2)",
+        "basliklar": ["Mastar", "Präteritum", "Perfekt"],
+        "satirlar": [
+          ["essen (yemek)", "aßen (Kinder)", "haben gegessen"],
+          ["sprechen (konuşmak)", "sprach (Lehrer)", "hat gesprochen"],
+          ["helfen (yardım etmek)", "halfen (Freunde)", "haben geholfen"],
+          ["treffen (buluşmak)", "traf (ich)", "habe getroffen"],
+          ["schlafen (uyumak)", "schlief (Hund)", "hat geschlafen"],
+          ["laufen (koşmak)", "liefen (Tom, Lena)", "sind gelaufen"]
+        ],
+        "not": "Hocanın ek örnekleri: <b>unterbrechen → unterbrach</b> (Perfekt: habe unterbrochen), <b>begreifen → begriff</b> (Perfekt: habe begriffen). Perfekt'te laufen yardımcı fiil olarak <b>sein</b> alır (sind gelaufen).",
+        "kaynak": "Teil-2 s.51; A2 s.176, s.182"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim",
+        "baslik": "denken · heißen · wissen · finden",
+        "basliklar": ["", "denken", "heißen", "wissen", "finden"],
+        "satirlar": [
+          ["ich", "dachte", "hieß", "wusste", "fand"],
+          ["du", "dachtest", "hießest", "wusstest", "fandest"],
+          ["er / sie / es", "dachte", "hieß", "wusste", "fand"],
+          ["wir", "dachten", "hießen", "wussten", "fanden"],
+          ["ihr", "dachtet", "hießt", "wusstet", "fandet"],
+          ["sie / Sie", "dachten", "hießen", "wussten", "fanden"]
+        ],
+        "not": "<b>denken</b> ve <b>wissen</b>: hem kök değişir (dach-, wuss-) hem <b>-te</b> eki alır. <b>heißen</b> ve <b>finden</b>: kök değişir (hieß, fand), -te eki yok. Hepsinde <b>ich ve er/sie/es aynı</b>. Perfekt'ler: ich habe gedacht / gewusst / gefunden; 'Ich habe geheißen' hocanın tablosunda çizili.",
+        "kaynak": "A2 s.238"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Perfekt mi Präteritum mu?",
+        "baslik": "finden örneği: nesne mi, görüş mü?",
+        "maddeler": [
+          "<b>Bir nesneyi bulmak</b> (ein Objekt finden) → Perfekt: <b>Ich habe meine Brille gefunden!</b> (Gözlüğümü buldum!)",
+          "<b>Bir fikre / görüşe sahip olmak</b> (Meinung = opinion) → Präteritum: <b>Ich fand den Film langweilig.</b> (Filmi sıkıcı buldum.)",
+          "Hocanın tablosunda daire içine alınanlar: <b>Ich dachte · Ich hieß · Ich wusste</b> (ve modallerde / sein-haben'de tüm Präteritum hücreleri).",
+          "Aynı hücrelerde Perfekt çizili ya da silik: 'Ich habe geheißen', modallerin Perfekt'i, 'Ich habe gehabt'."
+        ],
+        "uyari": "Hoca burada genel bir 'yazı dili / konuşma dili' kuralı vermiyor; sadece finden örneğiyle ayırıyor (bkz. doğrulama listesi). Sen de önce bu iki örneği ezberle.",
+        "kaynak": "A2 s.238-240"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Düzenli ↔ düzensiz",
+        "baslik": "Hangi kalıp, hangi fiil?",
+        "maddeler": [
+          "<b>Düzenli:</b> kök sabit + -te: <b>wünschte, suchte aus, verfasste, klopfte</b>.",
+          "<b>Düzensiz:</b> kök değişir, ich ve er için ek yok: <b>fand, blieb, gab, nahm, sah, sprach, half, traf, schlief, lief, unterbrach, begriff</b>. wir/sie: <b>-en</b> (fanden, liefen).",
+          "<b>Karışık görünenler:</b> kök değişir ve -te alır: <b>dachte, wusste</b>.",
+          "<b>Modaller:</b> ümlaut düşer + -te: <b>durfte, konnte, musste, sollte, wollte, mochte</b>.",
+          "<b>sein ve haben:</b> war, hatte (du warst, hattest · ihr wart, hattet)."
+        ],
+        "uyari": "En sık hata: düzensiz fiile -te eklemek (gabte, findete, nehmte ✗) ya da düzenli fiilin kökünü değiştirmek (wünschte, suchte ✓ — wüsch… ✗). Önce tablodaki biçimi gör, sonra çek.",
+        "kaynak": "Teil-2 s.50-51, s.56; A2 s.238-240"
+      },
+      {
+        "big": "als + Präteritum",
+        "mean": "Hocanın örneklerinde als ile birlikte hep Präteritum: <b>geçmişte bir kez olmuş olayı</b> anlatırken. Als-cümlesinde çekimli fiil SONDA (war, ging).",
+        "egs": [
+          "<b>Als</b> ich ein Kind <b>war</b>, <b>hatten</b> wir einen Autounfall. — Çocukken bir araba kazası geçirdik.",
+          "<b>Als</b> Jan 14 Jahre alt <b>war</b>, <b>war</b> er das erste Mal auf einem Konzert. — Jan 14 yaşındayken ilk kez bir konsere gitti.",
+          "<b>Als</b> Tim Bendzko ins Sportgymnasium <b>ging</b>, <b>spielte</b> er Fußball. — Tim Bendzko spor lisesine giderken futbol oynuyordu.",
+          "Er <b>schrieb</b> seine ersten Songs, <b>als</b> er 16 Jahre alt <b>war</b>. — İlk şarkılarını 16 yaşındayken yazdı."
+        ],
+        "tip": "💡 Hocanın notu: <b>Single event → Als</b> (geçmişte bir kez), tekrar edenler → wenn. Als'lı cümlede fiil cümlenin sonunda ('Verb: end of sentence').",
+        "kaynak": "A2 s.218-219"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "-TE ya da KÖK DEĞİŞİR",
+        "mean": "Düzenli: kök + -te. Düzensiz: kök değişir. sein/haben/modal: ezber.",
+        "story": "<b>war · warst · war · waren · wart · waren</b><br><b>hatte · hattest · hatte · hatten · hattet · hatten</b><br><b>durfte · konnte · mochte · musste · sollte · wollte</b> (möchten yok!)<br><b>dachte · hieß · wusste · fand · blieb · gab · nahm · sah · aß · sprach · half · traf · schlief · lief</b><br>Düzenli: <b>wünschte · suchte aus · verfasste · klopfte</b>"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d50_prateritum",
+    "title": "Präteritum: war, hatte, fand, konnte…",
+    "emoji": "⏪",
+    "desc": "sein, haben, modal ve fiil çekimleri",
+    "rule": "<b>sein:</b> war · warst · war · waren · wart · waren — <b>haben:</b> hatte · hattest · hatte · hatten · hattet · hatten.<br><b>Düzenli fiil:</b> kök + -te / -test / -te / -ten / -tet / -ten (wünschte).<br><b>Düzensiz fiil:</b> kök değişir, ich ve er için ek yok (fand, gab, nahm, sah, blieb).<br><b>Modaller:</b> ümlaut düşer + -te (konnte, musste, wollte). <b>möchten</b>'in Präteritum'u yok.<br><b>als</b> cümlesinde fiil sonda: Als ich ein Kind war, …",
+    "qs": [
+      {
+        "sent": "Gestern ___ ich sehr müde.",
+        "blank": "war",
+        "opts": ["war", "bin", "hatte"],
+        "tr": "Dün çok yorgundum.",
+        "exp": "sein'ın Präteritum'u ich için war'dır. 'bin' Präsens (şimdi), 'hatte' ise haben'ın Präteritum'u (sahip olmak) ve burada anlam uymaz."
+      },
+      {
+        "sent": "Gestern ___ wir keine Zeit.",
+        "blank": "hatten",
+        "opts": ["hatten", "hatte", "haben"],
+        "tr": "Dün vaktimiz yoktu.",
+        "exp": "haben'in Präteritum'u wir için hatten'dir (hocanın tablosu: wir hatten). hatte ich ve er/sie/es içindir; haben Präsens'tir."
+      },
+      {
+        "sent": "Warum ___ Sie gestern nicht im Unterricht?",
+        "blank": "waren",
+        "opts": ["waren", "wart", "warst"],
+        "tr": "Neden dün derste değildiniz?",
+        "exp": "Sie (resmî) için sie/Sie biçimi kullanılır: waren. warst du için, wart ihr içindir. Hocanın s.241 alıştırmasındaki cümle."
+      },
+      {
+        "sent": "Ihr ___ gestern pünktlich.",
+        "blank": "wart",
+        "opts": ["wart", "waren", "warst"],
+        "tr": "Siz dün dakiktiniz.",
+        "exp": "ihr için sein'ın Präteritum'u wart'tır (ihr wart). waren sie/wir, warst ise du içindir."
+      },
+      {
+        "sent": "Du ___ gestern keine Zeit.",
+        "blank": "hattest",
+        "opts": ["hattest", "hatte", "hattst"],
+        "tr": "Sen dün zamanın yoktu.",
+        "exp": "du için haben'in Präteritum'u hattest'tir (du hattest). hatte ich ve er/sie/es için; 'hattst' diye bir biçim yoktur."
+      },
+      {
+        "sent": "Gestern ___ ich nicht kommen. Ich musste zum Arzt gehen.",
+        "blank": "konnte",
+        "opts": ["konnte", "kann", "habe gekonnt"],
+        "tr": "Dün gelemedim. Doktora gitmem gerekiyordu.",
+        "exp": "Modallerde geçmiş için Präteritum kullanılır: ich konnte. Hocanın tablosunda 'ich habe gekonnt' çizilmiş; 'kann' ise Präsens."
+      },
+      {
+        "sent": "Ich ___ lernen, aber ich war so müde.",
+        "blank": "wollte",
+        "opts": ["wollte", "will", "habe gewollt"],
+        "tr": "Çalışmak istedim ama çok yorgundum.",
+        "exp": "wollen Präteritum: ich wollte (ümlaut yok, -te eki). 'will' şimdiki zaman, 'habe gewollt' hocanın tablosunda üstü çizili Perfekt biçimi."
+      },
+      {
+        "sent": "Gestern ___ wir lange arbeiten.",
+        "blank": "mussten",
+        "opts": ["mussten", "musste", "müssen"],
+        "tr": "Dün uzun süre çalışmak zorundaydık.",
+        "exp": "müssen Präteritum: wir mussten (-ten eki, ümlaut düşer). 'musste' ich/er içindir, 'müssen' Präsens (şimdiki zaman)."
+      },
+      {
+        "sent": "Du ___ die Antwort.",
+        "blank": "wusstest",
+        "opts": ["wusstest", "weißt", "wustest"],
+        "tr": "Sen cevabı biliyordun.",
+        "exp": "wissen düzensizdir: ich wusste, du wusstest (kök wuss- + -te eki). 'weißt' Präsens; 'wustest' kök yazımı hatalı."
+      },
+      {
+        "sent": "Ich ___ den Film langweilig.",
+        "blank": "fand",
+        "opts": ["fand", "habe gefunden", "findete"],
+        "tr": "Filmi sıkıcı buldum.",
+        "exp": "Bir görüş/yargı (Meinung) için hocanın örneği Präteritum'dur: Ich fand den Film langweilig. 'findete' yanlış: finden düzensizdir, -te almaz; 'habe gefunden' nesne bulmak içindir."
+      },
+      {
+        "sent": "Ich habe meine Brille ___!",
+        "blank": "gefunden",
+        "opts": ["gefunden", "fand", "gefindet"],
+        "tr": "Gözlüğümü buldum!",
+        "exp": "Perfekt: habe + Partizip II → gefunden. Hocanın ayrımı: nesneyi bulmak Perfekt'le (habe gefunden), görüşü söylemek Präteritum'la (fand)."
+      },
+      {
+        "sent": "Er ___ gestern zu Hause.",
+        "blank": "blieb",
+        "opts": ["blieb", "bleibte", "bleibt"],
+        "tr": "O dün evde kaldı.",
+        "exp": "bleiben düzensizdir: blieb (Teil-2 s.50). 'bleibte' düzensiz fiile düzenli -te eki eklemek hatasıdır; 'bleibt' Präsens."
+      },
+      {
+        "sent": "Meine Mutter ___ mir immer gute Tipps.",
+        "blank": "gab",
+        "opts": ["gab", "gibte", "gibt"],
+        "tr": "Annem bana hep iyi tavsiyeler verirdi.",
+        "exp": "geben düzensizdir: Präteritum gab (kök e → a). 'gibte' tipik hatadır; 'gibt' Präsens."
+      },
+      {
+        "sent": "Clara ___ den Unterschied sofort.",
+        "blank": "sah",
+        "opts": ["sah", "sieht", "sahte"],
+        "tr": "Clara farkı hemen gördü.",
+        "exp": "sehen düzensizdir: sah (Teil-2 s.50). 'sieht' Präsens, 'sahte' düzensiz fiile -te eklenmiş yanlış biçimdir."
+      },
+      {
+        "sent": "Ich ___, wir hätten mehr Zeit.",
+        "blank": "wünschte",
+        "opts": ["wünschte", "wünsche", "wünschtete"],
+        "tr": "Keşke daha çok zamanımız olsaydı.",
+        "exp": "wünschen düzenlidir: ich wünschte (kök + -te, hocanın tablosu). 'wünsche' Präsens; 'wünschtete' iki kez -te eklenmiş hatalı biçim."
+      },
+      {
+        "sent": "Gestern ___ ich einen neuen Termin aus.",
+        "blank": "suchte",
+        "opts": ["suchte", "suche", "suchtete"],
+        "tr": "Dün yeni bir randevu seçtim.",
+        "exp": "aussuchen düzenli ve ayrılabilir: ich suchte … aus. Önek 'aus' cümlenin sonuna gider; fiil -te ile çekilir."
+      },
+      {
+        "sent": "Nach dem Krieg ___ ich viele Bücher über Geschichte.",
+        "blank": "verfasste",
+        "opts": ["verfasste", "verfasst", "verfassete"],
+        "tr": "Savaştan sonra tarih hakkında çok kitap yazdım.",
+        "exp": "verfassen düzenlidir: Präteritum verfasste (hocanın örneği). 'verfasst' Präsens (er/ihr), 'verfassete' yanlış yazım."
+      },
+      {
+        "sent": "Gestern ___ ich dich beim Sprechen.",
+        "blank": "unterbrach",
+        "opts": ["unterbrach", "unterbrechte", "unterbreche"],
+        "tr": "Dün konuşurken seni böldüm.",
+        "exp": "unterbrechen düzensizdir: Präteritum unterbrach (Perfekt: habe unterbrochen). 'unterbrechte' düzenli ek eklemek tipik hatadır; 'unterbreche' Präsens."
+      },
+      {
+        "sent": "Als ich ein Kind ___, hatten wir einen Autounfall.",
+        "blank": "war",
+        "opts": ["war", "bin", "wurde"],
+        "tr": "Çocukken bir araba kazası geçirdik.",
+        "exp": "Geçmişte bir kez olan olay → als + Präteritum; fiil yan cümlenin sonunda: war. 'bin' Präsens'tir, 'wurde' hocanın bu sayfasında kullanılmıyor."
+      },
+      {
+        "sent": "Es gibt kein Präteritum von ___.",
+        "blank": "möchten",
+        "opts": ["möchten", "müssen", "können"],
+        "tr": "möchten'in Präteritum'u yoktur.",
+        "exp": "Hocanın P.S.'i: möchten'in Präteritum'u yoktur (Gestern wollte ich ein Bier). müssen (musste) ve können (konnte) Präteritum çekimine sahiptir."
+      }
+    ]
+  },
+  "dogrulama": [
+    "Teil-2 s.68: hocanın yazılı notunda 'hätte gesagt: Plusquamperfekt' görünüyor (metin katmanında 'häue'), tahtadaki görselde ise Plusquamperfekt için 'hatte gesagt', Konjunktiv II için 'hätte gesagt' yazıyor. Derste tahtadaki biçim (hatte gesagt) kullanıldı. Yazılı not bir yazım hatası mı? Perplexity'ye sor: 'sagen Plusquamperfekt: hatte gesagt mı hätte gesagt mı?'",
+    "A2 s.240: Perfekt sütununda 'ich habe gehabt / gewollt / gedurft / gekonnt / gemusst / gesollt' ve 'ich habe geheißen' (s.238) üstü çizilmiş. Hoca ne demek istiyor: bu fiillerde Perfekt hiç kullanılmaz mı, yoksa seyrek mi kullanılır? Perplexity'ye sor: 'haben ve modal fiiller: Perfekt mi Präteritum mu?' (derste 'Präteritum tercih edilir' şeklinde yumuşak anlatıldı).",
+    "A2 s.241 P.S.: 'möchten'in Präteritum'u yok' deniyor; s.240 tablosunda ise mögen için 'ich mochte' var. Perplexity'ye sor: 'möchten Präteritum var mı, mögen ile ilişkisi nedir?'",
+    "Präteritum ve Perfekt'in ne zaman hangisi kullanılacağına dair genel kural (yazı dili / konuşma dili) hocanın sayfalarında yok; yalnızca finden örneği (nesne ↔ görüş) var. Derste genel kural verilmedi. Perplexity'ye sor: 'Präteritum mu Perfekt mi: yazı ve konuşma dili farkı?'",
+    "Düzensiz fiil listesi tam değil: hoca yaklaşık 20 fiil veriyor (Teil-2 s.50-51, A2 s.176-182, s.238). gehen, kommen, schreiben vb. çekimlerin kendi tablosu yok; yalnızca kam (s.68), ging (s.69) cümle içinde geçiyor. Tam liste için hocadan ya da Perplexity'den 'düzensiz fiiller Präteritum listesi A1-A2' istenebilir.",
+    "'Düzenli / düzensiz / karışık' sınıflaması hocanın sayfalarında yazılı değil; tablolardaki biçimlerden çıkarıldı (ör. denken → dachte, wissen → wusste: kök değişir ve -te alır). Perplexity'ye sor: 'denken, wissen gemischte Verben mi?'",
+    "Teil-2 s.69: örneklerde 'wurde' (werden) ve 'klopfte' geçiyor; werden Präteritum bu dersin kapsamında yok, hocada ayrı bir tablo bulunamadı."
+  ]
+}

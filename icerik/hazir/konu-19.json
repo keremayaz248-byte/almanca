@@ -1,0 +1,313 @@
+{
+  "konu": 19,
+  "baslik": "Die Artikel — Nominativ",
+  "kaynak": [{ "arac": "PDF", "sayfa": "Teil-1 s.80-82, 85-86" }],
+  "deste": {
+    "title": "📘 Die Artikel — Nominativ",
+    "accent": "linear-gradient(135deg,#2AACD1,#1c7fa0)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "ÖZNE = NOMINATIV",
+        "mean": "Cümlenin öznesi (işi yapan, \"kim?\" / \"ne?\" sorusunun cevabı) Almancada Nominativ halindedir; artikelin sözlükteki hali budur.",
+        "story": "Hocanın büyük, sarı kutulu kuralı: <b>ÖZNE = NOMINATIV</b>. Sözlükte gördüğün <b>der / die / das</b> ve <b>ein / eine</b> zaten Nominativ'dir. Yani şimdiye kadar öğrendiğin artikeller Nominativ'di; bu derste adını koyuyoruz."
+      },
+      {
+        "big": "Das ist ... / Das sind ...",
+        "mean": "<b>Das ist ...</b> = Bu ...'dır (tekiller için). <b>Das sind ...</b> = Bunlar ...'dır (çoğullar için). Bu kalıptaki isim hep Nominativ'dedir.",
+        "egs": [
+          "Das ist <b>der</b> Mann. — Bu, adamdır.",
+          "Das ist <b>die</b> Frau. — Bu, kadındır.",
+          "Das ist <b>das</b> Hotel. — Bu, oteldir.",
+          "Das sind <b>die</b> Autos. — Bunlar, arabalardır."
+        ],
+        "tip": "💡 Hocanın tablosu: der Mann → <b>er</b>; die Frau → <b>sie</b>; das Kind/Hotel → <b>es</b>. Üç cinsiyet: der (maskulin), die (feminin), das (neutrum); çoğulda hep <b>die</b>.",
+        "kaynak": "Teil-1 s.80"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Bestimmte Artikel",
+        "baslik": "Belirli artikel — Nominativ",
+        "basliklar": ["", "Maskulin", "Feminin", "Neutrum", "Plural"],
+        "satirlar": [
+          ["Nominativ", "der Mann", "die Frau", "das Kind", "die Menschen"],
+          ["Yerine geçen", "er", "sie", "es", "sie"]
+        ],
+        "not": "Belirli artikel = bilinen, belli bir şey (the). Hocanın tablosundaki örnekler: der Mann, die Frau, das Kind, die Menschen. Altlarındaki er / sie / es: o ismin yerine kullanılan zamirdir.",
+        "kaynak": "Teil-1 s.80"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Unbestimmte Artikel",
+        "baslik": "ein / eine — belirsiz artikel",
+        "basliklar": ["", "Maskulin", "Feminin", "Neutrum", "Plural"],
+        "satirlar": [
+          ["Nominativ", "ein", "eine", "ein", "— (yok)"],
+          ["Örnek", "ein Bahnhof", "eine Straße", "ein Hotel", "Schiffe"]
+        ],
+        "not": "Belirsiz artikel = herhangi bir şey (bir ...). Hocanın cümleleri: Das ist ein Bahnhof. / Das ist ein Hotel. / Das ist eine Straße. / Das sind Schiffe. Çoğulda ein/eine yoktur, hocanın tablosunda üstü çizilmiştir.",
+        "kaynak": "Teil-1 s.80"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Kein & Keine",
+        "baslik": "Olumsuz artikel — Nominativ",
+        "basliklar": ["", "Maskulin", "Feminin", "Neutrum", "Plural"],
+        "satirlar": [
+          ["Nominativ", "kein", "keine", "kein", "keine"]
+        ],
+        "not": "<b>kein / keine</b> = hiç ... yok / ... değil. ein/eine'nin sonuna <b>k</b> eklenmiş gibi: ein → <b>k</b>ein, eine → <b>k</b>eine. Tek fark: çoğulda <b>keine</b> vardır.",
+        "kaynak": "Teil-1 s.80"
+      },
+      {
+        "type": "intro",
+        "kicker": "Önemli",
+        "big": "ÖZNE?",
+        "mean": "Özneyi bulmak için cümleye şu soruyu sor: <b>Wer? / Was?</b> (Kim? / Ne?)",
+        "story": "Hocanın örneği: <b>Bu adam, benim babam.</b> Bu cümlenin öznesi nedir? → Bu adam (<b>Der Mann</b>) = <b>er</b> → ÖZNE = NOMINATIV."
+      },
+      {
+        "tur": "sema",
+        "kicker": "Özne = Nominativ",
+        "baslik": "Cümlede özneyi renkle gör",
+        "satirlar": [
+          {
+            "etiket": "Özne bulma",
+            "not": "Wer geht nach Hause? → Die Studentin",
+            "jetonlar": [{ "t": "Die Studentin", "r": "ozne" }, { "t": "geht", "r": "fiil" }, { "t": "nach Hause", "r": "diger" }],
+            "tr": "Öğrenci eve gidiyor. (özne: Öğrenci → sie)"
+          },
+          {
+            "etiket": "Özne bulma",
+            "not": "Wer ist mein Vater? → Der Mann",
+            "jetonlar": [{ "t": "Der Mann", "r": "ozne" }, { "t": "ist", "r": "fiil" }, { "t": "mein Vater", "r": "diger" }],
+            "tr": "Bu adam, benim babam. (özne: Bu adam → er)"
+          }
+        ],
+        "not": "<b>Kural:</b> Özne yerine er / sie / es koyabiliyorsan, o kelime Nominativ'dedir. Hocanın sorusu: Wer? Was? (Kim? Ne?)",
+        "kaynak": "Teil-1 s.81, s.86"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Zamirler",
+        "baslik": "Personalpronomen — Nominativ",
+        "basliklar": ["Nominativ", "Hangi artikelin yerine?"],
+        "satirlar": [
+          ["ich", "ben"],
+          ["du", "sen"],
+          ["er", "der (erkek)"],
+          ["sie", "die (kadın)"],
+          ["es", "das (nötr)"],
+          ["wir", "biz"],
+          ["ihr", "siz (senli-benli çoğul)"],
+          ["sie", "die (onlar)"],
+          ["Sie", "siz (resmi)"]
+        ],
+        "not": "Hocanın soru kalıbı: Nominativ = <b>Wer? Was?</b> (Kim? Ne?). Hocanın ezberi: er-der, sie-die, es-das, sie (onlar)-die + resmi Sie.",
+        "kaynak": "Teil-1 s.86"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Der · Die · Das",
+        "baslik": "Artikeli sona bakarak tahmin et (ekler)",
+        "basliklar": ["DER", "DIE", "DAS"],
+        "satirlar": [
+          ["-er, -ist", "-e, -schaft", "-chen, -ma"],
+          ["-ling, -ent", "-ei, -t", "-ing, -um"],
+          ["-ismus, -el", "-in, -ur", "-ment, -o"],
+          ["-ig, -us", "-tion, -ik", "-ett, -nis"],
+          ["-iker, -ast", "-tät, -enz", "-sal, -en"],
+          ["-ant, -är", "-heit, -ie", "-et"],
+          ["-aur, -ich", "-keit, -anz", "—"],
+          ["-or, -en", "-ung", "—"]
+        ],
+        "not": "Hocanın tablosunun başlığı: <b>Most nouns ending in</b> = isimlerin <b>çoğu</b> bu sonlarla biter; yani istisna olabilir. Dikkat: <b>-en</b> hem DER hem DAS sütununda görünür, <b>-e</b> ise DIE sütunundadır.",
+        "kaynak": "Teil-1 s.82"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Ek örnekleri",
+        "baslik": "Hocanın örnek kelimeleri",
+        "basliklar": ["DER", "DIE", "DAS"],
+        "satirlar": [
+          ["der Mechaniker", "die Katze", "das Medikament"],
+          ["der König", "die Bäckerei", "das Thema"],
+          ["der Kapitalismus", "die Studentin", "das Mädchen"],
+          ["der Student", "die Gesundheit", "das Schicksal"],
+          ["der Polizist", "die Wohnung", "das Auto"],
+          ["der Bär", "die Wissenschaft", "das System"],
+          ["der Virus", "die Aktion", "—"],
+          ["der Motor", "die Distanz", "—"],
+          ["der Garten", "die Tendenz", "—"],
+          ["der Schlüssel", "die Demokratie", "—"]
+        ],
+        "not": "Hocanın uygulaması: Super_markt, Brötchen vb. kelimelerin sonuna bakıp artikel yazmak (das Brötchen: -chen → das). Sonlar ipucudur, kesin kural değildir.",
+        "kaynak": "Teil-1 s.82"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Es ist / Es sind",
+        "baslik": "Varlık bildiren kalıp (Nominativ)",
+        "satirlar": [
+          {
+            "etiket": "Tekil",
+            "not": "es ist + Singular",
+            "jetonlar": [{ "t": "Es", "r": "ozne" }, { "t": "ist", "r": "fiil" }, { "t": "kein Platz", "r": "diger" }, { "t": "mehr frei", "r": "diger" }],
+            "tr": "Artık boş yer yok."
+          },
+          {
+            "etiket": "Çoğul",
+            "not": "es sind + Plural",
+            "jetonlar": [{ "t": "Es", "r": "ozne" }, { "t": "sind", "r": "fiil" }, { "t": "vier Eier", "r": "diger" }, { "t": "in der Packung", "r": "diger" }],
+            "tr": "Pakette dört yumurta var."
+          }
+        ],
+        "not": "<b>Kural:</b> es ist + tekil isim, es sind + çoğul isim. Hocanın notu: <b>sein → Nominativ</b>. Bu yüzden sein'dan sonra ein / kein (Nominativ) gelir, einen gelmez.",
+        "kaynak": "Teil-1 s.85"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Sık yapılan hatalar",
+        "maddeler": [
+          "<b>Das ist ...</b> tekil içindir, <b>Das sind ...</b> çoğul içindir (Das sind die Autos).",
+          "Çoğulda <b>ein / eine yoktur</b>; belirsiz çoğul artikelsiz söylenir (Das sind Schiffe). Olumsuzu <b>keine</b>'dir.",
+          "<b>sein</b> (ist / sind) ile Nominativ gelir: ein Mann, einen Mann <b>değil</b> (hocanın üstünü çizdiği hata).",
+          "<b>die</b> hem feminin tekil hem de her cinsin çoğuludur: die Frau, die Autos.",
+          "Sonlar (-ung, -chen vb.) çoğu kelime için geçerlidir, hepsi için değil."
+        ],
+        "uyari": "En sık hata: <b>sein</b> fiilinden sonra Akkusativ kullanmak (Das ist einen Mann ✗ → Das ist ein Mann ✓).",
+        "kaynak": "Teil-1 s.80, s.85"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "ÖZNE = NOMINATIV",
+        "mean": "der · die · das · die  |  ein · eine · ein  |  kein · keine · kein · keine",
+        "story": "Wer? Was? → er / sie / es. Das ist der Mann, das ist die Frau, das ist das Hotel, das sind die Autos. sein = Nominativ."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d19_nominativ",
+    "title": "Die Artikel — Nominativ",
+    "emoji": "📘",
+    "desc": "Özne = Nominativ: der/die/das, ein/eine, kein/keine",
+    "rule": "<b>ÖZNE = NOMINATIV</b> (soru: Wer? Was?).<br>Belirli: <b>der Mann, die Frau, das Kind, die Menschen</b>.<br>Belirsiz: <b>ein / eine / ein</b> (çoğulda yok). Olumsuz: <b>kein / keine / kein / keine</b>.<br><b>Das ist ...</b> (tekil) / <b>Das sind ...</b> (çoğul); <b>es ist / es sind</b>.<br>Zamir eşleri: er-der, sie-die, es-das.",
+    "qs": [
+      {
+        "sent": "Das ist ___ Mann.",
+        "blank": "der",
+        "opts": ["der", "die", "das"],
+        "tr": "Bu, adamdır.",
+        "exp": "Mann maskulin (er) olduğu için Nominativ'de der alır. Hocanın tablosu: der Mann, die Frau, das Kind."
+      },
+      {
+        "sent": "Das ist ___ Frau.",
+        "blank": "die",
+        "opts": ["der", "die", "das"],
+        "tr": "Bu, kadındır.",
+        "exp": "Frau feminin (sie) olduğu için die alır. Hocanın tablosunda die Frau, altında sie yazılıdır."
+      },
+      {
+        "sent": "Das ist ___ Hotel.",
+        "blank": "das",
+        "opts": ["der", "die", "das"],
+        "tr": "Bu, oteldir.",
+        "exp": "Hotel neutrum (es) olduğu için das alır; hocanın örneği Das ist das Hotel."
+      },
+      {
+        "sent": "Das sind ___ Autos.",
+        "blank": "die",
+        "opts": ["der", "die", "das"],
+        "tr": "Bunlar, arabalardır.",
+        "exp": "Çoğulda her cinsin artikeli die'dir. Çoğul olduğu için 'Das sind' kalıbı kullanılır; hocanın örneği Das sind die Autos."
+      },
+      {
+        "sent": "Das ist ___ Straße.",
+        "blank": "eine",
+        "opts": ["ein", "eine", "einen"],
+        "tr": "Bu, bir caddedir.",
+        "exp": "Straße feminin olduğu için belirsiz artikel eine olur (hocanın sayfası: Das ist eine Straße). ein maskulin/nötr içindir; einen Nominativ değildir."
+      },
+      {
+        "sent": "Das ist ___ Hotel.",
+        "blank": "ein",
+        "opts": ["ein", "eine", "einen"],
+        "tr": "Bu, bir oteldir.",
+        "exp": "Hotel neutrum olduğu için ein alır (Das ist ein Hotel). eine feminin içindir; einen sein fiilinden sonra gelmez, çünkü sein Nominativ ister."
+      },
+      {
+        "sent": "Das ist ___ Frau.",
+        "blank": "keine",
+        "opts": ["kein", "keine", "keinen"],
+        "tr": "Bu, bir kadın değildir.",
+        "exp": "kein-, eine'nin olumsuzudur: Frau feminin olduğu için keine. kein maskulin/nötr, keinen ise Akkusativ biçimidir."
+      },
+      {
+        "sent": "Das sind ___ Autos.",
+        "blank": "keine",
+        "opts": ["kein", "keine", "keinen"],
+        "tr": "Bunlar araba değil.",
+        "exp": "Çoğulda ein/eine yoktur, ama kein çoğulda keine olarak vardır (hocanın kein & keine tablosu: Plural keine)."
+      },
+      {
+        "sent": "___ ist mein Vater. (Der Mann)",
+        "blank": "Er",
+        "opts": ["Er", "Sie", "Es"],
+        "tr": "O (bu adam) benim babam.",
+        "exp": "Hocanın ezberi: der Mann yerine er kullanılır (er-der). sie die'nin, es das'ın yerini tutar."
+      },
+      {
+        "sent": "___ geht nach Hause. (Die Studentin)",
+        "blank": "Sie",
+        "opts": ["Er", "Sie", "Es"],
+        "tr": "O (öğrenci) eve gidiyor.",
+        "exp": "Hocanın örneği: Die Studentin = sie (sie-die). Özne olduğu için Nominativ'dedir, soru: Wer geht nach Hause?"
+      },
+      {
+        "sent": "___ Wohnung (-ung ile biten kelime)",
+        "blank": "die",
+        "opts": ["der", "die", "das"],
+        "tr": "Daire / ev",
+        "exp": "Hocanın DIE sütununda -ung eki vardır ve örnek olarak die Wohnung geçer. -ung, -heit, -keit, -tion eklerini die ile ezberle."
+      },
+      {
+        "sent": "___ Mädchen (-chen ile biten kelime)",
+        "blank": "das",
+        "opts": ["der", "die", "das"],
+        "tr": "Kız çocuğu",
+        "exp": "Hocanın DAS sütununda -chen eki vardır; örnek: das Mädchen. Anlam kadın olsa bile -chen ile biten kelime das alır."
+      },
+      {
+        "sent": "Es ___ kein Platz mehr frei.",
+        "blank": "ist",
+        "opts": ["ist", "sind", "bin"],
+        "tr": "Artık boş yer yok.",
+        "exp": "Hocanın kalıbı: es ist + tekil (kein Platz tekildir). Çoğulda es sind kullanılır."
+      },
+      {
+        "sent": "Es ___ vier Eier in der Packung.",
+        "blank": "sind",
+        "opts": ["ist", "sind", "bin"],
+        "tr": "Pakette dört yumurta var.",
+        "exp": "Hocanın kalıbı: es sind + çoğul. vier Eier çoğuldur, bu yüzden sind."
+      },
+      {
+        "sent": "___ Student (-ent ile biten kelime)",
+        "blank": "der",
+        "opts": ["der", "die", "das"],
+        "tr": "Üniversite öğrencisi (erkek)",
+        "exp": "Hocanın DER sütununda -ent eki ve örnek olarak der Student vardır. Kadın biçimi -in alınca die Studentin olur."
+      }
+    ]
+  },
+  "dogrulama": [
+    "s.81'de hocanın Almanca cümlesi yok, yalnız Türkçesi var ('Bu adam, benim babam' / 'Öğrenci eve gidiyor'). Almanca karşılıklarını (Der Mann ist mein Vater / Die Studentin geht nach Hause) ben yazdım; Perplexity'ye sor: \"Bu iki cümlenin Almancası doğru mu?\"",
+    "s.82'deki ek tablosunun dizilişi görselden okundu (\"-en\" hem DER hem DAS sütununda görünüyor, \"-e\" DIE'de). Perplexity'ye sor: \"-en ile biten isimler der mi das mı? (der Garten / das Essen)\"",
+    "s.80 tablosunun çoğul sütunu 'die Menschen' diyor ve altında 'sie - ein eine' üstü çizili yazılmış; çoğulda ein/eine yok anlamına aldım. Doğru okundu mu, gözle kontrol edilmeli.",
+    "s.80 ve s.86'daki yazı alıştırma sayfaları (Schreiben Sie die Artikel / Personalpronomen) çözülmemiş boş alıştırma; derse alınmadı.",
+    "s.85'te hocanın 'Auf dem Balkon ist es ein Mann' örneğinin üstü çizili; bu kalıp derse sadece 'sein = Nominativ' notu olarak alındı."
+  ]
+}

@@ -1,0 +1,487 @@
+{
+  "konu": 31,
+  "baslik": "Präpositionen mit (immer) Dativ",
+  "kaynak": [
+    {
+      "arac": "PDF",
+      "sayfa": "Kalan Üniteler s.79-82"
+    }
+  ],
+  "deste": {
+    "title": "📍 Edatlar: hep Dativ",
+    "accent": "linear-gradient(135deg,#58CC02,#3e9a00)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "AUS · BEI · MIT · NACH · ZU · SEIT · AB",
+        "mean": "Bu yedi edatın arkasından gelen isim HER ZAMAN Dativ olur (der → dem, die → der, das → dem, çoğul → den + n).",
+        "story": "Hocanın başlığı: <b>Die Präpositionen (A1) mit (immer) DATIV</b>.<br>«immer» = her zaman: bu edatlarda seçenek yok, soru kelimesi hep <b>Wem?</b> (kime?).<br>Bu derste yedi edatı tek tek göreceğiz: <b>aus, bei, mit, nach, zu, seit, ab</b>. Sonra hocanın karşılaştırması: <b>Wo? → Dativ</b> ile <b>Wohin? → Akkusativ</b> olan edatlar (in, an, auf …)."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Genel liste",
+        "baslik": "Yedi Dativ edatı",
+        "basliklar": [
+          "Edat",
+          "Anlam (hoca)",
+          "Örnek"
+        ],
+        "satirlar": [
+          [
+            "aus",
+            "…den / …dan, içinden, köken, madde",
+            "Ich komme aus der Türkei."
+          ],
+          [
+            "bei",
+            "yanında, …de / …da",
+            "Ich bin bei meiner Freundin."
+          ],
+          [
+            "mit",
+            "ile, birlikte",
+            "Wir fahren mit dem Bus."
+          ],
+          [
+            "nach",
+            "…e doğru, …den sonra, …e göre",
+            "Ich fahre nach Berlin."
+          ],
+          [
+            "zu",
+            "…e / …a, birinin yanına",
+            "Ich gehe zu meiner Freundin."
+          ],
+          [
+            "seit",
+            "…den beri, …dır / …dir",
+            "Ich wohne seit einem Jahr in Istanbul."
+          ],
+          [
+            "ab",
+            "…den itibaren",
+            "Ab Montag arbeite ich wieder."
+          ]
+        ],
+        "not": "Türkçe anlamlar hocanın sayfasından. Her edatın kendi sayfasında Türkçe çevirileri de göreceksin.",
+        "kaynak": "Kalan Üniteler s.79"
+      },
+      {
+        "big": "aus",
+        "mean": "<b>aus</b> = …den / …dan, içinden. <b>Bir yerden çıkma, bir kökenden gelme</b> ya da <b>bir şeyin hangi maddeden yapıldığını</b> anlatır.",
+        "egs": [
+          "Ich komme <b>aus der</b> Türkei. — Ben Türkiye'den geliyorum.",
+          "Der Tisch ist <b>aus</b> Holz. — Masa ahşaptan yapılmış.",
+          "Wir kommen <b>aus derselben</b> Stadt. — Biz aynı şehirden geliyoruz."
+        ],
+        "tip": "💡 aus üç iş yapar: <b>yer</b> (Türkei), <b>köken</b> (Stadt), <b>madde</b> (Holz).",
+        "kaynak": "Kalan Üniteler s.79"
+      },
+      {
+        "big": "bei",
+        "mean": "<b>bei</b> = yanında, …de / …da. <b>Birinin yanında, bir yerde, bir kurumda ya da bir kişide</b> olmayı anlatır. <b>beim = bei dem</b>.",
+        "egs": [
+          "Ich bin <b>bei meiner</b> Freundin. — Ben arkadaşımın yanındayım.",
+          "Wir wohnen <b>bei unseren</b> Eltern. — Biz ailemizin yanında oturuyoruz.",
+          "Sie ist <b>beim</b> Arzt. — O doktorun yanında / doktorda."
+        ],
+        "tip": "💡 Hocanın notu: <b>beim = bei dem</b>. «Bir yerde, yanında DURMAK» → bei.",
+        "kaynak": "Kalan Üniteler s.79"
+      },
+      {
+        "big": "mit",
+        "mean": "<b>mit</b> = ile, birlikte. Hem birlikte yapılan kişiye (<i>mit dem Lehrer</i>) hem araca (<i>mit dem Bus</i>) bakar.",
+        "egs": [
+          "Ich gehe <b>mit meinem</b> Bruder in die Stadt. — Ben erkek kardeşimle birlikte şehre gidiyorum.",
+          "Sie spricht <b>mit dem</b> Lehrer. — O öğretmenle konuşuyor.",
+          "Wir fahren <b>mit dem</b> Bus. — Biz otobüsle gidiyoruz."
+        ],
+        "tip": "💡 Hocanın örneklerinde «mit» sonrası hep Dativ artikel: meinem, dem, dem.",
+        "kaynak": "Kalan Üniteler s.79"
+      },
+      {
+        "big": "nach",
+        "mean": "<b>nach</b> = …e / …a doğru, …den sonra, …e göre. Yön olarak şunlarla kullanılır: <b>şehir adları, artikelsiz ülkeler, kıtalar, sağ/sol/yukarı/aşağı, Haus</b> (Berlin, Deutschland, Asien, oben, links, unten, Hause).",
+        "egs": [
+          "Ich fahre <b>nach</b> Berlin. — Ben Berlin'e gidiyorum.",
+          "<b>Nach dem</b> Kurs gehe ich <b>nach</b> Hause. — Kurstan sonra eve gidiyorum.",
+          "Wir arbeiten <b>nach einem</b> Plan. — Biz bir plana göre çalışıyoruz."
+        ],
+        "tip": "💡 nach'ın üç anlamı: <b>yön</b> (nach Berlin), <b>sonra</b> (nach dem Kurs), <b>-e göre</b> (nach einem Plan).",
+        "kaynak": "Kalan Üniteler s.79"
+      },
+      {
+        "big": "zu",
+        "mean": "<b>zu</b> = …e / …a, …ya / …ye, birinin yanına, bir yere doğru. Kullanım alanı: <b>kişinin yeri</b> (Marianne'nin yeri anlamında), <b>meslek</b> (zum Arzt), <b>artikeli olan yer veya organizasyon</b> (zur Uni, zur Hochzeit).",
+        "egs": [
+          "Ich gehe <b>zu meiner</b> Freundin. — Ben arkadaşımın yanına gidiyorum.",
+          "Wir fahren <b>zum</b> Bahnhof. — Biz tren istasyonuna gidiyoruz.",
+          "Sie geht <b>zum</b> Arzt. — O doktora gidiyor."
+        ],
+        "tip": "💡 Hocanın notları: <b>zum = zu dem</b>, <b>zur = zu der</b>. (!!!) «düğüne / partiye» için hoca ayrı uyarmış: <b>auf einer Hochzeit / auf der Party</b>.",
+        "kaynak": "Kalan Üniteler s.79"
+      },
+      {
+        "big": "seit",
+        "mean": "<b>seit</b> = …den beri, …dır / …dir. Başlangıcı geçmişte olup <b>hâlâ süren</b> şeyi söyler. Çoğul isimlerde sona <b>-n</b> gelir.",
+        "egs": [
+          "Ich wohne <b>seit einem</b> Jahr in Istanbul. — Ben bir yıldır İstanbul'da oturuyorum.",
+          "Sie lernt <b>seit drei Monaten</b> Deutsch. — O üç aydır Almanca öğreniyor."
+        ],
+        "tip": "💡 Hocanın notu: <b>seit + çoğul isim: -N</b> (seit 4 Jahre<b>n</b>, seit drei Monate<b>n</b>).",
+        "kaynak": "Kalan Üniteler s.79"
+      },
+      {
+        "big": "ab",
+        "mean": "<b>ab</b> = …den itibaren, …den sonra, başlayarak. Bir şeyin <b>hangi andan itibaren geçerli olduğunu</b> söyler.",
+        "egs": [
+          "<b>Ab</b> Montag arbeite ich wieder. — Ben pazartesiden itibaren tekrar çalışıyorum.",
+          "<b>Ab nächster</b> Woche habe ich mehr Zeit. — Gelecek haftadan itibaren daha fazla vaktim var."
+        ],
+        "tip": "💡 seit = geçmişten BERİ. ab = bir andan İTİBAREN (ileriye doğru).",
+        "kaynak": "Kalan Üniteler s.79"
+      },
+      {
+        "tur": "kural",
+        "kicker": "nach Hause / zu Hause",
+        "baslik": "Hocanın kutusu: zu Hause ve nach Hause",
+        "maddeler": [
+          "<b>Zu Hause</b> kann ich: <b>sein, bleiben, essen, arbeiten, schlafen</b> … (evde DURMA, yapma).",
+          "<b>Nach Hause</b> kann ich: <b>gehen, fahren, laufen, kommen</b> … (eve DOĞRU hareket).",
+          "Hocanın cümlesi: <i>Nach dem Kurs gehe ich nach Hause.</i> — Kurstan sonra eve gidiyorum.",
+          "<b>zu</b> yer için: artikeli olan yer (zur Uni), meslek (zum Arzt), kişinin yeri. <b>nach</b> yer için: şehir, artikelsiz ülke, kıta, Haus."
+        ],
+        "uyari": "«Zu Hause» sorusu Wo? (nerede?), «nach Hause» sorusu Wohin? (nereye?). Karıştırma: «Ich bin nach Hause» yanlış, «Ich bin zu Hause» doğru.",
+        "kaynak": "Kalan Üniteler s.79"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Zıtlık 1/2: Wo? ↔ Wohin?",
+        "baslik": "in · an · auf · über (Dativ de Akkusativ de olabilir)",
+        "basliklar": [
+          "Edat",
+          "Wo? → Dativ",
+          "Wohin? → Akkusativ"
+        ],
+        "satirlar": [
+          [
+            "in",
+            "Die Kinder sind im Garten.",
+            "Die Kinder gehen in den Garten."
+          ],
+          [
+            "an",
+            "Das Bild hängt an der Wand.",
+            "Ich hänge das Bild an die Wand."
+          ],
+          [
+            "an",
+            "Ich bin am Meer.",
+            "Ich gehe ans Meer."
+          ],
+          [
+            "auf",
+            "Das Buch liegt auf dem Tisch.",
+            "Ich lege das Buch auf den Tisch."
+          ],
+          [
+            "über",
+            "Die Lampe hängt über dem Tisch.",
+            "Ich hänge die Lampe über den Tisch."
+          ]
+        ],
+        "not": "<b>Hocanın formülü:</b> <b>Wo?</b> (nerede) → <b>Dativ</b> · <b>Wohin?</b> (nereye) → <b>Akkusativ</b> · <b>Wann?</b> (ne zaman) → <b>Dativ</b>. Çeviriler: Çocuklar bahçede / bahçeye gidiyor · Resim duvarda asılı / Resmi duvara asıyorum · Denizdeyim / Denize gidiyorum · Kitap masanın üstünde duruyor / Kitabı masanın üstüne koyuyorum · Lamba masanın yukarısında asılı / Lambayı masanın üst tarafına asıyorum. <b>auf</b> = temaslı üstünde, <b>über</b> = temassız üstünde (ve «hakkında»).",
+        "kaynak": "Kalan Üniteler s.80"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Zıtlık 2/2: Wo? ↔ Wohin?",
+        "baslik": "hinter · neben · unter · vor · zwischen",
+        "basliklar": [
+          "Edat",
+          "Wo? → Dativ",
+          "Wohin? → Akkusativ"
+        ],
+        "satirlar": [
+          [
+            "hinter",
+            "Das Auto steht hinter dem Haus.",
+            "Ich stelle das Auto hinter das Haus."
+          ],
+          [
+            "neben",
+            "Der Stuhl steht neben dem Bett.",
+            "Ich stelle den Stuhl neben das Bett."
+          ],
+          [
+            "unter",
+            "Die Schuhe sind unter dem Bett.",
+            "Ich stelle die Schuhe unter das Bett."
+          ],
+          [
+            "vor",
+            "Wir stehen vor der Tür.",
+            "Wir gehen vor die Tür."
+          ],
+          [
+            "zwischen",
+            "Der Tisch steht zwischen dem Sofa und dem Fenster.",
+            "Ich stelle den Tisch zwischen das Sofa und das Fenster."
+          ]
+        ],
+        "not": "Türkçeleri: arkasında / arkasına · yanında / yanına · altında / altına · önünde / önüne · arasında / arasına. <b>vor</b> zamanda da kullanılır (Wann? → Dativ): <i>Vor dem Essen wasche ich meine Hände</i> — Yemekten önce ellerimi yıkıyorum. Hoca vor için TMP notu düşmüş: yer = P, zaman = T.",
+        "kaynak": "Kalan Üniteler s.81"
+      },
+      {
+        "big": "in zwei Stunden · zwei Stunden später",
+        "mean": "İkisi de «2 saat sonra» ama biri <b>şu andan</b> sayar, diğeri <b>geçmişte söylenmiş bir andan</b> sayar. <b>in zwei Stunden</b> = şu andan itibaren (şimdi + 2 saat). <b>zwei Stunden später</b> = anlatılan bir referans andan 2 saat sonra.",
+        "egs": [
+          "Ich komme <b>in zwei Stunden</b>. — İki saat sonra geliyorum. (şu andan 2 saat sonra)",
+          "Der Film beginnt <b>in zwei Stunden</b>. — Film iki saat sonra başlıyor.",
+          "Um 18 Uhr hat er angerufen. <b>Zwei Stunden später</b> ist er gekommen. — Saat 18.00'de aradı. İki saat sonra geldi.",
+          "Wir sind um 9 losgefahren. <b>Zwei Stunden später</b> waren wir da. — Saat 9'da yola çıktık. İki saat sonra oradaydık."
+        ],
+        "tip": "💡 Hocanın özeti (!!!!): <b>Şu andan itibaren → in zwei Stunden.</b> <b>Geçmişte/önceden bahsedilmiş bir zamandan itibaren → zwei Stunden später.</b>",
+        "kaynak": "Kalan Üniteler s.82"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Sık hatalar / tuzaklar",
+        "baslik": "Dativ edatlarında dikkat",
+        "maddeler": [
+          "aus, bei, mit, nach, zu, seit, ab → arkasından <b>hep Dativ</b> gelir.",
+          "<b>beim = bei dem</b> · <b>zum = zu dem</b> · <b>zur = zu der</b> (birleşik hâller).",
+          "<b>seit</b> = beri (süren), <b>ab</b> = itibaren (başlangıç). <b>seit + çoğul isim → -n</b> (seit drei Monaten).",
+          "<b>nach</b>: şehir/artikelsiz ülke/kıta + Hause; <b>zu</b>: kişi, meslek, artikeli olan yer.",
+          "<b>Zu Hause</b> (nerede) ≠ <b>nach Hause</b> (nereye).",
+          "<b>auf einer Hochzeit / auf der Party</b>: düğün ve parti için «auf» (hocanın ünlemi).",
+          "Yer değiştiren hareket: <b>Wo?</b> Dativ, <b>Wohin?</b> Akkusativ."
+        ],
+        "uyari": "En sık hata: «Ich gehe zu Berlin» demek. Şehir adı → <b>nach Berlin</b>. Kişi veya artikeli olan yer → <b>zu</b> (zum Arzt, zur Uni).",
+        "kaynak": "Kalan Üniteler s.79-81"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "aus · bei · mit · nach · zu · seit · ab",
+        "mean": "Bu yedi edatın arkasında hep Dativ gelir: dem, der, dem, den + n.",
+        "story": "<b>Ich komme aus der Türkei.</b> · <b>Ich bin bei meiner Freundin.</b> · <b>Wir fahren mit dem Bus.</b><br><b>Ich fahre nach Berlin.</b> · <b>Sie geht zum Arzt.</b> · <b>Ich wohne seit einem Jahr in Istanbul.</b><br><b>Ab Montag arbeite ich wieder.</b>"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d31_praep_dativ",
+    "title": "Präpositionen mit Dativ",
+    "emoji": "📍",
+    "desc": "aus, bei, mit, nach, zu, seit, ab",
+    "rule": "<b>aus, bei, mit, nach, zu, seit, ab</b> → arkasından HEP Dativ.<br><b>aus</b> = yer/köken/madde · <b>bei</b> = yanında · <b>mit</b> = ile · <b>nach</b> = şehir, Haus, sonra · <b>zu</b> = kişi/meslek/artikelli yer · <b>seit</b> = beri · <b>ab</b> = itibaren.<br><b>beim = bei dem</b>, <b>zum = zu dem</b>, <b>zur = zu der</b>. <b>seit + çoğul → -n</b>.<br>Wo? → Dativ, Wohin? → Akkusativ (in, an, auf …).",
+    "qs": [
+      {
+        "sent": "Ich komme ___ der Türkei.",
+        "blank": "aus",
+        "opts": [
+          "aus",
+          "bei",
+          "nach"
+        ],
+        "tr": "Ben Türkiye'den geliyorum.",
+        "exp": "Hocanın örneği: «Ich komme aus der Türkei.» Bir yerden/kökenden gelmeyi anlatan edat <b>aus</b>'tur ve Dativ ister (die Türkei → der). «bei» yanında olmayı, «nach» yönü anlatır."
+      },
+      {
+        "sent": "Wir wohnen ___ unseren Eltern.",
+        "blank": "bei",
+        "opts": [
+          "bei",
+          "mit",
+          "zu"
+        ],
+        "tr": "Biz ailemizin yanında oturuyoruz.",
+        "exp": "Hocanın örneği: «Wir wohnen bei unseren Eltern.» Birinin yanında yaşamak için <b>bei</b> kullanılır. «mit» ile yaparsan «ile birlikte» olur, «zu» ise hareket gerektirir."
+      },
+      {
+        "sent": "Wir fahren ___ dem Bus.",
+        "blank": "mit",
+        "opts": [
+          "mit",
+          "nach",
+          "zu"
+        ],
+        "tr": "Biz otobüsle gidiyoruz.",
+        "exp": "Hocanın örneği: «Wir fahren mit dem Bus.» Araç ve birlikte olma için <b>mit</b> kullanılır, arkasından Dativ (dem Bus) gelir."
+      },
+      {
+        "sent": "Ich fahre ___ Berlin.",
+        "blank": "nach",
+        "opts": [
+          "nach",
+          "zu",
+          "in"
+        ],
+        "tr": "Ben Berlin'e gidiyorum.",
+        "exp": "Hocanın kuralı: şehir adları için <b>nach</b> kullanılır (nach Berlin). «zu» kişi, meslek veya artikeli olan yer için, «in» ise bina/oda gibi yerler içindir."
+      },
+      {
+        "sent": "Sie geht ___ Arzt.",
+        "blank": "zum",
+        "opts": [
+          "zum",
+          "beim",
+          "nach dem"
+        ],
+        "tr": "O doktora gidiyor.",
+        "exp": "Hocanın örneği: «Sie geht zum Arzt.» Meslek (doktor) için <b>zu</b> kullanılır; zum = zu dem. «beim» (bei dem) yanında DURMAYI anlatır, gitmeyi değil."
+      },
+      {
+        "sent": "Ich wohne ___ einem Jahr in Istanbul.",
+        "blank": "seit",
+        "opts": [
+          "seit",
+          "ab",
+          "nach"
+        ],
+        "tr": "Ben bir yıldır İstanbul'da oturuyorum.",
+        "exp": "Hocanın örneği: «Ich wohne seit einem Jahr in Istanbul.» Geçmişten beri süren durum için <b>seit</b> kullanılır, Dativ ister (einem Jahr). «ab» ileriye dönük bir başlangıcı anlatır."
+      },
+      {
+        "sent": "Ich gehe ___ meiner Freundin.",
+        "blank": "zu",
+        "opts": [
+          "zu",
+          "bei",
+          "nach"
+        ],
+        "tr": "Ben arkadaşımın yanına gidiyorum.",
+        "exp": "Hocanın örneği: «Ich gehe zu meiner Freundin.» Birinin yanına GİTMEK için <b>zu</b>, yanında OLMAK için <b>bei</b> kullanılır («Ich bin bei meiner Freundin»)."
+      },
+      {
+        "sent": "Ich bin heute ___ Hause.",
+        "blank": "zu",
+        "opts": [
+          "zu",
+          "nach",
+          "bei"
+        ],
+        "tr": "Bugün evdeyim.",
+        "exp": "Hocanın kutusu: «Zu Hause kann ich sein, bleiben, essen …» Evde bulunma (Wo?) → <b>zu Hause</b>. «nach Hause» ise eve gitme (Wohin?) içindir."
+      },
+      {
+        "sent": "___ dem Kurs gehe ich nach Hause.",
+        "blank": "Nach",
+        "opts": [
+          "Nach",
+          "Seit",
+          "Zu"
+        ],
+        "tr": "Kurstan sonra eve gidiyorum.",
+        "exp": "Hocanın örneği: «Nach dem Kurs gehe ich nach Hause.» nach «…den sonra» anlamında da kullanılır. «Seit» geçmişten beri, «Zu» ise yön anlamı verirdi."
+      },
+      {
+        "sent": "Der Tisch ist ___ Holz.",
+        "blank": "aus",
+        "opts": [
+          "aus",
+          "mit",
+          "bei"
+        ],
+        "tr": "Masa ahşaptan yapılmış.",
+        "exp": "Hocanın örneği: «Der Tisch ist aus Holz.» Bir şeyin hangi maddeden yapıldığını <b>aus</b> söyler. «mit» ile «ahşapla birlikte» gibi yanlış bir anlam çıkar."
+      },
+      {
+        "sent": "Sie lernt seit drei ___ Deutsch.",
+        "blank": "Monaten",
+        "opts": [
+          "Monaten",
+          "Monate",
+          "Monat"
+        ],
+        "tr": "O üç aydır Almanca öğreniyor.",
+        "exp": "Hocanın örneği: «Sie lernt seit drei Monaten Deutsch.» Hocanın notu: seit + çoğul isim → sona <b>-N</b> gelir (seit 4 Jahren). «Monate» Dativ olmadığı için yanlıştır."
+      },
+      {
+        "sent": "___ nächster Woche habe ich mehr Zeit.",
+        "blank": "Ab",
+        "opts": [
+          "Ab",
+          "Seit",
+          "Bei"
+        ],
+        "tr": "Gelecek haftadan itibaren daha fazla vaktim var.",
+        "exp": "Hocanın örneği: «Ab nächster Woche habe ich mehr Zeit.» Gelecekteki bir başlangıç anı için <b>ab</b> (…den itibaren) kullanılır. «Seit» geçmişten beri anlamındadır, gelecek haftayla uyuşmaz."
+      },
+      {
+        "sent": "Sie ist ___ Arzt.",
+        "blank": "beim",
+        "opts": [
+          "beim",
+          "zum",
+          "nach dem"
+        ],
+        "tr": "O doktorun yanında / doktorda.",
+        "exp": "Hocanın örneği: «Sie ist beim Arzt.» bei dem = beim; birinin yanında olmayı (Wo?) anlatır. «zum Arzt» ise doktora gitmeyi (Wohin?) anlatır."
+      },
+      {
+        "sent": "Wir arbeiten ___ einem Plan.",
+        "blank": "nach",
+        "opts": [
+          "nach",
+          "bei",
+          "zu"
+        ],
+        "tr": "Biz bir plana göre çalışıyoruz.",
+        "exp": "Hocanın örneği: «Wir arbeiten nach einem Plan.» nach «…e göre» anlamında da kullanılır ve Dativ ister (einem Plan)."
+      },
+      {
+        "sent": "Die Kinder sind ___ Garten.",
+        "blank": "im",
+        "opts": [
+          "im",
+          "ins",
+          "in den"
+        ],
+        "tr": "Çocuklar bahçede.",
+        "exp": "Hocanın örneği: «Die Kinder sind im Garten.» sind = Wo? sorusu → Dativ → in dem = <b>im</b>. «Die Kinder gehen in den Garten» Wohin? sorusu olduğundan Akkusativ olur."
+      },
+      {
+        "sent": "Ich gehe ___ Meer.",
+        "blank": "ans",
+        "opts": [
+          "ans",
+          "am",
+          "im"
+        ],
+        "tr": "Denize gidiyorum.",
+        "exp": "Hocanın örneği: «Ich gehe ans Meer.» gehen = Wohin? → Akkusativ → an das = <b>ans</b>. «am Meer» (an dem) Wo? içindir: «Ich bin am Meer.»"
+      },
+      {
+        "sent": "Das Buch liegt ___ Tisch.",
+        "blank": "auf dem",
+        "opts": [
+          "auf dem",
+          "auf den",
+          "über den"
+        ],
+        "tr": "Kitap masanın üstünde duruyor.",
+        "exp": "Hocanın örneği: «Das Buch liegt auf dem Tisch.» liegt = Wo? → Dativ (dem). «auf den Tisch» Akkusativ'dir ve «Ich lege das Buch auf den Tisch» (Wohin?) cümlesinde kullanılır."
+      },
+      {
+        "sent": "Ich lege das Buch ___ Tisch.",
+        "blank": "auf den",
+        "opts": [
+          "auf den",
+          "auf dem",
+          "an dem"
+        ],
+        "tr": "Kitabı masanın üstüne koyuyorum.",
+        "exp": "Hocanın örneği: «Ich lege das Buch auf den Tisch.» lege = Wohin? (hareketle bir yere koymak) → Akkusativ (den). «auf dem Tisch» ise Wo? içindir: «Das Buch liegt auf dem Tisch.»"
+      }
+    ]
+  },
+  "dogrulama": [
+    "Kullanıcı 'von' edatını da Dativ listesine koymamı istemişti ama hocanın s.79-84 sayfalarında 'von' yok; yalnızca aus, bei, mit, nach, zu, seit, ab var. von eklenmedi. Perplexity'ye sor: «A1'de von hangi hâlde kullanılır, anlamı nedir?»",
+    "Hocanın kendi 'ezber cümlesi' (Kral & Soytarı gibi) bu edat sayfalarında yok; yeni bir ezber uydurmadım.",
+    "s.81 'vor' için hocanın «TMP'nin P'si / T'si» notları, TMP (Zaman-Biçim-Yer) konusunu bilmeyen biri için kısa kaldı; derste yalnız aktarıldı.",
+    "s.83-84 hocanın Türkçe cümleleri (örn. «Kahvaltıdan sonra okula gidiyorum») Almanca cevap anahtarı olmadan verilmiş; derste ve sorularda kullanılmadı.",
+    "s.79'daki «Wir fahren zum Bahnhof (itren stasyonuna)» yazım hatasını 'tren istasyonuna' olarak düzelttim; hocanın orijinal yazımı 'itren' görünüyor."
+  ]
+}

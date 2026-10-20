@@ -1,0 +1,266 @@
+{
+  "konu": 21,
+  "baslik": "Präpositionen mit immer Akkusativ",
+  "kaynak": [{ "arac": "PDF", "sayfa": "Teil-1 s.90" }],
+  "deste": {
+    "title": "🚪 Präpositionen mit (immer) Akkusativ",
+    "accent": "linear-gradient(135deg,#58CC02,#3e9a00)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "AKKUSATIV",
+        "mean": "Bazı edatlar (durch, für, ohne, bis, gegen, um) her zaman Akkusativ ister: arkasından gelen ismin artikeli Akkusativ olur.",
+        "story": "Hocanın başlığı: <b>Die Präpositionen (A1) mit (immer) AKKUSATIV</b>. \"Immer\" = her zaman. Bu edatlardan sonra istisnasız Akkusativ gelir: der → <b>den</b>, ein → <b>einen</b>; die, das ve çoğul değişmez."
+      },
+      {
+        "big": "durch",
+        "mean": "<b>durch</b> = içinden, arasından, boyunca; yoluyla / sayesinde. Bir yerin içinden geçmeyi veya bir şey aracılığıyla olmayı anlatır.",
+        "egs": [
+          "Wir gehen durch <b>den</b> Park. — Biz parkın içinden geçiyoruz.",
+          "Der Hund läuft durch <b>den</b> Garten. — Köpek bahçenin içinden koşuyor.",
+          "Ich lerne Deutsch durch Videos. — Almancayı videolar yoluyla öğreniyorum."
+        ],
+        "tip": "💡 Hocanın TMP notu: <b>durch</b> çoğunlukla <b>P</b>, bazen <b>M</b> de olabilir (yer ve araç).",
+        "kaynak": "Teil-1 s.90"
+      },
+      {
+        "big": "für",
+        "mean": "<b>für</b> = için, adına. Bir şeyin kimin için olduğunu söyler.",
+        "egs": [
+          "Das Geschenk ist für <b>den</b> Lehrer. — Hediye öğretmen için.",
+          "Ich kaufe Blumen für meine Mutter. — Annem için çiçek alıyorum.",
+          "Danke für deine Hilfe. — Yardımın için teşekkürler."
+        ],
+        "tip": "💡 Hocanın notları: <b>für das = fürs</b> (kısaltma); TMP'nin <b>M</b>'si.",
+        "kaynak": "Teil-1 s.90"
+      },
+      {
+        "big": "ohne",
+        "mean": "<b>ohne</b> = olmadan, -sız. Bir şeyin/kişinin olmadığını söyler.",
+        "egs": [
+          "Ich gehe ohne <b>meinen</b> Bruder. — Erkek kardeşim olmadan gidiyorum.",
+          "Sie trinkt Kaffee ohne Milch. — O, kahveyi sütsüz içiyor.",
+          "Wir können das ohne <b>den</b> Lehrer machen. — Bunu öğretmen olmadan yapabiliriz."
+        ],
+        "tip": "💡 Bruder maskulin: <b>mein → meinen</b>; Lehrer maskulin: <b>der → den</b>. Milch feminin: artikel yok, değişmez.",
+        "kaynak": "Teil-1 s.90"
+      },
+      {
+        "big": "bis",
+        "mean": "<b>bis</b> = kadar, dek, -e kadar. Zaman (veya yer) sınırı bildirir.",
+        "egs": [
+          "Ich arbeite bis 18 Uhr. — Saat 18.00'e kadar çalışıyorum.",
+          "Warte bitte bis morgen! — Lütfen yarına kadar bekle!",
+          "Der Kurs dauert bis Freitag. — Kurs cumaya kadar sürüyor."
+        ],
+        "tip": "💡 Hocanın TMP notu: <b>bis</b> = TMP'nin <b>T</b>'si (zaman). Artikel gerektiren isimlerde bis genelde artikelsiz zaman sözcükleriyle kullanılır (18 Uhr, morgen, Freitag).",
+        "kaynak": "Teil-1 s.90"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Özet tablo",
+        "baslik": "Altı edat, hepsi Akkusativ",
+        "basliklar": ["Präposition", "Türkçe", "Örnek"],
+        "satirlar": [
+          ["durch", "içinden, boyunca, yoluyla", "Wir gehen durch den Park."],
+          ["für", "için", "Das Geschenk ist für den Lehrer."],
+          ["gegen", "karşı", "Ich bin gegen den Plan."],
+          ["ohne", "olmadan", "Ich gehe ohne meinen Bruder."],
+          ["um", "etrafında, saat..., hakkında", "Der Film beginnt um 20 Uhr."],
+          ["bis", "kadar, dek", "Wir gehen bis zum Bahnhof."]
+        ],
+        "not": "Hocanın tablosundan (Präposition – Türkçe – Beispiel). Hocanın numaralı anlatımında yalnız durch, für, ohne, bis var; gegen ve um tabloda ek olarak yer alır.",
+        "kaynak": "Teil-1 s.90"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Cümle yapısı",
+        "baslik": "Edat + Akkusativ nesnesi",
+        "satirlar": [
+          {
+            "etiket": "durch",
+            "not": "der Park → den Park",
+            "jetonlar": [{ "t": "Wir", "r": "ozne" }, { "t": "gehen", "r": "fiil" }, { "t": "durch", "r": "bag" }, { "t": "den Park", "r": "nesne" }],
+            "tr": "Biz parkın içinden geçiyoruz."
+          },
+          {
+            "etiket": "für",
+            "not": "der Lehrer → den Lehrer",
+            "jetonlar": [{ "t": "Das Geschenk", "r": "ozne" }, { "t": "ist", "r": "fiil" }, { "t": "für", "r": "bag" }, { "t": "den Lehrer", "r": "nesne" }],
+            "tr": "Hediye öğretmen için."
+          },
+          {
+            "etiket": "ohne",
+            "not": "mein Bruder → meinen Bruder",
+            "jetonlar": [{ "t": "Ich", "r": "ozne" }, { "t": "gehe", "r": "fiil" }, { "t": "ohne", "r": "bag" }, { "t": "meinen Bruder", "r": "nesne" }],
+            "tr": "Erkek kardeşim olmadan gidiyorum."
+          },
+          {
+            "etiket": "bis",
+            "not": "zaman sınırı",
+            "jetonlar": [{ "t": "Ich", "r": "ozne" }, { "t": "arbeite", "r": "fiil" }, { "t": "bis", "r": "bag" }, { "t": "18 Uhr", "r": "zaman" }],
+            "tr": "Saat 18.00'e kadar çalışıyorum."
+          }
+        ],
+        "not": "<b>Kural:</b> Edat (turuncu/bağ) + isim hep Akkusativ'de; yalnız maskulin isimde artikel <b>den / einen / meinen</b> olur.",
+        "kaynak": "Teil-1 s.90"
+      },
+      {
+        "tur": "kural",
+        "kicker": "TMP ipucu",
+        "baslik": "Hocanın TMP etiketleri",
+        "maddeler": [
+          "<b>durch</b> → çoğunlukla <b>P</b> (yer: parkın içinden), bazen <b>M</b> (araç: videolar yoluyla).",
+          "<b>für</b> → <b>M</b>.",
+          "<b>bis</b> → <b>T</b> (zaman: 18 Uhr, morgen, Freitag).",
+          "<b>für das = fürs</b> (kısaltma)."
+        ],
+        "uyari": "Hocanın TMP'si cümlede edatın hangi türde bilgi verdiğini hatırlatan bir etikettir; edat seçerken bu etiketle düşün.",
+        "kaynak": "Teil-1 s.90"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Sık yapılan hatalar",
+        "maddeler": [
+          "Bu edatlardan sonra <b>hep Akkusativ</b>: durch <b>den</b> Park (durch der Park ✗).",
+          "Yalnız <b>maskulin</b> değişir: den, einen, meinen. Feminin/nötr/çoğul aynı kalır: für die Frau, für das Kind.",
+          "<b>für das</b> sık sık <b>fürs</b> olarak kısaltılır.",
+          "<b>für</b> (için) ile <b>gegen</b> (karşı) karıştırılmamalı: Ich bin gegen den Plan = plana karşıyım.",
+          "<b>bis</b> zaman sınırıdır (bis 18 Uhr); saatte başlangıç için <b>um</b> kullanılır (um 20 Uhr)."
+        ],
+        "uyari": "En sık hata: edattan sonra Nominativ artikel koymak (für der Lehrer ✗ → für den Lehrer ✓).",
+        "kaynak": "Teil-1 s.90"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "durch · für · gegen · ohne · um · bis",
+        "mean": "Hepsi her zaman Akkusativ ister: der → den, ein → einen.",
+        "story": "Durch den Park, für den Lehrer, gegen den Plan, ohne meinen Bruder, um 20 Uhr, bis Freitag. Für das = fürs."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d21_akk_prep",
+    "title": "Präpositionen mit immer Akkusativ",
+    "emoji": "🚪",
+    "desc": "durch, für, gegen, ohne, um, bis — hep Akkusativ",
+    "rule": "<b>durch</b> (içinden, yoluyla), <b>für</b> (için), <b>ohne</b> (olmadan), <b>bis</b> (kadar), ayrıca tabloda <b>gegen</b> (karşı), <b>um</b> (etrafında, saat).<br>Hepsinden sonra <b>Akkusativ</b>: der → <b>den</b>, ein → <b>einen</b>, mein → <b>meinen</b>.<br><b>für das = fürs</b>.<br>Örnek: durch den Park, für den Lehrer, ohne meinen Bruder, bis 18 Uhr.",
+    "qs": [
+      {
+        "sent": "Wir gehen ___ den Park.",
+        "blank": "durch",
+        "opts": ["durch", "für", "ohne"],
+        "tr": "Biz parkın içinden geçiyoruz.",
+        "exp": "durch = içinden geçerek. Hocanın örneği: Wir gehen durch den Park. für 'için', ohne 'olmadan' demektir; anlam uymaz."
+      },
+      {
+        "sent": "Das Geschenk ist ___ den Lehrer.",
+        "blank": "für",
+        "opts": ["für", "durch", "bis"],
+        "tr": "Hediye öğretmen için.",
+        "exp": "für = için. Hocanın örneği: Das Geschenk ist für den Lehrer. durch içinden geçmedir, bis zaman sınırıdır."
+      },
+      {
+        "sent": "Ich gehe ___ meinen Bruder.",
+        "blank": "ohne",
+        "opts": ["ohne", "bis", "durch"],
+        "tr": "Erkek kardeşim olmadan gidiyorum.",
+        "exp": "ohne = olmadan. Hocanın örneği: Ich gehe ohne meinen Bruder. bis 'kadar' demektir ve kişilerle böyle kullanılmaz."
+      },
+      {
+        "sent": "Ich arbeite ___ 18 Uhr.",
+        "blank": "bis",
+        "opts": ["bis", "für", "ohne"],
+        "tr": "Saat 18.00'e kadar çalışıyorum.",
+        "exp": "bis = kadar; zaman sınırı bildirir (TMP'nin T'si). Hocanın örneği: Ich arbeite bis 18 Uhr."
+      },
+      {
+        "sent": "Danke ___ deine Hilfe.",
+        "blank": "für",
+        "opts": ["für", "durch", "ohne"],
+        "tr": "Yardımın için teşekkürler.",
+        "exp": "'için' anlamı für ile verilir; hocanın örneği: Danke für deine Hilfe. Feminin Hilfe'nin yanında deine değişmez."
+      },
+      {
+        "sent": "Der Hund läuft durch ___ Garten. (der Garten)",
+        "blank": "den",
+        "opts": ["der", "den", "dem"],
+        "tr": "Köpek bahçenin içinden koşuyor.",
+        "exp": "durch her zaman Akkusativ ister; Garten maskulin olduğu için der → den olur (hocanın örneği). der Nominativ'dir."
+      },
+      {
+        "sent": "Wir können das ohne ___ Lehrer machen.",
+        "blank": "den",
+        "opts": ["der", "den", "dem"],
+        "tr": "Bunu öğretmen olmadan yapabiliriz.",
+        "exp": "ohne her zaman Akkusativ ister; Lehrer maskulin olduğu için der → den. Hocanın örneği: ohne den Lehrer."
+      },
+      {
+        "sent": "Ich kaufe Blumen für ___ Mutter. (annem için)",
+        "blank": "meine",
+        "opts": ["mein", "meinen", "meine"],
+        "tr": "Annem için çiçek alıyorum.",
+        "exp": "Mutter feminin olduğu için Akkusativ'de de değişmez: meine Mutter (hocanın örneği). meinen yalnız maskulin isimler içindir."
+      },
+      {
+        "sent": "Ich lerne Deutsch ___ Videos.",
+        "blank": "durch",
+        "opts": ["durch", "für", "bis"],
+        "tr": "Almancayı videolar yoluyla öğreniyorum.",
+        "exp": "durch yalnız 'içinden' değil, 'yoluyla / sayesinde' anlamına da gelir. Hocanın örneği: Ich lerne Deutsch durch Videos."
+      },
+      {
+        "sent": "Warte bitte ___ morgen!",
+        "blank": "bis",
+        "opts": ["bis", "durch", "ohne"],
+        "tr": "Lütfen yarına kadar bekle!",
+        "exp": "'... e kadar' bis ile söylenir (hocanın örneği: Warte bitte bis morgen!). Zaman kelimesinden önce artikel gerekmez."
+      },
+      {
+        "sent": "Der Kurs dauert ___ Freitag.",
+        "blank": "bis",
+        "opts": ["bis", "für", "durch"],
+        "tr": "Kurs cumaya kadar sürüyor.",
+        "exp": "bis = kadar, dek. Hocanın örneği: Der Kurs dauert bis Freitag. Bitiş sınırı olduğu için bis gelir."
+      },
+      {
+        "sent": "Ich bin ___ den Plan. (plana karşıyım)",
+        "blank": "gegen",
+        "opts": ["gegen", "ohne", "bis"],
+        "tr": "Plana karşıyım.",
+        "exp": "gegen = karşı (hocanın tablosu: Ich bin gegen den Plan). gegen de her zaman Akkusativ ister, bu yüzden der Plan → den Plan."
+      },
+      {
+        "sent": "Der Film beginnt ___ 20 Uhr.",
+        "blank": "um",
+        "opts": ["um", "bis", "durch"],
+        "tr": "Film saat 20.00'de başlıyor.",
+        "exp": "um = saat ... (hocanın tablosu: Der Film beginnt um 20 Uhr). bis bitiş sınırı bildirir, başlangıç saati için um gelir."
+      },
+      {
+        "sent": "Für das Kind = ___ Kind",
+        "blank": "Fürs",
+        "opts": ["Fürs", "Fürdas", "Furs"],
+        "tr": "Çocuk için",
+        "exp": "Hocanın notu: für das = fürs. Yazımda tek kelime olur, ü ve apostrof gerekmez; Fürdas bitişik yazılmış hatalı biçimdir."
+      },
+      {
+        "sent": "Ich gehe ohne ___ Lehrer. (der Lehrer, belirsiz değil)",
+        "blank": "den",
+        "opts": ["der", "den", "die"],
+        "tr": "Öğretmen olmadan gidiyorum.",
+        "exp": "ohne her zaman Akkusativ ister. Maskulin olan der Lehrer nesne olunca den Lehrer olur. 'die' feminin ve çoğul içindir."
+      }
+    ]
+  },
+  "dogrulama": [
+    "s.90'daki 'TMP' kısaltmasının açılımı sayfada yazmıyor; T = zaman, M = tarz/araç, P = yer diye yorumladım ve derste açılımı yazmadım. Perplexity'ye sor: \"Almanca cümle sıralamasında TMP ne demek?\" (Hocanın kastettiği bu mu, hocaya sor).",
+    "Hocanın numaralı listesinde yalnız durch, für, ohne, bis var; gegen ve um yalnızca sağdaki küçük tabloda (görsel) geçiyor. Bu iki edat derse tablodaki cümleleriyle alındı.",
+    "s.90 tablosunda um için 'etrafında, saat..., hakkında' yazıyor; 'hakkında' görselden okundu ve belirsiz (um = hakkında anlamı A1'de yaygın mı?). Perplexity'ye sor: \"um edatının A1 anlamları nelerdir?\"",
+    "Soru 'Für das Kind = Fürs Kind' hocanın 'Für das = Fürs' notundan türetildi; 'Fürs Kind' kullanımı Almancada doğru mu, kontrol edilmeli.",
+    "bis ile ilgili tip'te 'artikelli isimlerle bis genelde artikelsiz zaman sözcüklerinde kullanılır' notu ben yazdım (hocanın örnekleri yalnız 18 Uhr, morgen, Freitag); bis zum Bahnhof örneği tablodan alındı, 'zum' (zu dem) A1 öğrencisine açıklanmadı."
+  ]
+}

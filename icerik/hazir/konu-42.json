@@ -1,0 +1,376 @@
+{
+  "konu": 42,
+  "baslik": "A2 · Futur I",
+  "kaynak": [
+    { "arac": "PDF", "sayfa": "Teil-2 s.82-88; A2 Dosyası s.242-244" }
+  ],
+  "deste": {
+    "title": "🔮 Futur I (werden + mastar)",
+    "accent": "linear-gradient(135deg,#7b3fa0,#4a2468)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "FUTUR I",
+        "mean": "Gelecek zaman: <b>werden</b> (çekimli, 2. sırada) + <b>fiilin mastarı</b> (cümlenin SONUNDA).",
+        "story": "Hocanın Teil-2 s.83'ündeki FUTUR-I sayfası bir <b>werden</b> çekim tablosu ve sekiz örnekle açılıyor: <i>Morgen wird es wahrscheinlich schneien</i> (tahmin gibi), <i>Ab morgen werde ich nicht mehr rauchen</i> (söz gibi), <i>Heute werden wir einkaufen gehen</i> (plan gibi). Yapı hep aynı: werden ikinci sırada, asıl fiil mastar olarak sonda."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim",
+        "baslik": "werden çekimi ve örnekler",
+        "basliklar": ["Özne", "werden", "Hocanın alıştırmasından"],
+        "satirlar": [
+          ["ich", "werde", "Ich werde nicht mehr so lang schlafen."],
+          ["du", "wirst", "Wirst du auch früher aufstehen?"],
+          ["er/sie/es", "wird", "Mirjam wird ... im Fitness-Studio verbringen."],
+          ["wir", "werden", "Wir werden am Samstag nach Berlin fahren."],
+          ["ihr", "werdet", "Werdet ihr auch irgendetwas verändern?"],
+          ["sie/Sie", "werden", "Eva und John werden etwas unternehmen."]
+        ],
+        "not": "Hocanın s.83 tablosu: <b>Ich werde, du wirst, er/sie/es wird, wir werden, ihr werdet, sie/Sie werden</b>. Sağ sütun Teil-2 s.86-87'deki Futur I alıştırmasının cevap anahtarından ve s.244'ten; cümleleri kısalttım.",
+        "kaynak": "Teil-2 s.83, s.86; A2 Dosyası s.242, s.244"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Çerçeve",
+        "baslik": "werden 2. sırada · mastar SONDA",
+        "satirlar": [
+          {
+            "etiket": "Plan",
+            "not": "werden 2., mastar sonda",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "werde", "r": "fiil" },
+              { "t": "morgen", "r": "zaman" },
+              { "t": "lernen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Yarın ders çalışacağım."
+          },
+          {
+            "etiket": "Plan",
+            "not": "iki parçalı mastar yine sonda",
+            "jetonlar": [
+              { "t": "Wir", "r": "ozne" },
+              { "t": "werden", "r": "fiil" },
+              { "t": "am Samstag", "r": "zaman" },
+              { "t": "nach Berlin", "r": "diger" },
+              { "t": "fahren", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Cumartesi Berlin'e gideceğiz."
+          },
+          {
+            "etiket": "Tahmin",
+            "not": "özne werden'den sonra",
+            "jetonlar": [
+              { "t": "Morgen", "r": "zaman" },
+              { "t": "wird", "r": "fiil" },
+              { "t": "es", "r": "ozne" },
+              { "t": "wahrscheinlich", "r": "zaman" },
+              { "t": "schneien", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Yarın büyük ihtimalle kar yağacak."
+          },
+          {
+            "etiket": "Plan",
+            "not": "başta zaman, werden yine 2.",
+            "jetonlar": [
+              { "t": "Heute", "r": "zaman" },
+              { "t": "werden", "r": "fiil" },
+              { "t": "wir", "r": "ozne" },
+              { "t": "einkaufen gehen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Bugün alışverişe gideceğiz."
+          }
+        ],
+        "not": "<b>Kural:</b> <b>werden</b> özneye göre çekilir ve her zaman <b>2. sırada</b> durur; anlamı taşıyan fiil <b>mastar</b> olarak <b>cümlenin en sonuna</b> gider. Başa zaman sözcüğü (Morgen, Heute) gelirse özne werden'den sonra gelir, werden yine ikinci kalır.",
+        "kaynak": "Teil-2 s.83; A2 Dosyası s.244"
+      },
+      {
+        "big": "Tahmin",
+        "mean": "Hocanın örneklerinde geleceğe dair <b>öngörü / tahmin</b> cümleleri: hava, teknoloji, gelecekte ne olacağı. Yapı aynı: werden + mastar. <b>wahrscheinlich</b> = büyük ihtimalle. (Tahmin / söz / plan başlıklarını ben koydum; hoca örnekleri başlıksız verir.)",
+        "egs": [
+          "Morgen <b>wird</b> es wahrscheinlich <b>schneien</b>. — Yarın büyük ihtimalle kar yağacak.",
+          "In der Zukunft <b>wird</b> es nur noch Elektroautos <b>geben</b>. — Gelecekte yalnızca elektrikli arabalar olacak.",
+          "Bald <b>wird</b> in jedem Haushalt ein PC <b>stehen</b>. — Yakında her evde bir bilgisayar olacaktır.",
+          "Er <b>wird</b> bald ein Arzt. — O yakında bir doktor olacak."
+        ],
+        "tip": "💡 Hocanın örneğinde <b>es</b> özne olarak werden'den hemen sonra geliyor; cümle zaman sözcüğüyle (Morgen) başladığı için werden yine 2. sırada.",
+        "kaynak": "Teil-2 s.83"
+      },
+      {
+        "big": "Söz ve niyet",
+        "mean": "Bir <b>karar, söz veya niyet</b> bildirirken de aynı yapı: werden + mastar. Hocanın örneği: sigarayı bırakma kararı. <b>nicht mehr</b> = artık ... değil.",
+        "egs": [
+          "Ab morgen <b>werde</b> ich nicht mehr <b>rauchen</b>. — Yarından itibaren daha fazla sigara içmeyeceğim.",
+          "Ich <b>werde</b> morgen mit dem Rauchen <b>aufhören</b>. — Yarın sigara içmeyi bırakacağım.",
+          "Du <b>wirst</b> dein Diplom als Physiker mit der Note „Sehr gut“ <b>machen</b>. — Fizikçi diplomanı „Çok iyi“ notuyla alacaksın."
+        ],
+        "tip": "💡 Hoca <b>Ab morgen</b> (yarından itibaren) ve <b>morgen</b> (yarın) gibi zaman sözcüklerini hep başa veya fiilin yanına koyuyor. Mastar <b>aufhören</b> sonda duruyor (hocanın s.10 notu: aufhören = enden).",
+        "kaynak": "Teil-2 s.83"
+      },
+      {
+        "big": "Plan ve sıra",
+        "mean": "<b>Bugün/yarın yapılacaklar</b> ve ardışık planlar. <b>danach</b> = sonra, ardından. <b>bei dir vorbeikommen</b> = senin yanına uğramak.",
+        "egs": [
+          "Heute <b>werden</b> wir <b>einkaufen gehen</b>. — Bugün alışverişe gideceğiz.",
+          "Danach <b>werden</b> wir bei dir <b>vorbeikommen</b>. — Ondan sonra yanına uğrayacağız.",
+          "Ich <b>werde</b> morgen <b>lernen</b>. — Yarın ders çalışacağım.",
+          "Wir <b>werden</b> am Samstag nach Berlin <b>fahren</b>. — Cumartesi Berlin'e gideceğiz."
+        ],
+        "tip": "💡 Hoca s.83: <b>Geh da mit. Das wird dir guttun.</b> = Git onlarla. İyi gelecek bak. / <b>Die Gesprächstherapie wird mir guttun.</b> = Terapi bana iyi gelecek. Hoca notu: guttun = tat gut: iyi gelmek.",
+        "kaynak": "Teil-2 s.83; A2 Dosyası s.244"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Werden + Modalverben",
+        "baslik": "İki mastar: ikisi de sonda",
+        "satirlar": [
+          {
+            "etiket": "werden + müssen",
+            "not": "zorunluluk, gelecek",
+            "jetonlar": [
+              { "t": "Sie", "r": "ozne" },
+              { "t": "wird", "r": "fiil" },
+              { "t": "arbeiten", "r": "fiil", "sonda": true },
+              { "t": "müssen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Çalışmak zorunda olacak."
+          },
+          {
+            "etiket": "werden + müssen",
+            "not": "arada zaman bilgisi",
+            "jetonlar": [
+              { "t": "Sie", "r": "ozne" },
+              { "t": "wird", "r": "fiil" },
+              { "t": "früh", "r": "zaman" },
+              { "t": "aufstehen müssen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Erken kalkmak zorunda olacak."
+          },
+          {
+            "etiket": "werden + wollen",
+            "not": "olumsuz: nicht araya",
+            "jetonlar": [
+              { "t": "Sie", "r": "ozne" },
+              { "t": "wird", "r": "fiil" },
+              { "t": "nicht", "r": "diger" },
+              { "t": "gehen wollen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Gitmek istemeyecek."
+          },
+          {
+            "etiket": "werden + können",
+            "not": "hocanın sarı kutusu",
+            "jetonlar": [
+              { "t": "Du", "r": "ozne" },
+              { "t": "wirst", "r": "fiil" },
+              { "t": "Spanien bereisen", "r": "nesne" },
+              { "t": "können", "r": "fiil", "sonda": true }
+            ],
+            "tr": "İspanya'yı gezebileceksin."
+          }
+        ],
+        "not": "<b>Hoca (Teil-2 s.82):</b> „werden“ ikinci yerde, asıl fiil (Vollverb) <b>mastar</b> halinde sondan bir önce, <b>Modalverb</b> mastar halinde <b>en sonda</b>. Futur I, können, müssen ve dürfen ile kurulabilir (Du wirst im nächsten Jahr hart arbeiten müssen).",
+        "kaynak": "Teil-2 s.82, s.85"
+      },
+      {
+        "tur": "zaman",
+        "kicker": "Zamanlara göre",
+        "baslik": "Ich kann Jonas nicht helfen — 5 zaman",
+        "noktalar": [
+          { "baslik": "Präsens", "ornek": "Ich <b>kann</b> Jonas nicht <b>helfen</b>.", "tr": "Jonas'a yardım edemiyorum." },
+          { "baslik": "Präteritum", "ornek": "Ich <b>konnte</b> Jonas nicht <b>helfen</b>.", "tr": "Jonas'a yardım edemedim." },
+          { "baslik": "Perfekt", "ornek": "Ich <b>habe</b> Jonas nicht <b>helfen können</b>.", "tr": "Jonas'a yardım edememişim." },
+          { "baslik": "Plusquamperfekt", "ornek": "Ich <b>hatte</b> Jonas nicht <b>helfen können</b>.", "tr": "Jonas'a yardım edememiştim." },
+          { "baslik": "Futur I", "ornek": "Ich <b>werde</b> Jonas nicht <b>helfen können</b>.", "tr": "Jonas'a yardım edemeyeceğim." }
+        ],
+        "not": "Hocanın Teil-2 s.82 sayfası aynı cümleyi beş zamanda yan yana veriyor ve <b>Futur</b> satırına kırmızı ok çiziyor. Futur'da <b>werde</b> ikinci, <b>helfen können</b> sonda.",
+        "kaynak": "Teil-2 s.82"
+      },
+      {
+        "big": "werden = olmak",
+        "mean": "<b>werden</b> kendi başına da bir fiildir: <b>olmak, ... haline gelmek</b> (hoca: become – will – get). Bu kullanımda arkasında mastar yoktur; bir sıfat ya da meslek gelir. Futur I'de ise werden bir <b>yardımcı fiil</b> olup mastarla birlikte gelecek zaman yapar.",
+        "egs": [
+          "Es <b>wird</b> kalt. — Hava soğuyor.",
+          "Sie <b>wird</b> alt. — Yaşlanıyor.",
+          "Meine Schwester <b>wird</b> bald 18. — Kız kardeşim yakında 18 olacak.",
+          "Er <b>wird</b> Arzt. — O doktor oluyor / doktor olacak."
+        ],
+        "tip": "💡 Hoca s.242: <b>Hallolur!</b> <b>Wird schon!</b> <b>Das kriegen wir schon hin!</b> <b>Das klappt schon!</b> (hocanın çeviri notu: Hallolur!). Ayrıca Präteritum: <b>Die Kinder wurden müde.</b> = Çocuklar yoruldu.",
+        "kaynak": "A2 Dosyası s.242-244"
+      },
+      {
+        "big": "mit der Zeit",
+        "mean": "Hocanın üç ünlemle işaretlediği kalıp: <b>mit der Zeit</b> = zamanla. Genellikle Futur I ile gelir; zamanla olacak şeyleri anlatır.",
+        "egs": [
+          "<b>Mit der Zeit wirst</b> du dich daran gewöhnen. — Zamanla buna alışacaksın.",
+          "Die Erinnerung <b>wird</b> mit der Zeit schwächer. — Hatıra zamanla zayıflayacak.",
+          "<b>Mit der Zeit wird</b> es bestimmt einfacher. — Zamanla kesin kolaylaşacak.",
+          "Der Geruch geht mit der Zeit weg. — Koku zamanla geçer."
+        ],
+        "tip": "💡 Son örnekte hoca werden kullanmıyor (<b>geht ... weg</b>); yani zaman sözcüğü gelecek anlamı verince Präsens de görülüyor. Bunun kuralını hocadan öğrenemiyoruz.",
+        "kaynak": "Teil-2 s.84"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Zaman işaretleri",
+        "baslik": "Futur I ile gelen zaman sözcükleri",
+        "basliklar": ["Almanca", "Anlam", "Hocanın cümlesinde"],
+        "satirlar": [
+          ["morgen", "yarın", "Ich werde morgen lernen."],
+          ["ab morgen", "yarından itibaren", "Ab morgen werde ich nicht mehr rauchen."],
+          ["bald", "yakında", "Bald wird in jedem Haushalt ein PC stehen."],
+          ["in der Zukunft", "gelecekte", "In der Zukunft wird es nur noch Elektroautos geben."],
+          ["heute ... danach", "bugün ... sonra", "Heute werden wir einkaufen gehen. Danach werden wir ..."],
+          ["mit der Zeit", "zamanla", "Mit der Zeit wirst du dich daran gewöhnen."]
+        ],
+        "not": "Bu liste hocanın Futur I örneklerindeki zaman sözcüklerinden derlendi; <b>morgen</b>, <b>bald</b>, <b>in der Zukunft</b>, <b>ab morgen</b>, <b>heute / danach</b> ve <b>mit der Zeit</b> hocanın cümlelerinde geçiyor.",
+        "kaynak": "Teil-2 s.83-84"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Sık hatalar",
+        "baslik": "Futur I'de dikkat",
+        "maddeler": [
+          "<b>werden</b> özneyle çekilir: ich werde, du wirst, er wird, wir werden, ihr werdet, sie werden.",
+          "<b>werden</b> her zaman <b>2. sırada</b> (başa zaman gelirse özne ondan sonra).",
+          "Asıl fiil <b>mastar</b> olarak <b>en sonda</b>: werde ... lernen, werden ... fahren.",
+          "Modalverb varsa iki mastar sonda: <b>wird arbeiten müssen</b> (Vollverb önce, modal en sonda).",
+          "werden tek başına = <b>olmak</b>: Es wird kalt. (mastar yok).",
+          "Futur II (<b>werden + Partizip II + sein/haben</b>, bitmiş olacak / tahmin) ayrı bir konu."
+        ],
+        "uyari": "En sık hata: mastarı <b>werden'in yanına</b> koymak (<i>Ich werde lernen morgen</i> gibi). Mastar cümlenin SONUNDA olmalı: <b>Ich werde morgen lernen.</b> İkinci hata: werden'i <b>ich wirst</b> gibi yanlış kişiyle çekmek.",
+        "kaynak": "Teil-2 s.82-85, s.88"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "werden ... mastar",
+        "mean": "Futur I = çekimli werden (2. sıra) + mastar (SON).",
+        "story": "<b>ich werde, du wirst, er wird, wir werden, ihr werdet, sie werden</b>.<br><b>Ich werde morgen lernen.</b> — <b>Morgen wird es schneien.</b> — <b>Sie wird arbeiten müssen.</b>"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d42_futur1",
+    "title": "Futur I (werden + mastar)",
+    "emoji": "🔮",
+    "desc": "werden 2. sırada, mastar sonda",
+    "rule": "<b>Futur I = werden (çekimli, 2. sıra) + mastar (cümle sonu)</b>.<br><b>ich werde, du wirst, er/sie/es wird, wir werden, ihr werdet, sie/Sie werden.</b><br>Örnek: <b>Ich werde morgen lernen.</b> / <b>Morgen wird es regnen.</b><br><b>Modalverb ile:</b> werden + Vollverb(mastar) + Modalverb(mastar): <b>Sie wird arbeiten müssen.</b><br><b>werden</b> tek başına = olmak: <b>Es wird kalt.</b>",
+    "qs": [
+      {
+        "sent": "Ich ___ morgen lernen.",
+        "blank": "werde",
+        "opts": ["werde", "wirst", "wird"],
+        "tr": "Yarın ders çalışacağım.",
+        "exp": "Özne ich olduğu için werden ich werde olur. wirst du ile, wird er/sie/es ile kullanılır. Hocanın örneği: Ich werde morgen lernen."
+      },
+      {
+        "sent": "Er ___ bald ein Arzt.",
+        "blank": "wird",
+        "opts": ["wird", "werden", "wirst"],
+        "tr": "O yakında bir doktor olacak.",
+        "exp": "Özne er olduğu için werden → wird. werden wir/sie/Sie için, wirst du için. Hocanın örneği: Er wird bald ein Arzt."
+      },
+      {
+        "sent": "Wir ___ am Samstag nach Berlin fahren.",
+        "blank": "werden",
+        "opts": ["werden", "werdet", "wird"],
+        "tr": "Cumartesi Berlin'e gideceğiz.",
+        "exp": "wir ile werden çekilir (wir werden). werdet ihr içindir, wird ise tekil üçüncü kişidir. Fahren mastar olarak sonda kalır."
+      },
+      {
+        "sent": "Du ___ dein Diplom als Physiker mit der Note „Sehr gut“ machen.",
+        "blank": "wirst",
+        "opts": ["wirst", "wird", "werde"],
+        "tr": "Fizikçi diplomanı „Çok iyi“ notuyla alacaksın.",
+        "exp": "du ile werden → wirst (du wirst). wird er/sie/es, werde ich içindir. Hocanın s.83 örneği."
+      },
+      {
+        "sent": "___ ihr auch irgendetwas verändern?",
+        "blank": "Werdet",
+        "opts": ["Werdet", "Werden", "Wirst"],
+        "tr": "Siz de bir şeyleri değiştirecek misiniz?",
+        "exp": "ihr ile werden → werdet. Soruda werden cümle başına çıkar, mastar verändern sonda kalır. Hocanın Futur I alıştırmasının 5. cevabı."
+      },
+      {
+        "sent": "Ich werde morgen mit dem Rauchen ___.",
+        "blank": "aufhören",
+        "opts": ["aufhören", "aufhöre", "aufgehört"],
+        "tr": "Yarın sigara içmeyi bırakacağım.",
+        "exp": "werden + mastar: asıl fiil çekimlenmez, mastar halinde sona gider (aufhören). aufhöre çekimli, aufgehört ise Partizip II'dir."
+      },
+      {
+        "sent": "Morgen wird es wahrscheinlich ___.",
+        "blank": "schneien",
+        "opts": ["schneien", "schneit", "geschneit"],
+        "tr": "Yarın büyük ihtimalle kar yağacak.",
+        "exp": "Futur I'de werden çekilir, asıl fiil mastar olarak sona gelir: wird ... schneien. schneit çekimli, geschneit ise Partizip II'dir."
+      },
+      {
+        "sent": "Heute werden wir einkaufen ___.",
+        "blank": "gehen",
+        "opts": ["gehen", "gehst", "gegangen"],
+        "tr": "Bugün alışverişe gideceğiz.",
+        "exp": "werden ikinci sırada çekilir (werden wir), asıl fiil mastarda sonda: einkaufen gehen. gehst ve gegangen burada uymaz."
+      },
+      {
+        "sent": "Mit der Zeit ___ du dich daran gewöhnen.",
+        "blank": "wirst",
+        "opts": ["wirst", "wird", "werde"],
+        "tr": "Zamanla buna alışacaksın.",
+        "exp": "Hocanın üç ünlemli kalıbı: Mit der Zeit wirst du dich daran gewöhnen. du ile werden → wirst; mit der Zeit gelecek anlamı katar."
+      },
+      {
+        "sent": "Ab morgen ___ ich nicht mehr rauchen.",
+        "blank": "werde",
+        "opts": ["werde", "wirst", "wird"],
+        "tr": "Yarından itibaren artık sigara içmeyeceğim.",
+        "exp": "ich ile werden → werde. Ab morgen cümleyi başlattığı için özne werden'den sonra gelir, mastar rauchen sonda kalır (hocanın s.83 cümlesi)."
+      },
+      {
+        "sent": "Es ___ kalt.",
+        "blank": "wird",
+        "opts": ["wird", "ist", "werde"],
+        "tr": "Hava soğuyor.",
+        "exp": "Hocanın s.242 örneği: Es wird kalt. Burada werden tek başına ‘olmak, ... haline gelmek’ anlamındadır; mastar yoktur. ist ‘soğuktur’ demek olurdu."
+      },
+      {
+        "sent": "Sie wird arbeiten ___.",
+        "blank": "müssen",
+        "opts": ["müssen", "muss", "musste"],
+        "tr": "Çalışmak zorunda olacak.",
+        "exp": "Hoca s.85: werden + Vollverb(mastar) + Modalverb(mastar). Modalverb de mastar halinde en sona gider: arbeiten müssen. muss ve musste çekimli biçimlerdir."
+      },
+      {
+        "sent": "Sie wird nicht gehen ___.",
+        "blank": "wollen",
+        "opts": ["wollen", "will", "wollte"],
+        "tr": "Gitmek istemeyecek.",
+        "exp": "Hocanın örneği: Sie wird nicht gehen wollen. Modalverb mastar halinde en sonda: gehen wollen. will ve wollte çekimli biçimlerdir, werden yanında kullanılmaz."
+      },
+      {
+        "sent": "Du wirst im nächsten Jahr hart arbeiten ___.",
+        "blank": "müssen",
+        "opts": ["müssen", "musst", "gemusst"],
+        "tr": "Gelecek yıl sıkı çalışmak zorunda olacaksın.",
+        "exp": "Hoca s.82 sarı kutusu: Du wirst im nächsten Jahr hart arbeiten müssen. Çekimli werden ikinci, arbeiten müssen iki mastar halinde sonda."
+      },
+      {
+        "sent": "Ich ___ Jonas nicht helfen können.",
+        "blank": "werde",
+        "opts": ["werde", "habe", "hatte"],
+        "tr": "Jonas'a yardım edemeyeceğim.",
+        "exp": "Hocanın 5 zamanlı sayfasında Futur satırı: Ich werde Jonas nicht helfen können. habe ve hatte Perfekt/Plusquamperfekt kurar (geçmiş), gelecek anlamı vermez."
+      }
+    ]
+  },
+  "dogrulama": [
+    "Hoca A2 s.242'de 'Sie wird Lehrerin.' cümlesini 'O, öğretmen olmak istiyor.' diye çevirmiş. 'wird' 'olmak/olacak' demektir, 'istiyor' değil; derste bu cümleyi kullanmadım. Perplexity'ye sor: 'Sie wird Lehrerin' Türkçesi 'o öğretmen oluyor / olacak' mı, 'istiyor' çevirisi nereden geliyor?",
+    "Hocanın Futur I örnekleri (Teil-2 s.83) kullanım alanı başlığı taşımıyor; 'tahmin / söz-niyet / plan' başlıklarını ben örnekleri gruplamak için koydum (Futur II'de 'Tahmin, Belki' notu var). Perplexity'ye sor: Futur I'in başlıca kullanım alanları (tahmin, niyet/söz, plan) doğru mu, hangileri sınavda önemli?",
+    "Teil-2 s.84'te hoca 'Der Geruch geht mit der Zeit weg.' örneğini Präsens ile veriyor; Futur I yerine Präsens'in gelecek anlamında ne zaman kullanıldığı hocada anlatılmıyor. Perplexity'ye sor: Almanca'da gelecek zamanı Präsens + zaman zarfı (morgen) ile ifade etmek ne sıklıkta, Futur I'den farkı nedir?",
+    "Çeviri notu: hocanın Futur I alıştırmasının (s.86-87) cevap anahtarında yalnızca fiil çifti var; cümleleri (Wirst du auch früher aufstehen? vb.) tam kurup Türkçelerini ben yazdım. Ayrıca s.83'teki 'Du wirst dein Diplom ...' ve 'Du wirst im nächsten Jahr ... Spanien bereisen können' cümlelerinin Türkçesi hocada yok; benim çevirim. Perplexity'ye sor: bu çeviriler doğal mı?",
+    "Hoca s.242'de 'Hallolur!' diyerek 'Wird schon!', 'Das kriegen wir schon hin!', 'Das klappt schon!' kalıplarını yan yana veriyor; Türkçe karşılıkları yazmamış. Dersin içinde sadece hocanın 'Hallolur!' notuyla verdim. Perplexity'ye sor: bu üç kalıbın Türkçe karşılıkları ve kullanım farkı nedir?"
+  ]
+}

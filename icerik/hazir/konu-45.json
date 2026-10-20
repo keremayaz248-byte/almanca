@@ -1,0 +1,231 @@
+{
+  "konu": 45,
+  "baslik": "Genitiv Präpositionen (innerhalb, außerhalb, laut, mithilfe)",
+  "kaynak": [
+    { "arac": "PDF", "sayfa": "Teil-2 s.1-5" }
+  ],
+  "deste": {
+    "title": "📐 Genitiv Edatları",
+    "accent": "linear-gradient(135deg,#7b3fa0,#4a2468)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Genitiv edatları",
+        "big": "GENITIV PRÄPOSITIONEN",
+        "mean": "Bazı edatlardan sonra isim Genitiv (-s / des / der / eines) halinde gelir; hocanın listesinde 4 tane var: innerhalb, außerhalb, laut, mithilfe (von).",
+        "story": "Hocanın Teil-2 dosyasındaki başlık: <b>GENITIV PRÄPOSITIONEN</b>.<br>Listedeki edatlar: <b>Innerhalb</b> (içinde), <b>Außerhalb</b> (dışında), <b>Laut</b> (göre), <b>Mithilfe (von)</b> (yardımıyla).<br>Hoca iki önemli not düşmüş: <b>laut</b> için <i>\"+++++ DATİV de olabiliyor\"</i>, <b>mithilfe</b> için <i>\"mithilfe: Genitiv — mithilfe von: Dativ\"</i>.<br>Ayrıca \"göre\" anlamlı <b>laut / nach / gemäß / zufolge</b> edatlarının cümledeki yerini de göreceğiz. Dersin sonunda hocanın <b>während</b> içeren alıştırmasına da bakacağız."
+      },
+      {
+        "big": "innerhalb",
+        "mean": "İçerisinde, kapsamında (within, inside of). Yer için de zaman için de kullanılır; arkasından isim Genitiv gelir.",
+        "egs": [
+          "<b>Innerhalb</b> des Gebäudes darf nicht geraucht werden. — Bina içinde sigara içilmez.",
+          "<b>Innerhalb</b> eines Monats wollen wir die Arbeit abschließen. — Bir ay içinde işi bitirmek istiyoruz.",
+          "Bitte die Rechnung <b>innerhalb</b> (von) zwei Wochen begleichen. — Lütfen faturayı iki hafta içinde ödeyin."
+        ],
+        "tip": "💡 Hocanın örneklerinde Genitiv işareti açıkça görünüyor: <b>des</b> Gebäudes, <b>eines</b> Monats (des / eines = Genitiv).",
+        "kaynak": "Teil-2 s.1"
+      },
+      {
+        "big": "innerhalb (von) + sayı",
+        "mean": "Zaman miktarı (iki hafta, üç yıl, üç gün) gelince hoca parantez içinde (von) yazmış: von kullanılabilir. Hocanın örneklerinde sayıdan sonra isim Genitiv almıyor.",
+        "egs": [
+          "<b>Innerhalb (von)</b> drei Jahren sind die Zinsen zu zahlen. — Faiz üç yıl içinde ödenmeli.",
+          "Die Frist läuft <b>innerhalb</b> drei Tagen ab. — Süre üç gün içinde doluyor.",
+          "Ich rufe dich <b>innerhalb</b> einer Stunde an. — Seni bir saat içinde arayacağım. (Hocanın alıştırması, s.4 madde 6)"
+        ],
+        "tip": "💡 Hoca bu satırı özellikle parantezle yazmış: <b>Innerhalb (von)</b>. Yani von ya var ya yok; ikisini de örneklerde görüyoruz.",
+        "kaynak": "Teil-2 s.1, s.4"
+      },
+      {
+        "big": "außerhalb",
+        "mean": "Dışı, dışarısı (outside, out of). Arkasından isim Genitiv gelir.",
+        "egs": [
+          "Er wohnt <b>außerhalb</b> der Stadt, deshalb braucht er eine Stunde zur Arbeit. — Şehrin dışında oturuyor, bu yüzden işe bir saat sürüyor.",
+          "Der Arzt ist auch <b>außerhalb</b> der Sprechstunden telefonisch erreichbar. — Doktora muayene saatleri dışında da telefonla ulaşılır.",
+          "Viele Demonstranten kamen von <b>außerhalb</b> in die Hauptstadt. — Birçok gösterici dışarıdan başkente geldi.",
+          "Sie bekommen allgemeine Sozialhilfe <b>außerhalb von</b> Einrichtungen. — Kurumların dışında genel sosyal yardım alıyorlar."
+        ],
+        "tip": "💡 Hocanın örneğinde <b>von außerhalb</b> tek başına da geçiyor (dışarıdan), ve <b>außerhalb von</b> + isim de geçiyor.",
+        "kaynak": "Teil-2 s.1"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Yer ve zaman",
+        "baslik": "innerhalb / außerhalb — iki kullanım",
+        "basliklar": ["", "innerhalb", "außerhalb"],
+        "satirlar": [
+          ["Yer (Ortsangabe)", "innerhalb des Stadtgebiets / innerhalb von Mini-München", "außerhalb der Stadt / außerhalb von München"],
+          ["Zaman (Zeitangabe)", "innerhalb der Sommerferien / innerhalb einer Stunde", "außerhalb der Geschäftszeiten / außerhalb der Saison"]
+        ],
+        "not": "Bu 4+4 ifade hocanın s.5'teki alıştırmasının cevap anahtarından (Ortsangaben / Zeitangaben) alındı: yer ve zaman için aynı iki edat kullanılır. Anlam: innerhalb = içinde, außerhalb = dışında.",
+        "kaynak": "Teil-2 s.5"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Hocanın kutusu",
+        "baslik": "Ülke ve şehir adlarında VON",
+        "maddeler": [
+          "Hocanın s.5'teki kutu: <b>Artikelsiz ülke adlarında</b> ve <b>şehirlerde</b> innerhalb ve außerhalb + <b>von</b> kullanılır.",
+          "Hocanın örneği: <b>Reisen innerhalb von Deutschland ist einfach.</b> — Almanya içinde seyahat etmek kolay.",
+          "Hocanın alıştırma cevapları: <b>innerhalb von Mini-München</b>, <b>außerhalb von München</b> (şehir adları, von ile).",
+          "Hocanın s.4 madde 16 cevabında artikelli ülke adı (die USA) von'suz, Genitiv ile geçiyor: <b>Außerhalb der USA</b> hat Netflix 79 Millionen Abonnenten. (Hoca bunu ayrı bir kural olarak yazmamış; yalnız cevap anahtarında görülüyor.)"
+        ],
+        "uyari": "Şehir ve artikelsiz ülke adından önce von'u unutma: hocanın cevap anahtarındaki gibi 'innerhalb von Mini-München', 'außerhalb von München'.",
+        "kaynak": "Teil-2 s.5, s.4"
+      },
+      {
+        "big": "laut",
+        "mean": "-ce / -ca, tarafından, göre, nazaran (according to). Bir haber, kanun, istatistik, tarife 'ne diyorsa' onu belirtir.",
+        "egs": [
+          "Das ist <b>laut</b> Gesetz verboten. — Bu, kanuna göre yasak.",
+          "<b>Laut</b> Fahrplan (= Laut Fahrplans) müsste der Bus schon da sein. — Tarifeye göre otobüs şimdiden orada olmalı.",
+          "<b>Laut</b> einer Aussage der Bundeskanzlerin würden die Steuern nicht erhöht. — Şansölyenin açıklamasına göre vergiler artırılmayacak."
+        ],
+        "tip": "💡 Hoca notu: <b>+++++ DATİV de olabiliyor.</b> Yani laut'tan sonra hem Genitiv (Fahrplans) hem Dativ görülebilir; s.2'de laut için 'Genitiv/Dativ' yazıyor.",
+        "kaynak": "Teil-2 s.1, s.2"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "GÖRE edatları",
+        "baslik": "laut · nach · gemäß · zufolge",
+        "basliklar": ["Edat", "Hal", "Önde", "Sonda"],
+        "satirlar": [
+          ["laut", "Genitiv / Dativ", "evet", "mümkün değil"],
+          ["nach", "Dativ", "evet", "evet"],
+          ["gemäß", "Dativ", "evet", "evet"],
+          ["zufolge", "Dativ", "mümkün değil", "evet (hep sonda)"]
+        ],
+        "not": "Hocanın s.2 başlığı: PRÄPOSITIONEN: LAUT, NACH, GEMÄß, ZUFOLGE — hepsi <b>GÖRE</b> demek. <b>Laut</b> her zaman edattır (öne gelir). <b>Nach</b> ve <b>gemäß</b> edat veya son edat (Postposition) olabilir. <b>Zufolge</b> her zaman isimden SONRA yer alır.",
+        "kaynak": "Teil-2 s.2"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Edat nerede?",
+        "baslik": "Önde mi, sonda mı?",
+        "satirlar": [
+          {
+            "etiket": "Önde (laut)",
+            "not": "yalnız öne gelir",
+            "jetonlar": [
+              { "t": "Laut", "r": "bag" },
+              { "t": "einer Aussage der Bundeskanzlerin", "r": "nesne" },
+              { "t": "würden die Steuern nicht erhöht", "r": "fiil" }
+            ],
+            "tr": "Şansölyenin açıklamasına göre vergiler artırılmayacak."
+          },
+          {
+            "etiket": "Önde (nach / gemäß)",
+            "not": "öne de gelebilir",
+            "jetonlar": [
+              { "t": "Nach / Gemäß", "r": "bag" },
+              { "t": "einer Aussage der Bundeskanzlerin", "r": "nesne" },
+              { "t": "würden die Steuern nicht erhöht", "r": "fiil" }
+            ],
+            "tr": "Aynı anlam: açıklamaya göre vergiler artırılmayacak."
+          },
+          {
+            "etiket": "Sonda (nach / gemäß / zufolge)",
+            "not": "isimden sonra",
+            "jetonlar": [
+              { "t": "Einer Aussage der Bundeskanzlerin", "r": "nesne" },
+              { "t": "nach / gemäß / zufolge", "r": "bag" },
+              { "t": "würden die Steuern nicht erhöht", "r": "fiil" }
+            ],
+            "tr": "Açıklamaya göre vergiler artırılmayacak."
+          }
+        ],
+        "not": "<b>Laut</b> sonda olamaz, <b>zufolge</b> önde olamaz — hocanın '(nicht möglich)' notları. Hocanın s.2'sinde nach, gemäß, zufolge için 'Dativ' yazıyor.",
+        "kaynak": "Teil-2 s.2"
+      },
+      {
+        "big": "mithilfe (von)",
+        "mean": "... yardımıyla (with the help of). Mit Hilfe diye iki kelime de yazılabilir.",
+        "egs": [
+          "<b>Mithilfe</b> aller Freunde gelang die Renovierung schnell. — Tüm arkadaşların yardımıyla yenileme çabuk bitti.",
+          "<b>Mit Hilfe</b> seines Teams verlief die Operation erfolgreich. — Ekibinin yardımıyla ameliyat başarılı geçti.",
+          "<b>Mithilfe von</b> Geräten haben wir das Schlafzimmer saniert. — Aletlerin yardımıyla yatak odasını yeniledik.",
+          "Wir konnten das Problem <b>mithilfe von</b> bestimmten Leuten lösen. — Sorunu belirli kişilerin yardımıyla çözebildik."
+        ],
+        "tip": "💡 Hocanın kırmızı notu: <b>mithilfe: Genitiv</b> · <b>mithilfe von: Dativ</b>. Von gelirse isim Dativ'e geçer (von Geräten, von Leuten).",
+        "kaynak": "Teil-2 s.1"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Karşılaştır",
+        "baslik": "mithilfe ↔ mithilfe von",
+        "basliklar": ["Biçim", "Hal", "Hocanın örneği"],
+        "satirlar": [
+          ["mithilfe / mit Hilfe", "Genitiv", "Mithilfe aller Freunde / Mit Hilfe seines Teams"],
+          ["mithilfe von", "Dativ", "Mithilfe von Geräten / mithilfe von bestimmten Leuten"]
+        ],
+        "not": "Hocanın s.4 alıştırmasında da görülür: 'Sie atmet leider mithilfe von Maschinen' (madde 15) ve 'Mithilfe dieses Schlüssels' (madde 12, Genitiv).",
+        "kaynak": "Teil-2 s.1, s.4"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Alıştırmada geçen",
+        "baslik": "während — hocanın alıştırmasında",
+        "maddeler": [
+          "Hocanın s.4 alıştırma başlığı: <b>Innerhalb / Außerhalb / Laut / Mithilfe (von) / Während</b>. Yani während de aynı havuzda.",
+          "Cevap anahtarında während: madde 5 (<b>Während des Frühstücks</b> ...), 11 (<b>während des ganzen Sommers</b>), 17 (<b>Während des Unterrichts</b> ...) — hepsinde ardından Genitiv geliyor.",
+          "Madde 8'de <b>Während ich meine Hausaufgaben gemacht habe, hat Markus ferngesehen</b> — burada während'den sonra tam cümle (özne + fiil sonda) var.",
+          "Hoca s.1-5'te während için ayrı bir açıklama / Türkçe karşılık vermemiş."
+        ],
+        "uyari": "Hoca während'in anlamını yazmadığı için bu sayfa sadece alıştırmadaki kullanımı gösterir; anlamını cümle bağlamından 'sırasında' diye okuyoruz (doğrulama listesinde).",
+        "kaynak": "Teil-2 s.4"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Sık yapılan hatalar",
+        "maddeler": [
+          "<b>mithilfe</b> = Genitiv, ama <b>mithilfe von</b> = Dativ. İkisini karıştırma.",
+          "<b>laut</b> öne gelir (laut Gesetz); sonda olamaz. <b>zufolge</b> ise hep isimden sonra gelir.",
+          "<b>laut</b> bazen Dativ'le de görülebilir (hoca notu: +++++ DATİV de olabiliyor).",
+          "innerhalb / außerhalb + <b>şehir veya artikelsiz ülke</b> → hocanın kutusuna göre <b>von</b> ekle.",
+          "Genitiv işaretleri: Maskulin/Neutrum <b>des ... -s</b>, feminin <b>der</b>: außerhalb <b>der</b> Stadt, innerhalb <b>des</b> Gebäudes."
+        ],
+        "uyari": "Hocanın örneği: außerhalb <b>der</b> Stadt. Burada <b>der</b> dişil Genitiv artikelidir; 'außerhalb dem ...' / 'außerhalb die ...' gibi Dativ veya Akkusativ artikeli koyma.",
+        "kaynak": "Teil-2 s.1, s.2, s.5"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "innerhalb · außerhalb · laut · mithilfe",
+        "mean": "Hepsi Genitiv'le başlar; ama laut Dativ de olabilir, mithilfe von Dativ'dir.",
+        "story": "<b>Innerhalb</b> = içinde, <b>außerhalb</b> = dışında, <b>laut</b> = göre, <b>mithilfe (von)</b> = yardımıyla.<br>Göre edatları: <b>laut</b> (hep önde), <b>nach / gemäß</b> (önde veya sonda), <b>zufolge</b> (hep sonda).<br>Notlar: <b>mithilfe: Genitiv — mithilfe von: Dativ</b> · şehir ve artikelsiz ülkede <b>von</b>."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d45_genitiv_edatlar",
+    "title": "Genitiv Edatları",
+    "emoji": "📐",
+    "desc": "innerhalb, außerhalb, laut, mithilfe (von), laut/nach/gemäß/zufolge",
+    "rule": "<b>Genitiv edatları (hocanın listesi):</b> innerhalb (içinde), außerhalb (dışında), laut (göre), mithilfe (yardımıyla).<br>Genitiv: <b>des ... -s</b> (der/das) · <b>der</b> (die) · <b>eines</b>.<br><b>laut</b> Dativ de olabilir; <b>mithilfe</b> Genitiv, <b>mithilfe von</b> Dativ.<br>Şehir ve artikelsiz ülke: innerhalb / außerhalb <b>von</b> (Reisen innerhalb von Deutschland...).<br><b>Göre:</b> laut (hep önde) · nach, gemäß (önde/sonda) · zufolge (hep sonda).",
+    "qs": [
+      { "sent": "Er wohnt ___ der Stadt, deshalb braucht er eine Stunde zur Arbeit.", "blank": "außerhalb", "opts": ["außerhalb", "innerhalb", "mithilfe"], "tr": "Şehrin dışında oturuyor, bu yüzden işe bir saat sürüyor.", "exp": "Hocanın örneği: 'Er wohnt außerhalb der Stadt'. Şehir dışında yaşıyorsa işe gitmek uzun sürer; innerhalb = içinde olurdu, mithilfe = yardımıyla (anlamsız)." },
+      { "sent": "___ des Gebäudes darf nicht geraucht werden.", "blank": "Innerhalb", "opts": ["Innerhalb", "Außerhalb", "Laut"], "tr": "Binanın İÇİNDE sigara içilmez.", "exp": "Hocanın örneği: 'Innerhalb des Gebäudes darf nicht geraucht werden.' Türkçe karşılık bina İÇİ olduğu için innerhalb; außerhalb 'dışında' demek olurdu. Laut 'göre' anlamlıdır, burada uymaz." },
+      { "sent": "Das ist ___ Gesetz verboten.", "blank": "laut", "opts": ["laut", "innerhalb", "mithilfe"], "tr": "Bu, kanuna göre yasak.", "exp": "Laut = göre, -ce. Hocanın örneği: 'Das ist laut Gesetz verboten.' Innerhalb 'içinde', mithilfe 'yardımıyla' demektir." },
+      { "sent": "___ aller Freunde gelang die Renovierung schnell.", "blank": "Mithilfe", "opts": ["Mithilfe", "Laut", "Außerhalb"], "tr": "Tüm arkadaşların yardımıyla yenileme çabuk bitti.", "exp": "Mithilfe = ... yardımıyla. 'aller Freunde' Genitiv, bu yüzden von yok (hoca: mithilfe: Genitiv)." },
+      { "sent": "Außerhalb ___ Stadt wohnt sie.", "blank": "der", "opts": ["der", "dem", "die", "den"], "tr": "Şehrin dışında oturuyor.", "exp": "Außerhalb Genitiv ister; die Stadt dişil olduğu için Genitiv artikeli 'der'. 'dem' Dativ olurdu (yanlış). Hocanın örneği: 'außerhalb der Stadt'." },
+      { "sent": "Innerhalb ___ Monats wollen wir die Arbeit abschließen.", "blank": "eines", "opts": ["eines", "einen", "ein", "eine"], "tr": "Bir ay içinde işi bitirmek istiyoruz.", "exp": "Innerhalb + Genitiv; der Monat eril, Genitiv 'eines Monats'. Hocanın örneği aynen böyle. 'einen' Akkusativ, 'ein' yalın halidir." },
+      { "sent": "Wir konnten das Problem mithilfe ___ bestimmten Leuten lösen.", "blank": "von", "opts": ["von", "der", "des", "in"], "tr": "Sorunu belirli kişilerin yardımıyla çözebildik.", "exp": "Hocanın notu: 'mithilfe: Genitiv, mithilfe von: Dativ'. Cümledeki 'bestimmten Leuten' Dativ çoğul biçimindedir (Genitiv olsaydı 'bestimmter Leute' olurdu); bu yüzden araya von girer." },
+      { "sent": "Reisen innerhalb ___ Deutschland ist einfach.", "blank": "von", "opts": ["von", "des", "der", "mit"], "tr": "Almanya içinde seyahat etmek kolay.", "exp": "Hocanın kutusu: artikelsiz ülke adlarında ve şehirlerde innerhalb / außerhalb + von kullanılır. 'des Deutschland' demek yanlış olur." },
+      { "sent": "Viele Demonstranten kamen von ___ in die Hauptstadt.", "blank": "außerhalb", "opts": ["außerhalb", "innerhalb", "laut"], "tr": "Birçok gösterici dışarıdan başkente geldi.", "exp": "Hocanın örneği: 'kamen von außerhalb in die Hauptstadt' (dışarıdan). 'von innerhalb' bu bağlamda dışarıdan gelmeyi anlatmaz; laut ise 'göre' demektir." },
+      { "sent": "___ Fahrplan müsste der Bus schon da sein.", "blank": "Laut", "opts": ["Laut", "Mithilfe", "Innerhalb", "Außerhalb"], "tr": "Tarifeye göre otobüs şimdiden orada olmalı.", "exp": "Hocanın örneği: 'Laut Fahrplan (= Laut Fahrplans) müsste der Bus schon da sein.' Laut = göre; hoca bu edatın Dativ de alabildiğini not etmiş." },
+      { "sent": "Einer Aussage der Bundeskanzlerin ___ würden die Steuern nicht erhöht.", "blank": "zufolge", "opts": ["zufolge", "laut", "außerhalb", "mithilfe"], "tr": "Şansölyenin açıklamasına göre vergiler artırılmayacak.", "exp": "Hocanın s.2'si: zufolge her zaman isimden SONRA gelir (Postposition). Laut ise sonda olamaz ('nicht möglich'); außerhalb ve mithilfe anlamca uymaz." },
+      { "sent": "___ einer Aussage der Bundeskanzlerin würden die Steuern nicht erhöht.", "blank": "Laut", "opts": ["Laut", "Zufolge", "Außerhalb"], "tr": "Şansölyenin açıklamasına göre vergiler artırılmayacak.", "exp": "Cümle başında, isimden ÖNCE duran 'göre' edatı laut olabilir. Hocanın s.2'sinde zufolge önde olamaz ('Präposition: nicht möglich')." },
+      { "sent": "Mit Hilfe ___ Teams verlief die Operation erfolgreich.", "blank": "seines", "opts": ["seines", "seinem", "seinen", "sein"], "tr": "Ekibinin yardımıyla ameliyat başarılı geçti.", "exp": "Mit Hilfe / mithilfe (von olmadan) Genitiv ister: 'seines Teams'. Hocanın örneği 'Mithilfe/Mit Hilfe seines Teams ...' (cümle burada kısaltıldı). 'seinem' Dativ olur ve von'lu biçimde (mithilfe von) kullanılır." },
+      { "sent": "___ des Frühstücks planen wir unseren Urlaub gemeinsam.", "blank": "Während", "opts": ["Während", "Laut", "Mithilfe", "Außerhalb"], "tr": "Kahvaltı sırasında tatilimizi birlikte planlıyoruz.", "exp": "Hocanın s.4 cevap anahtarında madde 5 = während (ardından Genitiv: des Frühstücks). Laut 'göre', mithilfe 'yardımıyla', außerhalb 'dışında' demektir, anlamca uymaz." }
+    ]
+  },
+  "dogrulama": [
+    "Hoca s.1-5'te 'während' için Türkçe karşılık vermemiş; alıştırmadaki bağlamdan 'sırasında' diye yorumladım. Doğru mu? Perplexity'ye sor: 'Almanca während edatı + Genitiv ne anlama gelir ve yan cümlede bağlaç olarak da kullanılır mı?'",
+    "Hoca s.4 madde 18'de cevap 'Außerhalb Europas' (artikelsiz kıta adı + Genitiv -s) yazıyor, ama s.5 kutusu artikelsiz ülke/şehirde 'von' diyor (Europas örneğinde von yok). Çelişki mi? Perplexity'ye sor: 'außerhalb Europas mı außerhalb von Europa mı doğru?'",
+    "Hoca bazı örneklerde Genitiv yerine çıplak sayı + Dativ biçimi yazmış ('innerhalb drei Tagen', 'innerhalb (von) drei Jahren'). 'Innerhalb' sayıyla Dativ mi alır, Genitiv mi? Perplexity'ye sor: 'innerhalb drei Tagen vs innerhalb von drei Tagen'.",
+    "Hocanın örnek cümlelerinin çoğunda yalnızca İngilizce çeviri var; Türkçe çevirileri o İngilizceden ben yazdım. Alıştırma cümleleri s.4-5 için Türkçe karşılıklar da benimdir (hoca vermemiş). Kontrol gerekirse Perplexity'ye sor.",
+    "s.5 tablosundaki yer/zaman ifadelerini hocanın alıştırma cevap anahtarından (Ortsangaben/Zeitangaben) türettim; cümlelerin tam Türkçe anlamı hocada yok."
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "konu": 40,
+  "baslik": "Zaman Edatları: im/am/um",
+  "kaynak": [
+    { "arac": "PDF", "sayfa": "Teil-1 s.15-16; Kalan Üniteler s.28, s.31, s.47-48; A2 Dosyası s.10-11, s.98, s.122, s.163, s.244; Teil-2 s.51" }
+  ],
+  "deste": {
+    "title": "⏰ Zaman Edatları: im / am / um",
+    "accent": "linear-gradient(135deg,#7b3fa0,#4a2468)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "IM · AM · UM",
+        "mean": "<b>Wann?</b> (ne zaman?) sorusuna üç küçük edatla cevap verirsin: gün için <b>am</b>, ay ve mevsim için <b>im</b>, saat için <b>um</b>.",
+        "story": "Hocanın sayfalarında bu konu açık bir kural cümlesi olarak değil, <b>örnek grupları</b> olarak geçiyor: Teil-1 s.16'da <b>am Montag, im Januar, im Frühling, am Wochenende</b>; Kalan Üniteler s.47'de <b>um 8 Uhr</b>. Bu derste o örnekleri sırayla açıyoruz."
+      },
+      {
+        "big": "am + gün",
+        "mean": "Haftanın günleri ve <b>am Wochenende</b> (hafta sonu) için <b>am</b> kullanılır. Kısaca: <b>an dem = am</b>.",
+        "egs": [
+          "<b>am</b> Montag — pazartesi günü",
+          "Was hast du <b>am</b> Wochenende vor? — Hafta sonu için planın nedir?",
+          "Wir werden <b>am</b> Samstag nach Berlin fahren. — Cumartesi Berlin'e gideceğiz.",
+          "Ich treffe Maria <b>am</b> Wochenende. — Ben hafta sonunda Maria ile buluşuyorum."
+        ],
+        "tip": "💡 Hocanın örnek kutusu (Teil-1 s.16): <b>am Montag — im Januar — im Frühling</b>, yanında <b>am Wochenende (das Wochenende)</b> ve <b>die Wochentage</b>.",
+        "kaynak": "Teil-1 s.16; Kalan Üniteler s.28; Teil-2 s.51; A2 Dosyası s.244"
+      },
+      {
+        "big": "im + ay / mevsim",
+        "mean": "Aylar (<b>im Januar</b>) ve mevsimler (<b>im Frühling</b>) için <b>im</b> kullanılır. <b>im = in dem</b>. Yıl için de <b>im Jahr 1985</b> kalıbı geçer.",
+        "egs": [
+          "<b>im</b> Januar — ocak ayında",
+          "<b>im</b> Frühling — ilkbaharda",
+          "Er hat <b>im</b> Winter drei Kilo zugenommen. — Kışın üç kilo aldı.",
+          "Wann hast du denn Urlaub? — Erst wieder <b>im</b> Oktober. — Tatilin ne zaman? — Ancak ekimde yine."
+        ],
+        "tip": "💡 Hoca s.16'da dört mevsimi ve on iki ayı yan yana listeliyor: der Winter, der Frühling, der Sommer, der Herbst. Hepsiyle <b>im</b>.",
+        "kaynak": "Teil-1 s.16; Kalan Üniteler s.31; A2 Dosyası s.163"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Günler",
+        "baslik": "am + haftanın günü",
+        "basliklar": ["Gün", "Wann? (am)"],
+        "satirlar": [
+          ["der Montag", "am Montag"],
+          ["der Dienstag", "am Dienstag"],
+          ["der Mittwoch", "am Mittwoch"],
+          ["der Donnerstag", "am Donnerstag"],
+          ["der Freitag", "am Freitag"],
+          ["der Samstag", "am Samstag"],
+          ["der Sonntag", "am Sonntag"],
+          ["das Wochenende", "am Wochenende"]
+        ],
+        "not": "Hocanın s.16 listesi: <b>die Tage</b> (der Montag ... der Sonntag). <b>die Wochentage</b> = hafta içi günleri; hoca: <b>Ich bin wochentags in Berlin.</b>",
+        "kaynak": "Teil-1 s.16"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Aylar ve mevsimler",
+        "baslik": "im + ay / mevsim",
+        "basliklar": ["Ay", "Wann? (im)", "Ay", "Wann? (im)"],
+        "satirlar": [
+          ["der Januar", "im Januar", "der Juli", "im Juli"],
+          ["der Februar", "im Februar", "der August", "im August"],
+          ["der März", "im März", "der September", "im September"],
+          ["der April", "im April", "der Oktober", "im Oktober"],
+          ["der Mai", "im Mai", "der November", "im November"],
+          ["der Juni", "im Juni", "der Dezember", "im Dezember"]
+        ],
+        "not": "Mevsimler (Teil-1 s.16): <b>der Winter, der Frühling, der Sommer, der Herbst</b> → <b>im Winter, im Frühling, im Sommer, im Herbst</b>. Hoca ayrıca <b>Es ist Mitte Januar.</b> (Ocağın ortasındayız) notunu veriyor.",
+        "kaynak": "Teil-1 s.16"
+      },
+      {
+        "big": "um + saat",
+        "mean": "Saatli zaman noktasında <b>um</b> kullanılır. Soru da <b>Um</b> ile başlar: <b>Um wie viel Uhr ...?</b> Hocanın Achtung! kutusu: <b>Wie viel Uhr kommst du?</b> yanlış, <b>Um wie viel Uhr kommst du?</b> doğru.",
+        "egs": [
+          "Wir frühstücken <b>um</b> 8 Uhr. — Saat 8'de kahvaltı ediyoruz.",
+          "Das Meeting fängt <b>um</b> 10 Uhr an. — Toplantı saat 10'da başlıyor.",
+          "Das Meeting findet <b>um</b> 10 Uhr statt. — Toplantı, saat 10'da.",
+          "<b>Um</b> 18 Uhr hat er angerufen. — Saat 18.00'de aradı."
+        ],
+        "tip": "💡 Hoca s.47'de „kurz vor neun / kurz nach acht“ örneklerinde de <b>um</b> kullanıyor: <b>Ich gehe um kurz vor neun.</b> Kutuda ayrıca <b>Gegen 8:00 Uhr</b> uyarısı var.",
+        "kaynak": "Kalan Üniteler s.47-48"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Cümlede yeri",
+        "baslik": "am, im, um cümle içinde",
+        "satirlar": [
+          {
+            "etiket": "um (saat)",
+            "not": "fiil 2. sırada",
+            "jetonlar": [
+              { "t": "Das Meeting", "r": "ozne" },
+              { "t": "fängt", "r": "fiil" },
+              { "t": "um 10 Uhr", "r": "zaman" },
+              { "t": "an", "r": "fiil" }
+            ],
+            "tr": "Toplantı saat 10'da başlıyor."
+          },
+          {
+            "etiket": "am (gün)",
+            "not": "werden + mastar sonda",
+            "jetonlar": [
+              { "t": "Wir", "r": "ozne" },
+              { "t": "werden", "r": "fiil" },
+              { "t": "am Samstag", "r": "zaman" },
+              { "t": "nach Berlin fahren", "r": "diger" }
+            ],
+            "tr": "Cumartesi Berlin'e gideceğiz."
+          },
+          {
+            "etiket": "im (mevsim)",
+            "not": "zaman öğesi sona da gelir",
+            "jetonlar": [
+              { "t": "Er", "r": "ozne" },
+              { "t": "hat", "r": "fiil" },
+              { "t": "im Winter", "r": "zaman" },
+              { "t": "drei Kilo zugenommen", "r": "diger" }
+            ],
+            "tr": "Kışın üç kilo aldı."
+          },
+          {
+            "etiket": "am + um (birlikte)",
+            "not": "önce gün, sonra saat",
+            "jetonlar": [
+              { "t": "Nächste Woche", "r": "zaman" },
+              { "t": "findet", "r": "fiil" },
+              { "t": "ein Test", "r": "ozne" },
+              { "t": "am Mittwoch um zehn Uhr", "r": "zaman" },
+              { "t": "statt", "r": "fiil" }
+            ],
+            "tr": "Gelecek hafta bir sınav olacak, daha doğrusu Çarşamba günü saat 10'da."
+          }
+        ],
+        "not": "<b>Kural:</b> Gün ve saat birlikte geliyorsa hocanın örneği gibi sırayla <b>am Mittwoch um zehn Uhr</b> (Çarşamba günü saat 10'da). Hocanın cümlesi \"Grammatiktest\" (dil bilgisi sınavı) idi; burada kısalttım.",
+        "kaynak": "Kalan Üniteler s.47-48; Kalan Üniteler s.31; A2 Dosyası s.98"
+      },
+      {
+        "big": "am 14. Februar · im Jahr 1985",
+        "mean": "<b>Tarih</b> (gün + ay) için <b>am</b> kullanılır ve gün <b>sıra sayısı</b> ile söylenir: <b>am vierzehnten Februar</b>. <b>Yıl</b> için <b>im Jahr 1985</b> ya da yalnız <b>1985</b>.",
+        "egs": [
+          "Ich habe <b>am</b> 14.02 (am vierzehnten zweiten) Geburtstag. — Doğum günüm 14 Şubat'ta.",
+          "Ich habe <b>am</b> 14. Februar (am vierzehnten Februar) Geburtstag. — Doğum günüm 14 Şubat'ta.",
+          "Ich bin <b>am</b> vierzehnten (14.) Mai geboren. — 14 Mayıs'ta doğdum.",
+          "Ich bin 1985 / <b>im</b> Jahr 1985 geboren. — 1985'te doğdum."
+        ],
+        "tip": "💡 Hocanın s.15-16'sı: <b>A: Wann hast du Geburtstag? B: Ich habe am 14.02 Geburtstag.</b> Tam tarih: <b>Ich bin am 03.09.1991 in Bremen geboren.</b>",
+        "kaynak": "Teil-1 s.15-16"
+      },
+      {
+        "big": "am Morgen · am Abend",
+        "mean": "Hocanın örneklerinde günün bölümleri de <b>am</b> ile gelir: <b>am Morgen</b> (sabah), <b>am Abend</b> (akşam), <b>am Nachmittag</b> (öğleden sonra). <b>Nächste Woche</b> ve <b>heute Nachmittag</b> gibi ifadelerde ise edat yoktur.",
+        "egs": [
+          "Ab wann kann man <b>am</b> Morgen anrufen? — Sabah ne zamandan itibaren aranabilir?",
+          "<b>Am</b> Abend muss ich Englisch lernen. — Akşam İngilizce çalışmam gerekiyor.",
+          "Ich sehe mir <b>heute Nachmittag</b> einen Film an. — Bugün öğleden sonra bir film izleyeceğim.",
+          "<b>Nächste Woche</b> findet ein Test statt. — Gelecek hafta bir sınav olacak."
+        ],
+        "tip": "💡 Hoca notu (A2 s.10): <b>der Morgen</b> = sabah, <b>morgen</b> = yarın, <b>morgen früh</b> = yarın sabah. Küçük harfle <b>morgen</b> = yarın.",
+        "kaynak": "A2 Dosyası s.10, s.98, s.122, s.163; Kalan Üniteler s.3"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Diğer zaman edatları",
+        "baslik": "in · ab · bis",
+        "basliklar": ["Soru", "Edat", "Örnek"],
+        "satirlar": [
+          ["Wann?", "in", "In einer Stunde. (Bir saat içinde)"],
+          ["Ab wann?", "ab", "Ab 3 Uhr. (Saat 3'ten itibaren)"],
+          ["Wie lange? / Bis wann?", "bis", "Bis 3 Uhr. (Saat 3'e kadar)"]
+        ],
+        "not": "Hocanın s.10 örnekleri: <b>Wann soll ich dich wieder anrufen? In einer Stunde.</b> / <b>Wie lange kann er mich zurückrufen? Bis 17 Uhr.</b> / <b>Ab wann kann man am Morgen anrufen? Ab 7 Uhr.</b> Zaman için <b>in</b> Dativ alır: in einem Monat, in einem Jahr, in zwei Tagen. <b>ab</b> Dativ, <b>bis</b> Akkusativ (hoca).",
+        "kaynak": "A2 Dosyası s.10"
+      },
+      {
+        "big": "in zwei Stunden · zwei Stunden später",
+        "mean": "<b>in zwei Stunden</b> = şu andan itibaren 2 saat sonra. <b>zwei Stunden später</b> = daha önce bahsedilen bir andan 2 saat sonra (bağlam ister).",
+        "egs": [
+          "Ich komme <b>in zwei Stunden</b>. — İki saat sonra geliyorum. (şu andan)",
+          "Der Film beginnt <b>in zwei Stunden</b>. — Film iki saat sonra başlıyor.",
+          "Um 18 Uhr hat er angerufen. <b>Zwei Stunden später</b> ist er gekommen. — Saat 18.00'de aradı. İki saat sonra geldi.",
+          "Wir sind um 9 losgefahren. <b>Zwei Stunden später</b> waren wir da. — Saat 9'da yola çıktık. İki saat sonra oradaydık."
+        ],
+        "tip": "💡 Hoca: şu andan itibaren → <b>in zwei Stunden</b>; geçmişte/önceden bahsedilmiş bir zamandan itibaren → <b>zwei Stunden später</b>.",
+        "kaynak": "A2 Dosyası s.11"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Sık hatalar",
+        "baslik": "Hangi edat ne zaman?",
+        "maddeler": [
+          "<b>am</b> + gün: am Montag, am Wochenende, am Samstag.",
+          "<b>im</b> + ay / mevsim: im Januar, im Frühling, im Winter.",
+          "<b>um</b> + saat: um 8 Uhr, um 10 Uhr. Soru: <b>Um wie viel Uhr ...?</b>",
+          "Tarih: <b>am</b> 14. Februar (sıra sayısıyla: am vierzehnten Februar).",
+          "Yıl: <b>im</b> Jahr 1985 veya yalnız 1985.",
+          "<b>in zwei Stunden</b> (şu andan) ≠ <b>zwei Stunden später</b> (bağlamdaki andan)."
+        ],
+        "uyari": "En sık hata: <b>Wie viel Uhr kommst du?</b> yazmak. Hoca bunu Achtung Fehler olarak işaretliyor; doğrusu <b>Um wie viel Uhr kommst du?</b>. Diğer karışıklık: <b>am Januar</b> değil <b>im Januar</b>; <b>im Montag</b> değil <b>am Montag</b>.",
+        "kaynak": "Kalan Üniteler s.48; Teil-1 s.16"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "am Montag · im Januar · um 8 Uhr",
+        "mean": "Gün → am, ay / mevsim → im, saat → um.",
+        "story": "<b>am</b> Montag, <b>am</b> Wochenende, <b>am</b> 14. Februar.<br><b>im</b> Januar, <b>im</b> Frühling, <b>im</b> Jahr 1985.<br><b>um</b> 8 Uhr — <b>Um wie viel Uhr</b> kommst du?"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d40_zaman_edat",
+    "title": "Zaman Edatları: im / am / um",
+    "emoji": "⏰",
+    "desc": "gün → am, ay/mevsim → im, saat → um",
+    "rule": "<b>am</b> + gün / hafta sonu / tarih: am Montag, am Wochenende, am 14. Februar.<br><b>im</b> + ay / mevsim / yıl: im Januar, im Frühling, im Jahr 1985.<br><b>um</b> + saat: um 8 Uhr, Um wie viel Uhr ...?<br><b>in</b> (ileriye süre), <b>ab</b> (itibaren), <b>bis</b> (kadar): in einer Stunde, Ab 3 Uhr, Bis 3 Uhr.",
+    "qs": [
+      {
+        "sent": "Wir frühstücken ___ 8 Uhr.",
+        "blank": "um",
+        "opts": ["um", "am", "im"],
+        "tr": "Saat 8'de kahvaltı ediyoruz.",
+        "exp": "Saatli zaman noktası için hocanın örneği: um 8 Uhr. am gün adlarıyla (am Montag), im ay ve mevsimlerle (im Januar) kullanılır."
+      },
+      {
+        "sent": "Was hast du ___ Wochenende vor?",
+        "blank": "am",
+        "opts": ["am", "im", "um"],
+        "tr": "Hafta sonu için planın nedir?",
+        "exp": "Wochenende hocanın örneğinde (am Wochenende) gün grubu gibi am alır. im ay ve mevsim, um saat içindir."
+      },
+      {
+        "sent": "Er hat ___ Winter drei Kilo zugenommen.",
+        "blank": "im",
+        "opts": ["im", "am", "um"],
+        "tr": "Kışın üç kilo aldı.",
+        "exp": "Hocanın s.16 kutusu: im Frühling; mevsimler im alır, yani im Winter. am gün adlarına, um saate aittir."
+      },
+      {
+        "sent": "Das Meeting fängt ___ 10 Uhr an.",
+        "blank": "um",
+        "opts": ["um", "im", "am"],
+        "tr": "Toplantı saat 10'da başlıyor.",
+        "exp": "Saat 10 Uhr bir saat noktasıdır: um 10 Uhr. Hocanın örneği: Das Meeting fängt um 10 Uhr an."
+      },
+      {
+        "sent": "Wir werden ___ Samstag nach Berlin fahren.",
+        "blank": "am",
+        "opts": ["am", "im", "um"],
+        "tr": "Cumartesi Berlin'e gideceğiz.",
+        "exp": "Samstag bir gün adıdır, gün adları am alır (am Montag gibi). im ay ve mevsimler içindir, um saat içindir."
+      },
+      {
+        "sent": "Wann hast du denn Urlaub? Erst wieder ___ Oktober.",
+        "blank": "im",
+        "opts": ["im", "am", "um"],
+        "tr": "Tatilin ne zaman? Ancak ekimde yine.",
+        "exp": "Oktober bir aydır, aylar im alır (im Juli, im Januar). Hocanın örneği: Erst wieder im Oktober."
+      },
+      {
+        "sent": "Ich habe ___ 14. Februar Geburtstag.",
+        "blank": "am",
+        "opts": ["am", "im", "um"],
+        "tr": "Doğum günüm 14 Şubat'ta.",
+        "exp": "Tarih (belirli bir gün) am ile söylenir: am 14. Februar. Yalnızca ay söylenseydi im Februar denirdi."
+      },
+      {
+        "sent": "Ich bin ___ Jahr 1985 geboren.",
+        "blank": "im",
+        "opts": ["im", "am", "um"],
+        "tr": "1985 yılında doğdum.",
+        "exp": "Hoca yıl için im Jahr 1985 (ya da yalnız 1985) veriyor. am ve um burada kullanılmaz."
+      },
+      {
+        "sent": "Ich bin ___ 03.09.1991 in Bremen geboren.",
+        "blank": "am",
+        "opts": ["am", "im", "um"],
+        "tr": "03.09.1991'de Bremen'de doğdum.",
+        "exp": "Tam tarih (gün + ay + yıl) am ile gelir. Hocanın örneği: Ich bin am 03.09.1991 in Bremen geboren."
+      },
+      {
+        "sent": "___ wie viel Uhr kommst du?",
+        "blank": "Um",
+        "opts": ["Um", "Am", "In"],
+        "tr": "Saat kaçta geliyorsun?",
+        "exp": "Hocanın Achtung! kutusu: Wie viel Uhr kommst du? yanlış, Um wie viel Uhr kommst du? doğru. Saat sorusu um ile başlar."
+      },
+      {
+        "sent": "Wann soll ich dich wieder anrufen? ___ einer Stunde.",
+        "blank": "In",
+        "opts": ["In", "Um", "Bis"],
+        "tr": "Seni ne zaman tekrar arayayım? Bir saat içinde.",
+        "exp": "Şu andan itibaren süre için in kullanılır (hoca s.10: In einer Stunde). Bis ‘…e kadar’, um ise saat noktası içindir."
+      },
+      {
+        "sent": "Wie lange kann er mich zurückrufen? ___ 17 Uhr.",
+        "blank": "Bis",
+        "opts": ["Bis", "Ab", "Um"],
+        "tr": "Beni ne kadar süre geri arayabilir? Saat 17'ye kadar.",
+        "exp": "Wie lange? / Bis wann? sorusuna cevap bis ile verilir: Bis 17 Uhr. Ab 'itibaren' demektir; um tek bir saat noktasıdır."
+      },
+      {
+        "sent": "Ab wann kann man am Morgen anrufen? ___ 7 Uhr.",
+        "blank": "Ab",
+        "opts": ["Ab", "Bis", "Im"],
+        "tr": "Sabah ne zamandan itibaren aranabilir? Saat 7'den itibaren.",
+        "exp": "Ab wann? sorusuna ab ile cevap verilir: Ab 7 Uhr. bis ‘…e kadar’ demektir, ters anlam verir."
+      },
+      {
+        "sent": "Um 18 Uhr hat er angerufen. Zwei Stunden ___ ist er gekommen.",
+        "blank": "später",
+        "opts": ["später", "in", "um"],
+        "tr": "Saat 18.00'de aradı. İki saat sonra geldi.",
+        "exp": "Önceden belirtilmiş bir andan (18 Uhr) itibaren: zwei Stunden später. in zwei Stunden şu andan itibaren gelecek içindir."
+      },
+      {
+        "sent": "Der Film beginnt ___ zwei Stunden.",
+        "blank": "in",
+        "opts": ["in", "später", "um"],
+        "tr": "Film iki saat sonra başlıyor.",
+        "exp": "Şu andan itibaren gelecekteki bir nokta için in zwei Stunden kullanılır (hoca s.11). später önceden belirtilmiş bir zaman ister, um ise saat noktasıdır."
+      },
+      {
+        "sent": "Nächste Woche findet ein Test statt, und zwar ___ Mittwoch um zehn Uhr.",
+        "blank": "am",
+        "opts": ["am", "im", "um"],
+        "tr": "Gelecek hafta bir sınav olacak, daha doğrusu Çarşamba günü saat 10'da.",
+        "exp": "Mittwoch gün adı: am Mittwoch. Saat ise um zehn Uhr. Gün ve saat bir arada: am Mittwoch um zehn Uhr (hocanın örneği)."
+      }
+    ]
+  },
+  "dogrulama": [
+    "Hocanın sayfalarında 'gün → am, ay/mevsim → im, saat → um' diye açık bir kural cümlesi yok; eşleştirmeyi Teil-1 s.16'daki üçlü örnek kutusundan (am Montag, im Januar, im Frühling) ve Kalan Üniteler s.47'deki 'um 8 Uhr' örneğinden çıkardım. Perplexity'ye sor: Almanca zaman edatlarında Tag/Wochentag → am, Monat/Jahreszeit → im, Uhrzeit → um kuralı doğru mu, istisnası var mı?",
+    "Günün bölümleri: hocada 'am Morgen', 'am Abend', 'am Nachmittag' örnek olarak geçiyor ama kural olarak anlatılmıyor; 'in der Nacht', 'am Mittag', 'um Mitternacht' hocada açıklanmıyor (s.168'de Mitternacht kutusunun yanında yalnız 'um' görünüyor). Perplexity'ye sor: Almanca'da gece / öğle / gece yarısı için hangi edat kullanılır?",
+    "'heute Nachmittag', 'nächste Woche' gibi ifadelerde edat kullanılmadığını hocanın örneklerinden (A2 s.122, s.163) gördüm ama bu bir kural olarak yazılmamış. Perplexity'ye sor: heute / morgen / nächste Woche + Tageszeit ifadelerinde neden am yok?",
+    "Gün adlarının ve ay adlarının Türkçe karşılıkları hocanın sayfasında yok; derste Türkçe karşılıklarını yazmadım, sadece Almanca tablo verdim."
+  ]
+}

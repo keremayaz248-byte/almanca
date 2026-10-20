@@ -1,0 +1,225 @@
+{
+  "konu": 24,
+  "baslik": "W-Fragen (soru kelimeleri)",
+  "kaynak": [{ "arac": "PDF", "sayfa": "Teil-1 s.99-100" }],
+  "deste": {
+    "title": "❓ W-Fragen",
+    "accent": "linear-gradient(135deg,#2AACD1,#1c7fa0)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Soru kelimeleri",
+        "big": "W-Fragen",
+        "mean": "Almancada soru kelimelerinin çoğu <b>W</b> harfiyle başlar: Wo, Was, Wann, Wer, Wie, Warum...",
+        "story": "İki tür soru var: <b>W-Fragen</b> (soru kelimesi ile başlar: 'Nerede? Ne? Kim?') ve <b>Ja & Nein Fragen</b> (cevabı evet / hayır olan, <b>fiille</b> başlar). Önce 12 soru kelimesini, sonra süre sorularını, sonra Ja/Nein sorularını göreceğiz."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Temel sorular",
+        "baslik": "W-Fragen: 6 temel soru kelimesi",
+        "basliklar": ["Almanca", "İngilizce", "Türkçe"],
+        "satirlar": [
+          ["Wo?", "Where?", "Nerede?"],
+          ["Was?", "What?", "Ne?"],
+          ["Wann?", "When?", "Ne zaman?"],
+          ["Wer?", "Who?", "Kim?"],
+          ["Wie?", "How?", "Nasıl?"],
+          ["Warum?", "Why?", "Neden?"]
+        ],
+        "not": "<b>Not:</b> Türkçe karşılıklar hocanın İngilizce karşılıklarının çevirisidir.",
+        "kaynak": "Teil-1 s.99"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Yön ve kişi",
+        "baslik": "W-Fragen: yön ve kişi soruları",
+        "basliklar": ["Almanca", "İngilizce", "Türkçe"],
+        "satirlar": [
+          ["Wohin?", "Where to?", "Nereye?"],
+          ["Woher?", "Where from?", "Nereden?"],
+          ["Wen?", "—", "Kimi?"],
+          ["Wem?", "To whom?", "Kime?"],
+          ["Wessen?", "Whose?", "Kimin?"]
+        ],
+        "not": "<b>Hocanın notu:</b> 'Wen? = Kimi?' ve örnek: <b>Wo gehst du hin?</b> = Nereye gidiyorsun?",
+        "kaynak": "Teil-1 s.99"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Wo- ile başlayanlar",
+        "baslik": "Wofür? Worüber?",
+        "basliklar": ["Almanca", "İngilizce", "Türkçe"],
+        "satirlar": [
+          ["Wofür?", "For what?", "Ne için?"],
+          ["Worüber?", "About what?", "Ne hakkında?"]
+        ],
+        "not": "Bu iki soru, 'wo-' ile başlayıp bir edat içerir: wo + für, wo + über. Hoca tabloda sadece anlamlarını veriyor.",
+        "kaynak": "Teil-1 s.99"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Süre soruları",
+        "baslik": "Wie lange? Seit wann? Ab wann? Bis wann?",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["Wie lange?", "Ne kadar süre?"],
+          ["Seit wann?", "Ne zamandan beri?"],
+          ["Ab wann?", "Ne zamandan itibaren?"],
+          ["Bis wann?", "Ne zamana kadar?"]
+        ],
+        "not": "<b>Hocanın hilesi:</b> Hepsi 'ne zaman' ile ilgili ama başlangıç (seit / ab), bitiş (bis) ve toplam süre (wie lange) ayrı sorulur.",
+        "kaynak": "Teil-1 s.99"
+      },
+      {
+        "big": "Warum / Wieso / Weshalb",
+        "mean": "'Neden?' sorusunun 3 biçimi var: <b>Warum</b> (en genel), <b>Wieso</b> (günlük dil), <b>Weshalb</b> (daha resmi).",
+        "egs": [
+          "<b>Warum</b> sagst du ihm nicht die Wahrheit? — Ona neden gerçeği söylemiyorsun?"
+        ],
+        "tip": "💡 Hocanın hilesi: <b>WARUM</b> = en genel, <b>WIESO</b> = günlük dil, <b>WESHALB</b> = daha resmi. Emin değilsen Warum kullan.",
+        "kaynak": "Teil-1 s.99, s.97"
+      },
+      {
+        "big": "Örnek sorular: Was ist das? Wer ist das?",
+        "mean": "Hocanın sayfasında hazır W-Fragen örnekleri var: nesne için <b>Was</b>, kişi için <b>Wer</b>.",
+        "egs": [
+          "<b>Was</b> ist das? — Bu ne? (Cevap: Das ist Joghurt / Saft.)",
+          "<b>Wer</b> ist das? — Bu kim? (Cevap: Mein Vater.)",
+          "<b>Wie</b> heißt du? — Adın ne?",
+          "<b>Wo</b> ist Milch, bitte? — Süt nerede, lütfen?",
+          "<b>Wer</b> kennt fan-fit? — fan-fit'i kim tanıyor?"
+        ],
+        "tip": "💡 Cevapta soru kelimesinin türüne bak: Was → şey, Wer → kişi, Wo → yer, Wie → nasıl / ad.",
+        "kaynak": "Teil-1 s.99"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Soru yapısı",
+        "baslik": "W-Frage: soru kelimesi başa gelir",
+        "satirlar": [
+          {
+            "etiket": "W-Frage",
+            "not": "soru kelimesi önde",
+            "jetonlar": [
+              { "t": "Wo", "r": "bag" },
+              { "t": "gehst", "r": "fiil" },
+              { "t": "du", "r": "ozne" },
+              { "t": "hin?", "r": "diger" }
+            ],
+            "tr": "Nereye gidiyorsun?"
+          },
+          {
+            "etiket": "W-Frage",
+            "not": "alıştırma: du / kommst / woher",
+            "jetonlar": [
+              { "t": "Woher", "r": "bag" },
+              { "t": "kommst", "r": "fiil" },
+              { "t": "du?", "r": "ozne" }
+            ],
+            "tr": "Nereden geliyorsun?"
+          },
+          {
+            "etiket": "Ja/Nein-Frage",
+            "not": "soru kelimesi yok: fiil başta",
+            "jetonlar": [
+              { "t": "Heißt", "r": "fiil" },
+              { "t": "du", "r": "ozne" },
+              { "t": "Maria?", "r": "nesne" }
+            ],
+            "tr": "Adın Maria mı?"
+          },
+          {
+            "etiket": "Ja/Nein-Frage",
+            "not": "soru kelimesi yok: fiil başta",
+            "jetonlar": [
+              { "t": "Wohnt", "r": "fiil" },
+              { "t": "er", "r": "ozne" },
+              { "t": "in Pafos?", "r": "zaman" }
+            ],
+            "tr": "O Pafos'ta mı oturuyor?"
+          }
+        ],
+        "not": "<b>Hocanın tablosu:</b> Ja & Nein Fragen'de sıra <b>Verb + özne + devamı</b>. W-Fragen'de başa soru kelimesi geliyor (Wo gehst du hin?).",
+        "kaynak": "Teil-1 s.99"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Ja & Nein Fragen",
+        "baslik": "Fiil başta: evet / hayır soruları",
+        "basliklar": ["Fiil", "Özne", "Devamı"],
+        "satirlar": [
+          ["Heißt", "du", "Maria?"],
+          ["Wohnt", "er", "in Pafos?"],
+          ["Kommen", "sie", "aus England?"],
+          ["Ist", "das", "richtig?"],
+          ["Kennt", "ihr", "Demi Moore?"],
+          ["Bist", "du", "verheiratet?"],
+          ["Weißt", "du", "das?"]
+        ],
+        "not": "<b>Hocanın tablosu:</b> Bu sorular W-kelimesiyle başlamaz; cevap Ja veya Nein olur.",
+        "kaynak": "Teil-1 s.99"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Karıştırılan soru kelimeleri",
+        "maddeler": [
+          "<b>Wo</b> = nerede (yer), <b>Wohin</b> = nereye (yön), <b>Woher</b> = nereden (köken).",
+          "<b>Wer</b> = kim (özne), <b>Wen</b> = kimi, <b>Wem</b> = kime, <b>Wessen</b> = kimin.",
+          "<b>Seit wann</b> = ne zamandan beri, <b>Ab wann</b> = ne zamandan itibaren, <b>Bis wann</b> = ne zamana kadar, <b>Wie lange</b> = ne kadar süre.",
+          "<b>Warum</b> = en genel 'neden'; <b>Wieso</b> günlük dil; <b>Weshalb</b> daha resmi."
+        ],
+        "uyari": "En sık yapılan hata: Wo / Wohin / Woher'i karıştırmak ve Wen / Wem / Wessen'i ('kimi / kime / kimin') birbirinin yerine kullanmak.",
+        "kaynak": "Teil-1 s.99"
+      },
+      {
+        "big": "zum Beispiel (z.B.)",
+        "mean": "<b>zum Beispiel</b> (kısaltması z.B.) = <b>beispielsweise</b>, yani 'örneğin'. das Beispiel = örnek.",
+        "egs": [
+          "Ich kann <b>zum Beispiel</b> nach Hause alleine gehen. — Örneğin eve tek başıma gidebilirim.",
+          "Ich kann <b>beispielsweise</b> nach Hause alleine gehen. — Aynı anlam.",
+          "Ich liebe vieles an Berlin, <b>zum Beispiel</b> den Fernsehturm. — Berlin'de birçok şeyi seviyorum, örneğin televizyon kulesini."
+        ],
+        "tip": "💡 Sorulara cevap verirken örnek vermek için işe yarar: 'zum Beispiel' ve 'beispielsweise' aynı şeydir.",
+        "kaynak": "Teil-1 s.100"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "WO · WAS · WANN · WER · WIE · WARUM",
+        "mean": "Süre: Wie lange / Seit wann / Ab wann / Bis wann.",
+        "story": "Wo = nerede, Was = ne, Wann = ne zaman, Wer = kim, Wie = nasıl, Warum = neden. Wohin = nereye, Woher = nereden. Wen = kimi, Wem = kime, Wessen = kimin. Evet/hayır sorusunda fiil başa gelir: <b>Bist du verheiratet?</b>"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d24_wfragen",
+    "title": "W-Fragen",
+    "emoji": "❓",
+    "desc": "Wo, Was, Wann, Wer, Wie, Warum, Wohin, Woher...",
+    "rule": "<b>Wo?</b> nerede · <b>Wohin?</b> nereye · <b>Woher?</b> nereden · <b>Was?</b> ne · <b>Wer?</b> kim · <b>Wen?</b> kimi · <b>Wem?</b> kime · <b>Wessen?</b> kimin.<br><b>Wann?</b> ne zaman · <b>Wie?</b> nasıl · <b>Warum?</b> neden (Wieso: günlük, Weshalb: resmi).<br><b>Süre:</b> Wie lange? Seit wann? Ab wann? Bis wann?<br><b>Ja/Nein sorusu</b> soru kelimesi olmadan fiille başlar: Bist du verheiratet?",
+    "qs": [
+      { "sent": "___ ist das? – Das ist Saft.", "blank": "Was", "opts": ["Was", "Wer", "Wo", "Wann"], "tr": "Bu ne? – Bu meyve suyu.", "exp": "Cevap bir şey olduğu için Was kullanılır. Was = ne (What). Hocanın örnek cümlesi: 'Was ist das?' (s.99)." },
+      { "sent": "___ ist das? – Das ist mein Vater.", "blank": "Wer", "opts": ["Wer", "Was", "Wo", "Warum"], "tr": "Bu kim? – Bu babam.", "exp": "Cevap bir kişi olduğu için Wer (kim) kullanılır; Was nesne içindir. Hocanın örneği: 'Wer ist das?' (s.99)." },
+      { "sent": "___ heißt du?", "blank": "Wie", "opts": ["Wie", "Wer", "Was", "Wo"], "tr": "Adın ne?", "exp": "'Wie heißt du?' = adın ne? Wie = nasıl; isim sormak için Wie + heißen kullanılır (s.99)." },
+      { "sent": "___ ist Milch, bitte?", "blank": "Wo", "opts": ["Wo", "Wohin", "Woher", "Wann"], "tr": "Süt nerede, lütfen?", "exp": "Yer sorulduğu için Wo (nerede). Hocanın alıştırmasında 'Wo ist Milch, bitte?' geçer (s.99)." },
+      { "sent": "___ kommst du?", "blank": "Woher", "opts": ["Woher", "Wohin", "Wo", "Wie"], "tr": "Nereden geliyorsun?", "exp": "Woher = nereden (Where from), köken/geliş yeri sorar. Hocanın alıştırması: du / kommst / woher (s.99)." },
+      { "sent": "___ gehst du?", "blank": "Wohin", "opts": ["Wohin", "Woher", "Wer", "Warum"], "tr": "Nereye gidiyorsun?", "exp": "Wohin = nereye (Where to), gidilen yön. Hocanın örneği 'Wo gehst du hin?' = Nereye gidiyorsun? (s.99)." },
+      { "sent": "___ kennt fan-fit? – Ich.", "blank": "Wer", "opts": ["Wer", "Wen", "Wem", "Was"], "tr": "fan-fit'i kim tanıyor? – Ben.", "exp": "Cevap 'Ich' (bir kişi, özne): Wer = kim. Hocanın sayfasındaki 'Wer kennt fan-fit?' (s.99)." },
+      { "sent": "___ sagst du ihm nicht die Wahrheit?", "blank": "Warum", "opts": ["Warum", "Wohin", "Wessen", "Woher"], "tr": "Ona neden gerçeği söylemiyorsun?", "exp": "Neden sorusu: Warum (en genel). Wieso günlük, Weshalb daha resmi ('neden' ile ilgili, s.99)." },
+      { "sent": "___ lange arbeitest du?", "blank": "Wie", "opts": ["Wie", "Wann", "Bis", "Seit"], "tr": "Ne kadar süre çalışıyorsun?", "exp": "'Wie lange?' = ne kadar süre: toplam süreyi sorar. Hocanın süre listesindeki ilk soru (s.99)." },
+      { "sent": "___ wann wohnst du hier?", "blank": "Seit", "opts": ["Seit", "Ab", "Bis", "Wie"], "tr": "Ne zamandan beri burada oturuyorsun?", "exp": "'Seit wann?' = ne zamandan beri (geçmişteki başlangıçtan bugüne). Ab wann = itibaren, Bis wann = kadar (s.99)." },
+      { "sent": "___ wann arbeitest du?", "blank": "Bis", "opts": ["Bis", "Seit", "Ab", "Wie"], "tr": "Ne zamana kadar çalışıyorsun?", "exp": "'Bis wann?' = ne zamana kadar (bitiş zamanını sorar). Seit = beri, Ab = itibaren (s.99)." },
+      { "sent": "___ kennst du?", "blank": "Wen", "opts": ["Wen", "Wem", "Wer", "Wessen"], "tr": "Kimi tanıyorsun?", "exp": "Hocanın notu: Wen? = Kimi? Nesne olan kişiyi sorar. Wem = kime, Wessen = kimin (s.99)." },
+      { "sent": "___ Buch ist das?", "blank": "Wessen", "opts": ["Wessen", "Wem", "Wen", "Wer"], "tr": "Bu kimin kitabı?", "exp": "Wessen = kimin (Whose): aitlik sorar. Wem 'kime' (To whom) demektir (s.99)." },
+      { "sent": "___ brauchst du Geld?", "blank": "Wofür", "opts": ["Wofür", "Worüber", "Woher", "Wohin"], "tr": "Para ne için lazım?", "exp": "Wofür = ne için (For what); Worüber = ne hakkında (About what). Amaç sorulduğu için Wofür (s.99)." },
+      { "sent": "___ du verheiratet?", "blank": "Bist", "opts": ["Bist", "Wer", "Wie", "Wann"], "tr": "Evli misin?", "exp": "Evet/hayır sorusunda soru kelimesi yoktur, fiil başa gelir: 'Bist du verheiratet?' Hocanın Ja & Nein Fragen tablosu (s.99)." }
+    ]
+  },
+  "dogrulama": [
+    "Hoca s.99'da soru kelimelerinin sadece İngilizce karşılıklarını vermiş; Türkçe karşılıkları (Wo = nerede, Was = ne, ... Wofür = ne için, Worüber = ne hakkında) ben İngilizceden çevirdim. 'Wofür/Worüber' ve 'Wem/Wessen' için Türkçe karşılıkları Perplexity'ye sor.",
+    "Hoca 'W-Frage cümlesinde fiil 2. sırada' kuralını açıkça yazmamış. 'Woher kommst du?' sırası, sayfadaki alıştırmanın (du / kommst / woher) cevabıyla 'Woher...' başlangıcından çıkarıldı. Perplexity'ye sor: 'W-Fragen cümlesinde fiil kaçıncı sırada olur?'",
+    "'Wo gehst du hin?' ile 'Wohin gehst du?' farkı hocanın sayfasında yok; sadece 'Wo gehst du hin?' örneği var. Alıştırmada ('___ gehst du?') Wohin cevabı verilirken ikisinin de kullanılıp kullanılmadığı Perplexity'ye sorulmalı.",
+    "Sayfa 101 hocanın Türkçe diyalogu ve çoğul listesi (Konu 22'de kullanıldı); W-Fragen içeriği değil. Okunamayan sayfa yok."
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "konu": 48,
+  "baslik": "Plusquamperfekt",
+  "kaynak": [{ "arac": "PDF", "sayfa": "Teil-2 s.68-75, s.82" }],
+  "deste": {
+    "title": "⏪ Plusquamperfekt",
+    "accent": "linear-gradient(135deg,#D9714E,#A8502F)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Geçmişin de geçmişi",
+        "big": "PLUSQUAMPERFEKT",
+        "mean": "Türkçedeki „-mişti“: geçmişte bir olaydan ÖNCE olmuş başka bir olay.",
+        "story": "Hocanın zaman çizgisinde Plusquamperfekt en solda, Perfekt ve Präteritum'dan da daha geride durur. Yani: <b>Ich war gerade aufgestanden, da klopfte es an der Tür.</b> (Tam kalkmıştım ki kapı çalındı.) Önce kalkmak olmuş, sonra kapı çalmış."
+      },
+      {
+        "tur": "zaman",
+        "kicker": "Zaman çizgisi",
+        "baslik": "Almancada 6 zaman",
+        "noktalar": [
+          { "baslik": "1) Präsens", "etiket": "şimdi", "ornek": "Ich <b>lerne</b> Deutsch.", "tr": "Almanca öğreniyorum." },
+          { "baslik": "2) Perfekt", "etiket": "geçmiş", "ornek": "Ich <b>habe</b> Deutsch <b>gelernt</b>.", "tr": "Almanca öğrendim." },
+          { "baslik": "3) Präteritum", "etiket": "geçmiş", "ornek": "Ich <b>lernte</b> Deutsch.", "tr": "Almanca öğrendim." },
+          { "baslik": "4) Plusquamperfekt", "etiket": "-mişti", "ornek": "Ich <b>hatte</b> Deutsch <b>gelernt</b>.", "tr": "Almanca öğrenmiştim." },
+          { "baslik": "5) Futur 1", "etiket": "gelecek", "ornek": "Ich <b>werde</b> Deutsch <b>lernen</b>.", "tr": "Almanca öğreneceğim." },
+          { "baslik": "6) Futur 2", "etiket": "gelecek", "ornek": "Ich <b>werde</b> Deutsch <b>gelernt haben</b>.", "tr": "Almanca öğrenmiş olacağım." }
+        ],
+        "not": "Hocanın ünlemli tablosu (6 Zeitformen). Plusquamperfekt 4. sırada; Perfekt'in haben/sein'ı yerine <b>Präteritum</b> hali girer.",
+        "kaynak": "Teil-2 s.70"
+      },
+      {
+        "big": "hatte / war + Partizip II",
+        "mean": "Plusquamperfekt = <b>haben veya sein'ın Präteritum hali</b> (hatten / waren) + <b>Partizip II</b> (gekommen, gegangen, gegessen). Hocanın şemasında Perfekt'in Partizip II'si ile Präteritum'un hatten/waren'i birleşip Plusquamperfekt'i oluşturuyor.",
+        "egs": [
+          "Ich <b>hatte</b> Deutsch <b>gelernt</b>. — Almanca öğrenmiştim.",
+          "Wir <b>hatten</b> <b>gegessen</b>. — Yemek yemiştik.",
+          "Sie <b>waren gegangen</b>. — Gitmişlerdi."
+        ],
+        "tip": "💡 Hoca: Plusquamperfekt = (-mişti). Partizip II cümle sonunda, hatte/war ikinci sırada.",
+        "kaynak": "Teil-2 s.69"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim",
+        "baslik": "hatten ve waren (Präteritum)",
+        "basliklar": ["", "haben (Präteritum)", "sein (Präteritum)"],
+        "satirlar": [
+          ["ich", "hatte", "war"],
+          ["du", "hattest", "warst"],
+          ["er/sie/es", "hatte", "war"],
+          ["wir", "hatten", "waren"],
+          ["ihr", "hattet", "wart"],
+          ["sie/Sie", "hatten", "waren"]
+        ],
+        "not": "Plusquamperfekt'in çekimli kısmı bu tablodan gelir. Partizip II değişmez: ich hatte gegessen, wir hatten gegessen, ich war gekommen, wir waren gekommen.",
+        "kaynak": "Teil-2 s.69"
+      },
+      {
+        "big": "hatten gegessen · waren gekommen",
+        "mean": "<b>haben</b> mı <b>sein</b> mi? Hocanın notu: hareket ve konum / durum değişikliği bildiren fiiller <b>waren</b> ile (waren gekommen, waren gegangen); diğerleri <b>hatten</b> ile (hatten gegessen).",
+        "egs": [
+          "Ich <b>war</b> geflogen. — Uçmuştum.",
+          "Sie <b>war</b> zuvor 3 Stunden <b>gelaufen</b>. — Daha önce 3 saat koşmuştu.",
+          "Ich <b>hatte</b> zu lange <b>geschlafen</b>. — Çok uzun uyumuştum."
+        ],
+        "tip": "💡 Hocanın kısa listesi: waren gekommen · waren gegangen · hatten gegessen.",
+        "kaynak": "Teil-2 s.69, s.75"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Önce – sonra",
+        "baslik": "Önce olan Plusquamperfekt, sonra olan Präteritum",
+        "satirlar": [
+          { "etiket": "Önce olan", "not": "Plusquamperfekt", "jetonlar": [{ "t": "Ich", "r": "ozne" }, { "t": "war", "r": "fiil" }, { "t": "gerade", "r": "zaman" }, { "t": "aufgestanden", "r": "fiil", "sonda": true }], "tr": "Tam kalkmıştım," },
+          { "etiket": "Sonra olan", "not": "Präteritum", "jetonlar": [{ "t": "da", "r": "bag" }, { "t": "klopfte", "r": "fiil" }, { "t": "es", "r": "ozne" }, { "t": "an der Tür", "r": "diger" }], "tr": "ki kapı çalındı." },
+          { "etiket": "Önce olan", "not": "nachdem + Plusquamperfekt", "jetonlar": [{ "t": "Nachdem", "r": "bag" }, { "t": "er", "r": "ozne" }, { "t": "viel", "r": "diger" }, { "t": "trainiert", "r": "fiil" }, { "t": "hatte", "r": "fiil", "sonda": true }], "tr": "Çok antrenman yaptıktan sonra" },
+          { "etiket": "Sonra olan", "not": "Präteritum", "jetonlar": [{ "t": "war", "r": "fiil" }, { "t": "er", "r": "ozne" }, { "t": "froh", "r": "diger" }], "tr": "mutluydu." },
+          { "etiket": "Sonra olan", "not": "bevor + Präteritum", "jetonlar": [{ "t": "Bevor", "r": "bag" }, { "t": "ich", "r": "ozne" }, { "t": "ins Bett", "r": "zaman" }, { "t": "ging", "r": "fiil", "sonda": true }], "tr": "Yatağa gitmeden önce" },
+          { "etiket": "Önce olan", "not": "Plusquamperfekt", "jetonlar": [{ "t": "hatte", "r": "fiil" }, { "t": "ich", "r": "ozne" }, { "t": "ein Buch", "r": "nesne" }, { "t": "gelesen", "r": "fiil", "sonda": true }], "tr": "bir kitap okumuştum." }
+        ],
+        "not": "<b>Kural:</b> iki olaydan <b>daha önce</b> gerçekleşen Plusquamperfekt, sonra gerçekleşen genelde Präteritum olur. Hocanın örnekleri.",
+        "kaynak": "Teil-2 s.69"
+      },
+      {
+        "tur": "kural",
+        "kicker": "İpucu kelimeleri",
+        "baslik": "Plusquamperfekt örnek cümleleri",
+        "maddeler": [
+          "<b>Sie hatte den ganzen Tag gearbeitet, bevor sie krank wurde.</b> = Hastalanmadan önce bütün gün çalışmıştı.",
+          "<b>Der Fahrer hatte Alkohol getrunken, deswegen ist der Unfall passiert.</b> = Sürücü alkol içmişti, bu yüzden kaza oldu.",
+          "<b>Ich bin heute sehr spät zur Arbeit gekommen. Ich hatte zu lange geschlafen.</b> = Bugün işe çok geç geldim. Çok uzun uyumuştum.",
+          "<b>Sie war müde. Sie war zuvor 3 Stunden gelaufen.</b> = Yorgundu. Daha önce 3 saat koşmuştu.",
+          "<b>vorher / zuvor</b> = daha önce (hocanın kelimesi: vorher: daha önce)."
+        ],
+        "uyari": "Önceki olay Plusquamperfekt, sonuç ya da sonraki olay Präteritum veya Perfekt ile gelir (örn. 'deswegen ist der Unfall passiert').",
+        "kaynak": "Teil-2 s.69, s.73"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Üç zaman yan yana",
+        "baslik": "kommen ve sagen: Präteritum – Perfekt – Plusquamperfekt",
+        "basliklar": ["", "kommen", "sagen"],
+        "satirlar": [
+          ["Präteritum", "kam", "sagte"],
+          ["Perfekt", "ist gekommen", "hat gesagt"],
+          ["Plusquamperfekt", "war gekommen", "hatte gesagt"]
+        ],
+        "not": "Hocanın tahta görüntüsü: aynı fiil üç zamanda. Geçmiş-geçmiş için hep <b>hatte/war + Partizip II</b>.",
+        "kaynak": "Teil-2 s.68"
+      },
+      {
+        "big": "Was war vorher?",
+        "mean": "Hocanın alıştırması: bir olayı anlattıktan sonra <b>Vorher</b> (daha önce) diye başla ve Plusquamperfekt'le o olayın öncesini söyle.",
+        "egs": [
+          "Nina lebte allein mit ihrer Tochter Sarah. <b>Vorher hatte</b> sie sich von ihrem Mann <b>getrennt</b>. — Daha önce kocasından boşanmıştı.",
+          "Tom und Nina zogen zusammen. <b>Vorher hatten</b> sie ohne Partner <b>gelebt</b>. — Daha önce partnersiz yaşamışlardı.",
+          "Elisa zog zu Tom und Nina. <b>Vorher hatte</b> sie bei ihrer Mutter <b>gewohnt</b>. — Daha önce annesinde yaşamıştı.",
+          "Nina und Tom suchten eine Beratung. <b>Vorher hatten</b> sie oft <b>gestritten</b>. — Daha önce sık sık tartışmışlardı."
+        ],
+        "tip": "💡 Hocanın kelime notları: trennen = boşanmak · streiten = tartışmak · zogen (ziehen) zusammen = birlikte yaşamak / birlikte taşınmak · vorher = daha önce.",
+        "kaynak": "Teil-2 s.73"
+      },
+      {
+        "big": "Familienentwicklungen",
+        "mean": "Hocanın ikinci alıştırması: Plusquamperfekt'te haben ve sein bir arada. Hareket fiilleri (ziehen, gehen) <b>war / waren</b> alır; sprechen, geben, lernen, streiten <b>hatte / hatten</b> alır.",
+        "egs": [
+          "Vor einem Jahr <b>hatte</b> Elisa sich mit ihrer Mutter <b>gestritten</b> und <b>war</b> zu Tom und Nina <b>gezogen</b>. — Bir yıl önce Elisa annesiyle tartışmış ve Tom ile Nina'nın yanına taşınmıştı.",
+          "Zuerst <b>hatte</b> es viele Probleme <b>gegeben</b> und Elisa <b>hatte</b> nichts mehr für die Schule <b>gelernt</b>. — Önce çok sorun çıkmış, Elisa okul için artık hiçbir şey çalışmamıştı.",
+          "Dann <b>waren</b> Tom und Nina zu einer Beratungsstelle <b>gegangen</b> und <b>hatten</b> über alles <b>gesprochen</b>. — Sonra Tom ile Nina bir danışma merkezine gitmiş ve her şeyi konuşmuşlardı."
+        ],
+        "tip": "💡 Hocanın cevap anahtarı: hatte ... gestritten, war ... gezogen; hatte ... gegeben, hatte ... gelernt; waren ... gegangen, hatten ... gesprochen. Kelimeler: die Beratungsstelle = danışma, miteinander = birlikte, reden = konuşmak.",
+        "kaynak": "Teil-2 s.74"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Tuzak",
+        "baslik": "hatte ≠ hätte, war ≠ wäre",
+        "basliklar": ["", "Plusquamperfekt (gerçek)", "Konjunktiv II (gerçek dışı)"],
+        "satirlar": [
+          ["haben", "Ich hatte nichts gesagt.", "Ich hätte nichts gesagt."],
+          ["anlam", "söylememiştim", "söylemeseydim"],
+          ["sein", "Ich war geflogen.", "Ich wäre geflogen."],
+          ["anlam ", "uçmuştum", "uçsaydım (uçmadım)"]
+        ],
+        "not": "Hocanın üç ünlemli uyarısı: Ich hatte nichts gesagt = söylemedim / söylememiştim; Ich hätte nichts gesagt = söylemeseydim. İkisi tek bir ä harfi ile ayrılır.",
+        "kaynak": "Teil-2 s.75"
+      },
+      {
+        "tur": "zaman",
+        "kicker": "Modal fiil",
+        "baslik": "können beş zamanda: Ich hatte Jonas nicht helfen können",
+        "noktalar": [
+          { "baslik": "Präsens", "etiket": "şimdi", "ornek": "Ich <b>kann</b> Jonas nicht <b>helfen</b>.", "tr": "Jonas'a yardım edemiyorum." },
+          { "baslik": "Präteritum", "etiket": "geçmiş", "ornek": "Ich <b>konnte</b> Jonas nicht <b>helfen</b>.", "tr": "Jonas'a yardım edemedim." },
+          { "baslik": "Perfekt", "etiket": "geçmiş", "ornek": "Ich <b>habe</b> Jonas nicht <b>helfen können</b>.", "tr": "Jonas'a yardım edememişim / edemedim." },
+          { "baslik": "Plusquamperfekt", "etiket": "-mişti", "ornek": "Ich <b>hatte</b> Jonas nicht <b>helfen können</b>.", "tr": "Jonas'a yardım edememiştim." },
+          { "baslik": "Futur", "etiket": "gelecek", "ornek": "Ich <b>werde</b> Jonas nicht <b>helfen können</b>.", "tr": "Jonas'a yardım edemeyeceğim." }
+        ],
+        "not": "Hocanın modal fiil sayfası: Plusquamperfekt'te <b>hatte</b> + iki mastar (<b>helfen können</b>). Modal fiil Partizip II (gekonnt) olmaz.",
+        "kaynak": "Teil-2 s.82"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Wenn ile bağlantı",
+        "baslik": "Geçmişin wenn'i = Konjunktiv II",
+        "maddeler": [
+          "Hocanın formülü: <b>Wenn + Plusquamperfekt (+Konjunktiv II), hätte / wäre + Partizip II</b>.",
+          "Wenn ich gelernt hätte, hätte ich die Prüfung bestanden. = Çalışmış olsaydım sınavı geçerdim (ama çalışmadım).",
+          "Wenn ich früher gekommen wäre, hätte ich dich gesehen. = Daha erken gelmiş olsaydım seni görürdüm.",
+          "Wenn es nicht geregnet hätte, wären wir spazieren gegangen. = Yağmur yağmamış olsaydı yürüyüşe giderdik."
+        ],
+        "uyari": "Bu yapının ayrıntısı Konjunktiv II konusunda. Burada sadece fark: Plusquamperfekt gerçek olmuş olayı, hätte/wäre + Partizip II gerçekleşmemiş olayı anlatır.",
+        "kaynak": "Teil-2 s.71"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Plusquamperfekt'te sık yapılan hatalar",
+        "maddeler": [
+          "<b>Partizip II sonda:</b> Ich hatte Deutsch gelernt. (gelernt cümle sonunda.)",
+          "<b>haben mi sein mi:</b> hareket ve durum değişikliği → war / waren gekommen, gegangen; diğerleri hatte / hatten gegessen.",
+          "<b>hatte ≠ hätte</b>, <b>war ≠ wäre</b>: ä'sız form gerçek geçmiş, ä'lı form gerçek dışı.",
+          "<b>Perfekt ile karıştırma:</b> Perfekt'te haben/sein şimdiki zaman (habe, bin), Plusquamperfekt'te Präteritum (hatte, war).",
+          "Önce olan olay Plusquamperfekt, sonraki olay Präteritum ya da Perfekt."
+        ],
+        "uyari": "En sık hata: Ich hatte nichts gesagt (söylememiştim) ile Ich hätte nichts gesagt (söylemeseydim) cümlelerini aynı sanmak.",
+        "kaynak": "Teil-2 s.69, s.75"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "hatte / war + Partizip II = -mişti",
+        "mean": "Geçmişte bir olaydan önce olmuş olay: hatten gegessen, waren gekommen.",
+        "story": "<b>Ich war gerade aufgestanden, da klopfte es.</b> · Nachdem er viel trainiert hatte, war er froh. · Vorher hatten sie oft gestritten. Ve unutma: hatte (gerçek) ≠ hätte (gerçek dışı)."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d48_plusquamperfekt",
+    "title": "Plusquamperfekt",
+    "emoji": "⏪",
+    "desc": "hatte / war + Partizip II ile geçmişin geçmişi (-mişti)",
+    "rule": "<b>Yapı:</b> <b>hatte / war</b> (haben ve sein'ın Präteritum hali) + <b>Partizip II</b>.<br><b>Anlam:</b> geçmişte bir olaydan ÖNCE olmuş olay (-mişti).<br><b>Çekim:</b> ich hatte, du hattest, wir hatten, ihr hattet · ich war, du warst, wir waren, ihr wart.<br><b>haben / sein:</b> hareket / durum değişikliği → war/waren gekommen, gegangen; diğerleri → hatte/hatten gegessen.<br><b>Tuzak:</b> hatte (gerçek) ≠ hätte (gerçek dışı).",
+    "qs": [
+      { "sent": "Ich ___ Deutsch gelernt.", "blank": "hatte", "opts": ["hatte", "habe", "hätte"], "tr": "Almanca öğrenmiştim.", "exp": "Plusquamperfekt = haben'in Präteritum hali (hatte) + Partizip II. 'habe gelernt' Perfekt olurdu, 'hätte' dilek / gerçek dışı (s.70)." },
+      { "sent": "Ich ___ gerade aufgestanden, da klopfte es an der Tür.", "blank": "war", "opts": ["war", "hatte", "wäre"], "tr": "Tam kalkmıştım ki kapı çalındı.", "exp": "aufstehen durum / konum değişikliği bildirir, sein ile çekilir: war aufgestanden. 'hatte' bu fiille kullanılmaz; 'wäre' dilektir (s.69)." },
+      { "sent": "Sie ___ den ganzen Tag gearbeitet, bevor sie krank wurde.", "blank": "hatte", "opts": ["hatte", "war", "hätte"], "tr": "Hastalanmadan önce bütün gün çalışmıştı.", "exp": "arbeiten haben ile çekilir; çalışma, hastalanmadan ÖNCE olduğu için Plusquamperfekt: hatte gearbeitet (s.69)." },
+      { "sent": "Bevor ich ins Bett ging, ___ ich ein Buch gelesen.", "blank": "hatte", "opts": ["hatte", "hätte", "hatten"], "tr": "Yatağa gitmeden önce bir kitap okumuştum.", "exp": "Okuma yatmadan önce gerçekleşti ve ich ile hatte kullanılır. 'hatten' çoğul, 'hätte' gerçek dışıdır (s.69)." },
+      { "sent": "Nachdem er viel trainiert hatte, ___ er froh.", "blank": "war", "opts": ["war", "hatte", "wäre"], "tr": "Çok antrenman yaptıktan sonra mutluydu.", "exp": "Önce antrenman (hatte trainiert, Plusquamperfekt), sonra mutlu olmak (Präteritum war). Ana cümlede sein'ın Präteritum hali war gelir (s.69)." },
+      { "sent": "Der Fahrer ___ Alkohol getrunken, deswegen ist der Unfall passiert.", "blank": "hatte", "opts": ["hatte", "war", "hätte"], "tr": "Sürücü alkol içmişti, bu yüzden kaza oldu.", "exp": "trinken haben ile çekilir; alkol içmek kazadan öncedir: hatte getrunken. 'war getrunken' ya da 'hätte getrunken' yanlıştır (s.69)." },
+      { "sent": "Sie war müde. Sie ___ zuvor 3 Stunden gelaufen.", "blank": "war", "opts": ["war", "hatte", "ist"], "tr": "Yorgundu. Daha önce 3 saat koşmuştu.", "exp": "Hocanın örneğinde laufen sein ile çekilir: war gelaufen (hareket). 'hatte gelaufen' hocanın kuralına uymaz; 'ist' Perfekt olurdu (s.69)." },
+      { "sent": "Vorher ___ sie oft gestritten.", "blank": "hatten", "opts": ["hatten", "hatte", "waren"], "tr": "Daha önce sık sık tartışmışlardı.", "exp": "Özne 'sie' (onlar, çoğul) olduğu için hatten. streiten haben ile çekilir; 'waren' yanlış, 'hatte' tekil olurdu (s.73)." },
+      { "sent": "Vorher ___ sie bei ihrer Mutter gewohnt.", "blank": "hatte", "opts": ["hatte", "hätte", "war"], "tr": "Daha önce annesinde yaşamıştı.", "exp": "Özne tek bir kişi (Elisa), wohnen haben ile çekilir: hatte gewohnt. 'hätte' dilektir, 'war' yanlış yardımcı fiil (s.73)." },
+      { "sent": "Ich hatte nichts ___.", "blank": "gesagt", "opts": ["gesagt", "sagte", "sagen"], "tr": "Hiçbir şey söylememiştim.", "exp": "Plusquamperfekt'te hatte'den sonra Partizip II sona gelir: gesagt. 'sagte' Präteritum, 'sagen' mastardır (s.75, s.68)." },
+      { "sent": "Dann ___ Tom und Nina zu einer Beratungsstelle gegangen.", "blank": "waren", "opts": ["waren", "hatten", "wären"], "tr": "Sonra Tom ile Nina bir danışma merkezine gitmişlerdi.", "exp": "gehen hareket fiilidir, sein ile çekilir; özne çoğul olduğu için waren gegangen. 'hatten' kullanılmaz, 'wären' dilek olurdu (s.74)." },
+      { "sent": "Ich ___ Jonas nicht helfen können.", "blank": "hatte", "opts": ["hatte", "hätte", "habe"], "tr": "Jonas'a yardım edememiştim.", "exp": "Modal fiilli Plusquamperfekt: hatte + iki mastar (helfen können). 'habe' Perfekt olurdu; 'hätte' gerçek dışı geçmiş (s.82)." },
+      { "sent": "Ich ___ nichts gesagt. (Söylememiştim)", "blank": "hatte", "opts": ["hatte", "hätte", "war"], "tr": "Hiçbir şey söylememiştim.", "exp": "Hocanın üç ünlemli uyarısı: hatte (ä'sız) Plusquamperfekt, yani gerçekten söylemedim / söylememiştim (s.75)." },
+      { "sent": "Ich ___ nichts gesagt. (Söylemeseydim)", "blank": "hätte", "opts": ["hätte", "hatte", "wäre"], "tr": "Hiçbir şey söylemeseydim.", "exp": "Konjunktiv II geçmiş: hätte + Partizip II = -saydım. ä noktası gerçekte olmayanı gösterir (s.75). 'hatte' bu anlamı vermez." },
+      { "sent": "Elisa ___ zu Tom und Nina gezogen.", "blank": "war", "opts": ["war", "hatte", "wäre"], "tr": "Elisa Tom ile Nina'nın yanına taşınmıştı.", "exp": "ziehen (taşınmak) konum değiştirir, sein ile çekilir: war gezogen. Hocanın cevap anahtarında da 'war ... gezogen' yazıyor (s.74)." }
+    ]
+  },
+  "dogrulama": [
+    "s.69'daki hoca notu: 'waren gekommen (hareket, konum/koşul değişikliği)'. Hareket / durum değişikliği için sein, diğerleri için haben genel kuralı hocanın notundan çıkarıldı; kural ve istisnaları (bleiben, sein, passieren) Perplexity'ye sorulup teyit edilmeli.",
+    "s.69'daki 'Sie war zuvor 3 Stunden gelaufen' ve s.74 cevap anahtarı (hatte ... gestritten, war ... gezogen) hocadan alındı. s.74 cümlelerinin Türkçe çevirileri hocada yok; çeviriler bana ait.",
+    "s.70'teki 6 zaman tablosunun Türkçe karşılıkları (Futur 2 = 'öğrenmiş olacağım') hocada yok; tablodaki İngilizce 'I will have learned German' çevirisinden bana ait.",
+    "s.82'deki können örneklerinin Türkçeleri (Perfekt 'yardım edemedim / edememişim') bana ait; İngilizce çevirilerden çevirdim.",
+    "s.73 alıştırma 2 ('Vorher hatten sie ohne Partner gelebt'): Hocanın cevap anahtarındaki özne 'sie' çoğul (Tom ve Nina) olarak kabul edildi; sorunun bağlamı resimden okunamıyor, bağlamı doğrula.",
+    "Görüntü olarak okunan sayfalar: 69, 70, 71, 73, 74, 75, 82. s.68 yalnızca kısmen kullanıldı (kommen / sagen tablosu)."
+  ]
+}

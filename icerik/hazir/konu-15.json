@@ -1,0 +1,719 @@
+{
+  "konu": 15,
+  "baslik": "Hobiler ve gern",
+  "kaynak": [
+    {
+      "arac": "PDF",
+      "sayfa": "Teil-1 s.61-65"
+    }
+  ],
+  "deste": {
+    "title": "🎯 Hobiler ve gern",
+    "accent": "linear-gradient(135deg,#2AACD1,#1c7fa0)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "GERN",
+        "mean": "Hobilerini anlatmak ve 'severek yapıyorum' demek için: <b>gern</b>, <b>lieber</b>, <b>am liebsten</b>.",
+        "story": "Hocanın s.61-65'inde önce <b>das Hobby</b> kelimesi ve hobi listesi, sonra <b>gern</b> (severek) ve yerini gösteren 5 pozisyon, en sonda <b>lieber</b> (tercih) ve <b>am liebsten</b> (en çok) var. Önemli: <b>gern asla tek başına bir cümle olmaz</b>, mutlaka bir fiille kullanılır."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Nominativ",
+        "baslik": "mein / dein / Ihr: hobi kelimesiyle",
+        "basliklar": [
+          "",
+          "der / das",
+          "die (Kadın / Çoğul)"
+        ],
+        "satirlar": [
+          [
+            "benim",
+            "mein",
+            "meine"
+          ],
+          [
+            "senin",
+            "dein",
+            "deine"
+          ],
+          [
+            "(resmi) Sizin",
+            "Ihr",
+            "Ihre"
+          ]
+        ],
+        "not": "Hocanın sarı kutusu (Nominativ): <b>der-das</b> için mein/dein/Ihr, <b>die (kadın veya çoğul)</b> için meine/deine/Ihre. Örnek: <b>Meine Hobbys sind ...</b> (die Hobbys: çoğul).",
+        "kaynak": "Teil-1 s.61"
+      },
+      {
+        "big": "Was sind deine Hobbys?",
+        "mean": "Hobilerini sorma ve cevaplama kalıpları. <b>Was sind deine Hobbys? = Was machst du gern in der Freizeit?</b> Resmi hâli: Was sind <b>Ihre</b> Hobbys? / Was machen Sie in der Freizeit?",
+        "egs": [
+          "Was sind deine Hobbys? — Hobilerin neler?",
+          "Was machst du gern in der Freizeit? — Boş zamanında ne yapmayı seversin?",
+          "Meine Hobbys sind ... / Ich ... gern. — Hobilerim ... / Ben ... severim.",
+          "Eines meiner Hobbys ist Lesen. — Hobilerimden biri okumaktır."
+        ],
+        "tip": "💡 Hoca aynı soruyu iki biçimde veriyor (=): hobi kelimesiyle ve gern ile. Cevapta da <b>Meine Hobbys sind ...</b> ya da <b>Ich ... gern.</b> kullan.",
+        "kaynak": "Teil-1 s.61-62"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Hobi listesi 1",
+        "baslik": "Hocanın 17'lik listesi (s.61)",
+        "basliklar": [
+          "Almanca",
+          "Türkçe"
+        ],
+        "satirlar": [
+          [
+            "Joggen",
+            "koşu yapmak"
+          ],
+          [
+            "Wandern",
+            "doğa yürüyüşü"
+          ],
+          [
+            "Fahrrad fahren",
+            "bisiklet sürmek"
+          ],
+          [
+            "Grillen",
+            "mangal / ızgara yapmak"
+          ],
+          [
+            "Fotografieren",
+            "fotoğraf çekmek"
+          ],
+          [
+            "Tanzen",
+            "dans etmek"
+          ],
+          [
+            "Schwimmen",
+            "yüzmek"
+          ],
+          [
+            "im Internet surfen",
+            "internette gezinmek"
+          ],
+          [
+            "Lesen",
+            "okumak"
+          ]
+        ],
+        "not": "Hocanın notları: <b>das Fahrrad = das Rad</b> (bisiklet). <b>Wir gehen am Wochenende wandern.</b> (Hafta sonu doğa yürüyüşüne gideriz.) <b>Wir gehen am Wochenende schwimmen.</b>",
+        "kaynak": "Teil-1 s.61"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Hobi listesi 1 (devam)",
+        "baslik": "Listenin geri kalanı (s.61)",
+        "basliklar": [
+          "Almanca",
+          "Türkçe"
+        ],
+        "satirlar": [
+          [
+            "einen Film sehen = einen Film schauen",
+            "film izlemek"
+          ],
+          [
+            "ins Kino gehen",
+            "sinemaya gitmek"
+          ],
+          [
+            "Fußball spielen",
+            "futbol oynamak"
+          ],
+          [
+            "Klettern",
+            "tırmanmak"
+          ],
+          [
+            "Snowboard fahren",
+            "snowboard yapmak"
+          ],
+          [
+            "Reisen",
+            "seyahat etmek"
+          ],
+          [
+            "Reiten",
+            "ata binmek"
+          ],
+          [
+            "Kochen",
+            "yemek yapmak"
+          ],
+          [
+            "Tauchen",
+            "dalış yapmak"
+          ]
+        ],
+        "not": "Hocanın notu: <b>Ich bin am kochen</b> = yemek yapıyorum (anlık). <b>einen Film sehen = einen Film schauen</b> iki söyleyiş aynı.",
+        "kaynak": "Teil-1 s.61"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Hobi listesi 2",
+        "baslik": "Resimli sayfa (s.62)",
+        "basliklar": [
+          "Almanca",
+          "Türkçe"
+        ],
+        "satirlar": [
+          [
+            "lesen",
+            "okumak"
+          ],
+          [
+            "basteln",
+            "el işi yapmak"
+          ],
+          [
+            "singen",
+            "şarkı söylemek"
+          ],
+          [
+            "malen",
+            "resim yapmak"
+          ],
+          [
+            "tanzen",
+            "dans etmek"
+          ],
+          [
+            "Musik hören",
+            "müzik dinlemek"
+          ],
+          [
+            "Schach spielen",
+            "satranç oynamak"
+          ],
+          [
+            "Sticker sammeln",
+            "çıkartma biriktirmek"
+          ],
+          [
+            "Freunde treffen",
+            "arkadaşlarla buluşmak"
+          ],
+          [
+            "reiten",
+            "ata binmek"
+          ],
+          [
+            "spazieren gehen",
+            "yürüyüşe çıkmak"
+          ],
+          [
+            "wandern",
+            "doğa yürüyüşü yapmak"
+          ],
+          [
+            "im Internet surfen",
+            "internette gezinmek"
+          ],
+          [
+            "Skateboard fahren",
+            "kaykay yapmak"
+          ],
+          [
+            "ins Kino gehen",
+            "sinemaya gitmek"
+          ]
+        ],
+        "not": "Hocanın örnek cümlesi: <b>Eines meiner Hobbys ist Lesen.</b>",
+        "kaynak": "Teil-1 s.62"
+      },
+      {
+        "big": "spazieren gehen",
+        "mean": "<b>spazieren gehen</b> = yürüyüşe çıkmak. İsim hâli: <b>der Spaziergang</b> = yürüyüş. Hocanın örneği bir öneri/yönlendirme cümlesi.",
+        "egs": [
+          "Warum machst du nicht einen kleinen <b>Spaziergang</b>? — Neden küçük bir yürüyüşe çıkmıyorsun? / Sen bir yürüyüşe çıksana!",
+          "Ich gehe <b>spazieren</b>. — (Anlam, hocanın listesinden) Yürüyüşe çıkıyorum."
+        ],
+        "tip": "💡 Hocanın sayfasında bu cümle mavi kutuda ve 'Neden yürüyüşe çıkmıyorsun? / Sen bi yürüyüşe çıksana!' diye çevrilmiş.",
+        "kaynak": "Teil-1 s.62"
+      },
+      {
+        "big": "gern",
+        "mean": "<b>gern</b> = severek, '-meyi severim' anlamı katar. Mutlaka bir fiille kullanılır; tek başına cümle olmaz. <b>Ich gern.</b> ✘ — Fiil yok!",
+        "egs": [
+          "Laura wohnt <b>gern</b> in Berlin. — Laura Berlin'de severek yaşıyor.",
+          "Gehst du <b>gern</b> ins Kino? — Sinemaya gitmeyi sever misin?",
+          "Morgens höre ich <b>gern</b> Musik. — Sabahları müzik dinlemeyi severim."
+        ],
+        "tip": "💡 Hocanın uyarısı: <b>Gern geschehen.</b> = 'Bir şey değil.' (teşekkür cevabı). <b>Ich gern.</b> hocanın sayfasında çarpı ile çizilmiş: gern fiilsiz kullanılmaz.",
+        "kaynak": "Teil-1 s.63"
+      },
+      {
+        "tur": "sema",
+        "kicker": "gern nerede durur?",
+        "baslik": "5 pozisyon (hocanın listesi)",
+        "satirlar": [
+          {
+            "etiket": "1) Hauptsatz",
+            "not": "gern fiilden SONRA",
+            "jetonlar": [
+              {
+                "t": "Laura",
+                "r": "ozne"
+              },
+              {
+                "t": "wohnt",
+                "r": "fiil"
+              },
+              {
+                "t": "gern",
+                "r": "diger"
+              },
+              {
+                "t": "in Berlin",
+                "r": "zaman"
+              }
+            ],
+            "tr": "Laura Berlin'de severek yaşıyor."
+          },
+          {
+            "etiket": "2) Nebensatz",
+            "not": "gern fiilden ÖNCE",
+            "jetonlar": [
+              {
+                "t": "dass",
+                "r": "bag"
+              },
+              {
+                "t": "er",
+                "r": "ozne"
+              },
+              {
+                "t": "gern",
+                "r": "diger"
+              },
+              {
+                "t": "kocht",
+                "r": "fiil",
+                "sonda": true
+              }
+            ],
+            "tr": "...onun severek yemek yaptığını (Tom hat gesagt, dass er gern kocht.)"
+          },
+          {
+            "etiket": "3) Frage",
+            "not": "gern öznenin ARDINDAN",
+            "jetonlar": [
+              {
+                "t": "Gehst",
+                "r": "fiil"
+              },
+              {
+                "t": "du",
+                "r": "ozne"
+              },
+              {
+                "t": "gern",
+                "r": "diger"
+              },
+              {
+                "t": "ins Kino?",
+                "r": "zaman"
+              }
+            ],
+            "tr": "Sinemaya gitmeyi sever misin?"
+          },
+          {
+            "etiket": "4) Verneinung",
+            "not": "gern nicht'ten SONRA",
+            "jetonlar": [
+              {
+                "t": "Anton",
+                "r": "ozne"
+              },
+              {
+                "t": "wohnt",
+                "r": "fiil"
+              },
+              {
+                "t": "nicht",
+                "r": "diger"
+              },
+              {
+                "t": "gern",
+                "r": "diger"
+              },
+              {
+                "t": "in Berlin",
+                "r": "zaman"
+              }
+            ],
+            "tr": "Anton Berlin'de yaşamayı sevmiyor."
+          },
+          {
+            "etiket": "5) Satzanfang",
+            "not": "gern öznenin ARDINDAN",
+            "jetonlar": [
+              {
+                "t": "Im Kino",
+                "r": "zaman"
+              },
+              {
+                "t": "essen",
+                "r": "fiil"
+              },
+              {
+                "t": "wir",
+                "r": "ozne"
+              },
+              {
+                "t": "gern",
+                "r": "diger"
+              },
+              {
+                "t": "Popcorn",
+                "r": "nesne"
+              }
+            ],
+            "tr": "Sinemada severek patlamış mısır yeriz."
+          }
+        ],
+        "not": "<b>Hocanın özeti:</b> Ana cümlede gern fiilden sonra, yan cümlede fiilden önce; soruda ve cümle başında özneden sonra; olumsuzda <b>nicht gern</b> sırası.",
+        "kaynak": "Teil-1 s.63"
+      },
+      {
+        "tur": "sema",
+        "kicker": "gern ve zaman",
+        "baslik": "2 önemli istisna (hocanın kutusu)",
+        "satirlar": [
+          {
+            "etiket": "Zaman sözcüğü",
+            "not": "morgens gern'den ÖNCE",
+            "jetonlar": [
+              {
+                "t": "Ich",
+                "r": "ozne"
+              },
+              {
+                "t": "trinke",
+                "r": "fiil"
+              },
+              {
+                "t": "morgens",
+                "r": "zaman"
+              },
+              {
+                "t": "gern",
+                "r": "diger"
+              },
+              {
+                "t": "Kaffee",
+                "r": "nesne"
+              }
+            ],
+            "tr": "Sabahları severek kahve içerim."
+          },
+          {
+            "etiket": "Zamir",
+            "not": "gern zamirden SONRA",
+            "jetonlar": [
+              {
+                "t": "Ich",
+                "r": "ozne"
+              },
+              {
+                "t": "helfe",
+                "r": "fiil"
+              },
+              {
+                "t": "dir",
+                "r": "nesne"
+              },
+              {
+                "t": "gern",
+                "r": "diger"
+              }
+            ],
+            "tr": "Sana severek yardım ederim."
+          },
+          {
+            "etiket": "TMP önceliği",
+            "not": "zaman önce, gern sonra",
+            "jetonlar": [
+              {
+                "t": "Ich",
+                "r": "ozne"
+              },
+              {
+                "t": "höre",
+                "r": "fiil"
+              },
+              {
+                "t": "morgens",
+                "r": "zaman"
+              },
+              {
+                "t": "gern",
+                "r": "diger"
+              },
+              {
+                "t": "Musik",
+                "r": "nesne"
+              }
+            ],
+            "tr": "Sabahları müzik dinlemeyi severim."
+          }
+        ],
+        "not": "<b>Hoca:</b> 'timewords before gern' ve 'gern stands after the pronoun'. Aynı cümle iki biçimde: <b>Morgens höre ich gern Musik.</b> / <b>Ich höre morgens gern Musik.</b> (<b>TMP önceliği</b>).",
+        "kaynak": "Teil-1 s.63"
+      },
+      {
+        "big": "lieber — am liebsten",
+        "mean": "<b>gern</b> = severim. <b>lieber</b> = tercih ederim. <b>am liebsten</b> = en çok severim / en çok tercih ederim.",
+        "egs": [
+          "Ich trinke <b>lieber</b> Kaffee. — Kahve içmeyi tercih ederim.",
+          "Meine Katze schläft <b>am liebsten</b> auf dem Sofa. — Kedim en çok kanepede uyumayı sever."
+        ],
+        "tip": "💡 Hocanın iki kırmızı kalbi: <b>Am liebsten = En çok</b>, <b>Lieber = Tercih etmek</b>. Basamak gibi düşün: gern → lieber → am liebsten.",
+        "kaynak": "Teil-1 s.64-65"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Fiil çekimi",
+        "baslik": "Hobi fiilleri: du ve er/sie değişir",
+        "basliklar": [
+          "",
+          "lesen",
+          "treffen",
+          "fahren",
+          "schlafen"
+        ],
+        "satirlar": [
+          [
+            "du",
+            "liest",
+            "triffst",
+            "fährst",
+            "schläfst"
+          ],
+          [
+            "er / sie",
+            "liest",
+            "trifft",
+            "fährt",
+            "schläft"
+          ]
+        ],
+        "not": "Hocanın s.61'indeki küçük tablodan: du ve er/sie biçimleri. Örnek: <b>Liest du auch gern?</b>",
+        "kaynak": "Teil-1 s.61"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Hobi ve gern: sık hatalar",
+        "maddeler": [
+          "<b>gern</b> tek başına cümle olmaz: ✘ Ich gern. → ✔ Ich schwimme gern.",
+          "<b>Gern geschehen.</b> = Bir şey değil (teşekkür cevabı); hobi anlatan gern ile karıştırma.",
+          "Ana cümle: <b>fiil + gern</b>. Yan cümle: <b>gern + fiil (sonda)</b>.",
+          "Olumsuz: <b>nicht gern</b> (nicht önce, gern sonra).",
+          "Zaman sözcüğü <b>morgens</b> gern'den önce gelir; zamirden sonra gern: <b>Ich helfe dir gern.</b>",
+          "Hobi çoğul: <b>Meine Hobbys sind ...</b> (sind). Tek hobi: <b>Eines meiner Hobbys ist ...</b> (ist)."
+        ],
+        "uyari": "En sık yapılan hata: gern'i cümlenin sonuna tek başına atmak. Hocanın sayfasında 'Ich gern.' çarpı ile silinmiş.",
+        "kaynak": "Teil-1 s.62-63"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "gern → lieber → am liebsten",
+        "mean": "Severim → tercih ederim → en çok severim",
+        "story": "<b>Laura wohnt gern in Berlin. / Gehst du gern ins Kino? / Ich trinke lieber Kaffee. / Meine Katze schläft am liebsten auf dem Sofa.</b>"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d15_gern",
+    "title": "Hobiler ve gern",
+    "emoji": "❤️",
+    "desc": "gern, lieber, am liebsten ve gern'ın yeri",
+    "rule": "<b>gern</b> = severek (fiille kullanılır, tek başına olmaz).<br><b>Ana cümle:</b> fiil + gern (Laura wohnt gern in Berlin). <b>Yan cümle:</b> gern + fiil sonda. <b>Soru / cümle başı:</b> özneden sonra. <b>Olumsuz:</b> nicht gern.<br><b>İstisna:</b> zaman sözcüğü gern'den önce; gern zamirden sonra (Ich helfe dir gern).<br><b>lieber</b> = tercih; <b>am liebsten</b> = en çok. <b>Gern geschehen</b> = bir şey değil.",
+    "qs": [
+      {
+        "sent": "Laura wohnt ___ in Berlin.",
+        "blank": "gern",
+        "opts": [
+          "gern",
+          "lieber",
+          "am liebsten"
+        ],
+        "tr": "Laura Berlin'de severek yaşıyor.",
+        "exp": "Hocanın 1. pozisyonu: ana cümlede gern fiilden (wohnt) sonra gelir. lieber ve am liebsten tercih/üstünlük bildirir, burada anlam 'severek' olmalı."
+      },
+      {
+        "sent": "Gehst du ___ ins Kino?",
+        "blank": "gern",
+        "opts": [
+          "gern",
+          "lieber",
+          "geschehen"
+        ],
+        "tr": "Sinemaya gitmeyi sever misin?",
+        "exp": "Hocanın 3. pozisyonu: soruda gern özneden (du) sonra gelir. geschehen yalnızca 'Gern geschehen' kalıbında kullanılır."
+      },
+      {
+        "sent": "Im Kino essen wir ___ Popcorn.",
+        "blank": "gern",
+        "opts": [
+          "gern",
+          "gerade",
+          "geschehen"
+        ],
+        "tr": "Sinemada severek patlamış mısır yeriz.",
+        "exp": "Hocanın 5. pozisyonu: cümle başında başka öğe varsa fiil ikinci olur ve gern özneden (wir) sonra gelir."
+      },
+      {
+        "sent": "Morgens höre ich ___ Musik.",
+        "blank": "gern",
+        "opts": [
+          "gern",
+          "nicht",
+          "lieber"
+        ],
+        "tr": "Sabahları müzik dinlemeyi severim.",
+        "exp": "Hocanın örneği: Morgens höre ich gern Musik. Zaman sözcüğü (morgens) başta, gern özneden sonra gelir."
+      },
+      {
+        "sent": "Danke! — ___ geschehen.",
+        "blank": "Gern",
+        "opts": [
+          "Gern",
+          "Lieber",
+          "Gut"
+        ],
+        "tr": "Teşekkürler! — Bir şey değil.",
+        "exp": "Hocanın kutusu: Gern geschehen = Bir şey değil. Burada gern 'severek' değil, kalıp ifadedir."
+      },
+      {
+        "sent": "Ich trinke ___ Kaffee.",
+        "blank": "lieber",
+        "opts": [
+          "lieber",
+          "gern",
+          "am liebsten"
+        ],
+        "tr": "Kahve içmeyi tercih ederim.",
+        "exp": "Hocanın kalbi: Lieber = tercih etmek. Ich trinke lieber Kaffee. En çok anlamı için am liebsten kullanılır."
+      },
+      {
+        "sent": "Meine Katze schläft ___ auf dem Sofa.",
+        "blank": "am liebsten",
+        "opts": [
+          "am liebsten",
+          "lieber",
+          "gern"
+        ],
+        "tr": "Kedim en çok kanepede uyur.",
+        "exp": "Hocanın kalbi: Am liebsten = En çok. Cümle 'en çok' diyor; lieber karşılaştırma, gern genel sevmedir."
+      },
+      {
+        "sent": "Was ___ du gern in der Freizeit?",
+        "blank": "machst",
+        "opts": [
+          "machst",
+          "machen",
+          "macht"
+        ],
+        "tr": "Boş zamanında ne yapmayı seversin?",
+        "exp": "Hocanın sorusu: Was machst du gern in der Freizeit? du ile fiil -st alır. 'machen' wir/sie ile, 'macht' er/sie ile."
+      },
+      {
+        "sent": "Meine Hobbys ___ Lesen und Schwimmen.",
+        "blank": "sind",
+        "opts": [
+          "sind",
+          "ist",
+          "bin"
+        ],
+        "tr": "Hobilerim okumak ve yüzmektir.",
+        "exp": "Hocanın kalıbı: Meine Hobbys sind ... Hobbys çoğul olduğu için sind. 'ist' tekil içindir: Eines meiner Hobbys ist Lesen."
+      },
+      {
+        "sent": "Was sind ___ Hobbys? (resmi: Siz)",
+        "blank": "Ihre",
+        "opts": [
+          "Ihre",
+          "deine",
+          "Ihr"
+        ],
+        "tr": "Sizin hobileriniz nedir?",
+        "exp": "Hocanın kutusu: (Resmi) Sizin: Ihr (der/das) — Ihre (die). Hobbys çoğul olduğu için Ihre. deine senin demektir ve resmi değildir."
+      },
+      {
+        "sent": "Anton wohnt ___ gern in Berlin.",
+        "blank": "nicht",
+        "opts": [
+          "nicht",
+          "kein",
+          "nichts"
+        ],
+        "tr": "Anton Berlin'de yaşamayı sevmiyor.",
+        "exp": "Hocanın 4. pozisyonu: olumsuzda gern nicht'ten sonra gelir (nicht gern). kein isimle, nichts hiçbir şey anlamında kullanılır; fiili olumsuzlamaz."
+      },
+      {
+        "sent": "Ich helfe ___ gern.",
+        "blank": "dir",
+        "opts": [
+          "dir",
+          "du",
+          "dich"
+        ],
+        "tr": "Sana severek yardım ederim.",
+        "exp": "Hocanın istisnası: gern zamirden sonra gelir: Ich helfe dir gern. 'du' özne zamiridir, burada nesne gerekir; kalıp dir ile verildi."
+      },
+      {
+        "sent": "Du ___ auch gern?",
+        "blank": "liest",
+        "opts": [
+          "liest",
+          "lest",
+          "lesst"
+        ],
+        "tr": "Sen de okumayı sever misin? (Liest du auch gern?)",
+        "exp": "Hocanın s.61 tablosunda du liest yazıyor; lesen fiilinde du'da e → ie olur. 'lest' ihr formuna benzer, 'lesst' ise yazım hatasıdır."
+      },
+      {
+        "sent": "Er ___ am Wochenende gern Fahrrad.",
+        "blank": "fährt",
+        "opts": [
+          "fährt",
+          "fahrt",
+          "fährst"
+        ],
+        "tr": "O hafta sonu severek bisiklet sürer.",
+        "exp": "Hocanın tablosunda er/sie fährt yazıyor (fahren: a → ä). 'fährst' du ile, 'fahrt' ise ihr formudur."
+      },
+      {
+        "sent": "Tom hat gesagt, dass er ___ kocht.",
+        "blank": "gern",
+        "opts": [
+          "gern",
+          "lieber",
+          "geschehen"
+        ],
+        "tr": "Tom onun severek yemek yaptığını söyledi.",
+        "exp": "Hocanın 2. pozisyonu: yan cümlede gern fiilden (kocht) ÖNCE gelir; fiil sona gider. Ana cümledeki gibi fiilden sonra konmaz."
+      }
+    ]
+  },
+  "dogrulama": [
+    "s.61 tablosunda fiil sütun başlıkları (lesen/treffen/fahren/schlafen) görselde kesik; çekim biçimleri (liest, triffst/trifft, fährst/fährt, schläfst/schläft) okundu, fiil adları benim tamamlamam. Perplexity'ye sor: 'treffen: du triffst, er trifft; schlafen: du schläfst; doğru mu?'",
+    "Hocanın s.61 notu 'Ich bin am kochen' (= yemek yapıyorum): bu bir günlük konuşma kalıbı mı, A1'de kullanılır mı? Perplexity'ye sor.",
+    "s.62 resimli listedeki Türkçe karşılıklar (basteln = el işi yapmak, Sticker sammeln = çıkartma biriktirmek vb.) hocada yok; çeviriler bana ait. Perplexity'ye sor.",
+    "s.62 'Ich habe einen Scheißohrwurm' ve 'der Ohrwurm' notu argo içerdiği için derse alınmadı.",
+    "'Eines meiner Hobbys ist Lesen' (s.62) hocanın cümlesi; 'Eines meiner' çekimi (Genitiv) hoca açıklamıyor, derste açıklanmadı.",
+    "Kaynak aralığı: s.61-65 (gern/lieber/am liebsten) dersin esasıdır; s.66 (İngilizce metin) ve s.67 (Türkçe metin) okuma metinleridir, ders sayfası yapılmadı."
+  ]
+}

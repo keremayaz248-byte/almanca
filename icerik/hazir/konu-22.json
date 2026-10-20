@@ -1,0 +1,207 @@
+{
+  "konu": 22,
+  "baslik": "Die Plural-Formen (Çoğul biçimleri)",
+  "kaynak": [{ "arac": "PDF", "sayfa": "Teil-1 s.91-96, s.101" }],
+  "deste": {
+    "title": "👨‍👩‍👧 Die Plural-Formen",
+    "accent": "linear-gradient(135deg,#58CC02,#3e9a00)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Çoğul",
+        "big": "der Plural",
+        "mean": "Almancada çoğul tek bir ek değildir: 6 farklı çoğul biçimi var ve isme bakarak hangisinin geleceğini tahmin edebilirsin.",
+        "story": "Türkçede çoğul hep <b>-ler/-lar</b>. Almancada ise isim çoğul olurken <b>-en, -e, -n, -s, -er</b> alır ya da <b>hiç değişmez</b>. Hocanın dersi, isme bakıp çoğul ekini tahmin etmen için kurallar verir: önce 6 biçime, sonra her biçimin hangi isimlerde geldiğine bakacağız. Çoğulda artikel her zaman <b>die</b> olur."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Genel bakış",
+        "baslik": "Regeln der Pluralbildung: 6 çoğul biçimi",
+        "basliklar": ["Çoğul biçimi", "Tekil", "Çoğul"],
+        "satirlar": [
+          ["-en", "Mensch<br>Frau", "Mensch<b>en</b><br>Frau<b>en</b>"],
+          ["-e", "Pferd<br>Hund", "Pferd<b>e</b><br>Hund<b>e</b>"],
+          ["-n", "Hase<br>Tante", "Hase<b>n</b><br>Tante<b>n</b>"],
+          ["-s", "Opa<br>Auto", "Opa<b>s</b><br>Auto<b>s</b>"],
+          ["-er", "Kind<br>Haus", "Kind<b>er</b><br>H<b>äus</b>er"],
+          ["-- (ek yok)", "Schüler<br>Tiger", "Schüler<br>Tiger"]
+        ],
+        "not": "<b>Not:</b> Haus → Häuser'de ek (-er) ile birlikte a harfi ä olur (iki nokta = Umlaut). Aşağıdaki sayfalarda hangi isim hangi biçimi alır, tek tek göreceğiz.",
+        "kaynak": "Teil-1 s.91"
+      },
+      {
+        "big": "-en / -n alanlar (1): Student, Polizist",
+        "mean": "<b>-e, -ent, -ant, -and, -or, -ist</b> ile biten eril isimler çoğulda <b>-en</b> alır.",
+        "egs": [
+          "der Student → die Student<b>en</b> — öğrenci → öğrenciler",
+          "der Polizist → die Polizist<b>en</b> — polis → polisler"
+        ],
+        "tip": "💡 Hocanın tabloda gösterdiği örnekler bunlar: Student ve Polizist. Eril ama -er/-e kuralına girmeyen bu gruba dikkat.",
+        "kaynak": "Teil-1 s.92"
+      },
+      {
+        "big": "-en alanlar (2): Universität, Nation",
+        "mean": "Sonu <b>-in, -ion, -ik, -ung, -tät, -schaft, -keit, -heit</b> olan dişi isimler çoğulda <b>-en</b> alır.",
+        "egs": [
+          "die Universität → die Universität<b>en</b> — üniversite → üniversiteler",
+          "die Nation → die Nation<b>en</b> — ulus → uluslar"
+        ],
+        "tip": "💡 Bu sonekleri (-ung, -heit, -keit, -tät, -ion...) gördün mü, çoğul <b>-en</b>.",
+        "kaynak": "Teil-1 s.92"
+      },
+      {
+        "big": "-e ile biten isimler → -n",
+        "mean": "Sonu <b>-e</b> olan isimlerin (hocaya göre %99'u) çoğulu <b>-n</b> ile yapılır: die Flasche → die Flaschen.",
+        "egs": [
+          "die Flasche → die Flasche<b>n</b> — şişe → şişeler",
+          "die Tasse → die Tasse<b>n</b> — fincan → fincanlar"
+        ],
+        "tip": "💡 Hocanın özet sayfasında: <b>-e ile biten isimler (%90) → -n</b>. Yani 'e'yle bitiyorsa sonuna sadece n ekle.",
+        "kaynak": "Teil-1 s.92, s.96"
+      },
+      {
+        "big": "-in → -innen",
+        "mean": "Sonu <b>-in</b> olan dişi isimlerde <b>-en</b> eklenmeden önce kelime sonundaki <b>n</b> tekrarlanır: -inn<b>en</b>.",
+        "egs": [
+          "die Kellnerin → die Kellner<b>innen</b> (garson → garsonlar) ✔  |  die Kellnerinen ✘",
+          "die Freundin → die Freund<b>innen</b> (kız arkadaş → kız arkadaşlar) ✔  |  die Freundinen ✘"
+        ],
+        "tip": "💡 Hocanın uyarısı: <b>in</b> ile biten isimlerde -en çoğul ekinden ÖNCE sondaki <b>n</b> tekrarlanır. Yani -inen değil, <b>-innen</b>.",
+        "kaynak": "Teil-1 s.92"
+      },
+      {
+        "big": "-e alanlar",
+        "mean": "Eril isimlerin çoğu (hocaya göre <b>%90</b>) çoğulda <b>-e</b> alır. Tek heceli dişi isimlerin çoğu da <b>-e</b> alır.",
+        "egs": [
+          "der Stift → die Stift<b>e</b> — kalem → kalemler",
+          "der König → die König<b>e</b> — kral → krallar",
+          "die Nacht → die N<b>ä</b>cht<b>e</b> — gece → geceler",
+          "die Hand → die H<b>ä</b>nd<b>e</b> — el → eller"
+        ],
+        "tip": "💡 Hocanın notu: <b>a, o, u</b> harfli dişi isimler üzerine iki nokta alır (<b>Umlaut</b>): die Stadt → die Städte (şehir → şehirler). Eril isimlerde de çoğunlukla geçerli: der Ball → die Bälle (top → toplar). Umlaut = sesli harfin üzerindeki iki nokta.",
+        "kaynak": "Teil-1 s.93"
+      },
+      {
+        "big": "-er alanlar",
+        "mean": "Nötr (das) ve tek heceli isimler çoğulda genellikle <b>-er</b> alır; çoğu zaman Umlaut'la birlikte.",
+        "egs": [
+          "das Haus → die H<b>äus</b>er — ev → evler",
+          "das Glas → die Gl<b>äs</b>er — cam → camlar",
+          "das Kind → die Kind<b>er</b> — çocuk → çocuklar",
+          "das Wort → die W<b>ört</b>er — kelime → kelimeler",
+          "das Buch → die B<b>üch</b>er — kitap → kitaplar"
+        ],
+        "tip": "💡 Hocanın uyarısı: <b>Dişi isimler ASLA r veya er ile çoğul oluşturmaz.</b> Dişi isimler yalnız <b>n, en, e</b> alır.",
+        "kaynak": "Teil-1 s.93"
+      },
+      {
+        "big": "-s alanlar",
+        "mean": "<b>a, i, o, u</b> veya <b>y</b> ile biten isimler, bir de birçok yabancı kelime çoğulda <b>-s</b> alır. Aile isimleri de -s alır.",
+        "egs": [
+          "das Sofa → die Sofa<b>s</b> — kanepe → kanepeler",
+          "das Auto → die Auto<b>s</b> — araba → arabalar",
+          "die Oma → die Oma<b>s</b> — büyükanne → büyükanneler",
+          "das Hobby → die Hobby<b>s</b> — hobi → hobiler",
+          "das Team → die Team<b>s</b>, der Job → die Job<b>s</b> — takım, iş (yabancı kelime)",
+          "die Meiers (= Familie Meier) — Meier ailesi"
+        ],
+        "tip": "💡 Hocanın aile örneği: die Meiers, die Müllers = Meier ailesi, Müller ailesi.",
+        "kaynak": "Teil-1 s.94"
+      },
+      {
+        "big": "Ek almayanlar",
+        "mean": "Bazı isimlere çoğulda <b>hiç ek gelmez</b>; sadece artikel <b>die</b> olur. İçinde <b>a, o, u</b> varsa üzerine iki nokta gelebilir.",
+        "egs": [
+          "der Löffel → die Löffel — kaşık → kaşıklar",
+          "der Garten → die G<b>ä</b>rten — bahçe → bahçeler",
+          "der Fehler → die Fehler — hata → hatalar",
+          "das Fenster → die Fenster — pencere → pencereler",
+          "das Mädchen → die Mädchen — kız çocuğu → kız çocukları",
+          "das Fräulein → die Fräulein — genç kadın → genç kadınlar"
+        ],
+        "tip": "💡 İki grup: sonu <b>-er, -el, -en</b> olan isimlerin çoğu ve sonu <b>-chen</b> / <b>-lein</b> olan isimler.",
+        "kaynak": "Teil-1 s.94"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Özet",
+        "baslik": "der Überblick: hangi isim hangi çoğulu alır?",
+        "basliklar": ["Hangi isim", "Olasılık", "Çoğul"],
+        "satirlar": [
+          ["der ile başlayan eril isimler", "%90", "-e"],
+          ["die ile başlayan dişi isimler", "yaklaşık %90", "-n / -en"],
+          ["das ile başlayan nötr isimler", "yaklaşık %80", "-er"],
+          ["-e ile biten isimler", "%90", "-n"],
+          ["Emin değilsen", "%80", "-e"]
+        ],
+        "not": "<b>Hocanın hilesi:</b> Çoğulu bilmiyorsan <b>-e</b> dene (%80 tutar). Dişi isimde -n / -en, nötr isimde -er düşün.",
+        "kaynak": "Teil-1 s.96"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Örnek liste",
+        "baslik": "Hocanın örnek çoğul listesi",
+        "basliklar": ["Tekil", "Çoğul", "Türkçe"],
+        "satirlar": [
+          ["der Bruder", "die Brüder", "erkek kardeş"],
+          ["die Schwester", "die Schwestern", "kız kardeş"],
+          ["der Hund", "die Hunde", "köpek"],
+          ["die Katze", "die Katzen", "kedi"],
+          ["der Saft", "die Säfte", "meyve suyu"],
+          ["die Banane", "die Bananen", "muz"],
+          ["der Lehrer", "die Lehrer", "öğretmen"],
+          ["das Buch", "die Bücher", "kitap"],
+          ["das Heft", "die Hefte", "defter"]
+        ],
+        "not": "<b>Dikkat:</b> das Heft → die Hefte nötr olduğu halde -e alır (nötr = %80 -er, yani istisnalar olur).",
+        "kaynak": "Teil-1 s.101"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Özel durumlar",
+        "baslik": "Çoğulu olmayan / tekili olmayan isimler",
+        "maddeler": [
+          "<b>Çoğulu olmayanlar</b> (sadece tekil): das Obst (meyve), die Milch (süt), der Durst (susuzluk), das Geld (para), die Zeit (zaman), das Glück (şans).",
+          "<b>Tekili olmayanlar</b> (sadece çoğul): die Eltern (ebeveyn), die Geschwister (kardeşler), die Leute (insanlar), die Ferien (tatil), die Kosten (maliyetler), die Lebensmittel (gıda maddeleri)."
+        ],
+        "uyari": "En sık yapılan hata: dişi isme -er/-r eklemek (dişi isimler ASLA -r/-er almaz), in ile bitende -inen yazmak (doğrusu -innen) ve das Obst gibi çoğulsuz kelimeye çoğul eki eklemek.",
+        "kaynak": "Teil-1 s.95, s.92, s.93"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "Eril -e · Dişi -n/-en · Nötr -er",
+        "mean": "Bilmiyorsan: -e dene (%80).",
+        "story": "Student → Studenten, Kellnerin → Kellner<b>inn</b>en, Stift → Stifte, Haus → Häuser, Auto → Autos, Löffel → Löffel. <b>Dişi isimler ASLA -r/-er almaz.</b> Obst ve Milch çoğulsuz; Eltern ve Leute tekilsiz."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d22_plural",
+    "title": "Die Plural-Formen",
+    "emoji": "👨‍👩‍👧",
+    "desc": "6 çoğul biçimi: -en, -e, -n, -s, -er, ek yok",
+    "rule": "<b>Eril</b> isimler çoğunlukla <b>-e</b> alır (%90). <b>Dişi</b> isimler <b>-n / -en</b> alır, <b>-in</b> ile biten dişilerde <b>-innen</b> olur. <b>Nötr</b> isimler çoğunlukla <b>-er</b> alır (%80).<br><b>-s</b>: a, i, o, u, y ile biten ve yabancı kelimeler. <b>Ek yok</b>: -er, -el, -en ile bitenler, -chen, -lein.<br>Dişi isimler ASLA -r / -er almaz. Emin değilsen <b>-e</b> dene.",
+    "qs": [
+      { "sent": "Die ___ sind groß. (der Hund)", "blank": "Hunde", "opts": ["Hunde", "Hunden", "Hunder", "Hunds"], "tr": "Köpekler büyük.", "exp": "Hund eril bir isim; eril isimlerin çoğu (%90) çoğulda -e alır: der Hund → die Hunde (s.91, s.96)." },
+      { "sent": "Die ___ sind nett. (die Frau)", "blank": "Frauen", "opts": ["Frauen", "Fraue", "Frauer", "Fraus"], "tr": "Kadınlar iyi (hoş).", "exp": "Frau dişi bir isim; dişi isimler -n / -en alır: die Frau → die Frauen. Dişi isim -er veya -r almaz (s.91, s.93)." },
+      { "sent": "Ich habe zwei ___. (das Auto)", "blank": "Autos", "opts": ["Autos", "Autoe", "Autoen", "Auter"], "tr": "İki arabam var.", "exp": "Auto -o ile bitiyor; o ile biten isimler çoğulda -s alır: das Auto → die Autos (s.94)." },
+      { "sent": "Die ___ spielen im Garten. (das Kind)", "blank": "Kinder", "opts": ["Kinder", "Kinde", "Kinden", "Kinds"], "tr": "Çocuklar bahçede oynuyor.", "exp": "Kind nötr (das) ve tek heceli: nötr isimler çoğulda genelde -er alır: das Kind → die Kinder (s.93)." },
+      { "sent": "Auf dem Tisch liegen drei ___. (das Buch)", "blank": "Bücher", "opts": ["Bücher", "Buche", "Buchen", "Buchs"], "tr": "Masanın üstünde üç kitap var.", "exp": "Buch nötr ve tek heceli: -er alır ve a/o/u üzerine Umlaut gelir: das Buch → die Bücher (s.93)." },
+      { "sent": "Die ___ lernen Deutsch. (der Student)", "blank": "Studenten", "opts": ["Studenten", "Studente", "Studenter", "Students"], "tr": "Öğrenciler Almanca öğreniyor.", "exp": "Student eril ama -ent ile bitiyor; -e, -ent, -ant, -and, -or, -ist ile biten eril isimler çoğulda -en alır: die Studenten (s.92)." },
+      { "sent": "In Berlin gibt es viele ___. (die Universität)", "blank": "Universitäten", "opts": ["Universitäten", "Universitäts", "Universitäte", "Universitäter"], "tr": "Berlin'de birçok üniversite var.", "exp": "-tät ile biten dişi isimler çoğulda -en alır: die Universität → die Universitäten (s.92). Dişi isim -er almaz." },
+      { "sent": "Hier arbeiten zwei ___. (die Kellnerin)", "blank": "Kellnerinnen", "opts": ["Kellnerinen", "Kellnerinnen", "Kellnerine", "Kellnerins"], "tr": "Burada iki garson (kadın) çalışıyor.", "exp": "-in ile biten dişi isimlerde -en gelmeden önce sondaki n tekrarlanır: -innen. Hocanın tahtasında Kellnerinen çarpılıdır (s.92)." },
+      { "sent": "Auf dem Tisch liegen zwei ___. (der Löffel)", "blank": "Löffel", "opts": ["Löffel", "Löffeln", "Löffele", "Löffels"], "tr": "Masanın üstünde iki kaşık var.", "exp": "-el ile biten isimlerin çoğu çoğulda ek almaz, sadece artikel die olur: der Löffel → die Löffel (s.94)." },
+      { "sent": "Die ___ sind klein. (das Mädchen)", "blank": "Mädchen", "opts": ["Mädchen", "Mädchens", "Mädchene", "Mädchenen"], "tr": "Kız çocukları küçük.", "exp": "-chen ile biten isimler çoğulda ek almaz: das Mädchen → die Mädchen (s.94)." },
+      { "sent": "Die ___ sind schön. (die Stadt)", "blank": "Städte", "opts": ["Städte", "Stadte", "Stadten", "Stadts"], "tr": "Şehirler güzel.", "exp": "Stadt tek heceli bir dişi isim: -e alır ve a harfi Umlaut alır: die Stadt → die Städte (s.93). Umlaut = a, o, u üzerindeki iki nokta." },
+      { "sent": "Meine ___ sind nett. (die Freundin)", "blank": "Freundinnen", "opts": ["Freundinen", "Freundinnen", "Freundiner", "Freundins"], "tr": "Kız arkadaşlarım iyi (hoş).", "exp": "-in ile biten isim: Freundin → Freundinnen (n tekrarlanır). Freundinen yazmak hocanın gösterdiği hatadır (s.92)." },
+      { "sent": "Ich suche ___. (meyve; das Obst)", "blank": "Obst", "opts": ["Obst", "Obste", "Obsten", "Obster"], "tr": "Meyve arıyorum.", "exp": "das Obst çoğulu olmayan bir isimdir: sadece tekil kullanılır (s.95). Bu yüzden Obste/Obsten gibi biçimler yoktur." },
+      { "sent": "Meine ___ sind sehr alt. (die Eltern)", "blank": "Eltern", "opts": ["Eltern", "Elter", "Elterne", "Elternen"], "tr": "Ebeveynlerim çok yaşlı.", "exp": "Eltern tekili olmayan bir isimdir; her zaman çoğul kullanılır (s.95)." }
+    ]
+  },
+  "dogrulama": [
+    "Hocanın s.92'de '-e ile biten isimlerin %99'u -n alır' diyor, s.96 özetinde ise '%90' yazıyor. Hangisi doğru? Perplexity'ye sor: 'Almancada -e ile biten isimlerin kaçta kaçı çoğulda -n alır?'",
+    "s.93'te 'a, o, u harfli dişi isimler HER ZAMAN Umlaut alır' deniyor; ama s.91'de die Frau → Frauen, s.92'de die Flasche → Flaschen var (a harfi var, Umlaut yok). Kural sadece tek heceli -e alan dişi isimler için mi? Perplexity'ye sor.",
+    "s.92'de eril -en grubu için '-ent, -ant, -and, -or, -ist' sonları verilmiş ama sadece Student ve Polizist örneği var; -or, -and, -ant örneklerini hoca göstermemiş. Güvenilir örnek için Perplexity'ye sor."
+  ]
+}

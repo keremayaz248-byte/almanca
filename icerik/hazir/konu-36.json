@@ -1,0 +1,419 @@
+{
+  "konu": 36,
+  "baslik": "Das Perfekt (geçmiş zaman)",
+  "kaynak": [{ "arac": "PDF", "sayfa": "Kalan Üniteler s.96-111" }],
+  "deste": {
+    "title": "⏪ Das Perfekt",
+    "accent": "linear-gradient(135deg,#F0503C,#c23421)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "haben / sein + Partizip II",
+        "mean": "Geçmişte olan, bitmiş bir şeyi anlatmak için: yardımcı fiil <b>2. sırada</b>, Partizip II <b>cümlenin SONUNDA</b>.",
+        "story": "Hocanın ilk sayfasında Perfekt'in üç kullanım şartı var: <b>1)</b> Geçmişte olan bir şeyden bahsediyorsun, <b>2)</b> eylem <b>bitmiş</b> olmalı, <b>3)</b> çoğunlukla <b>konuşma dilinde</b> kullanılır. Perfekt iki parçadan oluşur: <b>Hilfsverb</b> (yardımcı fiil: haben ya da sein) + <b>Partizip II</b> (fiilin geçmiş ortacı). Örnek: <b>Ich reise nach Berlin.</b> (Berlin'e seyahat ediyorum) → <b>Ich bin nach Berlin gereist.</b> (Berlin'e seyahat ettim)."
+      },
+      {
+        "tur": "sema",
+        "kicker": "Cümle çerçevesi",
+        "baslik": "Yardımcı fiil 2. sırada, Partizip II SONDA",
+        "satirlar": [
+          {
+            "etiket": "Präsens",
+            "not": "şimdiki: tek fiil",
+            "jetonlar": [{"t":"Ich","r":"ozne"},{"t":"reise","r":"fiil"},{"t":"nach Berlin","r":"zaman"}],
+            "tr": "Berlin'e seyahat ediyorum."
+          },
+          {
+            "etiket": "Perfekt (sein)",
+            "not": "sein 2. sırada, Partizip II sonda",
+            "jetonlar": [{"t":"Ich","r":"ozne"},{"t":"bin","r":"fiil"},{"t":"nach Berlin","r":"zaman"},{"t":"gereist","r":"fiil","sonda":true}],
+            "tr": "Berlin'e seyahat ettim."
+          },
+          {
+            "etiket": "Perfekt (haben)",
+            "not": "haben 2. sırada, Partizip II sonda",
+            "jetonlar": [{"t":"Ich","r":"ozne"},{"t":"habe","r":"fiil"},{"t":"ein Foto","r":"nesne"},{"t":"gemacht","r":"fiil","sonda":true}],
+            "tr": "Bir fotoğraf çektim."
+          },
+          {
+            "etiket": "Soru",
+            "not": "yardımcı fiil başa, Partizip II yine sonda",
+            "jetonlar": [{"t":"Hast","r":"fiil"},{"t":"du","r":"ozne"},{"t":"den Film","r":"nesne"},{"t":"gesehen","r":"fiil","sonda":true}],
+            "tr": "Filmi gördün mü?"
+          }
+        ],
+        "not": "<b>Kural:</b> Hocanın slaytında Hilfsverb ve Partizip II iki ayrı kutu: yardımcı fiil <b>çekimlenir</b> (habe, bin, hast...), Partizip II <b>hiç değişmez</b> ve en sonda durur. 'Ich reise nach Berlin' (şimdiki) cümlesindeki fiil, Perfekt'te iki parçaya bölünür.",
+        "kaynak": "Kalan s.97"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Yardımcı fiiller",
+        "baslik": "sein ve haben çekimi",
+        "basliklar": ["", "sein", "haben"],
+        "satirlar": [
+          ["ich", "bin", "habe"],
+          ["du", "bist", "hast"],
+          ["er / sie / es", "ist", "hat"],
+          ["wir", "sind", "haben"],
+          ["ihr", "seid", "habt"],
+          ["sie / Sie", "sind", "haben"]
+        ],
+        "not": "Perfekt'in yardımcı fiili <b>çekimlenir</b>, ikisini de ezbere bilmelisin. Hocanın sayfalarında önce sein (s.97), sonra haben (s.102) tablosu verilmiş.",
+        "kaynak": "Kalan s.97, 102"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Karar kuralı",
+        "baslik": "haben mi, sein mi?",
+        "maddeler": [
+          "<b>haben</b> (s.102) — <b>1)</b> Akkusativ nesneli fiiller (<b>machen / kaufen / sehen</b>). <b>2)</b> <b>Tüm dönüşlü fiiller</b> (<b>sich waschen / sich treffen</b>).",
+          "<b>sein</b> (s.98-100) — <b>1)</b> Yer değiştirme / hareket (<b>gehen, fahren, kommen, fliegen, laufen</b>). <b>2)</b> Durum değişimi (<b>einschlafen, aufstehen, sterben</b>). <b>3)</b> 4 özel fiil: <b>sein, werden, bleiben, passieren</b>.",
+          "Önce fiile sor: <b>bir yerden bir yere gidiyor mu?</b> (A → B) ya da <b>bir durumdan başka duruma mı geçiyor?</b> Evet ise sein, değilse (nesne alıyorsa) haben.",
+          "Hocanın örneği: <b>Er ist nach Hause gekommen.</b> (sein) / <b>Ich habe ein Foto gemacht.</b> (haben)"
+        ],
+        "uyari": "En sık yapılan hata: hareket fiilinde <b>haben</b> kullanmak (<b>Ich habe gegangen</b> yanlış). Gehen, fahren, kommen, fliegen, laufen, bleiben hep <b>sein</b> ile gelir.",
+        "kaynak": "Kalan s.98-102"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "sein 1",
+        "baslik": "Yer değiştirme fiilleri (A → B)",
+        "basliklar": ["Fiil", "Partizip II", "Hocanın cümlesi"],
+        "satirlar": [
+          ["gehen", "gegangen", "Sie sind ins Kino gegangen."],
+          ["fahren", "gefahren", "Du bist nach München gefahren."],
+          ["kommen", "gekommen", "Er ist nach Hause gekommen."],
+          ["fliegen", "geflogen", "Meine Schwester ist nach Hamburg geflogen."],
+          ["laufen", "gelaufen", "Morgens sind wir gelaufen."],
+          ["bleiben", "geblieben", "Ich bin in Wien geblieben."]
+        ],
+        "not": "Hocanın görsel örneği: <b>Er fliegt nach Spanien.</b> → <b>Er ist nach Spanien geflogen.</b> (A noktasından B noktasına gidiş.) Ulaşım alıştırması (s.111): <b>gefahren</b> (araba, gemi, taksi, tren), <b>gegangen</b> (yürümek), <b>geflogen</b> (uçak). Örnek: <b>Ich bin mit dem Zug gefahren.</b> Not: <b>Ich bin früh ins Bett gegangen. = Ich bin zeitig ins Bett gegangen.</b> (früh = zeitig).",
+        "kaynak": "Kalan s.98, 111"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "sein 2",
+        "baslik": "Durum değişimi fiilleri",
+        "basliklar": ["Fiil", "Partizip II", "Hocanın cümlesi"],
+        "satirlar": [
+          ["aufstehen", "aufgestanden", "Ich bin um 7 Uhr aufgestanden."],
+          ["einschlafen", "eingeschlafen", "Mein Sohn ist um 9 Uhr eingeschlafen."],
+          ["wachsen", "gewachsen", "Die Pflanze ist gewachsen."],
+          ["aufwachen", "aufgewacht", "Wann bist du aufgewacht?"],
+          ["sterben", "gestorben", "Wo ist Atatürk gestorben?"],
+          ["gebären → geboren", "geboren", "Ich bin geboren."]
+        ],
+        "not": "Hocanın görseli: bitki küçükten büyüğe geçiyor → <b>Die Pflanze ist gewachsen.</b> (durum değişti). <b>Doğmak</b> için hoca s.100'de leylek ve bebek resmiyle <b>Ich bin geboren</b> diyor. Aynı sayfadaki tabloda <b>gebären</b> (doğurmak) fiilinin Perfekt'i <b>ich habe geboren</b> diye verilmiş: doğuran kişi haben, doğan kişi sein (<b>Ich bin geboren</b>). Dördüncü grup (sein, werden, bleiben, passieren) hocanın s.98 slaytında yalnız adıyla geçiyor; werden / passieren'in Partizip II'si sayfada yok.",
+        "kaynak": "Kalan s.99-100"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Sein fiilinin kendisi",
+        "baslik": "sein: Präsens, Präteritum, Perfekt",
+        "basliklar": ["", "Präsens", "Präteritum", "Perfekt"],
+        "satirlar": [
+          ["ich", "bin", "war", "bin gewesen"],
+          ["du", "bist", "warst", "bist gewesen"],
+          ["er/sie/es", "ist", "war", "ist gewesen"],
+          ["wir", "sind", "waren", "sind gewesen"],
+          ["ihr", "seid", "wart", "seid gewesen"],
+          ["sie/Sie", "sind", "waren", "sind gewesen"]
+        ],
+        "not": "Hocanın örneği: <b>Du bist all die Jahre eine gute Mutter gewesen.</b> = Yıllar boyunca iyi bir anne oldun. Yani sein'in Partizip II'si <b>gewesen</b> ve Perfekt'te yine <b>sein</b> ile kurulur (bin gewesen).",
+        "kaynak": "Kalan s.101"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Partizip II",
+        "baslik": "4 fiil tipi, 4 oluşum",
+        "maddeler": [
+          "<b>1) Regelmäßige Verben</b> (düzenli): <b>ge- + gövde + -t</b>. Hocanın yöntemi: fiilin <b>er/sie/es</b> çekimini al, başına <b>ge-</b> koy.",
+          "<b>2) Verben mit -ieren</b>: <b>ge- almaz</b>, sadece -t ile biter (organisieren → organisiert).",
+          "<b>3) Unregelmäßige Verben</b> (düzensiz): <b>ge- + ... + -en</b> ve çoğu zaman ünlü değişir; ezberlenir (sehen → gesehen, singen → gesungen).",
+          "<b>4) Trennbare Verben</b> (ayrılabilen): <b>ge-</b> öneki ile gövde arasına girer (aufmachen → aufgemacht)."
+        ],
+        "uyari": "Sayfada 'How to form it?' başlığı altında bu dört madde sırayla sayılıyor. Aşağıdaki sayfalarda her biri ayrı ele alınıyor.",
+        "kaynak": "Kalan s.102"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Düzenli fiiller",
+        "baslik": "er/sie/es çekimi + ge-",
+        "satirlar": [
+          {
+            "etiket": "machen",
+            "not": "er macht → gemacht",
+            "jetonlar": [{"t":"Ich","r":"ozne"},{"t":"habe","r":"fiil"},{"t":"ein Foto","r":"nesne"},{"t":"gemacht","r":"fiil","sonda":true}],
+            "tr": "Bir fotoğraf çektim."
+          },
+          {
+            "etiket": "kaufen",
+            "not": "er kauft → gekauft",
+            "jetonlar": [{"t":"Er","r":"ozne"},{"t":"hat","r":"fiil"},{"t":"Brot","r":"nesne"},{"t":"gekauft","r":"fiil","sonda":true}],
+            "tr": "Ekmek aldı."
+          },
+          {
+            "etiket": "arbeiten",
+            "not": "er arbeitet → gearbeitet",
+            "jetonlar": [{"t":"Wir","r":"ozne"},{"t":"haben","r":"fiil"},{"t":"viel","r":"diger"},{"t":"gearbeitet","r":"fiil","sonda":true}],
+            "tr": "Çok çalıştık."
+          }
+        ],
+        "not": "<b>Hocanın ipucu:</b> 'Conjugation of the 3rd person singular in present tense': <b>er/sie/es macht → ge-macht</b>. Hocanın örnekleri: <b>Kaufen: er kauft → gekauft</b>, <b>Arbeiten: er arbeitet → gearbeitet</b>. Hocanın cümleleri: <b>Was hast du mit mir gemacht?</b> = Bana ne yaptın? <b>Ich habe nichts Falsches gemacht.</b> = Ben yanlış bir şey yapmadım.",
+        "kaynak": "Kalan s.103"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Düzensiz fiiller",
+        "baslik": "Ünlü değişir: er/sie/es çekiminden türetme!",
+        "basliklar": ["Fiil", "Partizip II", "Hocanın örneği"],
+        "satirlar": [
+          ["sehen", "gesehen", "Hast du den Film gesehen?"],
+          ["geben", "gegeben", "Hast du Lisa das Geld gegeben?"],
+          ["singen", "gesungen", ""],
+          ["trinken", "getrunken", ""],
+          ["lügen", "gelogen", "Er lügt."],
+          ["helfen", "geholfen", ""],
+          ["nehmen", "genommen", ""],
+          ["schreiben", "geschrieben", ""],
+          ["bleiben", "geblieben", "(sein) Ich bin in Wien geblieben."]
+        ],
+        "not": "<b>Dikkat!</b> sehen için er/sie/es çekimi <b>sieht</b>'tir ama Partizip II <b>gesieht değil, gesehen</b>'dir: hoca kırmızı yasak işaretiyle gösteriyor. Düzensiz fiilde er/sie/es yöntemi çalışmaz, listeyi ezberle. <b>Lügen</b> genel anlamda yalan söylemek (<b>Er lügt.</b>), <b>anlügen</b> birine yalan söylemek (<b>Du hast ihn angelogen.</b>, Akkusativ).",
+        "kaynak": "Kalan s.104-105"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "ge- ALMAYANLAR",
+        "baslik": "-ieren ve ayrılmaz önekler",
+        "basliklar": ["Grup", "Fiil", "Partizip II"],
+        "satirlar": [
+          ["-ieren", "organisieren", "organisiert"],
+          ["-ieren", "telefonieren", "telefoniert"],
+          ["-ieren", "studieren", "studiert"],
+          ["be- ...", "bestellen", "bestellt"],
+          ["ver- ...", "verlieben", "verliebt"]
+        ],
+        "not": "Hocanın sarı başlıklı tablosu: <b>-ieren</b> ile biten fiiller ve <b>be-, emp-, ent-, er-, ge-, miss-, ver-, zer-</b> ile başlayan fiiller <b>ge- almaz</b>. Hocanın örnekleri: <b>bestellen → bestellt</b>, <b>verlieben → verliebt</b>. Dikkat: <b>studieren → studiert</b> (gestudiert değil!).",
+        "kaynak": "Kalan s.105"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Özel gruplar",
+        "baslik": "Karışık fiiller ve ayrılabilen fiiller",
+        "basliklar": ["Präsens", "Präteritum", "Perfekt"],
+        "satirlar": [
+          ["bringen", "brachten", "gebracht"],
+          ["kennen", "kannten", "gekannt"],
+          ["wissen", "wussten", "gewusst"],
+          ["aufmachen", "", "aufgemacht"],
+          ["einkaufen", "", "eingekauft"],
+          ["anrufen", "", "angerufen"],
+          ["einschlafen", "", "eingeschlafen"]
+        ],
+        "not": "<b>Gemischte Verben / Mischverben</b> (karışık fiiller): hem Präteritum'da hem Partizip II'de ünlü değişir ama sonu <b>-t</b> ile biter (gebracht, gekannt, gewusst). Hocanın not düştüğü örnek: <b>bauen (inşa etmek) – bauten – (haben) gebaut</b>. <b>Trennbare Verben</b>: ge-, ayrılabilen önekten SONRA gelir (aufgemacht, eingekauft, angerufen). Hocanın cümlesi: <b>Er hat mich gerade angerufen.</b>",
+        "kaynak": "Kalan s.105, 110"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Benzeyen fiillerin yardımcı fiili ve anlamı",
+        "maddeler": [
+          "<b>einschlafen</b> (sein): <b>Ich bin eingeschlafen.</b> = Uykuya daldım / uyuyakaldım. — <b>schlafen</b> (haben): <b>Ich habe geschlafen.</b> = Uyudum. (Hoca s.106: aynı kökten iki fiil, iki farklı yardımcı fiil.)",
+          "Hocanın küçük notu: <b>das Nickerchen</b> = şekerleme, <b>Nickerchen machen</b> = şekerleme yapmak. <b>Ich mache ein Nickerchen.</b>",
+          "<b>verpassen</b> (kaçırmak): <b>Ich habe den Bus verpasst.</b> = Otobüsü kaçırdım. — <b>vermissen</b> (özlemek): <b>Ich habe meine Oma vermisst.</b> = Büyükannemi özledim.",
+          "Hoca 'vermisst' kelimesini otobüs cümlesinde <b>kırmızı çarpıyla</b> çizdi: otobüs için asla <b>vermissen</b> kullanılmaz."
+        ],
+        "uyari": "Hocanın üç ünlem kutusu bu fiillerin üzerinde: <b>einschlafen ≠ schlafen</b> ve <b>verpassen ≠ vermissen</b>. Ayrıca verpassen ve vermissen <b>ge-</b> almaz: verpasst, vermisst. Einschlafen ise ayrılabilen fiildir, ge- ortaya girer: eingeschlafen.",
+        "kaynak": "Kalan s.106-107"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Zaman ifadeleri",
+        "baslik": "Geçmiş ve gelecek zaman sözcükleri",
+        "basliklar": ["Geçmiş", "Gelecek"],
+        "satirlar": [
+          ["gestern", "morgen"],
+          ["vorgestern", "übermorgen"],
+          ["letzte Woche", "nächste Woche"],
+          ["letzten Monat", "nächsten Monat"],
+          ["letztes Jahr", "nächstes Jahr"],
+          ["vor zehn Jahren", "in zehn Jahren"]
+        ],
+        "not": "Hocanın 'ACHTUNG!' sayfası: ortada <b>heute</b> (bugün), solda geçmiş, sağda gelecek. Hocanın Türkçe notları: <b>vorgestern</b> = birkaç gün önce, <b>übermorgen</b> = yarından sonra, <b>in letzter Zeit</b> = son zamanlarda. Diğer ifadelerin Türkçesi hocada yok (doğrulama listesinde). <b>Perfekt'te geçmişi gösteren sözcüklerle</b> (gestern, letzte Woche, vor zehn Jahren) kullanılır.",
+        "kaynak": "Kalan s.108"
+      },
+      {
+        "big": "gerade ve nie zuvor",
+        "mean": "<b>gerade + Präsens</b> = tam şu an yapılan şey. <b>gerade + Perfekt</b> = az önce yapılıp bitmiş şey (hocanın notu: 'henüz yeni, şimdi, tam'). <b>nie zuvor / niemals zuvor</b> = daha önce hiç.",
+        "egs": [
+          "Wir essen <b>gerade</b> zu Mittag. — Şu an öğle yemeği yiyoruz.",
+          "Ich bin <b>gerade</b> nach Hause gekommen. — Az önce eve geldim.",
+          "Er hat mich <b>gerade</b> angerufen. — Az önce beni aradı.",
+          "<b>Nie zuvor</b> habe ich so viel gelacht. — Daha önce hiç bu kadar çok gülmemiştim."
+        ],
+        "tip": "💡 Hocanın yeşil ünlem kutusu: <b>gerade + Präsens</b> şu an, <b>gerade + Perfekt</b> az önce. Zuvor için hoca <b>niemals davor</b> ve <b>niemals vorher</b> yazılarını çarpıyla çizdi: doğrusu <b>niemals zuvor / nie zuvor</b>. Hocanın ikinci örneği: <b>Ich habe niemals zuvor in einem Studentenwohnheim gelebt.</b> (Daha önce hiç öğrenci yurdunda yaşamadım.)",
+        "kaynak": "Kalan s.109-110"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "Hilfsverb 2., Partizip II SONDA",
+        "mean": "haben: nesne + dönüşlü fiiller · sein: hareket + durum değişimi + sein/werden/bleiben/passieren.",
+        "story": "<b>Ich habe</b> ein Foto <b>gemacht</b>. · <b>Ich bin</b> nach Berlin <b>gereist</b>. · Hast du den Film <b>gesehen</b>? · Ich bin <b>eingeschlafen</b> / ich habe <b>geschlafen</b>. · ge- yok: <b>organisiert, bestellt, verliebt, studiert</b> · ge- ortada: <b>aufgemacht, angerufen</b> · düzensiz: <b>gesehen, gegangen, geblieben</b>."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d36_perfekt",
+    "title": "Das Perfekt",
+    "emoji": "⏪",
+    "desc": "haben / sein + Partizip II",
+    "rule": "<b>Perfekt = haben/sein (2. sırada, çekimli) + Partizip II (cümle SONUNDA).</b><br><b>haben:</b> Akkusativ nesneli fiiller (machen, kaufen, sehen) + tüm dönüşlü fiiller.<br><b>sein:</b> yer değiştirme (gehen, fahren, kommen, fliegen, laufen), durum değişimi (einschlafen, aufstehen, sterben) + sein, werden, bleiben, passieren.<br><b>Partizip II:</b> düzenli ge-...-t (er macht → gemacht), düzensiz ge-...-en (gesehen, gegangen), <b>-ieren ve be-/emp-/ent-/er-/ge-/miss-/ver-/zer- önekli fiillerde ge- YOK</b>, ayrılabilen fiillerde ge- ortada (aufgemacht).",
+    "qs": [
+      {
+        "sent": "Ich ___ ein Foto gemacht.",
+        "blank": "habe",
+        "opts": ["habe", "bin", "ist"],
+        "tr": "Bir fotoğraf çektim.",
+        "exp": "machen Akkusativ nesne alır (ein Foto): bu grup <b>haben</b> ile kurulur. 'bin' hareket/durum değişimi fiillerinde gelir."
+      },
+      {
+        "sent": "Er ___ Brot gekauft.",
+        "blank": "hat",
+        "opts": ["hat", "ist", "hast"],
+        "tr": "Ekmek aldı.",
+        "exp": "kaufen nesne alan (Akkusativ) bir fiildir, haben ile kurulur. 3. tekil şahıs: <b>er hat</b>. 'hast' du içindir."
+      },
+      {
+        "sent": "Ich ___ nach Hause gekommen.",
+        "blank": "bin",
+        "opts": ["bin", "habe", "hat"],
+        "tr": "Eve geldim.",
+        "exp": "kommen bir yerden bir yere gidiştir (yer değiştirme): <b>sein</b>. Hocanın örneği: Er ist nach Hause gekommen. 'ich' ile sein: <b>bin</b>."
+      },
+      {
+        "sent": "Du ___ nach München gefahren.",
+        "blank": "bist",
+        "opts": ["bist", "hast", "bin"],
+        "tr": "Münih'e gittin.",
+        "exp": "fahren yer değiştirme fiilidir → sein. 'du' ile sein çekimi <b>bist</b>. 'hast' haben'in du biçimidir; 'bin' ich içindir."
+      },
+      {
+        "sent": "Sie ___ ins Kino gegangen.",
+        "blank": "sind",
+        "opts": ["sind", "haben", "hat"],
+        "tr": "Sinemaya gittiler.",
+        "exp": "gehen hareket fiilidir (hocanın örneği: Sie sind ins Kino gegangen). 'sie' (onlar) ile sein: <b>sind</b>."
+      },
+      {
+        "sent": "Meine Schwester ist nach Hamburg ___.",
+        "blank": "geflogen",
+        "opts": ["geflogen", "gefliegt", "geflogt"],
+        "tr": "Kız kardeşim Hamburg'a uçtu.",
+        "exp": "fliegen düzensiz bir fiildir: Partizip II <b>geflogen</b> (hocanın görseli: Er ist nach Spanien geflogen). 'gefliegt' ve 'geflogt' yoktur."
+      },
+      {
+        "sent": "Hast du den Film ___?",
+        "blank": "gesehen",
+        "opts": ["gesehen", "gesieht", "gesehet"],
+        "tr": "Filmi gördün mü?",
+        "exp": "sehen düzensizdir: er sieht olsa da Partizip II <b>gesehen</b>'dir. Hoca 'gesieht' yazısını kırmızı yasak işaretiyle çizmiş."
+      },
+      {
+        "sent": "Wir haben viel ___.",
+        "blank": "gearbeitet",
+        "opts": ["gearbeitet", "gearbeiten", "arbeitet"],
+        "tr": "Çok çalıştık.",
+        "exp": "arbeiten düzenlidir: er arbeitet → <b>gearbeitet</b> (hocanın örneği). Sonu -t ile biter, başına ge- gelir."
+      },
+      {
+        "sent": "Ich habe Wasser ___.",
+        "blank": "getrunken",
+        "opts": ["getrunken", "getrinkt", "trunken"],
+        "tr": "Su içtim.",
+        "exp": "trinken düzensiz fiildir: <b>getrunken</b> (hocanın P.S. listesi: Trinken – Getrunken). Düzensiz fiillerde -en ile biter, ünlü değişir."
+      },
+      {
+        "sent": "Ich habe mit Anna ___.",
+        "blank": "telefoniert",
+        "opts": ["telefoniert", "getelefoniert", "telefonieren"],
+        "tr": "Anna ile telefonda konuştum.",
+        "exp": "-ieren ile biten fiiller Partizip II'de ge- almaz (hocanın tablosu: telefonieren → telefoniert). 'getelefoniert' tipik hatadır."
+      },
+      {
+        "sent": "Er hat einen Kaffee ___.",
+        "blank": "bestellt",
+        "opts": ["bestellt", "gebestellt", "bestellen"],
+        "tr": "Bir kahve sipariş etti.",
+        "exp": "be- ile başlayan fiiller ge- almaz (hocanın tablosu: bestellen → bestellt). Gebestellt yanlıştır."
+      },
+      {
+        "sent": "Ich bin um 7 Uhr ___.",
+        "blank": "aufgestanden",
+        "opts": ["aufgestanden", "geaufstanden", "aufgestehen"],
+        "tr": "Saat 7'de kalktım.",
+        "exp": "aufstehen ayrılabilen ve düzensizdir: ge- ortada (auf-ge-standen). Sein ile kurulur (durum değişimi); hocanın cümlesi: Ich bin um 7 Uhr aufgestanden."
+      },
+      {
+        "sent": "Mein Sohn ___ um 9 Uhr eingeschlafen.",
+        "blank": "ist",
+        "opts": ["ist", "hat", "sind"],
+        "tr": "Oğlum saat 9'da uykuya daldı.",
+        "exp": "einschlafen durum değişimidir (uyanıkken uykuya geçiş) → sein. Hocanın cümlesi. 'hat' ancak schlafen (uyumak) ile kullanılır."
+      },
+      {
+        "sent": "Ich ___ die ganze Nacht geschlafen.",
+        "blank": "habe",
+        "opts": ["habe", "bin", "ist"],
+        "tr": "Bütün gece uyudum.",
+        "exp": "schlafen (uyumak) durum değişimi değildir, haben ile kurulur (hocanın örneği: Ich habe geschlafen). Einschlafen ise sein alır; bu ayrımı karıştırma."
+      },
+      {
+        "sent": "Ich habe den Bus ___.",
+        "blank": "verpasst",
+        "opts": ["verpasst", "vermisst", "geverpasst"],
+        "tr": "Otobüsü kaçırdım.",
+        "exp": "Hoca vermisst'i bu cümlede çarpıyla çizdi: otobüs/tren için <b>verpassen</b>. Ver- önekli olduğundan ge- almaz (verpasst)."
+      },
+      {
+        "sent": "Ich habe meine Oma ___.",
+        "blank": "vermisst",
+        "opts": ["vermisst", "verpasst", "gevermisst"],
+        "tr": "Büyükannemi özledim.",
+        "exp": "Birini özlemek <b>vermissen</b> (hocanın örneği: Ich habe meine Oma vermisst). Otobüsü kaçırmak ise verpassen; ikisinin anlamını karıştırma. Ge- yok."
+      },
+      {
+        "sent": "Ich ___ in Wien geblieben.",
+        "blank": "bin",
+        "opts": ["bin", "habe", "hat"],
+        "tr": "Viyana'da kaldım.",
+        "exp": "bleiben, 4 özel sein fiilinden biridir (sein, werden, bleiben, passieren). Hocanın cümlesi. Yerinde kalma olsa da sein alır; 'habe' tuzaktır."
+      },
+      {
+        "sent": "Du ___ all die Jahre eine gute Mutter gewesen.",
+        "blank": "bist",
+        "opts": ["bist", "hast", "wirst"],
+        "tr": "Yıllar boyunca iyi bir anne oldun.",
+        "exp": "sein fiilinin Perfekt'i yine sein ile kurulur: <b>bist gewesen</b> (hocanın örneği). 'hast gewesen' kullanılmaz."
+      },
+      {
+        "sent": "Er hat mich gerade ___.",
+        "blank": "angerufen",
+        "opts": ["angerufen", "geanrufen", "gerufen an"],
+        "tr": "Az önce beni aradı.",
+        "exp": "anrufen ayrılabilen fiildir: ge- ön ek ile gövde arasına girer → <b>an-ge-rufen</b>. Hocanın cümlesi; Partizip II yine en sonda."
+      }
+    ]
+  },
+  "dogrulama": [
+    "Hocanın s.108'deki 'Vorgestern: birkaç gün önce' notu: vorgestern tam olarak 'evvelsi gün (dünden önceki gün)' demek değil mi? Perplexity'ye sor: 'Almanca vorgestern Türkçe karşılığı nedir, birkaç gün önce mi evvelsi gün mü?'",
+    "Zaman tablosunda (gestern, morgen, letzte/nächste Woche, Monat, Jahr, vor/in zehn Jahren) Türkçe karşılıklar hocada yok; derse Türkçe yazılmadı. gerade ve zuvor örneklerinin Türkçe çevirileri (Wir essen gerade zu Mittag vb.) hocada yok, ben yazdım. Perplexity'ye sor: 'Bu cümlelerin Türkçe çevirileri doğru mu?'",
+    "s.100'de leylek resmiyle 'Ich bin geboren' (Doğdum) görseli ve gebären (doğurmak) tablosunda 'ich habe geboren': hocanın tablosu mu, doğum yapan kişi için mi? Perplexity'ye sor: 'Almanca gebären Perfekt haben ile mi, Ich bin geboren sein ile mi?'",
+    "Hocanın s.98'deki pembe notu 'Mein Bruder ist gern geschwommen' (gern işaretli, !!! ünlemli): gern'in yeri ile ilgili bir not mu, yoksa schwimmen'in sein ile kurulduğunu mu gösteriyor? Sayfada açıklama yok, derse eklenmedi. Perplexity'ye sor.",
+    "Hocanın 4 özel sein fiili (sein, werden, bleiben, passieren): werden ve passieren için Partizip II (geworden, passiert) hocada yok, derse yazılmadı.",
+    "s.112 (el yazısı Türkçe soru listesi) Perfekt konusuyla doğrudan ilgisiz olduğundan ve okunaksız olduğundan dersten çıkarıldı.",
+    "s.105'teki 'Verben mit Vokalwechsel' tablosunda 'ge-' almayan grubun hocadaki adı 'be-,emp-,ent-,er-,ge-,miss-,ver-,zer-': bunların 'ayrılmaz önekler' olduğu hocada yazmıyor, derse yalnızca 'ge- almazlar' denildi.",
+    "s.102'de 'Ich habe die Uni Dokuz Eylül abgeschlossen = Ich habe meinen Abschluss ... gemacht' cümlesi (3 eş anlamlı kuruluş) derse alınmadı; tek cümlede üç farklı kuruluşun anlamı için hocadan teyit gerek."
+  ]
+}

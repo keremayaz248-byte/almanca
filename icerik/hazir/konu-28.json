@@ -1,0 +1,233 @@
+{
+  "konu": 28,
+  "baslik": "Wie spät ist es? (Saat söyleme)",
+  "kaynak": [
+    { "arac": "PDF", "sayfa": "Kalan Üniteler s.47-55" }
+  ],
+  "deste": {
+    "title": "🕐 Wie spät ist es? (Saat söyleme)",
+    "accent": "linear-gradient(135deg,#2AACD1,#1c7fa0)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "NACH · VOR · HALB",
+        "mean": "Almanca'da saat üç kelimeyle söylenir: dakika saati GEÇİYORSA «nach», saate DAHA VARSA «vor», buçuk ise «halb». «Saat kaçta?» sorusunda ise «um» kullanılır.",
+        "story": "Hocanın saat tablosunda iki soru yan yana yazıyor: <b>Wie viel Uhr ist es?</b> ve <b>Wie spät ist es?</b> — ikisi de «Saat kaç?» demek.<br>Cevap hep <b>Es ist ...</b> ile başlar: <i>Es ist acht Uhr.</i><br>Bu derste önce saatin yüzünü (5'er dakika), sonra <b>halb</b>'ı, sonra <b>um</b> ile <b>schon / erst</b> farkını, en sonda günlük rutini göreceğiz."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Saatin yüzü 1/2",
+        "baslik": "Tam saatten yarıma kadar (:00 → :30)",
+        "basliklar": ["Dakika", "Almanca kalıp", "Hocanın örneği"],
+        "satirlar": [
+          [":00", "… Uhr", "8.00 → Es ist acht Uhr."],
+          [":05", "fünf nach …", "11.05 → Es ist fünf nach elf."],
+          [":10", "zehn nach …", "3.10 → Es ist zehn nach drei."],
+          [":15", "Viertel nach …", "10.15 → Es ist Viertel nach zehn."],
+          [":20", "zwanzig nach …", "6.20 → Es ist zwanzig nach sechs."],
+          [":25", "fünf vor halb …", "7.25 → Es ist fünf vor halb acht."],
+          [":30", "halb …", "1.30 → Es ist halb zwei."]
+        ],
+        "not": "<b>nach</b> = saati geçiyor (…'i … geçiyor). <b>vor</b> = saate … var. Saatin yüzünde sağ yarı «nach» (turuncu), sol yarı «vor» (mavi) renklidir. Aynı saat 24'lük de söylenebilir: hoca 11.05 ile 23.05 Uhr'u yan yana yazmış.",
+        "kaynak": "Kalan Üniteler s.47"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Saatin yüzü 2/2",
+        "baslik": "Yarımdan sonraki saate (:35 → :55)",
+        "basliklar": ["Dakika", "Almanca kalıp", "Hocanın örneği"],
+        "satirlar": [
+          [":35", "fünf nach halb …", "12.35 → Es ist fünf nach halb eins."],
+          [":40", "zwanzig vor …", "3.40 → Es ist zwanzig vor vier."],
+          [":45", "Viertel vor …", "7.45 → Es ist Viertel vor acht."],
+          [":50", "zehn vor …", "5.50 → Es ist zehn vor sechs."],
+          [":55", "fünf vor …", "11.55 → Es ist fünf vor zwölf."]
+        ],
+        "not": "Dikkat: :35'te saat «halb»'ı beş geçiyor, :40'ta ise artık SONRAKİ saate 20 var. Hoca bunu 17.35 için şöyle açıklıyor: «fünf nach halb sechs (5 buçuğu 5 geçiyor)».",
+        "kaynak": "Kalan Üniteler s.47"
+      },
+      {
+        "big": "halb",
+        "mean": "<b>halb</b> = buçuk. Türkçedeki gibi: halb sechs = 5.30 (beş buçuk). Hoca iki yönde örnek veriyor: «5 buçuğu 5 geçiyor» ve «6 buçuğa 5 var».",
+        "egs": [
+          "17.35 → Es ist <b>fünf nach halb</b> sechs. — Saat beş buçuğu beş geçiyor (5.35).",
+          "18.25 → Es ist <b>fünf vor halb</b> sieben. — Saat altı buçuğa beş var (6.25).",
+          "1.30 → Es ist <b>halb</b> zwei."
+        ],
+        "tip": "💡 Hocanın tuzağı: 13.32 için «Es ist <b>kurz nach halb zwei</b>» diyor. Yani «halb»den hemen sonra da «kurz nach» kullanılabilir (1.30'u birkaç dakika geçti).",
+        "kaynak": "Kalan Üniteler s.47"
+      },
+      {
+        "big": "kurz vor / kurz nach",
+        "mean": "Dakika tam değilse «kurz» (kısa süre, az) kullanılır: <b>kurz vor</b> = ...'e çok az kaldı, <b>kurz nach</b> = ...'i biraz geçti.",
+        "egs": [
+          "8.57 → Es ist <b>kurz vor</b> neun. — Dokuza çok az kaldı.",
+          "8.03 → Es ist <b>kurz nach</b> acht. — Sekizi biraz geçti.",
+          "Ich gehe um <b>kurz vor</b> neun. — Dokuza çok az kala gidiyorum."
+        ],
+        "tip": "💡 Hoca bu cümlelerde «um»'u sarıyla işaretlemiş: saat kaçta yapılıyorsa «um» kullanılır (aşağıdaki sayfalara bak).",
+        "kaynak": "Kalan Üniteler s.47"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Hocanın ünlemli saat tuzakları",
+        "baslik": "gegen ve 13.20",
+        "maddeler": [
+          "<b>«!!!! Gegen 8:00 Uhr !!!!»</b> — Hoca bunu ünlemle ayırmış. Saat tam 8 değil, 8 civarı/8'e doğru anlamında.",
+          "<b>13.20</b> iki şekilde söylenir: <b>Es ist zehn vor halb zwei.</b> = <b>Es ist zwanzig nach eins.</b> (!!!)",
+          "Yani :20 hem «zwanzig nach» hem «zehn vor halb» diye söylenebilir; ikisi aynı saattir.",
+          "24.00 için hoca <b>Mitternacht</b> (gece yarısı) yazmış."
+        ],
+        "uyari": "13.20 = zehn vor halb zwei: «halb zwei» 1.30'dur, ona 10 dakika kala = 1.20. Çok karıştırılır!",
+        "kaynak": "Kalan Üniteler s.47"
+      },
+      {
+        "big": "um",
+        "mean": "<b>Saat kaçta?</b> (hangi saatte yapılıyor) → <b>um</b>. Cümlede «...'de/...'da» anlamı «um» ile verilir.",
+        "egs": [
+          "Wir frühstücken <b>um</b> 8 Uhr. — Saat 8'de kahvaltı yapıyoruz.",
+          "Ich gehe <b>um</b> kurz vor neun. — Dokuza çok az kala gidiyorum.",
+          "Er steht <b>um</b> 6.00 Uhr auf. — O saat 6.00'da kalkıyor."
+        ],
+        "tip": "💡 Hocanın saat tablosunda «um» sarı vurgulu ve 24:00 yanında mavi bir «um» düğmesi var: saat söylerken «um» unutulmaz.",
+        "kaynak": "Kalan Üniteler s.47, s.51"
+      },
+      {
+        "big": "Um wie viel Uhr …?",
+        "mean": "«Saat kaçta?» diye sorarken soru <b>Um wie viel Uhr</b> ile başlar. «Wie viel Uhr kommst du?» hocanın «Achtung! Fehler» sayfasında YANLIŞ olarak işaretli.",
+        "egs": [
+          "❌ Wie viel Uhr kommst du?",
+          "✅ <b>Um</b> wie viel Uhr kommst du? — Saat kaçta geliyorsun?",
+          "Wie viel Uhr ist es? / Wie spät ist es? — Saat kaç?"
+        ],
+        "tip": "💡 «Şu an saat kaç?» → Wie viel Uhr ist es? · «Saat kaçta?» → Um wie viel Uhr …?",
+        "kaynak": "Kalan Üniteler s.47-48"
+      },
+      {
+        "big": "fängt an / findet statt",
+        "mean": "Toplantı gibi bir etkinlik için iki farklı Türkçe var: «saat 10'da BAŞLIYOR» ve «saat 10'da (yapılıyor)». İkisinde de «um 10 Uhr» geçer.",
+        "egs": [
+          "Das Meeting <b>fängt</b> um 10 Uhr <b>an</b>. — Toplantı saat 10'da başlıyor.",
+          "Das Meeting <b>findet</b> um 10 Uhr <b>statt</b>. — Toplantı, saat 10'da."
+        ],
+        "tip": "💡 fängt … an = başlıyor (ayrılabilen fiil: «an» sona gider). findet … statt = yapılıyor/gerçekleşiyor («statt» sona gider).",
+        "kaynak": "Kalan Üniteler s.48"
+      },
+      {
+        "big": "schon & erst",
+        "mean": "<b>schon</b> = gerçekten geç olmuş, vakit yok artık. <b>erst</b> = daha erken, vakit var daha. Saat aynı olsa bile duyguyu bu iki kelime verir.",
+        "egs": [
+          "Es ist <b>schon</b> spät. Ich gehe nach Hause. — Gerçekten geç olmuş. Eve gidiyorum.",
+          "Was? Es ist <b>erst</b> 22 Uhr. — Ne? Daha saat 22."
+        ],
+        "tip": "💡 Hocanın resmi: kadın 22 Uhr'a bakıp «schon spät» diyor, erkek aynı saatte «erst 22 Uhr» diyor. Aynı saat, iki bakış.",
+        "kaynak": "Kalan Üniteler s.49"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Günlük rutin fiilleri",
+        "baslik": "Hocanın fiil listesi",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["aufstehen", "kalkmak"],
+          ["anfangen", "başlamak"],
+          ["mitnehmen", "yanına almak"],
+          ["zurückkommen", "geri dönmek"],
+          ["ansehen / fernsehen", "televizyon izlemek"],
+          ["anhören", "dinlemek"],
+          ["aufräumen", "toplamak"],
+          ["anrufen", "aramak"],
+          ["Ich putze mir die Zähne.", "Dişlerimi fırçalarım."],
+          ["Ich ziehe mich an.", "Giyinirim."]
+        ],
+        "not": "İlk 8 fiil hocanın diyalog sayfasındaki sözlükten (s.55). Son ikisi hocanın yazma sayfasından (s.53): «Dişlerimi fırçalarım = Ich putze mir die Zähne», «Giyinirim = Ich ziehe mich an». Aynı sayfada «sich duschen» için: <i>Ich dusche mich morgen.</i>",
+        "kaynak": "Kalan Üniteler s.53, s.55"
+      },
+      {
+        "tur": "zaman",
+        "kicker": "Was mache ich jeden Tag?",
+        "baslik": "Günün akışı (hocanın resimli sayfası)",
+        "noktalar": [
+          { "baslik": "6.00", "etiket": "Um 6.00 Uhr", "ornek": "Um 6.00 Uhr <b>stehe</b> ich <b>auf</b>.", "tr": "Saat 6.00'da kalkarım." },
+          { "baslik": "6.30", "etiket": "Um 6.30 Uhr", "ornek": "Um 6.30 Uhr <b>frühstücke</b> ich.", "tr": "Saat 6.30'da kahvaltı yaparım." },
+          { "baslik": "7.00", "etiket": "Um 7.00 Uhr", "ornek": "Um 7.00 Uhr <b>fahre</b> ich zur Arbeit.", "tr": "Saat 7.00'de işe giderim." },
+          { "baslik": "7.30", "etiket": "Um 7.30 Uhr", "ornek": "Um 7.30 Uhr <b>fange</b> ich mit der Arbeit <b>an</b>.", "tr": "Saat 7.30'da işe başlarım." },
+          { "baslik": "12–13", "etiket": "Von … bis …", "ornek": "Von 12.00 bis 13.00 Uhr mache ich Mittagspause.", "tr": "12.00'den 13.00'e kadar öğle arası veririm." },
+          { "baslik": "17.00", "etiket": "Um 17.00 Uhr", "ornek": "Um 17.00 Uhr <b>komme</b> ich nach Hause.", "tr": "Saat 17.00'de eve gelirim." },
+          { "baslik": "22.00", "etiket": "Um 22.00 Uhr", "ornek": "Um 22.00 Uhr gehe ich ins Bett.", "tr": "Saat 22.00'de yatağa giderim." }
+        ],
+        "not": "Hep aynı kalıp: <b>Um + saat + fiil + ich</b>. Saat başa geçince fiil yine ikinci sırada kalır, «ich» fiilin arkasına gider.",
+        "kaynak": "Kalan Üniteler s.51"
+      },
+      {
+        "big": "Wann? · Wie lange?",
+        "mean": "Zaman sorularının iki cevabı var. <b>Wann?</b> (ne zaman?) → am Montag, um drei Uhr. <b>Wie lange?</b> (ne kadar süre?) → von … bis ….",
+        "egs": [
+          "<b>am</b> Montag, <b>am</b> Dienstag — pazartesi günü, salı günü",
+          "<b>um</b> drei (Uhr), <b>um</b> Viertel nach vier — saat üçte, dördü çeyrek geçe",
+          "<b>von</b> Donnerstag <b>bis</b> Samstag — perşembeden cumartesiye kadar",
+          "<b>von</b> 9 <b>bis</b> 13 Uhr / <b>von</b> neun <b>bis</b> eins — 9'dan 13'e kadar / dokuzdan bire kadar",
+          "Mara arbeitet <b>von</b> Donnerstag <b>bis</b> Sonntag. — Mara perşembeden pazara kadar çalışıyor."
+        ],
+        "tip": "💡 Gün adı → <b>am</b>. Saat → <b>um</b>. Süre → <b>von … bis</b>.",
+        "kaynak": "Kalan Üniteler s.52"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Sık hatalar",
+        "baslik": "Saatte en çok karıştırılanlar",
+        "maddeler": [
+          "<b>«Saat kaçta?»</b> → Um wie viel Uhr …? (hoca: «Wie viel Uhr kommst du?» yanlış)",
+          "<b>halb zwei = 1.30</b> (2.30 DEĞİL). Hoca Türkçe örneği: «5 buçuğu 5 geçiyor» = fünf nach halb sechs.",
+          "<b>nach</b> = geçiyor, <b>vor</b> = var. Karıştırma: 7.45 = Viertel <b>vor</b> acht.",
+          "<b>schon</b> = geç oldu; <b>erst</b> = daha erken.",
+          "<b>fängt an</b> = başlıyor; <b>findet statt</b> = yapılıyor.",
+          "Gün → <b>am</b>, saat → <b>um</b>, süre → <b>von … bis</b>."
+        ],
+        "uyari": "En sık hata: «Wie viel Uhr kommst du?» demek. Doğrusu: <b>Um</b> wie viel Uhr kommst du?",
+        "kaynak": "Kalan Üniteler s.47-52"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "nach · vor · halb · um",
+        "mean": "nach = geçiyor, vor = var, halb = buçuk, um = saat kaçta, schon = geç, erst = daha erken.",
+        "story": "<b>Es ist fünf nach elf.</b> · <b>Es ist halb zwei.</b> · <b>Es ist Viertel vor acht.</b><br><b>Um wie viel Uhr kommst du?</b> · <b>Wir frühstücken um 8 Uhr.</b><br><b>Es ist schon spät.</b> · <b>Es ist erst 22 Uhr.</b>"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d28_uhrzeit",
+    "title": "Wie spät ist es? (Saat söyleme)",
+    "emoji": "🕐",
+    "desc": "nach / vor / halb, um, schon & erst",
+    "rule": "<b>nach</b> = saati geçiyor, <b>vor</b> = saate … var, <b>halb</b> = buçuk (halb zwei = 1.30).<br>:15 = Viertel nach, :45 = Viertel vor. :25 = fünf vor halb, :35 = fünf nach halb.<br><b>Um wie viel Uhr?</b> = saat kaçta. Cevap: <b>um</b> 8 Uhr.<br><b>schon</b> = geç oldu, <b>erst</b> = daha erken. Gün → <b>am</b>, süre → <b>von … bis</b>.",
+    "qs": [
+      { "sent": "3.15 → Es ist ___ nach drei.", "blank": "Viertel", "opts": ["Viertel", "halb", "zwanzig"], "tr": "Saat üçü çeyrek geçiyor.", "exp": "Saatin yüzünde :15 «Viertel nach» diye yazılıdır (hocanın örneği 10.15 → Viertel nach zehn). «halb» :30'dur, «zwanzig nach» :20." },
+      { "sent": "1.30 → Es ist ___ zwei.", "blank": "halb", "opts": ["halb", "Viertel", "kurz"], "tr": "Saat bir buçuk.", "exp": "Hoca: Es ist halb zwei = 1.30. «halb» buçuk demektir ve sonraki saatin adını alır (halb zwei = 1.30, 2.30 değil)." },
+      { "sent": "7.45 → Es ist Viertel ___ acht.", "blank": "vor", "opts": ["vor", "nach", "halb"], "tr": "Saat sekize çeyrek var (7.45).", "exp": "7.45'te sekize 15 dakika var; «var» = vor. Hocanın örneği: Es ist Viertel vor acht. «nach» saati geçtiğinde kullanılır." },
+      { "sent": "11.55 → Es ist fünf ___ zwölf.", "blank": "vor", "opts": ["vor", "nach", "halb"], "tr": "Saat on ikiye beş var.", "exp": "Hocanın örneği: Es ist fünf vor zwölf (11.55). Saate 5 dakika kaldığı için «vor»; «nach» olsa 12.05 olurdu." },
+      { "sent": "12.35 → Es ist fünf ___ halb eins.", "blank": "nach", "opts": ["nach", "vor", "um"], "tr": "Saat on iki buçuğu beş geçiyor (12.35).", "exp": "Hocanın örneği: 12.35 → Es ist fünf nach halb eins. Yarımı (12.30) beş dakika geçtiği için «nach»; :25'te ise «fünf vor halb» olurdu." },
+      { "sent": "7.25 → Es ist fünf vor halb ___.", "blank": "acht", "opts": ["acht", "sieben", "sechs"], "tr": "Saat yedi buçuğa beş var (7.25).", "exp": "Hoca: 7.25 → Es ist fünf vor halb acht. «halb acht» = 7.30; ona beş var = 7.25. Tuzak: saat 7 olduğu için «sieben» demek (halb sonraki saatin adını alır)." },
+      { "sent": "Wir frühstücken ___ 8 Uhr.", "blank": "um", "opts": ["um", "am", "von"], "tr": "Saat 8'de kahvaltı yapıyoruz.", "exp": "Saat kaçta yapıldığını söylerken «um» kullanılır (hocanın saat sayfasındaki sarı vurgulu «um»). «am» gün adıyla kullanılır (am Montag)." },
+      { "sent": "___ wie viel Uhr kommst du?", "blank": "Um", "opts": ["Um", "Am", "Bei"], "tr": "Saat kaçta geliyorsun?", "exp": "Hocanın «Achtung! Fehler» sayfası: «Wie viel Uhr kommst du?» yanlış, «Um wie viel Uhr kommst du?» doğru. «Saat kaçta» sorusu um ile başlar." },
+      { "sent": "Das Meeting fängt um 10 Uhr ___.", "blank": "an", "opts": ["an", "statt", "auf"], "tr": "Toplantı saat 10'da başlıyor.", "exp": "Hoca: «Das Meeting fängt um 10 Uhr an» = toplantı başlıyor. anfangen ayrılabilen fiildir, «an» cümlenin sonuna gider. «statt» findet ile birlikte kullanılır." },
+      { "sent": "Das Meeting findet um 10 Uhr ___.", "blank": "statt", "opts": ["statt", "an", "ab"], "tr": "Toplantı, saat 10'da.", "exp": "Hoca: «Das Meeting findet um 10 Uhr statt» = toplantı saat 10'da yapılıyor. stattfinden'de «statt» sona gider; «an» anfangen'e aittir." },
+      { "sent": "Es ist ___ spät. Ich gehe nach Hause.", "blank": "schon", "opts": ["schon", "erst", "gern"], "tr": "Gerçekten geç olmuş. Eve gidiyorum.", "exp": "Hocanın resmi: «Es ist schon spät. Ich gehe nach Hause.» schon = gerçekten geç oldu. «erst» ise «daha erken» demektir ve bu cümleye uymaz." },
+      { "sent": "Was? Es ist ___ 22 Uhr.", "blank": "erst", "opts": ["erst", "schon", "kurz"], "tr": "Ne? Daha saat 22.", "exp": "Hocanın resmi: «Was? Es ist erst 22 Uhr.» erst = daha erken, vakit var daha. «schon» tam tersini, yani geç olduğunu söylerdi." },
+      { "sent": "8.57 → Es ist ___ vor neun.", "blank": "kurz", "opts": ["kurz", "halb", "Viertel"], "tr": "Saat dokuza çok az kaldı.", "exp": "Hocanın örneği: 8.57 → Es ist kurz vor neun (9'a çok az kaldı). Dakika tam bir kalıp değilse «kurz vor / kurz nach» kullanılır." },
+      { "sent": "Mara arbeitet ___ Donnerstag bis Sonntag.", "blank": "von", "opts": ["von", "um", "am"], "tr": "Mara perşembeden pazara kadar çalışıyor.", "exp": "Hocanın kutusu: Wie lange? → von Donnerstag bis Samstag. Bir süreyi (…'den …'e kadar) «von … bis» ile söyleriz; «um» saat, «am» tek bir gün içindir." },
+      { "sent": "___ Montag gehe ich zur Schule.", "blank": "Am", "opts": ["Am", "Um", "Von"], "tr": "Pazartesi günü okula giderim.", "exp": "Hocanın kutusu: Wann? → am Montag, am Dienstag. Gün adıyla «am», saatle «um» kullanılır; tuzak olan «Um»'dur." },
+      { "sent": "13.20 → Es ist zehn vor halb ___.", "blank": "zwei", "opts": ["zwei", "eins", "drei"], "tr": "Saat bir buçuğa on var (13.20).", "exp": "Hoca (!!!): 13.20 → Es ist zehn vor halb zwei = Es ist zwanzig nach eins. «halb zwei» 1.30'dur, ona 10 dakika kala 1.20 olur. «eins» yazarsan «halb eins» (12.30) olur." },
+      { "sent": "Ich putze ___ die Zähne.", "blank": "mir", "opts": ["mir", "mich", "dich"], "tr": "Dişlerimi fırçalarım.", "exp": "Hocanın yazma sayfası: «Dişlerimi fırçalarım = Ich putze mir die Zähne.» Hocanın ikinci örneği «Ich ziehe mich an» ise «mich» ile kurulur; yani iki kalıp birbirine karıştırılmamalıdır." }
+    ]
+  },
+  "dogrulama": [
+    "Hocanın s.47'deki «Gegen 8:00 Uhr» (!!!!) notu çevirisiz; 'gegen = -e doğru / civarı' anlamını Perplexity'ye sor: «'Es ist gegen 8 Uhr' Almanca'da tam olarak ne anlama gelir, saat 8'den önce mi sonra mı?»",
+    "s.51 günlük rutin resimlerinde cümlelerin Türkçesi yok (Um 6.00 Uhr stehe ich auf vb.); zaman çizgisindeki Türkçe çevirileri ben yazdım. Doğru mu?",
+    "s.47 «kurz vor / kurz nach» ve s.49 «schon / erst» örneklerinde Türkçe karşılıkları hoca yalnızca kısmen yazmış; «Er steht um 6.00 Uhr auf» ve «Wir frühstücken um 8 Uhr» çevirileri bana ait.",
+    "s.52 'Wann? / Wie lange?' kutusunda Türkçe yok; Türkçeleri ben yazdım (am Montag = pazartesi günü vb.). Doğru mu?",
+    "s.53 hocanın «sich duschen — Ich dusche mich morgen» notunda 'morgen' (yarın) kullanılmış, yazı içeriği ise sabah duşundan söz ediyor; hocanın kastı «sabah» olabilir mi? Perplexity'ye sor: «Ich dusche mich morgen» cümlesi 'yarın duş alacağım' demek değil mi?"
+  ]
+}

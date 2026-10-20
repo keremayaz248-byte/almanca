@@ -1,0 +1,366 @@
+{
+  "konu": 18,
+  "baslik": "Die Berufe (Meslekler)",
+  "kaynak": [{ "arac": "PDF", "sayfa": "Teil-1 s.73-79" }],
+  "deste": {
+    "title": "💼 Die Berufe (Meslekler)",
+    "accent": "linear-gradient(135deg,#D9714E,#A8502F)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Meslekler",
+        "big": "DER / DIE -in",
+        "mean": "Mesleğini söylemeyi, erkek ve kadın meslek biçimlerini ve iş hayatı kelimelerini öğreniyorsun.",
+        "story": "Hocanın ezberi çok kısa: <b>DER</b> = erkek meslek, <b>DIE + -in</b> = kadın meslek. Yani Lehrer erkek öğretmen, Lehrerin kadın öğretmen. Bu derste önce iş/zaman kelimelerini, sonra meslekleri, sonra çiftlik (Bauernhof) kelimelerini göreceksin."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "İş ve zaman kelimeleri",
+        "baslik": "der Beruf & die Berufe",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["der Beruf / die Berufe", "meslek / meslekler"],
+          ["der Tag", "gün"],
+          ["die Woche", "hafta"],
+          ["der Monat", "ay"],
+          ["das Jahr", "yıl"],
+          ["die Stunde", "saat (stundenlang: saatlerce)"],
+          ["das (der) Moment", "dakika"],
+          ["die Freizeit", "boş zaman (in der Freizeit = in meiner Freizeit)"]
+        ],
+        "not": "Hocanın notu: <b>Froher schaffen!</b> = Kolay gelsin!",
+        "kaynak": "Teil-1 s.73"
+      },
+      {
+        "big": "Was machst du beruflich?",
+        "mean": "<b>\"Mesleğin ne?\"</b> sorusudur. Sen/Sie biçimleri: Was machst du beruflich? (arkadaşa) / Was machen Sie beruflich? (resmi). Cevap olarak <b>Ich arbeite als ...</b> (… olarak çalışıyorum) denir.",
+        "egs": [
+          "Was machst du beruflich? — Ich arbeite <b>als</b> Arzt. — Mesleğin ne? — Doktor olarak çalışıyorum.",
+          "Wo arbeiten Sie? — Ich arbeite <b>bei</b> DeFacto. — Nerede çalışıyorsunuz? — DeFacto'da çalışıyorum."
+        ],
+        "tip": "💡 Hocanın notu: <b>Ich arbeite Teilzeit / Vollzeit</b> = Part time / Full time çalışıyorum. <b>Ich mache viele Überstunden</b> = Çok fazla mesai yapıyorum.",
+        "kaynak": "Teil-1 s.73"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim",
+        "baslik": "arbeiten · tätig sein · schuften",
+        "basliklar": ["", "arbeiten", "tätig sein", "schuften"],
+        "satirlar": [
+          ["ich", "arbeite", "bin tätig", "schufte"],
+          ["du", "arbeitest", "bist tätig", "schuftest"],
+          ["er/sie/es", "arbeitet", "ist tätig", "schuftet"],
+          ["wir", "arbeiten", "sind tätig", "schuften"],
+          ["ihr", "arbeitet", "seid tätig", "schuftet"],
+          ["sie/Sie", "arbeiten", "sind tätig", "schuften"]
+        ],
+        "not": "Üç fiil de \"çalışmak\" demektir: <b>arbeiten</b> = çalışmak (en genel), <b>tätig sein</b> = bir görevde/işte aktif olmak, <b>schuften</b> = çok yorularak çalışmak. Örnekler (hocanın kartlarından): Er arbeitet in einer Bank. — O bir bankada çalışıyor. / Er schuftet jeden Tag zehn Stunden auf der Baustelle. — O her gün on saat şantiyede çalışıyor.",
+        "kaynak": "Teil-1 s.73"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "İş yeri ifadeleri",
+        "baslik": "auf / bei / zur der Arbeit",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["Ich bin <b>auf der</b> Arbeit.", "İşteyim. (Ofiste gibi)"],
+          ["Ich bin <b>bei der</b> Arbeit.", "İşteyim. (Mesaide gibi)"],
+          ["Ich gehe <b>zur</b> Arbeit.", "İşe gidiyorum."],
+          ["Ich komme <b>bei der</b> Arbeit <b>an</b>.", "İşe geliyorum."],
+          ["Um 7:30 Uhr fange ich <b>mit der</b> Arbeit <b>an</b>.", "Saat 7 buçukta işe başlarım."]
+        ],
+        "not": "Hocanın not kalıbı: <b>Ich gehe zur Arbeit um ... / Ich komme um ... raus.</b> (saat ...'de işe giderim / ...'de çıkarım).",
+        "kaynak": "Teil-1 s.73"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Wie oft? / Wie lange?",
+        "baslik": "pro = başına / -da",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["8 Stunden <b>pro</b> Tag (= am Tag)", "Günde 8 saat"],
+          ["85 Stunden <b>pro</b> Woche", "Haftada 85 saat"],
+          ["185 Stunden <b>pro</b> Monat", "Ayda 185 saat"],
+          ["40.000 Kilometer <b>pro</b> Jahr", "Yılda 40.000 km"],
+          ["<b>von</b> ... <b>bis</b> ...", "...'dan ...'ya kadar"]
+        ],
+        "not": "<b>pro</b> kelimesi \"her bir ... için, ...-da\" anlamı verir; soru kalıbı Wie oft? (Ne sıklıkla?) / Wie lange? (Ne kadar süre?).",
+        "kaynak": "Teil-1 s.73"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "DER = erkek",
+        "baslik": "Erkek ve kadın meslek biçimleri (1)",
+        "basliklar": ["der (erkek)", "die (kadın, -in)", "Türkçe"],
+        "satirlar": [
+          ["der Arzt", "die Ärztin", "doktor"],
+          ["der Lehrer", "die Lehrerin", "öğretmen"],
+          ["der Koch", "die Köchin", "aşçı"],
+          ["der Bäcker", "die Bäckerin", "fırıncı"],
+          ["der Bauer", "die Bäuerin", "çiftçi"],
+          ["der Friseur", "die Friseurin", "kuaför"],
+          ["der Schauspieler", "die Schauspielerin", "oyuncu"]
+        ],
+        "not": "Kadın biçimi = erkek biçim + <b>-in</b>. Dikkat: bazılarında a/o/u harfi <b>ä/ö/ü</b> olur: <b>Arzt → Ärztin</b>, <b>Koch → Köchin</b>, <b>Bauer → Bäuerin</b>, <b>Bäcker → Bäckerin</b> (hocanın alıştırmasındaki cevaplar).",
+        "kaynak": "Teil-1 s.74"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "DER = erkek",
+        "baslik": "Erkek ve kadın meslek biçimleri (2)",
+        "basliklar": ["der (erkek)", "die (kadın, -in)", "Türkçe"],
+        "satirlar": [
+          ["der Polizist", "die Polizistin", "polis"],
+          ["der Verkäufer", "die Verkäuferin", "satıcı"],
+          ["der Journalist", "die Journalistin", "gazeteci"],
+          ["der Sänger", "die Sängerin", "şarkıcı"],
+          ["der Musiker", "die Musikerin", "müzisyen"],
+          ["der Rechtsanwalt", "die Rechtsanwältin", "avukat"],
+          ["der Automechaniker", "die Automechanikerin", "oto tamircisi"],
+          ["der Ingenieur", "die Ingenieurin", "mühendis"]
+        ],
+        "not": "Hocanın ek notu: <b>der Staatsanwalt</b> = savcı. Hocanın resimli sayfasında bu meslekler <b>DER</b> kutusunda, karşılıkları <b>DIE -in</b> kutusunda verilir.",
+        "kaynak": "Teil-1 s.74"
+      },
+      {
+        "big": "Bäcker, Bäckerei, Metzgerei",
+        "mean": "<b>die Bäckerei</b> = fırın (dükkan), <b>der Bäcker</b> = fırıncı (kişi). Aynı şekilde <b>die Metzgerei</b> = kasap dükkanı, <b>der Metzger</b> = kasap (kişi). Dükkan sonu <b>-ei</b> ise artikel <b>die</b>.",
+        "egs": [
+          "Ich bin <b>beim</b> Bäcker (= in der Bäckerei). — Fırıncıdayım (= fırındayım).",
+          "Er arbeitet <b>auf einem</b> Bauernhof. — O bir çiftlikte çalışıyor."
+        ],
+        "tip": "💡 Hocanın notu: <b>der Bauernhof</b> = çiftlik; \"çiftlikte\" demek için <b>auf einem Bauernhof</b> kalıbı kullanılır.",
+        "kaynak": "Teil-1 s.74"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Studieren & Lernen",
+        "baslik": "Üniversite mi, okul mu?",
+        "basliklar": ["", "Almanca", "Türkçe"],
+        "satirlar": [
+          ["Üniversitede öğrenci", "der Student / die Studentin", "erkek / kadın üniversite öğrencisi"],
+          ["Üniversite dışında öğrenci", "der Schüler / die Schülerin", "erkek / kadın okul öğrencisi"],
+          ["studieren", "Ich <b>studiere</b> Jura in Köln.", "Köln'de hukuk okuyorum (üniversitede)."],
+          ["lernen", "Ich <b>lerne</b> Deutsch.", "Almanca öğreniyorum (bir beceri)."]
+        ],
+        "not": "Hocanın görseli: <b>studieren</b> = üniversitede yapılan şey; <b>lernen</b> = becerileri (Fähigkeiten / skills) öğrenmek için kullanılır. Ek fiil: <b>beibringen</b> = öğretmek, birine bir şey kazandırmak — Ich bringe meinem kleinen Bruder das Fahrradfahren bei. (Küçük kardeşime bisiklet sürmeyi öğretiyorum.)",
+        "kaynak": "Teil-1 s.75"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Auf dem Bauernhof (1)",
+        "baslik": "Çiftlik hayvanları",
+        "basliklar": ["Artikel + kelime", "Türkçe"],
+        "satirlar": [
+          ["das Pferd", "at"],
+          ["das Fohlen", "tay"],
+          ["die Kuh", "inek"],
+          ["das Kalb", "buzağı"],
+          ["der Stier", "boğa"],
+          ["das Schaf", "koyun"],
+          ["das Lamm", "kuzu"],
+          ["das Schwein", "domuz"],
+          ["das Ferkel", "domuz yavrusu"]
+        ],
+        "not": "Resimdeki artikellere bak: Fohlen, Kalb, Lamm, Ferkel (yavrular) <b>das</b>; Kuh <b>die</b>; Stier <b>der</b>.",
+        "kaynak": "Teil-1 s.76"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Auf dem Bauernhof (2)",
+        "baslik": "Çiftlikte neler var?",
+        "basliklar": ["Artikel + kelime", "Türkçe"],
+        "satirlar": [
+          ["der Bauer / die Bäuerin", "çiftçi (erkek / kadın)"],
+          ["das Bauernhaus", "çiftlik evi"],
+          ["der Traktor", "traktör"],
+          ["der Pflug", "pulluk"],
+          ["die Weide", "otlak / mera"],
+          ["die Obstbäume", "meyve ağaçları"],
+          ["der Bienenstock", "arı kovanı"],
+          ["die Axt", "balta"],
+          ["der Schubkarren", "el arabası"],
+          ["das Hoftor", "avlu kapısı"]
+        ],
+        "not": "Kelimelerin hepsi hocanın <b>Auf dem Bauernhof</b> resimli sayfasındadır; resimde ayrıca der Holzhaufen, der Hackklotz, die Sense da yer alır.",
+        "kaynak": "Teil-1 s.76"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Sprechen",
+        "baslik": "Kendini ve başkasını tanıt",
+        "satirlar": [
+          {
+            "etiket": "Ad",
+            "not": "Wie heißen Sie?",
+            "jetonlar": [{ "t": "Er", "r": "ozne" }, { "t": "heißt", "r": "fiil" }, { "t": "Boris", "r": "nesne" }],
+            "tr": "Onun adı Boris."
+          },
+          {
+            "etiket": "Yaş",
+            "not": "Wie alt sind Sie?",
+            "jetonlar": [{ "t": "Er", "r": "ozne" }, { "t": "ist", "r": "fiil" }, { "t": "zweiundzwanzig Jahre alt", "r": "diger" }],
+            "tr": "O yirmi iki yaşında."
+          },
+          {
+            "etiket": "Meslek",
+            "not": "Was sind Sie von Beruf?",
+            "jetonlar": [{ "t": "Er", "r": "ozne" }, { "t": "ist", "r": "fiil" }, { "t": "Polizist", "r": "nesne" }],
+            "tr": "O polis."
+          },
+          {
+            "etiket": "Çalışma günleri",
+            "not": "Wann arbeiten Sie?",
+            "jetonlar": [{ "t": "Er", "r": "ozne" }, { "t": "arbeitet", "r": "fiil" }, { "t": "6 Tage pro Woche", "r": "zaman" }],
+            "tr": "Haftada 6 gün çalışıyor."
+          }
+        ],
+        "not": "Hocanın örnek metni: <b>Er heißt Boris. Er ist zweiundzwanzig Jahre alt. Er ist Polizist. Er arbeitet 6 Tage pro Woche. Nur ein Tag (am Freitag) hat er frei.</b> Beşinci soru: Wann haben Sie Freizeit? (Boş zamanınız ne zaman?)",
+        "kaynak": "Teil-1 s.79"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Sık yapılan hatalar",
+        "maddeler": [
+          "Meslek söylerken <b>ein/eine</b> kullanılmaz: Er <b>ist</b> Polizist. (Von Beruf ist sie Yoga-Lehrerin.) Hocanın tüm örnekleri artikelsiz.",
+          "Kadın biçimi için sadece <b>-in</b> eklemek yetmez: Arzt → <b>Ä</b>rztin, Koch → <b>Kö</b>chin, Bauer → <b>Bä</b>uerin.",
+          "<b>studieren</b> (üniversitede okumak) ile <b>lernen</b> (beceri öğrenmek) karıştırılmaz.",
+          "<b>Bäckerei</b> (die, dükkan) ile <b>Bäcker</b> (der, kişi) farklı kelimelerdir; aynı Metzgerei / Metzger.",
+          "<b>auf der Arbeit</b> (ofiste gibi) ile <b>bei der Arbeit</b> (mesaide gibi) hocaya göre ayrı tonlardır."
+        ],
+        "uyari": "En sık hata: kadın mesleğini <b>-in</b>'siz söylemek (Sie ist Lehrer ✗ → Sie ist Lehrerin ✓).",
+        "kaynak": "Teil-1 s.73-77"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "DER → DIE -in",
+        "mean": "Erkek meslek <b>der</b>, kadın meslek <b>die + -in</b>; çalışmak = arbeiten.",
+        "story": "Der Arzt → die Ärztin · der Lehrer → die Lehrerin · der Koch → die Köchin · der Bauer → die Bäuerin. Ich arbeite als ... · pro Tag · von ... bis ... · Froher schaffen!"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d18_berufe",
+    "title": "Die Berufe — Meslekler",
+    "emoji": "💼",
+    "desc": "Erkek/kadın meslek biçimleri (-in) ve iş kelimeleri",
+    "rule": "<b>der</b> = erkek meslek, <b>die + -in</b> = kadın meslek (Lehrer → Lehrerin).<br>Bazılarında ä/ö: <b>Arzt → Ärztin, Koch → Köchin, Bauer → Bäuerin</b>.<br><b>Was machst du beruflich?</b> → Ich arbeite als ...<br><b>pro Tag / Woche / Monat / Jahr</b> = günde / haftada / ayda / yılda.<br><b>studieren</b> = üniversitede okumak, <b>lernen</b> = beceri öğrenmek.",
+    "qs": [
+      {
+        "sent": "Der Mann ist Lehrer. Die Frau ist ___.",
+        "blank": "Lehrerin",
+        "opts": ["Lehrerin", "Lehrer", "Lehrin"],
+        "tr": "Adam öğretmen. Kadın öğretmen.",
+        "exp": "Kadın meslek biçimi erkek biçime -in eklenerek yapılır: Lehrer → Lehrerin. Lehrer erkek biçimidir, Lehrin ise kuralsız bir yazımdır."
+      },
+      {
+        "sent": "Er ist Arzt. Sie ist ___.",
+        "blank": "Ärztin",
+        "opts": ["Ärztin", "Arztin", "Ärzttin"],
+        "tr": "O (erkek) doktor. O (kadın) doktor.",
+        "exp": "Kadın biçimi -in ile yapılır ve Arzt'taki A, ä olur: Ärztin. Hocanın alıştırma cevaplarında da böyledir. Arztin yazımı umlautu unutmaktır."
+      },
+      {
+        "sent": "Er ist Koch. Sie ist ___.",
+        "blank": "Köchin",
+        "opts": ["Köchin", "Kochin", "Köchen"],
+        "tr": "O (erkek) aşçı. O (kadın) aşçı.",
+        "exp": "Koch → Köchin: -in eklenir ve o, ö olur (hocanın alıştırma cevabı). Kochin umlautsuz yazımdır, Köchen ise -in yerine -en yazmaktır."
+      },
+      {
+        "sent": "Ich gehe ___ Arbeit.",
+        "blank": "zur",
+        "opts": ["zur", "auf der", "bei der"],
+        "tr": "İşe gidiyorum.",
+        "exp": "Hocanın kalıbı: Ich gehe zur Arbeit = işe gidiyorum. auf der / bei der Arbeit ise 'işteyim' (bulunma) anlamı taşır."
+      },
+      {
+        "sent": "Ich komme ___ der Arbeit an.",
+        "blank": "bei",
+        "opts": ["bei", "auf", "zur"],
+        "tr": "İşe geliyorum (varıyorum).",
+        "exp": "Hocanın kalıbı: Ich komme bei der Arbeit an = işe geliyorum. Fiil 'ankommen' ayrılır; an sona gider."
+      },
+      {
+        "sent": "Ich arbeite 8 Stunden ___ Tag.",
+        "blank": "pro",
+        "opts": ["pro", "von", "bis"],
+        "tr": "Günde 8 saat çalışıyorum.",
+        "exp": "'pro Tag' = günde, 'pro Woche' = haftada. Hocanın sayfasında 8 Stunden pro Tag, 85 Stunden pro Woche gibi örnekler vardır. von/bis süre aralığı için kullanılır."
+      },
+      {
+        "sent": "Ich ___ Deutsch.",
+        "blank": "lerne",
+        "opts": ["lerne", "studiere", "bringe"],
+        "tr": "Almanca öğreniyorum.",
+        "exp": "Hocanın görseli: Almanca gibi beceriler için lernen kullanılır (Ich lerne Deutsch). studieren üniversitede okumaktır."
+      },
+      {
+        "sent": "Ich ___ Jura in Köln.",
+        "blank": "studiere",
+        "opts": ["studiere", "lerne", "arbeite"],
+        "tr": "Köln'de hukuk okuyorum.",
+        "exp": "Hocanın görseli: studieren = üniversitede yapılan şey (Ich studiere Jura in Köln). lernen beceri öğrenmek içindir."
+      },
+      {
+        "sent": "Ich bin beim ___.",
+        "blank": "Bäcker",
+        "opts": ["Bäcker", "Bäckerei", "Bäckerin"],
+        "tr": "Fırıncıdayım.",
+        "exp": "Hocanın notu: Ich bin beim Bäcker (= in der Bäckerei). 'beim' = bei dem ve erkek kişiyle kullanılır. Bäckerei dükkanın kendisidir ('in der' ister), Bäckerin kadın fırıncıdır."
+      },
+      {
+        "sent": "Wo arbeiten Sie? — Ich arbeite ___ DeFacto.",
+        "blank": "bei",
+        "opts": ["bei", "als", "pro"],
+        "tr": "Nerede çalışıyorsunuz? — DeFacto'da çalışıyorum.",
+        "exp": "Hocanın örnek diyaloğu: Wo arbeiten Sie? — Ich arbeite bei DeFacto. Şirket adıyla bei kullanılır; 'als' ise meslekten önce gelir (Ich arbeite als Arzt)."
+      },
+      {
+        "sent": "Ich arbeite ___ Arzt.",
+        "blank": "als",
+        "opts": ["als", "bei", "zur"],
+        "tr": "Doktor olarak çalışıyorum.",
+        "exp": "Hocanın örneği: Ich arbeite als Arzt. als = ... olarak; meslek adı artikelsiz gelir. bei ise çalışılan yeri/şirketi gösterir."
+      },
+      {
+        "sent": "Er arbeitet ___ einem Bauernhof.",
+        "blank": "auf",
+        "opts": ["auf", "zur", "pro"],
+        "tr": "O bir çiftlikte çalışıyor.",
+        "exp": "Hocanın notu: çiftlikte = auf einem Bauernhof. auf + Bauernhof sabit kalıp gibi öğrenilir."
+      },
+      {
+        "sent": "Ich arbeite von Montag ___ Freitag.",
+        "blank": "bis",
+        "opts": ["bis", "pro", "bei"],
+        "tr": "Pazartesiden cumaya kadar çalışıyorum.",
+        "exp": "von ... bis ... = ...'dan ...'ya kadar (hocanın sarı kutusu). von ile birlikte ikinci parça bis olur."
+      },
+      {
+        "sent": "Mia studiert Jura. Sie ist ___.",
+        "blank": "Studentin",
+        "opts": ["Studentin", "Schülerin", "Student"],
+        "tr": "Mia hukuk okuyor. O öğrenci (üniversite).",
+        "exp": "Üniversitede okuyan kadın = die Studentin (hocanın s.75 ayrımı). Schülerin üniversite dışındaki öğrenci; Student erkek biçimdir."
+      },
+      {
+        "sent": "Er ist Sänger. Sie ist ___.",
+        "blank": "Sängerin",
+        "opts": ["Sängerin", "Sänger", "Sängin"],
+        "tr": "O (erkek) şarkıcı. O (kadın) şarkıcı.",
+        "exp": "Kadın biçimi erkek biçimin sonuna -in eklenerek yapılır: Sänger → Sängerin. Ä zaten erkek biçimde vardır, bu yüzden değişmez; Sängin ise -er'i düşürmektir."
+      }
+    ]
+  },
+  "dogrulama": [
+    "Meslek ve çiftlik kelimelerinin Türkçe karşılıklarını hocanın resimli sayfaları (s.74, s.76) gösterdiği için resme bakarak kendim yazdım; sayfada Türkçe yazılı olmayanlar: Arzt, Polizist, Lehrer, Verkäufer, Friseur, Journalist, Sänger, Koch, Musiker, Rechtsanwalt, Bäcker, Bauer, Automechaniker, Schauspieler, Ingenieur ve s.76'daki tüm hayvan/eşya adları. Perplexity'ye sor: \"Bu Almanca kelimelerin Türkçe karşılıkları doğru mu?\"",
+    "Kadın biçimlerinden hocanın alıştırmasında görünmeyenleri (Verkäuferin, Journalistin, Polizistin, Sängerin, Musikerin, Rechtsanwältin, Automechanikerin, Ingenieurin) -in kuralıyla kendim ürettim; Perplexity'ye sor: \"Rechtsanwalt'ın kadın biçimi Rechtsanwältin mi, Rechtsanwaltin mi? Automechaniker, Ingenieur için -in biçimleri doğru mu?\"",
+    "s.76'daki artikeller resimden okundu (küçük yazı); yanlış okunmuş olabilir: das Fohlen, das Kalb, das Lamm, das Ferkel, die Kuh, der Stier, der Pflug, die Axt, die Weide. Gözle kontrol edilmeli.",
+    "s.73'teki 'tätig sein' ve 'schuften' kartlarında Türkçe açıklama yok; açıklamaları İngilizce kartlardan (to be active/employed, to toil) çevirdim. Perplexity'ye sor: \"tätig sein ve schuften arasındaki fark nedir?\"",
+    "s.73: 'das (der) Moment: dakika' hocanın yazdığı gibi bırakıldı; Moment normalde 'an' demektir, 'dakika' için Minute kullanılır. Hocaya/Perplexity'ye sor: \"der Moment = dakika doğru mu?\"",
+    "s.77 (Alba Sánchez okuma) ve s.78 (Andreas'ın Türkçe metni) derse alınmadı; s.78 yalnızca Türkçe bir okuma-çeviri alıştırması."
+  ]
+}

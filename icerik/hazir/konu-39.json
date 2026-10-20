@@ -1,0 +1,399 @@
+{
+  "konu": 39,
+  "baslik": "Wechselpräpositionen",
+  "kaynak": [
+    { "arac": "PDF", "sayfa": "A2 Dosyası s.14, s.19, s.31, s.44-45, s.48" }
+  ],
+  "deste": {
+    "title": "📍 Wechselpräpositionen",
+    "accent": "linear-gradient(135deg,#D9714E,#A8502F)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "WO? / WOHIN?",
+        "mean": "in, an, auf, über, unter, vor, hinter, neben, zwischen edatları iki farklı artikel alır: <b>Wo?</b> (nerede) sorusu → <b>Dativ</b>, <b>Wohin?</b> (nereye) sorusu → <b>Akkusativ</b>.",
+        "story": "Hocanın sayfalarında bu konu üç parça halinde geçiyor: önce 9 edat ve baykuş (Eule) örnekleri (s.31), sonra <b>Wo? / Wohin?</b> ayrımı ve <b>legen–stellen / liegen–stehen–hängen</b> fiilleri (s.44-45), en sonda <b>über</b> için uyarı (s.48). Tek soru yeter: cümleye <b>wo?</b> mu, <b>wohin?</b> mi soruluyor?"
+      },
+      {
+        "big": "Wo? = Dativ · Wohin? = Akkusativ",
+        "mean": "Aynı edat (in, auf...) iki artikel alabilir. Olay bir <b>yerde olup bitiyorsa</b> (wo?) artikel Dativ olur; bir <b>yere doğru hareket</b> varsa (wohin?) Akkusativ olur. Edat değişmez, değişen artikeldir.",
+        "egs": [
+          "Ich bin <b>im</b> Park. — Parktayım. (Wo? → Dativ)",
+          "Ich gehe <b>in den</b> Park. — Parka gidiyorum. (Wohin? → Akkusativ)",
+          "Die Kinder spielen <b>auf der</b> Straße. — Çocuklar caddede oynuyor. (Wo? → Dativ)",
+          "Wohin soll ich den Stuhl stellen? Hier <b>in die</b> Küche. — Sandalyeyi nereye koyayım? Buraya, mutfağa. (Wohin? → Akkusativ)"
+        ],
+        "tip": "💡 Hocanın notu (s.19): <b>Wo?: Dativ</b> (auf der Straße / in der Berliner Straße) — <b>Wohin?: Akkusativ</b> (auf die Straße / in die Berliner Straße).",
+        "kaynak": "A2 Dosyası s.14, s.19"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Wo? ↔ Wohin?",
+        "baslik": "Aynı edat, iki farklı artikel",
+        "satirlar": [
+          {
+            "etiket": "Wo? → Dativ",
+            "not": "yer (durma, bulunma)",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "bin", "r": "fiil" },
+              { "t": "im Park", "r": "zaman" }
+            ],
+            "tr": "Parktayım."
+          },
+          {
+            "etiket": "Wohin? → Akkusativ",
+            "not": "yöneliş (hareket)",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "gehe", "r": "fiil" },
+              { "t": "in den Park", "r": "zaman" }
+            ],
+            "tr": "Parka gidiyorum."
+          },
+          {
+            "etiket": "Wo? → Dativ",
+            "not": "fiil: liegen",
+            "jetonlar": [
+              { "t": "Das Buch", "r": "ozne" },
+              { "t": "liegt", "r": "fiil" },
+              { "t": "auf dem Tisch", "r": "zaman" }
+            ],
+            "tr": "Kitap masanın üstünde duruyor."
+          },
+          {
+            "etiket": "Wohin? → Akkusativ",
+            "not": "fiil: legen",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "lege", "r": "fiil" },
+              { "t": "das Buch", "r": "nesne" },
+              { "t": "auf den Tisch", "r": "zaman" }
+            ],
+            "tr": "Kitabı masanın üstüne koyuyorum."
+          }
+        ],
+        "not": "<b>Kural:</b> Yer parçası (<b>auf dem Tisch</b> / <b>auf den Tisch</b>) soruya göre değişir: <b>wo?</b> → <b>dem</b>, <b>wohin?</b> → <b>den</b>.",
+        "kaynak": "A2 Dosyası s.14, s.19, s.45"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Yer edatları",
+        "baslik": "9 edat ve baykuş örnekleri",
+        "basliklar": ["Edat", "Hoca (İngilizce)", "Baykuş örneği (Wo? → Dativ)"],
+        "satirlar": [
+          ["auf", "on", "Eine Eule auf dem Tisch"],
+          ["über", "over / above", "Eine Eule über dem Tisch"],
+          ["unter", "under / below", "Eine Eule unter dem Tisch"],
+          ["vor", "in front of", "Eine Eule vor dem Tisch"],
+          ["hinter", "behind", "Eine Eule hinter dem Tisch"],
+          ["neben", "next to", "Eine Eule neben dem Tisch (yanında)"],
+          ["an", "at (an / bei)", "Eine Eule an mir (yakınında / yanında)"],
+          ["zwischen", "between", "Eine Eule zwischen dem Tisch und der Tür"],
+          ["in", "in", "Eine Eule in der Tasche"]
+        ],
+        "not": "Hocanın ipuçları: <b>Das bleibt unter uns</b> = Aramızda kalsın (unter). <b>Du weißt doch, wo die Post ist. Daneben ist die Bank.</b> = Yanında (daneben). Hoca bu listeyi Wo? → Dativ başlığıyla verir; Wohin? için aynı edatlar Akkusativ alır.",
+        "kaynak": "A2 Dosyası s.31"
+      },
+      {
+        "big": "ans · ins · im",
+        "mean": "Bazı edat + artikel çiftleri birleşir. Hocanın örnekleri: <b>an das = ans</b>, <b>in das = ins</b> (Akkusativ), <b>in dem = im</b> (Dativ). <b>an der Tür</b> Dativ'dir.",
+        "egs": [
+          "Wir gehen <b>ins</b> Kino (in das Kino). — Sinemaya gidiyoruz. (Akk.)",
+          "Wir sind <b>im</b> Hotel. — Otelde kalıyoruz. (Dativ: im Hotel)",
+          "Ich lege das Kind <b>ins</b> Bett. — Çocuğu yatağa yatırıyorum. (Wohin?)",
+          "Das Kind liegt <b>im</b> (in dem) Bett. — Çocuk yatakta yatıyor. (Wo?)"
+        ],
+        "tip": "💡 Hocanın kutusu (s.31): <b>Akk.: ins Hotel * Dativ: im Hotel</b>. Ayrıca: an das Bad = ans Bad; an der Tür – Dativ.",
+        "kaynak": "A2 Dosyası s.31, s.45"
+      },
+      {
+        "big": "über: 3 anlam",
+        "mean": "Hoca <b>über</b> için <b>Achtung!</b> uyarısı yapıyor: (1) Temassız üstünde → <b>Wo? Dativ</b>. (2) Temassız üstüne → <b>Wohin? Akkusativ</b>. (3) „hakkında“ anlamında her zaman <b>Akkusativ</b>. Ayrıca <b>um</b> = „ile ilgili“ (Worum geht es? — Konu ne?), o da Akkusativ alır.",
+        "egs": [
+          "Die Uhr steht <b>über dem</b> Tisch. — Saat masanın üstünde (temassız) duruyor. (Dativ)",
+          "Ich stelle die Uhr <b>über den</b> Tisch. — Saati masanın üstüne (temassız) koyuyorum. (Akkusativ)",
+          "Sie sprechen <b>über dich</b>. — Senin hakkında konuşuyorlar. (Akkusativ)",
+          "Es geht <b>um die</b> Arbeit. — Konu, iş ile ilgili."
+        ],
+        "tip": "💡 Hoca: <b>!!!! um: -ile ilgili</b> (Worum geht es?). Es geht um deinen Termin. = Konu, randevunla ilgili.",
+        "kaynak": "A2 Dosyası s.48"
+      },
+      {
+        "big": "legen · stellen",
+        "mean": "Wohin? (Akkusativ) sorusuna cevap veren fiiller. Hocanın el yazısı notu: <b>legen = yatay koymak</b>, <b>stellen = dikey koymak</b>. Bir şeyi bir yere <b>koyuyorsun</b>; hareket var, bu yüzden edattan sonra Akkusativ gelir.",
+        "egs": [
+          "Ich <b>lege</b> das Buch auf <b>den</b> Tisch. — Kitabı masanın üstüne koyuyorum (yatay).",
+          "Ich <b>stelle</b> das Buch auf <b>den</b> Tisch. — Kitabı masanın üstüne koyuyorum (dik).",
+          "Er <b>stellt</b> die Flasche auf <b>den</b> Boden. — Şişeyi yere koyuyor.",
+          "Wohin kann ich meinen Pullover <b>legen</b>? Am besten auf <b>das</b> Bett. — Kazağımı nereye koyabilirim? En iyisi yatağın üstüne."
+        ],
+        "tip": "💡 Hoca s.45'te aynı cümleyi hem <b>stellen</b> hem <b>legen</b> ile veriyor (Ich lege/stelle das Buch auf den Tisch): fark, nesnenin yatay mı dik mi konduğudur. Perfekt: <b>hat gestellt</b>, <b>hat gelegt</b>.",
+        "kaynak": "A2 Dosyası s.44-45"
+      },
+      {
+        "big": "liegen · stehen · sitzen",
+        "mean": "Wo? (Dativ) sorusuna cevap veren fiiller. <b>liegen</b> = yatay duruyor, <b>stehen</b> = dik duruyor, <b>sitzen</b> = oturuyor. Konulan şey artık <b>yerinde duruyor</b>; hareket yok, bu yüzden Dativ gelir.",
+        "egs": [
+          "Das Buch <b>liegt</b> auf <b>dem</b> Tisch. — Kitap masanın üstünde duruyor.",
+          "Die Flasche <b>steht</b> auf <b>dem</b> Boden. — Şişe yerde duruyor.",
+          "Die Katze <b>sitzt</b> auf <b>dem</b> Boden. — Kedi yerde oturuyor.",
+          "Wo <b>liegt</b> denn meine Brille? — Gözlüğüm nerede duruyor?"
+        ],
+        "tip": "💡 Hoca s.44'te: <b>Wo ist denn mein Rucksack? Er steht doch neben der Tür.</b> Perfekt: <b>hat gestanden</b>, <b>hat gelegen</b>, <b>hat gesessen</b>.",
+        "kaynak": "A2 Dosyası s.44-45"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Fiil çiftleri",
+        "baslik": "Wohin? (Akk.) ↔ Wo? (Dativ)",
+        "basliklar": ["Anlam (hoca)", "Wohin? → Akkusativ", "Wo? → Dativ"],
+        "satirlar": [
+          ["yatay", "legen (hat gelegt)", "liegen (hat gelegen)"],
+          ["dikey", "stellen (hat gestellt)", "stehen (hat gestanden)"],
+          ["oturma", "setzen (hat gesetzt)", "sitzen (hat gesessen)"],
+          ["asmak / asılı durmak", "hängen (hat gehängt)", "hängen (gehangen)"]
+        ],
+        "not": "Hocanın s.45 tablosu: sol sütun <b>Wohin? (Akkusativ)</b>, sağ sütun <b>Wo? (Dativ)</b>. Örnekler: Ich lege den Ball auf den Boden. / Der Ball liegt auf dem Boden. — Er setzt die Katze auf den Boden. / Die Katze sitzt auf dem Boden.",
+        "kaynak": "A2 Dosyası s.44-45"
+      },
+      {
+        "big": "hängen",
+        "mean": "<b>hängen</b> hem Akkusativ hem Dativ tarafında yazılır; hoca bunu „Asılı Durmak“ diye not ediyor. Sen onu <b>asıyorsan</b> (hareket, wohin?) Akkusativ, <b>asılı duruyorsa</b> (wo?) Dativ. Perfekt'te farklıdır: <b>gehängt</b> ve <b>gehangen</b>.",
+        "egs": [
+          "Ich <b>hänge</b> das Bild an <b>die</b> Wand. — Resmi duvara asıyorum. (Akk.)",
+          "Das Bild <b>hängt</b> an <b>der</b> Wand. — Resim duvarda asılı duruyor. (Dativ)",
+          "Du hast die Tasche an die Wand <b>gehängt</b>. — Çantayı duvara astın.",
+          "Die Tasche hat an <b>der</b> Wand <b>gehangen</b>. — Çanta duvarda asılı durdu."
+        ],
+        "tip": "💡 Hoca s.44: <b>Tabea hängt das Handtuch ins Bad.</b> (wohin) ve <b>Meine Kleider hängen im Schrank.</b> (wo).",
+        "kaynak": "A2 Dosyası s.44-45"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Anja'nın partisi",
+        "baslik": "Aynı eşya: önce, taşıma, sonra",
+        "satirlar": [
+          {
+            "etiket": "Önce (Wo?)",
+            "not": "Dativ",
+            "jetonlar": [
+              { "t": "Der Stuhl", "r": "ozne" },
+              { "t": "steht", "r": "fiil" },
+              { "t": "vor dem Schreibtisch", "r": "zaman" }
+            ],
+            "tr": "Sandalye yazı masasının önünde duruyor."
+          },
+          {
+            "etiket": "Taşındı (Wohin?)",
+            "not": "Akkusativ",
+            "jetonlar": [
+              { "t": "Den Stuhl", "r": "nesne" },
+              { "t": "auf das Bett", "r": "zaman" }
+            ],
+            "tr": "Sandalyeyi yatağın üstüne (koydular)."
+          },
+          {
+            "etiket": "Sonra (Wo?)",
+            "not": "Dativ",
+            "jetonlar": [
+              { "t": "Er", "r": "ozne" },
+              { "t": "steht", "r": "fiil" },
+              { "t": "auf dem Bett", "r": "zaman" }
+            ],
+            "tr": "O, yatağın üstünde duruyor."
+          },
+          {
+            "etiket": "Önce (Wo?)",
+            "not": "Dativ",
+            "jetonlar": [
+              { "t": "Die Tasche", "r": "ozne" },
+              { "t": "liegt", "r": "fiil" },
+              { "t": "auf dem Stuhl", "r": "zaman" }
+            ],
+            "tr": "Çanta sandalyenin üstünde duruyor."
+          },
+          {
+            "etiket": "Taşındı (Wohin?)",
+            "not": "Akkusativ",
+            "jetonlar": [
+              { "t": "Die Tasche", "r": "nesne" },
+              { "t": "ins Regal", "r": "zaman" }
+            ],
+            "tr": "Çantayı rafa (koydular)."
+          },
+          {
+            "etiket": "Sonra (Wo?)",
+            "not": "Dativ",
+            "jetonlar": [
+              { "t": "Sie", "r": "ozne" },
+              { "t": "liegt", "r": "fiil" },
+              { "t": "im Regal", "r": "zaman" }
+            ],
+            "tr": "O, rafta duruyor."
+          }
+        ],
+        "not": "Hocanın resimli sayfası (s.44): <b>Anja macht eine Party</b> (önce) ve <b>Nach der Party</b> (sonra). Taşıma satırlarında <b>wohin?</b> → Akkusativ (<b>auf das Bett</b>, <b>ins Regal</b>), duruş satırlarında <b>wo?</b> → Dativ (<b>auf dem Bett</b>, <b>im Regal</b>).",
+        "kaynak": "A2 Dosyası s.44"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Sık hatalar",
+        "baslik": "Tuzaklar ve kontrol listesi",
+        "maddeler": [
+          "Önce soruyu bul: <b>Wo?</b> → Dativ, <b>Wohin?</b> → Akkusativ.",
+          "Koymak (hareket) fiilleri → Akkusativ: <b>legen, stellen, setzen, hängen</b>.",
+          "Durmak (yer) fiilleri → Dativ: <b>liegen, stehen, sitzen, hängen</b>.",
+          "<b>ins Hotel</b> (Akk.) ≠ <b>im Hotel</b> (Dativ); <b>ins Kino</b> = in das Kino.",
+          "<b>über</b>: temassız üstünde → Dativ, temassız üstüne → Akkusativ, „hakkında“ → Akkusativ.",
+          "<b>um</b> = ile ilgili (Worum geht es?), Akkusativ."
+        ],
+        "uyari": "En sık hata: <b>legen ↔ liegen</b> ve <b>hängen</b> karışması. Cümlede hareket (koyuyorum) varsa legen/stellen + Akkusativ; durma varsa liegen/stehen + Dativ. Perfekt'te de dikkat: <b>gehängt</b> (Akk.) / <b>gehangen</b> (Dativ).",
+        "kaynak": "A2 Dosyası s.44-45, s.48"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "Wo? Dativ · Wohin? Akkusativ",
+        "mean": "Aynı 9 edat (in, an, auf, über, unter, vor, hinter, neben, zwischen), iki ayrı artikel.",
+        "story": "<b>legen, stellen, setzen, hängen</b> → wohin? → Akkusativ.<br><b>liegen, stehen, sitzen, hängen</b> → wo? → Dativ.<br><b>ins Hotel</b> (Akk.) — <b>im Hotel</b> (Dativ)."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d39_wechsel",
+    "title": "Wechselpräpositionen",
+    "emoji": "📍",
+    "desc": "wo? → Dativ, wohin? → Akkusativ; legen/stellen ↔ liegen/stehen",
+    "rule": "<b>in, an, auf, über, unter, vor, hinter, neben, zwischen</b>: <b>Wo?</b> → <b>Dativ</b>, <b>Wohin?</b> → <b>Akkusativ</b>.<br><b>Wohin-fiilleri (Akk.):</b> legen, stellen, setzen, hängen.<br><b>Wo-fiilleri (Dativ):</b> liegen, stehen, sitzen, hängen.<br><b>ins Hotel</b> (Akk.) — <b>im Hotel</b> (Dativ). <b>über</b> = hakkında → Akkusativ; <b>um</b> = ile ilgili → Akkusativ.",
+    "qs": [
+      {
+        "sent": "Das Buch liegt auf ___ Tisch.",
+        "blank": "dem",
+        "opts": ["dem", "den", "der"],
+        "tr": "Kitap masanın üstünde duruyor.",
+        "exp": "Cümle wo? (nerede?) sorusuna cevap verir; yer sorusu Dativ ister, der Tisch Dativ'de dem Tisch olur. den Akkusativ (wohin?) için, der ise die/der kelimeler içindir."
+      },
+      {
+        "sent": "Ich lege das Buch auf ___ Tisch.",
+        "blank": "den",
+        "opts": ["den", "dem", "der"],
+        "tr": "Kitabı masanın üstüne koyuyorum.",
+        "exp": "legen hareket anlatır, wohin? sorusuna cevap verir; Akkusativ gelir, der Tisch Akkusativ'de den Tisch olur. dem Dativ'dir (wo?)."
+      },
+      {
+        "sent": "Das Bild hängt an ___ Wand.",
+        "blank": "der",
+        "opts": ["der", "die", "den"],
+        "tr": "Resim duvarda asılı duruyor.",
+        "exp": "hängt = asılı duruyor, wo? sorusu, Dativ. die Wand Dativ'de der Wand olur. die Akkusativ (asma hareketi) olurdu."
+      },
+      {
+        "sent": "Ich hänge das Bild an ___ Wand.",
+        "blank": "die",
+        "opts": ["die", "der", "dem"],
+        "tr": "Resmi duvara asıyorum.",
+        "exp": "hänge (ben asıyorum) hareket anlatır, wohin? sorusu, Akkusativ. die Wand Akkusativ'de die Wand kalır; der Wand Dativ'dir."
+      },
+      {
+        "sent": "Er ___ die Flasche auf den Boden.",
+        "blank": "stellt",
+        "opts": ["stellt", "steht", "liegt"],
+        "tr": "Şişeyi yere koyuyor.",
+        "exp": "auf den Boden (Akkusativ) olduğuna göre hareket var: koyma fiili stellen gerekir (dikey koyma). steht ve liegt durma fiilleridir, Dativ ister."
+      },
+      {
+        "sent": "Die Flasche ___ auf dem Boden.",
+        "blank": "steht",
+        "opts": ["steht", "stellt", "legt"],
+        "tr": "Şişe yerde duruyor.",
+        "exp": "auf dem Boden (Dativ) → durma var, hareket yok: stehen (dik duran şey). stellt ve legt Akkusativ gerektiren koyma fiilleridir."
+      },
+      {
+        "sent": "Ich ___ den Bleistift auf den Tisch.",
+        "blank": "lege",
+        "opts": ["lege", "liege", "stehe"],
+        "tr": "Kalemi masanın üstüne koyuyorum.",
+        "exp": "den Tisch (Akkusativ) → ben bir şeyi koyuyorum: legen (yatay koyma). liege ve stehe kendi kendine durmayı anlatır ve Dativ ister."
+      },
+      {
+        "sent": "Wo ___ denn meine Brille?",
+        "blank": "liegt",
+        "opts": ["liegt", "legt", "stellt"],
+        "tr": "Gözlüğüm nerede duruyor?",
+        "exp": "Wo? sorusu durma fiili ister: liegen (gözlük yatay durur). legt ve stellt hareket fiilidir, wohin? sorusunda kullanılır."
+      },
+      {
+        "sent": "Ich gehe in ___ Park.",
+        "blank": "den",
+        "opts": ["den", "dem", "im"],
+        "tr": "Parka gidiyorum.",
+        "exp": "gehen hareket anlatır; wohin? → Akkusativ: in den Park. dem Park veya im Park yerde durmayı (wo?) anlatır."
+      },
+      {
+        "sent": "Tabea hängt das Handtuch ___ Bad.",
+        "blank": "ins",
+        "opts": ["ins", "im", "am"],
+        "tr": "Tabea havluyu banyoya asıyor.",
+        "exp": "hängt + das Handtuch (nesne) → hareket, wohin? → Akkusativ: in das Bad = ins Bad. im Bad = in dem Bad, yani Dativ ve durma anlatır."
+      },
+      {
+        "sent": "Meine Kleider hängen ___ Schrank.",
+        "blank": "im",
+        "opts": ["im", "ins", "in den"],
+        "tr": "Kıyafetlerim dolapta asılı duruyor.",
+        "exp": "hängen burada asılı durmayı anlatır (wo?), Dativ: in dem Schrank = im Schrank. Akkusativ (in den Schrank) bir koyma hareketini anlatırdı; ins ise yalnızca das-kelimeleriyle (in das = ins) birleşir, der Schrank ile olmaz."
+      },
+      {
+        "sent": "Du hast die Tasche an die Wand ___.",
+        "blank": "gehängt",
+        "opts": ["gehängt", "gehangen", "gehängen"],
+        "tr": "Çantayı duvara astın.",
+        "exp": "an die Wand = Akkusativ, yani bir hareket (asma): Perfekt'te hat gehängt. gehangen Dativ (asılı durma) fiilinin Partizip'idir."
+      },
+      {
+        "sent": "Die Tasche hat an der Wand ___.",
+        "blank": "gehangen",
+        "opts": ["gehangen", "gehängt", "gehängen"],
+        "tr": "Çanta duvarda asılı durdu.",
+        "exp": "an der Wand = Dativ, asılı durma (hareket yok): Partizip gehangen. gehängt Akkusativ'li (asma) fiilin Partizip'idir."
+      },
+      {
+        "sent": "Ich stelle die Uhr über ___ Tisch.",
+        "blank": "den",
+        "opts": ["den", "dem", "der"],
+        "tr": "Saati masanın (temassız) üstüne koyuyorum.",
+        "exp": "Hocanın uyarısı: über ile temassız üstüne (wohin?) → Akkusativ: über den Tisch. Temassız üstünde (wo?) olsaydı über dem Tisch derdik."
+      },
+      {
+        "sent": "Es geht ___ die Arbeit.",
+        "blank": "um",
+        "opts": ["um", "über", "auf"],
+        "tr": "Konu, iş ile ilgili.",
+        "exp": "Hoca: um = ile ilgili (Worum geht es? — Konu ne?) ve Akkusativ alır. über burada ‘hakkında’ olurdu ama kalıp Worum geht es? için um kullanılır."
+      },
+      {
+        "sent": "Sie sprechen über ___.",
+        "blank": "dich",
+        "opts": ["dich", "dir", "du"],
+        "tr": "Senin hakkında konuşuyorlar.",
+        "exp": "über ‘hakkında’ anlamında her zaman Akkusativ alır; senin için Akkusativ dich'tir. dir Dativ, du Nominativ'dir."
+      },
+      {
+        "sent": "Wir bleiben drei Tage ___ Hotel.",
+        "blank": "im",
+        "opts": ["im", "ins", "am"],
+        "tr": "Üç gün otelde kalıyoruz.",
+        "exp": "Hocanın kutusu: Akk.: ins Hotel, Dativ: im Hotel. Kalmak (bleiben) yerde durmaktır (wo?), bu yüzden Dativ: im Hotel."
+      }
+    ]
+  },
+  "dogrulama": [
+    "Hocanın s.31 tablosunda edatların karşılıkları yalnızca İngilizce verilmiş (on, over/above, under/below, in front of, behind, between, next to, at). Türkçe karşılıkları (üstünde, altında, önünde, arkasında, arasında...) derse yazmadım. Perplexity'ye sor: auf, über, unter, vor, hinter, neben, an, zwischen, in edatlarının günlük Türkçe karşılıkları nelerdir?",
+    "Bazı cümlelerde hocada Türkçe çeviri yoktu (ör. 'Ich lege das Buch auf den Tisch', 'Wo liegt denn meine Brille?', s.44-45); çevirileri ben yazdım. Perplexity'ye sor: bu cümlelerin doğal Türkçesi doğru mu?",
+    "Hoca s.44'te 'Tabea hängt has Handtuch ins Bad' ve 'auf den Baden stellen' yazmış (yazım hatası görünüyor: has → das, Baden → Boden). Derste doğru yazımı kullandım. Perplexity'ye sor: has ve Baden gerçekten yazım hatası mı?",
+    "Hoca s.45 tablosunda hängen (Dativ) için Perfekt 'gehangen' vermiş, Akkusativ için 'gehängt'. Perplexity'ye sor: hängen'in iki Partizip II biçimi (gehängt / gehangen) ve hangi anlamda kullanıldığı doğru mu?",
+    "Hoca stellen = dikey, legen = yatay diyor, ama aynı sayfada 'Ich lege/stelle das Buch auf den Tisch' ikisini de veriyor. Perplexity'ye sor: kitabı masaya koymak için legen mi stellen mi, fark ne?"
+  ]
+}

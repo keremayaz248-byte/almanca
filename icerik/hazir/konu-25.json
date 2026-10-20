@@ -1,0 +1,195 @@
+{
+  "konu": 25,
+  "baslik": "Guten Appetit (Obst und Gemüse)",
+  "kaynak": [
+    { "arac": "PDF", "sayfa": "Kalan Üniteler s.9" },
+    { "arac": "PDF", "sayfa": "Teil-1 s.95, s.101" }
+  ],
+  "deste": {
+    "title": "🍎 Guten Appetit",
+    "accent": "linear-gradient(135deg,#D9714E,#A8502F)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Kelime dersi",
+        "big": "Guten Appetit!",
+        "mean": "Süpermarkette ve sofrada kullanılan meyve, sebze, içecek ve öğün kelimelerini artikelleriyle öğreneceğiz.",
+        "story": "Hocanın hikâyesi: 'Bugün süpermarkete gidiyorum. Ekmek, peynir ve yumurta almak istiyorum. Ayrıca süt, su ve elma suyu alıyorum...' Bu hikâyedeki <b>31 kelimeyi</b> gruplara ayırarak öğreneceğiz. Her kelimeyi <b>artikeliyle (der / die / das)</b> birlikte ezberle."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Süpermarkt",
+        "baslik": "Süpermarkette alınanlar",
+        "basliklar": ["Artikel", "Almanca", "Türkçe"],
+        "satirlar": [
+          ["der", "Supermarkt", "süpermarket"],
+          ["das", "Brot", "ekmek"],
+          ["der", "Käse", "peynir"],
+          ["das", "Ei", "yumurta"],
+          ["die", "Milch", "süt"],
+          ["das", "Wasser", "su"],
+          ["der", "Apfelsaft", "elma suyu"],
+          ["der", "Reis", "pirinç"],
+          ["das", "Hähnchen", "tavuk"]
+        ],
+        "not": "Hocanın hikâyesinde bu kelimeler ilk cümlelerde geçiyor: ekmek, peynir, yumurta, süt, su, elma suyu; akşam yemeği için pirinç ve tavuk.",
+        "kaynak": "Kalan Üniteler s.9"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Gemüse",
+        "baslik": "Sebzeler (das Gemüse)",
+        "basliklar": ["Artikel", "Almanca", "Türkçe"],
+        "satirlar": [
+          ["die", "Gemüsesorte", "sebze çeşidi"],
+          ["die", "Tomate", "domates"],
+          ["die", "Kartoffel", "patates"],
+          ["die", "Gurke", "salatalık"],
+          ["die", "Zwiebel", "soğan"],
+          ["die", "Karotte", "havuç"],
+          ["der", "Salat", "salata"]
+        ],
+        "not": "<b>Gözlem:</b> Bu listedeki sebzelerin hepsi <b>die</b>, yalnız Salat (salata) <b>der</b>.",
+        "kaynak": "Kalan Üniteler s.9"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Obst",
+        "baslik": "Meyveler (das Obst)",
+        "basliklar": ["Artikel", "Almanca", "Türkçe"],
+        "satirlar": [
+          ["das", "Obst", "meyve"],
+          ["die", "Obstsorte", "meyve çeşidi"],
+          ["der", "Apfel", "elma"],
+          ["die", "Banane", "muz"],
+          ["die", "Orange", "portakal"],
+          ["die", "Traube", "üzüm"],
+          ["die", "Erdbeere", "çilek"]
+        ],
+        "not": "<b>Gözlem:</b> Listedeki tek tek meyvelerden Apfel eril (der), diğerleri <b>die</b>. das Obst ise meyve genel adı (çoğulu yok).",
+        "kaynak": "Kalan Üniteler s.9"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Mahlzeiten",
+        "baslik": "İçecekler ve öğünler",
+        "basliklar": ["Artikel", "Almanca", "Türkçe"],
+        "satirlar": [
+          ["das", "Frühstück", "kahvaltı"],
+          ["der", "Tee", "çay"],
+          ["der", "Kaffee", "kahve"],
+          ["der", "Orangensaft", "portakal suyu"],
+          ["das", "Abendessen", "akşam yemeği"],
+          ["der", "Abend", "akşam"],
+          ["die", "Suppe", "çorba"],
+          ["das", "Essen", "yemek"]
+        ],
+        "not": "Hocanın hikâyesi: 'Kahvaltıda çay veya kahve içerim... Akşam birlikte yemek yiyoruz. Çorba, salata ve ekmek yiyoruz.'",
+        "kaynak": "Kalan Üniteler s.9"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Artikel özeti",
+        "baslik": "Aynı kelimeler, artikele göre",
+        "basliklar": ["der", "die", "das"],
+        "satirlar": [
+          ["Supermarkt", "Milch", "Brot"],
+          ["Käse", "Obstsorte", "Ei"],
+          ["Apfelsaft", "Gemüsesorte", "Wasser"],
+          ["Reis", "Tomate", "Hähnchen"],
+          ["Salat", "Kartoffel", "Obst"],
+          ["Apfel", "Gurke", "Frühstück"],
+          ["Tee", "Zwiebel", "Abendessen"],
+          ["Kaffee", "Karotte", "Essen"],
+          ["Orangensaft", "Banane", ""],
+          ["Abend", "Orange", ""],
+          ["", "Traube", ""],
+          ["", "Erdbeere", ""],
+          ["", "Suppe", ""]
+        ],
+        "not": "<b>Hocanın tablosunda 31 kelime var:</b> der 10, die 13, das 8. Kelimeyi hep artikeliyle ezberle.",
+        "kaynak": "Kalan Üniteler s.9"
+      },
+      {
+        "big": "Das Obst: çoğulu yok",
+        "mean": "<b>das Obst</b> (meyve) çoğul olmayan isimlerden biridir; <b>die Milch</b> (süt) de öyle. Çoğul gerekirse <b>Obstsorte</b> (meyve çeşidi) kullanılır.",
+        "egs": [
+          "das Obst → meyve (çoğulu yok)",
+          "die Milch → süt (çoğulu yok)",
+          "die Obstsorte → meyve çeşidi"
+        ],
+        "tip": "💡 Hocanın 'Çoğulu olmayan isimler' listesinde: das Obst, die Milch, der Durst, das Geld, die Zeit, das Glück.",
+        "kaynak": "Teil-1 s.95, Kalan Üniteler s.9"
+      },
+      {
+        "big": "Çoğul: die Bananen, die Säfte",
+        "mean": "Yiyecek kelimelerinin bazıları hocanın çoğul listesinde de geçer: <b>die Banane → die Bananen</b>, <b>der Saft → die Säfte</b>.",
+        "egs": [
+          "die Banane → die Banan<b>en</b> — muz → muzlar",
+          "der Saft → die S<b>ä</b>ft<b>e</b> — meyve suyu → meyve suları"
+        ],
+        "tip": "💡 Hocanın kuralı: '-e ile biten isimler çoğulda -n alır' (s.96). Çoğul sayfası: Teil-1 s.101.",
+        "kaynak": "Teil-1 s.101, s.96"
+      },
+      {
+        "big": "Bileşik kelimeler",
+        "mean": "Almancada iki kelime birleşerek yeni kelime oluşturur: <b>Apfel + Saft = Apfelsaft</b> (elma suyu), <b>Orange + n + Saft = Orangensaft</b>, <b>Abend + Essen = Abendessen</b>.",
+        "egs": [
+          "der Apfel + der Saft → der <b>Apfelsaft</b> — elma suyu",
+          "die Orange + der Saft → der <b>Orangensaft</b> — portakal suyu",
+          "der Abend + das Essen → das <b>Abendessen</b> — akşam yemeği"
+        ],
+        "tip": "💡 Hocanın listesinde gözlenen örüntü: bileşik kelimenin artikeli son kelimeyle aynı. Apfelsaft = der (der Saft), Abendessen = das (das Essen). Hoca bunu kural olarak yazmamış, sadece örnekler gösteriyor.",
+        "kaynak": "Kalan Üniteler s.9, Teil-1 s.101"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Sık yapılan hatalar",
+        "maddeler": [
+          "<b>die Kartoffel</b> (patates) ve <b>die Zwiebel</b> (soğan) dişi (die); <b>der Salat</b> (salata) eril.",
+          "<b>das Obst</b> meyve (genel ad, çoğulu yok); <b>die Obstsorte</b> = meyve çeşidi.",
+          "<b>der Apfel</b> eril, ama <b>die Banane, die Orange, die Traube, die Erdbeere</b> dişi.",
+          "<b>der Abend</b> (akşam) ile <b>das Abendessen</b> (akşam yemeği) aynı artikeli taşımaz."
+        ],
+        "uyari": "En sık yapılan hata: bileşik kelimenin artikelini ilk kelimeden çıkarmak. Örnek: Orangensaft der (die Orange değil), Abendessen das (der Abend değil).",
+        "kaynak": "Kalan Üniteler s.9"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "der Apfel · die Banane · die Orange · das Obst",
+        "mean": "Sebze: die Tomate, die Kartoffel, die Gurke, die Zwiebel, die Karotte, der Salat.",
+        "story": "Süpermarkette: <b>das Brot, der Käse, das Ei, die Milch, das Wasser, der Reis, das Hähnchen</b>. İçecek: <b>der Tee, der Kaffee, der Apfelsaft, der Orangensaft</b>. Öğün: <b>das Frühstück, das Abendessen, die Suppe</b>."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d25_obst_gemuese",
+    "title": "Guten Appetit: Obst und Gemüse",
+    "emoji": "🍎",
+    "desc": "Yiyecek kelimeleri ve artikelleri",
+    "rule": "Her kelimeyi <b>artikeliyle</b> ezberle.<br><b>der:</b> Apfel, Käse, Reis, Salat, Tee, Kaffee, Apfelsaft, Orangensaft, Abend, Supermarkt.<br><b>die:</b> Milch, Tomate, Kartoffel, Gurke, Zwiebel, Karotte, Banane, Orange, Traube, Erdbeere, Suppe.<br><b>das:</b> Brot, Ei, Wasser, Hähnchen, Obst, Frühstück, Abendessen, Essen.<br>das Obst ve die Milch çoğulsuzdur.",
+    "qs": [
+      { "sent": "Da ist ___ Apfel.", "blank": "der", "opts": ["der", "die", "das"], "tr": "Orada elma var.", "exp": "Apfel (elma) erildir: der Apfel. Meyve kelimelerinin çoğu die'dir ama Apfel bir istisnadır (Kalan s.9)." },
+      { "sent": "Da ist ___ Banane.", "blank": "die", "opts": ["die", "der", "das"], "tr": "Orada muz var.", "exp": "Banane dişidir: die Banane. Çoğulu die Bananen (Kalan s.9, Teil-1 s.101)." },
+      { "sent": "Da ist ___ Brot.", "blank": "das", "opts": ["das", "der", "die"], "tr": "Orada ekmek var.", "exp": "Brot (ekmek) nötrdür: das Brot (Kalan s.9)." },
+      { "sent": "Da ist ___ Milch.", "blank": "die", "opts": ["die", "der", "das"], "tr": "Orada süt var.", "exp": "Milch (süt) dişidir: die Milch. Hocanın çoğulsuz isimler listesinde de geçer (Teil-1 s.95)." },
+      { "sent": "Da ist der ___. (peynir)", "blank": "Käse", "opts": ["Käse", "Reis", "Tee", "Salat"], "tr": "Orada peynir var.", "exp": "Käse = peynir (der Käse). Reis pirinç, Tee çay, Salat salata demektir (Kalan s.9)." },
+      { "sent": "Da ist das ___. (yumurta)", "blank": "Ei", "opts": ["Ei", "Brot", "Wasser", "Essen"], "tr": "Orada yumurta var.", "exp": "das Ei = yumurta. das Brot ekmek, das Wasser su, das Essen yemek demektir (Kalan s.9)." },
+      { "sent": "Da ist die ___. (soğan)", "blank": "Zwiebel", "opts": ["Zwiebel", "Karotte", "Gurke", "Tomate"], "tr": "Orada soğan var.", "exp": "die Zwiebel = soğan. Karotte havuç, Gurke salatalık, Tomate domates (Kalan s.9)." },
+      { "sent": "Da ist die ___. (havuç)", "blank": "Karotte", "opts": ["Karotte", "Kartoffel", "Zwiebel", "Gurke"], "tr": "Orada havuç var.", "exp": "die Karotte = havuç; Kartoffel patates, Zwiebel soğan, Gurke salatalık demektir (Kalan s.9)." },
+      { "sent": "Da ist der ___. (portakal suyu)", "blank": "Orangensaft", "opts": ["Orangensaft", "Apfelsaft", "Kaffee", "Tee"], "tr": "Orada portakal suyu var.", "exp": "Orange (portakal) + Saft (meyve suyu) = der Orangensaft. Apfelsaft elma suyudur (Kalan s.9)." },
+      { "sent": "Ich esse viel ___. (meyve)", "blank": "Obst", "opts": ["Obst", "Obste", "Obsten", "Obster"], "tr": "Çok meyve yerim.", "exp": "das Obst çoğulu olmayan bir isimdir; sadece tekil kullanılır. Obste/Obsten/Obster gibi biçimler yoktur (Teil-1 s.95)." },
+      { "sent": "Ich kaufe zwei ___. (muz)", "blank": "Bananen", "opts": ["Bananen", "Banane", "Bananer", "Bananes"], "tr": "İki muz alıyorum.", "exp": "-e ile biten dişi isimler çoğulda -n alır: die Banane → die Bananen. Banane + n = Bananen (Teil-1 s.101)." },
+      { "sent": "Da ist das ___. (akşam yemeği)", "blank": "Abendessen", "opts": ["Abendessen", "Frühstück", "Essen", "Abend"], "tr": "Orada akşam yemeği var.", "exp": "das Abendessen = akşam yemeği; das Frühstück kahvaltı, das Essen yemek, der Abend sadece akşam demektir (Kalan s.9)." },
+      { "sent": "Da ist die ___. (çorba)", "blank": "Suppe", "opts": ["Suppe", "Milch", "Orange", "Traube"], "tr": "Orada çorba var.", "exp": "die Suppe = çorba (Kalan s.9). Sebze/meyve değil, öğün yemeğidir." },
+      { "sent": "Da ist der ___. (salata)", "blank": "Salat", "opts": ["Salat", "Käse", "Reis", "Apfel"], "tr": "Orada salata var.", "exp": "der Salat = salata. Sebze kelimelerinin çoğu die'dir (die Tomate, die Gurke) ama Salat eril, yani der (Kalan s.9)." }
+    ]
+  },
+  "dogrulama": [
+    "Kalan Üniteler s.10-11 yalnızca Türkçe diyalog / e-posta metni (Almanca yok); s.12-18 LESEN okuma alıştırmaları (yiyecek konusu değil). Bu yüzden Konu 25 yalnızca s.9’daki 31 kelimelik listeye dayanıyor; ek kelime eklenmedi. Almanca örnek cümle için hocanın başka kaynağı var mı, kontrol et.",
+    "die Obstsorte / die Gemüsesorte: hoca ‘Sorte’yi tek başına vermiyor. Bileşik isimlerde artikel son kelimeden mi gelir? Perplexity’ye sor: ‘Almancada bileşik isimlerin artikeli hangi kelimeden gelir?’",
+    "Çoğul biçimleri (die Tomaten, die Orangen vb.) hocanın bu sayfasında yok; yalnızca die Bananen ve die Säfte Teil-1 s.101’de var. Diğerleri -e ile biten isimler kuralından (s.96) çıkarılabilir ama doğrulanmadı."
+  ]
+}

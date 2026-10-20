@@ -1,0 +1,246 @@
+{
+  "konu": 46,
+  "baslik": "Zweiteilige Konjunktionen (İkili Bağlaçlar)",
+  "kaynak": [
+    { "arac": "PDF", "sayfa": "Teil-2 s.14-15" }
+  ],
+  "deste": {
+    "title": "🔗 İkili Bağlaçlar",
+    "accent": "linear-gradient(135deg,#D9714E,#A8502F)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "İkili bağlaçlar",
+        "big": "ZWEITEILIGE KONJUNKTIONEN",
+        "mean": "İki parçadan oluşan bağlaçlar: iki şeyi birbirine bağlar (hem...hem de, ne...ne de, ya...ya da gibi). İki parça birlikte öğrenilir.",
+        "story": "Hocanın s.14'teki listesi, sayfada kırmızı yıldızla işaretli (önemli):<br><b>1)</b> nicht nur ... sondern auch<br><b>2)</b> sowohl ... als auch<br><b>3)</b> weder ... noch<br><b>4)</b> entweder ... oder<br><b>5)</b> einerseits ... andererseits<br>Her çiftte iki parçayı yan yana ezberle; biri tek başına yanlış kullanılamaz."
+      },
+      {
+        "big": "nicht nur ... sondern auch",
+        "mean": "Sadece ... değil, (aynı zamanda) ... da.",
+        "egs": [
+          "Tom lernt <b>nicht nur</b> Deutsch, <b>sondern auch</b> Spanisch. — Tom sadece Almanca değil, İspanyolca da öğreniyor.",
+          "Er hat als Kind <b>nicht nur</b> Tennis, <b>sondern auch</b> Fußball gespielt. — Çocukken sadece tenis oynamadı, futbol da oynadı.",
+          "Wir lernen <b>nicht nur</b> Grammatik, <b>sondern auch</b> neue Wörter. — Sadece gramer öğrenmiyoruz, yeni kelimeler de öğreniyoruz.",
+          "Jetzt macht er <b>nicht nur</b> oft Sport, <b>sondern</b> (er) arbeitet <b>auch</b> viel. — Şimdi sadece sık sık spor yapmıyor, çok da çalışıyor."
+        ],
+        "tip": "💡 Hocanın eşitliği: 'Tom lernt nicht nur Deutsch, sondern <b>er lernt auch</b> Spanisch' = 'Tom lernt nicht nur Deutsch, sondern <b>auch</b> Spanisch'. İkinci parçada tam cümle kurabilir de, kısa bırakabilirsin.",
+        "kaynak": "Teil-2 s.14"
+      },
+      {
+        "big": "sowohl ... als auch",
+        "mean": "Hem ... hem de (both ... and).",
+        "egs": [
+          "Anna spielt <b>sowohl</b> Geige <b>als auch</b> Cello. — Anna hem keman hem de çello çalıyor.",
+          "Sie hat <b>sowohl</b> mit ihrem Bruder <b>als auch</b> mit ihrer Schwester gespielt. — Hem erkek kardeşiyle hem de kız kardeşiyle birlikte çaldı.",
+          "Sie hat <b>sowohl</b> mit ihrer Mutter <b>als auch</b> mit ihrem Bruder gespielt. — Hem annesiyle hem de erkek kardeşiyle çaldı."
+        ],
+        "tip": "💡 Hocanın notu: die Geige + das Cello. İkinci örneklerde mit ihrem Bruder / mit ihrer Schwester: edat ve artikel iki parçada da tekrarlanıyor.",
+        "kaynak": "Teil-2 s.14"
+      },
+      {
+        "big": "weder ... noch",
+        "mean": "Olumsuz: ne ... ne de ... (neither ... nor).",
+        "egs": [
+          "Max mag <b>weder</b> Bier <b>noch</b> Wein. — Max ne bira seviyor ne de şarap.",
+          "Max mag <b>weder</b> Bier <b>noch</b> mag er Wein. — Aynı anlam, ikinci parça tam cümle.",
+          "Ich will <b>weder</b> schlafen <b>noch</b> bin ich müde. — Ne uyumak istiyorum ne de yorgunum.",
+          "Mein Bruder macht <b>weder</b> Sport <b>noch</b> liest (er) Bücher. — Erkek kardeşim ne spor yapar ne de kitap okur."
+        ],
+        "tip": "💡 Hoca bunu 'olumsuz' diye işaretlemiş: weder ... noch zaten olumsuzluk taşıyor. Hocanın örneği: <b>Weder Timo noch Monika haben</b> die Prüfung bestanden (haben'in altı çizili).",
+        "kaynak": "Teil-2 s.14"
+      },
+      {
+        "big": "entweder ... oder",
+        "mean": "Ya ... ya da ... (ikisinden biri).",
+        "egs": [
+          "Ich kaufe <b>entweder</b> ein Sofa <b>oder</b> einen neuen Fernseher. — Ya bir koltuk ya da yeni bir televizyon alacağım.",
+          "Heute gehe ich <b>entweder</b> ins Kino <b>oder</b> (ich) bleibe zu Hause. — Bugün ya sinemaya gideceğim ya da evde kalacağım.",
+          "<b>Entweder</b> gehe ich ins Kino <b>oder</b> (ich) bleibe zu Hause. — Aynı anlam; cümle entweder ile başlıyor."
+        ],
+        "tip": "💡 Hoca iki biçimi eşit yazmış: 'Heute gehe ich entweder ins Kino oder bleibe zu Hause' = 'Entweder gehe ich ins Kino oder bleibe zu Hause'.",
+        "kaynak": "Teil-2 s.14"
+      },
+      {
+        "big": "einerseits ..., andererseits",
+        "mean": "Zıtlık: bir yandan ..., öte yandan ... (bir taraftan ..., diğer taraftan ...).",
+        "egs": [
+          "Leo lernt <b>einerseits</b> gern Deutsch, <b>andererseits</b> findet er es schwer. — Leo bir yandan Almanca öğrenmeyi seviyor, öte yandan zor buluyor.",
+          "<b>Einerseits</b> möchte ich reisen, <b>andererseits</b> habe ich nicht genug Geld. — Bir yandan seyahat etmek istiyorum, öte yandan yeterince param yok.",
+          "<b>Einerseits</b> ist die Wohnung schön, <b>andererseits</b> ist sie sehr teuer. — Bir yandan ev güzel, öte yandan çok pahalı."
+        ],
+        "tip": "💡 Hoca bunu 'zıtlık' diye işaretlemiş. İkinci parçada <b>andererseits findet er</b>: andererseits cümleye girince fiil hemen arkasından geliyor (hocanın altını çizdiği).",
+        "kaynak": "Teil-2 s.14"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Özet",
+        "baslik": "5 çift bir bakışta",
+        "basliklar": ["Çift", "Türkçe", "Hocanın örneği"],
+        "satirlar": [
+          ["nicht nur ... sondern auch", "sadece ... değil, ... da", "Wir lernen nicht nur Grammatik, sondern auch neue Wörter."],
+          ["sowohl ... als auch", "hem ... hem de", "Anna spielt sowohl Geige als auch Cello."],
+          ["weder ... noch", "ne ... ne de", "Max mag weder Bier noch Wein."],
+          ["entweder ... oder", "ya ... ya da", "Ich kaufe entweder ein Sofa oder einen Fernseher."],
+          ["einerseits ... andererseits", "bir yandan ... öte yandan", "Einerseits ist die Wohnung schön, andererseits ist sie sehr teuer."]
+        ],
+        "not": "Hocanın s.15 Türkçe paragrafı da aynı beş çifti işaretliyor: bir yandan / öte yandan, yalnızca ... değil, aynı zamanda, hem ... hem de, ya ... ya da, ne ... ne de.",
+        "kaynak": "Teil-2 s.14, s.15"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Cümle şeması 1",
+        "baslik": "nicht nur ... sondern auch",
+        "satirlar": [
+          {
+            "etiket": "Kısa biçim",
+            "not": "ikinci parça kısa",
+            "jetonlar": [
+              { "t": "Tom", "r": "ozne" },
+              { "t": "lernt", "r": "fiil" },
+              { "t": "nicht nur", "r": "bag" },
+              { "t": "Deutsch", "r": "nesne" },
+              { "t": "sondern auch", "r": "bag" },
+              { "t": "Spanisch", "r": "nesne" }
+            ],
+            "tr": "Tom sadece Almanca değil, İspanyolca da öğreniyor."
+          },
+          {
+            "etiket": "Uzun biçim",
+            "not": "ikinci parça tam cümle",
+            "jetonlar": [
+              { "t": "Tom", "r": "ozne" },
+              { "t": "lernt", "r": "fiil" },
+              { "t": "nicht nur Deutsch,", "r": "bag" },
+              { "t": "sondern er lernt auch", "r": "bag" },
+              { "t": "Spanisch", "r": "nesne" }
+            ],
+            "tr": "Aynı anlam: ikinci parçada özne ve fiil yeniden yazılmış."
+          }
+        ],
+        "not": "Hocanın eşitliği: 'sondern <b>er lernt auch</b> Spanisch' = 'sondern <b>auch</b> Spanisch'. İki biçim de doğru.",
+        "kaynak": "Teil-2 s.14"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Cümle şeması 2",
+        "baslik": "weder ... noch ve entweder ... oder",
+        "satirlar": [
+          {
+            "etiket": "weder (başta)",
+            "not": "fiil weder'den sonra",
+            "jetonlar": [
+              { "t": "Weder", "r": "bag" },
+              { "t": "will", "r": "fiil" },
+              { "t": "ich", "r": "ozne" },
+              { "t": "schlafen", "r": "diger" }
+            ],
+            "tr": "Ne uyumak istiyorum (...)"
+          },
+          {
+            "etiket": "noch (devam)",
+            "not": "noch'tan sonra fiil + özne",
+            "jetonlar": [
+              { "t": "noch", "r": "bag" },
+              { "t": "bin", "r": "fiil" },
+              { "t": "ich", "r": "ozne" },
+              { "t": "müde", "r": "diger" }
+            ],
+            "tr": "(...) ne de yorgunum."
+          },
+          {
+            "etiket": "entweder (başta)",
+            "not": "oder'den sonra özne kısaltılabilir",
+            "jetonlar": [
+              { "t": "Entweder", "r": "bag" },
+              { "t": "gehe", "r": "fiil" },
+              { "t": "ich", "r": "ozne" },
+              { "t": "ins Kino", "r": "diger" },
+              { "t": "oder", "r": "bag" },
+              { "t": "(ich) bleibe zu Hause", "r": "diger" }
+            ],
+            "tr": "Ya sinemaya gideceğim ya da evde kalacağım."
+          }
+        ],
+        "not": "Hocanın aynı eşitliği: 'Weder will ich schlafen noch bin ich müde' = 'Ich will weder schlafen noch bin ich müde'. Weder/entweder başa gelince fiil hemen arkasından geliyor (hocanın örnekleri).",
+        "kaynak": "Teil-2 s.14"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Fiil uyumu",
+        "baslik": "İki özne olunca fiil",
+        "maddeler": [
+          "Hocanın örneği: <b>Weder Timo noch Monika haben</b> die Prüfung bestanden. — Ne Timo ne de Monika sınavı geçti.",
+          "Hoca bu örnekte 'haben' kelimesinin altını çizmiş; fiil burada çoğul biçimde (haben) duruyor. Hoca bunun için genel bir kural yazmamış.",
+          "İkinci parçada özne tekrar edilmezse parantezle gösterilmiş: <b>(er) arbeitet auch viel</b>, <b>(er) liest Bücher</b>, <b>(ich) bleibe zu Hause</b>."
+        ],
+        "uyari": "Hocanın örneğinde fiil haben (çoğul). Tek öznelerde fiilin tekil/çoğul olup olmadığı hocada ayrıca belirtilmemiş; sadece bu örneği ezberle.",
+        "kaynak": "Teil-2 s.14"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Türkçe paragraf",
+        "baslik": "Hocanın Türkçe paragrafında çiftler",
+        "basliklar": ["Türkçe parça", "Almanca çift"],
+        "satirlar": [
+          ["Bir yandan ..., öte yandan ...", "einerseits ... andererseits"],
+          ["yalnızca ... değil, aynı zamanda ...", "nicht nur ... sondern auch"],
+          ["hem ... hem de ...", "sowohl ... als auch"],
+          ["ya ... ya da ...", "entweder ... oder"],
+          ["ne ... ne de ...", "weder ... noch"]
+        ],
+        "not": "s.15'teki paragraf bu Türkçe parçalarla yazılmış (şato / müze gezisi); kalın yazılan parçalar yukarıdaki beş çifte denk geliyor. Hoca sayfada Almanca karşılık veya alıştırma yönergesi yazmamış; eşleştirmeyi s.14'teki Türkçe karşılıklara bakarak biz yaptık.",
+        "kaynak": "Teil-2 s.15, s.14"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Sık yapılan hatalar",
+        "maddeler": [
+          "Çiftleri karıştırma: <b>sowohl</b> ile <b>als auch</b>, <b>weder</b> ile <b>noch</b>, <b>entweder</b> ile <b>oder</b>.",
+          "<b>Nicht nur</b> ile <b>sondern auch</b> gelir; 'nicht nur ... als auch' veya 'nicht nur ... oder' yanlıştır.",
+          "<b>Weder ... noch</b> zaten olumsuz: 'ne ... ne de'.",
+          "<b>Einerseits ... andererseits</b> zıtlık bildirir; 've' gibi eşit ekleme değil."
+        ],
+        "uyari": "En sık hata: 'sowohl ... noch' ya da 'entweder ... als auch' gibi iki farklı çiftten parça karıştırmak.",
+        "kaynak": "Teil-2 s.14"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "5 ÇİFT",
+        "mean": "Çiftleri her zaman birlikte ezberle.",
+        "story": "<b>nicht nur ... sondern auch</b> (sadece ... değil, ... da)<br><b>sowohl ... als auch</b> (hem ... hem de)<br><b>weder ... noch</b> (ne ... ne de)<br><b>entweder ... oder</b> (ya ... ya da)<br><b>einerseits ... andererseits</b> (bir yandan ... öte yandan)"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d46_zweiteilige_konj",
+    "title": "İkili Bağlaçlar",
+    "emoji": "🔗",
+    "desc": "nicht nur...sondern auch, sowohl...als auch, weder...noch, entweder...oder, einerseits...andererseits",
+    "rule": "<b>5 ikili bağlaç (hocanın s.14 listesi):</b><br>nicht nur ... <b>sondern auch</b> = sadece ... değil, ... da<br>sowohl ... <b>als auch</b> = hem ... hem de<br>weder ... <b>noch</b> = ne ... ne de<br>entweder ... <b>oder</b> = ya ... ya da<br>einerseits ... <b>andererseits</b> = bir yandan ... öte yandan",
+    "qs": [
+      { "sent": "Anna spielt sowohl Geige ___ auch Cello.", "blank": "als", "opts": ["als", "noch", "oder", "sondern"], "tr": "Anna hem keman hem de çello çalıyor.", "exp": "Hocanın örneği: 'sowohl ... als auch' = hem ... hem de. 'noch' weder'in, 'oder' entweder'in, 'sondern' nicht nur'un ikinci parçasıdır." },
+      { "sent": "Wir lernen nicht nur Grammatik, ___ auch neue Wörter.", "blank": "sondern", "opts": ["sondern", "als", "noch", "oder"], "tr": "Sadece gramer öğrenmiyoruz, yeni kelimeler de öğreniyoruz.", "exp": "nicht nur ... sondern auch = sadece ... değil, ... da (hocanın örneği). 'als auch' sowohl çiftindedir, 'noch' weder'dedir." },
+      { "sent": "Max mag weder Bier ___ Wein.", "blank": "noch", "opts": ["noch", "oder", "sondern", "als"], "tr": "Max ne bira seviyor ne de şarap.", "exp": "weder ... noch = ne ... ne de (olumsuz). 'oder' entweder ile gelir; 'sondern' nicht nur ile." },
+      { "sent": "Ich kaufe entweder ein Sofa ___ einen Fernseher.", "blank": "oder", "opts": ["oder", "noch", "als auch", "sondern auch"], "tr": "Ya bir koltuk ya da bir televizyon alacağım.", "exp": "entweder ... oder = ya ... ya da (hocanın örneği). Sofa ve Fernseher ikisi birden değil, biri seçiliyor." },
+      { "sent": "___ möchte ich reisen, andererseits habe ich nicht genug Geld.", "blank": "Einerseits", "opts": ["Einerseits", "Entweder", "Weder", "Sowohl"], "tr": "Bir yandan seyahat etmek istiyorum, öte yandan yeterince param yok.", "exp": "andererseits ile eşleşen parça einerseits'tir (zıtlık). Hocanın örneği: 'Einerseits möchte ich reisen, andererseits habe ich nicht genug Geld.'" },
+      { "sent": "Sie hat ___ mit ihrer Mutter als auch mit ihrem Bruder gespielt.", "blank": "sowohl", "opts": ["sowohl", "weder", "entweder", "einerseits"], "tr": "Hem annesiyle hem de erkek kardeşiyle oynadı.", "exp": "'als auch' ile birlikte gelen parça sowohl'dür (hem ... hem de). Hocanın örneği bu cümle." },
+      { "sent": "Er hat als Kind nicht ___ Tennis, sondern auch Fußball gespielt.", "blank": "nur", "opts": ["nur", "noch", "auch", "oder"], "tr": "Çocukken sadece tenis oynamadı, futbol da oynadı.", "exp": "nicht nur ... sondern auch: 'nur' ilk parçanın ikinci kelimesidir. Hocanın örneği aynen budur." },
+      { "sent": "Heute gehe ich ___ ins Kino oder bleibe zu Hause.", "blank": "entweder", "opts": ["entweder", "sowohl", "weder", "nicht nur"], "tr": "Bugün ya sinemaya gideceğim ya da evde kalacağım.", "exp": "'oder' ile eşleşen ilk parça entweder'dir (hocanın örneği: 'Heute gehe ich entweder ins Kino oder bleibe zu Hause')." },
+      { "sent": "Leo lernt einerseits gern Deutsch, ___ findet er es schwer.", "blank": "andererseits", "opts": ["andererseits", "sondern auch", "als auch", "noch"], "tr": "Leo bir yandan Almanca öğrenmeyi seviyor, öte yandan zor buluyor.", "exp": "einerseits ... andererseits zıtlık çiftidir. Hocanın örneğinde andererseits'ten sonra fiil gelir: 'andererseits findet er es schwer'." },
+      { "sent": "Mein Bruder macht weder Sport ___ liest er Bücher.", "blank": "noch", "opts": ["noch", "oder", "als auch", "sondern auch"], "tr": "Erkek kardeşim ne spor yapar ne de kitap okur.", "exp": "weder ... noch (olumsuz çift). Hocanın örneği: 'Mein Bruder macht weder Sport noch liest er Bücher'." },
+      { "sent": "___ Timo noch Monika haben die Prüfung bestanden.", "blank": "Weder", "opts": ["Weder", "Entweder", "Sowohl", "Nicht nur"], "tr": "Ne Timo ne de Monika sınavı geçti.", "exp": "'noch' ile birlikte gelen ilk parça weder'dir. Hocanın örneği: 'Weder Timo noch Monika haben die Prüfung bestanden.'" },
+      { "sent": "Ich will weder schlafen ___ bin ich müde.", "blank": "noch", "opts": ["noch", "oder", "als auch", "andererseits"], "tr": "Ne uyumak istiyorum ne de yorgunum.", "exp": "weder ... noch: hocanın örneği 'Ich will weder schlafen noch bin ich müde'. Tuzak: 'oder' ve 'als auch' başka çiftlere aittir." },
+      { "sent": "Sie hat sowohl mit ihrem Bruder ___ auch mit ihrer Schwester gespielt.", "blank": "als", "opts": ["als", "noch", "sondern", "oder"], "tr": "Hem erkek kardeşiyle hem de kız kardeşiyle oynadı.", "exp": "sowohl ... als auch = hem ... hem de. 'sondern auch' sadece nicht nur'dan sonra gelir." },
+      { "sent": "Jetzt macht er nicht nur oft Sport, ___ (er) arbeitet auch viel.", "blank": "sondern", "opts": ["sondern", "als", "noch", "andererseits"], "tr": "Şimdi sadece sık sık spor yapmıyor, çok da çalışıyor.", "exp": "Hocanın örneği: 'nicht nur ... sondern (er) arbeitet auch viel'. Burada ikinci parça tam cümle olsa da bağlaç sondern'dir." }
+    ]
+  },
+  "dogrulama": [
+    "Hocanın s.14'teki weder ... noch örneğinde 'Weder Timo noch Monika haben ...' (fiil çoğul) var. İki özne tekil olduğunda fiil çoğul mu olmalı, tekil de olabilir mi? Perplexity'ye sor: 'weder ... noch Subjekt Verb Singular oder Plural'.",
+    "Hoca 'weder ... noch' ve 'entweder ... oder' örneklerinde fiil ve özne yerini yazılı örneklerle gösteriyor ama kural olarak açıklamıyor. Ben sadece örneklerde gördüğümü yazdım; genel kural (ör. 'noch' sonrası devrik sıra) için Perplexity'ye sor: 'weder noch Wortstellung Inversion nach noch'.",
+    "Hocanın weder ... noch örneklerinde ('Ich will weder schlafen noch bin ich müde', 'Mein Bruder macht weder Sport noch liest (er) Bücher') noch'tan sonra tam cümle (fiil + özne) geliyor. Bu biçim standart Almancada doğal mı, yoksa 'weder schlafen noch müde sein' gibi kısa biçim mi tercih edilir? Perplexity'ye sor: 'weder ... noch mit Hauptsatz nach noch Inversion korrekt'.",
+    "s.14'teki Türkçe karşılıklar hocadan; s.15 paragrafının Almanca karşılığı hocada yok, ben yalnızca çiftleri eşledim, Almanca cümle uydurmadım."
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "konu": 47,
+  "baslik": "Konjunktiv II",
+  "kaynak": [{ "arac": "PDF", "sayfa": "Teil-2 s.46-82" }],
+  "deste": {
+    "title": "💭 Konjunktiv II",
+    "accent": "linear-gradient(135deg,#7b3fa0,#4a2468)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Dilek ve gerçek dışılık",
+        "big": "KONJUNKTIV II",
+        "mean": "Gerçek olmayan, olmasını istediğin ya da kibarca sorduğun şeyleri anlatma kalıbı: -sa/-se, -ırdım, isterdim.",
+        "story": "Hocanın ana fikri çok kısa: <b>„şöyle olsa böyle olur“</b>. Gerçekte Berlin'de değilsin, evin yok, pizza yemiyorsun. Ama olsa nasıl olurdu? İşte bunu <b>wäre / hätte / würde</b> ile söylersin. Bu derste önce dilek ve kibarlık, sonra „wenn“ ile şart cümleleri, en sonda geçmiş zaman gelecek."
+      },
+      {
+        "tur": "sema",
+        "kicker": "Gerçek ↔ Dilek",
+        "baslik": "Gerçek bir yanda, dilek öbür yanda",
+        "satirlar": [
+          { "etiket": "Gerçek", "not": "şu an böyle", "jetonlar": [{ "t": "Jetzt", "r": "zaman" }, { "t": "habe", "r": "fiil" }, { "t": "ich", "r": "ozne" }, { "t": "kein Haus", "r": "nesne" }], "tr": "Şu an Berlin'de evim yok." },
+          { "etiket": "Dilek (haben)", "not": "hätte", "jetonlar": [{ "t": "Ich", "r": "ozne" }, { "t": "hätte", "r": "fiil" }, { "t": "gern", "r": "diger" }, { "t": "ein Haus", "r": "nesne" }], "tr": "Berlin'de bir evim olsun isterdim." },
+          { "etiket": "Dilek (sein)", "not": "wäre", "jetonlar": [{ "t": "Ich", "r": "ozne" }, { "t": "wäre", "r": "fiil" }, { "t": "jetzt", "r": "zaman" }, { "t": "gern", "r": "diger" }, { "t": "in Berlin", "r": "diger" }], "tr": "Şu an Berlin'de olmak isterdim." },
+          { "etiket": "Gerçek", "not": "şu an böyle", "jetonlar": [{ "t": "Jetzt", "r": "zaman" }, { "t": "esse", "r": "fiil" }, { "t": "ich", "r": "ozne" }, { "t": "nicht", "r": "diger" }, { "t": "Pizza", "r": "nesne" }], "tr": "Şu an pizza yemiyorum." },
+          { "etiket": "Dilek (diğer fiil)", "not": "würde + mastar sonda", "jetonlar": [{ "t": "Ich", "r": "ozne" }, { "t": "würde", "r": "fiil" }, { "t": "gern", "r": "diger" }, { "t": "Pizza", "r": "nesne" }, { "t": "essen", "r": "fiil", "sonda": true }], "tr": "Pizza yemek isterdim." }
+        ],
+        "not": "<b>Hocanın düzeni:</b> sein → <b>wäre</b>, haben → <b>hätte</b>, diğer fiiller → <b>würde</b> (+ mastar cümle sonunda). Hoca: „würden = would, würden gern = would like to“.",
+        "kaynak": "Teil-2 s.52"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim",
+        "baslik": "wäre – hätte – würde",
+        "basliklar": ["", "sein → wäre", "haben → hätte", "werden → würde"],
+        "satirlar": [
+          ["ich", "wäre", "hätte", "würde"],
+          ["du", "wärst", "hättest", "würdest"],
+          ["er/sie/es", "wäre", "hätte", "würde"],
+          ["wir", "wären", "hätten", "würden"],
+          ["ihr", "wärt", "hättet", "würdet"],
+          ["sie/Sie", "wären", "hätten", "würden"]
+        ],
+        "not": "Hocanın tablosunda üç fiilin Präteritum hali da vardı: war / hatte / wurde. Konjunktiv II bunlara <b>ä / ü</b> noktaları ekler: war → wäre, hatte → hätte, wurde → würde.",
+        "kaynak": "Teil-2 s.52"
+      },
+      {
+        "big": "wäre gern · hätte gern · würde gern",
+        "mean": "Dilek kalıbı „gern“ ile üç yöne ayrılır: <b>sıfatla</b> wäre gern, <b>isimle</b> hätte gern, <b>fiille</b> würde gern. Anlamı: „... isterdim“.",
+        "egs": [
+          "Ich <b>wäre</b> gern wohlhabend. — Varlıklı olmak isterdim.",
+          "Ich <b>hätte</b> gern ein Kind. — Bir çocuğum olsun isterdim.",
+          "Ich <b>würde</b> gern in Deutschland wohnen. — Almanya'da yaşamak isterdim.",
+          "Ich <b>würde</b> gern ein Tennisspiel ansehen. — Bir tenis maçı izlemeyi isterdim."
+        ],
+        "tip": "💡 Hoca üç kutu gösterdi: WÄRE GERN → sıfat, HÄTTE GERN → isim, WÜRDE GERN → fiil.",
+        "kaynak": "Teil-2 s.53"
+      },
+      {
+        "big": "hätte ODER wäre?",
+        "mean": "<b>wäre</b>: sıfatlarla, meslek / uyrukla, yaş ve tarihle, kibar sorularla. <b>hätte</b>: dilek (özellikle restoran gibi bir yerde), kibar rica ve sahip olma. (Hocanın İngilizce kartlarının Türkçesi.)",
+        "egs": [
+          "Sie <b>wäre</b> lieber 16 Jahre alt. — Keşke 16 yaşında olsa.",
+          "Wenn ich reich <b>wäre</b>, würde ich mir ein Auto kaufen. — Zengin olsam kendime bir araba alırdım.",
+          "Ich <b>hätte</b> gern eine Cola, bitte! — Bir kola alabilir miyim?",
+          "<b>Hättest</b> du Lust, mit mir ins Kino zu gehen? — Benimle sinemaya gitmek ister miydin?"
+        ],
+        "tip": "💡 Hocanın alıştırması: „Ich wäre lieber Lehrerin.“ (meslek → wäre), „Tim hätte lieber am Freitag frei.“ (sahip olma → hätte).",
+        "kaynak": "Teil-2 s.54-55"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Gündelik kalıplar",
+        "baslik": "Keşke · az kalsın · Schön wär's",
+        "maddeler": [
+          "<b>Ich wünschte, ...</b> = Keşke ... — Ich wünschte, du wärst hier. (Keşke burada olsaydın.) / Ich wünschte, wir hätten mehr Zeit. (Keşke daha çok vaktimiz olsa.) / Ich wünschte, ich könnte Klavier spielen. (Keşke piyano çalabilsem.)",
+          "Hocanın el yazısı notları: <b>Hätte ich doch mehr Zeit!</b> = Keşke daha fazla vaktim olsa! · <b>Wäre ich doch glücklicher!</b> = Keşke daha mutlu olsam!",
+          "<b>ich wäre fast + Partizip II</b> = az kalsın ...: Ich wäre fast zu spät gekommen. (Az kalsın geç kalıyordum.) / Ich wäre fast eingeschlafen. (Az kalsın uyuyakalıyordum.)",
+          "Hocanın ekstra notu (!!!): <b>Ich hätte fast den Bus verpasst.</b> = Neredeyse otobüsü kaçırıyordum.",
+          "<b>Schön wär's!</b> = Keşke! (olması çok güzel olurdu ama gerçekçi değil). Arkadaşın „hafta içi tatilin var mı?“ derse: „Schön wär's! Aber leider gibt es keinen Urlaub unter der Woche.“"
+        ],
+        "uyari": "„Schön wär's“ günlük konuşma tabiridir: bir şeyi çok istersin ama olası değildir.",
+        "kaynak": "Teil-2 s.56-58"
+      },
+      {
+        "big": "als ob · als wenn · wie wenn",
+        "mean": "<b>-mış gibi</b>. Bu bağlaçlardan sonra Konjunktiv II (wäre / hätte) gelir ve cümle gerçekmiş gibi davranılan ama gerçek olmayan bir durumu anlatır.",
+        "egs": [
+          "Sie aßen weiter, als ob nichts geschehen <b>wäre</b>. — Hiçbir şey olmamış gibi yemeye devam ettiler.",
+          "Er benimmt sich so, als ob er der Hausbesitzer <b>wäre</b>. — Sanki ev sahibi oymuş gibi davranıyor.",
+          "Sie tut so, als ob sie reich <b>wäre</b>. — Sanki zenginmiş gibi davranıyor.",
+          "Er sah aus, als ob er seit Tagen nicht geschlafen <b>hätte</b>. — Günlerdir uyumamış gibi görünüyordu."
+        ],
+        "tip": "💡 Hocanın Türkçe ipucu: üç bağlacın hepsi “-mış gibi”.",
+        "kaynak": "Teil-2 s.59"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Güçlü fiiller",
+        "baslik": "Konjunktiv II – bazı fiiller",
+        "basliklar": ["Fiil", "ich / er / sie", "wir / sie / Sie", "Anlam"],
+        "satirlar": [
+          ["finden", "fände", "fänden", "bulurdu"],
+          ["geben", "gäbe", "gäben", "verirdi / olurdu"],
+          ["nehmen", "nähme", "nähmen", "alırdı"],
+          ["sehen", "sähe", "sähen", "görürdü"],
+          ["wissen", "wüsste", "wüssten", "bilirdi"],
+          ["bleiben", "bliebe", "blieben", "kalırdı"],
+          ["essen", "äße", "äßen", "yerdi"],
+          ["sprechen", "spräche", "sprächen", "konuşurdu"],
+          ["helfen", "hülfe", "hülfen", "yardım ederdi"],
+          ["treffen", "träfe", "träfen", "buluşurdu"],
+          ["schlafen", "schliefe", "schliefen", "uyurdu"],
+          ["laufen", "liefe", "liefen", "koşardı"]
+        ],
+        "not": "Hocanın örnekleri: Er bliebe heute zu Hause. · Wir fänden diesen Plan gut. · Du wüsstest die Antwort. · Der Lehrer spräche mit Anna. Hoca <b>helfen</b> için not düştü: <i>hülfen</i> yerine günlük dilde <b>würden helfen</b> kullanılır. (du-formları: fändest, gäbest, nähmest, sähest, wüsstest, ...)",
+        "kaynak": "Teil-2 s.48-51"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Modal fiiller",
+        "baslik": "Modal fiiller Konjunktiv II'de (şimdiki zaman)",
+        "basliklar": ["", "können", "müssen", "dürfen", "möchten"],
+        "satirlar": [
+          ["ich", "könnte", "müsste", "dürfte", "möchte"],
+          ["du", "könntest", "müsstest", "dürftest", "möchtest"],
+          ["er/sie/es", "könnte", "müsste", "dürfte", "möchte"],
+          ["wir", "könnten", "müssten", "dürften", "möchten"],
+          ["ihr", "könntet", "müsstet", "dürftet", "möchtet"],
+          ["sie/Sie", "könnten", "müssten", "dürften", "möchten"]
+        ],
+        "not": "Hocanın tablosunda ayrıca <b>sollen</b> (ich sollte, du solltest ...) ve <b>wollen</b> (ich wollte, du wolltest ...) vardı; bunlar Präteritum ile aynı görünür. Örnekler: <b>Ich könnte besser arbeiten, wenn ich einen neuen Computer hätte.</b> (Yeni bir bilgisayarım olsa daha iyi çalışabilirdim.) · <b>Wenn ich nicht so lange arbeiten müsste, würde ich gern mitkommen.</b> (Bu kadar uzun çalışmak zorunda olmasam seve seve gelirdim.)",
+        "kaynak": "Teil-2 s.77-78"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Gerçek dışı şart",
+        "baslik": "Wenn-cümlesi + sonuç (şimdiki zaman)",
+        "satirlar": [
+          { "etiket": "Şart (wenn)", "not": "fiil sonda", "jetonlar": [{ "t": "Wenn", "r": "bag" }, { "t": "ich", "r": "ozne" }, { "t": "reich", "r": "diger" }, { "t": "wäre", "r": "fiil", "sonda": true }], "tr": "Zengin olsam," },
+          { "etiket": "Sonuç", "not": "würde + mastar", "jetonlar": [{ "t": "würde", "r": "fiil" }, { "t": "ich", "r": "ozne" }, { "t": "ein Haus", "r": "nesne" }, { "t": "kaufen", "r": "fiil", "sonda": true }], "tr": "bir ev alırdım." },
+          { "etiket": "Şart (wenn)", "not": "fiil sonda", "jetonlar": [{ "t": "Wenn", "r": "bag" }, { "t": "ich", "r": "ozne" }, { "t": "ein Auto", "r": "nesne" }, { "t": "hätte", "r": "fiil", "sonda": true }], "tr": "Arabam olsa," },
+          { "etiket": "Sonuç", "not": "wäre", "jetonlar": [{ "t": "wäre", "r": "fiil" }, { "t": "ich", "r": "ozne" }, { "t": "schneller", "r": "diger" }, { "t": "im Büro", "r": "zaman" }], "tr": "büroda daha hızlı olurdum." },
+          { "etiket": "Şart (wenn)", "not": "würdest", "jetonlar": [{ "t": "Wenn", "r": "bag" }, { "t": "du", "r": "ozne" }, { "t": "mehr", "r": "diger" }, { "t": "üben", "r": "fiil" }, { "t": "würdest", "r": "fiil", "sonda": true }], "tr": "Daha çok alıştırma yapsan," },
+          { "etiket": "Sonuç", "not": "modal Konjunktiv II", "jetonlar": [{ "t": "könntest", "r": "fiil" }, { "t": "du", "r": "ozne" }, { "t": "besser", "r": "diger" }, { "t": "Deutsch sprechen", "r": "nesne" }], "tr": "daha iyi Almanca konuşabilirdin." }
+        ],
+        "not": "<b>Hocanın formülü:</b> Wenn ich fliegen könnte, würde / wäre / könnte / müsste / hätte / ... Sonuç kısmında bu beş kalıptan biri gelir. Başka örnek: Wenn das Wetter nicht so schlecht wäre, könnten wir einen Spaziergang machen.",
+        "kaynak": "Teil-2 s.72"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Geçmiş zaman",
+        "baslik": "Perfekt → Konjunktiv II geçmiş",
+        "basliklar": ["", "machen (haben)", "kommen (sein)"],
+        "satirlar": [
+          ["ich", "habe gemacht → hätte gemacht", "bin gekommen → wäre gekommen"],
+          ["du", "hast gemacht → hättest gemacht", "bist gekommen → wär(e)st gekommen"],
+          ["er/sie/es", "hat gemacht → hätte gemacht", "ist gekommen → wäre gekommen"],
+          ["wir", "haben gemacht → hätten gemacht", "sind gekommen → wären gekommen"],
+          ["ihr", "habt gemacht → hättet gemacht", "seid gekommen → wär(e)t gekommen"],
+          ["sie/Sie", "haben gemacht → hätten gemacht", "sind gekommen → wären gekommen"]
+        ],
+        "not": "Yapı çok basit: Perfekt'teki <b>haben / sein</b> yerine <b>hätte / wäre</b> koy, Partizip II aynen kalsın. Hocanın karşılaştırması: kam (Präteritum) · ist gekommen (Perfekt) · war gekommen (Plusquamperfekt) ↔ <b>wäre gekommen</b> (geçmişte gerçekleşmemiş).",
+        "kaynak": "Teil-2 s.68, s.75"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Şimdi mi, geçmiş mi?",
+        "baslik": "Aynı kelime, iki anlam",
+        "maddeler": [
+          "<b>Gegenwart (şimdi):</b> Ich würde gern in die Türkei fliegen. = Seve seve Türkiye'ye uçarım (hâlâ bir şansım var).",
+          "<b>Vergangenheit (geçmiş):</b> hocanın kuralı: <b>hätte / wäre + Partizip II</b> = geçmiş geçmişte kaldı, <b>-saydım</b> diyeceğiz.",
+          "Ich hätte gern in Deutschland gelebt. = Seve seve Almanya'da yaşamak isterdim.",
+          "Wenn ich doch nur in Deutschland gelebt hätte. = Off, keşke Almanya'da yaşasaydım. (Hoca: <b>bloß / doch / nur / doch nur</b> cümleye vurgu ve „keşke“ tadı katar.)",
+          "Ich wäre geflogen = uçsaydım (uçtum mu? hayır). — Ich <b>war</b> geflogen = uçmuştum (Plusquamperfekt)."
+        ],
+        "uyari": "Hocanın üç ünlemli uyarısı: <b>Ich hätte nichts gesagt</b> = söylemeseydim. <b>Ich hatte nichts gesagt</b> = söylememiştim (Plusquamperfekt, Konjunktiv değil). Tek harf (ä) anlamı değiştirir!",
+        "kaynak": "Teil-2 s.75"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Gerçekleşmemiş geçmiş",
+        "baslik": "Wenn + geçmiş → hätte / wäre + Partizip II",
+        "satirlar": [
+          { "etiket": "Şart (wenn)", "not": "geçmiş, haben", "jetonlar": [{ "t": "Wenn", "r": "bag" }, { "t": "ich", "r": "ozne" }, { "t": "gelernt", "r": "fiil" }, { "t": "hätte", "r": "fiil", "sonda": true }], "tr": "Çalışmış olsaydım," },
+          { "etiket": "Sonuç", "not": "hätte + Partizip II", "jetonlar": [{ "t": "hätte", "r": "fiil" }, { "t": "ich", "r": "ozne" }, { "t": "die Prüfung", "r": "nesne" }, { "t": "bestanden", "r": "fiil", "sonda": true }], "tr": "sınavı geçerdim." },
+          { "etiket": "Şart (wenn)", "not": "geçmiş, sein", "jetonlar": [{ "t": "Wenn", "r": "bag" }, { "t": "ich", "r": "ozne" }, { "t": "früher", "r": "zaman" }, { "t": "gekommen", "r": "fiil" }, { "t": "wäre", "r": "fiil", "sonda": true }], "tr": "Daha erken gelmiş olsaydım," },
+          { "etiket": "Sonuç", "not": "hätte + Partizip II", "jetonlar": [{ "t": "hätte", "r": "fiil" }, { "t": "ich", "r": "ozne" }, { "t": "dich", "r": "nesne" }, { "t": "gesehen", "r": "fiil", "sonda": true }], "tr": "seni görürdüm." },
+          { "etiket": "Şart (wenn)", "not": "geçmiş", "jetonlar": [{ "t": "Wenn", "r": "bag" }, { "t": "es", "r": "ozne" }, { "t": "nicht", "r": "diger" }, { "t": "geregnet", "r": "fiil" }, { "t": "hätte", "r": "fiil", "sonda": true }], "tr": "Yağmur yağmamış olsaydı," },
+          { "etiket": "Sonuç", "not": "wären + Partizip II", "jetonlar": [{ "t": "wären", "r": "fiil" }, { "t": "wir", "r": "ozne" }, { "t": "spazieren", "r": "diger" }, { "t": "gegangen", "r": "fiil", "sonda": true }], "tr": "yürüyüşe giderdik." }
+        ],
+        "not": "<b>Hocanın formülü:</b> Wenn + Plusquamperfekt (+ Konjunktiv II), hätte / wäre + Partizip II. Hoca başlığı: „Vergangenheitsform von wenn = Konjunktiv II“. Başka örnekler: Wenn du mich informiert hättest, hätte ich dir helfen können. · Wenn ich an deiner Stelle gewesen wäre, hätte ich diese Entscheidung nicht getroffen.",
+        "kaynak": "Teil-2 s.71"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Modal fiil + geçmiş",
+        "baslik": "Hätten + mastar + modal fiil",
+        "maddeler": [
+          "Hocanın kalıbı: <b>Hätten + Infinitiv + Modalverb (Präsens)</b>. Yardımcı fiil olarak hocanın tablosunda <b>sein</b> çizilmiş, yalnızca <b>haben (hätte)</b> kalmış.",
+          "Ich hätte ihm helfen können. = Ona yardım edebilirdim (ama yapamadım).",
+          "Ich hätte mehr für die Prüfung lernen müssen. = Sınav için daha çok çalışmak zorundaydım.",
+          "Du hättest Charlotte von der Schule abholen sollen. = Charlotte'u okuldan almalıydın.",
+          "Es tut mir leid! Ich hätte euch rechtzeitig Bescheid sagen sollen, dass das Seminar ausfällt. = Üzgünüm! Size zamanında haber vermeliydim, seminer iptal oldu.",
+          "Ihr hättet besser auf euer Gepäck aufpassen müssen. = Bagajınıza daha iyi dikkat etmeliydiniz.",
+          "Hocanın kartları: <b>hätte ... können</b> (could have) · <b>hätte ... sollen</b> (should have)."
+        ],
+        "uyari": "Cümle sonunda iki mastar yan yana gelir: <b>lernen müssen</b>, <b>helfen können</b>. Modal fiili Partizip II (gekonnt, gemusst) yapma!",
+        "kaynak": "Teil-2 s.80-81"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Konjunktiv II'de sık yapılan hatalar",
+        "maddeler": [
+          "„gern“ ile seçim: sıfat → <b>wäre gern</b>, isim → <b>hätte gern</b>, fiil → <b>würde gern</b>. (Hocanın üç kartı.)",
+          "Hocanın seçme alıştırmasının cevapları (s.65): Ich <b>wäre</b> jetzt so gern bei ihr (bei ihr sein) · Ich <b>hätte</b> so gern ein größeres Büro (haben) · Ich <b>würde</b> jetzt wirklich gern ein bisschen schlafen (normal fiil).",
+          "Wenn cümlesinde fiil sonda: Wenn er nicht krank <b>wäre</b>, würde er kommen.",
+          "Modalde şimdi: <b>könnte, müsste</b> · modalde geçmiş: <b>hätte + mastar + können/müssen</b>.",
+          "<b>hätte</b> ile <b>hatte</b>, <b>wäre</b> ile <b>war</b> karışmasın: ä noktası dilek / gerçek dışı demektir."
+        ],
+        "uyari": "En sık hata: Ich hatte nichts gesagt (söylememiştim) ile Ich hätte nichts gesagt (söylemeseydim) cümlelerini aynı sanmak. Tek harf farkı anlamı tamamen değiştirir.",
+        "kaynak": "Teil-2 s.52-54, s.65, s.75"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "sein-wäre · haben-hätte · diğer-würde",
+        "mean": "Gerçek dışı şimdi: wäre / hätte / würde. Gerçek dışı geçmiş: hätte / wäre + Partizip II.",
+        "story": "<b>„Şöyle olsa böyle olur.“</b> Wenn ich reich wäre, würde ich ein Haus kaufen. · Wenn ich gelernt hätte, hätte ich die Prüfung bestanden. · Ich hätte ihm helfen können. · als ob = -mış gibi. Ve unutma: hätte ≠ hatte!"
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d47_konjunktiv2",
+    "title": "Konjunktiv II",
+    "emoji": "💭",
+    "desc": "wäre / hätte / würde ile dilek, gerçek dışı şart ve geçmiş",
+    "rule": "<b>Şimdiki dilek:</b> sein → <b>wäre</b>, haben → <b>hätte</b>, diğer fiiller → <b>würde + mastar</b>.<br><b>gern ile:</b> sıfat → wäre gern, isim → hätte gern, fiil → würde gern.<br><b>Gerçek dışı şart:</b> Wenn ich reich <b>wäre</b>, <b>würde</b> ich ein Haus kaufen.<br><b>als ob = -mış gibi:</b> ... als ob sie reich <b>wäre</b>.<br><b>Geçmiş:</b> <b>hätte / wäre + Partizip II</b> (-saydım); modalle: <b>hätte + mastar + können/müssen/sollen</b>.<br><b>Tuzak:</b> hätte (dilek) ≠ hatte (Plusquamperfekt).",
+    "qs": [
+      { "sent": "Ich ___ jetzt gern in Berlin.", "blank": "wäre", "opts": ["wäre", "hätte", "würde"], "tr": "Şu an Berlin'de olmak isterdim.", "exp": "'In Berlin sein' fiili sein olduğu için Konjunktiv II hali wäre kullanılır. Hocanın Wünsche sayfasındaki ilk örnek (s.52)." },
+      { "sent": "Ich ___ gern ein Haus in Berlin.", "blank": "hätte", "opts": ["hätte", "wäre", "würde"], "tr": "Berlin'de bir evim olsun isterdim.", "exp": "Sahip olma (haben) için hätte gelir; 'ein Haus' bir isimdir, 'hätte gern + isim' kalıbı (s.52-53)." },
+      { "sent": "Ich ___ gern Pizza essen.", "blank": "würde", "opts": ["würde", "wäre", "hätte"], "tr": "Pizza yemek isterdim.", "exp": "'essen' sein/haben değil, normal bir fiildir; bu yüzden würde gern + mastar (essen sonda). Hoca: würden gern = would like to (s.52)." },
+      { "sent": "Ich ___ gern wohlhabend.", "blank": "wäre", "opts": ["wäre", "hätte", "würde"], "tr": "Varlıklı olmak isterdim.", "exp": "'wohlhabend' bir sıfattır; hocanın kartı: WÄRE GERN → sıfatlarla kullan (s.53). hätte gern isimle gelir." },
+      { "sent": "Ich ___ gern ein Kind.", "blank": "hätte", "opts": ["hätte", "wäre", "würde"], "tr": "Bir çocuğum olsun isterdim.", "exp": "Kartta HÄTTE GERN → isimlerle. 'ein Kind' isim olduğu için wäre gern ya da würde gern yanlıştır (s.53)." },
+      { "sent": "Tim ___ lieber am Freitag frei.", "blank": "hätte", "opts": ["hätte", "wäre", "würde"], "tr": "Tim keşke cuma günü izinli olsa.", "exp": "'frei haben' = izinli olmak, haben fiilidir; Konjunktiv II hali hätte. Hocanın hätte/wäre alıştırmasının 4. cümlesi (s.55)." },
+      { "sent": "Sie ___ aber gern gut Französisch sprechen.", "blank": "würde", "opts": ["würde", "hätte", "wäre"], "tr": "Ama iyi Fransızca konuşmak isterdi.", "exp": "'sprechen' sıradan bir fiildir: würde gern + mastar. Hocanın Eva alıştırmasında cevap würde (s.60)." },
+      { "sent": "Wenn er nicht krank ___, würde er kommen.", "blank": "wäre", "opts": ["wäre", "hätte", "ist"], "tr": "Hasta olmasaydı gelirdi.", "exp": "'krank sein' → sein fiili, wenn cümlesinde Konjunktiv II wäre gerekir, fiil sonda. Hocanın alıştırma çözümü (s.55)." },
+      { "sent": "___ wir doch bloß eine größere Wohnung!", "blank": "Hätten", "opts": ["Hätten", "Wären", "Würden"], "tr": "Keşke daha büyük bir dairemiz olsaydı!", "exp": "'Wohnung haben' → haben, wir ile hätten. 'doch bloß' keşke tadı verir; hocanın alıştırma cevabı Hätten (s.63, s.75)." },
+      { "sent": "Sie tut so, als ob sie reich ___.", "blank": "wäre", "opts": ["wäre", "hätte", "ist"], "tr": "Sanki zenginmiş gibi davranıyor.", "exp": "'als ob' = -mış gibi, sonrasında Konjunktiv II gelir. 'reich sein' için wäre. 'ist' gerçek gibi olurdu (s.59)." },
+      { "sent": "Er sah aus, als ob er seit Tagen nicht geschlafen ___.", "blank": "hätte", "opts": ["hätte", "wäre", "hatte"], "tr": "Günlerdir uyumamış gibi görünüyordu.", "exp": "als ob + geçmiş: schlafen haben ile çekilir, bu yüzden hätte. hatte (ä'sız) Plusquamperfekt olurdu, dilek değil (s.59)." },
+      { "sent": "Ich ___ fast zu spät gekommen.", "blank": "wäre", "opts": ["wäre", "hätte", "war"], "tr": "Az kalsın geç kalıyordum.", "exp": "'ich wäre fast + Partizip II' = az kalsın. 'kommen' sein ile çekildiği için wäre gekommen (s.57)." },
+      { "sent": "Du ___ die Antwort.", "blank": "wüsstest", "opts": ["wüsstest", "wusstest", "weißt"], "tr": "Cevabı bilirdin.", "exp": "wissen'in Konjunktiv II hali wüsste (du wüsstest). wusstest Präteritum, weißt Präsens'tir; ü noktası dilek demektir (s.50)." },
+      { "sent": "Wir ___ diesen Plan gut.", "blank": "fänden", "opts": ["fänden", "fanden", "finden"], "tr": "Bu planı iyi bulurduk.", "exp": "finden → fänden (Konjunktiv II). fanden Präteritum, finden Präsens'tir. Hocanın örnek cümlesi (s.50)." },
+      { "sent": "Ich ___ besser arbeiten, wenn ich einen neuen Computer hätte.", "blank": "könnte", "opts": ["könnte", "konnte", "kann"], "tr": "Yeni bir bilgisayarım olsa daha iyi çalışabilirdim.", "exp": "Gerçek dışı sonuçta modal Konjunktiv II kullanılır: könnte. konnte Präteritum, kann Präsens olurdu (s.77)." },
+      { "sent": "Wenn ich nicht so lange arbeiten ___, würde ich gern mitkommen.", "blank": "müsste", "opts": ["müsste", "musste", "muss"], "tr": "Bu kadar uzun çalışmak zorunda olmasam seve seve gelirdim.", "exp": "Wenn cümlesi gerçek dışıdır: müssen → müsste (Konjunktiv II). musste Präteritum'dur ve dilek anlamı vermez (s.77)." },
+      { "sent": "Wenn ich gelernt ___, hätte ich die Prüfung bestanden.", "blank": "hätte", "opts": ["hätte", "hatte", "wäre"], "tr": "Çalışmış olsaydım sınavı geçerdim.", "exp": "Geçmişin 'wenn'i Konjunktiv II ile kurulur: gelernt hätte. lernen haben ile çekilir, bu yüzden wäre yanlış; hatte (ä'sız) ise Plusquamperfekt olurdu (s.71)." },
+      { "sent": "Wenn ich früher gekommen ___, hätte ich dich gesehen.", "blank": "wäre", "opts": ["wäre", "hätte", "war"], "tr": "Daha erken gelmiş olsaydım seni görürdüm.", "exp": "kommen hareket fiilidir ve sein ile çekilir: gekommen wäre. 'hätte gekommen' yanlıştır; 'war gekommen' Plusquamperfekt olurdu (s.71)." },
+      { "sent": "Ich hätte ihm helfen ___.", "blank": "können", "opts": ["können", "könnte", "gekonnt"], "tr": "Ona yardım edebilirdim (ama yapamadım).", "exp": "Hocanın kalıbı: hätte + mastar + modal fiil (Präsens, mastar halinde). Yani hätte helfen können; 'gekonnt' ya da 'könnte' burada yanlıştır (s.80)." },
+      { "sent": "Ich ___ euch rechtzeitig Bescheid sagen sollen.", "blank": "hätte", "opts": ["hätte", "hatte", "wäre"], "tr": "Size zamanında haber vermeliydim.", "exp": "Geçmişte 'yapmalıydım' için hätte + mastar + sollen kalıbı gelir (s.80). hatte Plusquamperfekt olurdu; wäre bu kalıpta kullanılmaz." }
+    ]
+  },
+  "dogrulama": [
+    "Hocanın s.75'teki 'Ich wäre gern in die Türkei fliegen' ve 'Ich wäre fliegen: uçsam' cümleleri (mastar ile wäre) Almancada doğru mu? Dersten çıkardım. Perplexity'ye sor: 'Ich wäre gern in die Türkei geflogen' ile 'Ich würde gern in die Türkei fliegen' farkı nedir?",
+    "Hocanın s.75'teki 'hätten ve wären + Partizip I / yalın' ifadesi: Partizip I (fliegend) ile mastar (fliegen) aynı terim mi? Dersten çıkardım, yalnızca 'hätte/wäre + Partizip II = geçmiş' kuralını aldım.",
+    "s.72'de 'Ich konnte einen Porsche kaufen, wenn ich im Lotto Gewinnen würde.' cümlesinde 'konnte' mi 'könnte' mi olmalı? Dersten çıkardım.",
+    "s.80'deki 'Ich habe nicht ihm geholfen, weil ich nicht das konnte.' cümlesinin kelime sırası doğru mu? Dersten çıkardım.",
+    "s.50-51'de 'helfen → hülfen (günlük dilde würden helfen)' notu: başka güçlü fiillerde de günlük dilde würde + mastar tercih edilir mi? Derste yalnızca helfen için hocanın notunu bıraktım.",
+    "s.72'deki 'Wenn unser Vater nicht so viel arbeiten müsste, hätte er mehr Zeit für uns.', s.59'daki 'Er sah aus, als ob er seit Tagen nicht geschlafen hätte.' cümlelerinin Türkçeleri hocada yok; çevirileri bana ait, kontrol et.",
+    "s.54'teki wäre / hätte kartları İngilizceydi; Türkçe özetini ben yazdım (wäre: sıfat, meslek, yaş, tarih, kibar soru; hätte: dilek, rica, sahip olma). Doğru özet mi?",
+    "s.63 cevap anahtarında 'wär(e)st' yazımı var (f şıkkı); du wärst / du wär(e)st iki yazım da doğru mu? Derse yalnızca hocanın s.52 tablosundaki wärst yazımını aldım.",
+    "Metin katmanı olan ama görüntü olarak okumadığım sayfalar: s.48, 50, 51, 67, 76 (s.76 'bloß/nur/gerade mal' notu derse alınmadı)."
+  ]
+}

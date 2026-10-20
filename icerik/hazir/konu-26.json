@@ -1,0 +1,437 @@
+{
+  "konu": 26,
+  "baslik": "Modal Fiiller (Modalverben / Präsens)",
+  "kaynak": [
+    { "arac": "PDF", "sayfa": "Kalan Üniteler s.3-5" },
+    { "arac": "PDF", "sayfa": "Kalan Üniteler s.6, s.22, s.27, s.30-33, s.39, s.63 (modalli örnek cümleler)" }
+  ],
+  "deste": {
+    "title": "🧩 Modal Fiiller (Modalverben)",
+    "accent": "linear-gradient(135deg,#F0503C,#c23421)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "MODAL 2. SIRADA",
+        "mean": "Modal fiil çekimlenir ve cümlede 2. sırada durur; asıl fiil mastar (-en) halinde, çekimlenmeden cümlenin SONUNA gider.",
+        "story": "Hocanın formülü: <b>Özne + Modalverb (Çekimlenir) + İ/N/T/M/P + Ana Fiil (Çekimlenmez)</b>.<br>Altı modal fiil var: <b>dürfen, können, mögen, müssen, sollen, wollen</b> (+ nazik istek için <b>möchten</b>).<br>Bu derste önce çekimleri, sonra cümle çerçevesini, sonra her modalin hocanın örneklerini göreceğiz."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim 1/3",
+        "baslik": "dürfen · können · müssen",
+        "basliklar": ["", "dürfen (may)", "können (can)", "müssen (must)"],
+        "satirlar": [
+          ["ich", "darf", "kann", "muss"],
+          ["du", "darfst", "kannst", "musst"],
+          ["er / sie / es", "darf", "kann", "muss"],
+          ["wir", "dürfen", "können", "müssen"],
+          ["ihr", "dürft", "könnt", "müsst"],
+          ["sie / Sie", "dürfen", "können", "müssen"]
+        ],
+        "not": "<b>Gözlem (hocanın tablosundan):</b> ich ve er/sie/es satırları AYNI. wir ve sie/Sie satırları mastarla aynı (-en). Ayrıca çoğul biçimlerde ä/ö/ü var (dürfen, können, müssen), tekil biçimlerde yok (darf, kann, muss).",
+        "kaynak": "Kalan Üniteler s.3"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim 2/3",
+        "baslik": "sollen · wollen · mögen",
+        "basliklar": ["", "sollen (shall)", "wollen (want)", "mögen (like)"],
+        "satirlar": [
+          ["ich", "soll", "will", "mag"],
+          ["du", "sollst", "willst", "magst"],
+          ["er / sie / es", "soll", "will", "mag"],
+          ["wir", "sollen", "wollen", "mögen"],
+          ["ihr", "sollt", "wollt", "mögt"],
+          ["sie / Sie", "sollen", "wollen", "mögen"]
+        ],
+        "not": "Yine aynı düzen: <b>ich = er/sie/es</b>, <b>wir = sie/Sie</b> (mastar gibi). wollen'de ich/er için <b>will</b> (wolle değil); mögen'de tekilde <b>mag</b>, çoğulda <b>mög-</b>.",
+        "kaynak": "Kalan Üniteler s.3"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim 3/3",
+        "baslik": "möchten ve mögen yan yana",
+        "basliklar": ["", "möchten", "mögen"],
+        "satirlar": [
+          ["ich", "möchte", "mag"],
+          ["du", "möchtest", "magst"],
+          ["er / sie / es", "möchte", "mag"],
+          ["wir", "möchten", "mögen"],
+          ["ihr", "möchtet", "mögt"],
+          ["sie / Sie", "möchten", "mögen"]
+        ],
+        "not": "Hoca möchten'i kökü bölerek yazmış: <b>möcht-e, möcht-est, möcht-en, möcht-et</b>. mögen için: <b>mag, mag-st, mög-en, mög-t</b>. Dikkat: möchten'de <b>ich ve er/sie/es de -e alır</b> (möchte); mögen'de ise ikisi de <b>mag</b>.",
+        "kaynak": "Kalan Üniteler s.4"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Cümle çerçevesi",
+        "baslik": "Modal 2. sırada, asıl fiil SONDA",
+        "satirlar": [
+          {
+            "etiket": "Düz cümle",
+            "not": "modal 2. sırada",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "muss", "r": "fiil" },
+              { "t": "am Abend", "r": "zaman" },
+              { "t": "Englisch", "r": "nesne" },
+              { "t": "lernen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Akşam İngilizce öğrenmem gerekiyor."
+          },
+          {
+            "etiket": "Devrik (= eşit)",
+            "not": "modal yine 2. sırada",
+            "jetonlar": [
+              { "t": "Am Abend", "r": "zaman" },
+              { "t": "muss", "r": "fiil" },
+              { "t": "ich", "r": "ozne" },
+              { "t": "Englisch", "r": "nesne" },
+              { "t": "lernen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Akşam İngilizce öğrenmem gerekiyor. (aynı anlam)"
+          },
+          {
+            "etiket": "Hocanın örneği",
+            "not": "olumsuz: nicht araya girer",
+            "jetonlar": [
+              { "t": "Kinder", "r": "ozne" },
+              { "t": "sollen", "r": "fiil" },
+              { "t": "nachmittags", "r": "zaman" },
+              { "t": "nicht allein am Computer", "r": "diger" },
+              { "t": "sitzen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Çocuklar öğleden sonraları tek başına bilgisayar başında oturmamalı."
+          },
+          {
+            "etiket": "Hocanın örneği",
+            "not": "nesne grubu ortada",
+            "jetonlar": [
+              { "t": "Wir", "r": "ozne" },
+              { "t": "wollen", "r": "fiil" },
+              { "t": "eine Wohnung in Berlin", "r": "nesne" },
+              { "t": "mieten", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Berlin'de bir ev kiralamak istiyoruz."
+          }
+        ],
+        "not": "<b>Hocanın formülü:</b> Özne + Modalverb (<b>Çekimlenir</b>) + İ/N/T/M/P + Ana Fiil (<b>Çekimlenmez</b>). Ara kısım (zaman, nesne, nicht...) modal ile mastar fiil arasında kalır; mastar HEP en sonda.",
+        "kaynak": "Kalan Üniteler s.3, s.63"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Soru cümlesi",
+        "baslik": "Modalsiz soru → Modalli soru",
+        "satirlar": [
+          {
+            "etiket": "Modalli soru 1",
+            "not": "Modal başa geçti, fiil sona gitti",
+            "jetonlar": [
+              { "t": "Möchtest", "r": "fiil" },
+              { "t": "du", "r": "ozne" },
+              { "t": "einen Kaffee", "r": "nesne" },
+              { "t": "trinken", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Bir kahve içmek ister misin? (Modalsiz: Trinkst du einen Kaffee?)"
+          },
+          {
+            "etiket": "Modalli soru 2",
+            "not": "",
+            "jetonlar": [
+              { "t": "Möchtest", "r": "fiil" },
+              { "t": "du", "r": "ozne" },
+              { "t": "heute Tennis", "r": "zaman" },
+              { "t": "spielen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Bugün tenis oynamak ister misin? (Modalsiz: Spielst du heute Tennis?)"
+          },
+          {
+            "etiket": "Modalli soru 3",
+            "not": "",
+            "jetonlar": [
+              { "t": "Möchtest", "r": "fiil" },
+              { "t": "du", "r": "ozne" },
+              { "t": "in Deutschland", "r": "diger" },
+              { "t": "leben", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Almanya'da yaşamak ister misin? (Modalsiz: Lebst du in Deutschland?)"
+          },
+          {
+            "etiket": "Modalli soru 4",
+            "not": "mit·kommen tek parça kalır",
+            "jetonlar": [
+              { "t": "Möchtest", "r": "fiil" },
+              { "t": "du", "r": "ozne" },
+              { "t": "ins Kino", "r": "diger" },
+              { "t": "mitkommen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Sinemaya gelmek (benimle) ister misin? (Modalsiz: Kommst du ins Kino mit?)"
+          }
+        ],
+        "not": "Hocanın karşılaştırması: modalsiz soruda fiil çekimlenir (<b>Trinkst</b> du...?), modalli soruda <b>modal başa geçer</b> (<b>Möchtest</b> du ... <b>trinken</b>?) ve asıl fiil mastar olarak sona gider. Son örnekte <b>Kommst du ... mit?</b> ikiye ayrılıyordu; modalle <b>mitkommen</b> tek parça olarak sonda durur.",
+        "kaynak": "Kalan Üniteler s.4"
+      },
+      {
+        "big": "möchten",
+        "mean": "Nazik istek: 'istiyorum / isterim'. Hep asıl fiille gelir: möchte + ... + MASTAR (sonda).",
+        "egs": [
+          "Mama, Papa, ich <b>möchte</b> gern bei der Musik-AG <b>mitmachen</b>. — Baba, anne, ben müzik kulübüne katılmak istiyorum.",
+          "<b>Möchtest</b> du heute Tennis <b>spielen</b>? — Bugün tenis oynamak ister misin?"
+        ],
+        "tip": "💡 Hocanın müzik kelimeleri (aynı sayfada): <b>das Saxophon, das Klavier, das Schlagzeug, die Geige</b> (saksafon, piyano, bateri, keman). 'Musik-AG' = müzik kulübü.",
+        "kaynak": "Kalan Üniteler s.4"
+      },
+      {
+        "big": "mögen",
+        "mean": "Sevmek. Hocanın örneklerinde yanında fiil değil, sevilen şey (isim) var: Ich mag Sport.",
+        "egs": [
+          "Ich <b>mag</b> Sport. — Sporu severim.",
+          "Wir <b>mögen</b> Filme. — Filmleri severiz.",
+          "Ich <b>mag</b> Abenteuerfilme. — Macera filmlerini seviyorum.",
+          "Ich <b>mag</b> keinen Kaffee. — Kahveyi sevmem.",
+          "Ich <b>mag</b> alles an dir. — Sana dair her şeyi seviyorum."
+        ],
+        "tip": "💡 Hocanın yan notu: <b>Ich mache gern Sport.</b> yazıp, yanında 'Ich mag Sport machen.' ifadesinin üstünü çizmiş. Yani spor için <b>Ich mag Sport.</b> ya da <b>Ich mache gern Sport.</b> kullan.",
+        "kaynak": "Kalan Üniteler s.4"
+      },
+      {
+        "big": "müssen + unbedingt",
+        "mean": "müssen: zorunda olmak. Hoca 'unbedingt' (kesinlikle, mutlaka) zarfını müssen ile birlikte öğretiyor.",
+        "egs": [
+          "Ich <b>muss unbedingt</b> mit dir <b>sprechen</b>. — Seninle kesinlikle konuşmam gerekiyor.",
+          "Du <b>musst</b> mir <b>unbedingt</b> <b>helfen</b>. — Bana mutlaka yardım etmelisin.",
+          "Du <b>musst</b> dieses Buch <b>unbedingt</b> <b>lesen</b>. — Bu kitabı mutlaka okumalısın.",
+          "Wir <b>müssen unbedingt</b> <b>gewinnen</b>. — Kesinlikle kazanmak zorundayız."
+        ],
+        "tip": "💡 Hocanın sayfasında başlık: <b>ADVERBIEN: unbedingt + müssen</b>. <b>unbedingt</b> modal ile mastar arasındaki bölümde durur; yeri örneğe göre değişiyor (muss unbedingt mit dir ... / musst mir unbedingt ... / musst dieses Buch unbedingt ...). Mastar yine sonda.",
+        "kaynak": "Kalan Üniteler s.5"
+      },
+      {
+        "big": "können",
+        "mean": "Yapabilmek. Soruda modal başa gelir: Kannst du ...? Asıl fiil mastar ve sonda.",
+        "egs": [
+          "Wir <b>können</b> es <b>schaffen</b>. — Bunu başarabiliriz. (Wir haben nicht mehr viel Zeit, aber wir können es schaffen.)",
+          "<b>Kannst</b> du mir bitte deinen Regenschirm <b>leihen</b>? — Bana lütfen şemsiyeni ödünç verebilir misin?",
+          "<b>Kannst</b> du bitte ans Telefon <b>gehen</b>? — Telefonu açabilir misin lütfen?",
+          "Du <b>kannst</b> die Sprache übers Internet <b>weiterlernen</b>. — Dili internet üzerinden öğrenmeye devam edebilirsin."
+        ],
+        "tip": "💡 Dört örnekte de <b>kann- / können</b> 2. sırada (soruda 1.), mastar en sonda. Son örnekte <b>weiterlernen</b> tek kelime olarak sonda duruyor.",
+        "kaynak": "Kalan Üniteler s.6, s.30, s.32, s.39"
+      },
+      {
+        "big": "wollen",
+        "mean": "İstemek (kararlı istek). ich ve er/sie/es için <b>will</b>. Olumsuzda nicht araya girer.",
+        "egs": [
+          "Ich <b>will</b> <b>abnehmen</b>. — Kilo vermek istiyorum.",
+          "Ich <b>will</b> nicht <b>zunehmen</b>. — Kilo almak istemiyorum.",
+          "Wir <b>wollen</b> eine Wohnung in Berlin <b>mieten</b>. — Berlin'de bir ev kiralamak istiyoruz.",
+          "Was <b>willst</b> du am Wochenende <b>unternehmen</b>? — Hafta sonu ne yapmak istersin?"
+        ],
+        "tip": "💡 Hoca ayrıca (aynı Berlin cümlesinde) devrikte iki sıra gösteriyor: <b>Eigentlich wollen wir in Berlin eine Wohnung mieten.</b> Modal yine 2. sırada, 'wir' hemen arkasından geliyor.",
+        "kaynak": "Kalan Üniteler s.31, s.28, s.63"
+      },
+      {
+        "big": "dürfen · sollen",
+        "mean": "Hocanın örneklerinde: dürfen + nicht = 'yapamazsın / yapmamalısın'; sollen + nicht = 'yapmamalı'. İkisi de modal: çekimli 2. sırada, mastar sonda.",
+        "egs": [
+          "Du <b>darfst</b> die Hoffnung nicht <b>aufgeben</b>. — Umudu bırakamazsın!",
+          "Kinder <b>sollen</b> nachmittags nicht allein am Computer <b>sitzen</b>. — Çocuklar öğleden sonraları tek başına bilgisayar başında oturmamalı."
+        ],
+        "tip": "💡 İkisinde de <b>nicht</b> mastarın hemen önüne / ara kısma girer, mastar yine sonda kalır. dürfen ile sollen arasındaki anlam farkını hoca bu sayfalarda ayrıca açıklamıyor (dogrulama listesine bak).",
+        "kaynak": "Kalan Üniteler s.22, s.3"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Birleşik fiil + modal",
+        "baslik": "Ayrılabilen fiil modalle AYRILMAZ",
+        "satirlar": [
+          {
+            "etiket": "wollen + abnehmen",
+            "not": "tek parça, sonda",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "will", "r": "fiil" },
+              { "t": "abnehmen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Kilo vermek istiyorum."
+          },
+          {
+            "etiket": "müssen + fertigmachen",
+            "not": "tek parça, sonda",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "muss", "r": "fiil" },
+              { "t": "noch ein Referat", "r": "nesne" },
+              { "t": "fertigmachen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Sunumumu bitirmeliyim."
+          },
+          {
+            "etiket": "möchten + fortsetzen",
+            "not": "tek parça, sonda",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "möchte", "r": "fiil" },
+              { "t": "den Kurs", "r": "nesne" },
+              { "t": "fortsetzen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Kursa devam etmek istiyorum."
+          },
+          {
+            "etiket": "dürfen + aufgeben",
+            "not": "nicht araya girer",
+            "jetonlar": [
+              { "t": "Du", "r": "ozne" },
+              { "t": "darfst", "r": "fiil" },
+              { "t": "die Hoffnung nicht", "r": "nesne" },
+              { "t": "aufgeben", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Umudu bırakamazsın!"
+          }
+        ],
+        "not": "Hocanın örneklerinde (ayrılabilen fiiller ünitesinden) <b>abnehmen, fertigmachen, fortsetzen, aufgeben</b> modalın yanında bölünmüyor; mastar olarak, bir bütün halinde sonda duruyor. Bu ünitenin devamı: Konu 27 (Ayrılabilen Fiiller).",
+        "kaynak": "Kalan Üniteler s.31, s.27, s.33, s.22"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Sık hatalar",
+        "baslik": "Modalle cümle kurarken tuzaklar",
+        "maddeler": [
+          "Modal 2. sırada çekimlenir, <b>asıl fiil çekimlenmez</b> (hoca: 'Çekimlenir / Çekimlenmez'). Doğru: Ich muss Englisch <b>lernen</b>.",
+          "Asıl fiil mastar halinde <b>cümlenin sonuna</b> gider; araya zaman, nesne, nicht girer.",
+          "Devrik cümlede de modal 2. sırada kalır: <b>Am Abend muss ich</b> Englisch lernen.",
+          "Soruda modal başa geçer: <b>Möchtest du</b> ... trinken? (modalsiz: Trinkst du ...?)",
+          "ich ve er/sie/es aynıdır: ich kann = er kann, ich will = er will. <b>Ama möchten'de -e var (ich möchte).</b>",
+          "<b>möchten ≠ mögen:</b> möchte + mastar (ich möchte gern mitmachen), mag + sevilen şey (ich mag Sport)."
+        ],
+        "uyari": "En sık hata: modalın yanındaki fiili de çekimlemek (✗ Ich muss lerne) ya da onu 2. sıraya koymak. Çekimlenen TEK fiil modaldir; diğeri mastar ve sonda.",
+        "kaynak": "Kalan Üniteler s.3-5"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "Modal 2. · Mastar SONDA",
+        "mean": "Çekimlenen modal 2. sırada, asıl fiil mastar olarak en sonda.",
+        "story": "<b>ich muss · kann · will · darf · soll · mag · möchte</b><br>du <b>musst · kannst · willst · darfst · sollst · magst · möchtest</b><br>wir <b>müssen · können · wollen · dürfen · sollen · mögen · möchten</b><br>Ich <b>muss</b> am Abend Englisch <b>lernen</b>. = Am Abend <b>muss</b> ich Englisch <b>lernen</b>."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d26_modalverben",
+    "title": "Modal Fiiller (Präsens)",
+    "emoji": "🧩",
+    "desc": "Modal fiil 2. sırada, asıl fiil mastar ve sonda",
+    "rule": "<b>Özne + Modalverb (çekimlenir) + ara kısım + Ana Fiil (mastar, çekimlenmez, SONDA)</b><br>ich muss/kann/will/darf/soll/mag/möchte = er/sie/es (aynı biçim)<br>du: musst, kannst, willst, darfst, sollst, magst, möchtest<br>wir/sie/Sie: -en (müssen, können, wollen, dürfen, sollen, mögen, möchten); ihr: müsst, könnt, wollt, dürft, sollt, mögt, möchtet<br>Soruda modal başa geçer: Möchtest du ... trinken? Devrikte de modal 2. sırada kalır.",
+    "qs": [
+      {
+        "sent": "Ich ___ am Abend Englisch lernen.",
+        "blank": "muss",
+        "opts": ["muss", "musst", "müssen"],
+        "tr": "Akşam İngilizce öğrenmem gerekiyor.",
+        "exp": "'ich' ile müssen -> muss (ich ve er/sie/es aynı biçimi alır). musst 'du' içindir, müssen 'wir/sie/Sie' içindir. Hocanın örneği: Ich muss am Abend Englisch lernen."
+      },
+      {
+        "sent": "Wir ___ eine Wohnung in Berlin mieten.",
+        "blank": "wollen",
+        "opts": ["wollen", "will", "wollt"],
+        "tr": "Berlin'de bir ev kiralamak istiyoruz.",
+        "exp": "'wir' için wollen -> wir wollen (çoğul biçim mastarla aynı). will ich/er içindir, wollt ihr içindir. Hocanın örneği: Wir wollen eine Wohnung in Berlin mieten."
+      },
+      {
+        "sent": "Ich ___ keinen Kaffee.",
+        "blank": "mag",
+        "opts": ["mag", "mögen", "magst"],
+        "tr": "Kahveyi sevmem.",
+        "exp": "mögen 'sevmek' demektir ve sevilen şeyin (Kaffee) yanında kullanılır. 'ich' ile mag olur; mögen wir/sie içindir, magst du içindir. Hocanın örneği: Ich mag keinen Kaffee."
+      },
+      {
+        "sent": "___ du heute Tennis spielen?",
+        "blank": "Möchtest",
+        "opts": ["Möchtest", "Möchte", "Möchten"],
+        "tr": "Bugün tenis oynamak ister misin?",
+        "exp": "Soruda modal başa geçer ve özneye uyar: du -> möchtest. Möchte ich/er için, möchten wir/sie için. Asıl fiil (spielen) mastar olarak sonda kalır."
+      },
+      {
+        "sent": "Du ___ die Hoffnung nicht aufgeben.",
+        "blank": "darfst",
+        "opts": ["darf", "darfst", "dürft"],
+        "tr": "Umudu bırakamazsın!",
+        "exp": "'du' ile dürfen -> darfst. darf ich/er içindir, dürft ihr içindir. Ayrılabilen fiil aufgeben modalın yanında tek parça, mastar olarak sonda kalır (hocanın örneği)."
+      },
+      {
+        "sent": "Kinder ___ nachmittags nicht allein am Computer sitzen.",
+        "blank": "sollen",
+        "opts": ["sollen", "soll", "sollt"],
+        "tr": "Çocuklar öğleden sonraları tek başına bilgisayar başında oturmamalı.",
+        "exp": "Özne Kinder çoğul (sie) olduğu için sollen kullanılır. soll tekil (ich/er), sollt ihr içindir. Asıl fiil sitzen mastar ve en sonda."
+      },
+      {
+        "sent": "Ich muss noch ein Referat ___.",
+        "blank": "fertigmachen",
+        "opts": ["fertigmachen", "mache fertig", "fertiggemacht"],
+        "tr": "Sunumumu bitirmeliyim.",
+        "exp": "Modal müssen çekimli fiildir; asıl fiil çekimlenmez, mastar olarak bütün halinde sonda durur: fertigmachen. 'mache fertig' çekimli (ve ayrık) olduğu için burada yanlış."
+      },
+      {
+        "sent": "Am Abend ___ ich Englisch lernen.",
+        "blank": "muss",
+        "opts": ["lerne", "muss", "musst"],
+        "tr": "Akşam İngilizce öğrenmem gerekiyor.",
+        "exp": "Devrik cümlede (zaman başa geçince) modal yine 2. sırada kalır, özne ondan sonra gelir. Hocanın eşitliği: Ich muss am Abend ... = Am Abend muss ich ..."
+      },
+      {
+        "sent": "Ich will nicht ___.",
+        "blank": "zunehmen",
+        "opts": ["zunehmen", "nehme zu", "zugenommen"],
+        "tr": "Kilo almak istemiyorum.",
+        "exp": "will çekimli modal; asıl fiil mastar ve sonda: zunehmen. 'nehme zu' çekimli, 'zugenommen' geçmiş biçimdir; ikisi de modalın yanında kullanılmaz."
+      },
+      {
+        "sent": "___ ihr ins Kino mitkommen?",
+        "blank": "Möchtet",
+        "opts": ["Möchtet", "Möchtest", "Möchte"],
+        "tr": "Siz sinemaya gelmek ister misiniz?",
+        "exp": "Özne 'ihr' olduğu için möchtet (kök möcht- + -et). Möchtest du içindir, möchte ich/er içindir. mitkommen mastar olarak tek parça sonda kalır."
+      },
+      {
+        "sent": "Wir ___ unbedingt gewinnen.",
+        "blank": "müssen",
+        "opts": ["müssen", "muss", "müsst"],
+        "tr": "Kesinlikle kazanmak zorundayız.",
+        "exp": "wir -> müssen. unbedingt (kesinlikle) mastardan (gewinnen) önce, modalin yanında durur; hocanın örneği: Wir müssen unbedingt gewinnen."
+      },
+      {
+        "sent": "Mama, Papa, ich ___ gern bei der Musik-AG mitmachen.",
+        "blank": "möchte",
+        "opts": ["möchte", "mag", "möchten"],
+        "tr": "Anne, baba, müzik kulübüne katılmak istiyorum.",
+        "exp": "Ardından bir mastar (mitmachen) geldiği için möchte kullanılır; mag yanında isim ister (Ich mag Sport). 'ich' için möchte (möchten değil). Hocanın örneği."
+      },
+      {
+        "sent": "Du ___ mir unbedingt helfen.",
+        "blank": "musst",
+        "opts": ["musst", "muss", "müsst"],
+        "tr": "Bana mutlaka yardım etmelisin.",
+        "exp": "'du' ile müssen -> musst (-st eki). muss ich/er içindir, müsst ihr içindir. Hocanın örneği: Du musst mir unbedingt helfen."
+      },
+      {
+        "sent": "Wir ___ Filme.",
+        "blank": "mögen",
+        "opts": ["mögen", "mag", "mögt"],
+        "tr": "Filmleri severiz.",
+        "exp": "mögen + isim = sevmek. 'wir' için mögen (çoğul biçim). mag tekil, mögt ihr içindir. Hocanın örneği: Wir mögen Filme."
+      }
+    ]
+  },
+  "dogrulama": [
+    "Hocanın s.3'teki formülünde 'İ/N/T/M/P' kısaltması geçiyor (Özne + Modalverb + İ/N/T/M/P + Ana Fiil). Açılımı sayfada yok. Perplexity'ye sor: 'Almanca cümlede modal fiil ile mastar arasındaki ara kısım hangi sırayla dizilir (zaman, neden, tarz, yer)? Türkçe kısaltma İ/N/T/M/P neyi ifade ediyor olabilir?'",
+    "s.3'teki siyah kutu 'Eigentlich will ich nicht nach Hause,' diye kesik görünüyor (Türkçesi: Aslında eve gitmek istemiyorum). Cümle derste kullanılmadı; tam hali doğrulansın.",
+    "s.3'teki hoca notunda 'I muss am Abend Englisch lernen.' yazıyor; 'Ich muss ...' olması gerekir. Derste 'Ich' yazıldı, hocadan teyit edilsin.",
+    "s.4'teki 'Ich mache gern Sport. / Ich mag Sport machen.' notunda ikinci cümlenin üstü çizili görünüyor. Gerçekten 'yanlış' anlamında mı çizilmiş? Perplexity'ye sor: 'Ich mag Sport machen' doğru mu, yoksa 'Ich mache gern Sport' mu denir?",
+    "dürfen / müssen / sollen arasındaki anlam farkı (izin, zorunluluk, tavsiye) ve 'nicht müssen' ile 'nicht dürfen' farkı hocanın bu sayfalarında açıklanmıyor; yalnız örnek var. Perplexity'ye sor.",
+    "s.63'te 'Eigentlich möchte ich ein Kleid für meinen Freund kaufen' cümlesi (2. örnek, tamlama satırı) 'ein Geschenk' olmalıymış gibi duruyor; derste kullanılmadı.",
+    "s.6-8 (schaffen, bestehen, versagen, durchfallen) modal fiil değil, sınav/başarı kelime kartları; bu derse alınmadı. 'Wir können es schaffen' (s.6) ve 'Ich muss mich ... konzentrieren, um die Prüfung zu bestehen' (s.6) cümleleri kullanıma uygun; ikincisi 'um ... zu' yapısı içerdiği için dersten çıkarıldı."
+  ]
+}

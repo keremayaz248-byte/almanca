@@ -1,0 +1,509 @@
+{
+  "konu": 27,
+  "baslik": "Ayrılabilen Fiiller (Trennbare Verben)",
+  "kaynak": [
+    { "arac": "PDF", "sayfa": "Kalan Üniteler s.19-45" }
+  ],
+  "deste": {
+    "title": "✂️ Ayrılabilen Fiiller",
+    "accent": "linear-gradient(135deg,#7b3fa0,#4a2468)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "ÖNEK SONA GİDER",
+        "mean": "Ayrılabilen fiillerde ÖNEK (ein, ab, an, aus, auf, zu...) fiilden ayrılır ve cümlenin SONUNA gider; çekimli kısım 2. sırada kalır.",
+        "story": "Hocanın ünite başlığı: <b>Trennbare Verben</b> (ayrılabilen fiiller). Tablosunda şöyle gösteriyor: <b>ein|laden</b> → Sie laden die Freunde <b>ein</b>. &nbsp; <b>ab|holen</b> → Sie holen Sofia <b>ab</b>.<br>Bu derste önce çerçeveyi, sonra çekim ve Perfekt'i, sonra hocanın gösterdiği fiilleri tek tek öğreneceğiz."
+      },
+      {
+        "tur": "sema",
+        "kicker": "Temel çerçeve",
+        "baslik": "Fiil 2. sırada, önek SONDA",
+        "satirlar": [
+          {
+            "etiket": "ein|laden",
+            "not": "önek sona gitti",
+            "jetonlar": [
+              { "t": "Wir", "r": "ozne" },
+              { "t": "laden", "r": "fiil" },
+              { "t": "euch herzlich", "r": "nesne" },
+              { "t": "ein", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Sizi içtenlikle davet ediyoruz."
+          },
+          {
+            "etiket": "ab|holen",
+            "not": "önek sona gitti",
+            "jetonlar": [
+              { "t": "Wir", "r": "ozne" },
+              { "t": "holen", "r": "fiil" },
+              { "t": "dann zusammen Sofia", "r": "nesne" },
+              { "t": "ab", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Sonra birlikte Sofia'yı alıyoruz."
+          },
+          {
+            "etiket": "an|fangen",
+            "not": "devrik: yine 2. sıra",
+            "jetonlar": [
+              { "t": "Morgen", "r": "zaman" },
+              { "t": "fangen", "r": "fiil" },
+              { "t": "wir", "r": "ozne" },
+              { "t": "mit dem Projekt", "r": "diger" },
+              { "t": "an", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Yarın projeye başlıyoruz."
+          },
+          {
+            "etiket": "an|rufen",
+            "not": "",
+            "jetonlar": [
+              { "t": "Wir", "r": "ozne" },
+              { "t": "rufen", "r": "fiil" },
+              { "t": "vorher alle", "r": "nesne" },
+              { "t": "an", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Önceden herkesi arıyoruz."
+          }
+        ],
+        "not": "<b>Hocanın sayfasından:</b> Marc und Anne <b>laden</b> alle Freunde <b>ein</b>. — Sie <b>holen</b> Sofia <b>ab</b>. Dörtlü: fiilin çekimli kısmı özneden hemen sonra (veya zaman başa geçince yine 2. sırada), <b>önek en sonda</b>. Hocanın e-posta metnindeki cümleler: einladen, abholen, mitbringen, anrufen, mitkommen, einsammeln.",
+        "kaynak": "Kalan Üniteler s.19"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Modal fiille birlikte",
+        "baslik": "Modal varsa fiil AYRILMAZ",
+        "satirlar": [
+          {
+            "etiket": "wollen + abholen",
+            "not": "hocanın tablosundan",
+            "jetonlar": [
+              { "t": "Sie", "r": "ozne" },
+              { "t": "wollen", "r": "fiil" },
+              { "t": "Sofia", "r": "nesne" },
+              { "t": "abholen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Sofia'yı almak istiyorlar."
+          },
+          {
+            "etiket": "möchten + sich anmelden",
+            "not": "mich araya girer",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "möchte", "r": "fiil" },
+              { "t": "mich für den Kochkurs", "r": "nesne" },
+              { "t": "anmelden", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Yemek kursuna kayıt olmak istiyorum."
+          },
+          {
+            "etiket": "können + weiterlernen",
+            "not": "",
+            "jetonlar": [
+              { "t": "Du", "r": "ozne" },
+              { "t": "kannst", "r": "fiil" },
+              { "t": "die Sprache übers Internet", "r": "nesne" },
+              { "t": "weiterlernen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Dili internet üzerinden öğrenmeye devam edebilirsin."
+          },
+          {
+            "etiket": "müssen + fertigmachen",
+            "not": "",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "muss", "r": "fiil" },
+              { "t": "noch ein Referat", "r": "nesne" },
+              { "t": "fertigmachen", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Sunumumu bitirmeliyim."
+          }
+        ],
+        "not": "Modal fiil (wollen, möchten, können, müssen) <b>çekimlenir ve 2. sırada</b> durur. Ayrılabilen fiil ise <b>mastar halinde, bölünmeden</b> sonda kalır. Çekimli kullanımda bölünür (Wir holen ... ab), modalde bölünmez (wollen ... abholen). Modal ayrıntısı için Konu 26.",
+        "kaynak": "Kalan Üniteler s.19, s.32, s.27"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Präsens çekimi",
+        "baslik": "Fiil çekimlenir, önek hep sonda",
+        "basliklar": ["", "ausfallen", "auffallen", "fertigmachen"],
+        "satirlar": [
+          ["ich", "falle aus", "falle auf", "mache fertig"],
+          ["du", "fällst aus", "fällst auf", "machst fertig"],
+          ["er / sie / es", "fällt aus", "fällt auf", "macht fertig"],
+          ["wir", "fallen aus", "fallen auf", "machen fertig"],
+          ["ihr", "fallt aus", "fallt auf", "macht fertig"],
+          ["sie / Sie", "fallen aus", "fallen auf", "machen fertig"]
+        ],
+        "not": "Hocanın tablolarından: çekim <b>sadece fiil gövdesinde</b> olur, <b>önek (aus / auf / fertig) hiç değişmez ve her kişide sonda durur</b>. fallen'da du ve er/sie/es için <b>ä</b> (fällst, fällt) var; machen düzenli.",
+        "kaynak": "Kalan Üniteler s.23, s.24, s.27"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Perfekt",
+        "baslik": "Perfekt'te ge- ARAYA girer",
+        "basliklar": ["Fiil", "Perfekt", "Hocanın örneği"],
+        "satirlar": [
+          ["ankommen", "ist angekommen", "Der Zug ist am Bahnhof angekommen."],
+          ["ausfallen", "ist ausgefallen", "Der Strom ist ausgefallen."],
+          ["auffallen", "ist aufgefallen", "Mir ist der Unterschied nicht aufgefallen."],
+          ["durchfallen", "ist durchgefallen", "Ich bin bei der schriftlichen Prüfung durchgefallen."],
+          ["schiefgehen", "ist schiefgegangen", "Etwas ist schiefgegangen."],
+          ["fertigmachen", "hat fertiggemacht", "(tablo) ich habe fertiggemacht"],
+          ["abnehmen", "hat abgenommen", "Sie hat in zwei Monaten fünf Kilo abgenommen."],
+          ["zunehmen", "hat zugenommen", "Er hat im Winter drei Kilo zugenommen."],
+          ["fortsetzen", "hat fortgesetzt", "(tablo) ich habe fortgesetzt"],
+          ["aufsetzen", "hat aufgesetzt", "Er hat die Kopfhörer aufgesetzt."],
+          ["aufschlagen", "hat aufgeschlagen", "Ich habe ein neues Kapitel aufgeschlagen."]
+        ],
+        "not": "Hocanın tablolarında <b>ge-</b> önek ile gövdenin ARASINA giriyor: aus<b>ge</b>fallen, auf<b>ge</b>fallen, ab<b>ge</b>nommen, zu<b>ge</b>nommen, fertig<b>ge</b>macht, fort<b>ge</b>setzt. Yardımcı fiil de tablolarda görünüyor: <b>fallen / gehen / kommen</b> ile <b>ist</b>, <b>machen / nehmen / setzen / schlagen</b> ile <b>hat/habe</b>. (Hoca 'hangisi ne zaman' kuralını ayrıca yazmıyor; sadece tablo veriyor.)",
+        "kaynak": "Kalan Üniteler s.19, s.23-25, s.27, s.31, s.33, s.34, s.8, s.45"
+      },
+      {
+        "big": "anfangen · beginnen · einleiten",
+        "mean": "Başlamak, başlatmak (hocanın başlığı). Üçü aynı anlama yakın, ama kullanım yeri farklı.",
+        "egs": [
+          "Morgen <b>fangen</b> wir mit dem Projekt <b>an</b>. — Yarın projeye başlıyoruz.",
+          "Wann <b>fangen</b> wir mit den Hausaufgaben <b>an</b>? — Ödevlere ne zaman başlıyoruz?",
+          "Der Kurs <b>beginnt</b> um neun Uhr. — Kurs saat dokuzda başlıyor.",
+          "Der Moderator <b>leitete</b> die Diskussion <b>ein</b>. — Moderatör tartışmayı başlattı."
+        ],
+        "tip": "💡 Hocanın kartları: <b>beginnen</b> = resmî / yazılı / nötr (formal, written, neutral) · <b>anfangen</b> = günlük konuşma (colloquial, everyday) · <b>einleiten</b> = başlatmak. Sadece anfangen ve einleiten ayrılır, beginnen ayrılmıyor (örnek cümlede önek yok). &nbsp; Aynı sayfada: <b>ankommen</b> (gelmek) ve <b>sich anmelden für (+Akk.)</b> (kayıt olmak).",
+        "kaynak": "Kalan Üniteler s.19, s.26"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Açmak · kapatmak",
+        "baslik": "Işık, pencere, kapı: hocanın kartları",
+        "basliklar": ["Anlam", "Fiil", "Hocanın cümlesi"],
+        "satirlar": [
+          ["ışığı açmak", "einschalten / anmachen", "Ich schalte das Licht ein. / Ich mache das Licht an."],
+          ["ışığı kapatmak", "ausschalten / ausmachen", "Ich schalte das Licht aus. / Ich mache das Licht aus."],
+          ["açmak (pencere, kapı, buzdolabı)", "aufmachen / öffnen", "Ich mache die Tür auf. / Ich öffne die Tür."],
+          ["kapatmak", "zumachen / schließen", "Ich mache die Tür zu. / Ich schließe die Tür."],
+          ["kilitlemek (⭐ hoca yıldızladı)", "abschließen", "Ich schließe die Tür ab."]
+        ],
+        "not": "Hoca iki yolu karşılaştırıyor: <b>machen + önek</b> (an, aus, auf, zu) ve <b>tek parça</b> fiiller (öffnen, schließen). Aynı kalıp: Ich schalte <b>den Computer / den Fernseher / die Maschine ein</b>; Ich mache <b>den Kühlschrank auf / zu</b>. Ayrıca hoca listesinde: <b>aufmachen: açmak, zumachen: kapatmak</b>; <b>fernsehen: televizyon izlemek</b>.",
+        "kaynak": "Kalan Üniteler s.20, s.21, s.19"
+      },
+      {
+        "big": "aufhören · aufgeben · lassen",
+        "mean": "Üçü de 'bırakmak' gibi duyulur ama kalıpları farklı. Hoca üçünü yan yana, sigara örneğiyle gösteriyor (kırmızı !!! uyarısı).",
+        "egs": [
+          "Ich <b>höre mit dem</b> Rauchen <b>auf</b>. = Ich <b>höre auf</b> zu rauchen. — Sigara içmeyi bırakıyorum. (aufhören)",
+          "Ich <b>gebe das</b> Rauchen <b>auf</b>. — Sigarayı bırakıyorum / sigaradan vazgeçiyorum. (aufgeben)",
+          "Ich <b>lasse das</b> Rauchen. — Sigarayı bırakıyorum. (lassen, ayrılmaz)",
+          "Der Regen <b>hört</b> bald <b>auf</b>. — Yağmur yakında duracak.",
+          "Ich musste meinen Plan <b>aufgeben</b>. — Planımdan vazgeçmek zorunda kaldım."
+        ],
+        "tip": "💡 Hocanın altını çizdikleri: <b>mit dem</b> Rauchen (aufhören) ve <b>das</b> Rauchen (aufgeben / lassen). Yani aufhören'de <b>mit</b> var, aufgeben ve lassen'de yok. Du darfst die Hoffnung nicht aufgeben. — Umudu bırakamazsın!",
+        "kaynak": "Kalan Üniteler s.22"
+      },
+      {
+        "big": "ausfallen · auffallen · schiefgehen",
+        "mean": "ausfallen = kesilmek, devre dışı kalmak · auffallen = fark etmek · schiefgehen / schieflaufen = ters gitmek, yolunda gitmemek.",
+        "egs": [
+          "Der Strom <b>ist ausgefallen</b>. — Elektrikler kesildi.",
+          "Der Zug <b>ist ausgefallen</b>. — Tren iptal oldu.",
+          "Meine neue Frisur <b>ist</b> ihm sofort <b>aufgefallen</b>. — Yeni saç stilim onun hemen dikkatini çekti.",
+          "<b>Fällt</b> dir nichts <b>auf</b>? — Hiçbir şey fark etmiyor musun?",
+          "Etwas <b>ist schiefgegangen</b>. — Bir şeyler ters gitti."
+        ],
+        "tip": "💡 Hocanın notları: <b>Stromausfall</b> tabelası (elektrik kesintisi) · <b>die Störung</b>: arıza, kesinti · <b>Witterungsbedingte Störung</b>: hava koşullarına bağlı arıza. auffallen örneklerinde kişi altı çizili: <b>ihm</b>, <b>dir</b>, <b>Mir</b> (fark eden kişi).",
+        "kaynak": "Kalan Üniteler s.23, s.24, s.25"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Aynı kök, farklı önek",
+        "baslik": "Önek anlamı tamamen değiştirir",
+        "basliklar": ["Fiil", "Anlam", "Hocanın örneği"],
+        "satirlar": [
+          ["einräumen", "yerleştirmek", "Ich räume die Spülmaschine ein."],
+          ["ausräumen", "boşaltmak", "Ich räume die Spülmaschine aus."],
+          ["aufräumen", "(odayı) toplamak", "hoca !!!! uyarısı"],
+          ["leihen", "birine ödünç vermek", "Sie leiht ihm ihr Fahrrad für das Wochenende."],
+          ["ausleihen", "birinden ödünç almak", "Kann ich mir kurz deinen Stift ausleihen?"],
+          ["abnehmen", "kilo vermek", "Er nimmt ab, weil er jeden Tag Sport macht."],
+          ["zunehmen", "kilo almak", "Sie nimmt schnell zu, wenn sie abends viel isst."]
+        ],
+        "not": "Hocanın gösterimi: <b>...räumen</b> = toplamak, temizlemek, boşaltmak (ein = yerleştirmek, aus = boşaltmak). <b>leihen</b> / <b>ausleihen</b> için kırmızı !!! koymuş; ausleihen'in sonundaki <b>aus</b> sonda: Die Mediathek leiht DVDs nur für eine Woche <b>aus</b>. Ve zu-ile: ... um mir ein paar Bücher <b>auszuleihen</b> (zu araya girer).",
+        "kaynak": "Kalan Üniteler s.29, s.30, s.31"
+      },
+      {
+        "big": "weiter… · fortsetzen",
+        "mean": "Devam etmek, sürdürmek. weiter bir önek gibi: ya fiille birleşik (weiterlernen), ya da cümlede ayrılıp sona gidiyor (arbeitet ... weiter).",
+        "egs": [
+          "Mein Bruder <b>arbeitet</b> an diesem Thema <b>weiter</b>. — Kardeşim bu konu üzerinde çalışmaya devam ediyor.",
+          "Bücher, die mir nicht gefallen, <b>lese</b> ich für gewöhnlich nicht <b>weiter</b>. — Beğenmediğim kitapları genellikle okumaya devam etmem.",
+          "Wir <b>setzen</b> das Gespräch morgen <b>fort</b>. — Konuşmayı yarın sürdüreceğiz.",
+          "Nach der Pause <b>setzten</b> wir die Arbeit <b>fort</b>. — Moladan sonra işe devam ettik."
+        ],
+        "tip": "💡 Hocanın uyarısı (!!!!): <b>fortsetzen</b> → bir şeyi devam ettirmek; <b>vorsetzen</b> → öne koymak / birinin önüne sunmak, servis etmek. Örnek: Sie <b>setzte</b> den Gästen Wein <b>vor</b>. — Misafirlere şarap ikram etti. Aynı kök (setzen), önek farkı.",
+        "kaynak": "Kalan Üniteler s.32, s.33"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Giriş-çıkış, taşınma",
+        "baslik": "einsteigen · aussteigen · umziehen",
+        "satirlar": [
+          {
+            "etiket": "einsteigen (in + Akk.)",
+            "not": "binmek",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "steige", "r": "fiil" },
+              { "t": "in die S-Bahn", "r": "diger" },
+              { "t": "ein", "r": "fiil", "sonda": true }
+            ],
+            "tr": "S-Bahn'a biniyorum."
+          },
+          {
+            "etiket": "aussteigen (aus + Dat.)",
+            "not": "inmek",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "steige", "r": "fiil" },
+              { "t": "aus der S-Bahn", "r": "diger" },
+              { "t": "aus", "r": "fiil", "sonda": true }
+            ],
+            "tr": "S-Bahn'dan iniyorum."
+          },
+          {
+            "etiket": "ziehen + Ort",
+            "not": "Ort (yer) var, önek yok",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "ziehe", "r": "fiil" },
+              { "t": "nach Berlin", "r": "diger" }
+            ],
+            "tr": "Berlin'e taşınıyorum."
+          },
+          {
+            "etiket": "umziehen – ohne Ort",
+            "not": "yer yok, önek var",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "ziehe", "r": "fiil" },
+              { "t": "am Montag", "r": "zaman" },
+              { "t": "um", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Pazartesi taşınıyorum."
+          },
+          {
+            "etiket": "ausziehen",
+            "not": "eski evden",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "ziehe", "r": "fiil" },
+              { "t": "aus meinem alten Haus", "r": "diger" },
+              { "t": "aus", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Eski evimden taşınıp çıkıyorum."
+          },
+          {
+            "etiket": "einziehen",
+            "not": "yeni eve",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "ziehe", "r": "fiil" },
+              { "t": "in mein neues Haus", "r": "diger" },
+              { "t": "ein", "r": "fiil", "sonda": true }
+            ],
+            "tr": "Yeni evime taşınıyorum."
+          }
+        ],
+        "not": "<b>Hocanın notu:</b> einsteigen için hoca (Akk.), aussteigen için (Dat.) yazmış: <b>in die S-Bahn ein</b> / <b>aus der S-Bahn aus</b>. Perfekt: Ich <b>bin in den Bus eingestiegen</b>; Ich <b>bin aus dem Bus ausgestiegen</b>. Taşınma (hoca: TAŞINMAK, !!!!!!): <b>Ziehen + Ort</b> (Ich ziehe nach Berlin.) / <b>Umziehen – ohne Ort</b> (Ich ziehe am Montag um.). der Umzug = taşınma; Ich helfe beim Umzug.",
+        "kaynak": "Kalan Üniteler s.35, s.36"
+      },
+      {
+        "big": "anrufen · rangehen",
+        "mean": "anrufen = telefonla aramak. ans Telefon gehen / rangehen = telefonu açmak, cevap vermek (rangehen halk dili).",
+        "egs": [
+          "Ich <b>rufe</b> dich heute Abend <b>an</b>. — Bu akşam seni arayacağım.",
+          "<b>Kannst</b> du mich auf dem Handy <b>anrufen</b>? — Beni cepten arayabilir misin?",
+          "<b>Kannst</b> du bitte ans Telefon <b>gehen</b>? — Telefonu açabilir misin lütfen?",
+          "Warum <b>gehst</b> du nicht ans Telefon? — Neden telefona cevap vermiyorsun?",
+          "<b>Geh ran</b>, es ist wichtig! — Aç telefonu, önemli!",
+          "Ich <b>lasse</b> das Handy <b>an</b>. — Telefonum açık."
+        ],
+        "tip": "💡 Hocanın karşılaştırması: <b>telefonieren</b> = (biriyle) telefonda konuşmak (Sie telefoniert jeden Tag mit ihrer Mutter.). anrufen'da kişi (dich, mich) fiille sonun arasında. Hoca: <b>Ich muss viele Telefongespräche führen.</b> — Çok telefon görüşmesi yapmam gerekiyor.",
+        "kaynak": "Kalan Üniteler s.39"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Hocanın diğer fiilleri",
+        "baslik": "Gerçekleşmek, zor gelmek, kurtulmak, takmak",
+        "basliklar": ["Fiil", "Anlam", "Hocanın örneği"],
+        "satirlar": [
+          ["stattfinden", "gerçekleşmek", "Das Treffen findet morgen statt."],
+          ["schwerfallen", "zor gelmek", "Es fällt mir schwer, darüber zu sprechen."],
+          ["leichtfallen", "kolay gelmek", "Es fällt mir leicht, darüber zu sprechen."],
+          ["loswerden", "kurtulmak", "So einfach wirst du mich nicht los."],
+          ["aufsetzen", "takmak (gözlük, kask)", "Ich setze die Brille auf."],
+          ["aufschlagen", "kitap açmak", "Ich habe ein neues Kapitel aufgeschlagen."],
+          ["zuschlagen", "kitap kapatmak, sinirle kapatmak", "Er schlägt wütend die Tür zu."],
+          ["vorhaben", "niyetlenmek, planı olmak", "Was hast du am Wochenende vor?"],
+          ["blaumachen", "tembellik yapmak, okula/işe gitmemek", "Ich werde einen Tag blaumachen."]
+        ],
+        "not": "Hocanın notları: <b>stattfinden</b> için 'sadece 3. tekil ve çoğul kullanılır' (er/sie/es <b>findet statt</b>, sie <b>finden statt</b>); Perfekt: es hat stattgefunden. <b>schwerfallen ↔ leichtfallen</b> zıt anlamlı; kolay/zor kelimesi (schwer, leicht) de önek gibi sonda. <b>loswerden</b>: Perfekt ich bin losgeworden; wird ... los. <b>blaumachen</b> = ohne Entschuldigung und/oder guten Grund nicht zur Arbeit oder Schule gehen. Kıyafet bölümünde: tragen, sich anziehen, aufsetzen.",
+        "kaynak": "Kalan Üniteler s.40, s.41, s.42, s.43, s.44, s.45, s.28, s.34"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Sık hatalar",
+        "baslik": "Ayrılabilen fiillerde tuzaklar",
+        "maddeler": [
+          "Çekimli cümlede <b>önek fiilden ayrılır ve sona gider</b>: Wir holen Sofia <b>ab</b>. / Ich rufe dich heute Abend <b>an</b>.",
+          "Çekimli kısım <b>2. sırada</b> kalır; devrikte bile: Morgen <b>fangen</b> wir mit dem Projekt an.",
+          "<b>Modal fiil varsa</b> fiil bölünmez, bütün halde sonda durur: Sie wollen Sofia <b>abholen</b>.",
+          "Soru: <b>Fällt</b> dir nichts <b>auf</b>? / Wann <b>fangen</b> wir mit den Hausaufgaben <b>an</b>?",
+          "Emir: <b>Setz</b> bitte deinen Helm <b>auf</b>! / <b>Geh</b> ran, es ist wichtig!",
+          "Perfekt'te <b>ge-</b> önek ile gövde arasına girer: <b>aus</b>ge<b>fallen</b>, <b>ab</b>ge<b>nommen</b>, <b>fertig</b>ge<b>macht</b>.",
+          "Önek anlamı değiştirir: einräumen ≠ ausräumen, leihen ≠ ausleihen, fortsetzen ≠ vorsetzen, aufhören ≠ aufgeben."
+        ],
+        "uyari": "En sık hata: ön eki fiilin yanında bırakmak (✗ Ich anrufe dich) ya da modalle fiili bölmek (✗ Ich will ab nehmen). Çekimli cümlede önek SONDA; modalle fiil BÜTÜN ve sonda.",
+        "kaynak": "Kalan Üniteler s.19-45"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "Önek SONA · Modalde bütün",
+        "mean": "Çekimli cümle: fiil 2. sırada, önek en sonda. Modalli cümle: mastar bütün ve sonda.",
+        "story": "Wir <b>holen</b> Sofia <b>ab</b>. · Ich <b>rufe</b> dich <b>an</b>. · Ich <b>mache</b> das Fenster <b>auf</b>. · Der Strom <b>ist ausgefallen</b>.<br>Sie wollen Sofia <b>abholen</b>. · Ich muss noch ein Referat <b>fertigmachen</b>.<br>Perfekt: <b>aus</b>ge<b>fallen</b>, <b>ab</b>ge<b>nommen</b>, <b>zu</b>ge<b>nommen</b>."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d27_trennbare_verben",
+    "title": "Ayrılabilen Fiiller (Trennbare Verben)",
+    "emoji": "✂️",
+    "desc": "Önek sona gider; modalle bütün kalır; Perfekt'te ge- ortaya girer",
+    "rule": "<b>Çekimli cümle:</b> fiil 2. sırada, <b>önek SONDA</b>: Wir holen Sofia <b>ab</b>. Morgen fangen wir mit dem Projekt <b>an</b>.<br><b>Modalle:</b> fiil bölünmez, mastar olarak sonda: Sie wollen Sofia <b>abholen</b>.<br><b>Soru / emir:</b> Fällt dir nichts <b>auf</b>? Setz bitte deinen Helm <b>auf</b>!<br><b>Perfekt:</b> ge- önek ile gövde arasında: ausgefallen, abgenommen, zugenommen, fertiggemacht.",
+    "qs": [
+      {
+        "sent": "Wir holen Sofia ___.",
+        "blank": "ab",
+        "opts": ["ab", "an", "um"],
+        "tr": "Sofia'yı alıyoruz (almaya gidiyoruz).",
+        "exp": "abholen ayrılabilen bir fiildir: önek ab çekimli cümlede SONA gider, holen 2. sırada kalır. Hocanın tablosu: Sie holen Sofia ab. an ve ein başka fiillerin ön ekidir."
+      },
+      {
+        "sent": "Ich rufe dich heute Abend ___.",
+        "blank": "an",
+        "opts": ["an", "ein", "um"],
+        "tr": "Bu akşam seni arayacağım.",
+        "exp": "anrufen: önek an cümlenin sonuna gider (Ich rufe dich heute Abend an). Fiil rufe 2. sırada kalır. auf ve aus başka fiillere ait önekler."
+      },
+      {
+        "sent": "Morgen fangen wir mit dem Projekt ___.",
+        "blank": "an",
+        "opts": ["an", "aus", "zu"],
+        "tr": "Yarın projeye başlıyoruz.",
+        "exp": "anfangen: zaman (Morgen) başa geçse bile fangen 2. sırada kalır, önek an en sona gider. Hocanın örneği: Morgen fangen wir mit dem Projekt an."
+      },
+      {
+        "sent": "Ich schalte das Licht ___.",
+        "blank": "aus",
+        "opts": ["aus", "ab", "zu"],
+        "tr": "Işığı kapatıyorum.",
+        "exp": "ausschalten = ışığı kapatmak; önek aus sonda. Açmak için einschalten (ein) / anmachen (an) kullanılır. Hocanın kartı: Ich schalte das Licht aus."
+      },
+      {
+        "sent": "Wann ___ wir mit den Hausaufgaben an?",
+        "blank": "fangen",
+        "opts": ["fangen", "fange", "anfangen"],
+        "tr": "Ödevlere ne zaman başlıyoruz?",
+        "exp": "Soruda çekimli kısım başa geçer ve özneye uyar: wir -> fangen. fange ich içindir; anfangen mastardır ve burada önek an zaten sonda duruyor. Hocanın kartındaki örnek."
+      },
+      {
+        "sent": "Fällt dir nichts ___?",
+        "blank": "auf",
+        "opts": ["auf", "aus", "an"],
+        "tr": "Hiçbir şey fark etmiyor musun?",
+        "exp": "auffallen = fark etmek. Çekimli kısım Fällt başta (soru), önek auf sonda. aus (ausfallen) kesilmek anlamına gelir. Hocanın örneği: Fällt dir nichts auf?"
+      },
+      {
+        "sent": "Ich steige aus der S-Bahn ___.",
+        "blank": "aus",
+        "opts": ["aus", "ein", "an"],
+        "tr": "S-Bahn'dan iniyorum.",
+        "exp": "aussteigen: 'aus der S-Bahn' (hoca: Dat.) ile birlikte önek aus sonda tekrar edilir. Binmek için in die S-Bahn ein. Hocanın örneği."
+      },
+      {
+        "sent": "Das Treffen findet morgen ___.",
+        "blank": "statt",
+        "opts": ["statt", "aus", "auf"],
+        "tr": "Toplantı yarın gerçekleşiyor.",
+        "exp": "stattfinden: findet 2. sırada, önek statt sonda. Hocanın örneği: Das Treffen findet morgen statt. aus ve auf bu fiilin ön eki değildir."
+      },
+      {
+        "sent": "Ich möchte den Kurs ___.",
+        "blank": "fortsetzen",
+        "opts": ["fortsetzen", "setze fort", "fortgesetzt"],
+        "tr": "Kursa devam etmek istiyorum.",
+        "exp": "Modal möchte çekimlidir; ayrılabilen fiil mastar halinde, BÖLÜNMEDEN sonda durur: fortsetzen. 'setze fort' çekimli (ayrık), 'fortgesetzt' geçmiş biçimdir. Hocanın örneği."
+      },
+      {
+        "sent": "Der Zug ist ___.",
+        "blank": "ausgefallen",
+        "opts": ["ausgefallen", "ausgefällt", "gefallen aus"],
+        "tr": "Tren iptal oldu.",
+        "exp": "Perfekt'te ge- önek (aus) ile gövde (fallen) arasına girer: aus+ge+fallen = ausgefallen, yardımcı fiil ist. Hocanın örneği: Der Zug ist ausgefallen."
+      },
+      {
+        "sent": "Sie nimmt schnell ___, wenn sie abends viel isst.",
+        "blank": "zu",
+        "opts": ["zu", "ab", "auf"],
+        "tr": "Akşamları çok yerse hızlı kilo alıyor.",
+        "exp": "zunehmen = kilo almak; önek zu sonda. abnehmen (ab) tam tersi: kilo vermek. Hocanın örneği: Sie nimmt schnell zu, wenn sie abends viel isst."
+      },
+      {
+        "sent": "Ich muss noch ein Referat ___.",
+        "blank": "fertigmachen",
+        "opts": ["fertigmachen", "mache fertig", "fertiggemacht"],
+        "tr": "Sunumumu bitirmeliyim.",
+        "exp": "Modal muss çekimli, asıl fiil mastar ve bölünmeden sonda: fertigmachen. 'mache fertig' çekimli biçimdir, modalin yanında kullanılmaz. Hocanın örneği."
+      },
+      {
+        "sent": "___ du mich auf dem Handy anrufen?",
+        "blank": "Kannst",
+        "opts": ["Kannst", "Kann", "Könnt"],
+        "tr": "Beni cepten arayabilir misin?",
+        "exp": "Modalli soruda modal başa geçer ve özneye uyar: du -> Kannst. anrufen mastar halinde, bölünmeden sonda kalır (anruf-en tek parça). Hocanın örneği."
+      },
+      {
+        "sent": "Ich habe in letzter Zeit ___.",
+        "blank": "zugenommen",
+        "opts": ["zugenommen", "genommen zu", "zunommen"],
+        "tr": "Son zamanlarda kilo aldım.",
+        "exp": "Perfekt: zu + ge + nommen = zugenommen (ge- araya girer), yardımcı fiil habe. Hocanın örneği: Ich habe in letzter Zeit zugenommen."
+      },
+      {
+        "sent": "Ich bin aus dem Bus ___.",
+        "blank": "ausgestiegen",
+        "opts": ["ausgestiegen", "ausgesteigt", "gestiegen aus"],
+        "tr": "Otobüsten indim.",
+        "exp": "aussteigen Perfekt: aus + ge + stiegen = ausgestiegen, yardımcı fiil bin. 'ausgesteigt' düzenli fiil gibi yanlış çekim. Hocanın örneği: Ich bin aus dem Bus ausgestiegen."
+      },
+      {
+        "sent": "Sie hat in zwei Monaten fünf Kilo ___.",
+        "blank": "abgenommen",
+        "opts": ["abgenommen", "genommen ab", "abgenomt"],
+        "tr": "O, iki ayda beş kilo verdi.",
+        "exp": "ab + ge + nommen = abgenommen, 'kilo vermek'. 'genommen ab' ve 'abgenomt' yanlış biçimlerdir (ge- araya girer, nehmen düzensizdir). Hocanın örneği: Sie hat in zwei Monaten fünf Kilo abgenommen."
+      }
+    ]
+  },
+  "dogrulama": [
+    "Hocanın bu ünitesinde 'ayrılabilen fiil' kuralı yazılı olarak anlatılmıyor; sadece tablo (ein|laden → laden ... ein) ve örnekler var. Derste verilen kural bu örneklerden çıkarıldı. Perplexity'ye sor: 'Almanca ayrılabilen fiillerin ön ekleri hangileridir (ab, an, auf, aus, ein, mit, vor, zu, fort, weiter...)? Ayrılmayan (untrennbar) ön ekler (be-, ge-, ver-, er-, zer-, ent-, emp-) neden ayrılmaz?'",
+    "Hoca bestehen, versagen, beginnen gibi AYRILMAYAN fiilleri aynı bölümde göstermiş (s.6-8, s.26) ama 'trennbar / untrennbar' farkını açıkça anlatmıyor. Derste yalnız 'beginnen cümlede önek göstermiyor' diye not düşüldü. Ayrım hocadan teyit edilsin.",
+    "Perfekt'te yardımcı fiil kuralı (sein: yer değiştirme/durum değişimi, haben: diğerleri) hocada yazılı değil; derste sadece tablolardaki ist/hat gösterildi. Perplexity'ye sor: 'fallen, gehen, kommen, werden fiilleri neden sein ile, machen, nehmen, setzen, schlagen neden haben ile Perfekt yapar?'",
+    "s.36'daki not 'Perf.: haben umzogen / sind umgezogen' belirsiz; umziehen için hangisi doğru ve neden iki biçim var? Derste Perfekt tablosuna alınmadı.",
+    "s.44'teki 'Ich ziehe mich einen Pullover an.' (sich anziehen örneği) tuhaf görünüyor (mich + einen Pullover birlikte); derste kullanılmadı. Doğrusu muhtemelen 'Ich ziehe mir einen Pullover an' / 'Ich ziehe mich an'.",
+    "s.30'daki leihen etiketi 'birine ödünç vermek' / ausleihen 'birinden ödünç almak'; ama hocanın örneklerinde 'Ich habe mir das Buch von meinem Bruder geliehen' (leihen = ödünç ALMAK) da var. Çelişki mi? Perplexity'ye sor: 'leihen ve ausleihen farkı nedir, hangisi ödünç vermek hangisi almak?'",
+    "s.21 kartında 'Ich öffne Fenster.' yazıyor (artikel eksik, 'das Fenster' olmalı); derste kullanılmadı, 'Ich öffne die Tür' kullanıldı.",
+    "s.22'de aufhören / aufgeben / lassen için hoca 'mit dem' ve 'das' kısımlarının altını çizmiş; 'mit + Dativ' ile 'Akkusativ' farkını ayrıca anlatmıyor. Derste yalnız altı çizili kısımlar aktarıldı.",
+    "s.37-38 (drinnen/draußen, innen/außen) ve s.38 (öffnen video karesi) ayrılabilen fiil içeriği değil, kelime kartı; derse alınmadı. s.46 sadece 'LESEN' başlığı.",
+    "Konuyla ilgili kısa not: hoca kartındaki 'unregelmäßig · haben · trennbar' ibaresi (zuschlagen, s.34) görüntüde küçük; okunabildiği kadarıyla kullanıldı, derste Perfekt yardımcı fiili olarak 'hat aufgeschlagen' yazıldı. Hocanın örneği 'Ich habe ein neues Kapitel aufgeschlagen' bunu destekliyor."
+  ]
+}

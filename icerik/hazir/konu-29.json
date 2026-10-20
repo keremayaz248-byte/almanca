@@ -1,0 +1,191 @@
+{
+  "konu": 29,
+  "baslik": "Präteritum: sein und haben (war / hatte)",
+  "kaynak": [
+    { "arac": "PDF", "sayfa": "Kalan Üniteler s.57-58" }
+  ],
+  "deste": {
+    "title": "⏪ Präteritum: war und hatte",
+    "accent": "linear-gradient(135deg,#7b3fa0,#4a2468)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "WAR · HATTE",
+        "mean": "Geçmişte «idi» demek için sein → war, «vardı» demek için haben → hatte kullanılır.",
+        "story": "Hocanın tablosunun başlığı: <b>SEIN UND HABEN IM PRÄSENS UND PRÄTERITUM</b>. Yani şimdiki zaman (Präsens) ve geçmiş (Präteritum) yan yana.<br>İki fiilin çekimi: <b>sein → bin / war</b>, <b>haben → habe / hatte</b>.<br>Bu derste önce çekim tablosunu, sonra hocanın zaman kelimelerini (gestern, früher, damals, neulich, heute) ve örnek cümlelerini göreceğiz."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim tablosu",
+        "baslik": "sein ve haben: Präsens ↔ Präteritum",
+        "basliklar": ["", "sein şimdi", "sein geçmiş", "haben şimdi", "haben geçmiş"],
+        "satirlar": [
+          ["ich", "bin", "war", "habe", "hatte"],
+          ["du", "bist", "warst", "hast", "hattest"],
+          ["er, sie, es", "ist", "war", "hat", "hatte"],
+          ["wir", "sind", "waren", "haben", "hatten"],
+          ["ihr", "seid", "wart", "habt", "hattet"],
+          ["sie, Sie", "sind", "waren", "haben", "hatten"]
+        ],
+        "not": "<b>Hocanın kırmızı işaretleri:</b> warst'ta <b>-st</b>, waren'de <b>-en</b>, wart'ta <b>-t</b>; hattest'te <b>-st</b>, hatten'de <b>-en</b>, hattet'te <b>-t</b>. Yani eklenen son harfler du için -st, ihr için -t, wir ve sie için -en.",
+        "kaynak": "Kalan Üniteler s.57"
+      },
+      {
+        "big": "war",
+        "mean": "<b>war</b> = sein fiilinin geçmişi: idi, -di. ich ve er/sie/es için AYNI: <b>war</b>.",
+        "egs": [
+          "Ich <b>war</b> neulich bei meiner Tante. — Geçenlerde teyzemdeydim.",
+          "Gestern <b>war</b> ich mit einem Polizisten in seinem Haus / in seiner Wohnung. — Dün bir polisle onun evindeydim.",
+          "Das <b>war</b>'s für heute. — Bugünlük bu kadardı."
+        ],
+        "tip": "💡 Hocanın tablosunda ich ve er/sie/es satırları hep aynı: <b>war</b>. «Das war's» = «Das war es» kısaltması.",
+        "kaynak": "Kalan Üniteler s.57"
+      },
+      {
+        "big": "hatte",
+        "mean": "<b>hatte</b> = haben fiilinin geçmişi: vardı. ich ve er/sie/es için AYNI: <b>hatte</b>.",
+        "egs": [
+          "Wir <b>hatten</b> damals keine Handys. — O zamanlar cep telefonlarımız yoktu.",
+          "Wir konnten viel mehr Zeit miteinander verbringen. — Birlikte çok daha fazla vakit geçirebiliyorduk."
+        ],
+        "tip": "💡 Hocanın örneğinde «hatten» (wir) ve «damals» birlikte geçiyor: geçmişi anlatan zaman kelimesi + hatten.",
+        "kaynak": "Kalan Üniteler s.57"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Zaman kelimeleri",
+        "baslik": "Geçmişi gösteren kelimeler",
+        "basliklar": ["Almanca", "Türkçe"],
+        "satirlar": [
+          ["Gestern", "Dün"],
+          ["Letzte Woche (die Woche)", "Geçen hafta"],
+          ["Letzten Monat (der Monat)", "Geçen ay"],
+          ["Letztes Jahr (das Jahr)", "Geçen yıl"],
+          ["Vor zwei Jahren", "İki yıl önce"],
+          ["Neulich", "Geçenlerde"],
+          ["Früher", "Eskiden"],
+          ["Damals", "O zamanlar"],
+          ["Heute / Heutzutage", "Günümüzde"]
+        ],
+        "not": "Hoca Letzte Woche / Letzten Monat / Letztes Jahr için artikelleri parantezle yazmış: <b>die</b> Woche, <b>der</b> Monat, <b>das</b> Jahr. Bu yüzden letzt- sözcüğünün sonu değişiyor (letzte, letzten, letztes).",
+        "kaynak": "Kalan Üniteler s.57"
+      },
+      {
+        "tur": "zaman",
+        "kicker": "Früher ↔ Heute",
+        "baslik": "Eskiden ve günümüzde (hocanın örnekleri)",
+        "noktalar": [
+          { "baslik": "Früher", "etiket": "Eskiden", "ornek": "Früher <b>war</b> die Kommunikation schwierig.", "tr": "Eskiden iletişim zordu." },
+          { "baslik": "Damals", "etiket": "O zamanlar", "ornek": "Das Leben <b>war</b> damals nicht so hektisch wie heute.", "tr": "Hayat o zamanlar şimdiki/günümüzdeki gibi telaşlı, koşuşturmalı değildi." },
+          { "baslik": "Damals", "etiket": "O zamanlar", "ornek": "Wir <b>hatten</b> damals keine Handys.", "tr": "O zamanlar cep telefonlarımız yoktu." },
+          { "baslik": "Heute", "etiket": "Günümüzde", "ornek": "Heute <b>ist</b> es jederzeit möglich.", "tr": "Günümüzde her an mümkün." }
+        ],
+        "not": "Hoca hep aynı düzeni kurmuş: geçmişte war / hatte, şimdi ise ist / haben. Zaman kelimesi hangi çağı anlattığını söyler.",
+        "kaynak": "Kalan Üniteler s.57"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Cümle yapısı",
+        "baslik": "war / hatte cümlede nerede?",
+        "satirlar": [
+          {
+            "etiket": "Özne başta",
+            "not": "war 2. sırada",
+            "jetonlar": [
+              { "t": "Ich", "r": "ozne" },
+              { "t": "war", "r": "fiil" },
+              { "t": "neulich", "r": "zaman" },
+              { "t": "bei meiner Tante", "r": "diger" }
+            ],
+            "tr": "Geçenlerde teyzemdeydim."
+          },
+          {
+            "etiket": "Zaman başta",
+            "not": "war yine 2. sırada",
+            "jetonlar": [
+              { "t": "Gestern", "r": "zaman" },
+              { "t": "war", "r": "fiil" },
+              { "t": "ich", "r": "ozne" },
+              { "t": "bei meiner Tante", "r": "diger" }
+            ],
+            "tr": "Dün teyzemdeydim."
+          },
+          {
+            "etiket": "Zaman başta",
+            "not": "hatten 2. sırada",
+            "jetonlar": [
+              { "t": "Wir", "r": "ozne" },
+              { "t": "hatten", "r": "fiil" },
+              { "t": "damals", "r": "zaman" },
+              { "t": "keine Handys", "r": "nesne" }
+            ],
+            "tr": "O zamanlar cep telefonlarımız yoktu."
+          }
+        ],
+        "not": "<b>Gözlem:</b> hocanın cümlelerinde «war / hatte / hatten» her zaman 2. sırada. Zaman kelimesi başa geçerse özne fiilin arkasına gider (Gestern war ich …). İlk ve ikinci satır hocanın «Ich war neulich bei meiner Tante» ve «Gestern war ich … in seinem Haus» cümlelerinden uyarlandı.",
+        "kaynak": "Kalan Üniteler s.57"
+      },
+      {
+        "big": "gestrig- / heutig-",
+        "mean": "Hoca (!!!!) «dünkü» ve «bugünkü» için gestern → <b>gestrig</b>, heute → <b>heutig</b> yapıp sonuna <b>-e</b> ekliyor. Vurgulu kısım: <b>gestrig</b>e, <b>heutig</b>e.",
+        "egs": [
+          "Das <b>gestrige</b> Gespräch war langweilig. — Dünkü konuşma sıkıcıydı.",
+          "Ich habe die <b>heutige</b> Zeitung noch nicht gelesen. — Bugünkü gazeteyi henüz okumadım."
+        ],
+        "tip": "💡 Türkçedeki «dünkü / bugünkü» (-ki eki) Almanca'da <b>-ig</b> ile kurulur: gestern → gestrig, heute → heutig.",
+        "kaynak": "Kalan Üniteler s.58"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Sık hatalar / tuzaklar",
+        "baslik": "war ve hatte'de dikkat",
+        "maddeler": [
+          "<b>ich = er/sie/es</b>: war – war, hatte – hatte (hiç ek yok).",
+          "<b>wir = sie/Sie</b>: waren – waren, hatten – hatten (-en alır).",
+          "<b>du</b> → warst, hattest (-st) · <b>ihr</b> → wart, hattet (-t).",
+          "Geçmişte <b>war</b> / <b>hatte</b>, şimdi <b>ist/bin</b> / <b>habe/hat</b>. İkisini karıştırma.",
+          "«dünkü» = gestrige (gestern değil); «bugünkü» = heutige (heute değil)."
+        ],
+        "uyari": "Karıştırma: du için -st (warst, hattest), ihr için -t (wart, hattet). «ihr warst» yanlıştır.",
+        "kaynak": "Kalan Üniteler s.57-58"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "war · warst · war · waren · wart · waren",
+        "mean": "ich war, du warst, er war, wir waren, ihr wart, sie waren. hatte: hatte, hattest, hatte, hatten, hattet, hatten.",
+        "story": "<b>Früher war es schwierig.</b> · <b>Wir hatten damals keine Handys.</b><br><b>Gestern war ich bei meiner Tante.</b> · <b>Das war's für heute.</b><br>ich/er hep aynı: <b>war · hatte</b>."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d29_praeteritum_sein_haben",
+    "title": "Präteritum: sein und haben",
+    "emoji": "⏪",
+    "desc": "war / hatte çekimi",
+    "rule": "<b>sein:</b> ich war, du warst, er war, wir waren, ihr wart, sie waren.<br><b>haben:</b> ich hatte, du hattest, er hatte, wir hatten, ihr hattet, sie hatten.<br>ich = er/sie/es (ek yok); du → -st; ihr → -t; wir/sie → -en.<br>«dünkü» = <b>gestrige</b>, «bugünkü» = <b>heutige</b>.",
+    "qs": [
+      { "sent": "Ich ___ gestern müde.", "blank": "war", "opts": ["war", "bin", "hatte"], "tr": "Dün yorgundum.", "exp": "«gestern» geçmişi gösterir; sein'in geçmişi ich için <b>war</b>'dır (hocanın tablosu: ich bin / war). «bin» şimdiki zamandır, «hatte» ise haben fiilidir." },
+      { "sent": "Du ___ gestern zu Hause.", "blank": "warst", "opts": ["warst", "war", "wart"], "tr": "Dün evdeydin.", "exp": "Hocanın tablosunda du için war + <b>-st</b> = warst yazılıdır. «war» ich/er içindir, «wart» ise ihr içindir." },
+      { "sent": "Wir ___ damals keine Handys.", "blank": "hatten", "opts": ["hatten", "hatte", "haben"], "tr": "O zamanlar cep telefonlarımız yoktu.", "exp": "Hocanın örneği: «Wir hatten damals keine Handys.» wir için haben'in geçmişi hatten'dir. «damals» (o zamanlar) geçmiş olduğu için «haben» uymaz." },
+      { "sent": "Er ___ früher viel Zeit.", "blank": "hatte", "opts": ["hatte", "hatten", "hat"], "tr": "Eskiden çok vakti vardı.", "exp": "«früher» (eskiden) geçmişi gösterir. er için haben'in geçmişi <b>hatte</b>'dir (ich ve er aynı: hatte). «hat» şimdiki zaman, «hatten» ise wir/sie içindir." },
+      { "sent": "Ihr ___ letzte Woche in Berlin.", "blank": "wart", "opts": ["wart", "waren", "seid"], "tr": "Geçen hafta Berlin'deydiniz.", "exp": "ihr için sein'in geçmişi <b>wart</b>'tır (tabloda kırmızı -t). «waren» wir/sie içindir, «seid» şimdiki zamandır." },
+      { "sent": "Gestern ___ ich mit einem Polizisten in seinem Haus.", "blank": "war", "opts": ["war", "bin", "hatte"], "tr": "Dün bir polisle onun evindeydim.", "exp": "Hocanın örnek cümlesi: «Gestern war ich mit einem Polizisten in seinem Haus.» Zaman kelimesi başa geçse de war 2. sırada kalır." },
+      { "sent": "Du ___ damals keine Zeit.", "blank": "hattest", "opts": ["hattest", "hatte", "hattet"], "tr": "O zamanlar vaktin yoktu.", "exp": "du için haben'in geçmişi hatte + <b>-st</b> = hattest'tir (hocanın tablosu). «hattet» ihr içindir." },
+      { "sent": "Das Leben ___ damals nicht so hektisch wie heute.", "blank": "war", "opts": ["war", "hatte", "ist"], "tr": "Hayat o zamanlar bugünkü gibi telaşlı değildi.", "exp": "Hocanın örneği: «Das Leben war damals nicht so hektisch wie heute.» «damals» geçmişi gösterir, «idi» anlamı için sein → war kullanılır; «ist» şimdiki zamandır." },
+      { "sent": "Früher ___ die Kommunikation schwierig.", "blank": "war", "opts": ["war", "hatte", "ist"], "tr": "Eskiden iletişim zordu.", "exp": "Hocanın sayfası: «Früher war die Kommunikation schwierig. Heute ist es jederzeit möglich.» früher = geçmiş → war; heute = şimdi → ist." },
+      { "sent": "Ihr ___ gestern keine Zeit.", "blank": "hattet", "opts": ["hattet", "hatten", "hattest"], "tr": "Dün vaktiniz yoktu.", "exp": "ihr için haben'in geçmişi <b>hattet</b>'tir (-t). «hatten» wir/sie, «hattest» ise du içindir." },
+      { "sent": "Sie (onlar) ___ neulich bei meiner Tante.", "blank": "waren", "opts": ["waren", "war", "wart"], "tr": "Onlar geçenlerde teyzemin yanındaydılar.", "exp": "Çoğul sie için sein'in geçmişi <b>waren</b>'dir (wir = sie: waren). «war» tekil ich/er içindir, «wart» ihr içindir." },
+      { "sent": "___ du gestern im Kino?", "blank": "Warst", "opts": ["Warst", "War", "Bist"], "tr": "Dün sinemada mıydın?", "exp": "Soruda fiil başa gelir. du + geçmiş = <b>warst</b> (tablodaki du satırı). «Bist» şimdiki zamandır, «war» ise du ile uyuşmaz." },
+      { "sent": "Das ___ Gespräch war langweilig.", "blank": "gestrige", "opts": ["gestrige", "gestern", "gestrig"], "tr": "Dünkü konuşma sıkıcıydı.", "exp": "Hocanın örneği: «Das gestrige Gespräch war langweilig.» «dünkü» için gestern → gestrig yapılır ve sonuna -e eklenir. «gestern» isimden önce kullanılmaz." },
+      { "sent": "Ich habe die ___ Zeitung noch nicht gelesen.", "blank": "heutige", "opts": ["heutige", "heute", "heutig"], "tr": "Bugünkü gazeteyi henüz okumadım.", "exp": "Hocanın örneği: «Ich habe die heutige Zeitung noch nicht gelesen.» heute → heutig + -e = heutige. «heute» tek başına «bugün» demektir, isimden önce «bugünkü» olmaz." }
+    ]
+  },
+  "dogrulama": [
+    "Hocanın s.57'deki «Das war's für heute» notunda 'war's' kısaltması «war es» diye açıklanmamış; «Das war es» olduğunu ben yazdım. Doğru mu? Perplexity'ye sor: «'Das war's' neyin kısaltması?»",
+    "s.57'de Präteritum ile Perfekt (ich bin gewesen / ich habe gehabt) arasındaki fark ve hangisinin ne zaman kullanıldığı hocada anlatılmıyor; derste bu konuya girilmedi.",
+    "s.58 'gestrig-/heutig-' (dünkü/bugünkü) yapısı: hocanın kuralı yalnızca iki örnekle; başka zaman kelimeleri (morgen → morgig?) için genelleme yapılmadı.",
+    "Zaman çizgisi ve şema sayfasındaki 'Gestern war ich bei meiner Tante' ve 'Wir hatten damals keine Handys' satırlarının Türkçe çevirileri kısmen bana ait (hocanın cümlelerinden uyarlama)."
+  ]
+}

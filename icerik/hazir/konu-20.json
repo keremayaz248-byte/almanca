@@ -1,0 +1,340 @@
+{
+  "konu": 20,
+  "baslik": "Die Artikel — Akkusativ",
+  "kaynak": [{ "arac": "PDF", "sayfa": "Teil-1 s.83-89" }],
+  "deste": {
+    "title": "🎯 Die Artikel — Akkusativ",
+    "accent": "linear-gradient(135deg,#F0503C,#c23421)",
+    "slides": [
+      {
+        "type": "intro",
+        "kicker": "Altın Kural",
+        "big": "NESNE = AKKUSATIV",
+        "mean": "Fiilin etkilediği şey (nesne) Akkusativ hâlindedir ve yalnız <b>erkek</b> (maskulin) isimde artikel değişir: der → den, ein → einen.",
+        "story": "Hocanın tablosunda iki satır var: <b>Nominativ = özne (fiilden önce)</b>, <b>Akkusativ = nesne (fiilden sonra)</b>. Dört sütundan (maskulin, feminin, neutrum, çoğul) sadece <b>maskulin</b> sütunu değişir. Hocanın kısa notu: <b>1) EDAT  2) FİİL</b> (Akkusativ bu iki yerden sonra gelir)."
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Ana tablo",
+        "baslik": "Nominativ ↔ Akkusativ",
+        "basliklar": ["", "Masc (der)", "Fem (die)", "Neut (das)", "Plural"],
+        "satirlar": [
+          ["Nominativ (özne, fiilden önce)", "der / ein", "die / eine", "das / ein", "die / —"],
+          ["Akkusativ (nesne, fiilden sonra)", "<b>den</b> / <b>einen</b>", "die / eine", "das / ein", "die / —"]
+        ],
+        "not": "Hocanın tablosu: Subject / before verb = Nominativ (Row 1); Object / after verb = Akkusativ (Row 2). Değişen tek şey: <b>der → den</b> ve <b>ein → einen</b>.",
+        "kaynak": "Teil-1 s.83"
+      },
+      {
+        "big": "der → den",
+        "mean": "Maskulin (erkek) bir isim nesne olunca <b>der</b> artikeli <b>den</b> olur, <b>ein</b> ise <b>einen</b> olur. Feminin, neutrum ve çoğulda hiçbir şey değişmez.",
+        "egs": [
+          "Wir haben <b>einen</b> Tisch. — Bir masamız var.",
+          "Ich kaufe <b>den</b> Käse. — Peyniri alıyorum.",
+          "Ich kaufe <b>die</b> Gurke. — Salatalığı alıyorum. (değişmez)"
+        ],
+        "tip": "💡 Hocanın pratik hilesi: <b>kein</b> ile de aynı: kein Brot (nötr, değişmez), keine Gurke (feminin, değişmez), keine Tomaten (çoğul, değişmez).",
+        "kaynak": "Teil-1 s.83"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Özne ve nesne",
+        "baslik": "Hangi kelime Nominativ, hangisi Akkusativ?",
+        "satirlar": [
+          {
+            "etiket": "Maskulin",
+            "not": "den ← der Käse",
+            "jetonlar": [{ "t": "Ich", "r": "ozne" }, { "t": "kaufe", "r": "fiil" }, { "t": "den Käse", "r": "nesne" }],
+            "tr": "Peyniri alıyorum."
+          },
+          {
+            "etiket": "Feminin",
+            "not": "değişmez: die Gurke",
+            "jetonlar": [{ "t": "Ich", "r": "ozne" }, { "t": "kaufe", "r": "fiil" }, { "t": "die Gurke", "r": "nesne" }],
+            "tr": "Salatalığı alıyorum."
+          },
+          {
+            "etiket": "Neutrum",
+            "not": "değişmez: das Brot",
+            "jetonlar": [{ "t": "Sie", "r": "ozne" }, { "t": "kauft", "r": "fiil" }, { "t": "das Brot", "r": "nesne" }],
+            "tr": "O ekmeği alıyor."
+          },
+          {
+            "etiket": "Çoğul",
+            "not": "değişmez: die Tomaten",
+            "jetonlar": [{ "t": "Ich", "r": "ozne" }, { "t": "kaufe", "r": "fiil" }, { "t": "die Tomaten", "r": "nesne" }],
+            "tr": "Domatesleri alıyorum."
+          }
+        ],
+        "not": "<b>Kural:</b> Özne = Nominativ (der Käse ist gut), nesne = Akkusativ (Ich kaufe <b>den</b> Käse). Hocanın sayfasındaki Nominativ cümleleri: Der Käse ist gut. / Das Brot ist teuer. / Die Gurke ist billig. / Die Tomaten sind gut.",
+        "kaynak": "Teil-1 s.83"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Verben mit Akkusativ",
+        "baslik": "Akkusativ isteyen fiiller",
+        "basliklar": ["Fiil", "Türkçe", "Fiil", "Türkçe"],
+        "satirlar": [
+          ["haben", "sahip olmak", "finden", "bulmak"],
+          ["kaufen", "satın almak", "sehen", "görmek"],
+          ["essen", "yemek", "trinken", "içmek"],
+          ["lesen", "okumak", "lernen", "öğrenmek"],
+          ["hören", "duymak", "suchen", "aramak"],
+          ["lieben", "sevmek", "kennen", "tanımak"],
+          ["treffen", "buluşmak", "besuchen", "ziyaret etmek"],
+          ["bezahlen", "ödemek", "putzen", "temizlemek"]
+        ],
+        "not": "Hocanın bulut resmi (<b>VERBEN MIT AKKUSATIV</b>) bu 16 fiili içerir. Bu fiillerden sonra gelen nesne Akkusativ'dedir: Wir haben einen Tisch.",
+        "kaynak": "Teil-1 s.83"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Çekim",
+        "baslik": "haben (sahip olmak) — Akk.",
+        "basliklar": ["", "haben", "besitzen"],
+        "satirlar": [
+          ["ich", "habe", "besitze"],
+          ["du", "hast", "besitzt"],
+          ["er/sie/es", "hat", "besitzt"],
+          ["wir", "haben", "besitzen"],
+          ["ihr", "habt", "besitzt"],
+          ["sie/Sie", "haben", "besitzen"]
+        ],
+        "not": "Hocanın farkı: <b>haben</b> = sahip olmak / elinde bulunması / bir şeyin var olması (çok daha yaygın, günlük). <b>besitzen</b> = mülkiyet olarak sahip olmak (daha resmî: mülk, bina, arazi, şirket malı). İkisi de <b>Akk.</b> ister. Örnekler: Ich habe ein Auto. / Hast du einen Stift? / Ich besitze ein Haus in Berlin.",
+        "kaynak": "Teil-1 s.84"
+      },
+      {
+        "tur": "sema",
+        "kicker": "Es gibt ... (VAR!)",
+        "baslik": "\"... var\" demenin iki yolu",
+        "satirlar": [
+          {
+            "etiket": "1) Es gibt",
+            "not": "gibt = geben'in er/sie/es çekimi → Akkusativ",
+            "jetonlar": [{ "t": "Auf dem Balkon", "r": "zaman" }, { "t": "gibt", "r": "fiil" }, { "t": "es", "r": "ozne" }, { "t": "einen Mann", "r": "nesne" }],
+            "tr": "Balkonda bir adam var."
+          },
+          {
+            "etiket": "2) Es ist / Es sind",
+            "not": "sein → Nominativ",
+            "jetonlar": [{ "t": "Es", "r": "ozne" }, { "t": "ist", "r": "fiil" }, { "t": "kein Platz", "r": "diger" }, { "t": "mehr frei", "r": "diger" }],
+            "tr": "Artık boş yer yok."
+          }
+        ],
+        "not": "<b>Kural (hocanın notu):</b> Gibt = „geben“ fiilinin er/sie/es çekimidir; geben hem Akk. hem Dativ ile çalışabiliyor. Es gibt ile Akkusativ gelir (<b>einen</b> Mann); sein ile Nominativ gelir. Hocanın üstünü çizdiği hatalı biçim: gibt es <b>ein</b> Mann.",
+        "kaynak": "Teil-1 s.85"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Personalpronomen",
+        "baslik": "Zamirlerde Akkusativ",
+        "basliklar": ["Nominativ (Wer? Was?)", "Akkusativ (Wen? Was?)"],
+        "satirlar": [
+          ["ich", "<b>mich</b>"],
+          ["du", "<b>dich</b>"],
+          ["er", "<b>ihn</b>"],
+          ["sie", "sie"],
+          ["es", "es"],
+          ["wir", "<b>uns</b>"],
+          ["ihr", "<b>euch</b>"],
+          ["sie", "sie"],
+          ["Sie", "Sie"]
+        ],
+        "not": "Hocanın soru kalıbı: Nominativ = <b>Wer? Was?</b>, Akkusativ = <b>Wen? Was?</b>. Artikel eşi: er-der, <b>ihn-den</b>; sie-die, sie-die; es-das, es-das; sie (onlar)-die. Örnek: Ich warte auf <b>dich</b>. Duzen = senli benli olmak (Wir duzen uns. — uns: Akk.); Siezen = resmi \"siz\" demek (Wir siezen uns.).",
+        "kaynak": "Teil-1 s.86"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Possessivpronomen",
+        "baslik": "mein, dein, sein ... Akkusativ'de",
+        "basliklar": ["", "der Hund (m)", "die Uhr (f)", "das Auto (n)", "die Autos (pl)"],
+        "satirlar": [
+          ["ich", "<b>meinen</b> Hund", "meine Uhr", "mein Auto", "meine Autos"],
+          ["du", "<b>deinen</b> Hund", "deine Uhr", "dein Auto", "deine Autos"],
+          ["er / es", "<b>seinen</b> Hund", "seine Uhr", "sein Auto", "seine Autos"],
+          ["sie", "<b>ihren</b> Hund", "ihre Uhr", "ihr Auto", "ihre Autos"],
+          ["wir", "<b>unseren</b> Hund", "unsere Uhr", "unser Auto", "unsere Autos"],
+          ["ihr", "<b>euren</b> Hund", "eure Uhr", "euer Auto", "eure Autos"],
+          ["sie (onlar)", "<b>ihren</b> Hund", "ihre Uhr", "ihr Auto", "ihre Autos"],
+          ["Sie", "<b>Ihren</b> Hund", "Ihre Uhr", "Ihr Auto", "Ihre Autos"]
+        ],
+        "not": "Hocanın tablosu (A. Possessivpronomen — Akkusativ): sahiplik zamirleri de aynı kurala uyar: yalnız <b>maskulin</b> sütununda sona <b>-en</b> gelir (mein → meinen). Feminin, neutrum ve çoğul Nominativ'le aynıdır.",
+        "kaynak": "Teil-1 s.87"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "Jede... / Nächst... / Letzt...",
+        "baslik": "Akkusativmiş gibi düşün !!!!",
+        "basliklar": ["", "HER (Jede)", "GELECEK (Nächst)", "GEÇEN (Letzt)"],
+        "satirlar": [
+          ["der Tag", "jeden Tag", "—", "—"],
+          ["die Woche", "jede Woche", "nächste Woche", "letzte Woche"],
+          ["das Wochenende", "jedes Wochenende", "—", "letztes Wochenende"],
+          ["der Monat", "jeden Monat", "nächsten Monat", "letzten Monat"],
+          ["das Jahr", "jedes Jahr", "nächstes Jahr", "letztes Jahr"]
+        ],
+        "not": "Hocanın ipucu: <b>der → den, die → die, das → das</b> (Akkusativ gibi). Zaman ifadeleri hep Akkusativ'dir. Boş kutular hocanın sayfasında verilmemiştir.",
+        "kaynak": "Teil-1 s.88"
+      },
+      {
+        "tur": "tablo",
+        "kicker": "-lich eşleri",
+        "baslik": "Jeden ... = ...lich",
+        "basliklar": ["Cümle parçası", "Tek kelime", "Türkçe"],
+        "satirlar": [
+          ["Jeden Tag", "täglich", "her gün"],
+          ["Jede Stunde", "stündlich", "her saat"],
+          ["Jede Woche", "wöchentlich", "her hafta"],
+          ["Jeden Monat", "monatlich", "her ay"],
+          ["Jedes Jahr", "jährlich", "her yıl"]
+        ],
+        "not": "Örnek: Ich spreche <b>täglich</b> Deutsch. (Her gün Almanca konuşuyorum.) Hocanın sayfasında: Wir haben täglich sechs Lektionen. / Nehmen Sie die Medizin stündlich.",
+        "kaynak": "Teil-1 s.88-89"
+      },
+      {
+        "tur": "kural",
+        "kicker": "Tuzaklar",
+        "baslik": "Sık yapılan hatalar",
+        "maddeler": [
+          "Yalnız <b>maskulin</b> değişir: der → <b>den</b>, ein → <b>einen</b>. Feminin (die/eine), neutrum (das/ein) ve çoğul (die) <b>aynen kalır</b>.",
+          "<b>sein</b> ile Nominativ, <b>haben</b> ve <b>es gibt</b> ile Akkusativ: Ich habe <b>einen</b> Tisch; Das ist <b>ein</b> Tisch.",
+          "Zamirlerde yalnız <b>er → ihn</b> değişir; sie, es, Sie aynı kalır. ich → mich, du → dich, wir → uns, ihr → euch.",
+          "Zaman ifadeleri Akkusativ'dir: <b>jeden</b> Tag (jeder Tag değil).",
+          "<b>haben</b> günlük, <b>besitzen</b> resmî mülkiyet içindir; ikisi de Akkusativ ister."
+        ],
+        "uyari": "En sık hata: feminin/nötr isimde de artikeli değiştirmek (Ich kaufe <b>dien</b> Gurke ✗ → die Gurke ✓).",
+        "kaynak": "Teil-1 s.83-88"
+      },
+      {
+        "type": "outro",
+        "kicker": "Ezber",
+        "big": "DER → DEN",
+        "mean": "Sadece maskulin: der → den, ein → einen, er → ihn, mein → meinen.",
+        "story": "Ich kaufe den Käse. Wir haben einen Tisch. Ich kenne ihn. Ich liebe meinen Hund. Jeden Tag, jede Woche, jedes Jahr. Es gibt einen Mann."
+      }
+    ]
+  },
+  "gramer": {
+    "id": "d20_akkusativ",
+    "title": "Die Artikel — Akkusativ",
+    "emoji": "🎯",
+    "desc": "Nesne = Akkusativ: der → den, ein → einen",
+    "rule": "<b>NESNE = AKKUSATIV</b> (soru: Wen? Was?). Yalnız <b>maskulin</b> değişir:<br><b>der → den</b>, <b>ein → einen</b>, <b>kein → keinen</b>, <b>mein → meinen</b>, <b>er → ihn</b>.<br>die / eine, das / ein ve çoğul <b>değişmez</b>.<br>Fiiller: haben, kaufen, sehen, essen, lesen... <b>Es gibt + Akk.</b><br>Zaman: <b>jeden Tag, jede Woche, nächstes Jahr, letzten Monat</b>.",
+    "qs": [
+      {
+        "sent": "Ich kaufe ___ Käse. (der Käse)",
+        "blank": "den",
+        "opts": ["der", "den", "das"],
+        "tr": "Peyniri alıyorum.",
+        "exp": "Käse maskulin ve nesne (kaufen fiilinin nesnesi) olduğu için Akkusativ'de der → den olur. Hocanın örneği: Ich kaufe den Käse."
+      },
+      {
+        "sent": "Ich kaufe ___ Gurke. (die Gurke)",
+        "blank": "die",
+        "opts": ["den", "die", "das"],
+        "tr": "Salatalığı alıyorum.",
+        "exp": "Feminin isimler Akkusativ'de değişmez; die kalır. Hocanın örneği: Ich kaufe die Gurke. 'den' yalnız maskulin içindir."
+      },
+      {
+        "sent": "Sie kauft ___ Brot. (das Brot)",
+        "blank": "das",
+        "opts": ["den", "die", "das"],
+        "tr": "O ekmeği alıyor.",
+        "exp": "Neutrum (das) Akkusativ'de değişmez. Hocanın tablosunda Neut sütunu iki satırda da das / ein'dir."
+      },
+      {
+        "sent": "Wir haben ___ Tisch.",
+        "blank": "einen",
+        "opts": ["ein", "einen", "eine"],
+        "tr": "Bir masamız var.",
+        "exp": "haben Akkusativ ister ve Tisch maskulin olduğu için ein → einen olur. Hocanın örneği: Wir haben einen Tisch."
+      },
+      {
+        "sent": "Ich habe ___ Auto. (das Auto)",
+        "blank": "ein",
+        "opts": ["ein", "einen", "eine"],
+        "tr": "Bir arabam var.",
+        "exp": "Auto neutrum olduğu için Akkusativ'de de ein kalır. haben Akkusativ ister ama neutrum değişmez (hocanın haben örneği: Ich habe ein Auto)."
+      },
+      {
+        "sent": "Hast du ___ Stift?",
+        "blank": "einen",
+        "opts": ["ein", "einen", "eine"],
+        "tr": "Bir kalemin var mı?",
+        "exp": "haben ile nesne Akkusativ olur ve Stift maskulin olduğu için einen alır. Hocanın örneği: Hast du einen Stift?"
+      },
+      {
+        "sent": "Ich kaufe ___ Brot. (kein Brot)",
+        "blank": "kein",
+        "opts": ["kein", "keine", "keinen"],
+        "tr": "Ekmek almıyorum.",
+        "exp": "Brot neutrum olduğu için Akkusativ'de kein kalır (hocanın tablosu: kein Brot). keinen maskulin içindir."
+      },
+      {
+        "sent": "Ich kenne Niko schon lange. → Ich kenne ___ schon lange.",
+        "blank": "ihn",
+        "opts": ["er", "ihn", "es"],
+        "tr": "Niko'yu uzun zamandır tanıyorum. → Onu uzun zamandır tanıyorum.",
+        "exp": "Niko erkek olduğu için er / ihn zamirleri kullanılır; kennen nesne ister, nesne Akkusativ'dir: er → ihn (hocanın ezberi: ihn-den)."
+      },
+      {
+        "sent": "Ich warte auf ___.",
+        "blank": "dich",
+        "opts": ["du", "dich", "mich"],
+        "tr": "Seni bekliyorum.",
+        "exp": "Hocanın örneği: Ich warte auf dich. du'nun Akkusativ hali dich'tir (ich → mich, du → dich). 'du' Nominativ'dir."
+      },
+      {
+        "sent": "Ich liebe ___ Hund. (benim köpeğim, der Hund)",
+        "blank": "meinen",
+        "opts": ["mein", "meinen", "meine"],
+        "tr": "Köpeğimi seviyorum.",
+        "exp": "Hocanın possessiv tablosu: Akkusativ'de maskulin sütunu meinen Hund olur. mein nominativ biçim, meine ise feminin/çoğul içindir."
+      },
+      {
+        "sent": "Er sucht ___ Uhr. (onun saati, die Uhr)",
+        "blank": "seine",
+        "opts": ["seinen", "seine", "sein"],
+        "tr": "Saatini arıyor.",
+        "exp": "Uhr feminin olduğu için Akkusativ'de de değişmez: seine Uhr (hocanın tablosu). seinen yalnız maskulin isimler içindir."
+      },
+      {
+        "sent": "Ich lerne ___ Tag Deutsch.",
+        "blank": "jeden",
+        "opts": ["jeder", "jeden", "jedes"],
+        "tr": "Her gün Almanca öğreniyorum.",
+        "exp": "Hocanın ipucu: Akkusativmiş gibi düşün. der Tag → den Tag, o yüzden jeden Tag. jedes das-kelimeleri (das Jahr) içindir."
+      },
+      {
+        "sent": "___ Jahr lerne ich Deutsch. (gelecek yıl)",
+        "blank": "Nächstes",
+        "opts": ["Nächsten", "Nächstes", "Nächste"],
+        "tr": "Gelecek yıl Almanca öğreneceğim.",
+        "exp": "Jahr neutrum (das Jahr) olduğu için Nächstes kullanılır (hocanın sayfası: Nächstes Jahr). Nächsten maskulin (der Monat) içindir."
+      },
+      {
+        "sent": "Jede Woche Deutsch sprechen: Ich spreche ___ Deutsch.",
+        "blank": "wöchentlich",
+        "opts": ["täglich", "wöchentlich", "monatlich"],
+        "tr": "Her hafta Almanca konuşuyorum.",
+        "exp": "Hocanın eşleştirmesi: Jede Woche → wöchentlich; jeden Tag → täglich; jeden Monat → monatlich."
+      },
+      {
+        "sent": "Auf dem Balkon gibt es ___ Mann.",
+        "blank": "einen",
+        "opts": ["ein", "einen", "eine"],
+        "tr": "Balkonda bir adam var.",
+        "exp": "Es gibt ile Akkusativ gelir ve Mann maskulin olduğu için einen kullanılır. Hocanın sayfasında 'ein' üstü çizilidir."
+      }
+    ]
+  },
+  "dogrulama": [
+    "s.83'teki '1) EDAT 2) FİİL' notunu 'Akkusativ ya bazı edatlardan sonra ya bazı fiillerden sonra gelir' diye yorumladım; hocanın notunun gerçek anlamı kontrol edilmeli. Perplexity'ye sor: \"Akkusativ hangi iki durumda kullanılır?\"",
+    "s.83'teki fiil bulutunun (finden, putzen, essen, haben, sehen, lesen, suchen, hören, lieben, trinken, lernen, kennen, treffen, kaufen, bezahlen, besuchen) Türkçe karşılıklarını ben yazdım, sayfada Türkçe yok; kontrol edilmeli.",
+    "s.88 'Letze Woche' hocanın yazısında yazım hatası (doğrusu letzte); tabloda 'letzte Woche' yazdım. Ayrıca 'Nächst...' için der Tag ve das Wochenende; 'Letzt...' için der Tag hocada verilmemiş, tabloda '—' bıraktım. Perplexity'ye sor: \"nächsten Tag / nächstes Wochenende / letzten Tag kullanılır mı?\"",
+    "s.86'daki Personalpronomen ve s.87 Possessiv tabloları görselden okundu; 'sie' Akkusativ'de 'ihren Hund' satırı (sie = o / onlar) iki satırda aynı yazılmış, kontrol edilmeli.",
+    "s.85'te Es gibt cümlesi 'geben: çift kollu (Akk. + Dativ)' notuyla geçiyor; Dativ bu derste anlatılmadı, yalnız Akk. kısmı alındı.",
+    "s.84 'haben/besitzen' sayfasındaki İngilizce açıklamalar ve cümleler (Ich besitze ein Haus in Berlin) kaynaktan alındı; Almanca cümlelerin doğruluğu Perplexity ile kontrol edilebilir.",
+    "Alıştırma cümlesi 'Er sucht seine Uhr' ve 'Ich liebe meinen Hund' hocanın tablosundaki kelimelerle ben yazdım; 'Ich lerne jeden Tag Deutsch' sayfadaki 'Ich spreche täglich Deutsch' kalıbına benzetildi."
+  ]
+}
