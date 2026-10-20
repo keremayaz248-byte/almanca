@@ -7,7 +7,10 @@ const [pdfAd, ilk, son, olcek] = process.argv.slice(2);
 const SCALE = Number(olcek || 2);
 
 (async () => {
-  const pdfYol = path.join(kok, pdfAd);
+  // Dosya adlarindaki Unicode bicimi (NFC/NFD) farkli olabilir (ör. "Ü"); adi normalize ederek eslestir
+  const norm = s => s.normalize('NFC');
+  const bulunan = fs.readdirSync(kok).find(f => norm(f) === norm(pdfAd));
+  const pdfYol = path.join(kok, bulunan || pdfAd);
   if (!fs.existsSync(pdfYol)) { console.error('PDF yok:', pdfYol); process.exit(1); }
   const b64 = fs.readFileSync(pdfYol).toString('base64');
   const browser = await chromium.launch();

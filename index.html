@@ -1236,6 +1236,7 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
     <div class="sec-head">🔔 Akşam hatırlatması</div>
     <div class="okul-giris">Her akşam 20:00'de sınav için telefonuna bildirim gelsin. Aşağıdaki düğme Google Takvim'de her gün tekrarlayan bir olay hazırlar.</div>
     <button class="btn-toggle" style="width:100%" onclick="takvimeEkle()">📅 Takvime ekle (her gün 20:00)</button>
+    <button class="btn-home" style="width:100%;margin-top:8px" onclick="openEposta()">✉️ Ortak davet + günlük e-posta (isteğe bağlı)</button>
     <div class="takvim-not">⚠️ Telefondaki açılır bildirim her kişinin kendi takvim ayarına bağlıdır; uygulama bunu zorlayamaz. Olayı kaydettikten sonra Takvim'de olayı açıp <b>Bildirim ekle → 10 dakika önce</b> seç. Arkadaşın da aynı düğmeyi kendi telefonunda kullanır.</div>
   </div>
   </div>
@@ -1486,6 +1487,15 @@ body.has-nav #mainEl{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
     <div class="fb-body" id="horenFbBody"></div>
   </div>
   <button class="btn-next" id="horenNext" onclick="horenSonraki()">Sonraki</button>
+</div>
+
+<!-- E-POSTA VE ORTAK DAVET (isteğe bağlı) -->
+<div id="epostaScreen">
+  <div class="cat-top">
+    <h2>✉️ Ortak davet ve e-posta</h2>
+    <button class="btn-home" onclick="goTab('bugun')">← Geri</button>
+  </div>
+  <div id="epostaIcerik"></div>
 </div>
 
 <!-- HEDEF SINAV AYARI -->
@@ -3101,7 +3111,7 @@ const ALL_SCREENS = ['homeScreen','konuListScreen','konuScreen','horenScreen','h
   'hizliScreen','hizliDoneScreen','ysScreen','ysDoneScreen',
   'havbesScreen','havbesDoneScreen',
   'ysHubScreen','ysRefScreen','mcScreen','mcDoneScreen','paraScreen','paragrafExScreen',
-  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','denemeDoneScreen','aksamKapiScreen','hedefScreen','aiChatScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
+  'yazmaListScreen','yazmaScreen','yazmaDoneScreen','denemeDoneScreen','aksamKapiScreen','hedefScreen','epostaScreen','aiChatScreen','wordSearchListScreen','wordSearchScreen','wordSearchDoneScreen','slideScreen',
   'sceneScreen','sceneDoneScreen','topicWriteScreen','topicWriteDoneScreen'];
 
 let curScreen='homeScreen';
@@ -3202,6 +3212,7 @@ const KONULAR=[
  {no:46,ad:'İkili Bağlaçlar',           de:'Zweiteilige Konjunktionen',kaynak:{p:'t2',s:'—'},     anlatim:null, b1:true, kat:null,             gr:null,          slayt:null,       alis:[]},
  {no:47,ad:'Konjunktiv II',             de:'Konjunktiv II',           kaynak:{p:'t2',s:'—'},       anlatim:null, b1:true, kat:null,             gr:null,          slayt:null,       alis:[]},
  {no:48,ad:'Plusquamperfekt',           de:'Plusquamperfekt',         kaynak:{p:'t2',s:'—'},       anlatim:null, b1:true, kat:null,             gr:null,          slayt:null,       alis:[]},
+ {no:50,ad:'Präteritum (düzenli + düzensiz)', de:'Präteritum', kaynak:{p:'kl',s:'—'}, anlatim:null, ek:true, kat:null, gr:null, slayt:null, alis:[]},
  {no:49,ad:'Futur II',                  de:'Futur II',                kaynak:{p:'t2',s:'—'},       anlatim:null, b1:true, kat:null,             gr:null,          slayt:null,       alis:[]},
 ];
 function konuBul(no){ return KONULAR.find(k=>k.no===no)||null; }
@@ -4687,6 +4698,12 @@ function renderWeeklyPlan(){ renderPlan30(); }
 
 // Yenilikler listesi — her güncellemede en üste yeni bir tarih girilir, hangi bölümde olduğu belirtilir.
 const CHANGELOG = [
+  {date:'20 Ekim 2026 — Ortak davet ve günlük e-posta (isteğe bağlı)', items:[
+    '✉️ Bugün sekmesinde <b>"Ortak davet + günlük e-posta"</b> eklendi. Uygulama sana hazır bir Google betiği verir; sen <b>kendi Google hesabında</b> çalıştırınca ikinizin Takvim\'inde her akşam 20:00 olayı oluşur, davet e-postası gider ve her akşam bir hatırlatma e-postası gelir. Uygulama Google hesabına erişmez.',
+    '🔐 Arkadaşının e-postasını uygulamadan almak için <b>ikiniz de "Paylaş"</b>a basmalısınız (karşılıklı onay). Paylaşmak istemezsen e-postayı elle yazabilirsin; hiçbir yere kaydedilmez.',
+    '⚙️ Paylaşım için Supabase\'de bir kerelik SQL gerekiyor (<b>icerik/supabase/eposta-paylasimi.sql</b>). Uygulamada herkese açık kayıt olduğu için ikiniz de bitirince Supabase\'de yeni kayıtları kapatmanı öneririm.',
+    '⚠️ Bu betiği henüz gerçek bir Google hesabında deneyemedim. Olay iki takvimde görünmezse söyle, düzeltirim.'
+  ]},
   {date:'20 Ekim 2026 — Konular artık gerçekten tamamlanıyor + şemalı ders sayfaları', items:[
     '🐞 <b>Hata düzeltildi:</b> gramer testi olan konular (ör. "Adınız ne?") testi bitirsen bile "tamamlandı" olmuyordu; bu yüzden Bugün ekranındaki "Alıştırma ve test" adımı hiç bitmeyecekti. Artık konu testinde <b>en az %60</b> yapınca konu tamamlanıyor ve "Bugün ekranına dön" düğmesi çıkıyor. %60\'ın altındaysa neden tamamlanmadığı yazıyor.',
     '📖 <b>Ders sayfaları şemalı:</b> konu anlatımı artık sayfa sayfa gezilen derse dönüşebiliyor — renk kodlu cümle şemaları (özne, fiil, bağlaç…), çekim tabloları, zaman çizgisi ve kural kutuları. Almanca yazılar gerçek metin, koyu temada da okunur. Her sayfanın altında kaynağı yazar.',
@@ -6794,6 +6811,104 @@ function hedefSorusuGoster(){
     '<button class="btn-home" onclick="hedefSonra()">Sonra</button></div>';
 }
 function hedefSonra(){ DB.okul.hedefSonra=todayStr(); saveDB(); document.getElementById('gtHedefWrap').innerHTML=''; }
+
+// ══════════════════════════════════════════
+//  E-POSTA + ORTAK DAVET (isteğe bağlı) — Google Apps Script betiği üretir
+//  Uygulama Google hesabına erişmez; betiği kullanıcı kendi hesabında çalıştırır.
+//  E-posta paylaşımı yalnız iki taraf da açarsa (Supabase kuralı: icerik/supabase/eposta-paylasimi.sql).
+// ══════════════════════════════════════════
+function appsScriptMetni(eposta1,eposta2){
+  const liste=[eposta1,eposta2].filter(Boolean).map(e=>"'"+String(e).replace(/[^A-Za-z0-9@._+-]/g,'')+"'").join(', ');
+  const url=location.href.split('#')[0].replace(/'/g,'');
+  return [
+"// Almanca akşam sınavı hatırlatması — Google Apps Script (script.google.com)",
+"// ÖNCE: Proje Ayarları (dişli) → Saat dilimi → (GMT+03:00) İstanbul seç.",
+"// SONRA: aşağıdaki 'kur' fonksiyonunu BİR KEZ çalıştır (izinleri onayla).",
+"const MISAFIRLER = ["+liste+"];",
+"const UYGULAMA = '"+url+"';",
+"",
+"function kur() {",
+"  const takvim = CalendarApp.getDefaultCalendar();",
+"  const simdi = new Date();",
+"  const bas = new Date(simdi.getFullYear(), simdi.getMonth(), simdi.getDate(), 20, 0, 0);",
+"  if (bas < simdi) bas.setDate(bas.getDate() + 1);",
+"  const bit = new Date(bas.getTime() + 30 * 60 * 1000);",
+"  const seri = takvim.createEventSeries('Almanca akşam sınavı', bas, bit,",
+"    CalendarApp.newRecurrence().addDailyRule(),",
+"    { description: 'Bugünün konularından kısa sınav: ' + UYGULAMA, guests: MISAFIRLER.join(','), sendInvites: true });",
+"  seri.addPopupReminder(10);",
+"  seri.addEmailReminder(10);",
+"  // Her akşam 20:00-21:00 arasında e-posta (Apps Script saat tetikleyicisi bir saatlik aralık kullanır)",
+"  ScriptApp.newTrigger('gunlukEposta').timeBased().everyDays(1).atHour(20).inTimezone('Europe/Istanbul').create();",
+"}",
+"",
+"function gunlukEposta() {",
+"  MISAFIRLER.forEach(function (adres) {",
+"    MailApp.sendEmail(adres, 'Almanca akşam sınavı zamanı',",
+"      'Akşam sınavı zamanı. Bugünün konularından kısa bir sınav seni bekliyor:\\n' + UYGULAMA);",
+"  });",
+"}"].join('\n');
+}
+function epostaKopyala(){
+  const t=document.getElementById('epostaBetik'); if(!t) return;
+  t.select();
+  (navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(t.value):Promise.reject()).then(
+    ()=>{ document.getElementById('epostaKopyaDurum').textContent='✅ Kopyalandı'; },
+    ()=>{ try{ document.execCommand('copy'); document.getElementById('epostaKopyaDurum').textContent='✅ Kopyalandı'; }catch(e){ document.getElementById('epostaKopyaDurum').textContent='Seçildi: elle kopyala'; } });
+}
+function epostaBetikGoster(e1,e2){
+  const kutu=document.getElementById('epostaBetikWrap'); if(!kutu) return;
+  kutu.innerHTML='<div class="okul-giris"><b>Kurulum (bir kez):</b><br>1) <b>script.google.com</b> → Yeni proje.<br>2) Aşağıdaki metni kopyalayıp içindeki her şeyin yerine yapıştır.<br>3) Dişli (Proje ayarları) → saat dilimini <b>İstanbul</b> yap.<br>4) Üstten <b>kur</b> işlevini seçip Çalıştır → izin ver.<br>İkinizin Takvim\'inde olay belirir, günlük e-posta da gelir.</div>'+
+    '<textarea id="epostaBetik" class="login-input" style="width:100%;min-height:240px;font-family:monospace;font-size:.75rem" readonly></textarea>'+
+    '<button class="btn-start" style="width:100%;margin-top:8px" onclick="epostaKopyala()">📋 Kopyala</button><div id="epostaKopyaDurum" class="takvim-not" style="margin-top:8px">Not: bu betik denenmedi; olay iki takvimde görünmezse bana söyle.</div>';
+  document.getElementById('epostaBetik').value=appsScriptMetni(e1,e2);
+}
+function epostaManuel(){
+  const v=(document.getElementById('epostaManuelInput').value||'').trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ document.getElementById('epostaManuelHata').textContent='Geçerli bir e-posta yaz.'; return; }
+  document.getElementById('epostaManuelHata').textContent='';
+  epostaBetikGoster(sbUser&&sbUser.email,v);
+}
+async function openEposta(){
+  showScreen('epostaScreen'); setHeader('✉️ Ortak davet',false);
+  await epostaCiz();
+}
+async function epostaCiz(){
+  const el=document.getElementById('epostaIcerik');
+  const giris=(typeof sbHazirMi==='function'&&sbHazirMi()&&typeof sbUser!=='undefined'&&sbUser);
+  let h='<div class="okul-giris">Her akşam 20:00 sınavı için <b>ikinizin takviminde ortak olay</b> ve <b>günlük e-posta</b> kurmak istersen: uygulama sana hazır bir Google betiği verir, sen kendi Google hesabında çalıştırırsın. Uygulama Google hesabına erişmez.</div>';
+  if(!giris){
+    h+='<div class="takvim-not">E-postaları uygulamadan almak için önce giriş yapmalısın.</div><button class="btn-start" style="width:100%;margin-top:10px" onclick="showLoginOverlay()">Giriş yap</button>';
+  } else {
+    let ben=null, arkadas=null, hata='';
+    try{
+      const r=await sb.from('profiles').select('id,display_name,email,email_paylas');
+      if(r.error) throw r.error;
+      (r.data||[]).forEach(p=>{ if(p.id===sbUser.id) ben=p; else if(p.email_paylas&&p.email) arkadas=p; });
+    }catch(e){ hata=(e&&(e.message||e.code))||'bilinmeyen hata'; }
+    if(hata){
+      h+='<div class="hedef-not">⚙️ Bir kerelik kurulum gerekiyor: Supabase\'de <b>icerik/supabase/eposta-paylasimi.sql</b> dosyasını SQL Editor\'a yapıştırıp çalıştırmalısın. ('+esc(hata)+')<br>Bunu yapmadan da <b>aşağıdaki elle yoldan</b> betik alabilirsin.</div>';
+    } else {
+      const paylasiyor=!!(ben&&ben.email_paylas);
+      h+='<div class="hedef-kart" style="cursor:default"><span>🔐</span><span><b>E-postamı arkadaşımla paylaş</b><small>Yalnız ikiniz de açarsanız birbirinizinkini görürsünüz. İkiniz de bitirince Supabase\'de yeni kayıtları kapat.</small></span>'+
+        '<button class="btn-toggle" id="epostaPaylasBtn" onclick="epostaPaylas('+(!paylasiyor)+')">'+(paylasiyor?'Paylaşımı kapat':'Paylaş')+'</button></div>';
+      if(paylasiyor&&arkadas) h+='<div class="okul-giris">Arkadaşın paylaştı: <b>'+esc(arkadas.email)+'</b></div><button class="btn-start" style="width:100%" onclick="epostaBetikGoster(\''+esc(sbUser.email)+'\',\''+esc(arkadas.email)+'\')">Kurulum betiğini göster</button>';
+      else if(paylasiyor) h+='<div class="takvim-not">Arkadaşın henüz paylaşmadı. O da uygulamaya girip "Paylaş"a basınca burada görünür.</div>';
+    }
+    h+='<div class="sec-head" style="margin-top:20px">Elle (paylaşım olmadan)</div><div class="okul-giris">Arkadaşının e-postasını kendin yaz; hiçbir yere kaydedilmez, yalnız betiğe girer.</div>'+
+       '<input type="email" id="epostaManuelInput" class="login-input" placeholder="arkadas@gmail.com" autocomplete="off"><div id="epostaManuelHata" style="color:var(--red);font-size:.8rem;margin:4px 0"></div>'+
+       '<button class="btn-home" style="width:100%" onclick="epostaManuel()">Betik oluştur</button>';
+  }
+  h+='<div id="epostaBetikWrap" style="margin-top:14px"></div>';
+  el.innerHTML=h;
+}
+async function epostaPaylas(ac){
+  try{
+    const r=await sb.from('profiles').update({email:ac?sbUser.email:null,email_paylas:!!ac}).eq('id',sbUser.id);
+    if(r&&r.error) throw r.error;
+  }catch(e){ alert('Paylaşım ayarı kaydedilemedi: '+((e&&e.message)||e)); }
+  await epostaCiz();
+}
 
 // 20:00'den sonra uygulama açılınca önce sınav önerilir; bir kez ertelenebilir
 function aksamKapiKontrol(){

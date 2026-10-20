@@ -510,6 +510,81 @@ async function gorselSenaryosu(browser) {
   }
 }
 
+// ── Senaryo: e-posta paylasimi ve Apps Script betigi (gorev 6.6-6.9) ─────
+async function epostaSenaryosu(browser) {
+  const { ctx, page } = await sayfaAc(browser);
+  const ekran = () => page.evaluate(() => document.getElementById('epostaIcerik').innerText);
+  const html = () => page.evaluate(() => document.getElementById('epostaIcerik').innerHTML);
+  // sahte Supabase istemcisi: profiles tablosu, RLS'i taklit eder (karsilikli onay)
+  await page.evaluate(() => {
+    window.__guncellemeler = [];
+    window.__profiller = [
+      { id: 'ben', display_name: 'Ben', email: null, email_paylas: false },
+      { id: 'arkadas', display_name: 'Arkadaş', email: 'arkadas@example.com', email_paylas: true }];
+    window.__sutunYok = false;
+    sb = {
+      from: () => ({
+        select: () => {
+          if (window.__sutunYok) return Promise.resolve({ error: { message: 'column profiles.email does not exist', code: '42703' } });
+          const benim = window.__profiller.find(p => p.id === 'ben');
+          const gorunen = window.__profiller.filter(p => p.id === 'ben' || (p.email_paylas && benim.email_paylas));
+          return Promise.resolve({ data: JSON.parse(JSON.stringify(gorunen)), error: null });
+        },
+        update: (v) => ({ eq: (k, id) => { window.__guncellemeler.push({ v, id }); const p = window.__profiller.find(x => x.id === id); Object.assign(p, v); return Promise.resolve({ error: null }); } })
+      })
+    };
+  });
+
+  // 1) giris yok
+  await page.evaluate(() => { sbUser = null; return openEposta(); }); await page.waitForTimeout(200);
+  let t = await ekran();
+  kontrol('giris yokken: giris istenir, e-posta gorunmez', /giriş yapmalısın/.test(t) && !/arkadas@example\.com/.test(t), t.slice(0, 150));
+
+  // 2) giris var, ben paylasmiyorum -> arkadasin e-postasi GORUNMEZ
+  await page.evaluate(() => { sbUser = { id: 'ben', email: 'ben@example.com' }; return openEposta(); }); await page.waitForTimeout(250);
+  t = await ekran();
+  kontrol('paylasim kapaliyken karsi e-posta ekranda yok', /Paylaş/.test(t) && !/arkadas@example\.com/.test(t) && !/arkadas@example\.com/.test(await html()), t.slice(0, 200));
+  kontrol('paylasim kapaliyken betik gosterilmez', await page.evaluate(() => !document.getElementById('epostaBetik')));
+
+  // 3) paylasimi ac -> sadece kendi satirimi guncelle
+  await page.click('#epostaPaylasBtn'); await page.waitForTimeout(300);
+  const g = await page.evaluate(() => window.__guncellemeler);
+  kontrol('Paylas: yalniz kendi satiri guncellendi', g.length === 1 && g[0].id === 'ben' && g[0].v.email === 'ben@example.com' && g[0].v.email_paylas === true, JSON.stringify(g));
+  t = await ekran();
+  kontrol('karsilikli onay sonrasi arkadasin e-postasi gorunur', /arkadas@example\.com/.test(t), t.slice(0, 200));
+
+  // 4) betik
+  await page.click('text=Kurulum betiğini göster'); await page.waitForTimeout(200);
+  const betik = await page.evaluate(() => document.getElementById('epostaBetik').value);
+  kontrol('betikte iki e-posta var', /'ben@example\.com'/.test(betik) && /'arkadas@example\.com'/.test(betik), betik.slice(0, 200));
+  kontrol('betik: gunluk tekrar, davet, hatirlatma, e-posta tetikleyicisi', /addDailyRule/.test(betik) && /sendInvites: true/.test(betik) && /addPopupReminder/.test(betik) && /atHour\(20\)/.test(betik) && /Europe\/Istanbul/.test(betik));
+  let gecerli = true, hataMsg = '';
+  try { new Function(betik); } catch (e) { gecerli = false; hataMsg = e.message; }
+  kontrol('betik gecerli JavaScript (Apps Script sozdizimi)', gecerli, hataMsg);
+  const enj = await page.evaluate(() => appsScriptMetni("x'); alert(1);//@a.com", 'b@c.com'));
+  kontrol('betikte e-posta enjeksiyonu yok (tirnak ve ozel karakterler temizlenir)', !enj.includes("'); alert") && !enj.includes('alert(1);//') && enj.includes('MISAFIRLER = ['), enj.slice(0, 260));
+  kontrol('gunluk e-posta metninde ters bolu-n kacisi dogru (Apps Script satir sonu)', /\\n' \+ UYGULAMA/.test(betik), betik.slice(-260));
+
+  // 5) paylasimi kapat -> karsi e-posta tekrar gizlenir
+  await page.evaluate(() => epostaCiz()); await page.waitForTimeout(200);
+  await page.click('#epostaPaylasBtn'); await page.waitForTimeout(300);
+  t = await ekran();
+  kontrol('paylasim kapaninca karsi e-posta yine gizli', !/arkadas@example\.com/.test(t) && await page.evaluate(() => window.__profiller[0].email === null), t.slice(0, 160));
+
+  // 6) elle yol (paylasimsiz)
+  await page.fill('#epostaManuelInput', 'gecersiz'); await page.click('text=Betik oluştur'); await page.waitForTimeout(100);
+  kontrol('elle yol: gecersiz e-posta reddedilir', /Geçerli bir e-posta/.test(await ekran()));
+  await page.fill('#epostaManuelInput', 'elle@example.com'); await page.click('text=Betik oluştur'); await page.waitForTimeout(150);
+  kontrol('elle yol: betik uretilir ve e-posta cihaza kaydedilmez', await page.evaluate(() => /'elle@example\.com'/.test(document.getElementById('epostaBetik').value) && !JSON.stringify(DB).includes('elle@example.com') && !(localStorage.getItem(SKEY) || '').includes('elle@example.com')));
+
+  // 7) SQL kurulmamis (sutun yok) -> acik kurulum mesaji, elle yol calisir
+  await page.evaluate(() => { window.__sutunYok = true; return epostaCiz(); }); await page.waitForTimeout(200);
+  t = await ekran();
+  kontrol('sutun yoksa kurulum mesaji + elle yol duruyor', /eposta-paylasimi\.sql/.test(t) && /Betik oluştur/.test(t), t.slice(0, 220));
+  await tasmaYok(page, 'eposta');
+  await ctx.close();
+}
+
 // Dogrudan calistirildiginda
 if (require.main === module) {
   (async () => {
@@ -524,6 +599,7 @@ if (require.main === module) {
     await aksamSenaryosu(browser);
     await hedefSenaryosu(browser);
     await gorselSenaryosu(browser);
+    await epostaSenaryosu(browser);
     // Yeni senaryolar bu satirin ustune eklenir.
     await browser.close();
     console.log('BASARILI:', sonuc.basarili.length);
